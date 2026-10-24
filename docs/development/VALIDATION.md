@@ -1,3 +1,32 @@
+# v0.3 验收补充
+
+环境：Godot4.5.1，Windows x86_64，Intel OpenGL Compatibility。全部使用隔离QA存档。导出包 `builds/LanceAndLaurel-v0.3/`，最终代码导出日志 `logs/v03-export-release.log`。
+
+| 验证 | 结果与证据 |
+| --- | --- |
+| 规则与装备目录 | 114项通过，`logs/v03-rules-final.log` |
+| 高低盾、支撑、后仰、两种模式 | 19项通过，`logs/v03-tactics-final.log` |
+| AI延迟与近身承诺 | 5项通过，`logs/v03-ai-reaction.log` |
+| 源项目集成 | 43项通过，`logs/v03-integration-final.log` |
+| 源项目专项 | 30项通过，`logs/v03-game-feel-release.log` |
+| 最终EXE/PCK集成 | 43项通过，`logs/v03-exported-integration-release.log` |
+| 最终EXE/PCK专项 | 30项通过，`logs/v03-exported-game-feel.log` |
+| 最终发布自动试玩 | 双模式、两次结算、9张截图，`logs/v03-exported-smoke-release.log`、`exported_screenshots/v03/` |
+| 美术与UI | 十组双向装备及7张UI截图，`screenshots/v03/`、`logs/v03-gallery.log`、`v03-ui-states-release.log` |
+| 测评Skill格式 | quick_validate.py通过，技能在 `skills/game-experience-critic/SKILL.md` |
+
+规则对照12个孤立场景；正式AI的策略对照144次固定种子模拟，范围与限制见 `V03_REVIEW.md`。这些不是真人对战。发布运行约75秒，冲锋期间多数5秒采样为60FPS，退出阶段采样46FPS；没有跨机性能保证。
+
+本轮未完成OS级鼠标点击：桌面接口应用授权超时两次。最早的鼠标探针仅记录无输入巡航，不能作为“已测真实左键”的证据。倒计时点按、持续按住、释放、鼠标移动、暂停及重开由引擎合成事件检查。手机同样只有合成触点。
+
+早期专项在新催马语义下曾有1条失败断言：旧断言要求点按在倒计时就过期，和保留到起跑的修复目标冲突。后来改为先验证排队保留，再在冲锋验证过期与实际位移；最终30项通过。早期未正确镜像的对照夹具也已修为左右攻击者索引，未为夹具修改游戏终止条件。失败/诊断日志保留。
+
+最初候选退出时有ObjectDB残留警告；最终verbose运行未再次出现该警告，仍记录一个 `Master` StringName未认领退出诊断。没有据此声称零退出诊断或长期无泄漏；比赛与写档检查通过。
+
+复现时继续使用下面的PowerShell格式，把发布路径改为 `LanceAndLaurel-v0.3`；新脚本包括 `test_tactics.gd`、`test_ai_reaction.gd`、`tactics_benchmark.gd`、`strategy_benchmark.gd`。一次只运行一个图形测试，避免并发显存压力。
+
+---
+
 # v0.2 验收补充
 
 新增冲锋、姿态、攻防、镜头、碎片和H显示专项测试 `game/tests/test_game_feel.gd`；同一高枪路径下验证站直中头、前倾盾挡、后仰闪避。规则114项、场景40项仍通过，发布包独立集成40项通过；最终EXE/PCK专项27项通过。日志分别为 `v02-rules-final.log`、`v02-integration.log`、`v02-exported-integration-retry.log`，专项结果见最终发布包的 `v02-exported-game-feel.log`。

@@ -42,6 +42,19 @@ func run() -> void:
 	main.battle._toggle_pause()
 	await capture("13_pause")
 	main._close_battle()
+	main._start_match("arena",true)
+	await capture("14_practice_ready")
+	main.battle.set_physics_process(false)
+	main.battle.match_model.phase = "charge"
+	main.battle.match_model.fighters[0].x = -250
+	main.battle.match_model.fighters[1].x = 250
+	main.battle.camera.zoom = Vector2.ONE*1.3
+	main.battle.guard_high = true
+	main.battle.match_model.fighters[0].guard = 1.0
+	main.battle.match_model.fighters[1].guard = 0.0
+	main.battle._update_views()
+	await capture("15_practice_close")
+	main._close_battle()
 	state.profile = state.default_profile()
 	state.save_profile()
 	main.queue_free()

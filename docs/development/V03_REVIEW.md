@@ -46,6 +46,12 @@
 
 发布最终记录在本文件后续附录。测试数量包含断言和UI回调，不是相同数量的真人比赛。所有QA使用隔离存档；v0.1和v0.2发布包保留。
 
+### 最终候选复验
+
+AI承诺修复后的最终导出 `logs/v03-export-release.log` 完成。实际EXE/PCK专项30项通过，集成43项通过；完整双模式自动试玩约75秒完成9张截图，日志 `logs/v03-exported-smoke-release.log`。多数冲锋采样60FPS；截图在 `exported_screenshots/v03/`。另在引擎内检查练习准备和近景布局，`screenshots/v03/14_practice_ready.png`、`15_practice_close.png`。
+
+最终verbose退出没有再次报告ObjectDB警告，但报告了1个 `Master` StringName未认领诊断，保留为低影响退出清理限制，未证明长期内存行为。旧v0.2源码截图由Git恢复，新测试均输出v03目录。
+
 ## 仍需跟进
 
 - P1待验证：用户真实鼠标左键、窗口焦点、DPI和所启动版本。在本轮桌面授权超时条件下，不能声称该投诉完全解决。首页v0.3标识和根目录 `Play-Latest.cmd` 用于避免误开旧版；此前只看到名为旧发布目录的Explorer窗口，未核实真实路径。

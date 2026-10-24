@@ -6,7 +6,7 @@
 
 GitHub 仓库：<https://github.com/pwzerus/Lance>，远程名 `origin`，当前版本分支 `codex/v0.4`。按用户最新要求：每个版本建一条分支；同版本内的修复、同一或相近功能更新继续写 commit；大的结构性改动才开启新版本分支。分支创建和推送是两件事，以实际远程记录确认同步状态。
 
-首次接入状态：本地分支和交接提交 `dc95c26` 已建立；首次推送因本机缺少 GitHub 写入登录而返回128，正在等待用户完成设备登录。尚未确认远程版本分支创建成功。接收者先核对远程；登录后执行 `git push -u origin codex/v0.4`，再核对本地HEAD与远程分支SHA。
+同步状态：用户已完成 GitHub 设备登录，首次推送成功，`codex/v0.4` 已跟踪 `origin/codex/v0.4`。首次远程核对为 `ad032f52e75562e2fadfbaf3ed0b90180f9ac4e7`，与本地HEAD一致；其后同步状态文档继续以commit记录，接手请读取分支最新提交。[查看远程版本分支](https://github.com/pwzerus/Lance/tree/codex/v0.4)。早期缺少登录的阻塞已解除。
 
 ## 接手阅读顺序
 

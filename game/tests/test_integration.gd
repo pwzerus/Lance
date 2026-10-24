@@ -114,34 +114,34 @@ func run() -> void:
 	await frames()
 	check(battle.match_model.fighters[1].stats.reach==247,"Opponent loadout must not mirror shop purchases")
 	var motion = InputEventMouseMotion.new()
-	motion.position = Vector2(1100,250)
+	motion.position = battle.get_canvas_transform()*(battle.world.position+battle.Model.hand_position(battle.match_model.fighters[0])+Vector2(700,-260))
 	motion.global_position = motion.position
-	Input.parse_input_event(motion)
+	root.push_input(motion,true)
 	var mouse_button = InputEventMouseButton.new()
 	mouse_button.button_index = MOUSE_BUTTON_LEFT
 	mouse_button.pressed = true
 	mouse_button.position = motion.position
-	Input.parse_input_event(mouse_button)
+	root.push_input(mouse_button,true)
 	var held_key = InputEventKey.new()
 	held_key.physical_keycode = KEY_W
 	held_key.keycode = KEY_W
 	held_key.pressed = true
 	Input.parse_input_event(held_key)
 	Input.flush_buffered_events()
-	await real_wait(.2)
+	await real_wait(.45)
 	print("INPUT_AIM_HIGH ",battle.aim_pointer," aim ",battle.match_model.fighters[0].aim)
 	check(battle.match_model.fighters[0].aim<-.10,"Viewport mouse movement must raise the actual lance")
 	check(battle.match_model.fighters[0].boost and battle.match_model.fighters[0].lean>.2,"Held left mouse and W must drive acceleration and forward lean")
 	mouse_button.pressed = false
-	Input.parse_input_event(mouse_button)
+	root.push_input(mouse_button,true)
 	held_key.pressed = false
 	Input.parse_input_event(held_key)
-	motion.position = Vector2(1100,650)
+	motion.position = battle.get_canvas_transform()*(battle.world.position+battle.Model.hand_position(battle.match_model.fighters[0])+Vector2(700,260))
 	motion.global_position = motion.position
-	Input.parse_input_event(motion)
+	root.push_input(motion,true)
 	Input.flush_buffered_events()
-	await real_wait(.3)
-	print("INPUT_AIM_LOW ",battle.aim_pointer," aim ",battle.match_model.fighters[0].aim)
+	await real_wait(1.6)
+	print("INPUT_AIM_LOW ",battle.aim_pointer," aim ",battle.match_model.fighters[0].aim," lean ",battle.match_model.fighters[0].lean," boost ",battle.match_model.fighters[0].boost)
 	check(battle.match_model.fighters[0].aim>.10,"Lowering mouse position must lower the actual lance")
 	check(not battle.match_model.fighters[0].boost and is_zero_approx(battle.match_model.fighters[0].lean),"Releasing held inputs must stop boost and return the rider upright")
 	state.profile.settings.mouse_only = true
@@ -153,8 +153,8 @@ func run() -> void:
 	check(battle.wheel_lean>0 and battle.match_model.fighters[0].lean>0,"Mouse-only wheel input must control posture")
 	mouse_button.button_index = MOUSE_BUTTON_MIDDLE
 	root.push_input(mouse_button,true)
-	await real_wait(.15)
-	check(is_zero_approx(battle.wheel_lean) and is_zero_approx(battle.match_model.fighters[0].lean),"Middle mouse must reset posture")
+	await real_wait(1.4)
+	check(is_zero_approx(battle.wheel_lean) and is_zero_approx(battle.match_model.fighters[0].lean),"Middle mouse must reset posture after the inertial transition")
 	state.profile.settings.mouse_only = false
 	battle.autoplay = true
 	battle._unhandled_input(touch(8,Vector2(150,550),true))

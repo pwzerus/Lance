@@ -44,6 +44,7 @@ var touch_origin: Dictionary = {}
 var ai_timer = 0.0
 var ai_error = 0.0
 var ai_zone = "body"
+var ai_lean = .18
 var ai_rng = RandomNumberGenerator.new()
 var dust_timer = 0.0
 var hoof_timer = 0.0
@@ -51,6 +52,18 @@ var last_phase = ""
 var sound: SoundBank
 var autoplay = false
 var demo_seed = 0
+var camera: Camera2D
+var speed_label: Label
+var contact_label: Label
+var contact_until = 0
+var spur_left = 0.0
+var mouse_held = false
+var training_zones = false
+var pass_connected = false
+var camera_pass = 1
+var approach_slow = false
+var wind: AudioStreamPlayer
+var zone_overlay: Node2D
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -66,7 +79,22 @@ func _ready() -> void:
 	world.process_mode = Node.PROCESS_MODE_PAUSABLE
 	world.position = Vector2(720,645)
 	add_child(world)
+	var scenery = CanvasLayer.new()
+	scenery.layer = -20
+	add_child(scenery)
+	var backdrop = TextureRect.new()
+	backdrop.texture = WAR_BACKGROUND if mode=="war" else BACKGROUND
+	backdrop.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	backdrop.size = Vector2(1440,810)
+	backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	scenery.add_child(backdrop)
+	camera = Camera2D.new()
+	camera.position = Vector2(720,480)
+	camera.zoom = Vector2.ONE*.30
+	add_child(camera)
+	camera.make_current()
 	effects = FX.new()
+	effects.z_index = 10
 	effects.blood_enabled = GameState.profile.settings.blood
 	world.add_child(effects)
 	var ground = StaticBody2D.new()
@@ -75,7 +103,7 @@ func _ready() -> void:
 	ground.collision_mask = 4
 	var shape = CollisionShape2D.new()
 	var rectangle = RectangleShape2D.new()
-	rectangle.size = Vector2(2600,20)
+	rectangle.size = Vector2(12000,20)
 	shape.shape = rectangle
 	ground.add_child(shape)
 	world.add_child(ground)
@@ -89,9 +117,21 @@ func _ready() -> void:
 		match_model.fighters[i]["red"] = rider.red
 		world.add_child(rider)
 		riders.append(rider)
+	zone_overlay = preload("res://scripts/visual/hit_zone_overlay.gd").new()
+	zone_overlay.match_model = match_model
+	zone_overlay.z_index = 20
+	zone_overlay.visible = false
+	world.add_child(zone_overlay)
 	sound = SoundBank.new()
 	sound.enabled = GameState.profile.settings.sound
 	add_child(sound)
+	sound.music.stop()
+	wind = AudioStreamPlayer.new()
+	wind.stream = sound.streams.wind_loop
+	wind.volume_db = -50
+	add_child(wind)
+	if sound.enabled:
+		wind.play()
 	_build_hud()
 	get_window().focus_exited.connect(_on_focus_lost)
 	_update_views()
@@ -116,16 +156,19 @@ func _build_hud() -> void:
 	intermission = UI.label(hud,"",Vector2(330,245),19,UI.INK,780)
 	intermission.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	var bottom = UI.panel(hud,Rect2(0,758,1440,52),Color(.045,.08,.065,.96))
-	hint = UI.label(bottom,"鼠标瞄准  ·  左键加速  ·  W 前倾 / S 后倾  ·  Esc 暂停",Vector2(35,13),17,UI.MUTED)
-	UI.label(bottom,"没有准星。看枪尖，读对手。",Vector2(1080,13),17,UI.GOLD)
+	hint = UI.label(bottom,"鼠标瞄准 · 按住左键冲刺 / 点按催马 · W 架盾 / S 后仰 · H 判定",Vector2(25,14),16,UI.MUTED)
+	speed_label = UI.label(bottom,"",Vector2(925,14),16,UI.GOLD,500)
+	contact_label = UI.label(hud,"",Vector2(320,689),24,UI.GOLD,800)
+	contact_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 
 func _physics_process(delta: float) -> void:
 	if paused or is_finished:
 		return
 	var fighter = match_model.fighters[0]
-	var mouse = aim_pointer - world.position
+	spur_left = maxf(0,spur_left-delta)
+	var mouse = get_canvas_transform().affine_inverse()*aim_pointer - world.position
 	if not touch_roles.is_empty() and touch_aim != Vector2.ZERO:
-		mouse = touch_aim - world.position
+		mouse = get_canvas_transform().affine_inverse()*touch_aim - world.position
 	var hand = Model.hand_position(fighter)
 	var difference = mouse - hand
 	var aim = atan2(difference.y, maxf(absf(difference.x),35.0))
@@ -136,7 +179,7 @@ func _physics_process(delta: float) -> void:
 		lean = float(Input.is_physical_key_pressed(KEY_W) or Input.is_physical_key_pressed(KEY_UP)) - float(Input.is_physical_key_pressed(KEY_S) or Input.is_physical_key_pressed(KEY_DOWN))
 	if touch_roles.values().has("lean"):
 		lean = touch_lean
-	var boost = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or Input.is_physical_key_pressed(KEY_SPACE) or touch_roles.values().has("boost")
+	var boost = mouse_held or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or spur_left>0 or Input.is_physical_key_pressed(KEY_SPACE) or touch_roles.values().has("boost")
 	if autoplay:
 		var target = Model.head_position(match_model.fighters[1])
 		aim = atan2(target.y-hand.y, maxf(absf(target.x-hand.x),35))
@@ -157,42 +200,64 @@ func _physics_process(delta: float) -> void:
 			for f in match_model.fighters:
 				effects.dust(Vector2(float(f.x)-int(f.direction)*70,0),int(f.direction))
 		if hoof_timer <= 0:
-			hoof_timer = .28 - clampf(float(fighter.speed)/1000,.0,.12)
-			sound.play("hoof",-18,1.0 + float(fighter.speed)/1500)
+			var pace = clampf((float(fighter.speed)-Model.TROT_SPEED)/(Model.GALLOP_SPEED-Model.TROT_SPEED),0,1)
+			hoof_timer = lerpf(.36,.15,pace)
+			sound.play("hoof",lerpf(-20,-12,pace),lerpf(.92,1.18,pace))
 
 func _update_ai(delta: float) -> void:
 	ai_timer -= delta
 	var ai = match_model.fighters[1]
 	var player = match_model.fighters[0]
 	var difficulty = int(GameState.profile.settings.difficulty)
+	var distance = absf(float(player.x)-float(ai.x))
 	if ai_timer <= 0:
 		ai_timer = [1.0,.65,.34][difficulty]
 		ai_error = ai_rng.randf_range(-1,1) * [34.0,19.0,8.0][difficulty]
-		ai_zone = "head" if ai_rng.randf() < [.18,.38,.58][difficulty] else "body"
-	var target = Model.head_position(player) if ai_zone == "head" else Model.body_position(player)
+		var choice = ai_rng.randf()
+		ai_zone = "head" if choice < [.18,.30,.40][difficulty] else ("flank" if choice>.72 else "body")
+		ai_lean = .18
+		if distance<1300 and difficulty>=1:
+			ai_lean = -.9 if float(player.aim)<-.12 else .85
+	var target = Model.head_position(player) if ai_zone=="head" else (Model.flank_position(player) if ai_zone=="flank" else Model.body_position(player))
 	target.y += ai_error
 	var hand = Model.hand_position(ai)
 	var aim = atan2(target.y-hand.y,maxf(absf(target.x-hand.x),45))
-	var distance = absf(float(player.x)-float(ai.x))
-	var lean = -0.65 if distance < 520 and difficulty >= 1 else .10
-	if ai_zone == "head":
-		lean = .32
-	var boost = distance < (850 if difficulty >= 1 else 680) and float(ai.stamina) > 18
+	# Defense uses the same delayed observations as aim; it does not read
+	# and counter the player's current input on every physics tick.
+	var lean = ai_lean
+	var boost = distance > 700 and float(ai.stamina)>15
+	if difficulty==2 and distance<700:
+		boost = float(ai.stamina)>28
 	match_model.set_controls(1,aim,lean,boost,delta)
 
 func _handle_event(event: Dictionary) -> void:
 	match str(event.type):
 		"hit":
+			pass_connected = true
 			var index = int(event.defender)
 			riders[index].impact_recoil = 1.0
+			if event.zone=="shield":
+				riders[index].shield_recoil = 1.0
 			riders[int(event.attacker)].lance_recoil = clampf(float(event.impulse)/75,.25,1)
 			effects.hit(event.position,int(match_model.fighters[int(event.attacker)].direction),event.damage,event.zone=="shield",event.broke)
+			if event.broke:
+				effects.break_lance(event,mode)
 			shake = maxf(shake,clampf(float(event.impulse)*.09,2,8))
 			var now = Time.get_ticks_msec()
-			hitstop_until = now + 50
-			slow_until = now + 470
+			hitstop_until = now + (65 if event.zone!="shield" else 40)
+			slow_until = now + 510
 			Engine.time_scale = .001
-			sound.play("break" if event.broke else "impact",-5)
+			sound.play("impact" if event.zone!="shield" else "shield",-4,.85 if event.zone!="shield" else 1.05)
+			if event.broke:
+				sound.play("break",-7)
+			var zones = {"head":"头盔 / 头部","body":"胸甲","flank":"腰腹","shield":"盾牌格挡"}
+			var hit_text = ("你命中 · " if int(event.attacker)==0 else "对手命中 · ")+zones.get(event.zone,event.zone)
+			if event.ko:
+				hit_text += " · 击落！"
+			elif event.zone!="shield":
+				hit_text += " · 冲击 %d" % roundi(event.impulse)
+			contact_label.text = contact_label.text+"\n"+hit_text if now<contact_until and contact_until-now>1600 else hit_text
+			contact_until = now+1700
 			if bool(event.ko) or bool(event.dead):
 				effects.fall(match_model.fighters[index],int(match_model.fighters[int(event.attacker)].direction))
 		"charge":
@@ -209,21 +274,44 @@ func _process(delta: float) -> void:
 	var real_delta = clampf(float(now-last_visual_time)/1000.0,0,.1)
 	last_visual_time = now
 	if not paused:
-		Engine.time_scale = .001 if now < hitstop_until else (.17 if now < slow_until else 1.0)
+		_update_camera(real_delta,now)
+		Engine.time_scale = .001 if now < hitstop_until else (.20 if now < slow_until else (.52 if approach_slow else 1.0))
 		if terminal_at>0 and now>=hitstop_until:
 			departure_elapsed = minf(1.4,departure_elapsed+delta)
-		if terminal_at > 0 and now - terminal_at > 2300 and not is_finished:
+		if terminal_at > 0 and now - terminal_at > 2600 and not is_finished:
 			is_finished = true
 			Engine.time_scale = 1.0
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		shake = move_toward(shake,0,4.8*real_delta)
-	if world:
+		if wind and match_model:
+			var pace = clampf((float(match_model.fighters[0].speed)-Model.TROT_SPEED)/(Model.GALLOP_SPEED-Model.TROT_SPEED),0,1)
+			wind.volume_db = lerpf(wind.volume_db,lerpf(-34,-19,pace) if match_model.phase=="charge" else -50,1-exp(-real_delta*4))
+	if camera:
 		var shake_amount = shake if GameState.profile.settings.shake and not paused else 0.0
-		world.position = Vector2(720,645) + Vector2(noise.get_noise_1d(now*.035),noise.get_noise_1d(now*.035+100)) * shake_amount
+		camera.offset = Vector2(noise.get_noise_1d(now*.035),noise.get_noise_1d(now*.035+100))*shake_amount
 	if match_model and match_model.phase == "ended" and world:
 		_update_views()
 	_update_hud()
 	queue_redraw()
+
+func _update_camera(real_delta: float, now: int) -> void:
+	if not match_model or not camera:
+		return
+	if camera_pass!=match_model.pass_number:
+		camera_pass = match_model.pass_number
+		pass_connected = false
+	var a = float(match_model.fighters[0].x)
+	var b = float(match_model.fighters[1].x)
+	var separation = absf(b-a)
+	var before_crossing = a<b
+	approach_slow = match_model.phase=="charge" and before_crossing and separation<850 and not pass_connected
+	var desired_zoom = clampf(1260.0/(separation+440),.28,1.65)
+	if terminal_at>0:
+		desired_zoom = 1.6 if now-terminal_at<850 else 1.05
+	var blend = 1.0-exp(-real_delta*(5.0 if approach_slow else 3.3))
+	camera.zoom = camera.zoom.lerp(Vector2.ONE*desired_zoom,blend)
+	camera.position = camera.position.lerp(Vector2(720+(a+b)*.5,480),blend)
+	camera.force_update_scroll()
 
 func _update_views() -> void:
 	for i in range(2):
@@ -236,11 +324,15 @@ func _update_views() -> void:
 		riders[i].visible = true
 		riders[i].blood_enabled = GameState.profile.settings.blood
 	effects.blood_enabled = GameState.profile.settings.blood
+	zone_overlay.visible = training_zones
 
 func _update_hud() -> void:
 	if not match_model or not callout:
 		return
 	var phase = match_model.phase
+	var f = match_model.fighters[0]
+	speed_label.text = "%s  %d%%  ·  耐力 %d%%" % ["催马冲刺" if f.boost and float(f.stamina)>4 else "巡航",roundi(float(f.speed)/Model.GALLOP_SPEED*100),roundi(f.stamina)]
+	contact_label.visible = Time.get_ticks_msec()<contact_until
 	pass_label.text = "PASS  %02d / 03" % match_model.pass_number
 	intermission.visible = phase in ["ready","turn"]
 	if phase == "ready":
@@ -262,14 +354,13 @@ func _update_hud() -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN if phase == "charge" and not is_finished else Input.MOUSE_MODE_VISIBLE
 
 func _draw() -> void:
-	draw_texture_rect(WAR_BACKGROUND if mode == "war" else BACKGROUND,Rect2(0,0,1440,810),false)
 	# The two tracks stay isolated; the rail is scenery and never stops a horse.
-	for x in range(-20,1500,130):
+	for x in range(-5000,6500,130):
 		draw_rect(Rect2(x,602,13,89),Color("58432c"))
 		draw_rect(Rect2(x+2,602,3,89),Color("a0814e"))
-	draw_rect(Rect2(0,598,1440,12),Color("9e7843"))
-	draw_line(Vector2(0,598),Vector2(1440,598),Color("d3af69"),2)
-	draw_rect(Rect2(0,640,1440,7),Color("705231"))
+	draw_rect(Rect2(-5000,598,11500,12),Color("9e7843"))
+	draw_line(Vector2(-5000,598),Vector2(6500,598),Color("d3af69"),2)
+	draw_rect(Rect2(-5000,640,11500,7),Color("705231"))
 	for i in range(2):
 		if match_model:
 			var point = world.position+riders[i].position+Vector2(0,12+(-10 if i==1 else 10))
@@ -286,6 +377,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 			replay_requested.emit()
 			return
+		elif event.physical_keycode == KEY_H:
+			training_zones = not training_zones
+			zone_overlay.visible = training_zones
+			contact_label.text = "判定显示：金色盾牌 · 青色头 / 胸 / 腰腹" if training_zones else "判定显示已关闭"
+			contact_until = Time.get_ticks_msec()+2300
 	if paused:
 		return
 	if event is InputEventMouseButton and event.pressed:
@@ -321,12 +417,17 @@ func _input(event: InputEvent) -> void:
 	# it also supports deterministic replay and injected input verification.
 	if event is InputEventMouseMotion or event is InputEventMouseButton:
 		aim_pointer = event.position
+	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:
+		mouse_held = event.pressed and not paused
+		if mouse_held:
+			spur_left = .45
 
 func _toggle_pause() -> void:
 	if is_finished:
 		return
 	paused = not paused
 	get_tree().paused = paused
+	wind.stream_paused = paused
 	if paused:
 		pause_started = Time.get_ticks_msec()
 		_clear_touch()
@@ -353,6 +454,8 @@ func _toggle_pause() -> void:
 		Engine.time_scale = 1.0
 
 func _clear_touch() -> void:
+	spur_left = 0
+	mouse_held = false
 	touch_roles.clear()
 	touch_origin.clear()
 	touch_lean = 0.0

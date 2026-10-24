@@ -2,7 +2,11 @@ class_name JoustMatch
 extends RefCounted
 
 const MAX_PASSES = 3
-const START_X = 535.0
+const START_X = 1900.0
+const EXIT_X = 850.0
+const TROT_SPEED = 210.0
+const GALLOP_SPEED = 480.0
+const SURGE_SPEED = 515.0
 const GROUND_Y = 0.0
 const HIP = Vector2(-18, -168)
 var mode = "arena"
@@ -24,13 +28,14 @@ func _init(match_mode: String = "arena", player_stats: Dictionary = {}, opponent
 	_reset_positions()
 
 func _make_fighter(x: float, direction: int, stats: Dictionary) -> Dictionary:
-	return {"x": x, "prev_x": x, "direction": direction, "speed": 165.0, "stamina": 100.0,
+	return {"x": x, "prev_x": x, "direction": direction, "speed": TROT_SPEED, "stamina": 100.0,
 		"hp": 100.0, "shield": 78.0, "lean": 0.0, "aim": -0.08, "boost": false,
 		"broken": false, "durability": float(stats.get("durability", 100.0)), "acted": false,
 		"ko": false, "dead": false, "stats": stats.duplicate(true), "prev_tip": Vector2.ZERO,
 		"prev_head": Vector2.ZERO, "prev_body": Vector2.ZERO, "prev_shield": Vector2.ZERO,
 		"prev_hand": Vector2.ZERO, "prev_aim": -0.08, "prev_length": 247.0,
-		"surge": 0.0, "last_hit": "", "damage_total": 0.0, "wounds": []}
+		"surge": 0.0, "last_hit": "", "damage_total": 0.0, "wounds": [],
+		"balance":100.0,"lean_velocity":0.0,"prev_flank":Vector2.ZERO}
 
 func _reset_positions() -> void:
 	for i in range(2):
@@ -38,7 +43,8 @@ func _reset_positions() -> void:
 		fighter.x = -START_X if i == 0 else START_X
 		fighter.prev_x = fighter.x
 		fighter.direction = 1 if i == 0 else -1
-		fighter.speed = 165.0 * float(fighter.stats.get("speed", 1.0))
+		fighter.speed = TROT_SPEED * float(fighter.stats.get("speed", 1.0))
+		fighter.balance = minf(100.0,float(fighter.balance)+18.0)
 		fighter.acted = false
 		fighter.surge = 0.0
 		fighter.boost = false
@@ -47,20 +53,28 @@ func _reset_positions() -> void:
 			fighter.durability = float(fighter.stats.get("durability", 100.0))
 		_cache_pose(fighter)
 
+static func pose_angle(fighter: Dictionary) -> float:
+	return float(fighter.lean)*(deg_to_rad(25.0) if float(fighter.lean)>=0 else deg_to_rad(45.0))
+
 static func body_position(fighter: Dictionary) -> Vector2:
-	var angle = float(fighter.lean) * 0.45
+	var angle = pose_angle(fighter)
 	return Vector2(float(fighter.x) + (HIP.x + sin(angle) * 54.0) * int(fighter.direction), HIP.y - cos(angle) * 44.0)
 
 static func head_position(fighter: Dictionary) -> Vector2:
-	var angle = float(fighter.lean) * 0.45
+	var angle = pose_angle(fighter)
 	return Vector2(float(fighter.x) + (HIP.x + sin(angle) * 111.0) * int(fighter.direction), HIP.y - cos(angle) * 111.0)
 
 static func hand_position(fighter: Dictionary) -> Vector2:
-	var angle = float(fighter.lean) * 0.45
+	var angle = pose_angle(fighter)
 	return Vector2(float(fighter.x) + (HIP.x + 57.0 + sin(angle) * 58.0) * int(fighter.direction), HIP.y - cos(angle) * 54.0)
 
 static func shield_position(fighter: Dictionary) -> Vector2:
-	return body_position(fighter) + Vector2(22.0 * int(fighter.direction), 6.0)
+	# Forward bracing raises the left-chest shield; leaning back withdraws
+	# the head, but exposes the abdomen and compromises saddle stability.
+	return body_position(fighter)+Vector2(42.0*int(fighter.direction),-8.0-maxf(0,float(fighter.lean))*27.0)
+
+static func flank_position(fighter: Dictionary) -> Vector2:
+	return body_position(fighter)+Vector2(-6.0*int(fighter.direction),34.0)
 
 static func lance_length(fighter: Dictionary) -> float:
 	return 66.0 if fighter.broken else float(fighter.stats.get("reach", 247.0))
@@ -77,11 +91,19 @@ func _cache_pose(fighter: Dictionary) -> void:
 	fighter.prev_body = body_position(fighter)
 	fighter.prev_head = head_position(fighter)
 	fighter.prev_shield = shield_position(fighter)
+	fighter.prev_flank = flank_position(fighter)
 
 func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float) -> void:
 	var fighter = fighters[index]
-	fighter.aim = move_toward(float(fighter.aim), clampf(aim, -0.68, 0.58), delta * 4.5)
-	fighter.lean = move_toward(float(fighter.lean), clampf(lean, -1.0, 1.0), delta * 5.0)
+	fighter.aim = move_toward(float(fighter.aim), clampf(aim, -0.68, 0.58), delta * 3.5)
+	var difference = clampf(lean,-1,1)-float(fighter.lean)
+	var target_velocity = clampf(difference*4.5,-1.6,1.6)
+	fighter.lean_velocity = move_toward(float(fighter.lean_velocity),target_velocity,delta*6.0)
+	if absf(difference)<.004 and absf(float(fighter.lean_velocity))<.06:
+		fighter.lean = clampf(lean,-1,1)
+		fighter.lean_velocity = 0.0
+	else:
+		fighter.lean = clampf(float(fighter.lean)+float(fighter.lean_velocity)*delta,-1,1)
 	fighter.boost = boost
 
 func step(delta: float) -> void:
@@ -105,13 +127,13 @@ func step(delta: float) -> void:
 	for fighter in fighters:
 		var multiplier = float(fighter.stats.get("speed", 1.0))
 		var accelerating = bool(fighter.boost) and float(fighter.stamina) > 1.0
-		fighter.stamina = clampf(float(fighter.stamina) + (-23.0 if accelerating else 15.0) * delta, 0.0, 100.0)
-		var target_speed = (310.0 if accelerating else 165.0) * multiplier
+		fighter.stamina = clampf(float(fighter.stamina) + (-14.0 if accelerating else 18.0) * delta, 0.0, 100.0)
+		var target_speed = (GALLOP_SPEED if accelerating else TROT_SPEED) * multiplier
 		if float(fighter.surge) > 0.0 and not time_effect_active:
-			target_speed = 325.0 * multiplier
+			target_speed = SURGE_SPEED * multiplier
 			fighter.surge = maxf(0.0, float(fighter.surge) - delta)
 			fighter.speed = maxf(float(fighter.speed), target_speed)
-		fighter.speed = move_toward(float(fighter.speed), target_speed, (110.0 if accelerating else 72.0) * delta)
+		fighter.speed = move_toward(float(fighter.speed), target_speed, (230.0 if accelerating else 145.0) * delta)
 		fighter.x += int(fighter.direction) * float(fighter.speed) * delta
 	# Gather both candidates BEFORE applying either result, preserving simultaneous hits.
 	var contacts: Array = []
@@ -126,7 +148,7 @@ func step(delta: float) -> void:
 		_cache_pose(fighter)
 	if fighters[0].ko or fighters[1].ko or fighters[0].dead or fighters[1].dead:
 		_finish("terminal")
-	elif float(fighters[0].x) > START_X + 95.0 and float(fighters[1].x) < -START_X - 95.0:
+	elif float(fighters[0].x) > EXIT_X and float(fighters[1].x) < -EXIT_X:
 		if pass_number >= MAX_PASSES:
 			_finish("hp")
 		else:
@@ -172,9 +194,10 @@ func _detect_contact(index: int, delta: float) -> Dictionary:
 	var current_tip = tip_position(attacker)
 	var targets = [
 		{"zone": "head", "center": head_position(defender), "old": defender.prev_head, "radius": 24.0},
-		{"zone": "body", "center": body_position(defender), "old": defender.prev_body, "radius": 33.0}]
+		{"zone": "body", "center": body_position(defender), "old": defender.prev_body, "radius": 30.0},
+		{"zone":"flank","center":flank_position(defender),"old":defender.prev_flank,"radius":22.0}]
 	if float(defender.shield) > 0.0:
-		targets.append({"zone": "shield", "center": shield_position(defender), "old": defender.prev_shield, "radius": 29.0})
+		targets.append({"zone": "shield", "center": shield_position(defender), "old": defender.prev_shield, "radius": 38.0})
 	var earliest = 2.0
 	var found: Dictionary = {}
 	var sweep: Dictionary = {}
@@ -188,7 +211,7 @@ func _detect_contact(index: int, delta: float) -> Dictionary:
 		return {}
 	var tip_velocity = Vector2(sweep.velocity)
 	var target_velocity = (Vector2(found.center) - Vector2(found.old)) / maxf(delta, 0.0001)
-	var relative_speed = clampf((tip_velocity - target_velocity).length(), 50.0, 900.0)
+	var relative_speed = clampf((tip_velocity - target_velocity).length(), 50.0, 1050.0)
 	return {"attacker": index, "defender": 1 - index, "zone": found.zone, "speed": relative_speed,
 		"position": sweep.point, "type": "hit"}
 
@@ -197,45 +220,49 @@ func _apply_contact(contact: Dictionary) -> void:
 	var defender = fighters[int(contact.defender)]
 	attacker.acted = true
 	var speed = float(contact.speed)
-	var power = float(attacker.stats.get("power", 1.0)) * (0.66 if attacker.broken else 1.0)
+	var power = float(attacker.stats.get("power", 1.0)) * (0.66 if attacker.broken else 1.0)*(1.0+float(attacker.lean)*.07)
 	var alignment = clampf(cos(float(attacker.aim)), 0.4, 1.0)
-	var impulse = speed * 0.117 * power * alignment
-	var damage = 19.0 * pow(speed / 310.0, 1.40) * power * alignment
+	var impulse = speed * 0.085 * power * alignment
+	var damage = 19.0 * pow(speed / 620.0, 1.25) * power * alignment
 	var zone = str(contact.zone)
 	var glanced = false
 	if zone == "head":
-		damage *= 1.65 * (1.0 - float(defender.stats.get("helmet", 0.08)))
-		impulse *= 1.20
-	elif zone == "body":
+		damage *= 1.38 * (1.0 - float(defender.stats.get("helmet", 0.08)))
+		impulse *= 0.86
+	elif zone in ["body","flank"]:
 		damage *= 1.0 - float(defender.stats.get("armor", 0.10))
+		impulse *= 1.28 if zone=="flank" else 1.18
 	else:
 		var angle_difference = absf(float(attacker.aim) - float(defender.lean) * 0.38)
-		glanced = angle_difference > 0.23
-		defender.shield = maxf(0.0, float(defender.shield) - damage * 1.9)
-		damage *= 0.11 if glanced else 0.22
-		impulse *= 0.24 if glanced else 0.43
+		glanced = angle_difference > 0.16 or absf(float(defender.lean))>.35
+		defender.shield = maxf(0.0, float(defender.shield) - damage * (0.7 if glanced else 1.15))
+		damage *= 0.035 if glanced else 0.09
+		impulse *= 0.16 if glanced else 0.28
 	if mode == "war" and zone != "shield":
-		damage *= 1.28
-	# A clearly heavy, unshielded head strike is dangerous; this is a GAME threshold.
-	if mode == "war" and zone == "head" and impulse > 80.0 + float(defender.stats.get("helmet",0.08)) * 28.0:
-		damage = maxf(damage, 110.0)
+		damage *= 1.32
 	defender.hp = maxf(0.0, float(defender.hp) - damage)
 	attacker.damage_total += damage
 	defender.last_hit = zone
 	if zone != "shield" and damage > 11.0:
 		defender.wounds.append({"zone":zone,"severity":damage})
-	var threshold = 80.0 * float(defender.stats.get("stability", 1.0))
-	defender.ko = impulse > threshold or float(defender.hp) <= 0.0
+	var brace = 1.0+maxf(float(defender.lean),0)*.14-maxf(-float(defender.lean),0)*.14
+	var threshold = 96.0 * float(defender.stats.get("stability", 1.0))*brace
+	defender.balance = maxf(0.0,float(defender.balance)-impulse*(.50 if zone=="head" else .82))
+	defender.ko = impulse > threshold or float(defender.balance)<=0 or float(defender.hp) <= 0.0
 	defender.dead = mode == "war" and float(defender.hp) <= 0.0
 	var stress = speed * 0.062 * (1.15 if zone == "shield" else 0.8)
 	attacker.durability = maxf(0.0, float(attacker.durability) - stress)
 	var break_probability = break_chance(mode, impulse, float(attacker.stats.get("durability", 100.0)))
 	var broke_now = not attacker.broken and (float(attacker.durability) <= 0.0 or rng.randf() < break_probability)
+	var old_tip = tip_position(attacker)
+	var old_hand = hand_position(attacker)
+	var old_reach = lance_length(attacker)
 	if broke_now:
 		attacker.broken = true
 	attacker.surge = 0.20
 	defender.surge = 0.20
-	contact.merge({"damage": damage, "impulse": impulse, "glanced": glanced, "broke": broke_now, "dead": defender.dead, "ko": defender.ko})
+	contact.merge({"damage": damage, "impulse": impulse, "glanced": glanced, "broke": broke_now, "dead": defender.dead, "ko": defender.ko,
+		"break_tip":old_tip,"break_hand":old_hand,"break_reach":old_reach,"break_angle":attacker.aim,"break_direction":attacker.direction})
 	events.append(contact)
 
 static func break_chance(match_mode: String, impulse: float, durability: float = 100.0) -> float:

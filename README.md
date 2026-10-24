@@ -1,10 +1,10 @@
 # 骑枪与桂冠 · Lance & Laurel
 
-Godot 4.5.1 + GDScript 的 Windows 单机试玩版 v0.1。项目依据原始 GDD、`DESIGN_DECISIONS.md` 和历史考据档案开发；本轮交付可玩的核心循环与首批成长内容。
+Godot 4.5.1 + GDScript 的 Windows 单机试玩版 v0.2。项目依据原始 GDD、`DESIGN_DECISIONS.md` 和历史考据档案开发；v0.2 按试玩反馈重做冲锋节奏、镜头、盾牌与断枪表现。
 
 ## 开始试玩
 
-打开 `builds/LanceAndLaurel/LanceAndLaurel.exe`。不需要安装 Godot。
+打开 `builds/LanceAndLaurel-v0.2/LanceAndLaurel.exe`。不需要安装 Godot。旧 v0.1 保留在 `builds/LanceAndLaurel/`。
 
 `LanceAndLaurel.pck` 必须与 EXE 放在同一文件夹。移动或分享时，复制整个 `LanceAndLaurel` 文件夹，或使用其 ZIP 试玩包。
 
@@ -13,13 +13,16 @@ Godot 4.5.1 + GDScript 的 Windows 单机试玩版 v0.1。项目依据原始 GDD
 | 操作 | 效果 |
 | --- | --- |
 | 移动鼠标 | 调整骑枪角度；鼠标离骑手远一些更容易微调 |
-| 按住左键 / 空格 | 加速并消耗耐力；松开后恢复耐力 |
-| W / S，或上 / 下方向键 | 前倾 / 后倾 |
+| 按住左键 / 空格，或点按左键 | 按住持续加速，点按短暂催马；松开后恢复耐力 |
+| W / S，或上 / 下方向键 | 前倾架盾约 25° / 后仰约 45°；姿态带惯性 |
+| H | 显示 / 隐藏实际受击范围，默认关闭 |
 | Esc | 暂停与血腥、震动设置 |
 | R | 重新比赛 |
 | F11 | 切换全屏 |
 
 设置中可启用纯鼠标倾身：滚轮调节，中键回正。马匹始终自动前进。战斗没有准星、轨迹线或瞄准吸附。
+
+长距离冲锋逐渐加速，近身时镜头靠近并放缓，接触后短暂顿帧、碎片飞出，交错后镜头拉远。底栏显示实际速度比例与耐力；命中后显示实际部位。盾牌可挡住来枪，前倾会抬高防区。后仰可让头部避开已承诺的高枪，但腰腹和平衡变弱。头部伤害仍危险，已删除固定秒杀分支。
 
 ## 现在可以玩什么
 
@@ -42,7 +45,7 @@ Godot 4.5.1 + GDScript 的 Windows 单机试玩版 v0.1。项目依据原始 GDD
 
 ## 当前边界
 
-这是首个可试玩版本。伤害、冲击指数、断枪概率、价格和解锁门槛是游戏参数；不是历史伤亡统计或连续材料仿真。实战抽取两名骑手相遇的片段，固定分道、隔栏与三轮规则属于游戏改编。
+这是早期可试玩版本。伤害、冲击指数、断枪概率、价格和解锁门槛是游戏参数；不是历史伤亡统计或连续材料仿真。实战抽取两名骑手相遇的片段，固定分道、隔栏与三轮规则属于游戏改编。
 
 已制作不同年代的胸甲与头盔，四肢、马具、部分罩袍仍共用基础分件，尚未逐件完成历史多角度结构复核。跨时代自由拼装不称为同期原装复原。马匹目前采用分件程序步态；还需人工逐像素整理、专业步态和落马动画打磨。
 
@@ -57,3 +60,5 @@ Godot 编辑器打开 `game/project.godot`，按 F5。便携引擎在 `tools/god
 主要代码：`core/joust_match.gd` 为可独立模拟的规则，`battle.gd` 负责输入、AI、时间效果和场景，`visual/` 为分件与反馈，`main.gd` 为界面，`core/game_state.gd` 为进度和存档。装备在 `game/data/equipment.json`，美术来源与完整提示词在 `game/art_sources/ASSET_MANIFEST.md`。
 
 复现命令与验收证据见 `docs/development/VALIDATION.md`；审查修复记录见 `docs/development/REVIEW.md`。发行包附带 Godot 与依赖许可、Noto Sans SC 字体的 OFL 许可。
+
+v0.2 专项记录见 `docs/development/V02_REVIEW.md`；动作反馈工作流见 `skills/joust-game-feel/SKILL.md`，包含查阅资料和适用边界。

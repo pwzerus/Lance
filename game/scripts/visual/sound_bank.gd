@@ -9,7 +9,7 @@ static var shared_streams: Dictionary = {}
 func _ready() -> void:
 	music = AudioStreamPlayer.new()
 	if shared_streams.is_empty():
-		for sound_name in ["impact","break","hoof","click","horn","win","lose","lute_loop"]:
+		for sound_name in ["impact","shield","break","hoof","click","horn","win","lose","lute_loop","wind_loop"]:
 			shared_streams[sound_name] = _synthesize(sound_name)
 	streams = shared_streams
 	music.stream = streams.lute_loop
@@ -41,7 +41,7 @@ func play(sound: String, volume_db: float = -5.0, pitch: float = 1.0) -> void:
 	player.play()
 
 func _synthesize(sound_name: String) -> AudioStreamWAV:
-	var durations = {"impact":.45,"break":.5,"hoof":.16,"click":.08,"horn":1.2,"win":1.6,"lose":1.3,"lute_loop":12.8}
+	var durations = {"impact":.45,"shield":.5,"break":.5,"hoof":.16,"click":.08,"horn":1.2,"win":1.6,"lose":1.3,"lute_loop":12.8,"wind_loop":2.0}
 	var rate = 22050
 	var count = int(float(durations[sound_name]) * rate)
 	var bytes = PackedByteArray()
@@ -49,11 +49,13 @@ func _synthesize(sound_name: String) -> AudioStreamWAV:
 	var random_source = RandomNumberGenerator.new()
 	random_source.seed = 781
 	var notes = [146.83,220.0,293.66,349.23,293.66,220.0,164.81,196.0,261.63,329.63,261.63,196.0,130.81,196.0,261.63,293.66]
+	var filtered_noise = 0.0
 	for i in range(count):
 		var t = float(i)/rate
 		var sample = 0.0
 		match sound_name:
 			"impact": sample = (random_source.randf_range(-1,1)*.7 + sin(TAU*(95-50*t)*t)*.5)*exp(-t*14)*.7
+			"shield": sample = (random_source.randf_range(-1,1)*exp(-t*30)*.6+sin(TAU*172*t)*exp(-t*15)*.35+sin(TAU*417*t)*exp(-t*12)*.15)*.8
 			"break": sample = random_source.randf_range(-1,1)*exp(-t*10)*(1+.3*sin(t*280))*.65
 			"hoof": sample = (sin(t*TAU*115)*.65+random_source.randf_range(-1,1)*.3)*exp(-t*35)*.6
 			"click": sample = sin(t*TAU*600)*exp(-t*65)*.35
@@ -63,6 +65,9 @@ func _synthesize(sound_name: String) -> AudioStreamWAV:
 			"lute_loop":
 				for harmonic in range(1,5):
 					sample += sin(TAU*float(notes[int(t/.8)%notes.size()])*harmonic*t)*exp(-fmod(t,.8)*(4+harmonic*.5))/harmonic*.085
+			"wind_loop":
+				filtered_noise = lerpf(filtered_noise,random_source.randf_range(-1,1),.065)
+				sample = filtered_noise*(.55+.12*sin(TAU*t*4))
 		var value = int(clampf(sample,-1,1)*32767)
 		bytes[i*2] = value & 255
 		bytes[i*2+1] = (value >> 8) & 255
@@ -71,4 +76,7 @@ func _synthesize(sound_name: String) -> AudioStreamWAV:
 	stream.mix_rate = rate
 	stream.stereo = false
 	stream.data = bytes
+	if sound_name=="wind_loop":
+		stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+		stream.loop_end = count
 	return stream

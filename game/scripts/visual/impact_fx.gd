@@ -2,11 +2,14 @@ class_name ImpactFX
 extends Node2D
 const Art = preload("res://scripts/visual/equipment_art.gd")
 const Model = preload("res://scripts/core/joust_match.gd")
+const Shard = preload("res://scripts/visual/lance_shard.gd")
 
 var particles: Array = []
 var stains: Array = []
 var bodies: Array = []
 var blood_enabled = false
+var bursts: Array = []
+var debris: Array = []
 var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
@@ -18,6 +21,7 @@ func clear_blood() -> void:
 	queue_redraw()
 
 func hit(point: Vector2, direction: int, damage: float, shield: bool, broke: bool) -> void:
+	bursts.append({"p":point,"life":.26,"shield":shield,"size":clampf(13+damage*.38,16,34)})
 	var blood = blood_enabled and not shield and damage > 11.0
 	for i in range(18 if broke else 11):
 		var velocity = Vector2(rng.randf_range(-150,150) + direction * 65, rng.randf_range(-165,-35))
@@ -27,6 +31,36 @@ func hit(point: Vector2, direction: int, damage: float, shield: bool, broke: boo
 		for i in range(12):
 			particles.append({"p":point,"v":Vector2(direction*rng.randf_range(30,160),rng.randf_range(-100,5)),"life":rng.randf_range(.3,.7),"color":Color("8b2c24"),"size":rng.randf_range(2,4),"blood":true})
 		stains.append({"p": Vector2(point.x, rng.randf_range(-2,8)), "radius": rng.randf_range(10,19)})
+
+func break_lance(event: Dictionary, mode: String) -> void:
+	var ray = Vector2(cos(float(event.break_angle))*int(event.break_direction),sin(float(event.break_angle)))
+	var start = Vector2(event.break_hand)+ray*66
+	var remaining = maxf(10,float(event.break_reach)-66)
+	var cursor = 0.0
+	for i in range(2):
+		var length = remaining*(.56 if i==0 else .44)
+		var body = RigidBody2D.new()
+		body.position = start+ray*(cursor+length*.5)
+		body.rotation = ray.angle()
+		body.mass = .35
+		body.collision_layer = 4
+		body.collision_mask = 8
+		body.gravity_scale = 1.0
+		body.linear_velocity = Vector2(int(event.break_direction)*(190+i*55),-125-i*45)
+		body.angular_velocity = int(event.break_direction)*(-3.0 if i==0 else 5.0)
+		var collider = CollisionShape2D.new()
+		var rectangle = RectangleShape2D.new()
+		rectangle.size = Vector2(length,6)
+		collider.shape = rectangle
+		body.add_child(collider)
+		var sprite = Shard.new()
+		sprite.length = length
+		sprite.pointed = i==1
+		sprite.war_tip = mode=="war"
+		body.add_child(sprite)
+		add_child(body)
+		debris.append(body)
+		cursor += length
 
 func dust(point: Vector2, direction: int) -> void:
 	particles.append({"p": point, "v": Vector2(-direction * rng.randf_range(25,65), -rng.randf_range(8,25)), "life": .42,
@@ -81,6 +115,10 @@ func fall(fighter: Dictionary, direction: int) -> void:
 		joint.softness = .35
 
 func _process(delta: float) -> void:
+	for burst in bursts:
+		burst.life -= delta
+	bursts = bursts.filter(func(b):return b.life>0)
+	debris = debris.filter(func(b):return is_instance_valid(b))
 	for particle in particles:
 		particle.life -= delta
 		particle.p += Vector2(particle.v) * delta
@@ -89,6 +127,14 @@ func _process(delta: float) -> void:
 	queue_redraw()
 
 func _draw() -> void:
+	for burst in bursts:
+		var alpha = clampf(float(burst.life)/.20,0,1)
+		var radius = float(burst.size)*(1.2-float(burst.life))
+		var color = Color(1,.88,.55,alpha) if burst.shield else Color(1,.94,.78,alpha)
+		for i in range(8):
+			var ray = Vector2.from_angle(i*TAU/8)
+			draw_line(Vector2(burst.p)+ray*radius*.25,Vector2(burst.p)+ray*radius,color,3)
+		draw_circle(burst.p,3.5,Color(1,1,.9,alpha))
 	if blood_enabled:
 		for stain in stains:
 			draw_set_transform(stain.p, 0, Vector2(1,.22))

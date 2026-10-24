@@ -17,6 +17,8 @@ var blood_enabled = false
 var mode = "arena"
 var impact_recoil = 0.0
 var lance_recoil = 0.0
+var shield_recoil = 0.0
+var stride_phase = 0.0
 var preview = false
 var torso_texture: Texture2D
 var head_texture: Texture2D
@@ -25,8 +27,11 @@ var art_key = ""
 
 func _process(delta: float) -> void:
 	clock += delta
+	var pace = clampf((float(fighter.get("speed",210.0))-Model.TROT_SPEED)/(Model.GALLOP_SPEED-Model.TROT_SPEED),0,1)
+	stride_phase += delta*lerpf(8.0,18.0,pace) if moving else delta*1.2
 	impact_recoil = move_toward(impact_recoil,0,delta*3)
 	lance_recoil = move_toward(lance_recoil,0,delta*4)
+	shield_recoil = move_toward(shield_recoil,0,delta*4)
 	queue_redraw()
 
 func draw_part(part: String, destination: Rect2, color: Color = Color.WHITE) -> void:
@@ -47,44 +52,40 @@ func _draw() -> void:
 		shield_texture = Art.shield(design)
 	var facing = int(fighter.direction)
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
-	var stride = clock*(10.5 if moving else 1.5)
-	var bounce = sin(stride*2)*(2.4 if moving else .6)
+	var stride = stride_phase
+	var pace = clampf((float(fighter.get("speed",210.0))-Model.TROT_SPEED)/(Model.GALLOP_SPEED-Model.TROT_SPEED),0,1)
+	var bounce = sin(stride*2)*(lerpf(1.8,4.0,pace) if moving else .6)
 	var horse_tint = Color(str(fighter.stats.get("horse_color","a87950"))).lerp(Color.WHITE,.72)
-	_draw_horse_leg(Vector2(-96,-61),sin(stride+PI)*.48 if moving else -.06,Color(.60,.57,.55))
-	_draw_horse_leg(Vector2(65,-65),sin(stride+.5)*.48 if moving else .08,Color(.62,.59,.56))
+	_draw_horse_leg(Vector2(-96,-61),stride+PI,Color(.60,.57,.55))
+	_draw_horse_leg(Vector2(65,-65),stride+lerpf(0.0,3.7,pace),Color(.62,.59,.56))
 	draw_part("horse_body",Rect2(-160,-191+bounce,257,166),horse_tint)
 	draw_part("horse_head",Rect2(61,-222+bounce,148,145),horse_tint)
-	_draw_horse_leg(Vector2(-105,-65),sin(stride)*.52 if moving else .03,horse_tint)
-	_draw_horse_leg(Vector2(63,-63),sin(stride+PI+.5)*.52 if moving else -.02,horse_tint)
+	_draw_horse_leg(Vector2(-105,-65),stride,horse_tint)
+	_draw_horse_leg(Vector2(63,-63),stride+lerpf(PI,3.0,pace),horse_tint)
 	draw_polyline(PackedVector2Array([Vector2(168,-126+bounce),Vector2(65,-156),Vector2(2,-200)]),Color("493628"),2.5,true)
 	if bool(fighter.get("ko",false)) or bool(fighter.get("dead",false)):
 		draw_set_transform(Vector2.ZERO)
 		return
-	var lean_angle = float(fighter.lean)*.45-impact_recoil*.14
+	var lean_angle = Model.pose_angle(fighter)-impact_recoil*.22
 	var pivot = Model.HIP+Vector2(0,bounce)
 	_draw_rider_leg(pivot+Vector2(3,-1),-.05,Color(.65,.64,.61))
 	# Shared rule anchors keep the visible lance grip and shield on target.
 	var hand_local = (Model.hand_position(fighter)-Vector2(float(fighter.x),0))*Vector2(facing,1)
-	var shoulder = pivot+Vector2(22 if facing==1 else -22,-62).rotated(lean_angle)
-	var elbow = (shoulder+hand_local)*.5+Vector2(-8,20)
-	# Right-handed lance arm is far for a right-facing rider, near for left.
-	if facing == 1:
-		_draw_arm(shoulder,elbow,hand_local,Color(.72,.72,.70))
+	var shoulder = pivot+Vector2(34 if facing==1 else -34,-65).rotated(lean_angle)
+	var elbow = pivot+Vector2(49 if facing==1 else -48,-25).rotated(lean_angle)
 	draw_set_transform(pivot*Vector2(facing,1),lean_angle*facing,Vector2(facing,1))
 	var shield_center = ((Model.shield_position(fighter)-Vector2(float(fighter.x),0))*Vector2(facing,1)-pivot).rotated(-lean_angle)
-	if facing == -1:
-		_draw_arm(Vector2(25,-64),Vector2(35,-35),shield_center,Color(.66,.66,.64))
-		_draw_shield(shield_center,design)
 	draw_texture_rect(torso_texture,Rect2(-47,-94,94,104),false)
 	var head_width = 84.0 if head_tier==4 else 70.0
 	draw_texture_rect(head_texture,Rect2(-head_width*.5,-151,head_width,80),false)
-	if facing == 1:
-		_draw_arm(Vector2(-26,-64),Vector2(-23,-24),shield_center,Color.WHITE)
-		_draw_shield(shield_center,design)
+	# Both elbows have their own visible silhouette. A far arm remains darker
+	# but is not completely buried under the chest sprite. Shield projects
+	# forward of the torso on either facing, matching its actual hit circle.
+	_draw_arm(Vector2(-34 if facing==1 else 34,-67),Vector2(-53 if facing==1 else 64,-19),shield_center+Vector2(-12,14),Color.WHITE if facing==1 else Color(.76,.78,.78))
+	_draw_shield(shield_center,design)
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 	_draw_rider_leg(pivot+Vector2(-11,4),.07,Color.WHITE)
-	if facing == -1:
-		_draw_arm(shoulder,elbow,hand_local,Color.WHITE)
+	_draw_arm(shoulder,elbow,hand_local,Color(.84,.86,.86) if facing==1 else Color.WHITE)
 	_draw_lance(hand_local,float(fighter.aim),Model.lance_length(fighter),bool(fighter.broken))
 	draw_circle(hand_local,6,Color("795239"))
 	for wound in fighter.get("wounds",[]):
@@ -96,13 +97,27 @@ func _draw() -> void:
 				draw_circle(pivot+(stain+offset).rotated(lean_angle),2.5,Color("69251e"))
 	draw_set_transform(Vector2.ZERO)
 
-func _draw_horse_leg(hip: Vector2, angle: float, tint: Color) -> void:
+func _draw_horse_leg(hip: Vector2, phase: float, tint: Color) -> void:
 	var facing = int(fighter.direction)
-	var knee = hip+Vector2(sin(angle)*44,cos(angle)*44)
-	draw_set_transform(hip*Vector2(facing,1),-angle*facing,Vector2(facing,1))
-	draw_part("horse_upper",Rect2(-16,-8,31,61),tint)
-	draw_set_transform(knee*Vector2(facing,1),angle*.45*facing,Vector2(facing,1))
-	draw_part("horse_lower",Rect2(-11,-6,25,42),tint)
+	var cycle = fposmod(phase/TAU,1.0)
+	var foot = Vector2(hip.x,12)
+	if moving:
+		if cycle<.58:
+			foot.x += lerpf(37,-37,cycle/.58)
+		else:
+			var swing = (cycle-.58)/.42
+			foot.x += lerpf(-37,37,swing)
+			foot.y -= sin(swing*PI)*35
+	var to_foot = foot-hip
+	var length = clampf(to_foot.length(),15,95.5)
+	var bend = acos(clampf((51.0*51.0+length*length-45.0*45.0)/(2.0*51.0*length),-1,1))
+	var knee = hip+to_foot.normalized().rotated(bend*(-1 if hip.x>0 else 1))*51
+	var upper_angle = (knee-hip).angle()-PI*.5
+	var lower_angle = (foot-knee).angle()-PI*.5
+	draw_set_transform(hip*Vector2(facing,1),upper_angle*facing,Vector2(facing,1))
+	draw_part("horse_upper",Rect2(-16,-6,31,61),tint)
+	draw_set_transform(knee*Vector2(facing,1),lower_angle*facing,Vector2(facing,1))
+	draw_part("horse_lower",Rect2(-11,-4,25,53),tint)
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 
 func _draw_rider_leg(hip: Vector2, angle: float, tint: Color) -> void:
@@ -145,6 +160,8 @@ func _draw_lance(hand: Vector2, angle: float, length: float, broken: bool) -> vo
 		var facing = int(fighter.direction)
 		draw_set_transform(tip*Vector2(facing,1),angle*facing,Vector2(facing,1))
 		draw_part("point" if mode=="war" else "coronel",Rect2(-24,-7,24,14))
+		# A small glint belongs to the weapon tip, not a floating aim cursor.
+		draw_line(Vector2(-5,-3),Vector2(0,0),Color("fff1c4"),2)
 		draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 	else:
 		draw_line(tip+Vector2(-3,-4),tip+Vector2(3,3),Color("ebd5a0"),2)
@@ -164,8 +181,8 @@ func _draw_heraldry(center: Vector2, design: String) -> void:
 func _draw_shield(center: Vector2, design: String) -> void:
 	if float(fighter.shield)<=0:
 		return
-	var tint = Color.WHITE.darkened(.18 if float(fighter.shield)<25 else 0)
-	draw_texture_rect(shield_texture,Rect2(center-Vector2(31,40),Vector2(62,80)),false,tint)
+	var tint = Color.WHITE.darkened(.18 if float(fighter.shield)<25 else 0).lerp(Color(2,2,1.5),shield_recoil*.55)
+	draw_texture_rect(shield_texture,Rect2(center-Vector2(40,52),Vector2(80,104)),false,tint)
 	_draw_heraldry(center,design)
 	if float(fighter.shield)<42:
 		draw_polyline(PackedVector2Array([center+Vector2(-5,-27),center+Vector2(3,-9),center+Vector2(-4,7),center+Vector2(4,24)]),Color("302d28"),2,true)

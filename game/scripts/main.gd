@@ -32,6 +32,8 @@ var smoke_step = 0
 var smoke_busy = false
 var smoke_screens: Array = []
 var smoke_original_profile: Dictionary = {}
+var smoke_contacts: Array = []
+var smoke_last_report = 0
 
 func _ready() -> void:
 	get_window().min_size = Vector2i(960,540)
@@ -117,7 +119,7 @@ func show_home() -> void:
 	UI.label(screen,"当前年代  " + Catalogue.ERAS[Catalogue.era_for_renown(int(GameState.profile.renown))],Vector2(420,629),17,UI.GOLD)
 	UI.separator(screen,Vector2(62,696),698)
 	UI.label(screen,"鼠标瞄准   左键加速   W/S 倾身   Esc 暂停",Vector2(62,718),17,UI.MUTED)
-	UI.label(screen,"单机试玩版  ·  Windows  ·  v0.1",Vector2(62,751),14,UI.MUTED)
+	UI.label(screen,"单机试玩版  ·  Windows  ·  v0.2",Vector2(62,751),14,UI.MUTED)
 	UI.button(screen,"退出游戏",Rect2(608,739,150,38),func():
 		GameState.save_profile()
 		get_tree().quit())
@@ -142,7 +144,7 @@ func _begin_match(mode: String) -> void:
 	var panel = UI.panel(shade,Rect2(315,135,810,540),Color(.045,.085,.065,.99))
 	UI.label(panel,"第一次披挂上场",Vector2(32,24),34,UI.GOLD)
 	UI.label(panel,"你在左侧，马匹会自动前进。",Vector2(32,85),21,UI.INK)
-	UI.label(panel,"移动鼠标　控制骑枪角度；鼠标离骑手远一些，更容易微调。\n按住左键或空格　平滑加速并消耗耐力；松开恢复耐力。\nW 前倾 / S 后倾　改变伸枪距离和受击位置。\nEsc 暂停　R 重新比赛　F11 全屏",Vector2(32,139),20,UI.INK,746)
+	UI.label(panel,"移动鼠标　控制枪尖；镜头靠近时可微调角度。\n左键 / 空格　按住冲刺；点按左键短暂催马；松开恢复耐力。\nW 前倾架盾（25°）/ S 后仰避头（45°）；腰腹仍会暴露。\nH 显示真实受击范围　Esc 暂停　R 重开　F11 全屏",Vector2(32,139),20,UI.INK,746)
 	UI.separator(panel,Vector2(32,295),746)
 	UI.label(panel,"最多三次对冲；落马提前结束。三轮后比较骑手状态。\n竞技场每轮领取新枪，不会死亡。实战允许死亡，断枪保留。",Vector2(32,316),18,UI.MUTED,746)
 	UI.label(panel,"战斗没有准星，观察手臂与枪尖。先在竞技场熟悉瞄准。",Vector2(32,396),17,UI.GOLD,746)
@@ -367,7 +369,7 @@ func show_settings() -> void:
 	panel.add_child(difficulty)
 	UI.button(panel,"返回营地",Rect2(28,493,620,59),show_home,true)
 	UI.label(screen,"操作",Vector2(844,150),32,UI.GOLD)
-	UI.label(screen,"移动鼠标　调整骑枪角度\n按住左键　加速、消耗耐力\n松开左键　回到巡航、恢复耐力\nW / S　　 前倾 / 后倾\nEsc　　　 暂停与设置\nR　　　　 重新比赛\nF11　　　 全屏切换",Vector2(844,219),22,UI.INK,510)
+	UI.label(screen,"移动鼠标　调整枪尖\n左键 / 空格　按住冲刺；点按催马\n松开左键　巡航、恢复耐力\nW / S　　 架盾 / 后仰避头\nH　　　　 显示判定范围\nEsc　　　 暂停与设置\nR 重开　　F11 全屏",Vector2(844,219),22,UI.INK,510)
 	UI.label(screen,"触控输入已预留：左侧滑动倾身，右侧瞄准，\n右侧额外触点加速；尚未在手机设备验收。",Vector2(844,510),17,UI.MUTED,510)
 	queue_redraw()
 
@@ -417,10 +419,16 @@ func _unhandled_input(event: InputEvent) -> void:
 			_start_match(current_mode)
 
 func _run_smoke() -> void:
+	if Time.get_ticks_msec()-smoke_last_report>5000:
+		smoke_last_report = Time.get_ticks_msec()
+		print("SMOKE_PROGRESS elapsed=",Time.get_ticks_msec()-smoke_started," step=",smoke_step," busy=",smoke_busy," phase=",battle.match_model.phase if battle else page," pass=",battle.match_model.pass_number if battle else 0," scale=",Engine.time_scale," fps=",Engine.get_frames_per_second())
 	if smoke_busy:
 		return
 	smoke_busy = true
 	var elapsed = Time.get_ticks_msec() - smoke_started
+	if battle and not battle.effects.bursts.is_empty() and current_mode not in smoke_contacts:
+		smoke_contacts.append(current_mode)
+		await _capture("08_arena_impact" if current_mode=="arena" else "09_war_impact")
 	if smoke_step == 0 and elapsed > 1000:
 		await _capture("01_home")
 		smoke_step = 1
@@ -442,7 +450,7 @@ func _run_smoke() -> void:
 		await _capture("05_result")
 		smoke_step = 6
 		get_tree().create_timer(1.0).timeout.connect(func():_start_match("war"))
-	elif smoke_step == 6 and current_mode == "war" and battle and battle.match_model.phase == "charge":
+	elif smoke_step == 6 and current_mode == "war" and battle and battle.match_model.phase == "charge" and absf(float(battle.match_model.fighters[0].x)-float(battle.match_model.fighters[1].x))<750:
 		await _capture("06_war")
 		smoke_step = 7
 	elif smoke_step == 7 and current_mode == "war" and result_visible:
@@ -452,7 +460,7 @@ func _run_smoke() -> void:
 		GameState.save_profile()
 		print("SMOKE_TEST_COMPLETE: " + str(smoke_screens))
 		get_tree().create_timer(1.0).timeout.connect(func():get_tree().quit())
-	if elapsed > 100000:
+	if elapsed > 180000:
 		GameState.profile = smoke_original_profile
 		GameState.save_profile()
 		push_error("Smoke test timed out at step " + str(smoke_step))

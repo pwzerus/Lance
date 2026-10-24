@@ -19,6 +19,8 @@ class InputProbe extends Node:
 			clicks += 1 if event.pressed else 0
 			releases += 0 if event.pressed else 1
 			record({"kind":"desktop_button","pressed":event.pressed,"position":event.position,"paused":battle.paused})
+			if event.pressed and not battle.paused and battle.match_model.phase=="ready":
+				battle.match_model.phase = "charge"
 		if event is InputEventKey and event.physical_keycode==KEY_SPACE and not event.echo:
 			record({"kind":"desktop_space","pressed":event.pressed})
 
@@ -45,6 +47,9 @@ func run() -> void:
 	root.add_child(main)
 	current_scene = main
 	main._start_match("arena",true)
+	# Hold the staging area until a real click arrives; do not let the
+	# inspection delay consume the run before its input can be observed.
+	main.battle.match_model.phase_time = 999
 	root.title = "Lance & Laurel v0.3 - Mouse input diagnostic"
 	var probe = InputProbe.new()
 	probe.battle = main.battle

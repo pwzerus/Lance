@@ -1,0 +1,97 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+[   0% ] first_scan_filesystem | Started Project initialization (5 steps)
+[   0% ] first_scan_filesystem | Scanning file structure...
+[  16% ] first_scan_filesystem | Loading global class names...
+[  33% ] first_scan_filesystem | Verifying GDExtensions...
+[  50% ] first_scan_filesystem | Creating autoload scripts...
+[  66% ] first_scan_filesystem | Initializing plugins...
+[  83% ] first_scan_filesystem | Starting file scan...
+[ DONE ] first_scan_filesystem
+
+[   0% ] update_scripts_classes | Started Registering global classes... (25 steps)
+[   0% ] update_scripts_classes | EquipmentCatalogue
+[   3% ] update_scripts_classes | 
+[   7% ] update_scripts_classes | 
+[  11% ] update_scripts_classes | JoustMatch
+[  15% ] update_scripts_classes | UIFactory
+[  19% ] update_scripts_classes | EquipmentArt
+[  23% ] update_scripts_classes | 
+[  26% ] update_scripts_classes | ImpactFX
+[  30% ] update_scripts_classes | LanceShard
+[  34% ] update_scripts_classes | RiderView
+[  38% ] update_scripts_classes | SoundBank
+[  42% ] update_scripts_classes | BattleScene
+[  46% ] update_scripts_classes | 
+[  50% ] update_scripts_classes | 
+[  53% ] update_scripts_classes | 
+[  57% ] update_scripts_classes | 
+[  61% ] update_scripts_classes | 
+[  65% ] update_scripts_classes | 
+[  69% ] update_scripts_classes | 
+[  73% ] update_scripts_classes | 
+[  76% ] update_scripts_classes | 
+[  80% ] update_scripts_classes | 
+[  84% ] update_scripts_classes | 
+[  88% ] update_scripts_classes | 
+[  92% ] update_scripts_classes | 
+[ DONE ] update_scripts_classes
+
+[   0% ] _update_scan_actions | Started Scanning actions... (14 steps)
+[   0% ] _update_scan_actions | campaign_field.png
+[   6% ] _update_scan_actions | equipment_eras.png
+[  13% ] _update_scan_actions | nasal_head.png
+[  20% ] _update_scan_actions | rider_atlas.png
+[  26% ] _update_scan_actions | shield_fields.png
+[  33% ] _update_scan_actions | tournament_field.png
+[  40% ] _update_scan_actions | campaign_field.png
+[  46% ] _update_scan_actions | equipment_eras.png
+[  53% ] _update_scan_actions | nasal_head.png
+[  60% ] _update_scan_actions | rider_atlas.png
+[  66% ] _update_scan_actions | shield_fields.png
+[  73% ] _update_scan_actions | tournament_field.png
+[  80% ] _update_scan_actions | NotoSansSC.ttf
+[  86% ] _update_scan_actions | icon.svg
+[ DONE ] _update_scan_actions
+
+[   0% ] reimport | Started (Re)Importing Assets (14 steps)
+[   0% ] reimport | Preparing files to reimport...
+[   6% ] reimport | Preparing files to reimport...
+[  13% ] reimport | Preparing files to reimport...
+[  20% ] reimport | Preparing files to reimport...
+[  26% ] reimport | Preparing files to reimport...
+[  33% ] reimport | Preparing files to reimport...
+[  40% ] reimport | Preparing files to reimport...
+[  46% ] reimport | Preparing files to reimport...
+[  53% ] reimport | Preparing files to reimport...
+[  60% ] reimport | Preparing files to reimport...
+[  66% ] reimport | Preparing files to reimport...
+[  73% ] reimport | Preparing files to reimport...
+[  80% ] reimport | Preparing files to reimport...
+[  86% ] reimport | Preparing files to reimport...
+[   0% ] reimport | Executing pre-reimport operations...
+[   0% ] reimport | NotoSansSC.ttf
+[   6% ] reimport | NotoSansSC.ttf
+[  13% ] reimport | campaign_field.png
+[  20% ] reimport | equipment_eras.png
+[  26% ] reimport | nasal_head.png
+[  33% ] reimport | rider_atlas.png
+[  40% ] reimport | shield_fields.png
+[  46% ] reimport | tournament_field.png
+[  53% ] reimport | campaign_field.png
+[  60% ] reimport | equipment_eras.png
+[  66% ] reimport | nasal_head.png
+[  73% ] reimport | rider_atlas.png
+[  80% ] reimport | shield_fields.png
+[  86% ] reimport | tournament_field.png
+[  93% ] reimport | Finalizing Asset Import...
+[ DONE ] reimport
+
+[   0% ] reimport | Started (Re)Importing Assets (14 steps)
+[   0% ] reimport | Executing post-reimport operations...
+[ DONE ] reimport
+
+[   0% ] loading_editor_layout | Started Loading editor (5 steps)
+[   0% ] loading_editor_layout | Loading editor layout...
+[ DONE ] loading_editor_layout
+

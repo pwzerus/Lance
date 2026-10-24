@@ -4,6 +4,8 @@ Godot 4.5.1 + GDScript 的 Windows 单机试玩版 v0.3。项目依据原始 GDD
 
 ## 开始试玩
 
+**当前待解决：** 玩家在本轮末尾反馈左键仍不能加速。自动检查通过不能覆盖这一实际反馈；尚需核实真实启动版本及输入记录。可用根目录 `Play-Input-Diagnostic.cmd` 直接进入隔离练习场，按住左键3秒后关闭；诊断记录由开发者在本地读取，不改正式存档。
+
 双击根目录 `Play-Latest.cmd`，或打开 `builds/LanceAndLaurel-v0.3/LanceAndLaurel.exe`。首页底部显示 v0.3。旧 v0.1、v0.2 发布目录保留；不需要安装 Godot。
 
 `LanceAndLaurel.pck` 必须与 EXE 放在同一文件夹。移动或分享时，复制整个 `LanceAndLaurel` 文件夹，或使用其 ZIP 试玩包。

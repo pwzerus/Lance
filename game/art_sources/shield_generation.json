@@ -1,0 +1,8 @@
+{
+  "generator": "Built-in image_gen",
+  "shield_fields": {
+    "path": "assets/art/shield_fields.png",
+    "prompt": "Use case: historical-scene. Asset type: transparent 2 by 2 game sprite atlas containing exactly FOUR separate medieval wooden heater shields. Use supplied game atlas as STYLE reference only. Square canvas, four equal square cells, generous transparent gutters, no overlap. All four shields SAME SHAPE and SIZE, broad upper edge and pointed lower tip, slight three-quarter angle facing viewer and right, thick believable wooden body, restrained riveted warm brass rim and leather edge, small wood-grain painted texture and light wear. Match supplied detailed crisp pixel-art sprite aesthetic, dark pixel outlines, restrained natural palette, upper-left light. IMPORTANT: the entire painted FACE on each shield must be EMPTY of heraldry and charges, with large clear uninterrupted color surface so the game can draw geometric charges later. Upper-left cell: plain deep desaturated BLUE field. Upper-right: plain muted brick RED field. Lower-left: plain warm SILVER/IVORY painted field. Lower-right: plain muted OCHRE/GOLD painted field. NO bands, no crosses, no chevrons, no diamonds, no lion, no emblems, no bosses in the face center, no letters. Shields ONLY, no arm no hand no body no background no ground shadow, real transparent alpha. Complete shields fit inside their own cells. Not photorealistic, no smooth 3D render.",
+    "notes": "1254 square RGBA, four blank fields. Fictional geometric heraldry is rendered separately in GDScript."
+  }
+}

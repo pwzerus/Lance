@@ -1,0 +1,6 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+INPUT_AIM_HIGH (1237.5, 281.25) aim -0.14721450271161
+INPUT_AIM_LOW (1237.5, 731.25) aim 0.29525433041692
+INTEGRATION_TEST_REPORT {"checks":40,"failures":[],"passed":true,"scope":"UI callbacks, injected Esc/R, touch IDs, pause physics, blood, save failure/recovery, terminal result"}

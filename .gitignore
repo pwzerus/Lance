@@ -1,0 +1,8 @@
+.godot/
+/tools/
+/builds/
+*.tmp
+*.log
+game/art_sources/*_original.png
+__pycache__/
+*.pyc

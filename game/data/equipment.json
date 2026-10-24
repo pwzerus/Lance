@@ -1,0 +1,595 @@
+[
+  {
+    "id": "mail_basic",
+    "name": "旧式锁甲与蓝罩袍",
+    "slot": "armor",
+    "era": 0,
+    "price": 0,
+    "stats": {
+      "armor": 0.1,
+      "armor_tier": 0
+    },
+    "region": "欧洲共通",
+    "description": "环环相扣的锁甲，外覆朴素罩袍。早期四地区装备并非四种互不相似的制式。",
+    "source": "S36 · Met 1000–1300",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "约 1200–1300"
+  },
+  {
+    "id": "helm_nasal",
+    "name": "护鼻盔",
+    "slot": "helmet",
+    "era": 0,
+    "price": 0,
+    "stats": {
+      "helmet": 0.08,
+      "helmet_tier": 0
+    },
+    "region": "欧洲共通",
+    "description": "护鼻结构并非诺曼人独有。本作头像采用有体积感的像素分件重绘。",
+    "source": "S36 · Met 1000–1300",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "约 1180–1220"
+  },
+  {
+    "id": "lance_ash",
+    "name": "白蜡木长枪",
+    "slot": "lance",
+    "era": 0,
+    "price": 0,
+    "stats": {
+      "power": 1.0,
+      "durability": 100,
+      "reach": 247
+    },
+    "region": "欧洲共通",
+    "description": "基础骑枪。木种、长度和数值是首版配装设定，非一件已测量文物的复原。竞技场自动使用钝头比赛配置。",
+    "source": "S01 / S24 · 参考与游戏改编",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1100–1300 主题窗口"
+  },
+  {
+    "id": "horse_bay",
+    "name": "褐色骑乘马",
+    "slot": "horse",
+    "era": 0,
+    "price": 0,
+    "stats": {
+      "speed": 1.0,
+      "stability": 1.0,
+      "horse_color": "a87950"
+    },
+    "region": "欧洲共通",
+    "description": "训练与骑乘性情比单纯巨大体型更重要。本作不按现代马种虚构中世纪排行。",
+    "source": "S15 · Exeter 战马研究",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1100–1300 主题窗口"
+  },
+  {
+    "id": "crest_bend",
+    "name": "蓝地金斜带",
+    "slot": "crest",
+    "era": 0,
+    "price": 0,
+    "stats": {
+      "heraldry": "bend"
+    },
+    "region": "虚构纹章",
+    "description": "为游戏骑手设计的几何识别图案，不声称属于某个真实家族，也不保证历史上从未出现相同组合。",
+    "source": "S26 · 纹章结构参考",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1100–1300 主题窗口"
+  },
+  {
+    "id": "mail_eng",
+    "name": "英格兰骑手罩袍",
+    "slot": "armor",
+    "era": 0,
+    "price": 240,
+    "stats": {
+      "armor": 0.15,
+      "armor_tier": 0,
+      "armor_red": false
+    },
+    "region": "英格兰",
+    "description": "锁甲上的织物形成身份识别。产地与使用者地区在历史上不必相同。",
+    "source": "S36",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1100–1300 主题窗口"
+  },
+  {
+    "id": "mail_fr",
+    "name": "法兰西纹章罩袍",
+    "slot": "armor",
+    "era": 0,
+    "price": 280,
+    "stats": {
+      "armor": 0.17,
+      "armor_tier": 0,
+      "armor_red": true
+    },
+    "region": "法兰西",
+    "description": "丰富纹章色面与锁甲结构相配，保留同期朴素至贵重装备的差别。",
+    "source": "S36 / S20",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1100–1300 主题窗口"
+  },
+  {
+    "id": "mail_de",
+    "name": "德意志精制锁甲",
+    "slot": "armor",
+    "era": 0,
+    "price": 310,
+    "stats": {
+      "armor": 0.19,
+      "armor_tier": 0,
+      "armor_red": false
+    },
+    "region": "德意志",
+    "description": "地区线表示使用语境，不是全地区统一制式。本作抽象为较好的锁甲配置。",
+    "source": "S36 / S37",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1100–1300 主题窗口"
+  },
+  {
+    "id": "mail_it",
+    "name": "意大利骑手长罩袍",
+    "slot": "armor",
+    "era": 0,
+    "price": 270,
+    "stats": {
+      "armor": 0.16,
+      "armor_tier": 0,
+      "armor_red": false
+    },
+    "region": "意大利",
+    "description": "早期结构与其他地区有大量共性，不将后世米兰板甲提前放进初始时代。",
+    "source": "S36",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1100–1300 主题窗口"
+  },
+  {
+    "id": "helm_great",
+    "name": "十三世纪封闭盔",
+    "slot": "helmet",
+    "era": 0,
+    "price": 260,
+    "stats": {
+      "helmet": 0.24,
+      "helmet_tier": 1
+    },
+    "region": "欧洲共通",
+    "description": "封闭面部防护能形成鲜明轮廓。图鉴年代为主题窗口，具体资产属于风格化重绘。",
+    "source": "S08 / S36",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1100–1300 主题窗口"
+  },
+  {
+    "id": "helm_gilt",
+    "name": "饰边比武盔",
+    "slot": "helmet",
+    "era": 0,
+    "price": 410,
+    "stats": {
+      "helmet": 0.26,
+      "helmet_tier": 1,
+      "gilt": true
+    },
+    "region": "富裕骑手",
+    "description": "精致饰边和较好制作体现经济差别；金色不意味着神奇防护。",
+    "source": "S11 · 装饰背景；游戏变体",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1100–1300 主题窗口"
+  },
+  {
+    "id": "lance_long",
+    "name": "精选长杆骑枪",
+    "slot": "lance",
+    "era": 0,
+    "price": 230,
+    "stats": {
+      "power": 1.04,
+      "durability": 112,
+      "reach": 268
+    },
+    "region": "欧洲共通",
+    "description": "较长伸出段换来距离优势。本作质量与长度配置属于可玩性选择。",
+    "source": "S24 · 游戏改编",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1100–1300 主题窗口"
+  },
+  {
+    "id": "lance_stout",
+    "name": "坚实枪杆",
+    "slot": "lance",
+    "era": 0,
+    "price": 330,
+    "stats": {
+      "power": 1.13,
+      "durability": 132,
+      "reach": 242
+    },
+    "region": "欧洲共通",
+    "description": "偏向强度与耐久的配装，不代表所有战场长枪都不会折断。",
+    "source": "S24 · 游戏参数",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1100–1300 主题窗口"
+  },
+  {
+    "id": "horse_grey",
+    "name": "灰色受训坐骑",
+    "slot": "horse",
+    "era": 0,
+    "price": 340,
+    "stats": {
+      "speed": 1.055,
+      "stability": 1.04,
+      "horse_color": "b7b2a3"
+    },
+    "region": "欧洲共通",
+    "description": "以训练和性情建立差异，马匹的毛色本身不提供历史上的速度加成。",
+    "source": "S15 · 数值为游戏设计",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1100–1300 主题窗口"
+  },
+  {
+    "id": "horse_chestnut",
+    "name": "栗色比武坐骑",
+    "slot": "horse",
+    "era": 0,
+    "price": 420,
+    "stats": {
+      "speed": 1.035,
+      "stability": 1.12,
+      "horse_color": "a75c3b"
+    },
+    "region": "欧洲共通",
+    "description": "更稳定的鞍上表现，适合学习姿态操作。不是现代品种鉴定。",
+    "source": "S15 / S13",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1100–1300 主题窗口"
+  },
+  {
+    "id": "crest_chevron",
+    "name": "赤地银山形",
+    "slot": "crest",
+    "era": 0,
+    "price": 120,
+    "stats": {
+      "heraldry": "chevron"
+    },
+    "region": "虚构纹章",
+    "description": "清楚的几何主题，在盾、罩袍与旗帜间呼应；不同于文书蜡封。",
+    "source": "S26",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1100–1300 主题窗口"
+  },
+  {
+    "id": "crest_cross",
+    "name": "银地蓝十字",
+    "slot": "crest",
+    "era": 0,
+    "price": 160,
+    "stats": {
+      "heraldry": "cross"
+    },
+    "region": "虚构纹章",
+    "description": "图案为游戏中的虚构身份，不将十字自动等同特定真实骑士团。",
+    "source": "S26",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1100–1300 主题窗口"
+  },
+  {
+    "id": "crest_diamond",
+    "name": "金地黑菱形",
+    "slot": "crest",
+    "era": 0,
+    "price": 180,
+    "stats": {
+      "heraldry": "diamond"
+    },
+    "region": "虚构纹章",
+    "description": "远看有清楚色块，近看再添加装饰；不附会一套普世颜色寓意。",
+    "source": "S26",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1100–1300 主题窗口"
+  },
+  {
+    "id": "armor_e1",
+    "name": "铆接板片与锁甲",
+    "slot": "armor",
+    "era": 1,
+    "price": 610,
+    "stats": {
+      "armor": 0.235,
+      "armor_tier": 1
+    },
+    "region": "法兰西",
+    "description": "以相应时期的甲胄结构为参考，制作独立胸甲像素分件。当前四肢与马具仍用通用游戏组件，整套不能当作同期原装复原。",
+    "source": "S08 · 板片与锁甲背景",
+    "appearance": "",
+    "historical_note": "地区为收藏线；本件为风格化虚构设计。活动范围、盾与配套组件按游戏改编。",
+    "historical_window": "约 1350–1400"
+  },
+  {
+    "id": "helm_e1",
+    "name": "十四世纪面甲盔",
+    "slot": "helmet",
+    "era": 1,
+    "price": 475,
+    "stats": {
+      "helmet": 0.275,
+      "helmet_tier": 2
+    },
+    "region": "跨地区主题",
+    "description": "独立时期头盔分件，以面甲盔、紧闭盔、沙拉盔或闭合盔轮廓组织进程。细部为游戏风格化重绘，不是逐件文物的精确复制。",
+    "source": "S08 · bascinet 背景",
+    "appearance": "",
+    "historical_note": "造型属于风格化历史启发，未完成多角度结构复核；不是馆藏复制品。",
+    "historical_window": "约 1350–1400"
+  },
+  {
+    "id": "lance_e1",
+    "name": "过渡时期精选骑枪",
+    "slot": "lance",
+    "era": 1,
+    "price": 510,
+    "stats": {
+      "power": 1.12,
+      "durability": 132,
+      "reach": 258
+    },
+    "region": "工坊配装",
+    "description": "伤害、耐久、长度为游戏平衡参数；竞技场和实战使用不同枪头与断裂配置。",
+    "source": "S01 / S24",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1300–1400 主题窗口"
+  },
+  {
+    "id": "horse_e1",
+    "name": "过渡挑战受训坐骑",
+    "slot": "horse",
+    "era": 1,
+    "price": 630,
+    "stats": {
+      "speed": 1.045,
+      "stability": 1.095,
+      "horse_color": "b4aaa0"
+    },
+    "region": "受训坐骑",
+    "description": "表现成长来自游戏配装，不宣称越晚年代的马必然越大越快。专属马衣和马铠将在后续美术扩充。",
+    "source": "S13 / S15",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1300–1400 主题窗口"
+  },
+  {
+    "id": "armor_e2",
+    "name": "意式圆胸板甲",
+    "slot": "armor",
+    "era": 2,
+    "price": 840,
+    "stats": {
+      "armor": 0.29,
+      "armor_tier": 2
+    },
+    "region": "意大利",
+    "description": "以相应时期的甲胄结构为参考，制作独立胸甲像素分件。当前四肢与马具仍用通用游戏组件，整套不能当作同期原装复原。",
+    "source": "S10 · 意式风格背景",
+    "appearance": "",
+    "historical_note": "地区为收藏线；本件为风格化虚构设计。活动范围、盾与配套组件按游戏改编。",
+    "historical_window": "约 1440–1460"
+  },
+  {
+    "id": "helm_e2",
+    "name": "意式紧闭盔",
+    "slot": "helmet",
+    "era": 2,
+    "price": 650,
+    "stats": {
+      "helmet": 0.32,
+      "helmet_tier": 3
+    },
+    "region": "跨地区主题",
+    "description": "独立时期头盔分件，以面甲盔、紧闭盔、沙拉盔或闭合盔轮廓组织进程。细部为游戏风格化重绘，不是逐件文物的精确复制。",
+    "source": "S10 · 15 世纪防具背景",
+    "appearance": "",
+    "historical_note": "造型属于风格化历史启发，未完成多角度结构复核；不是馆藏复制品。",
+    "historical_window": "约 1440–1460"
+  },
+  {
+    "id": "lance_e2",
+    "name": "板甲时期精选骑枪",
+    "slot": "lance",
+    "era": 2,
+    "price": 700,
+    "stats": {
+      "power": 1.1600000000000001,
+      "durability": 144,
+      "reach": 263
+    },
+    "region": "工坊配装",
+    "description": "伤害、耐久、长度为游戏平衡参数；竞技场和实战使用不同枪头与断裂配置。",
+    "source": "S01 / S24",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1400–1470 主题窗口"
+  },
+  {
+    "id": "horse_e2",
+    "name": "板甲挑战受训坐骑",
+    "slot": "horse",
+    "era": 2,
+    "price": 840,
+    "stats": {
+      "speed": 1.065,
+      "stability": 1.12,
+      "horse_color": "846b56"
+    },
+    "region": "受训坐骑",
+    "description": "表现成长来自游戏配装，不宣称越晚年代的马必然越大越快。专属马衣和马铠将在后续美术扩充。",
+    "source": "S13 / S15",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1400–1470 主题窗口"
+  },
+  {
+    "id": "armor_e3",
+    "name": "德意志棱线胸甲",
+    "slot": "armor",
+    "era": 3,
+    "price": 1070,
+    "stats": {
+      "armor": 0.345,
+      "armor_tier": 3
+    },
+    "region": "德意志",
+    "description": "以相应时期的甲胄结构为参考，制作独立胸甲像素分件。当前四肢与马具仍用通用游戏组件，整套不能当作同期原装复原。",
+    "source": "S10 · 德意志风格背景",
+    "appearance": "",
+    "historical_note": "地区为收藏线；本件为风格化虚构设计。活动范围、盾与配套组件按游戏改编。",
+    "historical_window": "约 1480–1500"
+  },
+  {
+    "id": "helm_e3",
+    "name": "长尾沙拉盔与护颈",
+    "slot": "helmet",
+    "era": 3,
+    "price": 825,
+    "stats": {
+      "helmet": 0.365,
+      "helmet_tier": 4
+    },
+    "region": "跨地区主题",
+    "description": "独立时期头盔分件，以面甲盔、紧闭盔、沙拉盔或闭合盔轮廓组织进程。细部为游戏风格化重绘，不是逐件文物的精确复制。",
+    "source": "S10 · 1470–80 沙拉盔",
+    "appearance": "",
+    "historical_note": "造型属于风格化历史启发，未完成多角度结构复核；不是馆藏复制品。",
+    "historical_window": "约 1480–1500"
+  },
+  {
+    "id": "lance_e3",
+    "name": "比武时期精选骑枪",
+    "slot": "lance",
+    "era": 3,
+    "price": 890,
+    "stats": {
+      "power": 1.2000000000000002,
+      "durability": 156,
+      "reach": 268
+    },
+    "region": "工坊配装",
+    "description": "伤害、耐久、长度为游戏平衡参数；竞技场和实战使用不同枪头与断裂配置。",
+    "source": "S01 / S24",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1470–1530 主题窗口"
+  },
+  {
+    "id": "horse_e3",
+    "name": "比武挑战受训坐骑",
+    "slot": "horse",
+    "era": 3,
+    "price": 1050,
+    "stats": {
+      "speed": 1.085,
+      "stability": 1.145,
+      "horse_color": "66564c"
+    },
+    "region": "受训坐骑",
+    "description": "表现成长来自游戏配装，不宣称越晚年代的马必然越大越快。专属马衣和马铠将在后续美术扩充。",
+    "source": "S13 / S15",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1470–1530 主题窗口"
+  },
+  {
+    "id": "armor_e4",
+    "name": "蚀刻鎏金工坊甲",
+    "slot": "armor",
+    "era": 4,
+    "price": 1300,
+    "stats": {
+      "armor": 0.4,
+      "armor_tier": 4
+    },
+    "region": "意式工坊启发",
+    "description": "以相应时期的甲胄结构为参考，制作独立胸甲像素分件。当前四肢与马具仍用通用游戏组件，整套不能当作同期原装复原。",
+    "source": "S07 · 1575–80 装饰参考",
+    "appearance": "",
+    "historical_note": "地区为收藏线；本件为风格化虚构设计。活动范围、盾与配套组件按游戏改编。",
+    "historical_window": "约 1575–1580"
+  },
+  {
+    "id": "helm_e4",
+    "name": "蚀刻饰带闭合盔",
+    "slot": "helmet",
+    "era": 4,
+    "price": 1000,
+    "stats": {
+      "helmet": 0.41000000000000003,
+      "helmet_tier": 5
+    },
+    "region": "跨地区主题",
+    "description": "独立时期头盔分件，以面甲盔、紧闭盔、沙拉盔或闭合盔轮廓组织进程。细部为游戏风格化重绘，不是逐件文物的精确复制。",
+    "source": "S07 · 1575–80 闭合盔背景",
+    "appearance": "",
+    "historical_note": "造型属于风格化历史启发，未完成多角度结构复核；不是馆藏复制品。",
+    "historical_window": "约 1575–1580"
+  },
+  {
+    "id": "lance_e4",
+    "name": "宫廷时期精选骑枪",
+    "slot": "lance",
+    "era": 4,
+    "price": 1080,
+    "stats": {
+      "power": 1.24,
+      "durability": 168,
+      "reach": 273
+    },
+    "region": "工坊配装",
+    "description": "伤害、耐久、长度为游戏平衡参数；竞技场和实战使用不同枪头与断裂配置。",
+    "source": "S01 / S24",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1530–1600 主题窗口"
+  },
+  {
+    "id": "horse_e4",
+    "name": "宫廷挑战受训坐骑",
+    "slot": "horse",
+    "era": 4,
+    "price": 1260,
+    "stats": {
+      "speed": 1.105,
+      "stability": 1.1700000000000002,
+      "horse_color": "d1c7af"
+    },
+    "region": "受训坐骑",
+    "description": "表现成长来自游戏配装，不宣称越晚年代的马必然越大越快。专属马衣和马铠将在后续美术扩充。",
+    "source": "S13 / S15",
+    "appearance": "",
+    "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
+    "historical_window": "1530–1600 主题窗口"
+  }
+]

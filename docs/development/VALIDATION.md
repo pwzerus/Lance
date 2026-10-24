@@ -1,6 +1,6 @@
 # v0.2 验收补充
 
-新增冲锋、姿态、攻防、镜头、碎片和H显示专项测试 `game/tests/test_game_feel.gd`；同一高枪路径下验证站直中头、前倾盾挡、后仰闪避。规则114项、场景40项仍通过，发布包独立集成40项通过。日志分别为 `v02-rules-final.log`、`v02-integration.log`、`v02-exported-integration-retry.log`，专项结果见 `v02-overlay-final.log` 和最终发布包的 `v02-exported-game-feel.log`。
+新增冲锋、姿态、攻防、镜头、碎片和H显示专项测试 `game/tests/test_game_feel.gd`；同一高枪路径下验证站直中头、前倾盾挡、后仰闪避。规则114项、场景40项仍通过，发布包独立集成40项通过；最终EXE/PCK专项27项通过。日志分别为 `v02-rules-final.log`、`v02-integration.log`、`v02-exported-integration-retry.log`，专项结果见最终发布包的 `v02-exported-game-feel.log`。
 
 最终交付程序位于 `builds/LanceAndLaurel-v0.2/`。完整发布包自动试玩已经完成双模式和两次结算、9张截图，日志 `logs/v02-exported-smoke.log`，截图 `exported_screenshots/v02/`。最后的教学圈上层显示修正另在发布包专项测试中验证。早期并发验收出现过一次分配/解码失败，独立重试通过；已如实记录在 `V02_REVIEW.md`。
 

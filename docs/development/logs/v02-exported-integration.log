@@ -1,0 +1,143 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+ERROR: Parameter "mem" is null.
+   at: alloc_static (core/os/memory.cpp:111)
+ERROR: Parameter "mem_new" is null.
+   at: _alloc (./core/templates/cowdata.h:384)
+ERROR: Failed decoding WebP image.
+   at: _webp_unpack (modules/webp/webp_common.cpp:147)
+ERROR: Condition "img.is_null() || img->is_empty()" is true. Returning: Ref<Image>()
+   at: load_image_from_file (scene/resources/compressed_texture.cpp:339)
+ERROR: Failed loading resource: res://.godot/imported/shield_fields.png-6d541ce7676e619818d647566bf03b0c.ctex.
+   at: _load (core/io/resource_loader.cpp:343)
+ERROR: Failed loading resource: res://assets/art/shield_fields.png.
+   at: _load (core/io/resource_loader.cpp:343)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://assets/art/shield_fields.png".
+   at: GDScript::reload (res://scripts/visual/equipment_art.gd:7)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/visual/rider_view.gd:0)
+ERROR: Parameter "mem" is null.
+   at: alloc_static (core/os/memory.cpp:111)
+ERROR: Parameter "mem_new" is null.
+   at: _alloc (./core/templates/cowdata.h:384)
+ERROR: Condition "!p_dst && p_length > 0" is true. Returning: -1
+   at: get_buffer (core/io/file_access_pack.cpp:420)
+ERROR: Condition "size <= 0" is true. Returning: Ref<Image>()
+   at: _webp_unpack (modules/webp/webp_common.cpp:124)
+ERROR: Condition "img.is_null() || img->is_empty()" is true. Returning: Ref<Image>()
+   at: load_image_from_file (scene/resources/compressed_texture.cpp:339)
+ERROR: Failed loading resource: res://.godot/imported/campaign_field.png-446eefbb0b92054c988363bf2cb7d1e8.ctex.
+   at: _load (core/io/resource_loader.cpp:343)
+ERROR: Failed loading resource: res://assets/art/campaign_field.png.
+   at: _load (core/io/resource_loader.cpp:343)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://assets/art/campaign_field.png".
+   at: GDScript::reload (res://scripts/battle.gd:14)
+ERROR: Parameter "mem" is null.
+   at: alloc_static (core/os/memory.cpp:111)
+ERROR: Parameter "mem_new" is null.
+   at: _alloc (./core/templates/cowdata.h:384)
+ERROR: Condition "!p_dst && p_length > 0" is true. Returning: -1
+   at: get_buffer (core/io/file_access_pack.cpp:420)
+ERROR: Condition "size <= 0" is true. Returning: Ref<Image>()
+   at: _webp_unpack (modules/webp/webp_common.cpp:124)
+ERROR: Condition "img.is_null() || img->is_empty()" is true. Returning: Ref<Image>()
+   at: load_image_from_file (scene/resources/compressed_texture.cpp:339)
+ERROR: Failed loading resource: res://.godot/imported/equipment_eras.png-eab3af739dfdf3d64b8321cc26c82d30.ctex.
+   at: _load (core/io/resource_loader.cpp:343)
+ERROR: Failed loading resource: res://assets/art/equipment_eras.png.
+   at: _load (core/io/resource_loader.cpp:343)
+ERROR: Parameter "mem" is null.
+   at: alloc_static (core/os/memory.cpp:111)
+ERROR: Parameter "mem_new" is null.
+   at: _alloc (./core/templates/cowdata.h:384)
+ERROR: Condition "!p_dst && p_length > 0" is true. Returning: -1
+   at: get_buffer (core/io/file_access_pack.cpp:420)
+ERROR: Condition "size <= 0" is true. Returning: Ref<Image>()
+   at: _webp_unpack (modules/webp/webp_common.cpp:124)
+ERROR: Condition "img.is_null() || img->is_empty()" is true. Returning: Ref<Image>()
+   at: load_image_from_file (scene/resources/compressed_texture.cpp:339)
+ERROR: Failed loading resource: res://.godot/imported/nasal_head.png-21201868bcc594051d3b9cdfde42d49e.ctex.
+   at: _load (core/io/resource_loader.cpp:343)
+ERROR: Failed loading resource: res://assets/art/nasal_head.png.
+   at: _load (core/io/resource_loader.cpp:343)
+ERROR: Parameter "mem" is null.
+   at: alloc_static (core/os/memory.cpp:111)
+ERROR: Parameter "mem_new" is null.
+   at: _alloc (./core/templates/cowdata.h:384)
+ERROR: Condition "!p_dst && p_length > 0" is true. Returning: -1
+   at: get_buffer (core/io/file_access_pack.cpp:420)
+ERROR: Condition "size <= 0" is true. Returning: Ref<Image>()
+   at: _webp_unpack (modules/webp/webp_common.cpp:124)
+ERROR: Condition "img.is_null() || img->is_empty()" is true. Returning: Ref<Image>()
+   at: load_image_from_file (scene/resources/compressed_texture.cpp:339)
+ERROR: Failed loading resource: res://.godot/imported/shield_fields.png-6d541ce7676e619818d647566bf03b0c.ctex.
+   at: _load (core/io/resource_loader.cpp:343)
+ERROR: Failed loading resource: res://assets/art/shield_fields.png.
+   at: _load (core/io/resource_loader.cpp:343)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://assets/art/equipment_eras.png".
+   at: GDScript::reload (res://scripts/visual/equipment_art.gd:5)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://assets/art/nasal_head.png".
+   at: GDScript::reload (res://scripts/visual/equipment_art.gd:6)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://assets/art/shield_fields.png".
+   at: GDScript::reload (res://scripts/visual/equipment_art.gd:7)
+ERROR: Parameter "mem" is null.
+   at: alloc_static (core/os/memory.cpp:111)
+ERROR: Parameter "mem_new" is null.
+   at: _alloc (./core/templates/cowdata.h:384)
+ERROR: Condition "!p_dst && p_length > 0" is true. Returning: -1
+   at: get_buffer (core/io/file_access_pack.cpp:420)
+ERROR: Condition "size <= 0" is true. Returning: Ref<Image>()
+   at: _webp_unpack (modules/webp/webp_common.cpp:124)
+ERROR: Condition "img.is_null() || img->is_empty()" is true. Returning: Ref<Image>()
+   at: load_image_from_file (scene/resources/compressed_texture.cpp:339)
+ERROR: Failed loading resource: res://.godot/imported/equipment_eras.png-eab3af739dfdf3d64b8321cc26c82d30.ctex.
+   at: _load (core/io/resource_loader.cpp:343)
+ERROR: Failed loading resource: res://assets/art/equipment_eras.png.
+   at: _load (core/io/resource_loader.cpp:343)
+ERROR: Parameter "mem" is null.
+   at: alloc_static (core/os/memory.cpp:111)
+ERROR: Parameter "mem_new" is null.
+   at: _alloc (./core/templates/cowdata.h:384)
+ERROR: Failed decoding WebP image.
+   at: _webp_unpack (modules/webp/webp_common.cpp:147)
+ERROR: Condition "img.is_null() || img->is_empty()" is true. Returning: Ref<Image>()
+   at: load_image_from_file (scene/resources/compressed_texture.cpp:339)
+ERROR: Failed loading resource: res://.godot/imported/nasal_head.png-21201868bcc594051d3b9cdfde42d49e.ctex.
+   at: _load (core/io/resource_loader.cpp:343)
+ERROR: Failed loading resource: res://assets/art/nasal_head.png.
+   at: _load (core/io/resource_loader.cpp:343)
+ERROR: Parameter "mem" is null.
+   at: alloc_static (core/os/memory.cpp:111)
+ERROR: Parameter "mem_new" is null.
+   at: _alloc (./core/templates/cowdata.h:384)
+ERROR: Condition "!p_dst && p_length > 0" is true. Returning: -1
+   at: get_buffer (core/io/file_access_pack.cpp:420)
+ERROR: Condition "size <= 0" is true. Returning: Ref<Image>()
+   at: _webp_unpack (modules/webp/webp_common.cpp:124)
+ERROR: Condition "img.is_null() || img->is_empty()" is true. Returning: Ref<Image>()
+   at: load_image_from_file (scene/resources/compressed_texture.cpp:339)
+ERROR: Failed loading resource: res://.godot/imported/shield_fields.png-6d541ce7676e619818d647566bf03b0c.ctex.
+   at: _load (core/io/resource_loader.cpp:343)
+ERROR: Failed loading resource: res://assets/art/shield_fields.png.
+   at: _load (core/io/resource_loader.cpp:343)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://assets/art/equipment_eras.png".
+   at: GDScript::reload (res://scripts/visual/equipment_art.gd:5)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://assets/art/nasal_head.png".
+   at: GDScript::reload (res://scripts/visual/equipment_art.gd:6)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://assets/art/shield_fields.png".
+   at: GDScript::reload (res://scripts/visual/equipment_art.gd:7)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/visual/impact_fx.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/main.gd:0)
+ERROR: Failed to load script "res://scripts/main.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript.cpp:3041)
+ERROR: Parameter "mem" is null.
+   at: alloc_static (core/os/memory.cpp:111)
+ERROR: Parameter "mem_new" is null.
+   at: _alloc (./core/templates/cowdata.h:384)
+ERROR: Parameter "p_dst" is null.
+   at: get_buffer (core/io/file_access_compressed.cpp:255)
+ERROR: FATAL: Index p_index = 256 is out of bounds (size() = 40).
+   at: get (./core/templates/cowdata.h:187)

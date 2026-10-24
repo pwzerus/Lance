@@ -15,7 +15,7 @@ var qa_input_probe = false
 
 func _ready() -> void:
 	var arguments = OS.get_cmdline_user_args()
-	qa_input_probe = OS.get_executable_path().get_file().begins_with("LanceAndLaurel-QA")
+	qa_input_probe = OS.get_executable_path().get_file().to_lower().begins_with("lanceandlaurel-qa")
 	if arguments.has("--smoke-test") or arguments.has("--test-profile") or qa_input_probe:
 		save_path = "user://qa_profile_v1.json"
 		backup_path = "user://qa_profile_v1.backup.json"

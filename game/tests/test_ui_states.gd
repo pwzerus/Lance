@@ -10,7 +10,7 @@ func capture(name_value: String) -> void:
 	await process_frame
 	await process_frame
 	await RenderingServer.frame_post_draw
-	var error = root.get_texture().get_image().save_png("E:/GALUMU/docs/development/screenshots/v03/"+name_value+".png")
+	var error = root.get_texture().get_image().save_png("E:/GALUMU/docs/development/screenshots/v04/"+name_value+".png")
 	print("UI_STATE ",name_value," ",error)
 
 func run() -> void:

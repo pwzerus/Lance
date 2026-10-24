@@ -2,11 +2,14 @@ class_name JoustMatch
 extends RefCounted
 
 const MAX_PASSES = 3
-const START_X = 1900.0
+const START_X = 2200.0
 const EXIT_X = 850.0
 const TROT_SPEED = 210.0
 const GALLOP_SPEED = 480.0
 const SURGE_SPEED = 515.0
+const SPUR_DURATION = 2.0
+const ACCELERATION = 600.0
+const COAST_DECELERATION = 85.0
 const GROUND_Y = 0.0
 const HIP = Vector2(-18, -168)
 var mode = "arena"
@@ -148,7 +151,7 @@ func step(delta: float) -> void:
 			target_speed = SURGE_SPEED * multiplier
 			fighter.surge = maxf(0.0, float(fighter.surge) - delta)
 			fighter.speed = maxf(float(fighter.speed), target_speed)
-		fighter.speed = move_toward(float(fighter.speed), target_speed, (230.0 if accelerating else 145.0) * delta)
+		fighter.speed = move_toward(float(fighter.speed), target_speed, (ACCELERATION if accelerating else COAST_DECELERATION) * delta)
 		fighter.x += int(fighter.direction) * float(fighter.speed) * delta
 	# Gather both candidates BEFORE applying either result, preserving simultaneous hits.
 	var contacts: Array = []

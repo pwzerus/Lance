@@ -1,3 +1,17 @@
+# v0.4 验收补充
+
+本轮源项目规则114、战术19、AI观察5、集成43、动作30、响应16项通过。发布候选EXE/PCK集成43、动作30、响应16项也通过。日志均以 `logs/v04-` 开头；最终AI修复后的打包复验另记在 `V04_REVIEW.md` 附录。
+
+最终交付导出为 `logs/v04-export-delivery.log`。结算遮挡修复后，同一EXE/PCK的43项集成通过，双模式与9张截图完成，分别见 `logs/v04-exported-integration-delivery.log`、`v04-exported-smoke-delivery.log`；最终动作专项在 `v04-exported-game-feel-delivery.log`。已目视确认最终胜负标题和两种模式说明。旧版校验和与发布包未覆盖。
+
+`test_charge_response.gd` 覆盖起速/满速维持/缓降、超过点按缓冲的三秒长按、松开、实际控件最小尺寸不重叠、六组距离的镜头屏幕位移。第一次因为下拉框实际高度而失败，样式修正后通过；不是只检查设定坐标。
+
+桌面证据 `logs/v04-desktop-click-confirmed.jsonl`、`screenshots/v04/16_desktop_tap.png` 来自OS级工具点按，不是引擎内部注入，也不是真人硬件操作。桌面短拖动只有约26ms；三秒长按来自引擎输入测试。不能将二者合称完整硬件验收。
+
+复现新测试：`Godot_v4.5.1-stable_win64_console.exe --headless --path E:/GALUMU/game --script res://tests/test_charge_response.gd -- --test-profile`。GUI测试一次只跑一个。正式收藏存档不用于测试。
+
+---
+
 # v0.3 验收补充
 
 环境：Godot4.5.1，Windows x86_64，Intel OpenGL Compatibility。全部使用隔离QA存档。导出包 `builds/LanceAndLaurel-v0.3/`，最终代码导出日志 `logs/v03-export-release.log`。

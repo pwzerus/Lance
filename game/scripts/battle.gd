@@ -101,7 +101,7 @@ func _ready() -> void:
 	scenery.add_child(backdrop)
 	camera = Camera2D.new()
 	camera.position = Vector2(720,480)
-	camera.zoom = Vector2.ONE*.30
+	camera.zoom = Vector2.ONE*.28
 	add_child(camera)
 	camera.make_current()
 	effects = FX.new()
@@ -177,8 +177,17 @@ func _build_hud() -> void:
 	speed_meter.position = Vector2(950,735)
 	speed_meter.size = Vector2(440,12)
 	speed_meter.min_value = Model.TROT_SPEED
-	speed_meter.max_value = Model.GALLOP_SPEED
+	speed_meter.max_value = Model.SURGE_SPEED
 	speed_meter.show_percentage = false
+	var meter_background = UI.box(Color("14251f"),Color("65745b"),2)
+	var meter_fill = UI.box(Color("c6a258"),Color("ead09a"),2)
+	for meter_style in [meter_background,meter_fill]:
+		meter_style.content_margin_top = 0
+		meter_style.content_margin_bottom = 0
+		meter_style.content_margin_left = 0
+		meter_style.content_margin_right = 0
+	speed_meter.add_theme_stylebox_override("background",meter_background)
+	speed_meter.add_theme_stylebox_override("fill",meter_fill)
 	hud.add_child(speed_meter)
 	var tactic_panel = UI.panel(hud,Rect2(16,81,1000,35),Color(.045,.08,.065,.91))
 	tactics_label = UI.label(tactic_panel,"",Vector2(13,3),18,UI.GOLD,970)
@@ -238,7 +247,10 @@ func _update_ai(delta: float) -> void:
 	# instantaneous controls. Keep applying the cached pose below this gate.
 	var committed = match_model.phase=="charge" and float(player.x)<float(ai.x) and distance<[0.0,800.0,500.0][difficulty]
 	if ai_timer <= 0 and not committed:
-		ai_timer = [1.0,.65,.34][difficulty]
+		# Vary observation timing slightly so charge acceleration cannot align
+		# every pass with the same final observation. This is delayed sensing,
+		# not a random damage roll or a read of instantaneous player controls.
+		ai_timer = [1.0,.65,.34][difficulty]*ai_rng.randf_range(.90,1.10)
 		ai_error = ai_rng.randf_range(-1,1) * [34.0,19.0,8.0][difficulty]
 		var choice = ai_rng.randf()
 		ai_zone = "head" if choice<[.18,.30,.40][difficulty] else ("flank" if choice>.72 else "body")
@@ -316,7 +328,7 @@ func _process(delta: float) -> void:
 	last_visual_time = now
 	if not paused:
 		_update_camera(real_delta,now)
-		Engine.time_scale = .001 if now < hitstop_until else (.20 if now < slow_until else (.52 if approach_slow else 1.0))
+		Engine.time_scale = .001 if now < hitstop_until else (.20 if now < slow_until else (.72 if approach_slow else 1.0))
 		if terminal_at>0 and now>=hitstop_until:
 			departure_elapsed = minf(1.4,departure_elapsed+delta)
 		if terminal_at > 0 and now - terminal_at > 2600 and not is_finished:
@@ -345,8 +357,10 @@ func _update_camera(real_delta: float, now: int) -> void:
 	var b = float(match_model.fighters[1].x)
 	var separation = absf(b-a)
 	var before_crossing = a<b
-	approach_slow = GameState.profile.settings.get("slow_motion",true) and match_model.phase=="charge" and before_crossing and separation<850 and not pass_connected
-	var desired_zoom = clampf(1260.0/(separation+440),.28,1.65)
+	approach_slow = GameState.profile.settings.get("slow_motion",true) and match_model.phase=="charge" and before_crossing and separation<650 and not pass_connected
+	# Sublinear zoom preserves visible approach motion. Inverse-distance
+	# framing nearly pinned both riders in place and concealed acceleration.
+	var desired_zoom = clampf(.28*pow((Model.START_X*2.0)/maxf(separation,250),.65),.28,1.65)
 	if terminal_at>0:
 		desired_zoom = 1.6 if now-terminal_at<850 else 1.05
 	var blend = 1.0-exp(-real_delta*(5.0 if approach_slow else 3.3))
@@ -371,16 +385,23 @@ func _update_hud() -> void:
 	if not match_model or not callout:
 		return
 	var phase = match_model.phase
-	ready_panel.visible = phase in ["ready","turn","ended"]
+	ready_panel.visible = phase in ["ready","turn"] or (phase=="ended" and not is_finished)
+	callout.visible = not is_finished
+	subcallout.visible = not is_finished
 	var f = match_model.fighters[0]
 	speed_meter.value = float(f.speed)
-	speed_label.text = "%s  %d%%  ·  耐力 %d%%" % ["已催马 · 等待起跑" if f.boost and phase=="ready" else ("催马冲刺" if f.boost and float(f.stamina)>4 else "巡航"),roundi(float(f.speed)/Model.GALLOP_SPEED*100),roundi(f.stamina)]
+	var pace_text = "催马" if f.boost and float(f.stamina)>4 else ("减速中" if float(f.speed)>Model.TROT_SPEED+20 else "巡航")
+	if phase=="ready" and f.boost:
+		pace_text = "已催马 · 等待起跑"
+	speed_label.text = "%s · 速度 %d · 耐力 %d%%" % [pace_text,roundi(float(f.speed)),roundi(f.stamina)]
 	var guard_text = "高盾 · 胸腹暴露" if guard_high else "低盾 · 头部暴露"
 	if absf(float(f.guard)-(1.0 if guard_high else 0.0))>.08:
 		guard_text = "换盾中 · 留意空隙"
 	if float(f.shield)<=0:
 		guard_text = "盾已破损 · 用姿态避枪"
 	tactics_label.text = "%s　|　枪稳 %d%%　|　平衡 %d%%　|　盾 %d%%" % [guard_text,roundi(float(f.lance_stability)*100),roundi(f.balance),roundi(float(f.shield)/78*100)]
+	if approach_slow:
+		tactics_label.text += "　· 接近放缓"
 	tactics_label.modulate = Color(1.3,1.2,.7) if Time.get_ticks_msec()<input_flash_until else Color.WHITE
 	if practice:
 		hint.text = "练习 · 催马%s　调枪%s　换盾%s　俯仰%s　| 右键 / Q 换盾位" % ["完成" if learned.boost else "待尝试","完成" if learned.aim else "待尝试","完成" if learned.guard else "待尝试","完成" if learned.posture else "待尝试"]
@@ -482,7 +503,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:
 		mouse_held = event.pressed and not paused
 		if mouse_held:
-			spur_left = 1.15
+			spur_left = Model.SPUR_DURATION
 			input_flash_until = Time.get_ticks_msec()+350
 			learned.boost = true
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT and event.pressed and not paused:

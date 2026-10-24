@@ -20,7 +20,7 @@ func wait(seconds: float) -> void:
 
 func capture(name_value: String) -> void:
 	await RenderingServer.frame_post_draw
-	root.get_texture().get_image().save_png("E:/GALUMU/docs/development/screenshots/v03/"+name_value+".png")
+	root.get_texture().get_image().save_png("E:/GALUMU/docs/development/screenshots/v04/"+name_value+".png")
 
 func fixed_head_attack(defender_lean: float) -> String:
 	var model = Model.new("arena")
@@ -119,9 +119,9 @@ func run() -> void:
 	check(battle.match_model.fighters[0].boost and battle.spur_left>1,"A countdown tap must remain queued until the horse starts")
 	battle.match_model.phase = "charge"
 	var charge_start_x = float(battle.match_model.fighters[0].x)
-	await wait(1.35)
+	await wait(2.15)
 	check(not battle.match_model.fighters[0].boost and battle.spur_left==0,"A released tap must expire after actual running time")
-	check(float(battle.match_model.fighters[0].speed)>400 and float(battle.match_model.fighters[0].x)-charge_start_x>400,"Queued desktop click must accelerate and move the actual horse after launch")
+	check(float(battle.match_model.fighters[0].speed)>450 and float(battle.match_model.fighters[0].x)-charge_start_x>850,"Queued click must maintain a visible gallop and actual travel after launch")
 	battle.match_model.phase = "ready"
 	battle.autoplay = true
 	# Place a controlled close encounter to verify actual projection, not a
@@ -133,7 +133,7 @@ func run() -> void:
 	check(battle.camera.zoom.x>1.1,"Camera must approach riders for readable contact")
 	# Stop the camera easing for this coordinate assertion so the stationary
 	# screen point does not become a different world point while it settles.
-	battle.camera.zoom = Vector2.ONE*(1260.0/890.0)
+	battle.camera.zoom = Vector2.ONE*clampf(.28*pow((Model.START_X*2.0)/450.0,.65),.28,1.65)
 	battle.camera.force_update_scroll()
 	battle.autoplay = false
 	battle.ai_timer = 1000

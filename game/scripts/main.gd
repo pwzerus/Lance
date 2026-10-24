@@ -37,6 +37,8 @@ var smoke_last_report = 0
 var practice_match = false
 
 func _ready() -> void:
+	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4"
+	print("GALUMU_BUILD v0.4")
 	get_window().min_size = Vector2i(960,540)
 	ui_layer = CanvasLayer.new()
 	add_child(ui_layer)
@@ -54,7 +56,7 @@ func _ready() -> void:
 		smoke_started = Time.get_ticks_msec()
 	show_home()
 	if GameState.qa_input_probe:
-		get_window().title = "Lance & Laurel v0.3 QA - Desktop input"
+		get_window().title = "Lance & Laurel v0.4 QA - Desktop input"
 		var audit = preload("res://scripts/core/desktop_input_audit.gd").new()
 		audit.main = self
 		add_child(audit)
@@ -110,11 +112,16 @@ func show_home() -> void:
 	UI.button(screen,"军械库 / 购买与装备",Rect2(62,541,340,54),show_armory)
 	UI.button(screen,"历史手记",Rect2(420,541,164,54),show_history)
 	UI.button(screen,"设置",Rect2(596,541,164,54),show_settings)
-	UI.button(screen,"练习场 · 熟悉枪盾（不计输赢）",Rect2(62,613,698,52),func():_begin_match("arena",true))
-	UI.label(screen,"地区线",Vector2(65,625),17,UI.MUTED)
+	UI.button(screen,"练习场 · 熟悉枪盾（不计输赢）",Rect2(62,650,698,42),func():_begin_match("arena",true))
+	UI.label(screen,"地区线",Vector2(65,611),17,UI.MUTED)
 	var region = OptionButton.new()
-	region.position = Vector2(155,617)
-	region.size = Vector2(245,44)
+	region.position = Vector2(155,603)
+	region.size = Vector2(245,40)
+	for state_name in ["normal","hover","pressed","disabled","focus"]:
+		var compact_style = region.get_theme_stylebox(state_name).duplicate()
+		compact_style.content_margin_top = 4
+		compact_style.content_margin_bottom = 4
+		region.add_theme_stylebox_override(state_name,compact_style)
 	for name_value in Catalogue.REGIONS:
 		region.add_item(name_value)
 	region.selected = int(GameState.profile.region)
@@ -123,10 +130,10 @@ func show_home() -> void:
 		GameState.save_profile()
 		show_home())
 	screen.add_child(region)
-	UI.label(screen,"当前年代  " + Catalogue.ERAS[Catalogue.era_for_renown(int(GameState.profile.renown))],Vector2(420,629),17,UI.GOLD)
+	UI.label(screen,"当前年代  " + Catalogue.ERAS[Catalogue.era_for_renown(int(GameState.profile.renown))],Vector2(420,611),17,UI.GOLD)
 	UI.separator(screen,Vector2(62,696),698)
 	UI.label(screen,"鼠标瞄准   左键加速   W/S 倾身   Esc 暂停",Vector2(62,718),17,UI.MUTED)
-	UI.label(screen,"单机试玩版  ·  Windows  ·  v0.3 · 枪盾攻防",Vector2(62,751),14,UI.MUTED)
+	UI.label(screen,"单机试玩版  ·  Windows  ·  v0.4 · 催马与冲锋",Vector2(62,751),14,UI.MUTED)
 	UI.button(screen,"退出游戏",Rect2(608,739,150,38),func():
 		GameState.save_profile()
 		get_tree().quit())

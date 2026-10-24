@@ -1,12 +1,12 @@
 # 骑枪与桂冠 · Lance & Laurel
 
-Godot 4.5.1 + GDScript 的 Windows 单机试玩版 v0.3。项目依据原始 GDD、`DESIGN_DECISIONS.md` 和历史考据档案开发；本轮加入高低盾、枪稳取舍、免费练习场和像素风重绘。
+Godot 4.5.1 + GDScript 的 Windows 单机试玩版 v0.4。项目依据原始 GDD、`DESIGN_DECISIONS.md` 和历史考据档案开发；本轮根据桌面输入记录重调催马、减速与镜头，修复练习入口遮挡。
 
 ## 开始试玩
 
-**当前待解决：** 玩家在本轮末尾反馈左键仍不能加速。自动检查通过不能覆盖这一实际反馈；尚需核实真实启动版本及输入记录。可用根目录 `Play-Input-Diagnostic.cmd` 直接进入隔离练习场，按住左键3秒后关闭；诊断记录由开发者在本地读取，不改正式存档。
+根据玩家“加速变化太小”的反馈，新版点按约0.45游戏秒升到疾驰，维持催马2游戏秒，松开后逐渐减速。OS级桌面点按已取得速度变化记录，长按3游戏秒在引擎内验证；不将工具的短按/拖动称为真人长时间试玩。详见 `docs/development/V04_REVIEW.md`。
 
-双击根目录 `Play-Latest.cmd`，或打开 `builds/LanceAndLaurel-v0.3/LanceAndLaurel.exe`。首页底部显示 v0.3。旧 v0.1、v0.2 发布目录保留；不需要安装 Godot。
+双击根目录 `Play-Latest.cmd`，或打开 `builds/LanceAndLaurel-v0.4/LanceAndLaurel.exe`。窗口标题和首页底部显示 v0.4。旧发布目录保留；不需要安装 Godot。
 
 `LanceAndLaurel.pck` 必须与 EXE 放在同一文件夹。移动或分享时，复制整个 `LanceAndLaurel` 文件夹，或使用其 ZIP 试玩包。
 
@@ -15,7 +15,7 @@ Godot 4.5.1 + GDScript 的 Windows 单机试玩版 v0.3。项目依据原始 GDD
 | 操作 | 效果 |
 | --- | --- |
 | 上下移动鼠标 | 调整枪尖高度；停住压稳，大幅变招会失稳；镜头自行缩放时保持原角度 |
-| 按住左键 / 空格，或点按左键 | 按住持续加速，点按催马约1.15游戏秒；倒计时内点按保留到冲锋开始 |
+| 按住左键 / 空格，或点按左键 | 按住持续加速，点按催马2游戏秒；倒计时内点按保留到冲锋开始，松开后逐渐减速 |
 | 右键 / Q | 高低盾切换：高盾护头，低盾护腰腹；切换约0.36游戏秒，另一处暴露 |
 | W / S，或上 / 下方向键 | 前倾架盾约 25° / 后仰约 45°；姿态带惯性 |
 | H | 显示 / 隐藏实际受击范围，默认关闭 |
@@ -25,7 +25,7 @@ Godot 4.5.1 + GDScript 的 Windows 单机试玩版 v0.3。项目依据原始 GDD
 
 设置中可启用纯鼠标倾身：滚轮调节，中键回正。马匹始终自动前进。战斗没有准星、轨迹线或瞄准吸附。
 
-长距离冲锋逐渐加速，近身时镜头靠近并放缓，接触后短暂顿帧、碎片飞出，交错后镜头拉远。可在设置关闭接近放缓及命中慢动作。底栏显示实际速度与耐力；上栏显示盾位、盾耐久、枪稳和平衡；命中后显示实际部位及盾破损。高盾可挡高枪，但露出腰腹。后仰可避开已承诺的高枪，同时削弱自身攻击并降低平衡。头部伤害危险，防护与姿态会影响结果。
+长距离冲锋快速起速，镜头保留可见的接近运动，最后一小段有限放缓，接触后短暂顿帧、碎片飞出，交错后拉远。可在设置关闭接近放缓及命中慢动作。底栏区分催马、减速中与巡航，显示游戏速度和耐力；速度不是历史实测公里时速。上栏显示盾位、盾耐久、枪稳和平衡；命中后显示实际部位及盾破损。高盾可挡高枪，但露出腰腹。后仰可避开已承诺的高枪，同时削弱自身攻击并降低平衡。
 
 ## 现在可以玩什么
 
@@ -62,7 +62,7 @@ Godot 编辑器打开 `game/project.godot`，按 F5。便携引擎在 `tools/god
 
 主要代码：`core/joust_match.gd` 为可独立模拟的规则，`battle.gd` 负责输入、AI、时间效果和场景，`visual/` 为分件与反馈，`main.gd` 为界面，`core/game_state.gd` 为进度和存档。装备在 `game/data/equipment.json`，美术来源与完整提示词在 `game/art_sources/ASSET_MANIFEST.md`。
 
-复现命令与验收证据见 `docs/development/VALIDATION.md`；本轮审查见 `docs/development/V03_REVIEW.md`。发行包附带 Godot 与依赖许可、Noto Sans SC 字体的 OFL 许可。v0.3 美术记录在 `game/art_sources/PIXEL_V03_MANIFEST.md`。
+复现命令与验收证据见 `docs/development/VALIDATION.md`；本轮审查见 `docs/development/V04_REVIEW.md`。发行包附带 Godot 与依赖许可、Noto Sans SC 字体的 OFL 许可。当前沿用的像素美术记录在 `game/art_sources/PIXEL_V03_MANIFEST.md`。
 
 v0.2 专项记录见 `docs/development/V02_REVIEW.md`；动作反馈工作流见 `skills/joust-game-feel/SKILL.md`，包含查阅资料和适用边界。
 

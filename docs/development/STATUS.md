@@ -1,5 +1,7 @@
 # 开发状态：v0.4 催马与冲锋调校
 
+**协作交接更新（2026-10-24）：** 当前可接手说明集中在 [HANDOFF](../../HANDOFF.md) 与 [协作现状](../collaboration/PROJECT_STATE.md)。[开发记录](../collaboration/WORK_LOG.md)记录双方工作，[任务板](../collaboration/TASK_BOARD.md)登记下一步和文件认领。GitHub 为 `pwzerus/Lance`，当前版本分支 `codex/v0.4`；此后同版本用 commit 更新，大的结构性改动再开新版本分支。以下保留各轮原始交付记录。
+
 用户追加的一小时开始于2026-10-24 15:24:27 EDT，截止16:24:27 EDT。新版在 `builds/LanceAndLaurel-v0.4/`；`Play-Latest.cmd` 已指向v0.4，窗口标题与首页均显示版本。
 
 本轮完成更快起速、2游戏秒催马、更缓减速、保留可见接近运动的镜头、较短的近身放缓、高对比速度反馈、练习入口遮挡修复及AI观察间隔小幅变化。沿用v0.3的高低盾、枪稳、练习规则和六张像素资产，未覆盖旧发布包。

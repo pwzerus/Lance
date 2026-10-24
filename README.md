@@ -2,6 +2,8 @@
 
 Godot 4.5.1 + GDScript 的 Windows 单机试玩版 v0.4。项目依据原始 GDD、`DESIGN_DECISIONS.md` 和历史考据档案开发；本轮根据桌面输入记录重调催马、减速与镜头，修复练习入口遮挡。
 
+开发者接手从 [HANDOFF.md](HANDOFF.md) 开始，内含当前实现、文件分工、工作记录、待办和双向交接模板。GitHub 仓库为 [pwzerus/Lance](https://github.com/pwzerus/Lance)，当前版本分支 `codex/v0.4`；同版本用 commit 迭代，大的结构性改动再开启下一版本分支。
+
 ## 开始试玩
 
 根据玩家“加速变化太小”的反馈，新版点按约0.45游戏秒升到疾驰，维持催马2游戏秒，松开后逐渐减速。OS级桌面点按已取得速度变化记录，长按3游戏秒在引擎内验证；不将工具的短按/拖动称为真人长时间试玩。详见 `docs/development/V04_REVIEW.md`。

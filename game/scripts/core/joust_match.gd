@@ -35,7 +35,8 @@ func _make_fighter(x: float, direction: int, stats: Dictionary) -> Dictionary:
 		"prev_head": Vector2.ZERO, "prev_body": Vector2.ZERO, "prev_shield": Vector2.ZERO,
 		"prev_hand": Vector2.ZERO, "prev_aim": -0.08, "prev_length": 247.0,
 		"surge": 0.0, "last_hit": "", "damage_total": 0.0, "wounds": [],
-		"balance":100.0,"lean_velocity":0.0,"prev_flank":Vector2.ZERO}
+		"balance":100.0,"lean_velocity":0.0,"prev_flank":Vector2.ZERO,
+		"guard":0.0,"guard_target":0.0,"lance_stability":.85,"aim_velocity":0.0}
 
 func _reset_positions() -> void:
 	for i in range(2):
@@ -44,7 +45,7 @@ func _reset_positions() -> void:
 		fighter.prev_x = fighter.x
 		fighter.direction = 1 if i == 0 else -1
 		fighter.speed = TROT_SPEED * float(fighter.stats.get("speed", 1.0))
-		fighter.balance = minf(100.0,float(fighter.balance)+18.0)
+		fighter.balance = minf(100.0,float(fighter.balance)+8.0)
 		fighter.acted = false
 		fighter.surge = 0.0
 		fighter.boost = false
@@ -71,7 +72,7 @@ static func hand_position(fighter: Dictionary) -> Vector2:
 static func shield_position(fighter: Dictionary) -> Vector2:
 	# Forward bracing raises the left-chest shield; leaning back withdraws
 	# the head, but exposes the abdomen and compromises saddle stability.
-	return body_position(fighter)+Vector2(42.0*int(fighter.direction),-8.0-maxf(0,float(fighter.lean))*27.0)
+	return body_position(fighter)+Vector2(48.0*int(fighter.direction),lerpf(24.0,-64.0,float(fighter.get("guard",0.0)))-maxf(0,float(fighter.lean))*10.0)
 
 static func flank_position(fighter: Dictionary) -> Vector2:
 	return body_position(fighter)+Vector2(-6.0*int(fighter.direction),34.0)
@@ -93,9 +94,23 @@ func _cache_pose(fighter: Dictionary) -> void:
 	fighter.prev_shield = shield_position(fighter)
 	fighter.prev_flank = flank_position(fighter)
 
-func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float) -> void:
+func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float, guard: float = -1.0) -> void:
 	var fighter = fighters[index]
-	fighter.aim = move_toward(float(fighter.aim), clampf(aim, -0.68, 0.58), delta * 3.5)
+	var distance = absf(float(fighters[0].x)-float(fighters[1].x))
+	var committed = phase=="charge" and distance<1100 and float(fighters[0].x)<float(fighters[1].x)
+	var previous_aim = float(fighter.aim)
+	fighter.aim = move_toward(previous_aim,clampf(aim,-.68,.58),delta*(.95 if committed else 2.2))
+	fighter.aim_velocity = absf(float(fighter.aim)-previous_aim)/maxf(delta,.00001)
+	var movement = float(fighter.aim_velocity)
+	# Small corrections are free. Large late redirects sacrifice the support
+	# behind the lance; the player keeps control instead of hitting an input lock.
+	if movement>.24:
+		fighter.lance_stability = maxf(.12,float(fighter.lance_stability)-(movement-.24)*delta*1.9)
+	else:
+		fighter.lance_stability = minf(1.0,float(fighter.lance_stability)+delta*.72)
+	if guard>=0:
+		fighter.guard_target = clampf(guard,0,1)
+	fighter.guard = move_toward(float(fighter.guard),float(fighter.guard_target),delta*2.8)
 	var difference = clampf(lean,-1,1)-float(fighter.lean)
 	var target_velocity = clampf(difference*4.5,-1.6,1.6)
 	fighter.lean_velocity = move_toward(float(fighter.lean_velocity),target_velocity,delta*6.0)
@@ -211,7 +226,9 @@ func _detect_contact(index: int, delta: float) -> Dictionary:
 		return {}
 	var tip_velocity = Vector2(sweep.velocity)
 	var target_velocity = (Vector2(found.center) - Vector2(found.old)) / maxf(delta, 0.0001)
-	var relative_speed = clampf((tip_velocity - target_velocity).length(), 50.0, 1050.0)
+	var shaft = Vector2(cos(float(attacker.aim))*int(attacker.direction),sin(float(attacker.aim)))
+	# A sideways flick must not manufacture the axial force of a full charge.
+	var relative_speed = clampf((tip_velocity-target_velocity).dot(shaft),30.0,1050.0)
 	return {"attacker": index, "defender": 1 - index, "zone": found.zone, "speed": relative_speed,
 		"position": sweep.point, "type": "hit"}
 
@@ -220,12 +237,14 @@ func _apply_contact(contact: Dictionary) -> void:
 	var defender = fighters[int(contact.defender)]
 	attacker.acted = true
 	var speed = float(contact.speed)
-	var power = float(attacker.stats.get("power", 1.0)) * (0.66 if attacker.broken else 1.0)*(1.0+float(attacker.lean)*.07)
+	var support = lerpf(.38,1.0,float(attacker.get("lance_stability",1.0)))
+	var power = float(attacker.stats.get("power",1.0))*(.66 if attacker.broken else 1.0)*(1.0+maxf(float(attacker.lean),0)*.08-maxf(-float(attacker.lean),0)*.28)*support
 	var alignment = clampf(cos(float(attacker.aim)), 0.4, 1.0)
 	var impulse = speed * 0.085 * power * alignment
 	var damage = 19.0 * pow(speed / 620.0, 1.25) * power * alignment
 	var zone = str(contact.zone)
 	var glanced = false
+	var shield_before = float(defender.shield)
 	if zone == "head":
 		damage *= 1.38 * (1.0 - float(defender.stats.get("helmet", 0.08)))
 		impulse *= 0.86
@@ -261,7 +280,7 @@ func _apply_contact(contact: Dictionary) -> void:
 		attacker.broken = true
 	attacker.surge = 0.20
 	defender.surge = 0.20
-	contact.merge({"damage": damage, "impulse": impulse, "glanced": glanced, "broke": broke_now, "dead": defender.dead, "ko": defender.ko,
+	contact.merge({"damage": damage, "impulse": impulse, "glanced": glanced, "broke": broke_now, "dead": defender.dead, "ko": defender.ko,"support":support,"balance_left":defender.balance,"shield_broke":shield_before>0 and float(defender.shield)<=0,
 		"break_tip":old_tip,"break_hand":old_hand,"break_reach":old_reach,"break_angle":attacker.aim,"break_direction":attacker.direction})
 	events.append(contact)
 

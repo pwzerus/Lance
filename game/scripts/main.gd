@@ -6,7 +6,7 @@ const Rider = preload("res://scripts/visual/rider_view.gd")
 const Model = preload("res://scripts/core/joust_match.gd")
 const Battle = preload("res://scripts/battle.gd")
 const Art = preload("res://scripts/visual/equipment_art.gd")
-const BACKGROUND = preload("res://assets/art/tournament_field.png")
+const BACKGROUND = preload("res://assets/art/pixel_v03/tournament_field.png")
 
 var ui_layer: CanvasLayer
 var screen: Control
@@ -34,6 +34,7 @@ var smoke_screens: Array = []
 var smoke_original_profile: Dictionary = {}
 var smoke_contacts: Array = []
 var smoke_last_report = 0
+var practice_match = false
 
 func _ready() -> void:
 	get_window().min_size = Vector2i(960,540)
@@ -52,6 +53,11 @@ func _ready() -> void:
 		smoke_original_profile = GameState.profile.duplicate(true)
 		smoke_started = Time.get_ticks_msec()
 	show_home()
+	if GameState.qa_input_probe:
+		get_window().title = "Lance & Laurel v0.3 QA - Desktop input"
+		var audit = preload("res://scripts/core/desktop_input_audit.gd").new()
+		audit.main = self
+		add_child(audit)
 
 func _clear_screen() -> void:
 	if screen:
@@ -104,6 +110,7 @@ func show_home() -> void:
 	UI.button(screen,"军械库 / 购买与装备",Rect2(62,541,340,54),show_armory)
 	UI.button(screen,"历史手记",Rect2(420,541,164,54),show_history)
 	UI.button(screen,"设置",Rect2(596,541,164,54),show_settings)
+	UI.button(screen,"练习场 · 熟悉枪盾（不计输赢）",Rect2(62,613,698,52),func():_begin_match("arena",true))
 	UI.label(screen,"地区线",Vector2(65,625),17,UI.MUTED)
 	var region = OptionButton.new()
 	region.position = Vector2(155,617)
@@ -119,7 +126,7 @@ func show_home() -> void:
 	UI.label(screen,"当前年代  " + Catalogue.ERAS[Catalogue.era_for_renown(int(GameState.profile.renown))],Vector2(420,629),17,UI.GOLD)
 	UI.separator(screen,Vector2(62,696),698)
 	UI.label(screen,"鼠标瞄准   左键加速   W/S 倾身   Esc 暂停",Vector2(62,718),17,UI.MUTED)
-	UI.label(screen,"单机试玩版  ·  Windows  ·  v0.2",Vector2(62,751),14,UI.MUTED)
+	UI.label(screen,"单机试玩版  ·  Windows  ·  v0.3 · 枪盾攻防",Vector2(62,751),14,UI.MUTED)
 	UI.button(screen,"退出游戏",Rect2(608,739,150,38),func():
 		GameState.save_profile()
 		get_tree().quit())
@@ -133,9 +140,9 @@ func show_home() -> void:
 		UI.label(screen,GameState.save_error,Vector2(62,779),13,Color("df927b"))
 	queue_redraw()
 
-func _begin_match(mode: String) -> void:
-	if GameState.profile.settings.brief_seen:
-		_start_match(mode)
+func _begin_match(mode: String, practice: bool = false) -> void:
+	if GameState.profile.settings.get("combat_brief_v03",false):
+		_start_match(mode,practice)
 		return
 	var shade = ColorRect.new()
 	shade.color = Color(0,0,0,.70)
@@ -144,17 +151,19 @@ func _begin_match(mode: String) -> void:
 	var panel = UI.panel(shade,Rect2(315,135,810,540),Color(.045,.085,.065,.99))
 	UI.label(panel,"第一次披挂上场",Vector2(32,24),34,UI.GOLD)
 	UI.label(panel,"你在左侧，马匹会自动前进。",Vector2(32,85),21,UI.INK)
-	UI.label(panel,"移动鼠标　控制枪尖；镜头靠近时可微调角度。\n左键 / 空格　按住冲刺；点按左键短暂催马；松开恢复耐力。\nW 前倾架盾（25°）/ S 后仰避头（45°）；腰腹仍会暴露。\nH 显示真实受击范围　Esc 暂停　R 重开　F11 全屏",Vector2(32,139),20,UI.INK,746)
+	UI.label(panel,"左键 / 空格　按住冲刺；点按催马，倒计时内也会保留。\n上下移动鼠标　调枪尖高度；停手压稳，大幅变招会失稳。\n右键 / Q　高低盾切换：高盾护头，低盾护腹，另一处暴露。\nW 前倾 / S 后仰　后仰避高枪，但削弱攻击并暴露腰腹。\nH 判定范围　Esc 暂停　R 重开　F11 全屏",Vector2(32,139),18,UI.INK,746)
 	UI.separator(panel,Vector2(32,295),746)
 	UI.label(panel,"最多三次对冲；落马提前结束。三轮后比较骑手状态。\n竞技场每轮领取新枪，不会死亡。实战允许死亡，断枪保留。",Vector2(32,316),18,UI.MUTED,746)
 	UI.label(panel,"战斗没有准星，观察手臂与枪尖。先在竞技场熟悉瞄准。",Vector2(32,396),17,UI.GOLD,746)
 	UI.button(panel,"明白了，出战",Rect2(32,448,480,58),func():
 		GameState.set_setting("brief_seen",true)
-		_start_match(mode),true)
+		GameState.set_setting("combat_brief_v03",true)
+		_start_match(mode,practice),true)
 	UI.button(panel,"返回营地",Rect2(530,448,248,58),func():shade.queue_free())
 
-func _start_match(mode: String) -> void:
+func _start_match(mode: String, practice: bool = false) -> void:
 	_close_battle()
+	practice_match = practice
 	current_mode = mode
 	page = "battle"
 	_clear_screen()
@@ -166,13 +175,14 @@ func _start_match(mode: String) -> void:
 	result_visible = false
 	battle = Battle.new()
 	battle.mode = mode
+	battle.practice = practice
 	battle.autoplay = smoke_mode
 	battle.demo_seed = 271828 if smoke_mode else 0
 	battle.finished.connect(_on_match_finished)
 	battle.exit_requested.connect(func():
 		_close_battle()
 		show_home())
-	battle.replay_requested.connect(func():_start_match(current_mode))
+	battle.replay_requested.connect(func():_start_match(current_mode,practice_match))
 	add_child(battle)
 	queue_redraw()
 
@@ -190,7 +200,7 @@ func _close_battle() -> void:
 func _on_match_finished(result: Dictionary) -> void:
 	pending_result = result
 	var outcome = 0 if int(result.winner) == -1 else (1 if int(result.winner)==0 else -1)
-	reward = GameState.award_match(session_id,outcome,current_mode)
+	reward = {"coins":0,"renown":0} if practice_match else GameState.award_match(session_id,outcome,current_mode)
 
 func _process(_delta: float) -> void:
 	if battle and battle.is_finished and not result_visible:
@@ -205,7 +215,7 @@ func show_result() -> void:
 	var draw = int(result.get("winner",-1)) == -1
 	sounds.play("win" if won else "lose",-9)
 	var panel = UI.panel(screen,Rect2(412,176,616,470),Color(.045,.085,.065,.98))
-	UI.label(panel,"HONOUR IN THE LISTS",Vector2(35,22),16,UI.GOLD)
+	UI.label(panel,"练习结束 · 不计输赢与奖励" if practice_match else "HONOUR IN THE LISTS",Vector2(35,22),16,UI.GOLD)
 	UI.label(panel,"平分秋色" if draw else ("桂冠属于你" if won else "此番惜败"),Vector2(35,62),42,UI.INK)
 	var explanation = "三次对冲后的骑手状态决胜"
 	if result.get("reason") == "terminal":
@@ -219,7 +229,7 @@ func show_result() -> void:
 	var next_era = Catalogue.era_for_renown(int(GameState.profile.renown)) + 1
 	var progress = "全部时期已开放；继续收集工坊与纹章。" if next_era >= Catalogue.ERAS.size() else "下一时代：%s · 需要 %d 声望（当前 %d）" % [Catalogue.ERAS[next_era],Catalogue.ERA_REQUIREMENTS[next_era],GameState.profile.renown]
 	UI.label(panel,progress,Vector2(35,292),15,UI.MUTED,546)
-	UI.button(panel,"再次对冲  R",Rect2(35,345,263,56),func():_start_match(current_mode),true)
+	UI.button(panel,"再次对冲  R",Rect2(35,345,263,56),func():_start_match(current_mode,practice_match),true)
 	UI.button(panel,"返回营地",Rect2(315,345,266,56),func():
 		_close_battle()
 		show_home())
@@ -369,8 +379,9 @@ func show_settings() -> void:
 	panel.add_child(difficulty)
 	UI.button(panel,"返回营地",Rect2(28,493,620,59),show_home,true)
 	UI.label(screen,"操作",Vector2(844,150),32,UI.GOLD)
-	UI.label(screen,"移动鼠标　调整枪尖\n左键 / 空格　按住冲刺；点按催马\n松开左键　巡航、恢复耐力\nW / S　　 架盾 / 后仰避头\nH　　　　 显示判定范围\nEsc　　　 暂停与设置\nR 重开　　F11 全屏",Vector2(844,219),22,UI.INK,510)
+	UI.label(screen,"移动鼠标　瞄准；大幅改向会失稳\n左键 / 空格　按住冲刺；点按催马\n右键 / Q　高低盾切换\nW / S　　 前倾支撑 / 后仰避头\nH　　　　 显示判定范围\nEsc　　　 暂停与设置\nR 重开　　F11 全屏",Vector2(844,219),22,UI.INK,510)
 	UI.label(screen,"触控输入已预留：左侧滑动倾身，右侧瞄准，\n右侧额外触点加速；尚未在手机设备验收。",Vector2(844,510),17,UI.MUTED,510)
+	UI.check(screen,"接近时放缓与命中慢动作",GameState.profile.settings.slow_motion,Vector2(844,600),func(value):GameState.set_setting("slow_motion",value))
 	queue_redraw()
 
 func show_history() -> void:
@@ -416,7 +427,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif event.physical_keycode == KEY_ESCAPE and page != "battle":
 			show_home()
 		elif event.physical_keycode == KEY_R and page == "battle" and result_visible:
-			_start_match(current_mode)
+			_start_match(current_mode,practice_match)
 
 func _run_smoke() -> void:
 	if Time.get_ticks_msec()-smoke_last_report>5000:

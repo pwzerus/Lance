@@ -40,7 +40,7 @@ func run() -> void:
 	await process_frame
 	await process_frame
 	await RenderingServer.frame_post_draw
-	var result = root.get_texture().get_image().save_png("E:/GALUMU/docs/development/screenshots/08_equipment_gallery.png")
+	var result = root.get_texture().get_image().save_png("E:/GALUMU/docs/development/screenshots/v03/04_equipment_gallery.png")
 	print("ART_GALLERY_CAPTURE ",result)
 	page.queue_free()
 	await process_frame

@@ -1,10 +1,10 @@
 class_name EquipmentArt
 extends RefCounted
 
-const BASE = preload("res://assets/art/rider_atlas.png")
-const ERAS = preload("res://assets/art/equipment_eras.png")
-const NASAL = preload("res://assets/art/nasal_head.png")
-const SHIELDS = preload("res://assets/art/shield_fields.png")
+const BASE = preload("res://assets/art/pixel_v03/rider_atlas.png")
+const ERAS = preload("res://assets/art/pixel_v03/equipment_eras.png")
+const NASAL = preload("res://assets/art/pixel_v03/nasal_head.png")
+const SHIELDS = preload("res://assets/art/pixel_v03/shield_fields.png")
 const TORSOS = [Rect2(46,33,392,457),Rect2(494,37,385,461),Rect2(913,30,384,466),Rect2(1345,37,386,459)]
 const HEADS = [Rect2(122,500,304,356),Rect2(554,510,281,348),Rect2(911,510,382,354),Rect2(1409,503,298,363)]
 const FIELDS = [Rect2(132,36,441,575),Rect2(685,36,445,575),Rect2(131,639,443,574),Rect2(683,637,447,576)]

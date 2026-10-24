@@ -10,8 +10,8 @@ const Rider = preload("res://scripts/visual/rider_view.gd")
 const FX = preload("res://scripts/visual/impact_fx.gd")
 const UI = preload("res://scripts/ui/ui_factory.gd")
 const Catalogue = preload("res://scripts/core/catalogue.gd")
-const BACKGROUND = preload("res://assets/art/tournament_field.png")
-const WAR_BACKGROUND = preload("res://assets/art/campaign_field.png")
+const BACKGROUND = preload("res://assets/art/pixel_v03/tournament_field.png")
+const WAR_BACKGROUND = preload("res://assets/art/pixel_v03/campaign_field.png")
 
 var match_model: JoustMatch
 var mode = "arena"
@@ -39,12 +39,15 @@ var wheel_lean = 0.0
 var touch_lean = 0.0
 var touch_aim = Vector2.ZERO
 var aim_pointer = Vector2(1150,400)
+var pointer_aim = -.08
 var touch_roles: Dictionary = {}
 var touch_origin: Dictionary = {}
 var ai_timer = 0.0
 var ai_error = 0.0
 var ai_zone = "body"
 var ai_lean = .18
+var ai_guard = 0.0
+var ai_target_y = -212.0
 var ai_rng = RandomNumberGenerator.new()
 var dust_timer = 0.0
 var hoof_timer = 0.0
@@ -64,6 +67,14 @@ var camera_pass = 1
 var approach_slow = false
 var wind: AudioStreamPlayer
 var zone_overlay: Node2D
+var guard_high = false
+var speed_meter: ProgressBar
+var tactics_label: Label
+var input_flash_until = 0
+var ready_panel: Control
+var contact_panel: Control
+var practice = false
+var learned = {"boost":false,"aim":false,"guard":false,"posture":false}
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -146,9 +157,10 @@ func _build_hud() -> void:
 	layer.add_child(hud)
 	var top = UI.panel(hud, Rect2(0,0,1440,76), Color(.045,.08,.065,.96))
 	UI.label(top, "LANCE & LAUREL", Vector2(28,13), 24, UI.GOLD)
-	UI.label(top, "竞技场 · 非致死比武" if mode == "arena" else "实战 · 致命对冲", Vector2(280,23),18)
+	UI.label(top,"练习场 · 无奖励 / 盾位按轮次变化" if practice else ("竞技场 · 非致死比武" if mode=="arena" else "实战 · 致命对冲"),Vector2(280,23),18)
 	pass_label = UI.label(top,"PASS  01 / 03",Vector2(1050,20),22,UI.GOLD)
 	UI.button(top,"暂停  Esc",Rect2(1240,14,165,45),_toggle_pause)
+	ready_panel = UI.panel(hud,Rect2(315,119,810,211),Color(.045,.08,.065,.90))
 	callout = UI.label(hud,"整装待发",Vector2(420,123),40,UI.INK,600)
 	callout.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	subcallout = UI.label(hud,"",Vector2(370,183),18,UI.GOLD,700)
@@ -156,22 +168,31 @@ func _build_hud() -> void:
 	intermission = UI.label(hud,"",Vector2(330,245),19,UI.INK,780)
 	intermission.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	var bottom = UI.panel(hud,Rect2(0,758,1440,52),Color(.045,.08,.065,.96))
-	hint = UI.label(bottom,"鼠标瞄准 · 按住左键冲刺 / 点按催马 · W 架盾 / S 后仰 · H 判定",Vector2(25,14),16,UI.MUTED)
+	hint = UI.label(bottom,"鼠标瞄准 · 左键催马 · 右键 / Q 换盾位 · W 前倾 / S 后仰 · H 判定",Vector2(25,14),16,UI.MUTED)
 	speed_label = UI.label(bottom,"",Vector2(925,14),16,UI.GOLD,500)
-	contact_label = UI.label(hud,"",Vector2(320,689),24,UI.GOLD,800)
+	contact_panel = UI.panel(hud,Rect2(250,648,940,86),Color(.045,.08,.065,.93))
+	contact_label = UI.label(contact_panel,"",Vector2(24,9),24,UI.GOLD,892)
 	contact_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	speed_meter = ProgressBar.new()
+	speed_meter.position = Vector2(950,735)
+	speed_meter.size = Vector2(440,12)
+	speed_meter.min_value = Model.TROT_SPEED
+	speed_meter.max_value = Model.GALLOP_SPEED
+	speed_meter.show_percentage = false
+	hud.add_child(speed_meter)
+	var tactic_panel = UI.panel(hud,Rect2(16,81,1000,35),Color(.045,.08,.065,.91))
+	tactics_label = UI.label(tactic_panel,"",Vector2(13,3),18,UI.GOLD,970)
 
 func _physics_process(delta: float) -> void:
 	if paused or is_finished:
 		return
 	var fighter = match_model.fighters[0]
-	spur_left = maxf(0,spur_left-delta)
-	var mouse = get_canvas_transform().affine_inverse()*aim_pointer - world.position
-	if not touch_roles.is_empty() and touch_aim != Vector2.ZERO:
-		mouse = get_canvas_transform().affine_inverse()*touch_aim - world.position
+	if match_model.phase=="charge":
+		spur_left = maxf(0,spur_left-delta)
 	var hand = Model.hand_position(fighter)
-	var difference = mouse - hand
-	var aim = atan2(difference.y, maxf(absf(difference.x),35.0))
+	# Keep a committed angle while the pointer is still. A cinematic zoom
+	# must not redirect the lance when the player has not moved the mouse.
+	var aim = pointer_aim
 	var lean = 0.0
 	if GameState.profile.settings.mouse_only:
 		lean = wheel_lean
@@ -179,13 +200,15 @@ func _physics_process(delta: float) -> void:
 		lean = float(Input.is_physical_key_pressed(KEY_W) or Input.is_physical_key_pressed(KEY_UP)) - float(Input.is_physical_key_pressed(KEY_S) or Input.is_physical_key_pressed(KEY_DOWN))
 	if touch_roles.values().has("lean"):
 		lean = touch_lean
+	if absf(lean)>.3:
+		learned.posture = true
 	var boost = mouse_held or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or spur_left>0 or Input.is_physical_key_pressed(KEY_SPACE) or touch_roles.values().has("boost")
 	if autoplay:
 		var target = Model.head_position(match_model.fighters[1])
-		aim = atan2(target.y-hand.y, maxf(absf(target.x-hand.x),35))
+		aim = asin(clampf((target.y-hand.y)/Model.lance_length(fighter),-.629,.548))
 		boost = true
 		lean = 0.15
-	match_model.set_controls(0,aim,lean,boost,delta)
+	match_model.set_controls(0,aim,lean,boost,delta,1.0 if guard_high else 0.0)
 	_update_ai(delta)
 	match_model.time_effect_active = Time.get_ticks_msec() < slow_until
 	match_model.step(delta)
@@ -208,27 +231,41 @@ func _update_ai(delta: float) -> void:
 	ai_timer -= delta
 	var ai = match_model.fighters[1]
 	var player = match_model.fighters[0]
-	var difficulty = int(GameState.profile.settings.difficulty)
+	var difficulty = 0 if practice else int(GameState.profile.settings.difficulty)
 	var distance = absf(float(player.x)-float(ai.x))
-	if ai_timer <= 0:
+	# Once the last approach begins the opponent must commit visibly, giving
+	# the player a feint window. Hard opponents commit later, not by reading
+	# instantaneous controls. Keep applying the cached pose below this gate.
+	var committed = match_model.phase=="charge" and float(player.x)<float(ai.x) and distance<[0.0,800.0,500.0][difficulty]
+	if ai_timer <= 0 and not committed:
 		ai_timer = [1.0,.65,.34][difficulty]
 		ai_error = ai_rng.randf_range(-1,1) * [34.0,19.0,8.0][difficulty]
 		var choice = ai_rng.randf()
-		ai_zone = "head" if choice < [.18,.30,.40][difficulty] else ("flank" if choice>.72 else "body")
+		ai_zone = "head" if choice<[.18,.30,.40][difficulty] else ("flank" if choice>.72 else "body")
+		if distance<1450 and difficulty>=1 and choice<.78:
+			ai_zone = "flank" if float(player.guard)>.65 else "head"
 		ai_lean = .18
 		if distance<1300 and difficulty>=1:
-			ai_lean = -.9 if float(player.aim)<-.12 else .85
-	var target = Model.head_position(player) if ai_zone=="head" else (Model.flank_position(player) if ai_zone=="flank" else Model.body_position(player))
-	target.y += ai_error
+			var incoming_height = Model.hand_position(player).y+sin(float(player.aim))*Model.lance_length(player)
+			ai_guard = 1.0 if incoming_height<Model.body_position(ai).y-28 else 0.0
+			ai_lean = -.72 if incoming_height<Model.head_position(ai).y-6 and choice>.55 else .30
+			if float(ai.shield)<=0:
+				ai_lean = -.9 if incoming_height<Model.body_position(ai).y-25 else .55
+		ai_target_y = (Model.head_position(player) if ai_zone=="head" else (Model.flank_position(player) if ai_zone=="flank" else Model.body_position(player))).y+ai_error
+		if practice:
+			ai_guard = 1.0 if match_model.pass_number%2==1 else 0.0
+			ai_lean = 0
+			ai_target_y = Model.body_position(player).y+22
+	var target = Vector2(float(player.x),ai_target_y)
 	var hand = Model.hand_position(ai)
-	var aim = atan2(target.y-hand.y,maxf(absf(target.x-hand.x),45))
+	var aim = asin(clampf((target.y-hand.y)/Model.lance_length(ai),-.629,.548))
 	# Defense uses the same delayed observations as aim; it does not read
 	# and counter the player's current input on every physics tick.
 	var lean = ai_lean
 	var boost = distance > 700 and float(ai.stamina)>15
 	if difficulty==2 and distance<700:
 		boost = float(ai.stamina)>28
-	match_model.set_controls(1,aim,lean,boost,delta)
+	match_model.set_controls(1,aim,lean,boost,delta,ai_guard)
 
 func _handle_event(event: Dictionary) -> void:
 	match str(event.type):
@@ -245,7 +282,7 @@ func _handle_event(event: Dictionary) -> void:
 			shake = maxf(shake,clampf(float(event.impulse)*.09,2,8))
 			var now = Time.get_ticks_msec()
 			hitstop_until = now + (65 if event.zone!="shield" else 40)
-			slow_until = now + 510
+			slow_until = now+510 if GameState.profile.settings.get("slow_motion",true) else 0
 			Engine.time_scale = .001
 			sound.play("impact" if event.zone!="shield" else "shield",-4,.85 if event.zone!="shield" else 1.05)
 			if event.broke:
@@ -256,6 +293,10 @@ func _handle_event(event: Dictionary) -> void:
 				hit_text += " · 击落！"
 			elif event.zone!="shield":
 				hit_text += " · 冲击 %d" % roundi(event.impulse)
+				if float(event.get("support",1.0))<.70:
+					hit_text += " · 失稳"
+			if event.get("shield_broke",false):
+				hit_text += " · 盾已破损"
 			contact_label.text = contact_label.text+"\n"+hit_text if now<contact_until and contact_until-now>1600 else hit_text
 			contact_until = now+1700
 			if bool(event.ko) or bool(event.dead):
@@ -304,7 +345,7 @@ func _update_camera(real_delta: float, now: int) -> void:
 	var b = float(match_model.fighters[1].x)
 	var separation = absf(b-a)
 	var before_crossing = a<b
-	approach_slow = match_model.phase=="charge" and before_crossing and separation<850 and not pass_connected
+	approach_slow = GameState.profile.settings.get("slow_motion",true) and match_model.phase=="charge" and before_crossing and separation<850 and not pass_connected
 	var desired_zoom = clampf(1260.0/(separation+440),.28,1.65)
 	if terminal_at>0:
 		desired_zoom = 1.6 if now-terminal_at<850 else 1.05
@@ -330,9 +371,21 @@ func _update_hud() -> void:
 	if not match_model or not callout:
 		return
 	var phase = match_model.phase
+	ready_panel.visible = phase in ["ready","turn","ended"]
 	var f = match_model.fighters[0]
-	speed_label.text = "%s  %d%%  ·  耐力 %d%%" % ["催马冲刺" if f.boost and float(f.stamina)>4 else "巡航",roundi(float(f.speed)/Model.GALLOP_SPEED*100),roundi(f.stamina)]
+	speed_meter.value = float(f.speed)
+	speed_label.text = "%s  %d%%  ·  耐力 %d%%" % ["已催马 · 等待起跑" if f.boost and phase=="ready" else ("催马冲刺" if f.boost and float(f.stamina)>4 else "巡航"),roundi(float(f.speed)/Model.GALLOP_SPEED*100),roundi(f.stamina)]
+	var guard_text = "高盾 · 胸腹暴露" if guard_high else "低盾 · 头部暴露"
+	if absf(float(f.guard)-(1.0 if guard_high else 0.0))>.08:
+		guard_text = "换盾中 · 留意空隙"
+	if float(f.shield)<=0:
+		guard_text = "盾已破损 · 用姿态避枪"
+	tactics_label.text = "%s　|　枪稳 %d%%　|　平衡 %d%%　|　盾 %d%%" % [guard_text,roundi(float(f.lance_stability)*100),roundi(f.balance),roundi(float(f.shield)/78*100)]
+	tactics_label.modulate = Color(1.3,1.2,.7) if Time.get_ticks_msec()<input_flash_until else Color.WHITE
+	if practice:
+		hint.text = "练习 · 催马%s　调枪%s　换盾%s　俯仰%s　| 右键 / Q 换盾位" % ["完成" if learned.boost else "待尝试","完成" if learned.aim else "待尝试","完成" if learned.guard else "待尝试","完成" if learned.posture else "待尝试"]
 	contact_label.visible = Time.get_ticks_msec()<contact_until
+	contact_panel.visible = contact_label.visible
 	pass_label.text = "PASS  %02d / 03" % match_model.pass_number
 	intermission.visible = phase in ["ready","turn"]
 	if phase == "ready":
@@ -340,6 +393,8 @@ func _update_hud() -> void:
 		callout.modulate.a = 1
 		subcallout.text = "整装 · %d" % maxi(1,ceili(match_model.phase_time))
 		intermission.text = "骑手状态  %d%%     对手  %d%%\n%s" % [roundi(match_model.fighters[0].hp),roundi(match_model.fighters[1].hp),"新比武枪已备妥" if mode=="arena" else ("断枪未更换 · 残柄作战" if match_model.fighters[0].broken else "实战枪已备妥 · 留意头部防护")]
+		if practice:
+			intermission.text += "\n练习：高盾露腰腹，低盾露头；停手让枪稳回升。"
 	elif phase == "charge":
 		callout.text = ""
 		subcallout.text = ""
@@ -351,7 +406,7 @@ func _update_hud() -> void:
 		callout.text = "交锋已定"
 		subcallout.text = ""
 	if not paused:
-		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN if phase == "charge" and not is_finished else Input.MOUSE_MODE_VISIBLE
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _draw() -> void:
 	# The two tracks stay isolated; the rail is scenery and never stops a horse.
@@ -382,6 +437,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			zone_overlay.visible = training_zones
 			contact_label.text = "判定显示：金色盾牌 · 青色头 / 胸 / 腰腹" if training_zones else "判定显示已关闭"
 			contact_until = Time.get_ticks_msec()+2300
+		elif event.physical_keycode == KEY_Q and not paused:
+			guard_high = not guard_high
+			learned.guard = true
 	if paused:
 		return
 	if event is InputEventMouseButton and event.pressed:
@@ -398,6 +456,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			touch_origin[event.index] = event.position
 			if role == "aim":
 				touch_aim = event.position
+				_set_pointer_aim(event.position)
 		else:
 			if touch_roles.get(event.index) == "lean":
 				touch_lean = 0
@@ -410,6 +469,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			touch_lean = clampf((Vector2(touch_origin[event.index]).y-event.position.y)/100,-1,1)
 		elif touch_roles.get(event.index) == "aim":
 			touch_aim = event.position
+			_set_pointer_aim(event.position)
 
 func _input(event: InputEvent) -> void:
 	# Godot supplies viewport coordinates after stretch/DPI conversion. Keep
@@ -417,10 +477,30 @@ func _input(event: InputEvent) -> void:
 	# it also supports deterministic replay and injected input verification.
 	if event is InputEventMouseMotion or event is InputEventMouseButton:
 		aim_pointer = event.position
+	if event is InputEventMouseMotion and not paused:
+		_set_pointer_aim(event.position)
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:
 		mouse_held = event.pressed and not paused
 		if mouse_held:
-			spur_left = .45
+			spur_left = 1.15
+			input_flash_until = Time.get_ticks_msec()+350
+			learned.boost = true
+	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT and event.pressed and not paused:
+		guard_high = not guard_high
+		learned.guard = true
+		sound.play("click",-16,.7)
+
+func _set_pointer_aim(point: Vector2) -> void:
+	if not match_model or not world:
+		return
+	var mouse = get_canvas_transform().affine_inverse()*point-world.position
+	var difference = mouse-Model.hand_position(match_model.fighters[0])
+	var previous = pointer_aim
+	# In a fixed lane duel the readable choice is tip HEIGHT, not how far
+	# horizontally the cursor happens to be from the approaching rider.
+	pointer_aim = asin(clampf(difference.y/Model.lance_length(match_model.fighters[0]),-.629,.548))
+	if absf(pointer_aim-previous)>.025:
+		learned.aim = true
 
 func _toggle_pause() -> void:
 	if is_finished:

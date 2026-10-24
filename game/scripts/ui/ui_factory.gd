@@ -22,7 +22,7 @@ static func theme() -> Theme:
 	result.set_color("font_color", "Label", INK)
 	result.set_color("font_color", "Button", INK)
 	result.set_color("font_hover_color", "Button", Color("fff0c7"))
-	result.set_color("font_disabled_color", "Button", Color("6e7568"))
+	result.set_color("font_disabled_color", "Button", Color("a8ad9b"))
 	result.set_font_size("font_size", "Button", 19)
 	result.set_constant("outline_size", "Label", 0)
 	result.set_stylebox("normal", "Button", box(Color("25362e"), Color("6c7257"), 5))

@@ -20,7 +20,7 @@ func wait(seconds: float) -> void:
 
 func capture(name_value: String) -> void:
 	await RenderingServer.frame_post_draw
-	root.get_texture().get_image().save_png("E:/GALUMU/docs/development/screenshots/v02/"+name_value+".png")
+	root.get_texture().get_image().save_png("E:/GALUMU/docs/development/screenshots/v03/"+name_value+".png")
 
 func fixed_head_attack(defender_lean: float) -> String:
 	var model = Model.new("arena")
@@ -28,6 +28,7 @@ func fixed_head_attack(defender_lean: float) -> String:
 	model.fighters[0].aim = -.23
 	model.fighters[1].x = 0
 	model.fighters[1].lean = defender_lean
+	model.fighters[1].guard = 1.0 if defender_lean>0 else 0.0
 	model._cache_pose(model.fighters[0])
 	model._cache_pose(model.fighters[1])
 	for i in range(170):
@@ -114,8 +115,14 @@ func run() -> void:
 	Input.flush_buffered_events()
 	await wait(.08)
 	check(battle.match_model.fighters[0].boost and battle.spur_left>0,"A quick left click must deliver buffered acceleration")
-	await wait(.55)
-	check(not battle.match_model.fighters[0].boost,"A released tap must expire and never stick")
+	await wait(1.25)
+	check(battle.match_model.fighters[0].boost and battle.spur_left>1,"A countdown tap must remain queued until the horse starts")
+	battle.match_model.phase = "charge"
+	var charge_start_x = float(battle.match_model.fighters[0].x)
+	await wait(1.35)
+	check(not battle.match_model.fighters[0].boost and battle.spur_left==0,"A released tap must expire after actual running time")
+	check(float(battle.match_model.fighters[0].speed)>400 and float(battle.match_model.fighters[0].x)-charge_start_x>400,"Queued desktop click must accelerate and move the actual horse after launch")
+	battle.match_model.phase = "ready"
 	battle.autoplay = true
 	# Place a controlled close encounter to verify actual projection, not a
 	# camera-free algebra-only aim test. Freeze model translation, keep views.
@@ -144,9 +151,14 @@ func run() -> void:
 	await wait(.3)
 	var hand = Model.hand_position(battle.match_model.fighters[0])
 	var target = Model.head_position(battle.match_model.fighters[1])
-	var expected = atan2(target.y-hand.y,absf(target.x-hand.x))
+	var expected = asin(clampf((target.y-hand.y)/Model.lance_length(battle.match_model.fighters[0]),-.629,.548))
 	print("ZOOM_AIM actual=",battle.match_model.fighters[0].aim," expected=",expected," pointer=",battle.aim_pointer," screen=",screen," paused=",battle.paused)
 	check(absf(float(battle.match_model.fighters[0].aim)-expected)<.02,"Mouse must aim at the visible head after camera zoom")
+	var held_angle = float(battle.pointer_aim)
+	battle.camera.zoom = Vector2.ONE*.8
+	battle.camera.force_update_scroll()
+	await wait(.2)
+	check(is_equal_approx(battle.pointer_aim,held_angle),"Camera zoom without mouse motion must not redirect the player's committed angle")
 	var show_zones = InputEventKey.new()
 	show_zones.physical_keycode = KEY_H
 	show_zones.pressed = true

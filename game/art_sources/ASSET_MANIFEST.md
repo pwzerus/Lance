@@ -1,5 +1,7 @@
 # 美术资产与制作记录
 
+v0.3 当前引用 `assets/art/pixel_v03/` 的六张重绘图，记录见 `PIXEL_V03_MANIFEST.md`。下面保留首版来源与分件规格；原图未覆盖。
+
 六张位图由内置 image_gen 生成，均已复制到项目并接入 Godot；未调用需要 API Key 的 CLI。完整最终提示词分别保存在：
 
 - `generation_manifest.json`：初始骑手/马匹分件图集、竞技场背景。

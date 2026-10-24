@@ -143,7 +143,7 @@ func run() -> void:
 	await real_wait(1.6)
 	print("INPUT_AIM_LOW ",battle.aim_pointer," aim ",battle.match_model.fighters[0].aim," lean ",battle.match_model.fighters[0].lean," boost ",battle.match_model.fighters[0].boost)
 	check(battle.match_model.fighters[0].aim>.10,"Lowering mouse position must lower the actual lance")
-	check(not battle.match_model.fighters[0].boost and is_zero_approx(battle.match_model.fighters[0].lean),"Releasing held inputs must stop boost and return the rider upright")
+	check(not battle.mouse_held and is_zero_approx(battle.match_model.fighters[0].lean),"Releasing held inputs must clear the physical hold and return posture; countdown spur remains queued")
 	state.profile.settings.mouse_only = true
 	mouse_button.button_index = MOUSE_BUTTON_WHEEL_UP
 	mouse_button.pressed = true
@@ -232,6 +232,18 @@ func run() -> void:
 	main.show_home()
 	await frames()
 	check(main.page=="home" and not paused and Engine.time_scale==1,"Return to camp must restore a usable menu")
+	var practice_coins = state.profile.coins
+	var practice_matches = state.profile.matches
+	main._start_match("arena",true)
+	await frames()
+	check(main.practice_match and main.battle.practice,"Practice entry must start the actual guarded training opponent")
+	main.battle.match_model._finish("hp")
+	await real_wait(2.8)
+	check(main.result_visible and state.profile.matches==practice_matches and state.profile.coins==practice_coins,"Practice completion must not alter career rewards or match counts")
+	key(KEY_R)
+	await frames()
+	check(main.practice_match and main.battle.practice,"Restarting practice must stay in practice without accidental career rewards")
+	main._close_battle()
 	state.profile = state.default_profile()
 	state.save_profile()
 	var report = {"checks":checks,"failures":failures,"passed":failures.is_empty(),"scope":"UI callbacks, injected Esc/R, touch IDs, pause physics, blood, save failure/recovery, terminal result"}

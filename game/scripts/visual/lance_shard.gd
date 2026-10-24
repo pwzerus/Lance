@@ -1,7 +1,7 @@
 class_name LanceShard
 extends Node2D
 
-const ATLAS = preload("res://assets/art/rider_atlas.png")
+const ATLAS = preload("res://assets/art/pixel_v03/rider_atlas.png")
 var length = 100.0
 var pointed = false
 var war_tip = false

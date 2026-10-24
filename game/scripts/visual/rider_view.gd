@@ -1,7 +1,7 @@
 class_name RiderView
 extends Node2D
 
-const ATLAS = preload("res://assets/art/rider_atlas.png")
+const ATLAS = preload("res://assets/art/pixel_v03/rider_atlas.png")
 const Model = preload("res://scripts/core/joust_match.gd")
 const Art = preload("res://scripts/visual/equipment_art.gd")
 const PARTS = {

@@ -11,12 +11,17 @@ var items: Array = []
 var profile: Dictionary = {}
 var session_awarded: Dictionary = {}
 var save_error = ""
+var qa_input_probe = false
 
 func _ready() -> void:
 	var arguments = OS.get_cmdline_user_args()
-	if arguments.has("--smoke-test") or arguments.has("--test-profile"):
+	qa_input_probe = OS.get_executable_path().get_file().begins_with("LanceAndLaurel-QA")
+	if arguments.has("--smoke-test") or arguments.has("--test-profile") or qa_input_probe:
 		save_path = "user://qa_profile_v1.json"
 		backup_path = "user://qa_profile_v1.backup.json"
+	if qa_input_probe:
+		save_path = "user://qa_desktop_profile.json"
+		backup_path = "user://qa_desktop_profile.backup.json"
 	items = Catalogue.load_items()
 	profile = default_profile()
 	load_profile()
@@ -25,7 +30,7 @@ func default_profile() -> Dictionary:
 	return {"version": 1, "coins": 520, "renown": 0, "wins": 0, "matches": 0, "region": 0,
 		"owned": ["mail_basic", "helm_nasal", "lance_ash", "horse_bay", "crest_bend"],
 		"equipped": {"armor": "mail_basic", "helmet": "helm_nasal", "lance": "lance_ash", "horse": "horse_bay", "crest": "crest_bend"},
-		"settings": {"blood": false, "shake": true, "sound": true, "mouse_only": false, "brief_seen":false, "difficulty": 1}}
+		"settings": {"blood": false, "shake": true, "sound": true, "mouse_only": false, "brief_seen":false,"combat_brief_v03":false,"slow_motion":true, "difficulty": 1}}
 
 func load_profile() -> void:
 	for path in [save_path, backup_path]:
@@ -54,7 +59,7 @@ func sanitize(raw: Dictionary) -> Dictionary:
 			if item_id in clean.owned and item.get("slot", "") == slot:
 				clean.equipped[slot] = item_id
 	if raw.get("settings") is Dictionary:
-		for key in ["blood", "shake", "sound", "mouse_only", "brief_seen"]:
+		for key in ["blood", "shake", "sound", "mouse_only", "brief_seen","combat_brief_v03","slow_motion"]:
 			if raw.settings.get(key) is bool:
 				clean.settings[key] = raw.settings[key]
 		clean.settings.difficulty = _safe_integer(raw.settings.get("difficulty"),1,0,2)

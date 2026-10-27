@@ -28,8 +28,8 @@ func _ready() -> void:
 
 func default_profile() -> Dictionary:
 	return {"version": 1, "coins": 520, "renown": 0, "wins": 0, "matches": 0, "region": 0,
-		"owned": ["mail_basic", "helm_nasal", "lance_ash", "horse_bay", "crest_bend"],
-		"equipped": {"armor": "mail_basic", "helmet": "helm_nasal", "lance": "lance_ash", "horse": "horse_bay", "crest": "crest_bend"},
+		"owned": ["mail_basic", "helm_nasal", "lance_ash", "horse_bay", "crest_bend", "shield_basic"],
+		"equipped": {"armor": "mail_basic", "helmet": "helm_nasal", "lance": "lance_ash", "horse": "horse_bay", "crest": "crest_bend", "shield":"shield_basic"},
 		"settings": {"blood": false, "shake": true, "sound": true, "mouse_only": false, "brief_seen":false,"combat_brief_v03":false,"slow_motion":true, "difficulty": 1}}
 
 func load_profile() -> void:
@@ -104,6 +104,8 @@ func purchase(item_id: String) -> String:
 		return "已经拥有"
 	if int(item.era) > Catalogue.era_for_renown(int(profile.renown)):
 		return "尚未解锁这个时代"
+	if int(profile.renown)<Catalogue.required_renown(item):
+		return "需要 %d 声望" % Catalogue.required_renown(item)
 	if int(profile.coins) < int(item.price):
 		return "银币不足"
 	profile.coins -= int(item.price)

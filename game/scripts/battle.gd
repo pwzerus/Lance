@@ -17,6 +17,7 @@ var match_model: JoustMatch
 var mode = "arena"
 var world: Node2D
 var riders: Array = []
+var rail: Node2D
 var effects: ImpactFX
 var hud: Control
 var callout: Label
@@ -118,6 +119,15 @@ func _ready() -> void:
 	shape.shape = rectangle
 	ground.add_child(shape)
 	world.add_child(ground)
+	for lane_y in [-32.0,32.0]:
+		var lane_ground = StaticBody2D.new()
+		lane_ground.position = Vector2(0,lane_y+22)
+		lane_ground.collision_layer = 16 if lane_y<0 else 32
+		lane_ground.collision_mask = 4
+		var lane_shape = CollisionShape2D.new()
+		lane_shape.shape = rectangle.duplicate()
+		lane_ground.add_child(lane_shape)
+		world.add_child(lane_ground)
 	for i in range(2):
 		var rider = Rider.new()
 		rider.fighter = match_model.fighters[i]
@@ -128,6 +138,10 @@ func _ready() -> void:
 		match_model.fighters[i]["red"] = rider.red
 		world.add_child(rider)
 		riders.append(rider)
+	rail = Node2D.new()
+	rail.z_index = 1
+	rail.draw.connect(_draw_rail)
+	world.add_child(rail)
 	zone_overlay = preload("res://scripts/visual/hit_zone_overlay.gd").new()
 	zone_overlay.match_model = match_model
 	zone_overlay.z_index = 20
@@ -179,8 +193,8 @@ func _build_hud() -> void:
 	speed_meter = ProgressBar.new()
 	speed_meter.position = Vector2(950,735)
 	speed_meter.size = Vector2(440,12)
-	speed_meter.min_value = Model.TROT_SPEED
-	speed_meter.max_value = Model.SURGE_SPEED
+	speed_meter.min_value = Model.TROT_SPEED*float(match_model.fighters[0].stats.get("speed",1.0))
+	speed_meter.max_value = Model.SURGE_SPEED*float(match_model.fighters[0].stats.get("speed",1.0))
 	speed_meter.show_percentage = false
 	var meter_background = UI.box(Color("14251f"),Color("65745b"),2)
 	var meter_fill = UI.box(Color("c6a258"),Color("ead09a"),2)
@@ -234,7 +248,9 @@ func _on_hoof_contact(leg_index: int, rider_index: int) -> void:
 	var fighter = match_model.fighters[rider_index]
 	var pace = clampf((float(fighter.speed)-Model.TROT_SPEED)/(Model.GALLOP_SPEED-Model.TROT_SPEED),0,1)
 	var pose = riders[rider_index].Gait.leg(leg_index,riders[rider_index].stride_phase,float(fighter.speed),true)
-	effects.dust(Vector2(float(fighter.x)+pose.foot.x*int(fighter.direction),8),int(fighter.direction))
+	if riders[rider_index].leg_poses.size()==4:
+		pose = riders[rider_index].leg_poses[leg_index]
+	effects.dust(Vector2(float(fighter.x)+pose.foot.x*int(fighter.direction),float(fighter.lane_y)+pose.foot.y),int(fighter.direction))
 	sound.play("hoof",lerpf(-25,-17,pace)-(3 if rider_index==1 else 0),.92 if leg_index<2 else 1.12)
 
 func _update_ai(delta: float) -> void:
@@ -334,6 +350,10 @@ func _process(delta: float) -> void:
 		Engine.time_scale = .001 if now < hitstop_until else (.20 if now < slow_until else (.72 if approach_slow else 1.0))
 		if terminal_at>0 and now>=hitstop_until:
 			departure_elapsed = minf(1.4,departure_elapsed+delta)
+			for fighter in match_model.fighters:
+				fighter.gait_moving = departure_elapsed<1.4
+				if fighter.gait_moving:
+					fighter.gait_phase += delta*TAU*Model.Gait.frequency(float(fighter.speed))
 		if terminal_at > 0 and now - terminal_at > 2600 and not is_finished:
 			is_finished = true
 			Engine.time_scale = 1.0
@@ -377,7 +397,7 @@ func _update_views() -> void:
 		var departing = 0.0
 		if match_model.phase == "ended" and terminal_at > 0:
 			departing = departure_elapsed*float(fighter.speed)*int(fighter.direction)
-		riders[i].position = Vector2(float(fighter.x)+departing, 0)
+		riders[i].position = Vector2(float(fighter.x)+departing, float(fighter.get("lane_y",0.0)))
 		riders[i].moving = match_model.phase=="charge" or (match_model.phase=="ended" and departure_elapsed<1.4)
 		riders[i].visible = true
 		riders[i].blood_enabled = GameState.profile.settings.blood
@@ -402,7 +422,7 @@ func _update_hud() -> void:
 		guard_text = "换盾中 · 留意空隙"
 	if float(f.shield)<=0:
 		guard_text = "盾已破损 · 用姿态避枪"
-	tactics_label.text = "%s　|　枪稳 %d%%　|　平衡 %d%%　|　盾 %d%%" % [guard_text,roundi(float(f.lance_stability)*100),roundi(f.balance),roundi(float(f.shield)/78*100)]
+	tactics_label.text = "%s　|　枪稳 %d%%　|　平衡 %d%%　|　盾 %d%%" % [guard_text,roundi(float(f.lance_stability)*100),roundi(f.balance),roundi(float(f.shield)/float(f.stats.get("shield_capacity",78.0))*100)]
 	if approach_slow:
 		tactics_label.text += "　· 接近放缓"
 	tactics_label.modulate = Color(1.3,1.2,.7) if Time.get_ticks_msec()<input_flash_until else Color.WHITE
@@ -433,19 +453,22 @@ func _update_hud() -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _draw() -> void:
-	# The two tracks stay isolated; the rail is scenery and never stops a horse.
-	for x in range(-5000,6500,130):
-		draw_rect(Rect2(x,602,13,89),Color("58432c"))
-		draw_rect(Rect2(x+2,602,3,89),Color("a0814e"))
-	draw_rect(Rect2(-5000,598,11500,12),Color("9e7843"))
-	draw_line(Vector2(-5000,598),Vector2(6500,598),Color("d3af69"),2)
-	draw_rect(Rect2(-5000,640,11500,7),Color("705231"))
 	for i in range(2):
 		if match_model:
-			var point = world.position+riders[i].position+Vector2(0,12+(-10 if i==1 else 10))
+			var point = world.position+riders[i].position+Vector2(0,12)
 			draw_set_transform(point,0,Vector2(1,.22))
 			draw_circle(Vector2.ZERO,125,Color(0,0,0,.19))
 			draw_set_transform(Vector2.ZERO)
+
+func _draw_rail() -> void:
+	# A separate canvas item sits between the far and near mounts, rather
+	# than the parent's draw call (which is behind every child).
+	for x in range(-5700,5800,130):
+		rail.draw_rect(Rect2(x,-92,12,104),Color("58432c"))
+		rail.draw_rect(Rect2(x+2,-92,3,104),Color("a0814e"))
+	rail.draw_rect(Rect2(-5700,-94,11500,12),Color("9e7843"))
+	rail.draw_line(Vector2(-5700,-94),Vector2(5800,-94),Color("d3af69"),2)
+	rail.draw_rect(Rect2(-5700,-43,11500,7),Color("705231"))
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:

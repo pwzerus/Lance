@@ -37,5 +37,6 @@ static func item_icon(item: Dictionary) -> Texture2D:
 		"armor": return torso(int(item.stats.get("armor_tier",0)),item.id=="mail_fr")
 		"helmet": return helmet(int(item.stats.get("helmet_tier",0)),item.id=="helm_gilt")
 		"crest": return shield(str(item.stats.get("heraldry","bend")))
+		"shield": return shield({"英格兰":"bend","法兰西":"chevron","德意志":"cross","意大利":"diamond"}.get(str(item.get("region","")),"bend"))
 		"horse": return region(HorseArt.ATLAS,HorseArt.PARTS.head)
 	return region(BASE,Rect2(935,1048,298,87))

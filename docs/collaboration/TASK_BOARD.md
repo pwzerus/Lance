@@ -1,6 +1,6 @@
 # 任务、审查建议与文件认领
 
-最后整理：2026-10-26，基于 v0.4。用户已授权本轮功能35分钟、美术40分钟，当前认领见下表。其他建议尚未指派给Claude，不代表已在后台进行。
+最后整理：2026-10-27，基于v0.4.2候选源项目。当前用户授权REQ-042实现及完成后的额外40分钟迭代，当前认领见下表。其他建议尚未指派给Claude，不代表已在后台进行。
 
 当前版本分支为 `codex/v0.4`。同版本的修复、同一／相近功能继续在该分支提交 commit；大的结构性改动形成新版本时再创建新的版本分支。不按每个小任务新建分支。
 
@@ -8,13 +8,17 @@
 
 | 负责人 | 任务 | 占用文件 | 状态 |
 | --- | --- | --- | --- |
-| 无 | REQ-042修订已整理 | 文档占用释放；游戏源码未认领 | 已删除刀剑，确认可控且可预判的枪线起伏；阶段需求见docs/requirements/RIG_HORSE_EQUIPMENT_DRAFT.md；尚未实施 |
+| Codex | DEV-042：人物／步态／跑道，再装备成长 | game/scripts/core/{joust_match,catalogue,game_state}.gd；game/scripts/visual/{rider_view,horse_gait,equipment_art}.gd；game/scripts/{battle,main}.gd；game/data/equipment.json；game/tests/*042*；tools/*042*；game/project.godot、export_presets.cfg；Play-Latest.cmd；DESIGN_DECISIONS.md；docs/collaboration/{PROJECT_STATE,TASK_BOARD,WORK_LOG}.md；docs/collaboration/handoffs/*042*；docs/development/*042* | 2026-10-27 20:06 UTC 开始，基线92d7e15；用户已授权实施，完成后追加40分钟审查、测试与修复。既有Claude文档改动保留。 |
 
 认领前登记任务 ID、负责人、文件、开始时间与基线 SHA。修改范围扩大时先更新占用。完成／暂停／交出时释放，并留下具体交接记录。此表不是技术锁；`battle.gd`、`main.gd`、规则模型和同一图集禁止两人各改一套后互相覆盖。审查者先只读，修复需协调文件负责人。
 
+DEV-042范围补充：Codex同时负责新增`game/data/equipment_expansion.json`、`docs/development/EQUIPMENT_042.md`及新的QA脚本；保留旧装备ID以兼容收藏。
+
+DEV-042运行审查补充：`game/scripts/visual/impact_fx.gd`由Codex负责，给落马身体和碎片接入分跑道地面及遮挡，防止新分层与旧单地面冲突。
+
 ## 建议顺序与验收标准
 
-最新玩家要求的优先级见[REQ-042](../requirements/RIG_HORSE_EQUIPMENT_DRAFT.md)：先人物连接、马匹运动／接地和隔栏双跑道，再扩充四国装备与10种共通马匹。仅草案，等待用户核对；下列旧建议不覆盖这一优先顺序。
+最新玩家要求的优先级见[REQ-042](../requirements/RIG_HORSE_EQUIPMENT_DRAFT.md)：先人物连接、马匹运动／接地和隔栏双跑道，再扩充四国装备与10种共通马匹。用户已确认并授权实施；下列旧建议不覆盖这一优先顺序。
 
 优先级表示建议顺序，不表示当前有阻塞启动的故障。状态均为“待认领”，不能把它们当作已发生的验证。
 

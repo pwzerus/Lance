@@ -20,6 +20,8 @@ var pending_result: Dictionary = {}
 var reward: Dictionary = {}
 var selected_slot = "armor"
 var selected_era = 0
+var selected_region = 0 # 0 all, 1..4 regions, 5 shared
+var selected_quality = 0 # 0 all, 1..6 qualities
 var selected_item: Dictionary = {}
 var info_panel: Control
 var message_label: Label
@@ -37,8 +39,8 @@ var smoke_last_report = 0
 var practice_match = false
 
 func _ready() -> void:
-	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.1"
-	print("GALUMU_BUILD v0.4.1")
+	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.2"
+	print("GALUMU_BUILD v0.4.2")
 	get_window().min_size = Vector2i(960,540)
 	ui_layer = CanvasLayer.new()
 	add_child(ui_layer)
@@ -56,7 +58,7 @@ func _ready() -> void:
 		smoke_started = Time.get_ticks_msec()
 	show_home()
 	if GameState.qa_input_probe:
-		get_window().title = "Lance & Laurel v0.4.1 QA - Desktop input"
+		get_window().title = "Lance & Laurel v0.4.2 QA - Desktop input"
 		var audit = preload("res://scripts/core/desktop_input_audit.gd").new()
 		audit.main = self
 		add_child(audit)
@@ -133,7 +135,7 @@ func show_home() -> void:
 	UI.label(screen,"当前年代  " + Catalogue.ERAS[Catalogue.era_for_renown(int(GameState.profile.renown))],Vector2(420,611),17,UI.GOLD)
 	UI.separator(screen,Vector2(62,696),698)
 	UI.label(screen,"鼠标瞄准   左键加速   W/S 倾身   Esc 暂停",Vector2(62,718),17,UI.MUTED)
-	UI.label(screen,"单机试玩版  ·  Windows  ·  v0.4.1 · 骑手与马匹",Vector2(62,751),14,UI.MUTED)
+	UI.label(screen,"单机试玩版  ·  Windows  ·  v0.4.2 · 步态与军械库",Vector2(62,751),14,UI.MUTED)
 	UI.button(screen,"退出游戏",Rect2(608,739,150,38),func():
 		GameState.save_profile()
 		get_tree().quit())
@@ -251,22 +253,45 @@ func show_armory() -> void:
 	var index = 0
 	for slot in Catalogue.SLOT_NAMES:
 		var slot_value = str(slot)
-		UI.button(screen,Catalogue.SLOT_NAMES[slot],Rect2(56+index*147,169,136,43),func():
+		UI.button(screen,Catalogue.SLOT_NAMES[slot],Rect2(56+index*110,169,101,43),func():
 			selected_slot = slot_value
 			selected_item = {}
 			show_armory(),selected_slot == slot_value)
 		index += 1
 	var era_select = OptionButton.new()
-	era_select.position = Vector2(820,169)
-	era_select.size = Vector2(230,43)
+	era_select.position = Vector2(724,169)
+	era_select.size = Vector2(210,43)
+	era_select.add_item("全部年代")
 	for i in range(Catalogue.ERAS.size()):
 		era_select.add_item(Catalogue.ERAS[i])
-	era_select.selected = selected_era
+	era_select.selected = selected_era+1
 	era_select.item_selected.connect(func(value):
-		selected_era = value
+		selected_era = value-1
 		selected_item = {}
 		show_armory())
 	screen.add_child(era_select)
+	var region_select = OptionButton.new()
+	region_select.position = Vector2(946,169)
+	region_select.size = Vector2(199,43)
+	for region_name in ["全部地区"]+Catalogue.REGIONS+["欧洲共通"]:
+		region_select.add_item(region_name)
+	region_select.selected = selected_region
+	region_select.item_selected.connect(func(value):
+		selected_region = value
+		selected_item = {}
+		show_armory())
+	screen.add_child(region_select)
+	var quality_select = OptionButton.new()
+	quality_select.position = Vector2(1157,169)
+	quality_select.size = Vector2(228,43)
+	for quality_name in ["全部品质","新手","初级","中级","中高级","高级","最高级"]:
+		quality_select.add_item(quality_name)
+	quality_select.selected = selected_quality
+	quality_select.item_selected.connect(func(value):
+		selected_quality = value
+		selected_item = {}
+		show_armory())
+	screen.add_child(quality_select)
 	var scroll = ScrollContainer.new()
 	scroll.position = Vector2(55,236)
 	scroll.size = Vector2(830,478)
@@ -279,7 +304,9 @@ func show_armory() -> void:
 	scroll.add_child(grid)
 	var filtered: Array = []
 	for item in GameState.items:
-		if item.slot == selected_slot and int(item.era) == selected_era:
+		var region_match = selected_region==0 or item.region==("欧洲共通" if selected_region==5 else Catalogue.REGIONS[maxi(0,selected_region-1)])
+		var quality_match = selected_quality==0 or int(item.get("quality",-1))==selected_quality-1
+		if item.slot == selected_slot and (selected_era<0 or int(item.era) == selected_era) and region_match and quality_match:
 			filtered.append(item)
 	for item in filtered:
 		var item_value = item
@@ -287,10 +314,11 @@ func show_armory() -> void:
 		var equipped = GameState.profile.equipped.get(item.slot) == item.id
 		var card = Button.new()
 		card.custom_minimum_size = Vector2(397,116)
-		card.text = "%s%s\n%s · %s\n%s" % ["◆ " if equipped else "",item.name,item.region,Catalogue.ERAS[int(item.era)],"已装备" if equipped else ("已收藏" if owned else "%d 银币" % item.price)]
+		card.text = "%s%s\n%s · %s\n%s" % ["◆ " if equipped else "",item.name,Catalogue.ERAS[int(item.era)],item.get("quality_name","旧藏"),"已装备" if equipped else ("已收藏" if owned else ("%d 银币 · 声望 %d" % [item.price,Catalogue.required_renown(item)]))]
 		card.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		card.clip_contents = true
-		card.add_theme_font_size_override("font_size",16)
+		card.add_theme_font_size_override("font_size",14)
+		card.tooltip_text = item.description
 		card.pressed.connect(func():
 			selected_item = item_value
 			_update_item_panel())
@@ -321,7 +349,7 @@ func _update_item_panel() -> void:
 		return
 	var item = selected_item
 	UI.label(info_panel,item.name,Vector2(22,18),25,UI.GOLD,415)
-	UI.label(info_panel,"%s · %s" % [item.region,item.get("historical_window",Catalogue.ERAS[int(item.era)])],Vector2(22,61),15,UI.MUTED,415)
+	UI.label(info_panel,"%s · %s · %s" % [item.region,item.get("quality_name","旧藏"),item.get("historical_window",Catalogue.ERAS[int(item.era)])],Vector2(22,61),14,UI.MUTED,415)
 	UI.label(info_panel,item.description,Vector2(22,101),16,UI.INK,312)
 	var icon = TextureRect.new()
 	icon.texture = Art.item_icon(item)
@@ -343,14 +371,17 @@ func _update_item_panel() -> void:
 			"durability": detail += "耐久  %d   " % value
 			"speed": detail += "速度  ×%.2f   " % value
 			"stability": detail += "鞍上稳定  ×%.2f   " % value
+			"lance_handling": detail += "调枪速度  ×%.2f   " % value
+			"shield_capacity": detail += "盾耐久  %d   " % value
+			"shield_handling": detail += "换盾速度  ×%.2f   " % value
 	UI.label(info_panel,detail,Vector2(22,248),17,UI.GOLD,412)
 	UI.separator(info_panel,Vector2(22,310),412)
 	UI.label(info_panel,"考据  " + str(item.source),Vector2(22,326),14,UI.MUTED,412)
 	UI.label(info_panel,item.historical_note,Vector2(22,358),14,UI.MUTED,412)
 	var owned = item.id in GameState.profile.owned
-	var era_unlocked = int(item.era) <= Catalogue.era_for_renown(int(GameState.profile.renown))
+	var era_unlocked = int(GameState.profile.renown)>=Catalogue.required_renown(item)
 	var equipped = GameState.profile.equipped.get(item.slot) == item.id
-	var action_text = "已装备" if equipped else ("装备" if owned else ("购买 · %d 银币" % item.price if era_unlocked else "需要 %d 声望" % Catalogue.ERA_REQUIREMENTS[int(item.era)]))
+	var action_text = "已装备" if equipped else ("装备" if owned else ("购买 · %d 银币" % item.price if era_unlocked else "需要 %d 声望" % Catalogue.required_renown(item)))
 	var action = UI.button(info_panel,action_text,Rect2(22,421,412,55),func():
 		if owned:
 			GameState.equip(item.id)
@@ -360,7 +391,7 @@ func _update_item_panel() -> void:
 			show_armory()
 			message_label.text = notice
 			sounds.play("click",-12),true)
-	action.disabled = equipped or not era_unlocked
+	action.disabled = equipped or (not owned and not era_unlocked)
 
 func show_settings() -> void:
 	page = "settings"

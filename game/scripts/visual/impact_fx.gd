@@ -44,8 +44,9 @@ func break_lance(event: Dictionary, mode: String) -> void:
 		body.rotation = ray.angle()
 		body.mass = .35
 		body.collision_layer = 4
-		body.collision_mask = 8
+		body.collision_mask = 32 if int(event.break_direction)==1 else 16
 		body.gravity_scale = 1.0
+		body.z_index = -8 if int(event.break_direction)==1 else -10
 		body.linear_velocity = Vector2(int(event.break_direction)*(190+i*55),-125-i*45)
 		body.angular_velocity = int(event.break_direction)*(-3.0 if i==0 else 5.0)
 		var collider = CollisionShape2D.new()
@@ -77,10 +78,14 @@ func fall(fighter: Dictionary, direction: int) -> void:
 		{"o":Vector2(-19,91),"s":Vector2(24,77)},
 		{"o":Vector2(19,91),"s":Vector2(24,77)}]:
 		var body = RigidBody2D.new()
-		body.position = origin + Vector2(info.o)
+		var facing = int(fighter.direction)
+		var pose_rotation = Model.pose_angle(fighter)*facing
+		body.position = origin + (Vector2(info.o)*Vector2(facing,1)).rotated(pose_rotation)
+		body.rotation = pose_rotation
+		body.z_index = -8 if float(fighter.get("lane_y",0))>=0 else -10
 		body.mass = 3.0 if pieces.is_empty() else 1.0
 		body.collision_layer = 4
-		body.collision_mask = 8
+		body.collision_mask = 32 if float(fighter.get("lane_y",0))>=0 else 16
 		body.gravity_scale = 1.1
 		body.linear_velocity = Vector2(direction * 170, -95)
 		body.angular_velocity = rng.randf_range(-3.5,3.5)

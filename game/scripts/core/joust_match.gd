@@ -12,6 +12,7 @@ const ACCELERATION = 600.0
 const COAST_DECELERATION = 85.0
 const GROUND_Y = 0.0
 const HIP = Vector2(-18, -168)
+const Gait = preload("res://scripts/visual/horse_gait.gd")
 var mode = "arena"
 var phase = "ready"
 var phase_time = 2.6
@@ -32,14 +33,15 @@ func _init(match_mode: String = "arena", player_stats: Dictionary = {}, opponent
 
 func _make_fighter(x: float, direction: int, stats: Dictionary) -> Dictionary:
 	return {"x": x, "prev_x": x, "direction": direction, "speed": TROT_SPEED, "stamina": 100.0,
-		"hp": 100.0, "shield": 78.0, "lean": 0.0, "aim": -0.08, "boost": false,
+		"hp": 100.0, "shield": float(stats.get("shield_capacity",78.0)), "lean": 0.0, "aim": -0.08, "boost": false,
 		"broken": false, "durability": float(stats.get("durability", 100.0)), "acted": false,
 		"ko": false, "dead": false, "stats": stats.duplicate(true), "prev_tip": Vector2.ZERO,
 		"prev_head": Vector2.ZERO, "prev_body": Vector2.ZERO, "prev_shield": Vector2.ZERO,
 		"prev_hand": Vector2.ZERO, "prev_aim": -0.08, "prev_length": 247.0,
 		"surge": 0.0, "last_hit": "", "damage_total": 0.0, "wounds": [],
 		"balance":100.0,"lean_velocity":0.0,"prev_flank":Vector2.ZERO,
-		"guard":0.0,"guard_target":0.0,"lance_stability":.85,"aim_velocity":0.0}
+		"guard":0.0,"guard_target":0.0,"lance_stability":.85,"aim_velocity":0.0,
+		"gait_phase":0.0,"gait_moving":false,"lane_y":32.0 if direction==1 else -32.0}
 
 func _reset_positions() -> void:
 	for i in range(2):
@@ -52,6 +54,8 @@ func _reset_positions() -> void:
 		fighter.acted = false
 		fighter.surge = 0.0
 		fighter.boost = false
+		fighter.gait_phase = 0.0 if i==0 else 1.1
+		fighter.gait_moving = false
 		if mode == "arena":
 			fighter.broken = false
 			fighter.durability = float(fighter.stats.get("durability", 100.0))
@@ -60,17 +64,24 @@ func _reset_positions() -> void:
 static func pose_angle(fighter: Dictionary) -> float:
 	return float(fighter.lean)*(deg_to_rad(25.0) if float(fighter.lean)>=0 else deg_to_rad(45.0))
 
+static func saddle_offset(fighter: Dictionary) -> Vector2:
+	var pace = clampf((float(fighter.get("speed",TROT_SPEED))-TROT_SPEED)/(GALLOP_SPEED-TROT_SPEED),0,1)
+	return Gait.body(float(fighter.get("gait_phase",0.0)),pace,bool(fighter.get("gait_moving",false)),float(fighter.stats.get("stability",1.0))).offset
+
+static func mount_origin(fighter: Dictionary) -> Vector2:
+	return Vector2(float(fighter.x),float(fighter.get("lane_y",0.0)))+saddle_offset(fighter)
+
 static func body_position(fighter: Dictionary) -> Vector2:
 	var angle = pose_angle(fighter)
-	return Vector2(float(fighter.x) + (HIP.x + sin(angle) * 54.0) * int(fighter.direction), HIP.y - cos(angle) * 44.0)
+	return mount_origin(fighter)+Vector2((HIP.x + sin(angle) * 44.0) * int(fighter.direction), HIP.y - cos(angle) * 44.0)
 
 static func head_position(fighter: Dictionary) -> Vector2:
 	var angle = pose_angle(fighter)
-	return Vector2(float(fighter.x) + (HIP.x + sin(angle) * 111.0) * int(fighter.direction), HIP.y - cos(angle) * 111.0)
+	return mount_origin(fighter)+Vector2((HIP.x + sin(angle) * 111.0) * int(fighter.direction), HIP.y - cos(angle) * 111.0)
 
 static func hand_position(fighter: Dictionary) -> Vector2:
 	var angle = pose_angle(fighter)
-	return Vector2(float(fighter.x) + (HIP.x + 57.0 + sin(angle) * 58.0) * int(fighter.direction), HIP.y - cos(angle) * 54.0)
+	return mount_origin(fighter)+Vector2((HIP.x + 57.0 + sin(angle) * 58.0) * int(fighter.direction), HIP.y - cos(angle) * 54.0)
 
 static func shield_position(fighter: Dictionary) -> Vector2:
 	# Forward bracing raises the left-chest shield; leaning back withdraws
@@ -102,7 +113,7 @@ func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float
 	var distance = absf(float(fighters[0].x)-float(fighters[1].x))
 	var committed = phase=="charge" and distance<1100 and float(fighters[0].x)<float(fighters[1].x)
 	var previous_aim = float(fighter.aim)
-	fighter.aim = move_toward(previous_aim,clampf(aim,-.68,.58),delta*(.95 if committed else 2.2))
+	fighter.aim = move_toward(previous_aim,clampf(aim,-.68,.58),delta*(.95 if committed else 2.2)*float(fighter.stats.get("lance_handling",1.0)))
 	fighter.aim_velocity = absf(float(fighter.aim)-previous_aim)/maxf(delta,.00001)
 	var movement = float(fighter.aim_velocity)
 	# Small corrections are free. Large late redirects sacrifice the support
@@ -113,7 +124,7 @@ func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float
 		fighter.lance_stability = minf(1.0,float(fighter.lance_stability)+delta*.72)
 	if guard>=0:
 		fighter.guard_target = clampf(guard,0,1)
-	fighter.guard = move_toward(float(fighter.guard),float(fighter.guard_target),delta*2.8)
+	fighter.guard = move_toward(float(fighter.guard),float(fighter.guard_target),delta*2.8*float(fighter.stats.get("shield_handling",1.0)))
 	var difference = clampf(lean,-1,1)-float(fighter.lean)
 	var target_velocity = clampf(difference*4.5,-1.6,1.6)
 	fighter.lean_velocity = move_toward(float(fighter.lean_velocity),target_velocity,delta*6.0)
@@ -140,6 +151,7 @@ func step(delta: float) -> void:
 				phase = "charge"
 				events.append({"type": "charge"})
 		for fighter in fighters:
+			fighter.gait_moving = false
 			_cache_pose(fighter)
 		return
 	for fighter in fighters:
@@ -153,6 +165,8 @@ func step(delta: float) -> void:
 			fighter.speed = maxf(float(fighter.speed), target_speed)
 		fighter.speed = move_toward(float(fighter.speed), target_speed, (ACCELERATION if accelerating else COAST_DECELERATION) * delta)
 		fighter.x += int(fighter.direction) * float(fighter.speed) * delta
+		fighter.gait_moving = true
+		fighter.gait_phase += delta*TAU*Gait.frequency(float(fighter.speed))
 	# Gather both candidates BEFORE applying either result, preserving simultaneous hits.
 	var contacts: Array = []
 	for i in range(2):

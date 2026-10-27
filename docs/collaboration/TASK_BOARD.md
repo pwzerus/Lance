@@ -8,7 +8,7 @@
 
 | 负责人 | 任务 | 占用文件 | 状态 |
 | --- | --- | --- | --- |
-| Codex | DEV-042：人物／步态／跑道，再装备成长 | game/scripts/core/{joust_match,catalogue,game_state}.gd；game/scripts/visual/{rider_view,horse_gait,equipment_art}.gd；game/scripts/{battle,main}.gd；game/data/equipment.json；game/tests/*042*；tools/*042*；game/project.godot、export_presets.cfg；Play-Latest.cmd；DESIGN_DECISIONS.md；docs/collaboration/{PROJECT_STATE,TASK_BOARD,WORK_LOG}.md；docs/collaboration/handoffs/*042*；docs/development/*042* | 2026-10-27 20:06 UTC 开始，基线92d7e15；用户已授权实施，完成后追加40分钟审查、测试与修复。既有Claude文档改动保留。 |
+| Codex | DEV-042：已完成，文件已释放 | 本轮登记的源码、数据、测试、启动器和DEV-042文档 | 2026-10-27 21:47 UTC完成；基线92d7e15。后置审查20:57–21:47，独立v0.4.2包及源码快照已验收。详见DEV-042交接和V042_REVIEW；Claude既有文档改动保留。 |
 
 认领前登记任务 ID、负责人、文件、开始时间与基线 SHA。修改范围扩大时先更新占用。完成／暂停／交出时释放，并留下具体交接记录。此表不是技术锁；`battle.gd`、`main.gd`、规则模型和同一图集禁止两人各改一套后互相覆盖。审查者先只读，修复需协调文件负责人。
 

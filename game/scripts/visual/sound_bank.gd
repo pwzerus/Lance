@@ -5,6 +5,9 @@ var enabled = true
 var music: AudioStreamPlayer
 var streams: Dictionary = {}
 static var shared_streams: Dictionary = {}
+const MAX_VOICES = 12
+var voices: Array[AudioStreamPlayer] = []
+var next_voice = 0
 
 func _ready() -> void:
 	music = AudioStreamPlayer.new()
@@ -15,14 +18,15 @@ func _ready() -> void:
 	music.stream = streams.lute_loop
 	music.volume_db = -16.0
 	add_child(music)
-	music.finished.connect(func():
-		if enabled:
-			music.play())
+	music.finished.connect(_loop_music)
 	if enabled:
 		music.play()
 
 func set_enabled(value: bool) -> void:
 	enabled = value
+	if not enabled:
+		for voice in voices:
+			voice.stop()
 	if music:
 		if enabled and not music.playing:
 			music.play()
@@ -32,13 +36,41 @@ func set_enabled(value: bool) -> void:
 func play(sound: String, volume_db: float = -5.0, pitch: float = 1.0) -> void:
 	if not enabled:
 		return
-	var player = AudioStreamPlayer.new()
+	# A bounded pool avoids accumulating playing nodes during a burst of
+	# impacts/hooves, and makes scene teardown stop every active voice.
+	var player: AudioStreamPlayer
+	for voice in voices:
+		if not voice.playing:
+			player = voice
+			break
+	if not player:
+		if voices.size() < MAX_VOICES:
+			player = AudioStreamPlayer.new()
+			voices.append(player)
+			add_child(player)
+		else:
+			player = voices[next_voice]
+			next_voice = (next_voice + 1) % MAX_VOICES
+	player.stop()
 	player.stream = streams.get(sound,streams.impact)
 	player.volume_db = volume_db
 	player.pitch_scale = pitch
-	add_child(player)
-	player.finished.connect(player.queue_free)
 	player.play()
+
+func _loop_music() -> void:
+	if enabled and is_inside_tree():
+		music.play()
+
+func stop_all() -> void:
+	if music:
+		music.stop()
+		music.stream = null
+	for voice in voices:
+		voice.stop()
+		voice.stream = null
+
+func _exit_tree() -> void:
+	stop_all()
 
 func _synthesize(sound_name: String) -> AudioStreamWAV:
 	var durations = {"impact":.45,"shield":.5,"break":.5,"hoof":.16,"click":.08,"horn":1.2,"win":1.6,"lose":1.3,"lute_loop":12.8,"wind_loop":2.0}

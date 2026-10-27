@@ -75,7 +75,7 @@ func run() -> void:
 	safe._apply_contact({"type":"hit","attacker":0,"defender":1,"zone":"head","speed":960.0,"position":Vector2.ZERO})
 	check(safe.fighters[1].ko and not safe.fighters[1].dead,"Arena protection applies even to a lethal-strength head hit")
 	var report = {"checks":checks,"failures":failures,"passed":failures.is_empty()}
-	var out = FileAccess.open("res://tests/tactics_results.json",FileAccess.WRITE)
+	var out = FileAccess.open("res://tests/tactics_v041_results.json",FileAccess.WRITE)
 	if out:
 		out.store_string(JSON.stringify(report,"\t"))
 	print("TACTICS_TEST_REPORT "+JSON.stringify(report))

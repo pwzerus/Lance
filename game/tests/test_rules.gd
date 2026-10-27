@@ -134,7 +134,7 @@ func _run() -> void:
 	state.profile = original
 	state.save_profile()
 	var report = {"checks":checks,"failures":failures,"arena_hits":match_a.hits.size(),"war_death_observed":death_seen,"passed":failures.is_empty()}
-	var file = FileAccess.open("res://tests/results.json",FileAccess.WRITE)
+	var file = FileAccess.open("res://tests/rules_v041_results.json",FileAccess.WRITE)
 	if file:
 		file.store_string(JSON.stringify(report,"\t"))
 	print("RULE_TEST_REPORT " + JSON.stringify(report))

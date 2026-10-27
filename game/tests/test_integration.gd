@@ -22,6 +22,15 @@ func frames(count: int = 3) -> void:
 func real_wait(seconds: float) -> void:
 	await create_timer(seconds,true,false,true).timeout
 
+func wait_for_posture(battle: Node) -> void:
+	# Posture is integrated on physics ticks. A wall-clock timer used to
+	# sample one tick before its final snap (.0039), producing a flaky failure.
+	# Still bound the wait to two simulated seconds; a stuck key cannot pass.
+	for tick in range(240):
+		await physics_frame
+		if is_zero_approx(float(battle.match_model.fighters[0].lean)):
+			return
+
 func key(code: int) -> void:
 	var event = InputEventKey.new()
 	event.physical_keycode = code
@@ -140,7 +149,7 @@ func run() -> void:
 	motion.global_position = motion.position
 	root.push_input(motion,true)
 	Input.flush_buffered_events()
-	await real_wait(1.6)
+	await wait_for_posture(battle)
 	print("INPUT_AIM_LOW ",battle.aim_pointer," aim ",battle.match_model.fighters[0].aim," lean ",battle.match_model.fighters[0].lean," boost ",battle.match_model.fighters[0].boost)
 	check(battle.match_model.fighters[0].aim>.10,"Lowering mouse position must lower the actual lance")
 	check(not battle.mouse_held and is_zero_approx(battle.match_model.fighters[0].lean),"Releasing held inputs must clear the physical hold and return posture; countdown spur remains queued")
@@ -153,7 +162,7 @@ func run() -> void:
 	check(battle.wheel_lean>0 and battle.match_model.fighters[0].lean>0,"Mouse-only wheel input must control posture")
 	mouse_button.button_index = MOUSE_BUTTON_MIDDLE
 	root.push_input(mouse_button,true)
-	await real_wait(1.4)
+	await wait_for_posture(battle)
 	check(is_zero_approx(battle.wheel_lean) and is_zero_approx(battle.match_model.fighters[0].lean),"Middle mouse must reset posture after the inertial transition")
 	state.profile.settings.mouse_only = false
 	battle.autoplay = true
@@ -247,7 +256,7 @@ func run() -> void:
 	state.profile = state.default_profile()
 	state.save_profile()
 	var report = {"checks":checks,"failures":failures,"passed":failures.is_empty(),"scope":"UI callbacks, injected Esc/R, touch IDs, pause physics, blood, save failure/recovery, terminal result"}
-	var file = FileAccess.open("res://tests/integration_results.json",FileAccess.WRITE)
+	var file = FileAccess.open("res://tests/integration_v041_results.json",FileAccess.WRITE)
 	if file == null:
 		file = FileAccess.open("user://qa_integration_results.json",FileAccess.WRITE)
 	file.store_string(JSON.stringify(report,"\t"))

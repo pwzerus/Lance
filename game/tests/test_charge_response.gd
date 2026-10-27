@@ -91,7 +91,7 @@ func run() -> void:
 	main.queue_free()
 	await process_frame
 	var report = {"checks":checks,"failures":failures,"passed":failures.is_empty(),"response":trace,"framing":gaps,"scope":"rule response, home overlap and settled camera projection; no human fun claim"}
-	var file = FileAccess.open("res://tests/charge_response_results.json",FileAccess.WRITE)
+	var file = FileAccess.open("res://tests/charge_response_v041_results.json",FileAccess.WRITE)
 	if file:
 		file.store_string(JSON.stringify(report,"\t"))
 	print("CHARGE_RESPONSE_REPORT "+JSON.stringify(report))

@@ -221,7 +221,7 @@ func show_result() -> void:
 	var won = int(result.get("winner",-1)) == 0
 	var draw = int(result.get("winner",-1)) == -1
 	sounds.play("win" if won else "lose",-9)
-	var panel = UI.panel(screen,Rect2(412,176,616,470),Color(.045,.085,.065,.98))
+	var panel = UI.panel(screen,Rect2(332,116,776,578),Color(.045,.085,.065,.98))
 	UI.label(panel,"练习结束 · 不计输赢与奖励" if practice_match else "HONOUR IN THE LISTS",Vector2(35,22),16,UI.GOLD)
 	UI.label(panel,"平分秋色" if draw else ("桂冠属于你" if won else "此番惜败"),Vector2(35,62),42,UI.INK)
 	var explanation = "三次对冲后的骑手状态决胜"
@@ -229,15 +229,16 @@ func show_result() -> void:
 		explanation = "双方同时失去继续战斗能力" if draw else "落马或失去继续战斗能力"
 	if result.get("player_dead",false) or result.get("enemy_dead",false):
 		explanation = "实战致命伤 · 本局终止，收藏保留"
-	UI.label(panel,explanation,Vector2(35,128),18,UI.MUTED,546)
-	UI.separator(panel,Vector2(35,177),546)
+	UI.label(panel,explanation,Vector2(35,128),18,UI.MUTED,706)
+	UI.separator(panel,Vector2(35,177),706)
 	UI.label(panel,"你的骑手状态  %d%%        对手  %d%%" % [roundi(float(result.get("player_hp",0))),roundi(float(result.get("enemy_hp",0)))],Vector2(35,199),20,UI.INK)
-	UI.label(panel,"银币  +%s           声望  +%s" % [reward.get("coins",0),reward.get("renown",0)],Vector2(35,247),23,UI.GOLD)
+	UI.label(panel,preload("res://scripts/ui/combat_report.gd").summarize(battle.exchange_log if battle else []),Vector2(35,244),17,UI.INK,706)
+	UI.label(panel,"银币  +%s           声望  +%s" % [reward.get("coins",0),reward.get("renown",0)],Vector2(35,363),23,UI.GOLD)
 	var next_era = Catalogue.era_for_renown(int(GameState.profile.renown)) + 1
 	var progress = "全部时期已开放；继续收集工坊与纹章。" if next_era >= Catalogue.ERAS.size() else "下一时代：%s · 需要 %d 声望（当前 %d）" % [Catalogue.ERAS[next_era],Catalogue.ERA_REQUIREMENTS[next_era],GameState.profile.renown]
-	UI.label(panel,progress,Vector2(35,292),15,UI.MUTED,546)
-	UI.button(panel,"再次对冲  R",Rect2(35,345,263,56),func():_start_match(current_mode,practice_match),true)
-	UI.button(panel,"返回营地",Rect2(315,345,266,56),func():
+	UI.label(panel,progress,Vector2(35,408),15,UI.MUTED,706)
+	UI.button(panel,"再次对冲  R",Rect2(35,470,344,56),func():_start_match(current_mode,practice_match),true)
+	UI.button(panel,"返回营地",Rect2(397,470,344,56),func():
 		_close_battle()
 		show_home())
 

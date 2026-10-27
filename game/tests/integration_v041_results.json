@@ -1,0 +1,6 @@
+{
+	"checks": 43,
+	"failures": [],
+	"passed": true,
+	"scope": "UI callbacks, injected Esc/R, touch IDs, pause physics, blood, save failure/recovery, terminal result"
+}

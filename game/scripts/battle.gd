@@ -48,7 +48,9 @@ var ai_zone = "body"
 var ai_lean = .18
 var ai_guard = 0.0
 var ai_target_y = -212.0
+var exchange_log: Array[Dictionary] = []
 var ai_rng = RandomNumberGenerator.new()
+var ai_fighter_index = 1 # Also permits symmetric QA with the AI on either side.
 var dust_timer = 0.0
 var hoof_timer = 0.0
 var last_phase = ""
@@ -238,14 +240,15 @@ func _physics_process(delta: float) -> void:
 
 func _update_ai(delta: float) -> void:
 	ai_timer -= delta
-	var ai = match_model.fighters[1]
-	var player = match_model.fighters[0]
+	var ai = match_model.fighters[ai_fighter_index]
+	var player = match_model.fighters[1-ai_fighter_index]
 	var difficulty = 0 if practice else int(GameState.profile.settings.difficulty)
 	var distance = absf(float(player.x)-float(ai.x))
 	# Once the last approach begins the opponent must commit visibly, giving
 	# the player a feint window. Hard opponents commit later, not by reading
 	# instantaneous controls. Keep applying the cached pose below this gate.
-	var committed = match_model.phase=="charge" and float(player.x)<float(ai.x) and distance<[0.0,800.0,500.0][difficulty]
+	var approaching = (float(ai.x)-float(player.x))*int(player.direction)>0
+	var committed = match_model.phase=="charge" and approaching and distance<[0.0,800.0,500.0][difficulty]
 	if ai_timer <= 0 and not committed:
 		# Vary observation timing slightly so charge acceleration cannot align
 		# every pass with the same final observation. This is delayed sensing,
@@ -277,11 +280,12 @@ func _update_ai(delta: float) -> void:
 	var boost = distance > 700 and float(ai.stamina)>15
 	if difficulty==2 and distance<700:
 		boost = float(ai.stamina)>28
-	match_model.set_controls(1,aim,lean,boost,delta,ai_guard)
+	match_model.set_controls(ai_fighter_index,aim,lean,boost,delta,ai_guard)
 
 func _handle_event(event: Dictionary) -> void:
 	match str(event.type):
 		"hit":
+			exchange_log.append(event.duplicate(true))
 			pass_connected = true
 			var index = int(event.defender)
 			riders[index].impact_recoil = 1.0
@@ -570,6 +574,11 @@ func _on_focus_lost() -> void:
 		_toggle_pause()
 
 func _exit_tree() -> void:
+	if wind:
+		wind.stop()
+		wind.stream = null
+	if sound:
+		sound.stop_all()
 	Engine.time_scale = 1.0
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

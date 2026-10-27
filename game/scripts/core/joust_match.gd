@@ -272,6 +272,9 @@ func _apply_contact(contact: Dictionary) -> void:
 	defender.balance = maxf(0.0,float(defender.balance)-impulse*(.50 if zone=="head" else .82))
 	defender.ko = impulse > threshold or float(defender.balance)<=0 or float(defender.hp) <= 0.0
 	defender.dead = mode == "war" and float(defender.hp) <= 0.0
+	var ko_reason = ""
+	if defender.ko:
+		ko_reason = "fatal" if defender.dead else ("health" if float(defender.hp)<=0 else ("impact" if impulse>threshold else "balance"))
 	var stress = speed * 0.062 * (1.15 if zone == "shield" else 0.8)
 	attacker.durability = maxf(0.0, float(attacker.durability) - stress)
 	var break_probability = break_chance(mode, impulse, float(attacker.stats.get("durability", 100.0)))
@@ -283,7 +286,7 @@ func _apply_contact(contact: Dictionary) -> void:
 		attacker.broken = true
 	attacker.surge = 0.20
 	defender.surge = 0.20
-	contact.merge({"damage": damage, "impulse": impulse, "glanced": glanced, "broke": broke_now, "dead": defender.dead, "ko": defender.ko,"support":support,"balance_left":defender.balance,"shield_broke":shield_before>0 and float(defender.shield)<=0,
+	contact.merge({"damage": damage, "impulse": impulse, "glanced": glanced, "broke": broke_now, "dead": defender.dead, "ko": defender.ko,"ko_reason":ko_reason,"support":support,"balance_left":defender.balance,"shield_broke":shield_before>0 and float(defender.shield)<=0,
 		"break_tip":old_tip,"break_hand":old_hand,"break_reach":old_reach,"break_angle":attacker.aim,"break_direction":attacker.direction})
 	events.append(contact)
 

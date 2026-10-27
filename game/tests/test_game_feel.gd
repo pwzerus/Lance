@@ -20,7 +20,7 @@ func wait(seconds: float) -> void:
 
 func capture(name_value: String) -> void:
 	await RenderingServer.frame_post_draw
-	root.get_texture().get_image().save_png("E:/GALUMU/docs/development/screenshots/v04/"+name_value+".png")
+	root.get_texture().get_image().save_png("E:/GALUMU/docs/development/screenshots/v041/"+name_value+".png")
 
 func fixed_head_attack(defender_lean: float) -> String:
 	var model = Model.new("arena")
@@ -40,6 +40,10 @@ func fixed_head_attack(defender_lean: float) -> String:
 	return "miss"
 
 func run() -> void:
+	if DisplayServer.get_name()=="headless":
+		push_error("Game-feel capture requires a rendered window; do not run with --headless")
+		quit(1)
+		return
 	state = root.get_node("GameState")
 	check(state.save_path.contains("qa_"),"QA profile must isolate player data")
 	if not state.save_path.contains("qa_"):
@@ -195,7 +199,7 @@ func run() -> void:
 	check(Engine.time_scale==1 and not paused,"Leaving battle must restore global clock and pause state")
 	var report = {"checks":checks,"failures":failures,"passed":failures.is_empty(),"first_contact_game_seconds":first_hit}
 	print("GAME_FEEL_TEST_REPORT "+JSON.stringify(report))
-	var file = FileAccess.open("res://tests/game_feel_results.json",FileAccess.WRITE)
+	var file = FileAccess.open("res://tests/game_feel_v041_results.json",FileAccess.WRITE)
 	if file:
 		file.store_string(JSON.stringify(report,"\t"))
 	main.queue_free()

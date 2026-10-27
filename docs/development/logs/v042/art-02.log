@@ -1,0 +1,19 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+Unicode parsing error: Byte df is not a correct continuation byte after e8
+Unicode parsing error: Byte db is not a correct continuation byte after df
+Unicode parsing error: Byte 4 is not a correct continuation byte after db
+Unicode parsing error: Byte f1 is not a correct continuation byte after d2
+Unicode parsing error: Byte 11 is not a correct continuation byte after f1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8a)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fb)
+Unicode parsing error: Byte ff is not a correct continuation byte after e7
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ff)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a0)
+ERROR: Script 'res://tests/test_art_v042.gd' contains invalid unicode (UTF-8), so it was not loaded. Please ensure that scripts are saved in valid UTF-8 unicode.
+   at: load_source_code (modules/gdscript/gdscript.cpp:1132)
+ERROR: Failed loading resource: res://tests/test_art_v042.gd.
+   at: _load (core/io/resource_loader.cpp:343)
+ERROR: Can't load script: res://tests/test_art_v042.gd
+   at: start (main/main.cpp:4166)

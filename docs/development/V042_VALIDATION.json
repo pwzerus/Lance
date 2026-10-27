@@ -1,0 +1,226 @@
+{
+  "version": "0.4.2",
+  "binary_source_commit": "d5b27830bcd02c4b28a426ba82483d4f6d56c476",
+  "pck_sha256": "9786FB22F32AE252713483762E8B9AD2DE1C46E25A8C0E5F55F3AD5970EE5734",
+  "engine": "Godot 4.5.1",
+  "tests": {
+    "rules": {
+      "arena_hits": 5,
+      "checks": 410,
+      "failures": [],
+      "passed": true,
+      "war_death_observed": true
+    },
+    "integration": {
+      "checks": 43,
+      "failures": [],
+      "passed": true,
+      "scope": "UI callbacks, injected Esc/R, touch IDs, pause physics, blood, save failure/recovery, terminal result"
+    },
+    "game_feel": {
+      "checks": 30,
+      "failures": [],
+      "first_contact_game_seconds": 4.35000000000001,
+      "passed": true
+    },
+    "charge": {
+      "checks": 16,
+      "failures": [],
+      "framing": [
+        {
+          "screen_separation": 1232.00000524521,
+          "world_separation": 4400.0,
+          "zoom": 0.280000001192093
+        },
+        {
+          "screen_separation": 1077.12095975876,
+          "world_separation": 3000.0,
+          "zoom": 0.359040319919586
+        },
+        {
+          "screen_separation": 934.599816799164,
+          "world_separation": 2000.0,
+          "zoom": 0.467299908399582
+        },
+        {
+          "screen_separation": 733.141481876373,
+          "world_separation": 1000.0,
+          "zoom": 0.733141481876373
+        },
+        {
+          "screen_separation": 575.485825538635,
+          "world_separation": 500.0,
+          "zoom": 1.15097165107727
+        },
+        {
+          "screen_separation": 507.951295375824,
+          "world_separation": 350.0,
+          "zoom": 1.4512894153595
+        }
+      ],
+      "passed": true,
+      "response": [
+        {
+          "seconds": 0.5,
+          "speed": 480.0,
+          "x": -2019.625
+        },
+        {
+          "seconds": 1.5,
+          "speed": 480.0,
+          "x": -1539.625
+        },
+        {
+          "seconds": 2.0,
+          "speed": 480.0,
+          "x": -1299.625
+        },
+        {
+          "seconds": 2.5,
+          "speed": 437.500000000001,
+          "x": -1070.42708333333
+        },
+        {
+          "seconds": 3.0,
+          "speed": 395.000000000002,
+          "x": -862.479166666666
+        },
+        {
+          "seconds": 4.0,
+          "speed": 310.000000000005,
+          "x": -510.333333333329
+        },
+        {
+          "seconds": 5.2,
+          "speed": 210.0,
+          "x": -199.926041666656
+        }
+      ],
+      "scope": "rule response, home overlap and settled camera projection; no human fun claim"
+    },
+    "rig_equipment": {
+      "checks": 45611,
+      "failures": [],
+      "horses": 10,
+      "items": 182,
+      "max_lower": 68.0000152587891,
+      "max_shield_reach": 98.7920074462891,
+      "passed": true
+    },
+    "motion": {
+      "failures": [],
+      "max_hoof_slip": 7.62939453125E-06,
+      "max_lower_extension": 2.288818359375E-05,
+      "passed": true,
+      "scope": "10 horses, both facings, 30/60/120 Hz, 12 simulated seconds with repeated acceleration/coast",
+      "worst_case": "horse_chestnut / 30 Hz / -1 / tick 10"
+    },
+    "gait_control": {
+      "failures": [],
+      "horses": [
+        {
+          "corrected_rms": 0.035338973404,
+          "end_lance_stability": 1.0,
+          "horse": "horse_bay",
+          "raw_rms": 4.61837315705487,
+          "span": 15.1273379325867
+        },
+        {
+          "corrected_rms": 0.110296708774502,
+          "end_lance_stability": 1.0,
+          "horse": "horse_grey",
+          "raw_rms": 5.17663804584995,
+          "span": 16.9559168815613
+        },
+        {
+          "corrected_rms": 0.0,
+          "end_lance_stability": 0.997645570115379,
+          "horse": "horse_chestnut",
+          "raw_rms": 3.52076873658694,
+          "span": 11.321102142334
+        },
+        {
+          "corrected_rms": 0.0926301261387375,
+          "end_lance_stability": 1.0,
+          "horse": "horse_e1",
+          "raw_rms": 5.06531248390362,
+          "span": 16.5912737846375
+        },
+        {
+          "corrected_rms": 0.0,
+          "end_lance_stability": 1.0,
+          "horse": "horse_e2",
+          "raw_rms": 3.79546743353301,
+          "span": 12.3335599899292
+        },
+        {
+          "corrected_rms": 0.0844504667158949,
+          "end_lance_stability": 1.0,
+          "horse": "horse_e3",
+          "raw_rms": 5.01142618357416,
+          "span": 16.4147710800171
+        },
+        {
+          "corrected_rms": 0.0060438604737729,
+          "end_lance_stability": 1.0,
+          "horse": "horse_e4",
+          "raw_rms": 4.2060184058197,
+          "span": 13.7766828536987
+        },
+        {
+          "corrected_rms": 0.0,
+          "end_lance_stability": 1.0,
+          "horse": "horse_cob",
+          "raw_rms": 3.91483797111271,
+          "span": 12.6718199253082
+        },
+        {
+          "corrected_rms": 0.140738835565342,
+          "end_lance_stability": 0.987131558275958,
+          "horse": "horse_courser",
+          "raw_rms": 5.35311433647075,
+          "span": 17.5339598655701
+        },
+        {
+          "corrected_rms": 0.0,
+          "end_lance_stability": 1.0,
+          "horse": "horse_steady",
+          "raw_rms": 3.73868303084642,
+          "span": 12.2459402084351
+        }
+      ],
+      "passed": true,
+      "scope": "rule simulation with ideal corrective input; not human skill evidence"
+    },
+    "keyboard": {
+      "failures": [],
+      "passed": true,
+      "scope": "engine injection, not OS keyboard"
+    },
+    "presentation": {
+      "failures": [],
+      "max_world_hoof_slip": 7.62939453125E-06,
+      "passed": true,
+      "sampled_support_frames": 1102,
+      "worst_support": {
+        "frame": 184,
+        "key": "1/1",
+        "moving": true,
+        "pass": 1,
+        "phase": "charge",
+        "previous": {
+          "contact": true,
+          "cycle": 0.177522104067783,
+          "moving": true,
+          "pass": 1,
+          "phase": "charge",
+          "x": 203.756011962891
+        },
+        "x": 203.756004333496
+      }
+    }
+  },
+  "smoke_complete": true,
+  "desktop_scope": "Candidate 01/03 OS mouse and Esc/R; final identical PCK desktop follow-up stopped by physical Esc",
+  "human_playtest": false
+}

@@ -48,5 +48,8 @@ func run() -> void:
 	main._close_battle()
 	main.queue_free()
 	await process_frame
+	# Audio playback is released on the mixer thread after queued scene frees.
+	# Let the real audio lifecycle finish before terminating this very short test.
+	await create_timer(.25,true,false,true).timeout
 	print("KEYBOARD_V042 "+JSON.stringify({"failures":failures,"passed":failures.is_empty(),"scope":"engine injection, not OS keyboard"}))
 	quit(0 if failures.is_empty() else 1)

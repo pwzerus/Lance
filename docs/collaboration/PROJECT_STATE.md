@@ -1,6 +1,6 @@
 # 当前实现与接手地图
 
-2026-10-27：源项目已实现v0.4.2候选版，仍在codex/v0.4；最后发布包暂为下方v0.4.1。关节IK与贴图关节映射、规则共用步态起伏、支撑蹄世界锁定、隔栏双跑道和分层落马已接入。新增72条四国骑枪、各24条甲胄／头盔／盾牌，共通马恰10种；总目录182条含旧收藏。没有刀剑或近战，起伏可预判且影响实际枪线。存档新增基础盾槽位并保留旧ID。验证与限制见[V042_REVIEW](../development/V042_REVIEW.md)、[装备清单](../development/EQUIPMENT_042.md)。20:57–21:37 UTC进行用户要求的额外40分钟迭代，完成发布后更新此处。
+2026-10-27：当前发布v0.4.2，仍在codex/v0.4。关节IK与贴图关节映射、左向镜像、规则共用步态起伏、支撑蹄世界锁定、超伸提前收腿、隔栏双跑道和分层落马已接入。新增72条四国骑枪、各24条甲胄／头盔／盾牌，共通马恰10种；总目录182条含旧收藏。没有刀剑或近战，起伏可预判且影响实际枪线。存档新增基础盾槽位并保留旧ID。验证与限制见[V042_REVIEW](../development/V042_REVIEW.md)、[装备清单](../development/EQUIPMENT_042.md)。后置40分钟计时20:57–21:37 UTC，完成回执见本轮交接。
 
 基准更新：2026-10-26，当前v0.4.1，仍在`codex/v0.4`。功能里程碑`f1003ef`；美术与交付提交见本分支后续历史。沿用v0.4的伤害、输入、速度与AI时序，新增结算命中解释、非写实像素头像、长腿马匹分件与四拍腾空步态、落蹄同步尘土／声音。详情见[v0.4.1审查](../development/V041_REVIEW.md)及[本轮交接](handoffs/2026-10-26-DEV-ART-041-Codex.md)。需求取舍以用户最新指示和[DESIGN_DECISIONS](../../DESIGN_DECISIONS.md)为准。
 
@@ -8,11 +8,11 @@
 
 | 用途 | 位置与说明 |
 | --- | --- |
-| 玩家启动 | [Play-Latest.cmd](../../Play-Latest.cmd)，指向 v0.4.1；正式试玩会使用玩家存档 |
-| 正式发布文件夹 | [LanceAndLaurel-v0.4.1](../../builds/LanceAndLaurel-v0.4.1/)，EXE 和 PCK 必须同目录 |
-| Windows 完整包 | [LanceAndLaurel-v0.4.1-Windows.zip](../../builds/LanceAndLaurel-v0.4.1-Windows.zip) |
-| 源码快照 | [GALUMU-v0.4.1-source.zip](../../builds/GALUMU-v0.4.1-source.zip)，来自本轮交付提交；不含引擎、模板、builds 和 .godot |
-| 发布身份与散列 | [release_manifest_v041.json](../../builds/release_manifest_v041.json)、[v0.4.1审查](../development/V041_REVIEW.md) |
+| 玩家启动 | [Play-Latest.cmd](../../Play-Latest.cmd)，指向 v0.4.2；正式试玩会使用玩家存档 |
+| 正式发布文件夹 | [LanceAndLaurel-v0.4.2](../../builds/LanceAndLaurel-v0.4.2/)，EXE 和 PCK 必须同目录 |
+| Windows 完整包 | [LanceAndLaurel-v0.4.2-Windows.zip](../../builds/LanceAndLaurel-v0.4.2-Windows.zip) |
+| 源码快照 | [GALUMU-v0.4.2-source.zip](../../builds/GALUMU-v0.4.2-source.zip)，来自本轮交付提交；不含引擎、模板、builds 和 .godot |
+| 发布身份与散列 | [release_manifest_v042.json](../../builds/release_manifest_v042.json)、[v0.4.2审查](../development/V042_REVIEW.md) |
 | 可编辑项目 | [game/project.godot](../../game/project.godot)，Godot 4.5.1，GDScript，Windows x86_64，Compatibility 渲染 |
 | 本机引擎 | `E:/GALUMU/tools/godot-4.5.1/Godot_v4.5.1-stable_win64_console.exe` |
 | 本机导出模板 | `E:/GALUMU/tools/templates/windows_release_x86_64.exe` |

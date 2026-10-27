@@ -1,0 +1,13 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+GALUMU_BUILD v0.4.2
+PRESENTATION_CAPTURE 10_home_eng 0
+PRESENTATION_CAPTURE 10_home_fr 0
+PRESENTATION_CAPTURE 10_home_de 0
+PRESENTATION_CAPTURE 10_home_it 0
+PRESENTATION_CAPTURE 11_three_lances 0
+PRESENTATION_CAPTURE 12_ten_horses 0
+PRESENTATION_CAPTURE 13_lanes_wide 0
+PRESENTATION_CAPTURE 14_lanes_close 0
+PRESENTATION_V042 {"failures":[],"max_world_hoof_slip":0.00000762939453125,"passed":true,"sampled_support_frames":1083,"worst_support":{"frame":513,"key":"1/1","moving":true,"pass":2,"phase":"charge","previous":{"contact":true,"cycle":0.322994424411527,"moving":true,"pass":2,"phase":"charge","x":2299.97060394287},"x":2299.97061157227}}

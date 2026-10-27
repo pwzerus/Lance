@@ -1,0 +1,87 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+[   0% ] first_scan_filesystem | Started Project initialization (5 steps)
+[   0% ] first_scan_filesystem | Scanning file structure...
+[  16% ] first_scan_filesystem | Loading global class names...
+[  33% ] first_scan_filesystem | Verifying GDExtensions...
+[  50% ] first_scan_filesystem | Creating autoload scripts...
+[  66% ] first_scan_filesystem | Initializing plugins...
+[  83% ] first_scan_filesystem | Starting file scan...
+[ DONE ] first_scan_filesystem
+
+[   0% ] savepack | Started Packing (102 steps)
+[   1% ] savepack | Storing File: res://assets/fonts/OFL.txt
+[   3% ] savepack | Storing File: res://scripts/battle.gdc
+[   6% ] savepack | Storing File: res://scripts/main.gdc
+[   9% ] savepack | Storing File: res://.godot/imported/campaign_field.png-b2da995b2b3ddbb3ded74207996ae484.ctex
+[   9% ] savepack | Storing File: res://assets/art/pixel_v03/campaign_field.png.import
+[  12% ] savepack | Storing File: res://.godot/imported/equipment_eras.png-fe8a33eaf4cd6197185084842dff235d.ctex
+[  12% ] savepack | Storing File: res://assets/art/pixel_v03/equipment_eras.png.import
+[  14% ] savepack | Storing File: res://.godot/imported/nasal_head.png-d632bf2a8871d61bf23f982613cca55b.ctex
+[  14% ] savepack | Storing File: res://assets/art/pixel_v03/nasal_head.png.import
+[  17% ] savepack | Storing File: res://.godot/imported/rider_atlas.png-439e563c7f1f55afa1aa25301c0f7185.ctex
+[  17% ] savepack | Storing File: res://assets/art/pixel_v03/rider_atlas.png.import
+[  20% ] savepack | Storing File: res://.godot/imported/shield_fields.png-942f2a4b79124c61165da4395986f59d.ctex
+[  20% ] savepack | Storing File: res://assets/art/pixel_v03/shield_fields.png.import
+[  23% ] savepack | Storing File: res://.godot/imported/tournament_field.png-ac883e8f1c4e6006ce47a228cfacb4cc.ctex
+[  23% ] savepack | Storing File: res://assets/art/pixel_v03/tournament_field.png.import
+[  26% ] savepack | Storing File: res://.godot/imported/horse_atlas.png-f72fdc383c6e8d8d23647321028e149c.ctex
+[  26% ] savepack | Storing File: res://assets/art/pixel_v041/horse_atlas.png.import
+[  28% ] savepack | Storing File: res://.godot/imported/nasal_head.png-3ee0afffd4c1fa70296672f5b31d76e3.ctex
+[  28% ] savepack | Storing File: res://assets/art/pixel_v041/nasal_head.png.import
+[  31% ] savepack | Storing File: res://.godot/imported/campaign_field.png-446eefbb0b92054c988363bf2cb7d1e8.ctex
+[  31% ] savepack | Storing File: res://assets/art/campaign_field.png.import
+[  33% ] savepack | Storing File: res://.godot/imported/equipment_eras.png-eab3af739dfdf3d64b8321cc26c82d30.ctex
+[  33% ] savepack | Storing File: res://assets/art/equipment_eras.png.import
+[  36% ] savepack | Storing File: res://.godot/imported/nasal_head.png-21201868bcc594051d3b9cdfde42d49e.ctex
+[  36% ] savepack | Storing File: res://assets/art/nasal_head.png.import
+[  38% ] savepack | Storing File: res://.godot/imported/rider_atlas.png-cd6835441d3c93c019557989fd0f90a8.ctex
+[  38% ] savepack | Storing File: res://assets/art/rider_atlas.png.import
+[  41% ] savepack | Storing File: res://.godot/imported/shield_fields.png-6d541ce7676e619818d647566bf03b0c.ctex
+[  41% ] savepack | Storing File: res://assets/art/shield_fields.png.import
+[  44% ] savepack | Storing File: res://.godot/imported/tournament_field.png-2474f4dc6b593e7b2fb83ba6b3771422.ctex
+[  44% ] savepack | Storing File: res://assets/art/tournament_field.png.import
+[  47% ] savepack | Storing File: res://.godot/imported/NotoSansSC.ttf-53e7d2951cb723449d16fcecb813db38.fontdata
+[  47% ] savepack | Storing File: res://assets/fonts/NotoSansSC.ttf.import
+[  50% ] savepack | Storing File: res://.godot/imported/icon.svg-56083ea2a1f1a4f1e49773bdc6d7826c.ctex
+[  50% ] savepack | Storing File: res://assets/icon.svg.import
+[  52% ] savepack | Storing File: res://data/equipment.json
+[  55% ] savepack | Storing File: res://data/equipment_expansion.json
+[  58% ] savepack | Storing File: res://.godot/exported/133200997/export-3ad5c15c4f3250da0cc7c1af1770d85f-main.scn
+[  61% ] savepack | Storing File: res://scripts/core/catalogue.gdc
+[  63% ] savepack | Storing File: res://scripts/core/desktop_input_audit.gdc
+[  66% ] savepack | Storing File: res://scripts/core/game_state.gdc
+[  68% ] savepack | Storing File: res://scripts/core/joust_match.gdc
+[  71% ] savepack | Storing File: res://scripts/ui/combat_report.gdc
+[  74% ] savepack | Storing File: res://scripts/ui/ui_factory.gdc
+[  76% ] savepack | Storing File: res://scripts/visual/equipment_art.gdc
+[  79% ] savepack | Storing File: res://scripts/visual/hit_zone_overlay.gdc
+[  82% ] savepack | Storing File: res://scripts/visual/horse_art.gdc
+[  85% ] savepack | Storing File: res://scripts/visual/horse_gait.gdc
+[  87% ] savepack | Storing File: res://scripts/visual/impact_fx.gdc
+[  90% ] savepack | Storing File: res://scripts/visual/lance_shard.gdc
+[  93% ] savepack | Storing File: res://scripts/visual/rider_view.gdc
+[  96% ] savepack | Storing File: res://scripts/visual/sound_bank.gdc
+[  96% ] savepack | Storing File: res://scripts/battle.gd.remap
+[  96% ] savepack | Storing File: res://scripts/main.gd.remap
+[  96% ] savepack | Storing File: res://scenes/main.tscn.remap
+[  96% ] savepack | Storing File: res://scripts/core/catalogue.gd.remap
+[  96% ] savepack | Storing File: res://scripts/core/desktop_input_audit.gd.remap
+[  96% ] savepack | Storing File: res://scripts/core/game_state.gd.remap
+[  96% ] savepack | Storing File: res://scripts/core/joust_match.gd.remap
+[  96% ] savepack | Storing File: res://scripts/ui/combat_report.gd.remap
+[  96% ] savepack | Storing File: res://scripts/ui/ui_factory.gd.remap
+[  96% ] savepack | Storing File: res://scripts/visual/equipment_art.gd.remap
+[  96% ] savepack | Storing File: res://scripts/visual/hit_zone_overlay.gd.remap
+[  96% ] savepack | Storing File: res://scripts/visual/horse_art.gd.remap
+[  96% ] savepack | Storing File: res://scripts/visual/horse_gait.gd.remap
+[  96% ] savepack | Storing File: res://scripts/visual/impact_fx.gd.remap
+[  96% ] savepack | Storing File: res://scripts/visual/lance_shard.gd.remap
+[  96% ] savepack | Storing File: res://scripts/visual/rider_view.gd.remap
+[  96% ] savepack | Storing File: res://scripts/visual/sound_bank.gd.remap
+[  96% ] savepack | Storing File: res://.godot/global_script_class_cache.cfg
+[  96% ] savepack | Storing File: res://assets/icon.svg
+[  96% ] savepack | Storing File: res://.godot/uid_cache.bin
+[  96% ] savepack | Storing File: res://project.binary
+[ DONE ] savepack
+

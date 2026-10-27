@@ -1,0 +1,7 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+GALUMU_BUILD v0.4.1
+ZOOM_AIM actual=-0.50974155314866 expected=-0.50974169469649 pointer=(1019.517, 225.2735) screen=(1019.517, 225.2735) paused=false
+FRAGMENT start=(-58.85645, -207.3031) end=(-33.84814, -206.9892) velocity=(186.3915, 63.49552) scale=1.0 paused=false
+GAME_FEEL_TEST_REPORT {"checks":30,"failures":[],"first_contact_game_seconds":4.35000000000001,"passed":true}

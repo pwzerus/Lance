@@ -16,6 +16,8 @@ DEV-042范围补充：Codex同时负责新增`game/data/equipment_expansion.json
 
 DEV-042运行审查补充：`game/scripts/visual/impact_fx.gd`由Codex负责，给落马身体和碎片接入分跑道地面及遮挡，防止新分层与旧单地面冲突。
 
+DEV-042输入诊断补充：Codex负责`game/scripts/core/desktop_input_audit.gd`，记录QA窗口收到的物理／逻辑键码以区分桌面工具投递和游戏处理。
+
 ## 建议顺序与验收标准
 
 最新玩家要求的优先级见[REQ-042](../requirements/RIG_HORSE_EQUIPMENT_DRAFT.md)：先人物连接、马匹运动／接地和隔栏双跑道，再扩充四国装备与10种共通马匹。用户已确认并授权实施；下列旧建议不覆盖这一优先顺序。

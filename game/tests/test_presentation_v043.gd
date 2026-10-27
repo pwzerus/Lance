@@ -56,6 +56,10 @@ func run() -> void:
 			f.guard = battle.GUARD_VALUES[guard]
 			f.guard_target = f.guard
 			f.gait_moving = false
+		# Set both defenders before aiming: otherwise the left rider reads the
+		# right rider's previous staged guard, producing a misleading QA image.
+		for i in range(2):
+			var f = battle.match_model.fighters[i]
 			f.aim = asin(clampf((battle.Model.shield_position(battle.match_model.fighters[1-i]).y-battle.Model.hand_position(f).y)/battle.Model.lance_length(f),-.629,.548))
 			battle.match_model._cache_pose(f)
 		battle.guard_slot = guard
@@ -63,6 +67,7 @@ func run() -> void:
 		battle._update_hud()
 		await capture("06_shields_"+str(guard))
 	var event = {"type":"hit","attacker":0,"defender":1,"zone":"body","position":battle.Model.body_position(battle.match_model.fighters[1]),"damage":25.0,"impulse":48.0,"broke":false,"ko":false,"dead":false}
+	battle.match_model.fighters[0].acted = true
 	battle._handle_event(event)
 	Engine.time_scale = 1.0
 	battle._update_hud()

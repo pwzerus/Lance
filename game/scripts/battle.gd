@@ -472,19 +472,20 @@ func _draw_rail() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
-		if event.physical_keycode == KEY_ESCAPE:
+		var keys = [event.keycode,event.physical_keycode]
+		if KEY_ESCAPE in keys:
 			_toggle_pause()
 			get_viewport().set_input_as_handled()
-		elif event.physical_keycode == KEY_R:
+		elif KEY_R in keys:
 			get_viewport().set_input_as_handled()
 			replay_requested.emit()
 			return
-		elif event.physical_keycode == KEY_H:
+		elif KEY_H in keys:
 			training_zones = not training_zones
 			zone_overlay.visible = training_zones
 			contact_label.text = "判定显示：金色盾牌 · 青色头 / 胸 / 腰腹" if training_zones else "判定显示已关闭"
 			contact_until = Time.get_ticks_msec()+2300
-		elif event.physical_keycode == KEY_Q and not paused:
+		elif KEY_Q in keys and not paused:
 			guard_high = not guard_high
 			learned.guard = true
 	if paused:

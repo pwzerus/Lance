@@ -460,12 +460,13 @@ func _draw() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
-		if event.physical_keycode == KEY_F11:
+		var keys = [event.keycode,event.physical_keycode]
+		if KEY_F11 in keys:
 			var fullscreen = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED if fullscreen else DisplayServer.WINDOW_MODE_FULLSCREEN)
-		elif event.physical_keycode == KEY_ESCAPE and page != "battle":
+		elif KEY_ESCAPE in keys and page != "battle":
 			show_home()
-		elif event.physical_keycode == KEY_R and page == "battle" and result_visible:
+		elif KEY_R in keys and page == "battle" and result_visible:
 			_start_match(current_mode,practice_match)
 
 func _run_smoke() -> void:

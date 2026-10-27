@@ -50,8 +50,9 @@ func capture(name_value: String) -> void:
 	await process_frame
 	await process_frame
 	await RenderingServer.frame_post_draw
-	var code = root.get_texture().get_image().save_png("E:/GALUMU/docs/development/screenshots/v042/"+name_value+".png")
-	print("ART_V041_CAPTURE ",name_value," ",code)
+	DirAccess.make_dir_recursive_absolute("E:/GALUMU/docs/development/screenshots/v042/final")
+	var code = root.get_texture().get_image().save_png("E:/GALUMU/docs/development/screenshots/v042/final/"+name_value+".png")
+	print("ART_V042_CAPTURE ",name_value," ",code)
 	page.queue_free()
 	await process_frame
 
@@ -68,4 +69,3 @@ func run() -> void:
 		rider_at(i,TAU*(i%4)/4,1 if i<4 else -1,1 if i%2==0 else -1,1 if i%2==0 else 0)
 	await capture("03_poses")
 	quit()
-

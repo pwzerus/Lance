@@ -29,6 +29,8 @@ var shield_texture: Texture2D
 var art_key = ""
 var planted_feet: Array[float] = [INF,INF,INF,INF]
 var leg_poses: Array[Dictionary] = []
+var swing_starts: Array[Vector2] = [Vector2.INF,Vector2.INF,Vector2.INF,Vector2.INF]
+var last_feet: Array[Vector2] = [Vector2.INF,Vector2.INF,Vector2.INF,Vector2.INF]
 
 func _process(delta: float) -> void:
 	clock += delta
@@ -44,12 +46,24 @@ func _process(delta: float) -> void:
 	leg_poses.clear()
 	for index in range(4):
 		var leg_pose = Gait.leg(index,stride_phase,speed,moving,float(fighter.get("stats",{}).get("stability",1.0)))
+		var facing = int(fighter.get("direction",1))
 		if moving and leg_pose.contact:
 			if not is_finite(planted_feet[index]):
-				planted_feet[index] = position.x+leg_pose.foot.x*int(fighter.direction)
-			leg_pose = Gait.leg(index,stride_phase,speed,moving,float(fighter.stats.get("stability",1.0)),(planted_feet[index]-position.x)*int(fighter.direction))
+				planted_feet[index] = position.x+leg_pose.foot.x*facing
+			leg_pose = Gait.leg(index,stride_phase,speed,moving,float(fighter.stats.get("stability",1.0)),(planted_feet[index]-position.x)*facing)
 		else:
+			if is_finite(planted_feet[index]):
+				swing_starts[index] = last_feet[index]
 			planted_feet[index] = INF
+			if moving and swing_starts[index].is_finite():
+				var t = smoothstep(0,1,float(leg_pose.swing))
+				var target_x = Gait.HIP_POINTS[index].x+(5 if leg_pose.front else -5)+float(leg_pose.reach)
+				var foot = Vector2((lerpf(swing_starts[index].x,position.x+target_x*facing,t)-position.x)*facing,lerpf(swing_starts[index].y,Gait.GROUND,t))
+				foot.y += leg_pose.foot.y-Gait.GROUND
+				leg_pose = Gait.leg(index,stride_phase,speed,moving,float(fighter.stats.get("stability",1.0)),INF,foot)
+			elif not moving:
+				swing_starts[index] = Vector2.INF
+		last_feet[index] = Vector2(position.x+leg_pose.foot.x*facing,leg_pose.foot.y)
 		leg_poses.append(leg_pose)
 	if moving and delta>0 and delta<.2:
 		for leg_index in Gait.touchdown_indices(previous_phase,stride_phase,speed):
@@ -85,12 +99,12 @@ func _draw() -> void:
 	_draw_horse_leg(0,horse_tint.darkened(.29))
 	_draw_horse_leg(2,horse_tint.darkened(.25))
 	var tail_root = Model.HIP+(Vector2(-134,-170)-Model.HIP).rotated(horse_pose.pitch)+horse_pose.offset
-	draw_set_transform(tail_root*Vector2(facing,1),(horse_pose.pitch+horse_pose.tail)*facing,Vector2(facing,1))
+	draw_set_transform_matrix(mirrored_transform(tail_root,horse_pose.pitch+horse_pose.tail,facing))
 	draw_texture_rect_region(HorseArt.ATLAS,Rect2(-78,-5,84,127),HorseArt.PARTS.tail,horse_tint)
 	var neck_root = Model.HIP+(Vector2(80,-124)-Model.HIP).rotated(horse_pose.pitch)+horse_pose.offset
-	draw_set_transform(neck_root*Vector2(facing,1),(horse_pose.pitch+horse_pose.neck)*facing,Vector2(facing,1))
+	draw_set_transform_matrix(mirrored_transform(neck_root,horse_pose.pitch+horse_pose.neck,facing))
 	draw_texture_rect_region(HorseArt.ATLAS,Rect2(-31,-126,130,150),HorseArt.PARTS.head,horse_tint)
-	draw_set_transform((Model.HIP+horse_pose.offset)*Vector2(facing,1),horse_pose.pitch*facing,Vector2(facing,1))
+	draw_set_transform_matrix(mirrored_transform(Model.HIP+horse_pose.offset,horse_pose.pitch,facing))
 	draw_texture_rect_region(HorseArt.ATLAS,Rect2(-137,-20,247,106),HorseArt.PARTS.body,horse_tint)
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 	_draw_horse_leg(1,horse_tint)
@@ -108,7 +122,7 @@ func _draw() -> void:
 	var hand_local = (Model.hand_position(fighter)-origin)*Vector2(facing,1)
 	var shoulder = pivot+Vector2(26,-65).rotated(lean_angle)
 	var elbow = arm_elbow(shoulder,hand_local,38,42)
-	draw_set_transform(pivot*Vector2(facing,1),lean_angle*facing,Vector2(facing,1))
+	draw_set_transform_matrix(mirrored_transform(pivot,lean_angle,facing))
 	var shield_center = ((Model.shield_position(fighter)-origin)*Vector2(facing,1)-pivot).rotated(-lean_angle)
 	draw_texture_rect(torso_texture,Rect2(-47,-94,94,104),false)
 	_draw_armor_detail()
@@ -145,7 +159,7 @@ func _draw_horse_leg(index: int, tint: Color) -> void:
 	_draw_horse_bone(prefix+"_upper",pose.hip,pose.knee,.70 if pose.front else .72,tint)
 	_draw_horse_bone(prefix+"_lower",pose.knee,pose.ankle,.75,tint)
 	var facing = int(fighter.direction)
-	draw_set_transform(pose.ankle*Vector2(facing,1),pose.toe_angle*facing,Vector2(facing,1))
+	draw_set_transform_matrix(mirrored_transform(pose.ankle,pose.toe_angle,facing))
 	draw_texture_rect_region(HorseArt.ATLAS,Rect2(-8,-2,22,14),HorseArt.PARTS.hoof,tint)
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 
@@ -169,7 +183,7 @@ func _draw_horse_bone(part: String, start: Vector2, end: Vector2, width_scale: f
 
 func _draw_rider_leg(hip: Vector2, angle: float, tint: Color) -> void:
 	var facing = int(fighter.direction)
-	draw_set_transform(hip*Vector2(facing,1),angle*facing,Vector2(facing,1))
+	draw_set_transform_matrix(mirrored_transform(hip,angle,facing))
 	draw_part("rider_leg",Rect2(-22,-12,61,91),tint)
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 
@@ -189,6 +203,13 @@ static func arm_elbow(shoulder: Vector2, hand: Vector2, upper: float, lower: flo
 	var b = shoulder+ray.normalized().rotated(-angle)*upper
 	# Elbow hangs below the direct reach, on either facing and torso angle.
 	return a if a.y>b.y else b
+
+static func mirrored_transform(origin: Vector2, angle: float, facing: int) -> Transform2D:
+	# Rotate in rider-local space, then reflect the complete pose. CanvasItem's
+	# draw_set_transform scales the basis globally; also reversing its angle
+	# reflected rotation twice, detaching the left-facing shield/shoulder.
+	var mirror = Vector2(facing,1)
+	return Transform2D(Vector2.RIGHT.rotated(angle)*mirror,Vector2.DOWN.rotated(angle)*mirror,origin*mirror)
 
 func _draw_arm_segment(source: Rect2, start: Vector2, end: Vector2, width: float, vertical: bool, tint: Color) -> void:
 	var joint_a = Vector2(788,121) if vertical else Vector2(974,217)
@@ -235,7 +256,7 @@ func _draw_lance(hand: Vector2, angle: float, length: float, broken: bool) -> vo
 			draw_line(guard-normal*10,guard+normal*10,Color("bea05d"),3)
 	if not broken:
 		var facing = int(fighter.direction)
-		draw_set_transform(tip*Vector2(facing,1),angle*facing,Vector2(facing,1))
+		draw_set_transform_matrix(mirrored_transform(tip,angle,facing))
 		draw_part("point" if mode=="war" else "coronel",Rect2(-24,-7,24,14))
 		# A small glint belongs to the weapon tip, not a floating aim cursor.
 		draw_line(Vector2(-5,-3),Vector2(0,0),Color("fff1c4"),2)

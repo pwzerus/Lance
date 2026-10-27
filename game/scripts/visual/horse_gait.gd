@@ -23,7 +23,7 @@ static func body(phase: float, pace: float, moving: bool, stability: float = 1.0
 	var bounce = lerpf(-absf(sin(phase*2))*3.6,sin(phase-.4)*5.0-suspension*6.0,pace)*transmission
 	return {"offset":Vector2(0,bounce),"pitch":sin(phase+.25)*lerpf(.012,.047,pace),"neck":sin(phase-.45)*lerpf(.025,.075,pace),"tail":-.12*pace+sin(phase-.8)*lerpf(.06,.18,pace)}
 
-static func leg(index: int, phase: float, speed: float, moving: bool, stability: float = 1.0, planted_x: float = INF) -> Dictionary:
+static func leg(index: int, phase: float, speed: float, moving: bool, stability: float = 1.0, planted_x: float = INF, override_foot: Vector2 = Vector2.INF) -> Dictionary:
 	var pace = clampf((speed-210.0)/270.0,0,1)
 	var pose = body(phase,pace,moving,stability)
 	var hip: Vector2 = Vector2(-18,-168)+(HIP_POINTS[index]-Vector2(-18,-168)).rotated(pose.pitch)+pose.offset
@@ -46,15 +46,24 @@ static func leg(index: int, phase: float, speed: float, moving: bool, stability:
 			foot.y -= sin(PI*swing)*lerpf(29,58 if front else 48,pace)
 	if contact and is_finite(planted_x):
 		foot.x = planted_x
+	if override_foot.is_finite():
+		foot = override_foot
 	var toe_angle = 0.0 if contact else sin(swing*TAU)*.6
 	var ankle = foot-Vector2(6,11).rotated(toe_angle)
 	var ray = ankle-hip
 	var upper = UPPER
 	var lower = LOWER
+	# Accelerating can exhaust the reach of a world-planted stance sooner
+	# than its nominal duty interval. Lift off instead of stretching a bone.
+	if ray.length()>upper+lower-.01:
+		ankle = hip+ray.normalized()*(upper+lower-.01)
+		foot = ankle+Vector2(6,11).rotated(toe_angle)
+		contact = false
+		ray = ankle-hip
 	var distance = clampf(ray.length(),absf(upper-lower)+.01,upper+lower-.01)
 	var bend = acos(clampf((upper*upper+distance*distance-lower*lower)/(2*upper*distance),-1,1))
 	var knee = hip+ray.normalized().rotated(bend*(-1 if front else 1))*upper
-	return {"hip":hip,"knee":knee,"ankle":ankle,"foot":foot,"contact":contact,"cycle":cycle,"toe_angle":toe_angle,"front":front}
+	return {"hip":hip,"knee":knee,"ankle":ankle,"foot":foot,"contact":contact,"cycle":cycle,"toe_angle":toe_angle,"front":front,"swing":swing,"reach":reach,"duty":duty}
 
 static func touchdown_indices(previous_phase: float, current_phase: float, speed: float) -> Array[int]:
 	var result: Array[int] = []

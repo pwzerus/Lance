@@ -69,6 +69,11 @@ func run() -> void:
 				for sample in range(16):
 					f.gait_phase = TAU*sample/16.0
 					var pivot = Model.HIP+Model.saddle_offset(f)
+					var draw_transform = Rider.mirrored_transform(pivot,Model.pose_angle(f),direction)
+					var drawn_head = draw_transform*Vector2(0,-111)+Vector2(f.x,f.lane_y)
+					check(drawn_head.distance_to(Model.head_position(f))<.01,"Rendered head anchor matches hit geometry on both facings")
+					var local_shield = ((Model.shield_position(f)-Vector2(f.x,f.lane_y))*Vector2(direction,1)-pivot).rotated(-Model.pose_angle(f))
+					check((draw_transform*local_shield+Vector2(f.x,f.lane_y)).distance_to(Model.shield_position(f))<.01,"Rendered shield center matches collision on both facings")
 					var hand = (Model.hand_position(f)-Vector2(f.x,f.lane_y))*Vector2(direction,1)
 					var shoulder = pivot+Vector2(26,-65).rotated(Model.pose_angle(f))
 					var elbow = Rider.arm_elbow(shoulder,hand,38,42)
@@ -78,6 +83,17 @@ func run() -> void:
 					max_shield_reach = maxf(max_shield_reach,Vector2(-28,-64).distance_to(shield_hand))
 					check(absf(shield_elbow.distance_to(shield_hand)-53)<.05,"Shield arm must remain reachable")
 	# Old save IDs survive; migration adds only the missing starter shield.
+	state.profile = state.default_profile()
+	state.profile.coins = 999999
+	var locked_coins = state.profile.coins
+	check(state.purchase("eng_lance_light_1").begins_with("需要"),"Same-era higher quality requires renown")
+	check(state.profile.coins==locked_coins and "eng_lance_light_1" not in state.profile.owned,"Failed unlock must not spend or grant equipment")
+	check(not state.equip("eng_shield_5"),"Cannot equip an unowned high-tier shield")
+	state.profile.renown = 3
+	check(state.purchase("eng_lance_light_1")=="已收入军械库","Quality unlock succeeds at exact threshold")
+	var after_purchase = state.profile.coins
+	check(state.purchase("eng_lance_light_1")=="已经拥有" and state.profile.coins==after_purchase,"Repeated purchase cannot charge twice")
+	check(state.purchase("eng_lance_light_5")=="尚未解锁这个时代","Late-era quality remains gated independently")
 	var legacy = state.default_profile()
 	legacy.equipped.erase("shield")
 	legacy.owned.erase("shield_basic")

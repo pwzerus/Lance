@@ -205,5 +205,3 @@ func run() -> void:
 	main.queue_free()
 	await process_frame
 	quit(0 if failures.is_empty() else 1)
-
-

@@ -2,6 +2,7 @@ extends SceneTree
 var main: Node
 var state: Node
 var failures: Array[String] = []
+var capture_dir = "E:/GALUMU/docs/development/screenshots/v042/final/"
 
 func _initialize() -> void:
 	call_deferred("run")
@@ -10,7 +11,8 @@ func capture(label: String) -> void:
 	await process_frame
 	await process_frame
 	await RenderingServer.frame_post_draw
-	var error = root.get_texture().get_image().save_png("E:/GALUMU/docs/development/screenshots/v042/"+label+".png")
+	DirAccess.make_dir_recursive_absolute(capture_dir)
+	var error = root.get_texture().get_image().save_png(capture_dir+label+".png")
 	if error!=OK:
 		failures.append("Capture failed: "+label)
 	print("PRESENTATION_CAPTURE ",label," ",error)
@@ -59,6 +61,7 @@ func run() -> void:
 	var captured = false
 	var sampled = 0
 	var max_slip = 0.0
+	var worst_support: Dictionary = {}
 	var previous: Dictionary = {}
 	for frame in range(900):
 		await process_frame
@@ -69,10 +72,15 @@ func run() -> void:
 				var leg = rider.leg_poses[leg_index]
 				var key = "%d/%d" % [i,leg_index]
 				var world_x = rider.position.x+leg.foot.x*int(rider.fighter.direction)
-				if leg.contact and previous.has(key) and previous[key].contact and leg.cycle>previous[key].cycle and rider.moving:
-					max_slip = maxf(max_slip,absf(world_x-previous[key].x))
+				# Compare only one continuous moving stance, not the standing-to-
+				# running pose transition or a round reset/teleport.
+				if leg.contact and previous.has(key) and previous[key].contact and previous[key].moving and previous[key].pass==battle.match_model.pass_number and leg.cycle>previous[key].cycle and rider.moving:
+					var slip = absf(world_x-previous[key].x)
+					if slip>max_slip:
+						worst_support = {"previous":previous[key],"x":world_x,"phase":battle.match_model.phase,"pass":battle.match_model.pass_number,"frame":frame,"key":key,"moving":rider.moving}
+					max_slip = maxf(max_slip,slip)
 					sampled += 1
-				previous[key] = {"contact":leg.contact,"cycle":leg.cycle,"x":world_x}
+				previous[key] = {"contact":leg.contact,"cycle":leg.cycle,"x":world_x,"phase":battle.match_model.phase,"pass":battle.match_model.pass_number,"moving":rider.moving}
 		if not captured and absf(battle.match_model.fighters[0].x-battle.match_model.fighters[1].x)<660:
 			captured = true
 			await capture("14_lanes_close")
@@ -83,7 +91,7 @@ func run() -> void:
 		failures.append("Did not reach close exchange")
 	if max_slip>1.0:
 		failures.append("Planted hoof slid in rendered acceleration sequence")
-	print("PRESENTATION_V042 "+JSON.stringify({"failures":failures,"sampled_support_frames":sampled,"max_world_hoof_slip":max_slip,"passed":failures.is_empty()}))
+	print("PRESENTATION_V042 "+JSON.stringify({"failures":failures,"sampled_support_frames":sampled,"max_world_hoof_slip":max_slip,"worst_support":worst_support,"passed":failures.is_empty()}))
 	main._close_battle()
 	main.queue_free()
 	await process_frame

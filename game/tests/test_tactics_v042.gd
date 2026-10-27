@@ -80,4 +80,3 @@ func run() -> void:
 		out.store_string(JSON.stringify(report,"\t"))
 	print("TACTICS_TEST_REPORT "+JSON.stringify(report))
 	quit(0 if failures.is_empty() else 1)
-

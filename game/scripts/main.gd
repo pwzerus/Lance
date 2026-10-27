@@ -237,7 +237,7 @@ func _begin_match(mode: String, practice: bool = false) -> void:
 		GameState.set_setting("brief_seen",true)
 		GameState.set_setting("combat_brief_v043",true)
 		_start_match(mode,practice),true)
-	UI.button(panel,"返回营地",Rect2(530,448,248,58),func():shade.queue_free())
+	UI.button(panel,"返回选择",Rect2(530,448,248,58),func():shade.queue_free())
 
 func _start_match(mode: String, practice: bool = false) -> void:
 	_close_battle()

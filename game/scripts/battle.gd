@@ -243,7 +243,13 @@ func _build_hud() -> void:
 	UI.label(aim_panel,"按当前姿态估计 · 以实际交锋为准",Vector2(15,39),14,UI.MUTED,450)
 
 func _physics_process(delta: float) -> void:
-	if paused or is_finished or match_model.phase=="ended":
+	if paused or is_finished:
+		return
+	if match_model.phase=="ended":
+		# A terminal state can be queued outside step() (e.g. a scripted end).
+		# Stop controls, but still deliver the pending result exactly once.
+		for event in match_model.drain_events():
+			_handle_event(event)
 		return
 	var fighter = match_model.fighters[0]
 	if match_model.phase=="charge":

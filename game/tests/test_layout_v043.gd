@@ -41,6 +41,9 @@ func check_page(tag: String, capture_image: bool = false, container: Control = n
 		root.get_texture().get_image().save_png(capture_dir+tag+".png")
 
 func run() -> void:
+	for arg in OS.get_cmdline_user_args():
+		if arg.begins_with("--capture-dir="):
+			capture_dir = arg.trim_prefix("--capture-dir=")+"/"
 	state = root.get_node("GameState")
 	if not state.save_path.contains("qa_"):
 		quit(1)

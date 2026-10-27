@@ -1,0 +1,26 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+GALUMU_BUILD v0.4.3
+SMOKE_PROGRESS elapsed=838 step=0 busy=false phase=home pass=0 scale=1.0 fps=1.0
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v043/release/smoke/01_home.png 0
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v043/release/smoke/02_armory.png 0
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v043/release/smoke/03_history.png 0
+SMOKE_PROGRESS elapsed=5854 step=4 busy=false phase=ready pass=1 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=10871 step=4 busy=false phase=charge pass=1 scale=1.0 fps=60.0
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v043/release/smoke/04_arena.png 0
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v043/release/smoke/08_arena_impact.png 0
+SMOKE_PROGRESS elapsed=15887 step=5 busy=false phase=turn pass=2 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=20888 step=5 busy=false phase=charge pass=2 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=25903 step=5 busy=false phase=turn pass=3 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=30921 step=5 busy=false phase=charge pass=3 scale=1.0 fps=60.0
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v043/release/smoke/05_result.png 0
+SMOKE_PROGRESS elapsed=35937 step=6 busy=false phase=ended pass=3 scale=1.0 fps=45.0
+SMOKE_PROGRESS elapsed=40954 step=6 busy=false phase=charge pass=1 scale=1.0 fps=60.0
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v043/release/smoke/06_war.png 0
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v043/release/smoke/09_war_impact.png 0
+SMOKE_PROGRESS elapsed=45971 step=7 busy=false phase=charge pass=1 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=50988 step=7 busy=false phase=charge pass=2 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=56003 step=7 busy=false phase=ended pass=2 scale=1.0 fps=60.0
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v043/release/smoke/07_war_result.png 0
+SMOKE_TEST_COMPLETE: ["01_home", "02_armory", "03_history", "04_arena", "08_arena_impact", "05_result", "06_war", "09_war_impact", "07_war_result"]

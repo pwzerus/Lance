@@ -1,0 +1,65 @@
+[
+  {
+    "test": "test_rules_v043",
+    "exit": 0,
+    "passedMarker": true,
+    "scriptError": false,
+    "log": "E:/GALUMU/docs/development/logs/v043/package-test_rules_v043-01.log"
+  },
+  {
+    "test": "test_tactics_v043",
+    "exit": 0,
+    "passedMarker": true,
+    "scriptError": false,
+    "log": "E:/GALUMU/docs/development/logs/v043/package-test_tactics_v043-01.log"
+  },
+  {
+    "test": "test_ai_v043",
+    "exit": 0,
+    "passedMarker": true,
+    "scriptError": false,
+    "log": "E:/GALUMU/docs/development/logs/v043/package-test_ai_v043-01.log"
+  },
+  {
+    "test": "test_shield_sweep_v043",
+    "exit": 0,
+    "passedMarker": true,
+    "scriptError": false,
+    "log": "E:/GALUMU/docs/development/logs/v043/package-test_shield_sweep_v043-01.log"
+  },
+  {
+    "test": "test_cue_contacts_v043",
+    "exit": 0,
+    "passedMarker": true,
+    "scriptError": false,
+    "log": "E:/GALUMU/docs/development/logs/v043/package-test_cue_contacts_v043-01.log"
+  },
+  {
+    "test": "test_rig_equipment_v043",
+    "exit": 0,
+    "passedMarker": true,
+    "scriptError": false,
+    "log": "E:/GALUMU/docs/development/logs/v043/package-test_rig_equipment_v043-01.log"
+  },
+  {
+    "test": "test_demo_v043",
+    "exit": 0,
+    "passedMarker": true,
+    "scriptError": false,
+    "log": "E:/GALUMU/docs/development/logs/v043/package-test_demo_v043-01.log"
+  },
+  {
+    "test": "test_charge_response_v043",
+    "exit": 0,
+    "passedMarker": true,
+    "scriptError": false,
+    "log": "E:/GALUMU/docs/development/logs/v043/package-test_charge_response_v043-01.log"
+  },
+  {
+    "test": "test_integration_v043",
+    "exit": 1,
+    "passedMarker": false,
+    "scriptError": false,
+    "log": "E:/GALUMU/docs/development/logs/v043/package-test_integration_v043-01.log"
+  }
+]

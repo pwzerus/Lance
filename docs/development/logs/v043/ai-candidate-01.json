@@ -1,0 +1,2407 @@
+{
+	"rows": [
+		{
+			"difficulty": 0,
+			"enemy_hp": 36.2476886936281,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 72.6761607934204,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 701,
+			"strategy": "head",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 36.4102458484461,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 95.4371122877318,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 702,
+			"strategy": "head",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 36.4349018135433,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 71.1439834368,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 703,
+			"strategy": "head",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 36.4275208061845,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 70.9012418669197,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 704,
+			"strategy": "head",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 29.9203300945688,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 73.2807672620504,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 705,
+			"strategy": "head",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 36.268980447955,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 95.6224570168482,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 706,
+			"strategy": "head",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 6.72234426063839,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 95.895355707488,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 701,
+			"strategy": "head",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 6.71095716458023,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 97.6057927542497,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 702,
+			"strategy": "head",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 14.2913508834793,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 71.2109235140564,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 703,
+			"strategy": "head",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 6.70342308024683,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 97.3743802087118,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 704,
+			"strategy": "head",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 6.70093067208899,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 97.3025420063103,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 705,
+			"strategy": "head",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 6.71912842358212,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 97.8191145827219,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 706,
+			"strategy": "head",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 68.4836980499654,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 0,
+				"shield": 0
+			},
+			"hp": 99.0779520847196,
+			"passes": 1,
+			"player_index": 0,
+			"seed": 701,
+			"strategy": "flank",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 68.4836980499654,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 0,
+				"shield": 0
+			},
+			"hp": 99.0861238585861,
+			"passes": 1,
+			"player_index": 0,
+			"seed": 702,
+			"strategy": "flank",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 42.1617829496559,
+			"hits": {
+				"body": 0,
+				"flank": 2,
+				"head": 0,
+				"shield": 0
+			},
+			"hp": 71.933449446545,
+			"passes": 2,
+			"player_index": 0,
+			"seed": 703,
+			"strategy": "flank",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 42.1617829496559,
+			"hits": {
+				"body": 0,
+				"flank": 2,
+				"head": 0,
+				"shield": 0
+			},
+			"hp": 71.8334795458492,
+			"passes": 2,
+			"player_index": 0,
+			"seed": 704,
+			"strategy": "flank",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 42.1591758064073,
+			"hits": {
+				"body": 0,
+				"flank": 2,
+				"head": 0,
+				"shield": 0
+			},
+			"hp": 67.6683547743031,
+			"passes": 2,
+			"player_index": 0,
+			"seed": 705,
+			"strategy": "flank",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 68.4836980499654,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 0,
+				"shield": 0
+			},
+			"hp": 99.2600573053539,
+			"passes": 1,
+			"player_index": 0,
+			"seed": 706,
+			"strategy": "flank",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 51.4882969709773,
+			"hits": {
+				"body": 0,
+				"flank": 2,
+				"head": 0,
+				"shield": 0
+			},
+			"hp": 96.8310495027882,
+			"passes": 2,
+			"player_index": 1,
+			"seed": 701,
+			"strategy": "flank",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 51.411761162816,
+			"hits": {
+				"body": 0,
+				"flank": 2,
+				"head": 0,
+				"shield": 0
+			},
+			"hp": 98.643784839238,
+			"passes": 2,
+			"player_index": 1,
+			"seed": 702,
+			"strategy": "flank",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 51.311292882414,
+			"hits": {
+				"body": 0,
+				"flank": 2,
+				"head": 0,
+				"shield": 0
+			},
+			"hp": 75.5282216173943,
+			"passes": 2,
+			"player_index": 1,
+			"seed": 703,
+			"strategy": "flank",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 51.402863309912,
+			"hits": {
+				"body": 0,
+				"flank": 2,
+				"head": 0,
+				"shield": 0
+			},
+			"hp": 98.4596616502076,
+			"passes": 2,
+			"player_index": 1,
+			"seed": 704,
+			"strategy": "flank",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 51.402863309912,
+			"hits": {
+				"body": 0,
+				"flank": 2,
+				"head": 0,
+				"shield": 0
+			},
+			"hp": 98.4173970912383,
+			"passes": 2,
+			"player_index": 1,
+			"seed": 705,
+			"strategy": "flank",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 51.4396004189956,
+			"hits": {
+				"body": 0,
+				"flank": 2,
+				"head": 0,
+				"shield": 0
+			},
+			"hp": 98.8853179365738,
+			"passes": 2,
+			"player_index": 1,
+			"seed": 706,
+			"strategy": "flank",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 35.3983239003305,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 1,
+				"shield": 0
+			},
+			"hp": 96.3697541826259,
+			"passes": 2,
+			"player_index": 0,
+			"seed": 701,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 35.3983239003305,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 1,
+				"shield": 0
+			},
+			"hp": 96.353613839507,
+			"passes": 2,
+			"player_index": 0,
+			"seed": 702,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 35.7120473828276,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 1,
+				"shield": 0
+			},
+			"hp": 71.933449446545,
+			"passes": 2,
+			"player_index": 0,
+			"seed": 703,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 35.7120473828276,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 1,
+				"shield": 0
+			},
+			"hp": 71.8334795458492,
+			"passes": 2,
+			"player_index": 0,
+			"seed": 704,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 29.4476327286735,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 1,
+				"shield": 0
+			},
+			"hp": 74.1990634479661,
+			"passes": 2,
+			"player_index": 0,
+			"seed": 705,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 35.395506526317,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 1,
+				"shield": 0
+			},
+			"hp": 96.5343114807844,
+			"passes": 2,
+			"player_index": 0,
+			"seed": 706,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 30.6868705328551,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 1,
+				"shield": 0
+			},
+			"hp": 96.8339550549297,
+			"passes": 2,
+			"player_index": 1,
+			"seed": 701,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 30.6920058121592,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 1,
+				"shield": 0
+			},
+			"hp": 98.6450304507788,
+			"passes": 2,
+			"player_index": 1,
+			"seed": 702,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 0.0,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 2,
+				"shield": 0
+			},
+			"hp": 71.3055134692373,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 703,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 30.6679493524636,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 1,
+				"shield": 0
+			},
+			"hp": 98.4542606227476,
+			"passes": 2,
+			"player_index": 1,
+			"seed": 704,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 30.6679493524636,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 1,
+				"shield": 0
+			},
+			"hp": 98.4147869234949,
+			"passes": 2,
+			"player_index": 1,
+			"seed": 705,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 30.7198340181907,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 1,
+				"shield": 0
+			},
+			"hp": 98.8831486672675,
+			"passes": 2,
+			"player_index": 1,
+			"seed": 706,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 57.9452623585292,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 76.1061265399417,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 701,
+			"strategy": "backlean",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 58.1129049823207,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 97.2554597268403,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 702,
+			"strategy": "backlean",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 57.6933057896471,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 74.0899164912367,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 703,
+			"strategy": "backlean",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 100.0,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 0
+			},
+			"hp": 75.0899582482428,
+			"passes": 1,
+			"player_index": 0,
+			"seed": 704,
+			"strategy": "backlean",
+			"winner": 1
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 57.6459114029768,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 76.0214270366319,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 705,
+			"strategy": "backlean",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 58.1327437476801,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 97.4229366348697,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 706,
+			"strategy": "backlean",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 38.1965619949007,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 71.490791727674,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 701,
+			"strategy": "backlean",
+			"winner": 1
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 32.4297257411768,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 97.3395142155498,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 702,
+			"strategy": "backlean",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 100.0,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 0
+			},
+			"hp": 75.5525388454687,
+			"passes": 1,
+			"player_index": 1,
+			"seed": 703,
+			"strategy": "backlean",
+			"winner": 1
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 32.4299456243088,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 96.9947899481066,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 704,
+			"strategy": "backlean",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 32.4280234204495,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 97.07917875471,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 705,
+			"strategy": "backlean",
+			"winner": 0
+		},
+		{
+			"difficulty": 0,
+			"enemy_hp": 32.4327034421089,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 97.5108076035167,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 706,
+			"strategy": "backlean",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 97.5409874339826,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 85.300202913739,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 701,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 97.5368232778291,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 64.4104677260749,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 702,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 97.3203154516414,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 96.6107582532006,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 703,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 97.4286988573872,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 74.6443084681451,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 704,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 97.3861198325035,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 84.8768949704219,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 705,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 97.3207542567502,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 95.3263864208651,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 706,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 91.4741482494019,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 83.3676684001689,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 701,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 91.4803269145678,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 67.603223522168,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 702,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 91.095357432802,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 97.7208721369649,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 703,
+			"strategy": "head",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 91.095357432802,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 96.3438443819524,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 704,
+			"strategy": "head",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 91.4741482494019,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 82.1551976763744,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 705,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 91.4741482494019,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 96.4206420314908,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 706,
+			"strategy": "head",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 67.8397237885433,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 0,
+				"shield": 2
+			},
+			"hp": 97.9090301701744,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 701,
+			"strategy": "flank",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 67.8397237885433,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 0,
+				"shield": 2
+			},
+			"hp": 77.3807638041938,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 702,
+			"strategy": "flank",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 92.989213713951,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 96.5578317483301,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 703,
+			"strategy": "flank",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 92.989213713951,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 74.7828766552204,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 704,
+			"strategy": "flank",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 92.989213713951,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 84.8606516837452,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 705,
+			"strategy": "flank",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 92.9944455613403,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 96.4638630016597,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 706,
+			"strategy": "flank",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 97.3170394490367,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 83.1638063115274,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 701,
+			"strategy": "flank",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 97.2926710663629,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 68.4639130596418,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 702,
+			"strategy": "flank",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 97.292156070767,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 97.737167973411,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 703,
+			"strategy": "flank",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 97.0663552148787,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 96.4056656779274,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 704,
+			"strategy": "flank",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 97.1866661900714,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 82.3640641098189,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 705,
+			"strategy": "flank",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 97.0661802393725,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 95.4982051238145,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 706,
+			"strategy": "flank",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 42.636742629485,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 3,
+				"shield": 0
+			},
+			"hp": 96.4452445602201,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 701,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 67.1483904800184,
+			"hits": {
+				"body": 1,
+				"flank": 0,
+				"head": 1,
+				"shield": 1
+			},
+			"hp": 68.319907798362,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 702,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 68.0429032121657,
+			"hits": {
+				"body": 1,
+				"flank": 0,
+				"head": 1,
+				"shield": 1
+			},
+			"hp": 96.6107582532006,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 703,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 42.6435259952349,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 3,
+				"shield": 0
+			},
+			"hp": 96.5110469573909,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 704,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 57.7882430142565,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 96.4466368889874,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 705,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 83.1111694077227,
+			"hits": {
+				"body": 1,
+				"flank": 0,
+				"head": 0,
+				"shield": 2
+			},
+			"hp": 95.3263864208651,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 706,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 66.2615286251031,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 1,
+				"shield": 1
+			},
+			"hp": 83.2159032298623,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 701,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 34.91759528968,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 2,
+				"shield": 0
+			},
+			"hp": 67.7794584859794,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 702,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 57.992859560948,
+			"hits": {
+				"body": 1,
+				"flank": 0,
+				"head": 1,
+				"shield": 1
+			},
+			"hp": 97.7690911671658,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 703,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 58.1966133144526,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 1,
+				"shield": 1
+			},
+			"hp": 96.372930303988,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 704,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 86.7041727605174,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 0,
+				"shield": 1
+			},
+			"hp": 82.4058794726208,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 705,
+			"strategy": "adaptive",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 59.5222244555195,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 1,
+				"shield": 1
+			},
+			"hp": 95.4986708707047,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 706,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 98.4751422139436,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 75.0410284517361,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 701,
+			"strategy": "backlean",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 98.4771310254281,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 76.289497104619,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 702,
+			"strategy": "backlean",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 98.3399566741661,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 98.4436402474649,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 703,
+			"strategy": "backlean",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 98.3398226613128,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 98.449493571981,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 704,
+			"strategy": "backlean",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 98.4125270953326,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 75.1277388145472,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 705,
+			"strategy": "backlean",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 98.3406986872936,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 98.2098055293362,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 706,
+			"strategy": "backlean",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 93.5952881224007,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 82.143186397203,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 701,
+			"strategy": "backlean",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 93.3121673786405,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 80.4497821191374,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 702,
+			"strategy": "backlean",
+			"winner": 1
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 93.3130205636097,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 98.3372201733917,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 703,
+			"strategy": "backlean",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 93.3130205636097,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 98.2097910518741,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 704,
+			"strategy": "backlean",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 93.0279352845005,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 98.1764525581214,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 705,
+			"strategy": "backlean",
+			"winner": 0
+		},
+		{
+			"difficulty": 1,
+			"enemy_hp": 93.3130205636097,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 98.3267675540909,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 706,
+			"strategy": "backlean",
+			"winner": 0
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 97.4248890833864,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 81.4458093151986,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 701,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 97.4602943570386,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 69.5427626923841,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 702,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 97.4820538039632,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 69.5006211728926,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 703,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 97.4626555406903,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 69.8653666320323,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 704,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 97.3795976797842,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 80.1985880859305,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 705,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 97.5677144968734,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 54.5734050541743,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 706,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 96.6988947258172,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 86.4893368944314,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 701,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 96.6646698999784,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 87.2262358078388,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 702,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 96.6754831585964,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 88.4296289756992,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 703,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 96.6690934857132,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 76.9824311962747,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 704,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 96.6643703061887,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 77.8545335928162,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 705,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 96.6865666879036,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 65.9921222127606,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 706,
+			"strategy": "head",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 93.0223449429324,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 77.1966820569686,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 701,
+			"strategy": "flank",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 93.0223449429324,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 63.3212039696153,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 702,
+			"strategy": "flank",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 62.2901527914326,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 0,
+				"shield": 2
+			},
+			"hp": 74.6243389807332,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 703,
+			"strategy": "flank",
+			"winner": 0
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 93.0223449429324,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 76.2958379819418,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 704,
+			"strategy": "flank",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 93.0223449429324,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 75.8770407135667,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 705,
+			"strategy": "flank",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 93.0223449429324,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 45.2235379767133,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 706,
+			"strategy": "flank",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 97.3468521134882,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 82.923390310963,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 701,
+			"strategy": "flank",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 97.3468587852765,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 84.0678713066814,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 702,
+			"strategy": "flank",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 97.424059251761,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 85.5783134002845,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 703,
+			"strategy": "flank",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 97.424059251761,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 70.4669418783289,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 704,
+			"strategy": "flank",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 97.424059251761,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 71.8491280691827,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 705,
+			"strategy": "flank",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 97.424059251761,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 56.7993049319,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 706,
+			"strategy": "flank",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 97.1109258234813,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 81.1310182862054,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 701,
+			"strategy": "adaptive",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 78.9923878435079,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 1,
+				"shield": 2
+			},
+			"hp": 67.0979641538815,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 702,
+			"strategy": "adaptive",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 65.2878794446606,
+			"hits": {
+				"body": 1,
+				"flank": 0,
+				"head": 1,
+				"shield": 1
+			},
+			"hp": 74.7716722293785,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 703,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 66.2958980565067,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 2,
+				"shield": 1
+			},
+			"hp": 66.1460682447735,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 704,
+			"strategy": "adaptive",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 61.8149740653177,
+			"hits": {
+				"body": 1,
+				"flank": 1,
+				"head": 0,
+				"shield": 1
+			},
+			"hp": 76.0686727113328,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 705,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 55.1843891523733,
+			"hits": {
+				"body": 1,
+				"flank": 0,
+				"head": 2,
+				"shield": 0
+			},
+			"hp": 50.7125507331571,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 706,
+			"strategy": "adaptive",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 78.7408781050089,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 1,
+				"shield": 2
+			},
+			"hp": 82.9167697917961,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 701,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 75.9392749903319,
+			"hits": {
+				"body": 1,
+				"flank": 1,
+				"head": 0,
+				"shield": 1
+			},
+			"hp": 87.2011218919651,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 702,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 64.3085681762734,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 1,
+				"shield": 1
+			},
+			"hp": 85.4579989369224,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 703,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 74.2905296490031,
+			"hits": {
+				"body": 0,
+				"flank": 2,
+				"head": 0,
+				"shield": 1
+			},
+			"hp": 75.6319767097168,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 704,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 73.586966769252,
+			"hits": {
+				"body": 0,
+				"flank": 2,
+				"head": 0,
+				"shield": 1
+			},
+			"hp": 87.6732427515496,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 705,
+			"strategy": "adaptive",
+			"winner": 0
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 88.1967774993382,
+			"hits": {
+				"body": 0,
+				"flank": 1,
+				"head": 0,
+				"shield": 2
+			},
+			"hp": 62.4676370459984,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 706,
+			"strategy": "adaptive",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 98.2607903507906,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 98.719161355102,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 701,
+			"strategy": "backlean",
+			"winner": 0
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 98.2793397252926,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 80.5467444308927,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 702,
+			"strategy": "backlean",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 98.2941748632511,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 82.4775834889663,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 703,
+			"strategy": "backlean",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 98.3304132333584,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 64.0099605257534,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 704,
+			"strategy": "backlean",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 98.2736989898228,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 80.73258655626,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 705,
+			"strategy": "backlean",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 98.2998322613974,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 80.6480724473637,
+			"passes": 3,
+			"player_index": 0,
+			"seed": 706,
+			"strategy": "backlean",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 97.5873939152531,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 98.8175201653705,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 701,
+			"strategy": "backlean",
+			"winner": 0
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 97.5676958209453,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 83.9751391558468,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 702,
+			"strategy": "backlean",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 97.574777010393,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 84.6911936663938,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 703,
+			"strategy": "backlean",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 97.5699686726567,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 69.5788158325562,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 704,
+			"strategy": "backlean",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 97.5679965094682,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 84.3397006281872,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 705,
+			"strategy": "backlean",
+			"winner": 1
+		},
+		{
+			"difficulty": 2,
+			"enemy_hp": 97.5050218806478,
+			"hits": {
+				"body": 0,
+				"flank": 0,
+				"head": 0,
+				"shield": 3
+			},
+			"hp": 84.3321622313832,
+			"passes": 3,
+			"player_index": 1,
+			"seed": 706,
+			"strategy": "backlean",
+			"winner": 1
+		}
+	],
+	"scope": "144 deterministic rule simulations using production delayed AI, equal default equipment, 6 seeds on both player sides, scripted player observes every 0.50 game seconds; not human play or win-rate estimates",
+	"summary": [
+		{
+			"difficulty": 0,
+			"draws": 0,
+			"losses": 0,
+			"strategy": "head",
+			"timeouts": 0,
+			"wins": 12
+		},
+		{
+			"difficulty": 0,
+			"draws": 0,
+			"losses": 0,
+			"strategy": "flank",
+			"timeouts": 0,
+			"wins": 12
+		},
+		{
+			"difficulty": 0,
+			"draws": 0,
+			"losses": 0,
+			"strategy": "adaptive",
+			"timeouts": 0,
+			"wins": 12
+		},
+		{
+			"difficulty": 0,
+			"draws": 0,
+			"losses": 3,
+			"strategy": "backlean",
+			"timeouts": 0,
+			"wins": 9
+		},
+		{
+			"difficulty": 1,
+			"draws": 0,
+			"losses": 9,
+			"strategy": "head",
+			"timeouts": 0,
+			"wins": 3
+		},
+		{
+			"difficulty": 1,
+			"draws": 0,
+			"losses": 7,
+			"strategy": "flank",
+			"timeouts": 0,
+			"wins": 5
+		},
+		{
+			"difficulty": 1,
+			"draws": 0,
+			"losses": 1,
+			"strategy": "adaptive",
+			"timeouts": 0,
+			"wins": 11
+		},
+		{
+			"difficulty": 1,
+			"draws": 0,
+			"losses": 6,
+			"strategy": "backlean",
+			"timeouts": 0,
+			"wins": 6
+		},
+		{
+			"difficulty": 2,
+			"draws": 0,
+			"losses": 12,
+			"strategy": "head",
+			"timeouts": 0,
+			"wins": 0
+		},
+		{
+			"difficulty": 2,
+			"draws": 0,
+			"losses": 11,
+			"strategy": "flank",
+			"timeouts": 0,
+			"wins": 1
+		},
+		{
+			"difficulty": 2,
+			"draws": 0,
+			"losses": 5,
+			"strategy": "adaptive",
+			"timeouts": 0,
+			"wins": 7
+		},
+		{
+			"difficulty": 2,
+			"draws": 0,
+			"losses": 10,
+			"strategy": "backlean",
+			"timeouts": 0,
+			"wins": 2
+		}
+	]
+}

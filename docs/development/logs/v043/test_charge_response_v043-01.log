@@ -1,0 +1,6 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+GALUMU_BUILD v0.4.3
+CHARGE_RESPONSE_REPORT {"checks":16,"failures":[],"framing":[{"screen_separation":1232.00000524521,"world_separation":4400.0,"zoom":0.280000001192093},{"screen_separation":1077.12095975876,"world_separation":3000.0,"zoom":0.359040319919586},{"screen_separation":934.599816799164,"world_separation":2000.0,"zoom":0.467299908399582},{"screen_separation":733.141481876373,"world_separation":1000.0,"zoom":0.733141481876373},{"screen_separation":575.485825538635,"world_separation":500.0,"zoom":1.15097165107727},{"screen_separation":507.951295375824,"world_separation":350.0,"zoom":1.4512894153595}],"passed":true,"response":[{"seconds":0.5,"speed":480.0,"x":-2019.625},{"seconds":1.5,"speed":480.0,"x":-1539.625},{"seconds":2.0,"speed":480.0,"x":-1299.625},{"seconds":2.5,"speed":437.500000000001,"x":-1070.42708333333},{"seconds":3.0,"speed":395.000000000002,"x":-862.479166666666},{"seconds":4.0,"speed":310.000000000005,"x":-510.333333333329},{"seconds":5.2,"speed":210.0,"x":-199.926041666656}],"scope":"rule response, home overlap and settled camera projection; no human fun claim"}
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2514)

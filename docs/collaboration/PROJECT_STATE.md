@@ -1,148 +1,91 @@
 # 当前实现与接手地图
 
-开发中更新（2026-10-27 DEV-043）：AI、菜单/存档、三档盾控与枪线提示已接入，盾绘制和碰撞改为共用轮廓；候选02正在做实际EXE持续验证。源码提交e341c34，远程最近核对ec5f8b1；Play-Latest尚保持v0.4.2。见[本轮审查](../development/V043_REVIEW.md)。下方旧表待最终交付同步。
+2026-10-27，DEV-043，当前发布 **v0.4.3**，版本分支 `codex/v0.4`。本轮从 `84de76e` 改进 AI、开始／存档／退出流程、三档防御和枪线／命中提示。运行代码基线 `5b4cc04`；后续只有测试、启动器和文档时无须重导。修复和证据见 [V043_REVIEW](../development/V043_REVIEW.md)，交接见 [DEV-043](handoffs/2026-10-27-DEV-043-Codex.md)。用户最新指示与 [DESIGN_DECISIONS](../../DESIGN_DECISIONS.md) 优先。
 
-2026-10-27：当前发布v0.4.2，仍在codex/v0.4。关节IK与贴图关节映射、左向镜像、规则共用步态起伏、支撑蹄世界锁定、超伸提前收腿、隔栏双跑道和分层落马已接入。新增72条四国骑枪、各24条甲胄／头盔／盾牌，共通马恰10种；总目录182条含旧收藏。没有刀剑或近战，起伏可预判且影响实际枪线。存档新增基础盾槽位并保留旧ID。验证与限制见[V042_REVIEW](../development/V042_REVIEW.md)、[装备清单](../development/EQUIPMENT_042.md)。后置40分钟计时20:57–21:37 UTC，完成回执见本轮交接。
-
-基准更新：2026-10-26，当前v0.4.1，仍在`codex/v0.4`。功能里程碑`f1003ef`；美术与交付提交见本分支后续历史。沿用v0.4的伤害、输入、速度与AI时序，新增结算命中解释、非写实像素头像、长腿马匹分件与四拍腾空步态、落蹄同步尘土／声音。详情见[v0.4.1审查](../development/V041_REVIEW.md)及[本轮交接](handoffs/2026-10-26-DEV-ART-041-Codex.md)。需求取舍以用户最新指示和[DESIGN_DECISIONS](../../DESIGN_DECISIONS.md)为准。
-
-## 启动与交付
+## 启动与版本身份
 
 | 用途 | 位置与说明 |
 | --- | --- |
-| 玩家启动 | [Play-Latest.cmd](../../Play-Latest.cmd)，指向 v0.4.2；正式试玩会使用玩家存档 |
-| 正式发布文件夹 | [LanceAndLaurel-v0.4.2](../../builds/LanceAndLaurel-v0.4.2/)，EXE 和 PCK 必须同目录 |
-| Windows 完整包 | [LanceAndLaurel-v0.4.2-Windows.zip](../../builds/LanceAndLaurel-v0.4.2-Windows.zip) |
-| 源码快照 | [GALUMU-v0.4.2-source.zip](../../builds/GALUMU-v0.4.2-source.zip)，来自本轮交付提交；不含引擎、模板、builds 和 .godot |
-| 发布身份与散列 | [release_manifest_v042.json](../../builds/release_manifest_v042.json)、[v0.4.2审查](../development/V042_REVIEW.md) |
-| 可编辑项目 | [game/project.godot](../../game/project.godot)，Godot 4.5.1，GDScript，Windows x86_64，Compatibility 渲染 |
-| 本机引擎 | `E:/GALUMU/tools/godot-4.5.1/Godot_v4.5.1-stable_win64_console.exe` |
-| 本机导出模板 | `E:/GALUMU/tools/templates/windows_release_x86_64.exe` |
-| 隔离输入诊断 | [Play-Input-Diagnostic.cmd](../../Play-Input-Diagnostic.cmd)，依赖本机 `builds/qa-v04-release/`，不在普通玩家包内 |
+| 玩家启动 | [Play-Latest.cmd](../../Play-Latest.cmd)，v0.4.3，使用正式玩家存档 |
+| Windows目录／压缩包 | [运行目录](../../builds/LanceAndLaurel-v0.4.3/)、[Windows.zip](../../builds/LanceAndLaurel-v0.4.3-Windows.zip)，EXE与PCK必须同目录 |
+| 源码快照／身份 | [source.zip](../../builds/GALUMU-v0.4.3-source.zip)、[manifest](../../builds/release_manifest_v043.json)；最终SHA与验包记录见交接回执 |
+| 可编辑项目 | [game/project.godot](../../game/project.godot)，Godot 4.5.1 / GDScript / Compatibility / Windows x86_64 |
+| 本机引擎／模板 | `tools/godot-4.5.1/Godot_v4.5.1-stable_win64_console.exe`、`tools/templates/windows_release_x86_64.exe` |
 
-旧 v0.1、v0.2、v0.3 发布包保留。当前 EXE 是未修改的 Godot 模板，各版本 EXE 可完全相同；以路径、窗口／首页版本和 **PCK 散列**识别游戏版本。v0.4 PCK SHA256：`5F0C4988B62F566D7CAD2EFC2F4040D4FC278253499003F4AE9C8F9763ED0519`。Windows 文件属性不能单独证明游戏版本。
+v0.4.3 PCK SHA256：`E2316BCEAB3ECF017F7D46540EB97BA14BF4EC86727420304CD50D7880DFBC59`。EXE是通用模板，不仅凭EXE哈希区分游戏版本。旧包保留；builds不随Git上传，不代表已发布GitHub Release。源码快照不包含自己的散列、后续验包日志或他人未提交文件。
 
-源码快照和 manifest 的生成时间不同；manifest 与干净解压导入日志是打包后旁附记录，源码 ZIP 不包含自身散列。不要为补交接文档覆盖现有 ZIP。`builds/v04-source-verification/` 是验包副本，不是开发源目录。
+## 当前功能与边界
 
-## 已实现功能
-
-v0.4.1 PCK SHA256：`4BE52458C9F8F2FB5A47D1903BB97956F2585D0D87F2D95730C9B365DBE60ECB`。旧v0.4包散列未变，保留全部旧版。下方v0.4数值和证据继续作为继承基线，不替代本轮证据。
-
-| 系统 | 当前行为 | 边界 |
+| 系统 | 实现 | 边界 |
 | --- | --- | --- |
-| 核心对冲 | 自动前进，最多三轮；落马、失去战斗能力或死亡提前结束；三轮后比较 HP，相同 HP／双方同时败北为平局 | 固定分道，马匹不互撞；不是自由纵深或全战场模拟 |
-| 竞技场 | 保证非致死；每轮自动换新枪，保留骑手伤情 | 不代表历史比武没有死亡 |
-| 实战 | 允许死亡，断枪倾向低于竞技场；残柄跨轮保留到本局结束 | 死亡不删除收藏；没有永久伤残、延迟出血规则 |
-| 命中 | 移动目标相对扫掠，枪尖旋转弧线细分；头、身、腰腹、盾区域；先收集双方接触再结算 | 圆形受击区，每攻击者每轮至多一次有效命中；不是连续材料仿真 |
-| 攻防 | 头部不再固定秒杀；盾位、护甲、头盔、轴向相对速度、枪稳、姿态和平衡影响结果 | 不能据此宣布所有策略平衡完成 |
-| AI | 三档独立装备与延迟观察；根据观察到的盾位、来枪和姿态选目标；标准／困难在近身承诺后停止新观察 | 精确脚本仍能稳定利用困难档换招窗口 |
-| 练习 | 竞技场规则；对方高低盾按轮次交替，显示操作尝试提示，R 重开仍在练习 | 不发奖励、不计职业输赢；不是完整教学课程 |
-| 反馈 | 两臂、盾与破损、枪分段飞出／木屑、受击回摆、关节落马、命中部位文案、蹄声／风声／冲击音 | 马匹是程序分件步态；声音为合成版本，未正式混音 |
-| 血腥设置 | 默认关闭；开启显示伤口、血粒子与地面血迹；关掉清理对应表现 | 不改变伤害、死亡、胜负及规则随机结果；没有肢解 |
-| 进度 | 34 件物品、购买装备、五年代声望门槛、自动存档与备份恢复 | 代表性内容，未做完整四国历代专属套装 |
-| 场景与资料 | 竞技场／实战场景、首页、商店、设置、历史手记与来源链接 | 历史资料不是游戏伤害概率或价格的证据 |
+| 对冲 | 固定双跑道、隔栏遮挡、最多三轮，落马／KO／死亡提前结束；三轮比较HP，平局有明确结果 | 不是自由纵深、马匹互撞或全战场模拟 |
+| 两模式 | 竞技场非致死，每轮换枪不治疗；实战允许死亡、断枪倾向较低、残柄跨轮 | 死亡不删收藏；游戏参数不是中世纪统计 |
+| 命中 | 枪尖旋转弧与相对运动扫掠，双向同时接触后统一结算，每攻击者每轮一次；人体圆区、盾共用多边形 | 不再固定戳头秒杀，非材料仿真 |
+| 攻防 | 三档连续移盾；护甲、头盔、盾、枪稳、速度、姿态和平衡影响结果 | 不证明全部装备／策略已平衡 |
+| AI | 初学／正规／老练，延迟可见信息与独立攻防承诺；老练可先示招后变招、参考上轮来枪 | 不读输入、不加血量伤害；脚本胜率不是真人难度 |
+| 练习 | 按轮次护头／护胸／护腹，固定节奏，R重开仍为练习，无职业奖励／场次 | 有首次说明，尚无分步骤教程 |
+| 反馈 | 枪尖菱形、目标角标、颜色+文字、实际命中部位色冲击环；双方命中分别显示 | 当前线不预测未来步态／盾位、不自动瞄准；设置可关闭 |
+| 动作／美术 | IK双臂、两跑道分层、步态起伏影响真实枪线、支撑蹄世界锁定、断枪飞段和落马；盾朝对手收窄、加厚边握带 | 程序分件动画，仍有像素旋转闪烁；非手绘逐帧 |
+| 血腥 | 默认关，可选伤口／血粒子／血迹，关闭清理，表现随机数独立 | 不改变伤害／死亡／胜负，无肢解 |
+| 装备 | 182件含旧收藏；四国各3类骑枪×6档=72，各24甲胄／头盔／盾；共通马恰10种，速度稳定取舍 | 无刀剑／拔刀近战；不是所有器物都已逐图鉴定 |
+| 菜单／进度 | 首页开始、存档／继续、军械库、历史、设置、保存退出；出战页模式／难度；自动档+3手动槽+备份 | 保存收藏装备设置养成，不保存战斗中途，无云同步 |
+| 写盘故障 | 损坏主档不替换有效备份；读档保存失败回滚内存；购买装备失败回滚；退出保存失败保留窗口 | 奖励保存失败保留内存并提示，无跨进程交易日志 |
 
-## 输入、节奏与关键数值
+## 输入与参数
 
-| 项目 | v0.4 当前实现 |
+| 项目 | 当前值／语义 |
 | --- | --- |
-| 调枪 | 鼠标上下决定枪尖高度；只在鼠标移动／触摸拖动时更新意图，静止鼠标不随镜头重算角度 |
-| 催马 | 左键点按或持续按住，空格可替代；点按保持 2 游戏秒；倒计时点按保留到冲锋 |
-| 防御 | 右键／Q 切换高低盾，约 0.36 游戏秒完成；高盾护头、低盾护腰腹，另一处暴露 |
-| 倾身 | W/S 或上下箭头；前倾约 25°，后仰约 45°，带惯性；可选滚轮倾身、中键回正 |
-| 其他 | H 显示真实受击范围，默认关；Esc 暂停，R 重开，F11 全屏 |
-| 起跑与速度 | 双方起点 ±2200；巡航 210，疾驰 480，过阵短冲 515；加速度 600，滑行减速度 85 |
-| 枪稳 | 交错前 1100 距离内调枪速度由 2.2 降至 0.95 rad/s；大幅转向失稳、停手恢复；后仰削弱支撑与平衡 |
-| AI 时序 | 观察基准 1.0／0.65／0.34 游戏秒并 ±10% 变化；标准 800、困难 500 距离内承诺；简单档无同类承诺门槛 |
-| 镜头 | 远景蓄势，随距离次线性放大到近景，保留可见接近运动；650 距离内、未接触时 0.72 倍时间 |
-| 命中时间 | 身体顿帧约 65ms，盾约 40ms；之后约 0.20 倍时间至命中后约 510ms，真实时钟解除 |
-| 设置边界 | 可关闭接近放缓和命中慢动作，短顿帧仍保留；暂停冻结世界和布偶，重开／退出恢复 time_scale |
-| HUD | 实际游戏速度条，催马／减速中／巡航，盾位／耐久、枪稳、平衡、命中部位和练习提示 |
+| 调枪 | 鼠标上下决定枪尖高度，静止鼠标不随镜头重算；大幅变招失稳 |
+| 催马 | 左键／空格按住冲刺，点按2游戏秒，倒计时保留；盾按钮不催马、不改瞄准 |
+| 防御 | 1/2/3护头／护胸／护腹，右键／Q循环，按钮可点／触；guard=1/.43/0，移动速率2.8×handling每游戏秒 |
+| 倾身／其他 | W/S或上下键，前25°后45°且有惯性；可选滚轮倾身、中键回正；H判定、Esc暂停、R重开、F11全屏 |
+| 起跑／速度 | ±2200，巡航210、疾驰480、过阵515，加速600、减速85；受装备耐力影响 |
+| 枪稳 | 距离1100内调枪速率由2.2降至0.95rad/s；后仰削弱攻击支撑和平衡 |
+| AI时序 | 观察延迟.72/.38/.20秒，思考.78/.40/.22秒±8%，进攻承诺距接触.85/.52/.30秒，防守.65/.35/.18秒 |
+| 镜头／时间 | 次线性拉近；650内未接触时0.72倍；身体顿帧约65ms、盾40ms，之后约0.20倍至命中后约510ms，真实时钟解除 |
+| 暂停／终局 | 暂停冻结世界；终局停控制但仍消费待发结果事件；结果隐藏HUD；重开退出恢复time_scale |
 
-时间单位要区分：催马消耗游戏秒，顿帧和慢动作恢复使用真实时间。距离、速度、伤害、平衡、价格都是游戏参数，不是米、公里时速或历史实验数据。所有催马仍受耐力约束。
+距离、速度、伤害、价格为游戏单位。年代1100–1300、1300–1400、1400–1470、1470–1530、1530–1600，时代声望门槛0/6/16/30/48，装备另有品质门槛。初始银币520；胜180银币+3声望，平110+1，负55+1，实战另加30银币。地区英格兰、法兰西、德意志、意大利，无现实付费。
 
-年代窗口为 1100–1300、1300–1400、1400–1470、1470–1530、1530–1600；声望门槛 0／6／16／30／48。初始银币 520；胜 180 银币和 3 声望，平 110 和 1，负 55 和 1；实战另加 30 银币。地区线为英格兰、法兰西、德意志、意大利；没有现实付费。
+## 文件职责（路径相对game/scripts）
 
-## 源码分工地图
-
-路径均相对根目录 `E:/GALUMU`；Godot `res://` 对应 `game/`。
-
-| 文件／目录 | 负责内容 | 改动联动与风险 |
-| --- | --- | --- |
-| [core/joust_match.gd](../../game/scripts/core/joust_match.gd) | 规则、运动、扫掠、伤害、模式、结束；共用身体／手／盾／枪尖几何 | 物理与美术都使用这些挂点；同步验证双方向和极限姿态 |
-| [battle.gd](../../game/scripts/battle.gd) | 输入、AI、时钟、镜头、HUD、反馈事件 | 多人冲突高发文件；一次只由一位负责人修改 |
-| [main.gd](../../game/scripts/main.gd) | 首页、商店、设置、历史、结算、练习生命周期及自动试玩 | 同属共享热点；结果、奖励、重开要一起核对 |
-| [core/game_state.gd](../../game/scripts/core/game_state.gd) | Autoload，存档、校验、备份、购买回滚、奖励去重 | 不用正式档测试；奖励保存失败仍保留内存并提示，未有跨进程交易日志 |
-| [core/catalogue.gd](../../game/scripts/core/catalogue.gd)、[equipment.json](../../game/data/equipment.json) | 地区、年代、门槛、物品和战斗属性合并、NPC 配装 | 新物品要有有效 ID、槽位、时代与来源说明 |
-| [visual/rider_view.gd](../../game/scripts/visual/rider_view.gd)、[equipment_art.gd](../../game/scripts/visual/equipment_art.gd) | 分件裁切、装备轮廓、近远遮挡、姿态与挂点 | 图集换尺寸／位置时必须联动裁切和挂点，不能只换 PNG |
-| [visual/impact_fx.gd](../../game/scripts/visual/impact_fx.gd)、[lance_shard.gd](../../game/scripts/visual/lance_shard.gd) | 受击、布偶、血腥、断枪飞段、生命周期 | 检查暂停、重开、关闭血腥、退出清理 |
-| [visual/hit_zone_overlay.gd](../../game/scripts/visual/hit_zone_overlay.gd) | H 实际受击区显示 | 图形、物理与镜头投影应一致 |
-| [visual/sound_bank.gd](../../game/scripts/visual/sound_bank.gd)、[ui/ui_factory.gd](../../game/scripts/ui/ui_factory.gd) | 合成音频、UI 共用样式与控件 | 样式最小尺寸曾造成首页遮挡，不能只检查指定 rect |
-| [core/desktop_input_audit.gd](../../game/scripts/core/desktop_input_audit.gd) | QA 输入采样日志 | 不是正式玩法，输入证据区分 OS 和引擎注入 |
-| [game/tests](../../game/tests/) | 规则、战术、集成、动作、输入响应、AI、画面及策略模拟 | 部分输出路径固定为 v04，未来运行前改新目录，保留旧证据 |
-| [export_presets.cfg](../../game/export_presets.cfg) | 导出模板、排除测试／美术源图、当前导出位置 | 默认仍指向 v0.4；新发布前必须改成新版本目录 |
-
-## 存档与安全运行
-
-正式玩家档目录是 `%APPDATA%\Godot\app_userdata\骑枪与桂冠 · Lance & Laurel\`，文件 `profile_v1.json`、`profile_v1.backup.json`。不要删除、重置或用它做购买／损坏恢复测试。
-
-参数 `-- --test-profile` 或 `-- --smoke-test` 使用 `qa_profile_v1.json` 与对应备份。文件名以 `LanceAndLaurel-QA` 开头的 QA EXE 使用 `qa_desktop_profile.json` 及对应备份。QA 档仍会被测试改写；两位开发者不要同时跑同一套 QA，用顺序运行或另行实现独立测试档。当前参数不是任意存档路径选择器。
-
-以下命令在 PowerShell 使用。每次将 `$runId` 改为新编号，先确认输出目录不存在，避免覆盖旧验收。它们是接手参考，本次整理文档没有重跑这些游戏测试。
-
-```powershell
-$godotExe = 'E:/GALUMU/tools/godot-4.5.1/Godot_v4.5.1-stable_win64_console.exe'
-$projectDir = 'E:/GALUMU/game'
-$runId = 'handoff-next-01'
-& $godotExe --headless --editor --path $projectDir --import --quit --log-file "E:/GALUMU/docs/development/logs/$runId-import.log"
-& $godotExe --headless --path $projectDir --script res://tests/test_rules.gd --log-file "E:/GALUMU/docs/development/logs/$runId-rules.log" -- --test-profile
-& $godotExe --path $projectDir --script res://tests/test_integration.gd --log-file "E:/GALUMU/docs/development/logs/$runId-integration.log" -- --test-profile
-```
-
-规则改动按需加 `test_tactics.gd`、`test_ai_reaction.gd`；动作／镜头／输入改动加 `test_game_feel.gd`、`test_charge_response.gd`，并实际渲染和桌面操作。先检查脚本中的 JSON、PNG 输出路径，不要改写 v0.4 证据。GUI 测试串行运行；多个引擎窗口曾影响显存分配与输入焦点。
-
-新版本导出需先更新版本、导出预设及独立目录，再运行：
-
-```powershell
-# <new-version> 必须替换成未占用的版本目录；不要直接用 v0.4 重导。
-& $godotExe --headless --path $projectDir --export-release 'Windows Desktop' 'E:/GALUMU/builds/<new-version>/LanceAndLaurel.exe' --log-file "E:/GALUMU/docs/development/logs/$runId-export.log"
-```
-
-对实际 EXE/PCK 用外部测试脚本复验（正式包排除了 tests），或用 `-- --smoke-test --screenshots <新的已建目录>` 自动跑双模式及结算。自动试玩使用 QA 档。先核对测试脚本引用和输出位置，查看日志错误与实际截图；仅 headless 启动不证明画面正确。导出后检查包内文件、散列和干净源码导入，具体流程见 [VALIDATION](../development/VALIDATION.md)。
-
-## 最新验证证据及其范围
-
-v0.4.1：实际导出EXE/PCK完成双模式九图、集成43项、真实渲染动作30项、响应16项、命中解释与步态专项；日志在`docs/development/logs/v041/`，发布截图在`exported_screenshots/v041/`。桌面工具实际点击练习、催马、结算重开和暂停；点按含过阵冲刺，不用于测起步曲线。OS工具Esc未触发暂停，注入Esc/R检查通过，两者不可混写为真实键盘已验收。没有本轮真人试玩评分。以下旧v0.4证据保持历史记录。
-
-| 证据类别 | 现有证据 | 可以说明／不能说明 |
-| --- | --- | --- |
-| 规则模拟 | 114 规则、19 战术、5 AI 观察；[v04-rules.log](../development/logs/v04-rules.log)、[v04-tactics.log](../development/logs/v04-tactics.log)、[v04-ai-reaction.log](../development/logs/v04-ai-reaction.log) | 特定输入和种子的规则结果；不是真人胜率 |
-| 最终 EXE/PCK 自动验证 | [集成43项](../development/logs/v04-exported-integration-delivery.log)、[动作30项](../development/logs/v04-exported-game-feel-delivery.log)、[响应16项](../development/logs/v04-exported-charge-delivery.log) | 输入事件链、长按状态、暂停、规则、画面关系等；不等同真实鼠标硬件和好玩程度 |
-| 最终运行渲染 | [双模式日志](../development/logs/v04-exported-smoke-delivery.log)、[9张截图](../development/exported_screenshots/v04/)；结算图已目视检查 | 本机实际场景、结算和可见性；不是跨机器性能保证 |
-| OS 工具点按 | [v04-desktop-click-confirmed.jsonl](../development/logs/v04-desktop-click-confirmed.jsonl)、[截图](../development/screenshots/v04/16_desktop_tap.png) | 候选包约 0.427 实秒到 480，约 1.9 秒仍疾驰；不是真人硬件三秒长按 |
-| 长按 | 引擎注入持续三游戏秒，点按缓冲耗尽后仍保持 480 | 工具拖动实际仅约26ms，不把它说成 OS 长按验收 |
-| 策略压力测试 | [strategy_benchmark.json](../../game/tests/strategy_benchmark.json)，144 次同默认装备固定种子模拟 | 标准档策略有差异；困难档被脚本适应策略12胜0负利用；不能泛化成玩家胜率 |
-| 源码与发布身份 | [manifest](../../builds/release_manifest_v04.json)、[干净源码导入](../development/logs/v04-source-snapshot-import.log) | ZIP CRC、内含文件散列、干净导入与旧包未覆盖，已在交付时核对 |
-| 玩家实际反馈 | 旧版被反馈加速不明显，催生 v0.4；v0.4 反馈尚待收集 | 不能把旧版反馈或自动点按写成玩家认可新版 |
-
-OS 点按候选 PCK 为 `BA0669389C8FAA2A570A34A4AD9029D34FFE8D83A5D4DDB4C810193DF97D30DC`；之后改了 AI 采样与结算遮挡，催马／输入／镜头未变，最终包另有上表自动复验。不能说 OS 点按针对最终散列。帧率多为本机60FPS采样，命中采样曾44FPS。间歇 ObjectDB 退出残留警告尚未定位，不能称零泄漏或已证明持续运行泄漏。
-
-## 资料与美术来源
-
-新增头像与马匹分件使用`game/assets/art/pixel_v041/`两张图；提示词、尺寸、生成来源及大学兽医步态参考见[本轮资产记录](../../art_sources/v041/README.md)。其余背景、盔甲、盾牌沿用v0.3。程序步态在八相位、双向极限姿态及实际发布包冲锋中已查看，仍有旋转像素闪烁与简化关节，不宣称手工逐像素动画。
-
-| 资料 | 用途与限制 |
+| 文件 | 职责／联动 |
 | --- | --- |
-| [历史研究](../HISTORICAL_RESEARCH.md)、[资产简报](../HISTORICAL_ASSET_BRIEFS.md) | 装备、历史身份、骑枪、纹章与印章来源；沿用 Sxx 编号，新增史实需有对应资料 |
-| [装备进程规划](../EQUIPMENT_PROGRESSION.md) | 早期规划与长期方向，不能当作全部已实现；现有34件以代码和本页为准 |
-| [竞品研究](../JOUSTING_GAME_BENCHMARKS.md) | 公开资料分析，没有下载试玩全部竞品；具体实现要回到本项目验证 |
-| [玩家评论研究](../PLAYER_FEEDBACK_RESEARCH.md) | App Store 19、Steam 11、Reddit 10，共40条摘录记录；不等于40名独立玩家或统计样本，部分来自索引摘要 |
-| [美术来源](../../game/art_sources/ASSET_MANIFEST.md)、[v0.3像素资产记录](../../game/art_sources/PIXEL_V03_MANIFEST.md) | 当前使用 `game/assets/art/pixel_v03/` 六张图；AI辅助生成，非逐像素手绘；基础骑手图仅有提示词摘要，不能声称所有提示词均完整存留 |
-| [项目 Skills](../../skills/) | 动作、像素美术、Godot审查、玩家体验评审；按 AGENTS 对应任务阅读 |
+| core/joust_match.gd | 运动、步态挂点、扫掠、伤害、模式与终局；物理美术共用位置 |
+| core/shield_geometry.gd | 三种盾形、投影、移动旋转扫掠；绘制、枪线、H同一轮廓 |
+| core/opponent_ai.gd | 延迟快照、决策、攻防承诺与前轮记忆 |
+| battle.gd | 输入、AI接线、镜头、时钟、HUD、反馈，共享热点 |
+| main.gd | 菜单、出战、存档、商店、设置、历史、结算与生命周期，共享热点 |
+| core/game_state.gd | 存档校验、备份、手动槽、购买回滚及奖励去重 |
+| core/catalogue.gd + ../data/equipment*.json | 目录、属性合并、年代品质门槛、NPC装备；保留旧ID |
+| visual/rider_view.gd、equipment_art.gd、horse_art.gd、horse_gait.gd | 分件、IK、双向、脚落点和装备；换图集须同步挂点 |
+| visual/combat_cues.gd、hit_zone_overlay.gd | 只读枪线与实际判定，不改模型或规则随机数 |
+| visual/impact_fx.gd、lance_shard.gd | 冲击、碎片、布偶、血迹和回收 |
+| visual/sound_bank.gd、ui/ui_factory.gd、ui/combat_report.gd | 音频、控件与结算解释；注意控件最小尺寸和音频回收 |
+| core/desktop_input_audit.gd | QA桌面采样，不是正式玩法 |
 
-当前采用横向 2D 规则与三分之四骑手分件，近远臂与深度遮挡，马匹接近侧面。不同年代胸甲／头盔有变化，四肢、马具及部分罩袍共用；盾徽是独立几何设计，不能包装成已复原真实贵族家族纹章。最近邻采样不消除非整数旋转／缩放造成的像素闪烁。后续逐件扩充前先完成一套双向、极限姿态样张。
+本轮测试为game/tests/*v043*；导出预设排除测试，指向独立v0.4.3。builds下验包副本不是开发源目录。新版本不得覆盖已验收包。
 
-## 未完成与维护责任
+## 存档与复验
 
-当前下一步及验收标准见[任务板](TASK_BOARD.md)，不在这里复制第二份任务状态。没有实现联机、战役、军团战、肢解、永久伤残、云存档、真实付费、完整印章编辑器；不要从评论研究自动扩张到这些系统。文档更新人须在[开发记录](WORK_LOG.md)留下任务与接手说明。
+正式目录 `%APPDATA%/Godot/app_userdata/骑枪与桂冠 · Lance & Laurel/`：`profile_v1.json`、`profile_v1.backup.json`，手动槽`profile_v1_slot_1.json`至`_3.json`及各自`.json.backup`。不删除或重置玩家档。
 
+`-- --test-profile`或`-- --smoke-test`使用`qa_profile_v1.json`；QA前缀EXE用`qa_desktop_profile.json`。专项脚本使用`qa_v043_suite`、`qa_v043_menu_flow`、`qa_v043_exit_*`、`qa_v043_soak`。手动槽从当前路径派生，不碰正式槽。共享QA与GUI测试串行。
+
+源项目复验使用Godot的`--headless --editor --path E:/GALUMU/game --import --quit`，再以`--script res://tests/test_rules_v043.gd -- --test-profile`跑规则。实际EXE以`--script E:/GALUMU/game/tests/<脚本>.gd -- --test-profile`调用包内生产代码。GUI菜单测试为test_menu_flow_v043；`-- --smoke-test --screenshots <新建目录>`跑双模式。每次使用新日志与截图目录，先检查脚本输出路径，不覆盖历史证据。
+
+## 证据与后续
+
+源项目及实际v0.4.3 EXE已完成规则、AI、枪线盾轮廓、输入存档、终局奖励、退出失败、GUI菜单点击和三尺寸布局检查；实际包双模式九图通过。日志[v043](../development/logs/v043/)，截图[release](../development/screenshots/v043/release/)。候选02连续12场有渲染运行，回营节点稳定、孤立节点0；release引擎内存计数不可用，不以0值宣称零内存。最终追加验证见审查和交接回执。
+
+本轮没有新OS桌面输入或真人试玩；上一轮物理Esc终止后的桌面操作未恢复。引擎点击、自动比赛、模拟和截图不等于玩家认可。其他机器、系统DPI、真实手机触控、长线经济未覆盖。下一步优先让玩家说清一次格挡／命中与一次失败原因，比较三档是否可读、有挑战。
+
+旧证据保留于[V042_REVIEW](../development/V042_REVIEW.md)、[V041_REVIEW](../development/V041_REVIEW.md)、[V04_REVIEW](../development/V04_REVIEW.md)，旧参数不再代表当前版本。
+
+## 资料与维护
+
+史实编号见[历史研究](../HISTORICAL_RESEARCH.md)、[资产简报](../HISTORICAL_ASSET_BRIEFS.md)、[装备清单](../development/EQUIPMENT_042.md)。AI、护盾投影、颜色是游戏抽象，没有新增历史概率结论。公开评论见[竞品研究](../JOUSTING_GAME_BENCHMARKS.md)、[40条评论记录](../PLAYER_FEEDBACK_RESEARCH.md)，不等于40名独立玩家或本作试玩。
+
+沿用pixel_v03与pixel_v041的AI辅助资产，非逐像素手绘。本轮改盾投影、边带和程序特效，无新栅格图。见[资产记录](../../game/art_sources/ASSET_MANIFEST.md)、[v041资产](../../art_sources/v041/README.md)。
+
+文件认领与后续工作只在[TASK_BOARD](TASK_BOARD.md)登记，历史见[WORK_LOG](WORK_LOG.md)。没有联机、战役、军团、刀剑、肢解、永久伤残、付费、云存档或完整纹章编辑器。

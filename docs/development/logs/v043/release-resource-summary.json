@@ -1,0 +1,52 @@
+{
+  "scope": "OS process samples by elapsed wall time from process start; windows are not synchronized to round boundaries, and short runs cannot prove absence of leaks",
+  "windows": [
+    {
+      "from_second": 30,
+      "to_second": 60,
+      "samples": 30,
+      "private_min_mib": 575.56,
+      "private_max_mib": 714.25,
+      "handles_min": 948.0,
+      "handles_max": 950.0
+    },
+    {
+      "from_second": 60,
+      "to_second": 90,
+      "samples": 29,
+      "private_min_mib": 579.97,
+      "private_max_mib": 612.04,
+      "handles_min": 944.0,
+      "handles_max": 947.0
+    },
+    {
+      "from_second": 90,
+      "to_second": 120,
+      "samples": 30,
+      "private_min_mib": 580.23,
+      "private_max_mib": 610.85,
+      "handles_min": 944.0,
+      "handles_max": 946.0
+    },
+    {
+      "from_second": 120,
+      "to_second": 150,
+      "samples": 29,
+      "private_min_mib": 580.92,
+      "private_max_mib": 604.64,
+      "handles_min": 939.0,
+      "handles_max": 946.0
+    },
+    {
+      "from_second": 150,
+      "to_second": 180,
+      "samples": 27,
+      "private_min_mib": 580.8,
+      "private_max_mib": 587.73,
+      "handles_min": 939.0,
+      "handles_max": 941.0
+    }
+  ],
+  "sample_count": 175,
+  "peak_private_mib": 782.5
+}

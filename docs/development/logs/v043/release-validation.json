@@ -1,0 +1,51 @@
+[
+  {
+    "test": "test_integration_v043",
+    "exit_code": 0,
+    "passed_marker": true,
+    "script_error": false,
+    "log": "E:/GALUMU/docs/development/logs/v043/release-test_integration_v043.log"
+  },
+  {
+    "test": "test_demo_v043",
+    "exit_code": 0,
+    "passed_marker": true,
+    "script_error": false,
+    "log": "E:/GALUMU/docs/development/logs/v043/release-test_demo_v043.log"
+  },
+  {
+    "test": "test_rules_v043",
+    "exit_code": 0,
+    "passed_marker": true,
+    "script_error": false,
+    "log": "E:/GALUMU/docs/development/logs/v043/release-test_rules_v043.log"
+  },
+  {
+    "test": "test_ai_v043",
+    "exit_code": 0,
+    "passed_marker": true,
+    "script_error": false,
+    "log": "E:/GALUMU/docs/development/logs/v043/release-test_ai_v043.log"
+  },
+  {
+    "test": "test_shield_sweep_v043",
+    "exit_code": 0,
+    "passed_marker": true,
+    "script_error": false,
+    "log": "E:/GALUMU/docs/development/logs/v043/release-test_shield_sweep_v043.log"
+  },
+  {
+    "test": "test_cue_contacts_v043",
+    "exit_code": 0,
+    "passed_marker": true,
+    "script_error": false,
+    "log": "E:/GALUMU/docs/development/logs/v043/release-test_cue_contacts_v043.log"
+  },
+  {
+    "test": "test_charge_response_v043",
+    "exit_code": 0,
+    "passed_marker": true,
+    "script_error": false,
+    "log": "E:/GALUMU/docs/development/logs/v043/release-test_charge_response_v043.log"
+  }
+]

@@ -1,0 +1,6 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+ERROR: Failed to open 'user://missing_v043_directory/backup.json'.
+   at: copy (core/io/dir_access.cpp:423)
+GALUMU_BUILD v0.4.3
+DEMO_V043 {"coverage":["manual save/load, corrupt/invalid backup recovery, failed load rollback, QA-only paths","projected head/chest/flank, shield-first order, both directions, no physics/RNG mutation","engine-injected keys, mouse and touch; shield clicks isolated from aiming/boost; pause; left boost"],"failures":[],"passed":true,"scope":"engine injection and rule/save tests; not OS desktop or human play"}

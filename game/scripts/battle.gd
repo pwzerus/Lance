@@ -215,7 +215,7 @@ func _build_hud() -> void:
 	speed_meter = ProgressBar.new()
 	speed_meter.position = Vector2(950,735)
 	speed_meter.size = Vector2(440,12)
-	speed_meter.min_value = Model.TROT_SPEED*float(match_model.fighters[0].stats.get("speed",1.0))
+	speed_meter.min_value = 0.0
 	speed_meter.max_value = Model.SURGE_SPEED*float(match_model.fighters[0].stats.get("speed",1.0))
 	speed_meter.show_percentage = false
 	var meter_background = UI.box(Color("14251f"),Color("65745b"),2)
@@ -255,8 +255,6 @@ func _physics_process(delta: float) -> void:
 			_handle_event(event)
 		return
 	var fighter = match_model.fighters[0]
-	if match_model.phase=="charge":
-		spur_left = maxf(0,spur_left-delta)
 	var hand = Model.hand_position(fighter)
 	# Keep a committed angle while the pointer is still. A cinematic zoom
 	# must not redirect the lance when the player has not moved the mouse.
@@ -270,7 +268,7 @@ func _physics_process(delta: float) -> void:
 		lean = touch_lean
 	if absf(lean)>.3:
 		learned.posture = true
-	var boost = (not ui_pointer_held and (mouse_held or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT))) or spur_left>0 or Input.is_physical_key_pressed(KEY_SPACE) or touch_roles.values().has("boost")
+	var boost = (not ui_pointer_held and (mouse_held or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT))) or Input.is_physical_key_pressed(KEY_SPACE) or touch_roles.values().has("boost")
 	if autoplay:
 		var target = Model.head_position(match_model.fighters[1])
 		aim = asin(clampf((target.y-hand.y)/Model.lance_length(fighter),-.629,.548))
@@ -411,6 +409,7 @@ func _update_views() -> void:
 			departing = departure_elapsed*float(fighter.speed)*int(fighter.direction)
 		riders[i].position = Vector2(float(fighter.x)+departing, float(fighter.get("lane_y",0.0)))
 		riders[i].moving = match_model.phase=="charge" or (match_model.phase=="ended" and departure_elapsed<1.4)
+		riders[i].animate_departure = match_model.phase=="ended" and departure_elapsed<1.4
 		riders[i].visible = true
 		riders[i].blood_enabled = GameState.profile.settings.blood
 	effects.blood_enabled = GameState.profile.settings.blood
@@ -431,10 +430,11 @@ func _update_hud() -> void:
 	aim_label.add_theme_color_override("font_color",Cues.COLORS[projection.zone])
 	aim_label.get_parent().visible = GameState.profile.settings.get("aim_cues",true)
 	speed_meter.value = float(f.speed)
-	var pace_text = "催马" if f.boost and float(f.stamina)>4 else ("减速中" if float(f.speed)>Model.TROT_SPEED+20 else "巡航")
+	var pace_text = "按住催马" if f.boost and float(f.stamina)>4 else ("松手减速" if float(f.speed)>Model.TROT_SPEED+20 else "自动前进")
 	if phase=="ready" and f.boost:
-		pace_text = "已催马 · 等待起跑"
-	speed_label.text = "%s · 速度 %d · 耐力 %d%%" % [pace_text,roundi(float(f.speed)),roundi(f.stamina)]
+		pace_text = "保持按住 · 等待起跑"
+	var gait_name = Rider.Gait.NAMES[Rider.Gait.gait_index(float(f.speed))]
+	speed_label.text = "%s · %s %d · 耐力 %d%%" % [pace_text,gait_name,roundi(float(f.speed)),roundi(f.stamina)]
 	var guard_text = GUARD_NAMES[guard_slot]+" · "+["下身较易暴露","头腹较易暴露","头胸较易暴露"][guard_slot]
 	if absf(float(f.guard)-GUARD_VALUES[guard_slot])>.08:
 		guard_text = "换盾中 · 留意空隙"
@@ -568,7 +568,6 @@ func _input(event: InputEvent) -> void:
 		ui_pointer_held = event.pressed and _guard_at(event.position)>=0
 		mouse_held = event.pressed and not paused and not ui_pointer_held
 		if mouse_held:
-			spur_left = Model.SPUR_DURATION
 			input_flash_until = Time.get_ticks_msec()+350
 			learned.boost = true
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT and event.pressed and not paused:

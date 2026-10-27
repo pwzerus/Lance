@@ -7,9 +7,11 @@ const EXIT_X = 850.0
 const TROT_SPEED = 210.0
 const GALLOP_SPEED = 480.0
 const SURGE_SPEED = 515.0
-const SPUR_DURATION = 2.0
-const ACCELERATION = 600.0
-const COAST_DECELERATION = 85.0
+const SPUR_DURATION = 0.0 # Compatibility only; urging now follows the physical hold.
+const ACCELERATION = 360.0
+const COAST_DECELERATION = 220.0
+const START_ACCELERATION = 180.0
+const ACCELERATION_SLEW = 1300.0
 const GROUND_Y = 0.0
 const HIP = Vector2(-18, -168)
 const Gait = preload("res://scripts/visual/horse_gait.gd")
@@ -42,7 +44,7 @@ func _make_fighter(x: float, direction: int, stats: Dictionary) -> Dictionary:
 		"surge": 0.0, "last_hit": "", "damage_total": 0.0, "wounds": [],
 		"balance":100.0,"lean_velocity":0.0,"prev_flank":Vector2.ZERO,
 		"guard":0.0,"guard_target":0.0,"lance_stability":.85,"aim_velocity":0.0,
-		"gait_phase":0.0,"gait_moving":false,"lane_y":32.0 if direction==1 else -32.0}
+		"gait_phase":0.0,"gait_moving":false,"acceleration":0.0,"lane_y":32.0 if direction==1 else -32.0}
 
 func _reset_positions() -> void:
 	for i in range(2):
@@ -50,7 +52,8 @@ func _reset_positions() -> void:
 		fighter.x = -START_X if i == 0 else START_X
 		fighter.prev_x = fighter.x
 		fighter.direction = 1 if i == 0 else -1
-		fighter.speed = TROT_SPEED * float(fighter.stats.get("speed", 1.0))
+		fighter.speed = 0.0
+		fighter.acceleration = 0.0
 		fighter.balance = minf(100.0,float(fighter.balance)+8.0)
 		fighter.acted = false
 		fighter.surge = 0.0
@@ -63,14 +66,17 @@ func _reset_positions() -> void:
 		_cache_pose(fighter)
 
 static func pose_angle(fighter: Dictionary) -> float:
-	return float(fighter.lean)*(deg_to_rad(25.0) if float(fighter.lean)>=0 else deg_to_rad(45.0))
+	return float(fighter.lean)*(deg_to_rad(25.0) if float(fighter.lean)>=0 else deg_to_rad(45.0))+gait_pose(fighter).rider_pitch
+
+static func gait_pose(fighter: Dictionary) -> Dictionary:
+	return Gait.body(float(fighter.get("gait_phase",0.0)),float(fighter.get("speed",0.0)),bool(fighter.get("gait_moving",false)),float(fighter.stats.get("stability",1.0)))
 
 static func saddle_offset(fighter: Dictionary) -> Vector2:
-	var pace = clampf((float(fighter.get("speed",TROT_SPEED))-TROT_SPEED)/(GALLOP_SPEED-TROT_SPEED),0,1)
-	return Gait.body(float(fighter.get("gait_phase",0.0)),pace,bool(fighter.get("gait_moving",false)),float(fighter.stats.get("stability",1.0))).offset
+	var pose = gait_pose(fighter)
+	return pose.offset+pose.rider_offset
 
 static func mount_origin(fighter: Dictionary) -> Vector2:
-	return Vector2(float(fighter.x),float(fighter.get("lane_y",0.0)))+saddle_offset(fighter)
+	return Vector2(float(fighter.x),float(fighter.get("lane_y",0.0)))+saddle_offset(fighter)*Vector2(int(fighter.direction),1)
 
 static func body_position(fighter: Dictionary) -> Vector2:
 	var angle = pose_angle(fighter)
@@ -82,12 +88,13 @@ static func head_position(fighter: Dictionary) -> Vector2:
 
 static func hand_position(fighter: Dictionary) -> Vector2:
 	var angle = pose_angle(fighter)
-	return mount_origin(fighter)+Vector2((HIP.x + 57.0 + sin(angle) * 58.0) * int(fighter.direction), HIP.y - cos(angle) * 54.0)
+	return mount_origin(fighter)+(HIP+Vector2(48,-53).rotated(angle))*Vector2(int(fighter.direction),1)
 
 static func shield_position(fighter: Dictionary) -> Vector2:
 	# Forward bracing raises the left-chest shield; leaning back withdraws
 	# the head, but exposes the abdomen and compromises saddle stability.
-	return body_position(fighter)+Vector2(48.0*int(fighter.direction),lerpf(42.0,-68.0,float(fighter.get("guard",0.0)))-maxf(0,float(fighter.lean))*10.0)
+	var local = Vector2(43,lerpf(-4.0,-109.0,float(fighter.get("guard",0.0))))
+	return mount_origin(fighter)+(HIP+local.rotated(pose_angle(fighter)))*Vector2(int(fighter.direction),1)
 
 static func flank_position(fighter: Dictionary) -> Vector2:
 	return body_position(fighter)+Vector2(-6.0*int(fighter.direction),34.0)
@@ -162,10 +169,19 @@ func step(delta: float) -> void:
 		fighter.stamina = clampf(float(fighter.stamina) + (-14.0 if accelerating else 18.0) * delta, 0.0, 100.0)
 		var target_speed = (GALLOP_SPEED if accelerating else TROT_SPEED) * multiplier
 		if float(fighter.surge) > 0.0 and not time_effect_active:
-			target_speed = SURGE_SPEED * multiplier
+			if accelerating:
+				target_speed = SURGE_SPEED * multiplier
 			fighter.surge = maxf(0.0, float(fighter.surge) - delta)
-			fighter.speed = maxf(float(fighter.speed), target_speed)
-		fighter.speed = move_toward(float(fighter.speed), target_speed, (ACCELERATION if accelerating else COAST_DECELERATION) * delta)
+		var difference = target_speed-float(fighter.speed)
+		var desired_acceleration = (ACCELERATION if accelerating else START_ACCELERATION) if difference>0 else -COAST_DECELERATION
+		fighter.acceleration = move_toward(float(fighter.get("acceleration",0.0)),desired_acceleration,ACCELERATION_SLEW*delta)
+		# Releasing the spur starts deceleration on this tick, even during a
+		# rising acceleration envelope. The horse still coasts with inertia.
+		if difference<0 and float(fighter.acceleration)>0:
+			fighter.acceleration = -COAST_DECELERATION*.45
+		elif difference>0 and float(fighter.acceleration)<0:
+			fighter.acceleration = ACCELERATION*.28
+		fighter.speed = move_toward(float(fighter.speed),target_speed,absf(float(fighter.acceleration))*delta)
 		fighter.x += int(fighter.direction) * float(fighter.speed) * delta
 		fighter.gait_moving = true
 		fighter.gait_phase += delta*TAU*Gait.frequency(float(fighter.speed))

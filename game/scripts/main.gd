@@ -39,8 +39,8 @@ var smoke_last_report = 0
 var practice_match = false
 
 func _ready() -> void:
-	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.3-r2"
-	print("GALUMU_BUILD v0.4.3-r2")
+	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.4-dev"
+	print("GALUMU_BUILD v0.4.4-dev")
 	get_tree().auto_accept_quit = false
 	get_window().min_size = Vector2i(960,540)
 	ui_layer = CanvasLayer.new()
@@ -59,7 +59,7 @@ func _ready() -> void:
 		smoke_started = Time.get_ticks_msec()
 	show_home()
 	if GameState.qa_input_probe:
-		get_window().title = "Lance & Laurel v0.4.3-r2 QA - Desktop input"
+		get_window().title = "Lance & Laurel v0.4.4-dev QA - Desktop input"
 		var audit = preload("res://scripts/core/desktop_input_audit.gd").new()
 		audit.main = self
 		add_child(audit)
@@ -117,7 +117,7 @@ func show_home() -> void:
 	UI.button(screen,"历史手记",Rect2(68,569,247,50),show_history)
 	UI.button(screen,"设置",Rect2(331,569,247,50),show_settings)
 	UI.button(screen,"保存并退出",Rect2(68,645,510,50),_save_and_exit)
-	UI.label(screen,"自动保存已启用 · v0.4.3-r2",Vector2(70,727),16,UI.MUTED)
+	UI.label(screen,"自动保存已启用 · v0.4.4-dev",Vector2(70,727),16,UI.MUTED)
 	UI.label(screen,"YOUR CHAMPION",Vector2(952,143),18,UI.GOLD)
 	_add_preview(Vector2(1035,652),1.42)
 	var champion = UI.panel(screen,Rect2(766,675,606,98),Color(.07,.12,.095,.94))
@@ -229,7 +229,7 @@ func _begin_match(mode: String, practice: bool = false) -> void:
 	var panel = UI.panel(shade,Rect2(315,135,810,540),Color(.045,.085,.065,.99))
 	UI.label(panel,"第一次披挂上场",Vector2(32,24),34,UI.GOLD)
 	UI.label(panel,"你在左侧，马匹会自动前进。",Vector2(32,85),21,UI.INK)
-	UI.label(panel,"左键 / 空格　按住冲刺；点按催马，倒计时内也会保留。\n上下移动鼠标　调枪尖高度；停手压稳，大幅变招会失稳。\n1 / 2 / 3　护头 / 护胸 / 护腹；右键或 Q 循环换盾。\nW 前倾 / S 后仰　后仰避高枪，但削弱攻击并暴露腰腹。\nH 判定范围　Esc 暂停　R 重开　F11 全屏",Vector2(32,139),18,UI.INK,746)
+	UI.label(panel,"左键 / 空格　按住催马，松开立即开始减速；起跑由慢步逐渐提速。\n上下移动鼠标　调枪尖高度；停手压稳，大幅变招会失稳。\n1 / 2 / 3　护头 / 护胸 / 护腹；右键或 Q 循环换盾。\nW 前倾 / S 后仰　后仰避高枪，但削弱攻击并暴露腰腹。\nH 判定范围　Esc 暂停　R 重开　F11 全屏",Vector2(32,139),18,UI.INK,746)
 	UI.separator(panel,Vector2(32,295),746)
 	UI.label(panel,"最多三次对冲；落马提前结束。三轮后比较骑手状态。\n竞技场每轮领取新枪，不会死亡。实战允许死亡，断枪保留。",Vector2(32,316),18,UI.MUTED,746)
 	UI.label(panel,"枪尖菱形与部位框显示当前枪线；姿态变化会改变实际落点。",Vector2(32,396),17,UI.GOLD,746)
@@ -489,7 +489,7 @@ func show_settings() -> void:
 	panel.add_child(difficulty)
 	UI.button(panel,"返回营地",Rect2(28,493,620,59),show_home,true)
 	UI.label(screen,"操作",Vector2(844,150),32,UI.GOLD)
-	UI.label(screen,"移动鼠标　瞄准；大幅改向会失稳\n左键 / 空格　按住冲刺；点按催马\n1 / 2 / 3　护头 / 护胸 / 护腹（右键循环）\nW / S　　 前倾支撑 / 后仰避头\nH　　　　 显示判定范围\nEsc　　　 暂停与设置\nR 重开　　F11 全屏",Vector2(844,219),22,UI.INK,510)
+	UI.label(screen,"移动鼠标　瞄准；大幅改向会失稳\n左键 / 空格　按住催马，松开减速\n1 / 2 / 3　护头 / 护胸 / 护腹（右键循环）\nW / S　　 前倾支撑 / 后仰避头\nH　　　　 显示判定范围\nEsc　　　 暂停与设置\nR 重开　　F11 全屏",Vector2(844,219),22,UI.INK,510)
 	UI.label(screen,"触控输入已预留：左侧滑动倾身，右侧瞄准，\n右侧额外触点加速；尚未在手机设备验收。",Vector2(844,510),17,UI.MUTED,510)
 	UI.check(screen,"接近时放缓与命中慢动作",GameState.profile.settings.slow_motion,Vector2(844,600),func(value):GameState.set_setting("slow_motion",value))
 	UI.check(screen,"显示枪线颜色与部位提示",GameState.profile.settings.aim_cues,Vector2(844,656),func(value):GameState.set_setting("aim_cues",value))

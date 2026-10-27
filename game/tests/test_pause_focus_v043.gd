@@ -51,6 +51,28 @@ func run() -> void:
 	await process_frame
 	if battle.paused:
 		failures.append("Space intended to spur horse reactivated the focused pause button")
+	if not battle.paused:
+		battle.set_physics_process(false)
+		battle.match_model.phase = "charge"
+		battle.spur_left = 0
+		battle.mouse_held = false
+		var fighter = battle.match_model.fighters[0]
+		fighter.speed = battle.Model.TROT_SPEED
+		var held = InputEventKey.new()
+		held.keycode = KEY_SPACE
+		held.physical_keycode = KEY_SPACE
+		held.pressed = true
+		Input.parse_input_event(held)
+		Input.flush_buffered_events()
+		for tick in range(60):
+			battle._physics_process(1.0/120)
+		held = held.duplicate()
+		held.pressed = false
+		Input.parse_input_event(held)
+		Input.flush_buffered_events()
+		if float(fighter.speed)<450:
+			failures.append("Held Space after resume did not accelerate the actual horse")
+		print("SPEED_AFTER_RESUME ",fighter.speed)
 	main._close_battle()
 	main.queue_free()
 	await process_frame

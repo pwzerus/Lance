@@ -1,0 +1,32 @@
+[
+  {
+    "test": "test_pause_focus_v043",
+    "exit_code": 0,
+    "passed": true,
+    "script_error": false
+  },
+  {
+    "test": "test_menu_flow_v043",
+    "exit_code": 0,
+    "passed": true,
+    "script_error": false
+  },
+  {
+    "test": "test_integration_v043",
+    "exit_code": 0,
+    "passed": true,
+    "script_error": false
+  },
+  {
+    "test": "test_demo_v043",
+    "exit_code": 0,
+    "passed": true,
+    "script_error": false
+  },
+  {
+    "test": "test_charge_response_v043",
+    "exit_code": 0,
+    "passed": true,
+    "script_error": false
+  }
+]

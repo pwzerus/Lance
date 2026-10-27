@@ -1,18 +1,18 @@
 # 当前实现与接手地图
 
-2026-10-27，DEV-043，当前发布 **v0.4.3**，版本分支 `codex/v0.4`。本轮从 `84de76e` 改进 AI、开始／存档／退出流程、三档防御和枪线／命中提示。运行代码基线 `5b4cc04`；后续只有测试、启动器和文档时无须重导。修复和证据见 [V043_REVIEW](../development/V043_REVIEW.md)，交接见 [DEV-043](handoffs/2026-10-27-DEV-043-Codex.md)。用户最新指示与 [DESIGN_DECISIONS](../../DESIGN_DECISIONS.md) 优先。
+2026-10-27，DEV-043，当前发布 **v0.4.3-r2**，版本分支 `codex/v0.4`。本轮从 `84de76e` 改进 AI、开始／存档／退出流程、三档防御和枪线／命中提示。运行代码基线 `dad3db7`；后续只有测试、启动器和文档时无须重导。修复和证据见 [V043_REVIEW](../development/V043_REVIEW.md)，交接见 [DEV-043](handoffs/2026-10-27-DEV-043-Codex.md)。用户最新指示与 [DESIGN_DECISIONS](../../DESIGN_DECISIONS.md) 优先。
 
 ## 启动与版本身份
 
 | 用途 | 位置与说明 |
 | --- | --- |
-| 玩家启动 | [Play-Latest.cmd](../../Play-Latest.cmd)，v0.4.3，使用正式玩家存档 |
-| Windows目录／压缩包 | [运行目录](../../builds/LanceAndLaurel-v0.4.3/)、[Windows.zip](../../builds/LanceAndLaurel-v0.4.3-Windows.zip)，EXE与PCK必须同目录 |
-| 源码快照／身份 | [source.zip](../../builds/GALUMU-v0.4.3-source.zip)、[manifest](../../builds/release_manifest_v043.json)；最终SHA与验包记录见交接回执 |
+| 玩家启动 | [Play-Latest.cmd](../../Play-Latest.cmd)，v0.4.3-r2，使用正式玩家存档 |
+| Windows目录／压缩包 | [运行目录](../../builds/LanceAndLaurel-v0.4.3-r2/)、[Windows.zip](../../builds/LanceAndLaurel-v0.4.3-r2-Windows.zip)，EXE与PCK必须同目录 |
+| 源码快照／身份 | [source.zip](../../builds/GALUMU-v0.4.3-r2-source.zip)、[manifest](../../builds/release_manifest_v043-r2.json)；最终SHA与验包记录见交接回执 |
 | 可编辑项目 | [game/project.godot](../../game/project.godot)，Godot 4.5.1 / GDScript / Compatibility / Windows x86_64 |
 | 本机引擎／模板 | `tools/godot-4.5.1/Godot_v4.5.1-stable_win64_console.exe`、`tools/templates/windows_release_x86_64.exe` |
 
-v0.4.3 PCK SHA256：`E2316BCEAB3ECF017F7D46540EB97BA14BF4EC86727420304CD50D7880DFBC59`。EXE是通用模板，不仅凭EXE哈希区分游戏版本。旧包保留；builds不随Git上传，不代表已发布GitHub Release。源码快照不包含自己的散列、后续验包日志或他人未提交文件。
+v0.4.3-r2 PCK SHA256：`0B6742C495AF7C77D1FB9DC8AF3FAEA188B781547FFAE1FCB6F0217CF94741AE`。EXE是通用模板，不仅凭EXE哈希区分游戏版本。旧包保留；builds不随Git上传，不代表已发布GitHub Release。源码快照不包含自己的散列、后续验包日志或他人未提交文件。
 
 ## 当前功能与边界
 
@@ -64,7 +64,7 @@ v0.4.3 PCK SHA256：`E2316BCEAB3ECF017F7D46540EB97BA14BF4EC86727420304CD50D7880D
 | visual/sound_bank.gd、ui/ui_factory.gd、ui/combat_report.gd | 音频、控件与结算解释；注意控件最小尺寸和音频回收 |
 | core/desktop_input_audit.gd | QA桌面采样，不是正式玩法 |
 
-本轮测试为game/tests/*v043*；导出预设排除测试，指向独立v0.4.3。builds下验包副本不是开发源目录。新版本不得覆盖已验收包。
+本轮测试为game/tests/*v043*；导出预设排除测试，指向独立v0.4.3-r2。builds下验包副本不是开发源目录。新版本不得覆盖已验收包。
 
 ## 存档与复验
 
@@ -76,7 +76,7 @@ v0.4.3 PCK SHA256：`E2316BCEAB3ECF017F7D46540EB97BA14BF4EC86727420304CD50D7880D
 
 ## 证据与后续
 
-源项目及实际v0.4.3 EXE已完成规则、AI、枪线盾轮廓、输入存档、终局奖励、退出失败、GUI菜单点击和三尺寸布局检查；实际包双模式九图通过。日志[v043](../development/logs/v043/)，截图[release](../development/screenshots/v043/release/)。候选02连续12场有渲染运行，回营节点稳定、孤立节点0；release引擎内存计数不可用，不以0值宣称零内存。最终追加验证见审查和交接回执。
+源项目及实际v0.4.3 EXE已完成规则、AI、枪线盾轮廓、输入存档、终局奖励、退出失败、GUI菜单点击和三尺寸布局检查；实际包双模式九图通过。日志[v043](../development/logs/v043/)，截图[release](../development/screenshots/v043/release/)。候选02连续12场有渲染运行，回营节点稳定、孤立节点0；release引擎内存计数不可用，不以0值宣称零内存。首包另加6场171.407秒通过，回营节点27／孤立0；OS内存采样175次未见短运行逐场增长。首包源码a8e490c干净解压导入与规则／菜单／盾扫掠通过，两种ZIP CRC通过；见审查和交接回执。
 
 本轮没有新OS桌面输入或真人试玩；上一轮物理Esc终止后的桌面操作未恢复。引擎点击、自动比赛、模拟和截图不等于玩家认可。其他机器、系统DPI、真实手机触控、长线经济未覆盖。下一步优先让玩家说清一次格挡／命中与一次失败原因，比较三档是否可读、有挑战。
 
@@ -89,3 +89,5 @@ v0.4.3 PCK SHA256：`E2316BCEAB3ECF017F7D46540EB97BA14BF4EC86727420304CD50D7880D
 沿用pixel_v03与pixel_v041的AI辅助资产，非逐像素手绘。本轮改盾投影、边带和程序特效，无新栅格图。见[资产记录](../../game/art_sources/ASSET_MANIFEST.md)、[v041资产](../../art_sources/v041/README.md)。
 
 文件认领与后续工作只在[TASK_BOARD](TASK_BOARD.md)登记，历史见[WORK_LOG](WORK_LOG.md)。没有联机、战役、军团、刀剑、肢解、永久伤残、付费、云存档或完整纹章编辑器。
+
+R2补充：鼠标点暂停→Esc恢复后，HUD按钮曾保留焦点，Space会再次暂停。dad3db7仅关闭该战斗按钮的键盘焦点（Esc仍可用），版本标识改r2；空间键恢复后的实际催马回归纳入新包验证。初版与r2包都保留，最终身份见交接回执与V043_VALIDATION。

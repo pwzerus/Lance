@@ -1,0 +1,5 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+GALUMU_BUILD v0.4.3
+FOCUS_AFTER_RESUME @Button@52:<Button#38570821066>
+PAUSE_FOCUS_V043 {"failures":["Space intended to spur horse reactivated the focused pause button"],"passed":false,"scope":"engine-injected mouse pause then Esc resume then Space; not OS input"}

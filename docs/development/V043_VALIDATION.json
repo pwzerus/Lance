@@ -1,0 +1,59 @@
+{
+  "version": "0.4.3-r2",
+  "branch": "codex/v0.4",
+  "binary_source_commit": "dad3db7fdd727fd415411e6e0d0421af7583041e",
+  "source_snapshot_commit": "2f3a67de0f12b3c65ba980f31e2b186e20f0e418",
+  "remote_sha_verified": "2f3a67de0f12b3c65ba980f31e2b186e20f0e418",
+  "started_utc": "2026-10-27 22:07:31 UTC",
+  "deadline_utc": "2026-10-28 00:07:31 UTC",
+  "files": [
+    {
+      "path": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.3-r2\\LanceAndLaurel.exe",
+      "bytes": 96725504,
+      "sha256": "78CCC576E8F8BFFD7EF6AD6F36EBD72A41E609A1052225A55B3407C96EA84065"
+    },
+    {
+      "path": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.3-r2\\LanceAndLaurel.pck",
+      "bytes": 29869248,
+      "sha256": "0B6742C495AF7C77D1FB9DC8AF3FAEA188B781547FFAE1FCB6F0217CF94741AE"
+    },
+    {
+      "path": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.3-r2-Windows.zip",
+      "bytes": 64607112,
+      "sha256": "963AB21F3A57C7AF7B9822C9625F9BFC93FC8EDF44C5C81592F20CD1CCBC74BE"
+    },
+    {
+      "path": "E:\\GALUMU\\builds\\GALUMU-v0.4.3-r2-source.zip",
+      "bytes": 203002374,
+      "sha256": "2F0E95BF1F39B5C31E99D1C0C64FABE09EAF78007C244B584EAE7F3586560B39"
+    }
+  ],
+  "windows_zip_crc_passed": true,
+  "windows_zip_pck_verified": true,
+  "source_zip_crc_passed": true,
+  "source_zip_entries": 773,
+  "source_clean_import": "Godot 4.5.1 passed",
+  "source_clean_regression": "Pause-focus and actual Space acceleration passed",
+  "old_pck_sha256": {
+    "v0.4.2": "9786FB22F32AE252713483762E8B9AD2DE1C46E25A8C0E5F55F3AD5970EE5734",
+    "v0.4": "5F0C4988B62F566D7CAD2EFC2F4040D4FC278253499003F4AE9C8F9763ED0519",
+    "v0.4.1": "4BE52458C9F8F2FB5A47D1903BB97956F2585D0D87F2D95730C9B365DBE60ECB"
+  },
+  "previous_v043_pck_sha256": "E2316BCEAB3ECF017F7D46540EB97BA14BF4EC86727420304CD50D7880DFBC59",
+  "r2_validation": [
+    "5 actual EXE input/menu/save/integration regression scripts passed",
+    "mouse Pause -> Esc resume -> held Space accelerated 210 to 480 in half a game second",
+    "actual rendered arena and war, nine captures and results passed",
+    "Windows ZIP extracted PCK verified and pause-focus regression passed",
+    "clean source archive import and pause-focus regression passed"
+  ],
+  "inherited_validation_scope": "Prior v0.4.3 PCK has rules, AI, shield geometry, layout, exit scenarios, six-match soak and OS memory sampling. R2 changes only HUD pause focus and version/export identity; do not attribute those prior runs to the R2 hash.",
+  "binary_published_to_github": false,
+  "limitations": [
+    "No OS desktop input or human playtest this turn",
+    "Other machines, DPI and physical mobile touch unverified",
+    "Automatic screenshot run sampled mostly 60 FPS but once 44; synchronous image capture can affect timing, not a clean gameplay benchmark",
+    "Long-term AI/economy balance and procedural pixel animation need player feedback"
+  ],
+  "completed_utc": "2026-10-27 23:34:58 UTC"
+}

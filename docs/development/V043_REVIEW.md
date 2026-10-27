@@ -100,3 +100,5 @@
 修改仅涉及battle的HUD按钮焦点、版本显示和导出路径；规则、AI、存档、盾轮廓及美术未改。独立导出builds/LanceAndLaurel-v0.4.3-r2，原首包和ZIP保留。R2运行代码dad3db7，PCK SHA256：0B6742C495AF7C77D1FB9DC8AF3FAEA188B781547FFAE1FCB6F0217CF94741AE。不要把首包持续6场误写为R2运行证据；R2对改变的输入路径、菜单、集成、加速和双模式渲染另作复验。
 
 R2发布复验：r2-validation.json列出的暂停焦点、菜单三槽、集成终局、保存／盾控和加速5脚本均退出0、passed=true、无SCRIPT ERROR。暂停后空格实际马速210→480（半游戏秒）。r2-smoke.log完成双模式九图与结算，图在screenshots/v043/r2/smoke；帧率采样大多60，曾44，不能写成稳定锁60。首包较长持续运行不替代R2的这次结果。R2 Windows ZIP的4文件CRC通过，最终验包详见V043_VALIDATION。
+
+R2源码快照2f3a67d已推送核对，773条ZIP记录CRC通过，干净导入及暂停→Esc→Space加速回归通过；Windows解压同PCK且输入回归通过。完整散列见V043_VALIDATION.json。自动截图流程包含同步图像读回／PNG保存，44FPS采样不能单独认定正常玩法持续卡顿；需要无截图profiling进一步归因。

@@ -91,3 +91,5 @@ v0.4.3-r2 PCK SHA256：`0B6742C495AF7C77D1FB9DC8AF3FAEA188B781547FFAE1FCB6F0217C
 文件认领与后续工作只在[TASK_BOARD](TASK_BOARD.md)登记，历史见[WORK_LOG](WORK_LOG.md)。没有联机、战役、军团、刀剑、肢解、永久伤残、付费、云存档或完整纹章编辑器。
 
 R2补充：鼠标点暂停→Esc恢复后，HUD按钮曾保留焦点，Space会再次暂停。dad3db7仅关闭该战斗按钮的键盘焦点（Esc仍可用），版本标识改r2；空间键恢复后的实际催马回归纳入新包验证。初版与r2包都保留，最终身份见交接回执与V043_VALIDATION。
+
+最终R2源快照2f3a67d、Windows与源码ZIP的CRC及干净导入／暂停加速回归均通过，完整身份为[V043_VALIDATION](../development/V043_VALIDATION.json)。r2-smoke与r2-validation记录实际新包验证；自动截图一次44FPS，不作无截图性能基准。

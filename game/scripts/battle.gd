@@ -51,8 +51,6 @@ var ai_target_y = -212.0
 var exchange_log: Array[Dictionary] = []
 var ai_rng = RandomNumberGenerator.new()
 var ai_fighter_index = 1 # Also permits symmetric QA with the AI on either side.
-var dust_timer = 0.0
-var hoof_timer = 0.0
 var last_phase = ""
 var sound: SoundBank
 var autoplay = false
@@ -145,6 +143,9 @@ func _ready() -> void:
 	add_child(wind)
 	if sound.enabled:
 		wind.play()
+	for i in range(riders.size()):
+		riders[i].stride_phase = i*1.1
+		riders[i].hoof_contact.connect(_on_hoof_contact.bind(i))
 	_build_hud()
 	get_window().focus_exited.connect(_on_focus_lost)
 	_update_views()
@@ -226,17 +227,15 @@ func _physics_process(delta: float) -> void:
 	for event in match_model.drain_events():
 		_handle_event(event)
 	_update_views()
-	dust_timer -= delta
-	hoof_timer -= delta
-	if match_model.phase == "charge":
-		if dust_timer <= 0:
-			dust_timer = .09
-			for f in match_model.fighters:
-				effects.dust(Vector2(float(f.x)-int(f.direction)*70,0),int(f.direction))
-		if hoof_timer <= 0:
-			var pace = clampf((float(fighter.speed)-Model.TROT_SPEED)/(Model.GALLOP_SPEED-Model.TROT_SPEED),0,1)
-			hoof_timer = lerpf(.36,.15,pace)
-			sound.play("hoof",lerpf(-20,-12,pace),lerpf(.92,1.18,pace))
+
+func _on_hoof_contact(leg_index: int, rider_index: int) -> void:
+	if paused or match_model.phase!="charge":
+		return
+	var fighter = match_model.fighters[rider_index]
+	var pace = clampf((float(fighter.speed)-Model.TROT_SPEED)/(Model.GALLOP_SPEED-Model.TROT_SPEED),0,1)
+	var pose = riders[rider_index].Gait.leg(leg_index,riders[rider_index].stride_phase,float(fighter.speed),true)
+	effects.dust(Vector2(float(fighter.x)+pose.foot.x*int(fighter.direction),8),int(fighter.direction))
+	sound.play("hoof",lerpf(-25,-17,pace)-(3 if rider_index==1 else 0),.92 if leg_index<2 else 1.12)
 
 func _update_ai(delta: float) -> void:
 	ai_timer -= delta

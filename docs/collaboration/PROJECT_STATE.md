@@ -1,16 +1,16 @@
 # 当前实现与接手地图
 
-基准：2026-10-24，v0.4 源码检查点 `69a4bb21898da5c9ec0727281fee82bfea94ae76`。本页描述当前实现；需求取舍以用户最新指示和 [DESIGN_DECISIONS](../../DESIGN_DECISIONS.md) 为准。未来修改后请更新本页，不把旧数值当成不可变要求。
+基准更新：2026-10-26，当前v0.4.1，仍在`codex/v0.4`。功能里程碑`f1003ef`；美术与交付提交见本分支后续历史。沿用v0.4的伤害、输入、速度与AI时序，新增结算命中解释、非写实像素头像、长腿马匹分件与四拍腾空步态、落蹄同步尘土／声音。详情见[v0.4.1审查](../development/V041_REVIEW.md)及[本轮交接](handoffs/2026-10-26-DEV-ART-041-Codex.md)。需求取舍以用户最新指示和[DESIGN_DECISIONS](../../DESIGN_DECISIONS.md)为准。
 
 ## 启动与交付
 
 | 用途 | 位置与说明 |
 | --- | --- |
-| 玩家启动 | [Play-Latest.cmd](../../Play-Latest.cmd)，指向 v0.4；正式试玩会使用玩家存档 |
-| 正式发布文件夹 | [LanceAndLaurel-v0.4](../../builds/LanceAndLaurel-v0.4/)，EXE 和 PCK 必须同目录 |
-| Windows 完整包 | [LanceAndLaurel-v0.4-Windows.zip](../../builds/LanceAndLaurel-v0.4-Windows.zip) |
-| 源码快照 | [GALUMU-v0.4-source.zip](../../builds/GALUMU-v0.4-source.zip)，不含引擎、模板、builds 和 .godot |
-| 发布身份与散列 | [release_manifest_v04.json](../../builds/release_manifest_v04.json)、[交付检查](../../builds/V04_DELIVERY_CHECK.md) |
+| 玩家启动 | [Play-Latest.cmd](../../Play-Latest.cmd)，指向 v0.4.1；正式试玩会使用玩家存档 |
+| 正式发布文件夹 | [LanceAndLaurel-v0.4.1](../../builds/LanceAndLaurel-v0.4.1/)，EXE 和 PCK 必须同目录 |
+| Windows 完整包 | [LanceAndLaurel-v0.4.1-Windows.zip](../../builds/LanceAndLaurel-v0.4.1-Windows.zip) |
+| 源码快照 | [GALUMU-v0.4.1-source.zip](../../builds/GALUMU-v0.4.1-source.zip)，来自本轮交付提交；不含引擎、模板、builds 和 .godot |
+| 发布身份与散列 | [release_manifest_v041.json](../../builds/release_manifest_v041.json)、[v0.4.1审查](../development/V041_REVIEW.md) |
 | 可编辑项目 | [game/project.godot](../../game/project.godot)，Godot 4.5.1，GDScript，Windows x86_64，Compatibility 渲染 |
 | 本机引擎 | `E:/GALUMU/tools/godot-4.5.1/Godot_v4.5.1-stable_win64_console.exe` |
 | 本机导出模板 | `E:/GALUMU/tools/templates/windows_release_x86_64.exe` |
@@ -21,6 +21,8 @@
 源码快照和 manifest 的生成时间不同；manifest 与干净解压导入日志是打包后旁附记录，源码 ZIP 不包含自身散列。不要为补交接文档覆盖现有 ZIP。`builds/v04-source-verification/` 是验包副本，不是开发源目录。
 
 ## 已实现功能
+
+v0.4.1 PCK SHA256：`4BE52458C9F8F2FB5A47D1903BB97956F2585D0D87F2D95730C9B365DBE60ECB`。旧v0.4包散列未变，保留全部旧版。下方v0.4数值和证据继续作为继承基线，不替代本轮证据。
 
 | 系统 | 当前行为 | 边界 |
 | --- | --- | --- |
@@ -106,6 +108,8 @@ $runId = 'handoff-next-01'
 
 ## 最新验证证据及其范围
 
+v0.4.1：实际导出EXE/PCK完成双模式九图、集成43项、真实渲染动作30项、响应16项、命中解释与步态专项；日志在`docs/development/logs/v041/`，发布截图在`exported_screenshots/v041/`。桌面工具实际点击练习、催马、结算重开和暂停；点按含过阵冲刺，不用于测起步曲线。OS工具Esc未触发暂停，注入Esc/R检查通过，两者不可混写为真实键盘已验收。没有本轮真人试玩评分。以下旧v0.4证据保持历史记录。
+
 | 证据类别 | 现有证据 | 可以说明／不能说明 |
 | --- | --- | --- |
 | 规则模拟 | 114 规则、19 战术、5 AI 观察；[v04-rules.log](../development/logs/v04-rules.log)、[v04-tactics.log](../development/logs/v04-tactics.log)、[v04-ai-reaction.log](../development/logs/v04-ai-reaction.log) | 特定输入和种子的规则结果；不是真人胜率 |
@@ -120,6 +124,8 @@ $runId = 'handoff-next-01'
 OS 点按候选 PCK 为 `BA0669389C8FAA2A570A34A4AD9029D34FFE8D83A5D4DDB4C810193DF97D30DC`；之后改了 AI 采样与结算遮挡，催马／输入／镜头未变，最终包另有上表自动复验。不能说 OS 点按针对最终散列。帧率多为本机60FPS采样，命中采样曾44FPS。间歇 ObjectDB 退出残留警告尚未定位，不能称零泄漏或已证明持续运行泄漏。
 
 ## 资料与美术来源
+
+新增头像与马匹分件使用`game/assets/art/pixel_v041/`两张图；提示词、尺寸、生成来源及大学兽医步态参考见[本轮资产记录](../../art_sources/v041/README.md)。其余背景、盔甲、盾牌沿用v0.3。程序步态在八相位、双向极限姿态及实际发布包冲锋中已查看，仍有旋转像素闪烁与简化关节，不宣称手工逐像素动画。
 
 | 资料 | 用途与限制 |
 | --- | --- |

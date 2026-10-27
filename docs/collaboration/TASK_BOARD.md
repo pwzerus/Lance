@@ -8,7 +8,7 @@
 
 | 负责人 | 任务 | 占用文件 | 状态 |
 | --- | --- | --- | --- |
-| Codex | DEV-041：AI可读性／反馈与退出审查；ART-041：像素头像与马匹比例／步态 | `game/scripts/battle.gd`、`main.gd`、`core/joust_match.gd`、`visual/rider_view.gd`、`visual/equipment_art.gd`、`visual/sound_bank.gd`、新增`ui/combat_report.gd`、相关FX及测试；新增马匹步态脚本／像素素材；`game/project.godot`、`export_presets.cfg`、`Play-Latest.cmd`、设计增补／现状／本轮审查 | 2026-10-26 21:09:50 EDT开始；基线226060f；功能35分钟至21:44:50，美术40分钟至22:24:50。保留Claude未提交DOC-002文档，不改写或并入其成果 |
+| 无 | DEV-041 / ART-041已交出 | 本轮源码／美术文件全部释放 | v0.4.1已完成本机验证；交接见handoffs/2026-10-26-DEV-ART-041-Codex.md。Claude DOC-002未提交文档保留 |
 
 认领前登记任务 ID、负责人、文件、开始时间与基线 SHA。修改范围扩大时先更新占用。完成／暂停／交出时释放，并留下具体交接记录。此表不是技术锁；`battle.gd`、`main.gd`、规则模型和同一图集禁止两人各改一套后互相覆盖。审查者先只读，修复需协调文件负责人。
 

@@ -37,8 +37,8 @@ var smoke_last_report = 0
 var practice_match = false
 
 func _ready() -> void:
-	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4"
-	print("GALUMU_BUILD v0.4")
+	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.1"
+	print("GALUMU_BUILD v0.4.1")
 	get_window().min_size = Vector2i(960,540)
 	ui_layer = CanvasLayer.new()
 	add_child(ui_layer)
@@ -56,7 +56,7 @@ func _ready() -> void:
 		smoke_started = Time.get_ticks_msec()
 	show_home()
 	if GameState.qa_input_probe:
-		get_window().title = "Lance & Laurel v0.4 QA - Desktop input"
+		get_window().title = "Lance & Laurel v0.4.1 QA - Desktop input"
 		var audit = preload("res://scripts/core/desktop_input_audit.gd").new()
 		audit.main = self
 		add_child(audit)
@@ -133,7 +133,7 @@ func show_home() -> void:
 	UI.label(screen,"当前年代  " + Catalogue.ERAS[Catalogue.era_for_renown(int(GameState.profile.renown))],Vector2(420,611),17,UI.GOLD)
 	UI.separator(screen,Vector2(62,696),698)
 	UI.label(screen,"鼠标瞄准   左键加速   W/S 倾身   Esc 暂停",Vector2(62,718),17,UI.MUTED)
-	UI.label(screen,"单机试玩版  ·  Windows  ·  v0.4 · 催马与冲锋",Vector2(62,751),14,UI.MUTED)
+	UI.label(screen,"单机试玩版  ·  Windows  ·  v0.4.1 · 骑手与马匹",Vector2(62,751),14,UI.MUTED)
 	UI.button(screen,"退出游戏",Rect2(608,739,150,38),func():
 		GameState.save_profile()
 		get_tree().quit())

@@ -32,3 +32,7 @@
 本次实际交出记录：[DOC-001 / Codex](handoffs/2026-10-24-DOC-001-Codex.md)。每次功能提交／阶段交接追加一条。对应详细记录放 `docs/collaboration/handoffs/<日期>-<任务ID>-<负责人>.md`，使用 [HANDOFF_TEMPLATE](HANDOFF_TEMPLATE.md)。不预填不存在的 Claude 成果。
 
 提交 SHA 可在提交完成后的下一条记录或接收回执填写，避免文档要求包含自身提交散列。Git 历史和远程分支是实际提交是否存在的依据，不以“计划提交”的文字替代。
+
+## DEV-041 / ART-041 — 2026-10-26 / Codex
+
+基线226060f，分支codex/v0.4，发布v0.4.1；功能里程碑f1003ef已推送核对。新增实际命中／落马解释、复用音效声道、简化像素头像、长腿马匹与四拍腾空步态、落蹄同步反馈；AI锁线实验因回归撤回。新旧发布包独立保存。源项目及最终EXE/PCK的规则／输入／动作／渲染证据、桌面点按和限制详见[本轮交接](handoffs/2026-10-26-DEV-ART-041-Codex.md)与[V041_REVIEW](../development/V041_REVIEW.md)。没有真人好玩程度结论；困难AI、headless音频退出与OS工具Esc仍待查。保留Claude DOC-002未提交内容，未将其并入本轮提交。

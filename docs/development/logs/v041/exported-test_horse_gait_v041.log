@@ -1,0 +1,4 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+HORSE_GAIT_V041 {"failures":[],"footfalls":[0,1,2,3],"passed":true,"scope":"kinematic contact and reach, not a visual quality or biomechanics certification","suspension_frames_of_240":57}

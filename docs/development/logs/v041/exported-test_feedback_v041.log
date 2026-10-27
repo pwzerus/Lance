@@ -1,0 +1,4 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+FEEDBACK_V041 {"failures":[],"passed":true,"sample":"你的最后一击：胸甲 · 骑手损伤 18 · 平衡余量 48\n对手的最后一击：胸甲 · 骑手损伤 18 · 平衡余量 0\n对手落马：冲击超过坐稳能力；你落马：连续受击耗尽平衡"}

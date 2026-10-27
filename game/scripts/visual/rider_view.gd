@@ -1,9 +1,12 @@
 class_name RiderView
 extends Node2D
+signal hoof_contact(leg_index: int)
 
 const ATLAS = preload("res://assets/art/pixel_v03/rider_atlas.png")
 const Model = preload("res://scripts/core/joust_match.gd")
 const Art = preload("res://scripts/visual/equipment_art.gd")
+const HorseArt = preload("res://scripts/visual/horse_art.gd")
+const Gait = preload("res://scripts/visual/horse_gait.gd")
 const PARTS = {
 	"horse_body":Rect2(14,364,407,259),"horse_head":Rect2(424,324,309,300),
 	"horse_upper":Rect2(776,344,146,274),"horse_lower":Rect2(1067,357,125,252),
@@ -27,8 +30,12 @@ var art_key = ""
 
 func _process(delta: float) -> void:
 	clock += delta
-	var pace = clampf((float(fighter.get("speed",210.0))-Model.TROT_SPEED)/(Model.GALLOP_SPEED-Model.TROT_SPEED),0,1)
-	stride_phase += delta*lerpf(8.0,18.0,pace) if moving else delta*1.2
+	var speed = float(fighter.get("speed",210.0))
+	var previous_phase = stride_phase
+	stride_phase += delta*TAU*Gait.frequency(speed) if moving else delta*1.2
+	if moving and delta>0 and delta<.2:
+		for leg_index in Gait.touchdown_indices(previous_phase,stride_phase,speed):
+			hoof_contact.emit(leg_index)
 	impact_recoil = move_toward(impact_recoil,0,delta*3)
 	lance_recoil = move_toward(lance_recoil,0,delta*4)
 	shield_recoil = move_toward(shield_recoil,0,delta*4)
@@ -54,15 +61,24 @@ func _draw() -> void:
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 	var stride = stride_phase
 	var pace = clampf((float(fighter.get("speed",210.0))-Model.TROT_SPEED)/(Model.GALLOP_SPEED-Model.TROT_SPEED),0,1)
-	var bounce = sin(stride*2)*(lerpf(1.8,4.0,pace) if moving else .6)
+	var horse_pose = Gait.body(stride,pace,moving)
+	var bounce = float(horse_pose.offset.y)
 	var horse_tint = Color(str(fighter.stats.get("horse_color","a87950"))).lerp(Color.WHITE,.72)
-	_draw_horse_leg(Vector2(-96,-61),stride+PI,Color(.60,.57,.55))
-	_draw_horse_leg(Vector2(65,-65),stride+lerpf(0.0,3.7,pace),Color(.62,.59,.56))
-	draw_part("horse_body",Rect2(-160,-191+bounce,257,166),horse_tint)
-	draw_part("horse_head",Rect2(61,-222+bounce,148,145),horse_tint)
-	_draw_horse_leg(Vector2(-105,-65),stride,horse_tint)
-	_draw_horse_leg(Vector2(63,-63),stride+lerpf(PI,3.0,pace),horse_tint)
-	draw_polyline(PackedVector2Array([Vector2(168,-126+bounce),Vector2(65,-156),Vector2(2,-200)]),Color("493628"),2.5,true)
+	_draw_horse_leg(0,horse_tint.darkened(.29))
+	_draw_horse_leg(2,horse_tint.darkened(.25))
+	var tail_root = Model.HIP+(Vector2(-134,-170)-Model.HIP).rotated(horse_pose.pitch)+horse_pose.offset
+	draw_set_transform(tail_root*Vector2(facing,1),(horse_pose.pitch+horse_pose.tail)*facing,Vector2(facing,1))
+	draw_texture_rect_region(HorseArt.ATLAS,Rect2(-78,-5,84,127),HorseArt.PARTS.tail,horse_tint)
+	var neck_root = Model.HIP+(Vector2(80,-124)-Model.HIP).rotated(horse_pose.pitch)+horse_pose.offset
+	draw_set_transform(neck_root*Vector2(facing,1),(horse_pose.pitch+horse_pose.neck)*facing,Vector2(facing,1))
+	draw_texture_rect_region(HorseArt.ATLAS,Rect2(-31,-126,130,150),HorseArt.PARTS.head,horse_tint)
+	draw_set_transform((Model.HIP+horse_pose.offset)*Vector2(facing,1),horse_pose.pitch*facing,Vector2(facing,1))
+	draw_texture_rect_region(HorseArt.ATLAS,Rect2(-137,-20,247,106),HorseArt.PARTS.body,horse_tint)
+	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
+	_draw_horse_leg(1,horse_tint)
+	_draw_horse_leg(3,horse_tint)
+	var muzzle = neck_root+Vector2(95,-31).rotated(horse_pose.pitch+horse_pose.neck)
+	draw_polyline(PackedVector2Array([muzzle,Vector2(65,-163+bounce),Vector2(2,-200)]),Color("493628"),2.5,true)
 	if bool(fighter.get("ko",false)) or bool(fighter.get("dead",false)):
 		draw_set_transform(Vector2.ZERO)
 		return
@@ -97,28 +113,33 @@ func _draw() -> void:
 				draw_circle(pivot+(stain+offset).rotated(lean_angle),2.5,Color("69251e"))
 	draw_set_transform(Vector2.ZERO)
 
-func _draw_horse_leg(hip: Vector2, phase: float, tint: Color) -> void:
+func _draw_horse_leg(index: int, tint: Color) -> void:
+	var pose = Gait.leg(index,stride_phase,float(fighter.get("speed",210.0)),moving)
+	var prefix = "fore" if pose.front else "hind"
+	_draw_horse_bone(prefix+"_upper",pose.hip,pose.knee,.70 if pose.front else .72,tint)
+	_draw_horse_bone(prefix+"_lower",pose.knee,pose.ankle,.75,tint)
 	var facing = int(fighter.direction)
-	var cycle = fposmod(phase/TAU,1.0)
-	var foot = Vector2(hip.x,12)
-	if moving:
-		if cycle<.58:
-			foot.x += lerpf(37,-37,cycle/.58)
-		else:
-			var swing = (cycle-.58)/.42
-			foot.x += lerpf(-37,37,swing)
-			foot.y -= sin(swing*PI)*35
-	var to_foot = foot-hip
-	var length = clampf(to_foot.length(),15,95.5)
-	var bend = acos(clampf((51.0*51.0+length*length-45.0*45.0)/(2.0*51.0*length),-1,1))
-	var knee = hip+to_foot.normalized().rotated(bend*(-1 if hip.x>0 else 1))*51
-	var upper_angle = (knee-hip).angle()-PI*.5
-	var lower_angle = (foot-knee).angle()-PI*.5
-	draw_set_transform(hip*Vector2(facing,1),upper_angle*facing,Vector2(facing,1))
-	draw_part("horse_upper",Rect2(-16,-6,31,61),tint)
-	draw_set_transform(knee*Vector2(facing,1),lower_angle*facing,Vector2(facing,1))
-	draw_part("horse_lower",Rect2(-11,-4,25,53),tint)
+	draw_set_transform(pose.ankle*Vector2(facing,1),pose.toe_angle*facing,Vector2(facing,1))
+	draw_texture_rect_region(HorseArt.ATLAS,Rect2(-8,-2,22,14),HorseArt.PARTS.hoof,tint)
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
+
+func _draw_horse_bone(part: String, start: Vector2, end: Vector2, width_scale: float, tint: Color) -> void:
+	# Map measured joint centers, not the rectangle corners, onto the bones.
+	# This is what prevents detached knees/hooves when an atlas has padding.
+	var region: Rect2 = HorseArt.PARTS[part]
+	var joints: Array = HorseArt.JOINTS[part]
+	var source_axis: Vector2 = (joints[1]-joints[0]).normalized()
+	var source_side = Vector2(-source_axis.y,source_axis.x)
+	var axis = (end-start).normalized()
+	var side = Vector2(-axis.y,axis.x)
+	var ratio = start.distance_to(end)/joints[0].distance_to(joints[1])
+	var vertices = PackedVector2Array()
+	var uv = PackedVector2Array()
+	for corner in [region.position,Vector2(region.end.x,region.position.y),region.end,Vector2(region.position.x,region.end.y)]:
+		var relative: Vector2 = corner-joints[0]
+		vertices.append(start+axis*relative.dot(source_axis)*ratio+side*relative.dot(source_side)*ratio*width_scale)
+		uv.append(corner/HorseArt.ATLAS.get_size())
+	draw_polygon(vertices,PackedColorArray([tint,tint,tint,tint]),uv,HorseArt.ATLAS)
 
 func _draw_rider_leg(hip: Vector2, angle: float, tint: Color) -> void:
 	var facing = int(fighter.direction)

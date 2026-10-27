@@ -27,7 +27,8 @@ static func summarize(events: Array) -> String:
 	elif latest.has(0) and float(latest[0].get("support",1.0))<.70:
 		lines.append("调整建议：接近时提前稳住枪线，大幅换目标会损失冲击。")
 	elif latest.has(0) and latest[0].zone=="shield":
-		lines.append("调整建议：观察盾牌高低，再选择头盔或腰腹的空当。")
+		lines.append("调整建议：观察对手护头、护胸或护腹，提前选择另一处空当。")
 	else:
-		lines.append("调整建议：催马积累速度；举盾防高位，压盾防腰腹。")
+		lines.append("调整建议：催马积累速度；1 / 2 / 3 选择护头、护胸或护腹。")
 	return "\n".join(lines)
+

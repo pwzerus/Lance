@@ -1,0 +1,10 @@
+{
+	"coverage": [
+		"manual save/load, corrupt/invalid backup recovery, failed load rollback, QA-only paths",
+		"projected head/chest/flank, shield-first order, both directions, no physics/RNG mutation",
+		"engine-injected keys, mouse and touch; shield clicks isolated from aiming/boost; pause; left boost"
+	],
+	"failures": [],
+	"passed": true,
+	"scope": "engine injection and rule/save tests; not OS desktop or human play"
+}

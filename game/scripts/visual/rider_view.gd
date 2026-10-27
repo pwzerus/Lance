@@ -7,6 +7,8 @@ const Model = preload("res://scripts/core/joust_match.gd")
 const Art = preload("res://scripts/visual/equipment_art.gd")
 const HorseArt = preload("res://scripts/visual/horse_art.gd")
 const Gait = preload("res://scripts/visual/horse_gait.gd")
+const SHIELD_UPPER = 52.0
+const SHIELD_LOWER = 58.0
 const PARTS = {
 	"horse_body":Rect2(14,364,407,259),"horse_head":Rect2(424,324,309,300),
 	"horse_upper":Rect2(776,344,146,274),"horse_lower":Rect2(1067,357,125,252),
@@ -135,7 +137,7 @@ func _draw() -> void:
 	# forward of the torso on either facing, matching its actual hit circle.
 	var shield_shoulder = Vector2(-28,-64)
 	var shield_hand = shield_center+Vector2(-10,9)
-	_draw_arm(shield_shoulder,arm_elbow(shield_shoulder,shield_hand,47,53),shield_hand,Color(.76,.78,.78))
+	_draw_arm(shield_shoulder,arm_elbow(shield_shoulder,shield_hand,SHIELD_UPPER,SHIELD_LOWER),shield_hand,Color(.76,.78,.78))
 	_draw_shield(shield_center,design)
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 	_draw_rider_leg(pivot+Vector2(-11,4),.07,Color.WHITE)
@@ -266,21 +268,31 @@ func _draw_lance(hand: Vector2, angle: float, length: float, broken: bool) -> vo
 
 func _draw_heraldry(center: Vector2, design: String) -> void:
 	if design == "cross":
-		draw_line(center+Vector2(-13,0),center+Vector2(13,0),Color("315c7e"),6,true)
-		draw_line(center+Vector2(0,-23),center+Vector2(0,22),Color("315c7e"),6,true)
+		draw_line(center+shield_projection(Vector2(-13,0)),center+shield_projection(Vector2(13,0)),Color("315c7e"),5)
+		draw_line(center+shield_projection(Vector2(0,-23)),center+shield_projection(Vector2(0,22)),Color("315c7e"),4)
 	elif design == "diamond":
-		draw_colored_polygon(PackedVector2Array([center+Vector2(0,-18),center+Vector2(12,0),center+Vector2(0,18),center+Vector2(-12,0)]),Color("332d23"))
+		draw_colored_polygon(PackedVector2Array([center+shield_projection(Vector2(0,-18)),center+shield_projection(Vector2(12,0)),center+shield_projection(Vector2(0,18)),center+shield_projection(Vector2(-12,0))]),Color("332d23"))
 	elif design == "chevron":
-		draw_polyline(PackedVector2Array([center+Vector2(-16,10),center+Vector2(0,-9),center+Vector2(16,10)]),Color("eadfc1"),6,true)
+		draw_polyline(PackedVector2Array([center+shield_projection(Vector2(-16,10)),center+shield_projection(Vector2(0,-9)),center+shield_projection(Vector2(16,10))]),Color("eadfc1"),5)
 	else:
 		var direction = int(fighter.direction)
-		draw_line(center+Vector2(-15*direction,-20),center+Vector2(15*direction,20),Color("e9d6a2"),7,true)
+		draw_line(center+shield_projection(Vector2(-15*direction,-20)),center+shield_projection(Vector2(15*direction,20)),Color("e9d6a2"),6)
 
 func _draw_shield(center: Vector2, design: String) -> void:
 	if float(fighter.shield)<=0:
 		return
 	var ratio = float(fighter.shield)/float(fighter.stats.get("shield_capacity",78.0))
 	var tint = Color.WHITE.darkened(.18 if ratio<.32 else 0).lerp(Color(2,2,1.5),shield_recoil*.55)
+	# A compressed, slanted face plus a visible wooden rear rim makes the
+	# shield brace toward the opponent instead of reading as a screen decal.
+	var base_outline = PackedVector2Array([Vector2(-36,-46),Vector2(34,-46),Vector2(37,-22),Vector2(22,26),Vector2(0,51),Vector2(-30,20)])
+	var back = PackedVector2Array()
+	for point in base_outline:
+		back.append(center+shield_projection(point)+Vector2(-7,3))
+	draw_colored_polygon(back,Color("30251e"))
+	var back_rim = back.duplicate()
+	back_rim.append(back[0])
+	draw_polyline(back_rim,Color("8a6240"),3)
 	if fighter.stats.has("shield_shape"):
 		var shape = str(fighter.stats.shield_shape)
 		var outline = PackedVector2Array([Vector2(-31,-46),Vector2(29,-48),Vector2(36,-29),Vector2(21,24),Vector2(0,51),Vector2(-28,17)])
@@ -291,8 +303,8 @@ func _draw_shield(center: Vector2, design: String) -> void:
 		var outer = PackedVector2Array()
 		var inner = PackedVector2Array()
 		for point in outline:
-			outer.append(center+point)
-			inner.append(center+point*.87)
+			outer.append(center+shield_projection(point))
+			inner.append(center+shield_projection(point*.87))
 		draw_colored_polygon(outer,Color("292b25"))
 		draw_colored_polygon(inner,Color(str(fighter.stats.shield_color))*tint)
 		var rim = inner.duplicate()
@@ -301,10 +313,19 @@ func _draw_shield(center: Vector2, design: String) -> void:
 		for point in inner:
 			draw_rect(Rect2(point-Vector2(1,1),Vector2(3,3)),Color("d2c8a6"))
 	else:
-		draw_texture_rect(shield_texture,Rect2(center-Vector2(40,52),Vector2(80,104)),false,tint)
+		var face = PackedVector2Array()
+		for point in [Vector2(-40,-52),Vector2(40,-52),Vector2(40,52),Vector2(-40,52)]:
+			face.append(center+shield_projection(point))
+		draw_polygon(face,PackedColorArray([tint,tint,tint,tint]),PackedVector2Array([Vector2.ZERO,Vector2.RIGHT,Vector2.ONE,Vector2.DOWN]),shield_texture)
 	_draw_heraldry(center,design)
+	# Rear grip remains visibly attached to the forearm at the trailing edge.
+	draw_line(center+Vector2(-28,-15),center+Vector2(-23,17),Color("4d3727"),5)
+	draw_line(center+Vector2(-28,-15),center+Vector2(-23,17),Color("b08655"),2)
 	if ratio<.54:
 		draw_polyline(PackedVector2Array([center+Vector2(-5,-27),center+Vector2(3,-9),center+Vector2(-4,7),center+Vector2(4,24)]),Color("302d28"),2,true)
+
+static func shield_projection(point: Vector2) -> Vector2:
+	return Vector2(point.x*.62+point.y*.13,point.y)
 
 func _draw_armor_detail() -> void:
 	if not fighter.stats.has("armor_color"):

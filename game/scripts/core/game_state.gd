@@ -30,7 +30,7 @@ func default_profile() -> Dictionary:
 	return {"version": 1, "coins": 520, "renown": 0, "wins": 0, "matches": 0, "region": 0,
 		"owned": ["mail_basic", "helm_nasal", "lance_ash", "horse_bay", "crest_bend", "shield_basic"],
 		"equipped": {"armor": "mail_basic", "helmet": "helm_nasal", "lance": "lance_ash", "horse": "horse_bay", "crest": "crest_bend", "shield":"shield_basic"},
-		"settings": {"blood": false, "shake": true, "sound": true, "mouse_only": false, "brief_seen":false,"combat_brief_v03":false,"slow_motion":true, "difficulty": 1}}
+		"settings": {"blood": false, "shake": true, "sound": true, "mouse_only": false, "brief_seen":false,"combat_brief_v03":false,"combat_brief_v043":false,"aim_cues":true,"slow_motion":true, "difficulty": 1}}
 
 func load_profile() -> void:
 	for path in [save_path, backup_path]:
@@ -39,7 +39,7 @@ func load_profile() -> void:
 		var parser = JSON.new()
 		if parser.parse(FileAccess.get_file_as_string(path)) != OK:
 			continue
-		if parser.data is Dictionary and parser.data.get("version", 0) == 1:
+		if _valid_save(parser.data):
 			profile = sanitize(parser.data)
 			return
 
@@ -59,7 +59,7 @@ func sanitize(raw: Dictionary) -> Dictionary:
 			if item_id in clean.owned and item.get("slot", "") == slot:
 				clean.equipped[slot] = item_id
 	if raw.get("settings") is Dictionary:
-		for key in ["blood", "shake", "sound", "mouse_only", "brief_seen","combat_brief_v03","slow_motion"]:
+		for key in ["blood", "shake", "sound", "mouse_only", "brief_seen","combat_brief_v03","combat_brief_v043","aim_cues","slow_motion"]:
 			if raw.settings.get(key) is bool:
 				clean.settings[key] = raw.settings[key]
 		clean.settings.difficulty = _safe_integer(raw.settings.get("difficulty"),1,0,2)
@@ -71,12 +71,15 @@ func _safe_integer(value: Variant, fallback: int, low: int, high: int) -> int:
 	return fallback
 
 func save_profile() -> bool:
-	var temp_path = save_path + ".tmp"
+	return _write_save(save_path,backup_path,profile)
+
+func _write_save(path: String, backup: String, data: Dictionary) -> bool:
+	var temp_path = path + ".tmp"
 	var file = FileAccess.open(temp_path, FileAccess.WRITE)
 	if file == null:
 		save_error = "无法写入存档：" + str(FileAccess.get_open_error())
 		return false
-	file.store_string(JSON.stringify(profile, "\t"))
+	file.store_string(JSON.stringify(data, "\t"))
 	file.flush()
 	var write_error = file.get_error()
 	file.close()
@@ -84,16 +87,64 @@ func save_profile() -> bool:
 		save_error = "存档写入未完成：" + str(write_error)
 		return false
 	var folder = DirAccess.open("user://")
-	if FileAccess.file_exists(save_path):
+	if FileAccess.file_exists(path):
 		# A corrupt primary must never overwrite the only usable backup.
 		var prior = JSON.new()
-		if prior.parse(FileAccess.get_file_as_string(save_path)) == OK and prior.data is Dictionary and prior.data.get("version",0)==1:
-			folder.copy(save_path, backup_path)
-	var error = folder.rename(temp_path, save_path)
+		if prior.parse(FileAccess.get_file_as_string(path)) == OK and _valid_save(prior.data, data.has("format")):
+			var backup_error = folder.copy(path, backup)
+			if backup_error!=OK:
+				save_error = "无法备份原进度："+str(backup_error)
+				return false
+	var error = folder.rename(temp_path, path)
 	if error != OK:
 		save_error = "无法保存进度：" + str(error)
 		return false
 	save_error = ""
+	return true
+
+func _valid_save(data: Variant, manual: bool = false) -> bool:
+	if not data is Dictionary or data.get("version",0)!=1:
+		return false
+	if manual:
+		return data.get("format","")=="lance-manual-1" and data.get("profile") is Dictionary and _valid_save(data.profile)
+	return data.get("owned") is Array and data.get("equipped") is Dictionary and data.get("settings") is Dictionary
+
+func slot_path(slot: int) -> String:
+	# Derived from the active profile: QA can never touch the player's slots.
+	return save_path.get_basename()+"_slot_%d.json" % slot
+
+func read_slot(slot: int) -> Dictionary:
+	if slot<1 or slot>3:
+		return {}
+	for path in [slot_path(slot),slot_path(slot)+".backup"]:
+		if not FileAccess.file_exists(path):
+			continue
+		var parser = JSON.new()
+		if parser.parse(FileAccess.get_file_as_string(path))!=OK or not parser.data is Dictionary:
+			continue
+		var data: Dictionary = parser.data
+		if not _valid_save(data,true):
+			continue
+		return {"profile":sanitize(data.profile),"saved_at":str(data.get("saved_at","未知时间")),"recovered":path.ends_with(".backup")}
+	return {}
+
+func save_slot(slot: int) -> bool:
+	if slot<1 or slot>3:
+		save_error = "存档槽不存在"
+		return false
+	return _write_save(slot_path(slot),slot_path(slot)+".backup",{"version":1,"format":"lance-manual-1","saved_at":Time.get_datetime_string_from_system(false,true),"profile":profile})
+
+func load_slot(slot: int) -> bool:
+	var data = read_slot(slot)
+	if data.is_empty():
+		save_error = "存档为空或已损坏，当前进度未改变"
+		return false
+	var previous = profile.duplicate(true)
+	profile = data.profile
+	if not save_profile():
+		profile = previous
+		return false
+	profile_changed.emit()
 	return true
 
 func purchase(item_id: String) -> String:

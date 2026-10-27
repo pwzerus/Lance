@@ -8,6 +8,7 @@ signal replay_requested
 const Model = preload("res://scripts/core/joust_match.gd")
 const Rider = preload("res://scripts/visual/rider_view.gd")
 const FX = preload("res://scripts/visual/impact_fx.gd")
+const Cues = preload("res://scripts/visual/combat_cues.gd")
 const UI = preload("res://scripts/ui/ui_factory.gd")
 const Catalogue = preload("res://scripts/core/catalogue.gd")
 const BACKGROUND = preload("res://assets/art/pixel_v03/tournament_field.png")
@@ -43,8 +44,7 @@ var aim_pointer = Vector2(1150,400)
 var pointer_aim = -.08
 var touch_roles: Dictionary = {}
 var touch_origin: Dictionary = {}
-var ai_timer = 0.0
-var ai_error = 0.0
+var ai_controller = preload("res://scripts/core/opponent_ai.gd").new()
 var ai_zone = "body"
 var ai_lean = .18
 var ai_guard = 0.0
@@ -59,6 +59,7 @@ var demo_seed = 0
 var camera: Camera2D
 var speed_label: Label
 var contact_label: Label
+var enemy_contact_label: Label
 var contact_until = 0
 var spur_left = 0.0
 var mouse_held = false
@@ -68,7 +69,14 @@ var camera_pass = 1
 var approach_slow = false
 var wind: AudioStreamPlayer
 var zone_overlay: Node2D
+var combat_cues: Node2D
+var aim_label: Label
 var guard_high = false
+const GUARD_VALUES = [1.0,.43,0.0]
+const GUARD_NAMES = ["护头","护胸","护腹"]
+var guard_slot = 1
+var guard_buttons: Array[Button] = []
+var ui_pointer_held = false
 var speed_meter: ProgressBar
 var tactics_label: Label
 var input_flash_until = 0
@@ -84,9 +92,14 @@ func _ready() -> void:
 	noise.seed = 421
 	noise.frequency = 7.0
 	ai_rng.randomize()
+	if demo_seed:
+		ai_rng.seed = demo_seed+431
 	var player_stats = GameState.player_stats()
 	var enemy_stats = Catalogue.opponent_stats(GameState.items,Catalogue.era_for_renown(int(GameState.profile.renown)))
 	match_model = Model.new(mode, player_stats, enemy_stats, demo_seed if demo_seed else int(Time.get_ticks_usec()))
+	match_model.fighters[0].guard = GUARD_VALUES[guard_slot]
+	match_model.fighters[0].guard_target = GUARD_VALUES[guard_slot]
+	match_model._cache_pose(match_model.fighters[0])
 	world = Node2D.new()
 	world.process_mode = Node.PROCESS_MODE_PAUSABLE
 	world.position = Vector2(720,645)
@@ -147,6 +160,10 @@ func _ready() -> void:
 	zone_overlay.z_index = 20
 	zone_overlay.visible = false
 	world.add_child(zone_overlay)
+	combat_cues = Cues.new()
+	combat_cues.match_model = match_model
+	combat_cues.z_index = 19
+	world.add_child(combat_cues)
 	sound = SoundBank.new()
 	sound.enabled = GameState.profile.settings.sound
 	add_child(sound)
@@ -174,7 +191,7 @@ func _build_hud() -> void:
 	layer.add_child(hud)
 	var top = UI.panel(hud, Rect2(0,0,1440,76), Color(.045,.08,.065,.96))
 	UI.label(top, "LANCE & LAUREL", Vector2(28,13), 24, UI.GOLD)
-	UI.label(top,"练习场 · 无奖励 / 盾位按轮次变化" if practice else ("竞技场 · 非致死比武" if mode=="arena" else "实战 · 致命对冲"),Vector2(280,23),18)
+	UI.label(top,"练习场 · 无奖励 / 盾位按轮次变化" if practice else (("竞技场" if mode=="arena" else "实战")+" · "+ai_controller.NAMES[int(GameState.profile.settings.difficulty)]),Vector2(280,23),18)
 	pass_label = UI.label(top,"PASS  01 / 03",Vector2(1050,20),22,UI.GOLD)
 	UI.button(top,"暂停  Esc",Rect2(1240,14,165,45),_toggle_pause)
 	ready_panel = UI.panel(hud,Rect2(315,119,810,211),Color(.045,.08,.065,.90))
@@ -185,11 +202,13 @@ func _build_hud() -> void:
 	intermission = UI.label(hud,"",Vector2(330,245),19,UI.INK,780)
 	intermission.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	var bottom = UI.panel(hud,Rect2(0,758,1440,52),Color(.045,.08,.065,.96))
-	hint = UI.label(bottom,"鼠标瞄准 · 左键催马 · 右键 / Q 换盾位 · W 前倾 / S 后仰 · H 判定",Vector2(25,14),16,UI.MUTED)
+	hint = UI.label(bottom,"鼠标瞄准 · 左键催马 · 1/2/3 护头/胸/腹 · W/S 倾身",Vector2(25,14),16,UI.MUTED)
 	speed_label = UI.label(bottom,"",Vector2(925,14),16,UI.GOLD,500)
-	contact_panel = UI.panel(hud,Rect2(250,648,940,86),Color(.045,.08,.065,.93))
-	contact_label = UI.label(contact_panel,"",Vector2(24,9),24,UI.GOLD,892)
+	contact_panel = UI.panel(hud,Rect2(360,575,720,82),Color(.045,.08,.065,.93))
+	contact_label = UI.label(contact_panel,"",Vector2(16,7),20,UI.GOLD,688)
 	contact_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	enemy_contact_label = UI.label(contact_panel,"",Vector2(16,43),20,UI.GOLD,688)
+	enemy_contact_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	speed_meter = ProgressBar.new()
 	speed_meter.position = Vector2(950,735)
 	speed_meter.size = Vector2(440,12)
@@ -208,9 +227,23 @@ func _build_hud() -> void:
 	hud.add_child(speed_meter)
 	var tactic_panel = UI.panel(hud,Rect2(16,81,1000,35),Color(.045,.08,.065,.91))
 	tactics_label = UI.label(tactic_panel,"",Vector2(13,3),18,UI.GOLD,970)
+	guard_buttons.clear()
+	for i in range(3):
+		var slot = i
+		var button = UI.button(hud,"%d  %s" % [i+1,GUARD_NAMES[i]],Rect2(28+i*127,688,118,54),func():_select_guard(slot))
+		button.toggle_mode = true
+		button.focus_mode = Control.FOCUS_NONE
+		button.add_theme_stylebox_override("pressed",UI.box(Color("b69a60"),Color("f0d08c"),5))
+		button.add_theme_color_override("font_pressed_color",Color("15221e"))
+		guard_buttons.append(button)
+	var guard_hint = UI.panel(hud,Rect2(28,657,372,29),Color(.045,.08,.065,.93))
+	UI.label(guard_hint,"防盾落点 · 右键 / Q 循环",Vector2(10,3),15,UI.MUTED)
+	var aim_panel = UI.panel(hud,Rect2(440,680,480,66),Color(.045,.08,.065,.93))
+	aim_label = UI.label(aim_panel,"",Vector2(15,7),19,UI.INK,450)
+	UI.label(aim_panel,"按当前姿态估计 · 以实际交锋为准",Vector2(15,39),14,UI.MUTED,450)
 
 func _physics_process(delta: float) -> void:
-	if paused or is_finished:
+	if paused or is_finished or match_model.phase=="ended":
 		return
 	var fighter = match_model.fighters[0]
 	if match_model.phase=="charge":
@@ -228,13 +261,13 @@ func _physics_process(delta: float) -> void:
 		lean = touch_lean
 	if absf(lean)>.3:
 		learned.posture = true
-	var boost = mouse_held or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or spur_left>0 or Input.is_physical_key_pressed(KEY_SPACE) or touch_roles.values().has("boost")
+	var boost = (not ui_pointer_held and (mouse_held or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT))) or spur_left>0 or Input.is_physical_key_pressed(KEY_SPACE) or touch_roles.values().has("boost")
 	if autoplay:
 		var target = Model.head_position(match_model.fighters[1])
 		aim = asin(clampf((target.y-hand.y)/Model.lance_length(fighter),-.629,.548))
 		boost = true
 		lean = 0.15
-	match_model.set_controls(0,aim,lean,boost,delta,1.0 if guard_high else 0.0)
+	match_model.set_controls(0,aim,lean,boost,delta,GUARD_VALUES[guard_slot])
 	_update_ai(delta)
 	match_model.time_effect_active = Time.get_ticks_msec() < slow_until
 	match_model.step(delta)
@@ -254,49 +287,12 @@ func _on_hoof_contact(leg_index: int, rider_index: int) -> void:
 	sound.play("hoof",lerpf(-25,-17,pace)-(3 if rider_index==1 else 0),.92 if leg_index<2 else 1.12)
 
 func _update_ai(delta: float) -> void:
-	ai_timer -= delta
-	var ai = match_model.fighters[ai_fighter_index]
-	var player = match_model.fighters[1-ai_fighter_index]
 	var difficulty = 0 if practice else int(GameState.profile.settings.difficulty)
-	var distance = absf(float(player.x)-float(ai.x))
-	# Once the last approach begins the opponent must commit visibly, giving
-	# the player a feint window. Hard opponents commit later, not by reading
-	# instantaneous controls. Keep applying the cached pose below this gate.
-	var approaching = (float(ai.x)-float(player.x))*int(player.direction)>0
-	var committed = match_model.phase=="charge" and approaching and distance<[0.0,800.0,500.0][difficulty]
-	if ai_timer <= 0 and not committed:
-		# Vary observation timing slightly so charge acceleration cannot align
-		# every pass with the same final observation. This is delayed sensing,
-		# not a random damage roll or a read of instantaneous player controls.
-		ai_timer = [1.0,.65,.34][difficulty]*ai_rng.randf_range(.90,1.10)
-		ai_error = ai_rng.randf_range(-1,1) * [34.0,19.0,8.0][difficulty]
-		var choice = ai_rng.randf()
-		ai_zone = "head" if choice<[.18,.30,.40][difficulty] else ("flank" if choice>.72 else "body")
-		if distance<1450 and difficulty>=1 and choice<.78:
-			ai_zone = "flank" if float(player.guard)>.65 else "head"
-		ai_lean = .18
-		if distance<1300 and difficulty>=1:
-			var incoming_height = Model.hand_position(player).y+sin(float(player.aim))*Model.lance_length(player)
-			ai_guard = 1.0 if incoming_height<Model.body_position(ai).y-28 else 0.0
-			ai_lean = -.72 if incoming_height<Model.head_position(ai).y-6 and choice>.55 else .30
-			if float(ai.shield)<=0:
-				ai_lean = -.9 if incoming_height<Model.body_position(ai).y-25 else .55
-		ai_target_y = (Model.head_position(player) if ai_zone=="head" else (Model.flank_position(player) if ai_zone=="flank" else Model.body_position(player))).y+ai_error
-		if practice:
-			ai_guard = 1.0 if match_model.pass_number%2==1 else 0.0
-			ai_lean = 0
-			ai_target_y = Model.body_position(player).y+22
-	var target = Vector2(float(player.x),ai_target_y)
-	var hand = Model.hand_position(ai)
-	var aim = asin(clampf((target.y-hand.y)/Model.lance_length(ai),-.629,.548))
-	# Defense uses the same delayed observations as aim; it does not read
-	# and counter the player's current input on every physics tick.
-	var lean = ai_lean
-	var boost = distance > 700 and float(ai.stamina)>15
-	if difficulty==2 and distance<700:
-		boost = float(ai.stamina)>28
-	match_model.set_controls(ai_fighter_index,aim,lean,boost,delta,ai_guard)
-
+	var decision = ai_controller.update(match_model,ai_fighter_index,difficulty,delta,ai_rng,practice)
+	ai_zone = decision.zone
+	ai_guard = decision.guard
+	ai_lean = decision.lean
+	ai_target_y = decision.target_y
 func _handle_event(event: Dictionary) -> void:
 	match str(event.type):
 		"hit":
@@ -307,7 +303,7 @@ func _handle_event(event: Dictionary) -> void:
 			if event.zone=="shield":
 				riders[index].shield_recoil = 1.0
 			riders[int(event.attacker)].lance_recoil = clampf(float(event.impulse)/75,.25,1)
-			effects.hit(event.position,int(match_model.fighters[int(event.attacker)].direction),event.damage,event.zone=="shield",event.broke)
+			effects.hit(event.position,int(match_model.fighters[int(event.attacker)].direction),event.damage,event.zone=="shield",event.broke,event.zone)
 			if event.broke:
 				effects.break_lance(event,mode)
 			shake = maxf(shake,clampf(float(event.impulse)*.09,2,8))
@@ -328,8 +324,13 @@ func _handle_event(event: Dictionary) -> void:
 					hit_text += " · 失稳"
 			if event.get("shield_broke",false):
 				hit_text += " · 盾已破损"
-			contact_label.text = contact_label.text+"\n"+hit_text if now<contact_until and contact_until-now>1600 else hit_text
-			contact_until = now+1700
+			if now>=contact_until:
+				contact_label.text = ""
+				enemy_contact_label.text = ""
+			var actual_label = contact_label if int(event.attacker)==0 else enemy_contact_label
+			actual_label.text = hit_text
+			actual_label.add_theme_color_override("font_color",Cues.COLORS[event.zone])
+			contact_until = now+2100
 			if bool(event.ko) or bool(event.dead):
 				effects.fall(match_model.fighters[index],int(match_model.fighters[int(event.attacker)].direction))
 		"charge":
@@ -388,7 +389,9 @@ func _update_camera(real_delta: float, now: int) -> void:
 		desired_zoom = 1.6 if now-terminal_at<850 else 1.05
 	var blend = 1.0-exp(-real_delta*(5.0 if approach_slow else 3.3))
 	camera.zoom = camera.zoom.lerp(Vector2.ONE*desired_zoom,blend)
-	camera.position = camera.position.lerp(Vector2(720+(a+b)*.5,480),blend)
+	# At the closest framing keep raised shields clear of the top HUD.
+	var framing_y = lerpf(480,450,clampf((desired_zoom-1.0)/.65,0,1))
+	camera.position = camera.position.lerp(Vector2(720+(a+b)*.5,framing_y),blend)
 	camera.force_update_scroll()
 
 func _update_views() -> void:
@@ -403,32 +406,44 @@ func _update_views() -> void:
 		riders[i].blood_enabled = GameState.profile.settings.blood
 	effects.blood_enabled = GameState.profile.settings.blood
 	zone_overlay.visible = training_zones
+	combat_cues.enabled = GameState.profile.settings.get("aim_cues",true)
 
 func _update_hud() -> void:
 	if not match_model or not callout:
 		return
+	hud.visible = not is_finished
 	var phase = match_model.phase
 	ready_panel.visible = phase in ["ready","turn"] or (phase=="ended" and not is_finished)
 	callout.visible = not is_finished
 	subcallout.visible = not is_finished
 	var f = match_model.fighters[0]
+	var projection = Cues.project(match_model)
+	aim_label.text = "◇ 当前枪线："+Cues.NAMES[projection.zone] if projection.active else "交锋间隙 · 调整下一轮枪盾"
+	aim_label.add_theme_color_override("font_color",Cues.COLORS[projection.zone])
+	aim_label.get_parent().visible = GameState.profile.settings.get("aim_cues",true)
 	speed_meter.value = float(f.speed)
 	var pace_text = "催马" if f.boost and float(f.stamina)>4 else ("减速中" if float(f.speed)>Model.TROT_SPEED+20 else "巡航")
 	if phase=="ready" and f.boost:
 		pace_text = "已催马 · 等待起跑"
 	speed_label.text = "%s · 速度 %d · 耐力 %d%%" % [pace_text,roundi(float(f.speed)),roundi(f.stamina)]
-	var guard_text = "高盾 · 胸腹暴露" if guard_high else "低盾 · 头部暴露"
-	if absf(float(f.guard)-(1.0 if guard_high else 0.0))>.08:
+	var guard_text = GUARD_NAMES[guard_slot]+" · "+["下身较易暴露","头腹较易暴露","头胸较易暴露"][guard_slot]
+	if absf(float(f.guard)-GUARD_VALUES[guard_slot])>.08:
 		guard_text = "换盾中 · 留意空隙"
 	if float(f.shield)<=0:
 		guard_text = "盾已破损 · 用姿态避枪"
+	for i in range(guard_buttons.size()):
+		guard_buttons[i].button_pressed = i==guard_slot
+		guard_buttons[i].disabled = float(f.shield)<=0 or is_finished
 	tactics_label.text = "%s　|　枪稳 %d%%　|　平衡 %d%%　|　盾 %d%%" % [guard_text,roundi(float(f.lance_stability)*100),roundi(f.balance),roundi(float(f.shield)/float(f.stats.get("shield_capacity",78.0))*100)]
 	if approach_slow:
 		tactics_label.text += "　· 接近放缓"
 	tactics_label.modulate = Color(1.3,1.2,.7) if Time.get_ticks_msec()<input_flash_until else Color.WHITE
 	if practice:
-		hint.text = "练习 · 催马%s　调枪%s　换盾%s　俯仰%s　| 右键 / Q 换盾位" % ["完成" if learned.boost else "待尝试","完成" if learned.aim else "待尝试","完成" if learned.guard else "待尝试","完成" if learned.posture else "待尝试"]
+		hint.text = "练习 · 催马%s　调枪%s　防盾%s　俯仰%s" % ["✓" if learned.boost else "·","✓" if learned.aim else "·","✓" if learned.guard else "·","✓" if learned.posture else "·"]
 	contact_label.visible = Time.get_ticks_msec()<contact_until
+	enemy_contact_label.visible = contact_label.visible
+	contact_label.position.y = 7 if not enemy_contact_label.text.is_empty() else 24
+	enemy_contact_label.position.y = 43 if not contact_label.text.is_empty() else 24
 	contact_panel.visible = contact_label.visible
 	pass_label.text = "PASS  %02d / 03" % match_model.pass_number
 	intermission.visible = phase in ["ready","turn"]
@@ -438,7 +453,7 @@ func _update_hud() -> void:
 		subcallout.text = "整装 · %d" % maxi(1,ceili(match_model.phase_time))
 		intermission.text = "骑手状态  %d%%     对手  %d%%\n%s" % [roundi(match_model.fighters[0].hp),roundi(match_model.fighters[1].hp),"新比武枪已备妥" if mode=="arena" else ("断枪未更换 · 残柄作战" if match_model.fighters[0].broken else "实战枪已备妥 · 留意头部防护")]
 		if practice:
-			intermission.text += "\n练习：高盾露腰腹，低盾露头；停手让枪稳回升。"
+			intermission.text += "\n1 护头 · 2 护胸 · 3 护腹；观察枪尖颜色与部位提示。"
 	elif phase == "charge":
 		callout.text = ""
 		subcallout.text = ""
@@ -483,11 +498,18 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif KEY_H in keys:
 			training_zones = not training_zones
 			zone_overlay.visible = training_zones
+			enemy_contact_label.text = ""
+			contact_label.add_theme_color_override("font_color",UI.GOLD)
 			contact_label.text = "判定显示：金色盾牌 · 青色头 / 胸 / 腰腹" if training_zones else "判定显示已关闭"
 			contact_until = Time.get_ticks_msec()+2300
 		elif KEY_Q in keys and not paused:
-			guard_high = not guard_high
-			learned.guard = true
+			_select_guard((guard_slot+1)%3)
+		elif KEY_1 in keys and not paused:
+			_select_guard(0)
+		elif KEY_2 in keys and not paused:
+			_select_guard(1)
+		elif KEY_3 in keys and not paused:
+			_select_guard(2)
 	if paused:
 		return
 	if event is InputEventMouseButton and event.pressed:
@@ -525,18 +547,39 @@ func _input(event: InputEvent) -> void:
 	# it also supports deterministic replay and injected input verification.
 	if event is InputEventMouseMotion or event is InputEventMouseButton:
 		aim_pointer = event.position
-	if event is InputEventMouseMotion and not paused:
+	if event is InputEventScreenTouch and event.pressed and not event.canceled:
+		var slot = _guard_at(event.position)
+		if slot>=0:
+			_select_guard(slot)
+			get_viewport().set_input_as_handled()
+			return
+	if event is InputEventMouseMotion and not paused and _guard_at(event.position)<0:
 		_set_pointer_aim(event.position)
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:
-		mouse_held = event.pressed and not paused
+		ui_pointer_held = event.pressed and _guard_at(event.position)>=0
+		mouse_held = event.pressed and not paused and not ui_pointer_held
 		if mouse_held:
 			spur_left = Model.SPUR_DURATION
 			input_flash_until = Time.get_ticks_msec()+350
 			learned.boost = true
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT and event.pressed and not paused:
-		guard_high = not guard_high
-		learned.guard = true
+		_select_guard((guard_slot+1)%3)
+
+func _select_guard(slot: int) -> void:
+	if paused or is_finished or (match_model and float(match_model.fighters[0].shield)<=0):
+		return
+	guard_slot = clampi(slot,0,2)
+	guard_high = guard_slot==0
+	learned.guard = true
+	input_flash_until = Time.get_ticks_msec()+220
+	if sound:
 		sound.play("click",-16,.7)
+
+func _guard_at(point: Vector2) -> int:
+	for i in range(guard_buttons.size()):
+		if is_instance_valid(guard_buttons[i]) and guard_buttons[i].get_global_rect().has_point(point):
+			return i
+	return -1
 
 func _set_pointer_aim(point: Vector2) -> void:
 	if not match_model or not world:
@@ -584,6 +627,7 @@ func _toggle_pause() -> void:
 func _clear_touch() -> void:
 	spur_left = 0
 	mouse_held = false
+	ui_pointer_held = false
 	touch_roles.clear()
 	touch_origin.clear()
 	touch_lean = 0.0
@@ -605,3 +649,4 @@ func _exit_tree() -> void:
 	Engine.time_scale = 1.0
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+

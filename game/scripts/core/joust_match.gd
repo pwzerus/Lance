@@ -86,7 +86,7 @@ static func hand_position(fighter: Dictionary) -> Vector2:
 static func shield_position(fighter: Dictionary) -> Vector2:
 	# Forward bracing raises the left-chest shield; leaning back withdraws
 	# the head, but exposes the abdomen and compromises saddle stability.
-	return body_position(fighter)+Vector2(48.0*int(fighter.direction),lerpf(24.0,-64.0,float(fighter.get("guard",0.0)))-maxf(0,float(fighter.lean))*10.0)
+	return body_position(fighter)+Vector2(48.0*int(fighter.direction),lerpf(42.0,-68.0,float(fighter.get("guard",0.0)))-maxf(0,float(fighter.lean))*10.0)
 
 static func flank_position(fighter: Dictionary) -> Vector2:
 	return body_position(fighter)+Vector2(-6.0*int(fighter.direction),34.0)

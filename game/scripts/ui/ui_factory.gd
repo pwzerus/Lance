@@ -114,4 +114,12 @@ static func check(parent: Node, text: String, value: bool, point: Vector2, callb
 	node.button_pressed = value
 	node.toggled.connect(callback)
 	parent.add_child(node)
+	# The inherited button padding otherwise makes a 42px switch 54px high,
+	# covering the explanatory caption and adjacent pause controls.
+	for state in ["normal","hover","pressed","disabled","focus"]:
+		var style = node.get_theme_stylebox(state).duplicate()
+		style.content_margin_top = 4
+		style.content_margin_bottom = 4
+		node.add_theme_stylebox_override(state,style)
+	node.set_deferred("size",Vector2(340,42))
 	return node

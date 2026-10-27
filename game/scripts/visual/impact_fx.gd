@@ -3,6 +3,7 @@ extends Node2D
 const Art = preload("res://scripts/visual/equipment_art.gd")
 const Model = preload("res://scripts/core/joust_match.gd")
 const Shard = preload("res://scripts/visual/lance_shard.gd")
+const Cues = preload("res://scripts/visual/combat_cues.gd")
 
 var particles: Array = []
 var stains: Array = []
@@ -20,8 +21,8 @@ func clear_blood() -> void:
 	particles = particles.filter(func(p): return not p.get("blood", false))
 	queue_redraw()
 
-func hit(point: Vector2, direction: int, damage: float, shield: bool, broke: bool) -> void:
-	bursts.append({"p":point,"life":.26,"shield":shield,"size":clampf(13+damage*.38,16,34)})
+func hit(point: Vector2, direction: int, damage: float, shield: bool, broke: bool, zone: String = "body") -> void:
+	bursts.append({"p":point,"life":.42,"shield":shield,"zone":"shield" if shield else zone,"size":clampf(20+damage*.42,24,42)})
 	var blood = blood_enabled and not shield and damage > 11.0
 	for i in range(18 if broke else 11):
 		var velocity = Vector2(rng.randf_range(-150,150) + direction * 65, rng.randf_range(-165,-35))
@@ -135,7 +136,11 @@ func _draw() -> void:
 	for burst in bursts:
 		var alpha = clampf(float(burst.life)/.20,0,1)
 		var radius = float(burst.size)*(1.2-float(burst.life))
-		var color = Color(1,.88,.55,alpha) if burst.shield else Color(1,.94,.78,alpha)
+		var color = Color(Cues.COLORS.get(burst.get("zone","body"),Cues.COLORS.body),alpha)
+		var ring = PackedVector2Array()
+		for j in range(9):
+			ring.append(Vector2(burst.p)+Vector2.from_angle(j*TAU/8)*radius*1.25)
+		draw_polyline(ring,Color(color,alpha*.65),2)
 		for i in range(8):
 			var ray = Vector2.from_angle(i*TAU/8)
 			draw_line(Vector2(burst.p)+ray*radius*.25,Vector2(burst.p)+ray*radius,color,3)

@@ -193,7 +193,10 @@ func _build_hud() -> void:
 	UI.label(top, "LANCE & LAUREL", Vector2(28,13), 24, UI.GOLD)
 	UI.label(top,"练习场 · 无奖励 / 盾位按轮次变化" if practice else (("竞技场" if mode=="arena" else "实战")+" · "+ai_controller.NAMES[int(GameState.profile.settings.difficulty)]),Vector2(280,23),18)
 	pass_label = UI.label(top,"PASS  01 / 03",Vector2(1050,20),22,UI.GOLD)
-	UI.button(top,"暂停  Esc",Rect2(1240,14,165,45),_toggle_pause)
+	var pause_button = UI.button(top,"暂停  Esc",Rect2(1240,14,165,45),_toggle_pause)
+	# Esc remains the keyboard shortcut. A focused HUD button would consume
+	# Space after resume and pause again instead of letting the rider spur.
+	pause_button.focus_mode = Control.FOCUS_NONE
 	ready_panel = UI.panel(hud,Rect2(315,119,810,211),Color(.045,.08,.065,.90))
 	callout = UI.label(hud,"整装待发",Vector2(420,123),40,UI.INK,600)
 	callout.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

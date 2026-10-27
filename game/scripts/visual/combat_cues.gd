@@ -23,6 +23,14 @@ static func project(model: JoustMatch, attacker_index: int = 0) -> Dictionary:
 		if zone=="shield" and float(defender.shield)<=0:
 			continue
 		var center = Model.head_position(defender) if zone=="head" else (Model.body_position(defender) if zone=="body" else (Model.flank_position(defender) if zone=="flank" else Model.shield_position(defender)))
+		if zone=="shield":
+			var points = Model.Shield.world_polygon(center,Model.pose_angle(defender),int(defender.direction),str(defender.stats.get("shield_shape","kite")))
+			var fraction = Model.Shield.segment_fraction(tip,tip+Vector2(direction*20000,0),points)
+			if fraction>=0 and fraction*20000<nearest:
+				nearest = fraction*20000
+				result.zone = zone
+				result.point = center
+			continue
 		var radius = {"head":24.0,"body":30.0,"flank":22.0,"shield":38.0}[zone]
 		var dy = tip.y-center.y
 		if absf(dy)>radius:

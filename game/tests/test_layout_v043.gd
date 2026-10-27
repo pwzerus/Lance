@@ -88,6 +88,8 @@ func run() -> void:
 	await create_timer(.3,true,false,true).timeout
 	var result = {"passed":failures.is_empty(),"failures":failures,"measured":measured,"scope":"engine-rendered window sizes; control/text geometry, not other hardware or OS DPI"}
 	var file = FileAccess.open("res://tests/layout_v043_results.json",FileAccess.WRITE)
+	if file==null:
+		file = FileAccess.open("user://qa_layout_v043_results.json",FileAccess.WRITE)
 	file.store_string(JSON.stringify(result,"\t"))
 	file.close()
 	print("LAYOUT_V043 "+JSON.stringify(result))

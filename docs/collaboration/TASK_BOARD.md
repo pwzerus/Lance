@@ -8,7 +8,7 @@
 
 | 负责人 | 任务 | 占用文件 | 状态 |
 | --- | --- | --- | --- |
-| Codex | DEV-043：AI难度、整洁菜单与存档、部位提示、三段盾控及盾面透视 | game/scripts/{main,battle}.gd；game/scripts/core/{joust_match,game_state,catalogue,opponent_ai}.gd；game/scripts/visual/{rider_view,impact_fx,combat_cues}.gd；game/scripts/ui/{ui_factory,combat_report}.gd；game/tests/*043*；game/project.godot、export_presets.cfg；Play-Latest.cmd；DESIGN_DECISIONS.md；docs/collaboration/{TASK_BOARD,PROJECT_STATE,WORK_LOG}.md；docs/collaboration/handoffs/*043*；docs/development/*043* | 2026-10-27 22:07:31 UTC开始，至2026-10-28 00:07:31 UTC；基线84de76e，codex/v0.4。先沿用现有结构改进，再验证导出v0.4.3。Claude已知文档差异保留。 |
+| Codex | DEV-043：AI难度、整洁菜单与存档、部位提示、三段盾控及盾面透视 | game/scripts/{main,battle}.gd；game/scripts/core/{joust_match,game_state,catalogue,opponent_ai,shield_geometry}.gd；game/scripts/visual/{rider_view,impact_fx,combat_cues,hit_zone_overlay}.gd；game/scripts/ui/{ui_factory,combat_report}.gd；game/tests/*043*；game/project.godot、export_presets.cfg；Play-Latest.cmd；DESIGN_DECISIONS.md；docs/collaboration/{TASK_BOARD,PROJECT_STATE,WORK_LOG}.md；docs/collaboration/handoffs/*043*；docs/development/*043* | 2026-10-27 22:07:31 UTC开始，至2026-10-28 00:07:31 UTC；基线84de76e，codex/v0.4。先沿用现有结构改进，再验证导出v0.4.3。Claude已知文档差异保留。 |
 | Codex | DEV-042：已完成，文件已释放 | 本轮登记的源码、数据、测试、启动器和DEV-042文档 | 2026-10-27 21:47 UTC完成；基线92d7e15。后置审查20:57–21:47，独立v0.4.2包及源码快照已验收。详见DEV-042交接和V042_REVIEW；Claude既有文档改动保留。 |
 
 认领前登记任务 ID、负责人、文件、开始时间与基线 SHA。修改范围扩大时先更新占用。完成／暂停／交出时释放，并留下具体交接记录。此表不是技术锁；`battle.gd`、`main.gd`、规则模型和同一图集禁止两人各改一套后互相覆盖。审查者先只读，修复需协调文件负责人。
@@ -46,4 +46,5 @@ DEV-042输入诊断补充：Codex负责`game/scripts/core/desktop_input_audit.gd
 ## 暂不扩张的范围
 
 联机、军团战、完整战役、肢解、永久伤残、真实付费、云存档不是当前任务。更多内容不能替代对现有加速、攻防与打击感的验收。若后续用户明确改变范围，在设计增补记下决定后再排期。
+
 

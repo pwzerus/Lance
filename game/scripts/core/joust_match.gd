@@ -13,6 +13,7 @@ const COAST_DECELERATION = 85.0
 const GROUND_Y = 0.0
 const HIP = Vector2(-18, -168)
 const Gait = preload("res://scripts/visual/horse_gait.gd")
+const Shield = preload("res://scripts/core/shield_geometry.gd")
 var mode = "arena"
 var phase = "ready"
 var phase_time = 2.6
@@ -106,6 +107,7 @@ func _cache_pose(fighter: Dictionary) -> void:
 	fighter.prev_body = body_position(fighter)
 	fighter.prev_head = head_position(fighter)
 	fighter.prev_shield = shield_position(fighter)
+	fighter.prev_shield_angle = pose_angle(fighter)
 	fighter.prev_flank = flank_position(fighter)
 
 func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float, guard: float = -1.0) -> void:
@@ -229,12 +231,15 @@ func _detect_contact(index: int, delta: float) -> Dictionary:
 		{"zone": "body", "center": body_position(defender), "old": defender.prev_body, "radius": 30.0},
 		{"zone":"flank","center":flank_position(defender),"old":defender.prev_flank,"radius":22.0}]
 	if float(defender.shield) > 0.0:
-		targets.append({"zone": "shield", "center": shield_position(defender), "old": defender.prev_shield, "radius": 38.0})
+		# The circle is only a cheap broad phase; the shared outline resolves contact.
+		targets.append({"zone": "shield", "center": shield_position(defender), "old": defender.prev_shield, "radius": 60.0})
 	var earliest = 2.0
 	var found: Dictionary = {}
 	var sweep: Dictionary = {}
 	for target in targets:
 		var candidate = swept_lance(attacker.prev_hand,hand_position(attacker),attacker.prev_aim,attacker.aim,attacker.prev_length,lance_length(attacker),int(attacker.direction),target.old,target.center,target.radius,delta)
+		if target.zone=="shield" and not candidate.is_empty():
+			candidate = Shield.sweep(attacker.prev_hand,hand_position(attacker),attacker.prev_aim,attacker.aim,attacker.prev_length,lance_length(attacker),int(attacker.direction),target.old,target.center,float(defender.get("prev_shield_angle",pose_angle(defender))),pose_angle(defender),int(defender.direction),str(defender.stats.get("shield_shape","kite")),delta)
 		if not candidate.is_empty() and float(candidate.fraction) < earliest:
 			earliest = candidate.fraction
 			found = target

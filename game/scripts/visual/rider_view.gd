@@ -7,6 +7,7 @@ const Model = preload("res://scripts/core/joust_match.gd")
 const Art = preload("res://scripts/visual/equipment_art.gd")
 const HorseArt = preload("res://scripts/visual/horse_art.gd")
 const Gait = preload("res://scripts/visual/horse_gait.gd")
+const Shield = preload("res://scripts/core/shield_geometry.gd")
 const SHIELD_UPPER = 52.0
 const SHIELD_LOWER = 58.0
 const PARTS = {
@@ -134,7 +135,7 @@ func _draw() -> void:
 		draw_line(Vector2(-20,-109),Vector2(20,-109),Color(str(fighter.stats.helmet_color)),3)
 	# Both elbows have their own visible silhouette. A far arm remains darker
 	# but is not completely buried under the chest sprite. Shield projects
-	# forward of the torso on either facing, matching its actual hit circle.
+	# forward of the torso on either facing, matching its shared hit outline.
 	var shield_shoulder = Vector2(-28,-64)
 	var shield_hand = shield_center+Vector2(-10,9)
 	_draw_arm(shield_shoulder,arm_elbow(shield_shoulder,shield_hand,SHIELD_UPPER,SHIELD_LOWER),shield_hand,Color(.76,.78,.78))
@@ -285,7 +286,7 @@ func _draw_shield(center: Vector2, design: String) -> void:
 	var tint = Color.WHITE.darkened(.18 if ratio<.32 else 0).lerp(Color(2,2,1.5),shield_recoil*.55)
 	# A compressed, slanted face plus a visible wooden rear rim makes the
 	# shield brace toward the opponent instead of reading as a screen decal.
-	var base_outline = PackedVector2Array([Vector2(-36,-46),Vector2(34,-46),Vector2(37,-22),Vector2(22,26),Vector2(0,51),Vector2(-30,20)])
+	var base_outline = Shield.outline(str(fighter.stats.get("shield_shape","kite")))
 	var back = PackedVector2Array()
 	for point in base_outline:
 		back.append(center+shield_projection(point)+Vector2(-7,3))
@@ -295,11 +296,7 @@ func _draw_shield(center: Vector2, design: String) -> void:
 	draw_polyline(back_rim,Color("8a6240"),3)
 	if fighter.stats.has("shield_shape"):
 		var shape = str(fighter.stats.shield_shape)
-		var outline = PackedVector2Array([Vector2(-31,-46),Vector2(29,-48),Vector2(36,-29),Vector2(21,24),Vector2(0,51),Vector2(-28,17)])
-		if shape=="heater":
-			outline = PackedVector2Array([Vector2(-37,-43),Vector2(35,-43),Vector2(32,15),Vector2(0,49),Vector2(-33,15)])
-		elif shape=="targe":
-			outline = PackedVector2Array([Vector2(-36,-43),Vector2(16,-43),Vector2(17,-28),Vector2(35,-24),Vector2(36,28),Vector2(5,44),Vector2(-34,32)])
+		var outline = base_outline
 		var outer = PackedVector2Array()
 		var inner = PackedVector2Array()
 		for point in outline:
@@ -314,9 +311,14 @@ func _draw_shield(center: Vector2, design: String) -> void:
 			draw_rect(Rect2(point-Vector2(1,1),Vector2(3,3)),Color("d2c8a6"))
 	else:
 		var face = PackedVector2Array()
-		for point in [Vector2(-40,-52),Vector2(40,-52),Vector2(40,52),Vector2(-40,52)]:
+		var uv = PackedVector2Array()
+		for point in base_outline:
 			face.append(center+shield_projection(point))
-		draw_polygon(face,PackedColorArray([tint,tint,tint,tint]),PackedVector2Array([Vector2.ZERO,Vector2.RIGHT,Vector2.ONE,Vector2.DOWN]),shield_texture)
+			uv.append((point+Vector2(40,52))/Vector2(80,104))
+		draw_colored_polygon(face,Color("a64132" if red else "27568a")*tint)
+		draw_polygon(face,PackedColorArray([tint]),uv,shield_texture)
+		face.append(face[0])
+		draw_polyline(face,Color("c5a568")*tint,3)
 	_draw_heraldry(center,design)
 	# Rear grip remains visibly attached to the forearm at the trailing edge.
 	draw_line(center+Vector2(-28,-15),center+Vector2(-23,17),Color("4d3727"),5)
@@ -325,7 +327,7 @@ func _draw_shield(center: Vector2, design: String) -> void:
 		draw_polyline(PackedVector2Array([center+Vector2(-5,-27),center+Vector2(3,-9),center+Vector2(-4,7),center+Vector2(4,24)]),Color("302d28"),2,true)
 
 static func shield_projection(point: Vector2) -> Vector2:
-	return Vector2(point.x*.62+point.y*.13,point.y)
+	return Shield.project(point)
 
 func _draw_armor_detail() -> void:
 	if not fighter.stats.has("armor_color"):

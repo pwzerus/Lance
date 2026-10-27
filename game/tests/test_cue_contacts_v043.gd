@@ -13,6 +13,7 @@ func _initialize() -> void:
 						model.phase = "charge"
 						var a = model.fighters[0]
 						var d = model.fighters[1]
+						d.stats.shield_shape = ["kite","heater","targe"][aim_index%3]
 						a.direction = facing
 						a.x = -650*facing
 						a.aim = lerpf(-.68,.58,float(aim_index)/16)
@@ -34,6 +35,6 @@ func _initialize() -> void:
 							model._cache_pose(a)
 						samples += 1
 						if projected!=actual:
-							failures.append({"facing":facing,"guard":guard,"lean":lean,"reach":reach,"aim":a.aim,"projected":projected,"actual":actual})
+							failures.append({"facing":facing,"guard":guard,"lean":lean,"reach":reach,"shape":d.stats.shield_shape,"aim":a.aim,"projected":projected,"actual":actual})
 	print("CUE_CONTACTS_V043 "+JSON.stringify({"passed":failures.is_empty(),"samples":samples,"failures":failures,"scope":"frozen-pose current-height projection versus actual swept contacts; excludes future pose changes"}))
 	quit(0 if failures.is_empty() else 1)

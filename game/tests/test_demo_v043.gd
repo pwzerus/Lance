@@ -16,6 +16,11 @@ func check(condition: bool, message: String) -> void:
 
 func write(path: String, value: String) -> void:
 	var file = FileAccess.open(path,FileAccess.WRITE)
+	if file==null and path.begins_with("res://"):
+		file = FileAccess.open("user://qa_"+path.get_file(),FileAccess.WRITE)
+	if file==null:
+		failures.append("Cannot write QA fixture/report: "+path)
+		return
 	file.store_string(value)
 	file.close()
 

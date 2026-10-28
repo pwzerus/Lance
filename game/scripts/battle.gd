@@ -410,7 +410,7 @@ func _update_views() -> void:
 		if match_model.phase == "ended" and terminal_at > 0:
 			departing = departure_elapsed*float(fighter.speed)*int(fighter.direction)
 		riders[i].position = Vector2(float(fighter.x)+departing, float(fighter.get("lane_y",0.0)))
-		riders[i].moving = match_model.phase=="charge" or (match_model.phase=="ended" and float(fighter.speed)>.5)
+		riders[i].moving = match_model.phase=="charge" or (match_model.phase=="turn" and fighter.gait_moving) or (match_model.phase=="ended" and float(fighter.speed)>.5)
 		riders[i].visible = true
 		riders[i].blood_enabled = GameState.profile.settings.blood
 	effects.blood_enabled = GameState.profile.settings.blood
@@ -481,8 +481,9 @@ func _draw() -> void:
 	for i in range(2):
 		if match_model:
 			var point = world.position+riders[i].position+Vector2(0,12)
-			draw_set_transform(point,0,Vector2(1,.22))
-			draw_circle(Vector2.ZERO,125,Color(0,0,0,.19))
+			var air = clampf(-float(Model.gait_pose(match_model.fighters[i]).offset.y)/30.0,0,1)
+			draw_set_transform(point,0,Vector2(lerpf(1,.91,air),lerpf(.22,.17,air)))
+			draw_circle(Vector2.ZERO,125,Color(0,0,0,lerpf(.19,.13,air)))
 			draw_set_transform(Vector2.ZERO)
 
 func _draw_rail() -> void:

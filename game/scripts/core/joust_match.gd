@@ -170,7 +170,12 @@ func step(delta: float) -> void:
 				phase = "charge"
 				events.append({"type": "charge"})
 		for fighter in fighters:
-			fighter.gait_moving = false
+			# The inactive turn phase still shows the horses riding out.
+			# No contacts are evaluated here; reracking resets all anchors.
+			fighter.gait_moving = phase=="turn" and float(fighter.speed)>.5
+			if fighter.gait_moving:
+				fighter.x += int(fighter.direction)*float(fighter.speed)*delta
+				fighter.gait_phase += delta*TAU*Gait.frequency(float(fighter.speed))
 			_cache_pose(fighter)
 		return
 	for fighter in fighters:

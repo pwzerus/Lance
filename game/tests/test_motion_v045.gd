@@ -77,6 +77,25 @@ func run() -> void:
  main._close_battle()
  main.queue_free()
  await process_frame
+ # Leaving an exchange is presentation movement, with combat inactive.
+ for mode_value in ["arena","war"]:
+  var leaving = Model.new(mode_value)
+  leaving.phase = "turn"
+  leaving.phase_time = .7
+  for f in leaving.fighters:
+   f.speed = 480.0
+   f.gait_moving = true
+   f.hp = 73.0
+   f.acted = true
+  var old_x = float(leaving.fighters[0].x)
+  var old_phase = float(leaving.fighters[0].gait_phase)
+  leaving.step(.25)
+  check(leaving.fighters[0].x>old_x+100 and leaving.fighters[0].gait_phase>old_phase,"Turn phase keeps horses riding out instead of freezing mid-stride")
+  check(leaving.fighters[0].gait_moving and leaving.drain_events().is_empty(),"Ride-out cannot re-enable combat contacts")
+  for tick in range(80):
+   leaving.step(1.0/120)
+  check(leaving.phase=="ready" and leaving.fighters[0].speed==0 and not leaving.fighters[0].gait_moving,"Rerack resets departure speed and gait for a fresh start")
+  check(leaving.fighters[0].hp==73.0,"Riding out and reracking do not heal injuries")
  # Body movement must distinguish actual gaits while preserving ground support.
  for speed in [110.0,210.0,340.0,480.0]:
   var low = INF

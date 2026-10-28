@@ -357,9 +357,11 @@ func _process(delta: float) -> void:
 		_update_camera(real_delta,now)
 		Engine.time_scale = .001 if now < hitstop_until else (.20 if now < slow_until else (.72 if approach_slow else 1.0))
 		if terminal_at>0 and now>=hitstop_until:
-			departure_elapsed = minf(1.4,departure_elapsed+delta)
+			# Keep riding out until the results cover the arena. Cutting off
+			# at 1.4s snapped a galloping horse into its standing pose.
+			departure_elapsed += delta
 			for fighter in match_model.fighters:
-				fighter.gait_moving = departure_elapsed<1.4
+				fighter.gait_moving = float(fighter.speed)>.5
 				if fighter.gait_moving:
 					fighter.gait_phase += delta*TAU*Model.Gait.frequency(float(fighter.speed))
 		if terminal_at > 0 and now - terminal_at > 2600 and not is_finished:
@@ -408,7 +410,7 @@ func _update_views() -> void:
 		if match_model.phase == "ended" and terminal_at > 0:
 			departing = departure_elapsed*float(fighter.speed)*int(fighter.direction)
 		riders[i].position = Vector2(float(fighter.x)+departing, float(fighter.get("lane_y",0.0)))
-		riders[i].moving = match_model.phase=="charge" or (match_model.phase=="ended" and departure_elapsed<1.4)
+		riders[i].moving = match_model.phase=="charge" or (match_model.phase=="ended" and float(fighter.speed)>.5)
 		riders[i].visible = true
 		riders[i].blood_enabled = GameState.profile.settings.blood
 	effects.blood_enabled = GameState.profile.settings.blood

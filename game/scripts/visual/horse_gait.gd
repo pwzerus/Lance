@@ -5,10 +5,11 @@ const WALK_TOUCHDOWN = [0.0,.5,.25,.75]
 const TROT_TOUCHDOWN = [0.0,.5,.5,1.0]
 const CANTER_TOUCHDOWN = [0.0,.28,.28,.58]
 const GALLOP_TOUCHDOWN = [0.0,.14,.39,.53]
-const HIP_POINTS = [Vector2(-94,-123),Vector2(-100,-121),Vector2(64,-129),Vector2(70,-127)]
+const HIP_POINTS = [Vector2(-94,-131),Vector2(-100,-129),Vector2(64,-141),Vector2(70,-139)]
 const GROUND = 12.0
-const UPPER = 78.0
-const LOWER = 70.0
+const UPPER = 62.0
+const LOWER = 64.0
+const PASTERN = Vector2(7,15)
 const NAMES = ["慢步","小跑","跑步","疾驰"]
 # Cyclic back-height / pitch studies: compression, hind drive, fore support,
 # collection and flight are separate poses instead of four pendulum legs.
@@ -39,7 +40,7 @@ static func gait_index(speed: float) -> int:
 
 static func frequency(speed: float) -> float:
  var w = weights(speed)
- return (.88*w.x+1.48*w.y+1.65*w.z+1.85*w.w)*clampf(speed/100.0,.10,1.12)
+ return (.88*w.x+1.48*w.y+1.43*w.z+1.50*w.w)*clampf(speed/100.0,.10,1.12)
 
 static func _cycle(values: Array, cycle: float) -> float:
  var p = fposmod(cycle,1.0)*values.size()
@@ -53,7 +54,7 @@ static func _cycle(values: Array, cycle: float) -> float:
 
 static func body(phase: float, speed: float, moving: bool, stability: float = 1.0, drive: float = 0.0) -> Dictionary:
  if not moving:
-  return {"offset":Vector2(0,sin(phase)*.45),"pitch":0.0,"neck":sin(phase)*.008,"tail":sin(phase*.7)*.045,"rider_offset":Vector2.ZERO,"rider_pitch":0.0,"gait":0}
+  return {"offset":Vector2(0,sin(phase)*.45),"pitch":0.0,"neck":sin(phase)*.008,"neck_offset":Vector2.ZERO,"tail":sin(phase*.7)*.045,"rider_offset":Vector2.ZERO,"rider_pitch":0.0,"gait":0}
  var w = weights(speed)
  var cycle = fposmod(phase/TAU,1)
  var intensity = smoothstep(0,95,speed)
@@ -66,12 +67,20 @@ static func body(phase: float, speed: float, moving: bool, stability: float = 1.
  # The back remains relatively rigid; the entire trunk rocks. Better horses
  # moderate rider transmission without eliminating their visible stride.
  var transmission = clampf(1.0/stability,.82,1.18)
- var rider_lag = sin(phase-.65)*(1.0*w.y+2.5*w.z+4.5*w.w)*transmission
+ # Absorption follows the same back curve, including BOTH diagonal trot
+ # beats. A separate single sine made alternate trot beats look detached.
+ var delayed_height = 0.0
+ var delayed_pitch = 0.0
+ for i in range(4):
+  delayed_height += _cycle(HEIGHTS[i],cycle-.055)*w[i]
+  delayed_pitch += _cycle(PITCHES[i],cycle-.04)*w[i]
+ var rider_lag = (delayed_height-height)*.42*transmission
  return {"offset":Vector2(sin(phase-.4)*run*3.2,height*intensity+absf(drive)*2.0),"pitch":pitch*intensity-drive*.025,
-  "neck":(-pitch*.55+sin(phase-.5)*(.025*w.x+.018*w.y+.050*w.z+.075*w.w))*intensity,
-  "tail":(-.18*run+sin(phase-.9)*(.04+.16*run))*intensity,
+  "neck":(.11*run-pitch*.55+sin(phase-.5)*(.025*w.x+.018*w.y+.050*w.z+.075*w.w))*intensity,
+  "neck_offset":Vector2(run*(3+3*sin(phase-.3)),run*(2+2*cos(phase)))*intensity,
+  "tail":(.30*run+sin(phase-1.1)*(.04+.10*run))*intensity,
   "rider_offset":Vector2(-sin(phase)*run*1.7,rider_lag*intensity),
-  "rider_pitch":pitch*.42+sin(phase-.9)*.018*run*transmission+drive*.035,"gait":gait_index(speed)}
+  "rider_pitch":delayed_pitch*.48+drive*.035,"gait":gait_index(speed)}
 
 static func _swing_point(front: bool, t: float, reach: float, lift: float, run: float) -> Vector2:
  var times = [0.0,.18,.42,.75,1.0] if front else [0.0,.22,.55,.84,1.0]
@@ -88,18 +97,20 @@ static func _swing_point(front: bool, t: float, reach: float, lift: float, run: 
    return result
  return Vector2(reach,0)
 
-static func leg(index: int, phase: float, speed: float, moving: bool, stability: float = 1.0, planted_x: float = INF, override_foot: Vector2 = Vector2.INF, drive: float = 0.0) -> Dictionary:
+static func leg(index: int, phase: float, speed: float, moving: bool, stability: float = 1.0, planted_x: float = INF, override_foot: Vector2 = Vector2.INF, drive: float = 0.0, actual_swing: float = -1.0, cycle_override: float = -1.0) -> Dictionary:
  var pose = body(phase,speed,moving,stability,drive)
  var hip: Vector2 = Vector2(-18,-168)+(HIP_POINTS[index]-Vector2(-18,-168)).rotated(pose.pitch)+pose.offset
  var front = index>=2
  var w = weights(speed)
  var touchdown = WALK_TOUCHDOWN[index]*w.x+TROT_TOUCHDOWN[index]*w.y+CANTER_TOUCHDOWN[index]*w.z+GALLOP_TOUCHDOWN[index]*w.w
  var cycle = fposmod(phase/TAU-touchdown,1)
+ if cycle_override>=0:
+  cycle = fposmod(cycle_override,1.0)
  var canter_duty = [.30,.28,.28,.32][index]
  var gallop_duty = [.20,.22,.22,.26][index]
  var duty = .68*w.x+.41*w.y+canter_duty*w.z+gallop_duty*w.w
  var reach = maxf(0,speed)/maxf(.1,frequency(speed))*duty*.5
- var lift = (22*w.x+39*w.y+(57 if front else 51)*w.z+(76 if front else 65)*w.w)*smoothstep(0,85,speed)
+ var lift = (22*w.x+31*w.y+(43 if front else 39)*w.z+(55 if front else 49)*w.w)*smoothstep(0,85,speed)
  var foot = Vector2(HIP_POINTS[index].x+(8 if front else -8),GROUND)
  var nominal_contact = not moving or cycle<duty
  var contact = nominal_contact
@@ -114,19 +125,30 @@ static func leg(index: int, phase: float, speed: float, moving: bool, stability:
   foot.x = planted_x
  if override_foot.is_finite():
   foot = override_foot
- var toe_angle = 0.0 if contact else sin(swing*TAU-.35)*.55
- var ankle = foot-Vector2(0,12).rotated(toe_angle)
- var ray = ankle-hip
+ if actual_swing>=0.0:
+  contact = false
+  swing = clampf(actual_swing,0,1)
+ # The visible shoulder/elbow and stifle are separate from carpus/hock.
+ # This preserves the horse's digitigrade zig-zag instead of human knees.
+ var fold = sin(swing*PI)*smoothstep(0,85,speed) if not contact else 0.0
+ var proximal_vector = Vector2(-17,31).rotated(-fold*.42) if front else Vector2(32,32).rotated(-fold*.34)
+ var proximal = hip+proximal_vector.rotated(float(pose.pitch))
+ # Uncurl before touchdown: the last part of swing places a flat hoof,
+ # rather than snapping a still-curled toe to the floor on the beat.
+ var curl = (.28*w.x+.50*w.y+.72*w.z+.85*w.w)*smoothstep(0,85,speed)
+ var toe_angle = 0.0 if contact else -sin(PI*smoothstep(0,.83,swing))*curl
+ var ankle = foot-PASTERN.rotated(toe_angle)
+ var ray = ankle-proximal
  # Out-of-reach support releases; never stretch a bone or drive a hoof underground.
  if ray.length()>UPPER+LOWER-.01:
-  ankle = hip+ray.normalized()*(UPPER+LOWER-.01)
-  foot = ankle+Vector2(0,12).rotated(toe_angle)
+  ankle = proximal+ray.normalized()*(UPPER+LOWER-.01)
+  foot = ankle+PASTERN.rotated(toe_angle)
   contact = false
-  ray = ankle-hip
+  ray = ankle-proximal
  var distance = clampf(ray.length(),absf(UPPER-LOWER)+.01,UPPER+LOWER-.01)
  var bend = acos(clampf((UPPER*UPPER+distance*distance-LOWER*LOWER)/(2*UPPER*distance),-1,1))
- var knee = hip+ray.normalized().rotated(bend*(-1 if front else 1))*UPPER
- return {"hip":hip,"knee":knee,"ankle":ankle,"foot":foot,"contact":contact,"nominal_contact":nominal_contact,"cycle":cycle,"toe_angle":toe_angle,"front":front,"swing":swing,"reach":reach,"duty":duty,"lift":lift}
+ var knee = proximal+ray.normalized().rotated(bend*(-1 if front else 1))*UPPER
+ return {"hip":hip,"proximal":proximal,"knee":knee,"ankle":ankle,"foot":foot,"contact":contact,"nominal_contact":nominal_contact,"cycle":cycle,"toe_angle":toe_angle,"front":front,"swing":swing,"reach":reach,"duty":duty,"lift":lift}
 
 static func touchdown_indices(previous_phase: float, current_phase: float, speed: float) -> Array[int]:
  var result: Array[int] = []

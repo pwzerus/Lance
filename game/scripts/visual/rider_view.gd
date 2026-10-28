@@ -41,7 +41,10 @@ var art_key = ""
 var planted_feet: Array[float] = [INF,INF,INF,INF]
 var leg_poses: Array[Dictionary] = []
 var swing_starts: Array[Vector2] = [Vector2.INF,Vector2.INF,Vector2.INF,Vector2.INF]
+var swing_durations: Array[float] = [.3,.3,.3,.3]
 var last_feet: Array[Vector2] = [Vector2.INF,Vector2.INF,Vector2.INF,Vector2.INF]
+var previous_stride_phase = 0.0
+var cycles_initialized = false
 
 func _process(delta: float) -> void:
 	clock += delta
@@ -55,20 +58,32 @@ func _process(delta: float) -> void:
 			fighter.gait_moving = moving
 	leg_poses.clear()
 	var landed: Array[int] = []
+	var phase_step = (stride_phase-previous_stride_phase)/TAU
+	var reset_cycles = not moving or phase_step<0 or phase_step>=.5
 	for index in range(4):
 		var stability = float(fighter.get("stats",{}).get("stability",1.0))
 		var drive = float(fighter.get("motion_drive",0.0))
 		var leg_pose = Gait.leg(index,stride_phase,speed,moving,stability,INF,Vector2.INF,drive)
 		var facing = int(fighter.get("direction",1))
 		var cycle = float(leg_pose.cycle)
-		if cycle<float(last_cycles[index])-.5 or not moving:
+		if cycles_initialized and moving and phase_step>=0 and phase_step<.5:
+			# Retiming towards a new footfall pattern must never rewind a
+			# leg or cut its swing short when walk/trot/canter weights change.
+			var expected = fposmod(float(last_cycles[index])+phase_step,1)
+			var error = wrapf(cycle-expected,-.5,.5)
+			cycle = fposmod(expected+clampf(error,-phase_step*.25,phase_step*.25),1)
+			leg_pose = Gait.leg(index,stride_phase,speed,moving,stability,INF,Vector2.INF,drive,-1,cycle)
+		if cycle<float(last_cycles[index])-.5 or reset_cycles:
 			planted_feet[index] = INF
 			early_release[index] = false
 			swing_starts[index] = Vector2.INF
+			if reset_cycles:
+				last_feet[index] = Vector2.INF
+				previous_contacts[index] = false
 		if moving and leg_pose.contact and not early_release[index]:
 			if not is_finite(planted_feet[index]):
 				planted_feet[index] = position.x+leg_pose.foot.x*facing
-			leg_pose = Gait.leg(index,stride_phase,speed,true,stability,(planted_feet[index]-position.x)*facing,Vector2.INF,drive)
+			leg_pose = Gait.leg(index,stride_phase,speed,true,stability,(planted_feet[index]-position.x)*facing,Vector2.INF,drive,-1,cycle)
 			if not leg_pose.contact:
 				early_release[index] = true
 				release_cycles[index] = cycle
@@ -76,6 +91,7 @@ func _process(delta: float) -> void:
 			if is_finite(planted_feet[index]) or not swing_starts[index].is_finite():
 				swing_starts[index] = last_feet[index] if last_feet[index].is_finite() else Vector2(position.x+leg_pose.foot.x*facing,leg_pose.foot.y)
 				release_cycles[index] = cycle
+				swing_durations[index] = maxf(.08,(1-cycle)/maxf(.1,Gait.frequency(speed)))
 			# Once lifted, finish the swing. A slower gait's longer duty must
 			# not replant a hoof halfway through the air on the following tick.
 			early_release[index] = true
@@ -86,8 +102,12 @@ func _process(delta: float) -> void:
 			var target_x = Gait.HIP_POINTS[index].x+(8 if leg_pose.front else -8)+float(leg_pose.reach)
 			var trajectory = Gait._swing_point(leg_pose.front,progress,float(leg_pose.reach),float(leg_pose.lift),Gait.weights(speed).z+Gait.weights(speed).w)
 			var protraction = (trajectory.x+float(leg_pose.reach))/maxf(1,2.0*float(leg_pose.reach))
-			var foot = Vector2((lerpf(swing_starts[index].x,position.x+target_x*facing,protraction)-position.x)*facing,lerpf(swing_starts[index].y,Gait.GROUND,progress)+trajectory.y)
-			leg_pose = Gait.leg(index,stride_phase,speed,true,stability,INF,foot,drive)
+			# Aim the swing at where the body WILL be at landing. Chasing the
+			# body's current position made every step stall then whip forward.
+			var remaining_travel = speed*swing_durations[index]*(1-progress)
+			var landing_x = position.x+(target_x+remaining_travel)*facing
+			var foot = Vector2((lerpf(swing_starts[index].x,landing_x,protraction)-position.x)*facing,lerpf(swing_starts[index].y,Gait.GROUND,progress)+trajectory.y)
+			leg_pose = Gait.leg(index,stride_phase,speed,true,stability,INF,foot,drive,progress,cycle)
 			leg_pose.contact = false
 		if moving and leg_pose.contact and not previous_contacts[index]:
 			landed.append(index)
@@ -95,6 +115,8 @@ func _process(delta: float) -> void:
 		last_cycles[index] = cycle
 		last_feet[index] = Vector2(position.x+leg_pose.foot.x*facing,leg_pose.foot.y)
 		leg_poses.append(leg_pose)
+	previous_stride_phase = stride_phase
+	cycles_initialized = moving
 	if moving and delta>0 and delta<.2:
 		for index in landed:
 			hoof_contact.emit(index)
@@ -130,7 +152,7 @@ func _draw() -> void:
 	var tail_root = Model.HIP+(Vector2(-134,-170)-Model.HIP).rotated(horse_pose.pitch)+horse_pose.offset
 	draw_set_transform_matrix(mirrored_transform(tail_root,horse_pose.pitch,facing))
 	_draw_flexible_horse_part("tail",Rect2(-78,-5,84,127),horse_pose.tail,horse_tint,false)
-	var neck_root = Model.HIP+(Vector2(80,-124)-Model.HIP).rotated(horse_pose.pitch)+horse_pose.offset
+	var neck_root = Model.HIP+(Vector2(80,-124)-Model.HIP+horse_pose.neck_offset).rotated(horse_pose.pitch)+horse_pose.offset
 	draw_set_transform_matrix(mirrored_transform(neck_root,horse_pose.pitch,facing))
 	_draw_flexible_horse_part("head",Rect2(-31,-126,130,150),horse_pose.neck,horse_tint,true)
 	draw_set_transform_matrix(mirrored_transform(Model.HIP+horse_pose.offset,horse_pose.pitch,facing))
@@ -204,10 +226,12 @@ func _draw_horse_leg(index: int, tint: Color, upper: bool = true, lower: bool = 
 		pose = leg_poses[index]
 	var prefix = "fore" if pose.front else "hind"
 	if upper:
-		_draw_horse_bone(prefix+"_upper",pose.hip,pose.knee,.70 if pose.front else .72,tint)
+		_draw_horse_bone(prefix+"_upper",pose.hip,pose.proximal,.66 if pose.front else .84,tint)
+		_draw_horse_bone(prefix+"_upper",pose.proximal,pose.knee,.60 if pose.front else .66,tint)
 	if not lower:
 		return
-	_draw_horse_bone(prefix+"_lower",pose.knee,pose.ankle,.75,tint)
+	_draw_horse_bone(prefix+"_lower",pose.knee,pose.ankle,.59,tint)
+	_draw_horse_bone(prefix+"_lower",pose.ankle,pose.foot,.42,tint)
 	var facing = int(fighter.direction)
 	draw_set_transform_matrix(mirrored_transform(pose.foot,pose.toe_angle,facing))
 	draw_texture_rect_region(HorseArt.ATLAS,Rect2(-11,-14,22,14),HorseArt.PARTS.hoof,tint)

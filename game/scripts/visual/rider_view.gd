@@ -226,18 +226,43 @@ func _draw_horse_leg(index: int, tint: Color, upper: bool = true, lower: bool = 
 		pose = leg_poses[index]
 	var prefix = "fore" if pose.front else "hind"
 	if upper:
-		_draw_horse_bone(prefix+"_upper",pose.hip,pose.proximal,.66 if pose.front else .84,tint)
-		_draw_horse_bone(prefix+"_upper",pose.proximal,pose.knee,.60 if pose.front else .66,tint)
+		_draw_horse_upper(prefix+"_upper",pose.hip,pose.proximal,pose.knee,46 if pose.front else 65,tint)
 	if not lower:
 		return
-	_draw_horse_bone(prefix+"_lower",pose.knee,pose.ankle,.59,tint)
-	_draw_horse_bone(prefix+"_lower",pose.ankle,pose.foot,.42,tint)
+	_draw_horse_bone(prefix+"_lower",pose.knee,pose.ankle,14 if pose.front else 16,tint)
+	_draw_horse_bone(prefix+"_lower",pose.ankle,pose.foot,12,tint)
 	var facing = int(fighter.direction)
 	draw_set_transform_matrix(mirrored_transform(pose.foot,pose.toe_angle,facing))
 	draw_texture_rect_region(HorseArt.ATLAS,Rect2(-11,-14,22,14),HorseArt.PARTS.hoof,tint)
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 
-func _draw_horse_bone(part: String, start: Vector2, end: Vector2, width_scale: float, tint: Color) -> void:
+func _draw_horse_upper(part: String, start: Vector2, middle: Vector2, end: Vector2, width: float, tint: Color) -> void:
+	# One continuous muscle skin over shoulder/elbow or hip/stifle. Repeating
+	# the complete upper-leg sprite twice produced round pasted-on joints.
+	var region: Rect2 = HorseArt.PARTS[part]
+	var joints: Array = HorseArt.JOINTS[part]
+	# Root caps are buried in the body; exclude spare atlas pixels above them.
+	var old_bottom = region.end.y
+	region.position.y = joints[0].y-8
+	region.size.y = old_bottom-region.position.y
+	var split = start.distance_to(middle)/(start.distance_to(middle)+middle.distance_to(end))
+	var first_axis = (middle-start).normalized()
+	var second_axis = (end-middle).normalized()
+	for row in range(12):
+		var vertices = PackedVector2Array()
+		var uv = PackedVector2Array()
+		for corner in [Vector2(0,row/12.0),Vector2(1,row/12.0),Vector2(1,(row+1)/12.0),Vector2(0,(row+1)/12.0)]:
+			var pixel = region.position+region.size*corner
+			var t = (pixel.y-joints[0].y)/(joints[1].y-joints[0].y)
+			var center = start.lerp(middle,t/split) if t<split else middle.lerp(end,(t-split)/(1-split))
+			var tangent = first_axis.lerp(second_axis,smoothstep(split-.15,split+.15,t)).normalized()
+			var transverse = pixel.x-lerpf(joints[0].x,joints[1].x,t)
+			vertices.append(center+Vector2(tangent.y,-tangent.x)*transverse*width/float(HorseArt.WIDTHS[part]))
+			uv.append(pixel/HorseArt.ATLAS.get_size())
+		for triangle in [[0,1,2],[0,2,3]]:
+			draw_polygon(PackedVector2Array([vertices[triangle[0]],vertices[triangle[1]],vertices[triangle[2]]]),PackedColorArray([tint]),PackedVector2Array([uv[triangle[0]],uv[triangle[1]],uv[triangle[2]]]),HorseArt.ATLAS)
+
+func _draw_horse_bone(part: String, start: Vector2, end: Vector2, width: float, tint: Color) -> void:
 	# Map measured joint centers, not the rectangle corners, onto the bones.
 	# This is what prevents detached knees/hooves when an atlas has padding.
 	var region: Rect2 = HorseArt.PARTS[part]
@@ -247,11 +272,14 @@ func _draw_horse_bone(part: String, start: Vector2, end: Vector2, width_scale: f
 	var axis = (end-start).normalized()
 	var side = Vector2(-axis.y,axis.x)
 	var ratio = start.distance_to(end)/joints[0].distance_to(joints[1])
+	# Transverse anatomy is independent of bone length. Short pasterns and
+	# shoulder segments must not shrink into matchsticks as they articulate.
+	var thickness = width/float(HorseArt.WIDTHS[part])
 	var vertices = PackedVector2Array()
 	var uv = PackedVector2Array()
 	for corner in [region.position,Vector2(region.end.x,region.position.y),region.end,Vector2(region.position.x,region.end.y)]:
 		var relative: Vector2 = corner-joints[0]
-		vertices.append(start+axis*relative.dot(source_axis)*ratio+side*relative.dot(source_side)*ratio*width_scale)
+		vertices.append(start+axis*relative.dot(source_axis)*ratio+side*relative.dot(source_side)*thickness)
 		uv.append(corner/HorseArt.ATLAS.get_size())
 	draw_polygon(vertices,PackedColorArray([tint,tint,tint,tint]),uv,HorseArt.ATLAS)
 

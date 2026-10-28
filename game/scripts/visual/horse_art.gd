@@ -2,6 +2,9 @@ extends RefCounted
 ## Actual alpha-sprite regions and joint anchors, in atlas pixels.
 ## Source is AI-generated; layout is measured, not assumed to be a grid.
 const ATLAS = preload("res://assets/art/pixel_v041/horse_atlas.png")
+# Approximate opaque widths perpendicular to each measured source bone.
+# Runtime widths are game units; longitudinal stretch never sets thickness.
+const WIDTHS = {"fore_upper":160.0,"hind_upper":215.0,"fore_lower":96.0,"hind_lower":126.0}
 const PARTS = {
 	"body":Rect2(60,100,575,338),
 	"head":Rect2(634,24,512,433),

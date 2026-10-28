@@ -5,27 +5,29 @@ const WALK_TOUCHDOWN = [0.0,.5,.25,.75]
 const TROT_TOUCHDOWN = [0.0,.5,.5,1.0]
 const CANTER_TOUCHDOWN = [0.0,.28,.28,.58]
 const GALLOP_TOUCHDOWN = [0.0,.14,.39,.53]
-const HIP_POINTS = [Vector2(-94,-131),Vector2(-100,-129),Vector2(64,-141),Vector2(70,-139)]
+const HIP_POINTS = [Vector2(-110,-150),Vector2(-116,-148),Vector2(68,-158),Vector2(74,-156)]
 const GROUND = 12.0
-const UPPER = 62.0
-const LOWER = 64.0
+const UPPER = 68.0
+const LOWER = 68.0
+const FORE_PROXIMAL = Vector2(-20,43)
+const HIND_PROXIMAL = Vector2(36,40)
 const PASTERN = Vector2(7,15)
 const NAMES = ["慢步","小跑","跑步","疾驰"]
 # Cyclic back-height / pitch studies: compression, hind drive, fore support,
 # collection and flight are separate poses instead of four pendulum legs.
 const HEIGHTS = [
  [0.0,-1.0,-2.0,-1.0,0.0,1.0,0.0,-1.0,-2.0,-1.0,0.0,1.0],
- [2.0,-4.0,-9.0,-5.0,1.0,4.0,2.0,-4.0,-9.0,-5.0,1.0,4.0],
- [2.0,5.0,1.0,-4.0,-3.0,4.0,5.0,-1.0,-8.0,-15.0,-17.0,-8.0],
- [2.0,6.0,1.0,-6.0,-3.0,4.0,6.0,0.0,-10.0,-20.0,-24.0,-14.0]]
+ [1.0,-2.0,-4.5,-2.5,.5,2.0,1.0,-2.0,-4.5,-2.5,.5,2.0],
+ [1.0,2.5,1.0,-1.5,-2.0,0.0,2.0,0.0,-4.0,-7.0,-8.0,-4.0],
+ [1.0,3.0,1.0,-2.5,-1.0,1.5,3.0,0.0,-5.0,-10.0,-12.0,-7.0]]
 # Trot is spring-like: back LOW at midstance, HIGH around suspension.
 # Keep the authored vertical curve aligned with the diagonal footfalls.
 const HEIGHT_PHASE = [0.0,.21,0.0,0.0]
 const PITCHES = [
  [-.008,-.012,-.007,0.0,.008,.012,.008,.012,.007,0.0,-.008,-.012],
  [-.012,-.020,-.008,.015,.020,.008,-.012,-.020,-.008,.015,.020,.008],
- [-.025,-.040,-.012,.028,.055,.040,-.012,-.045,-.030,0.0,.018,0.0],
- [-.035,-.060,-.020,.045,.085,.060,-.015,-.065,-.040,0.0,.025,0.0]]
+ [-.018,-.028,-.008,.020,.037,.027,-.008,-.030,-.020,0.0,.012,0.0],
+ [-.025,-.042,-.014,.032,.058,.042,-.010,-.045,-.028,0.0,.018,0.0]]
 
 static func weights(speed: float) -> Vector4:
  var a = smoothstep(135,205,speed)
@@ -77,8 +79,8 @@ static func body(phase: float, speed: float, moving: bool, stability: float = 1.
  for i in range(4):
   delayed_height += _cycle(HEIGHTS[i],cycle-.055+HEIGHT_PHASE[i])*w[i]
   delayed_pitch += _cycle(PITCHES[i],cycle-.04)*w[i]
- var rider_lag = (delayed_height-height)*.42*transmission
- return {"offset":Vector2(sin(phase-.4)*run*3.2,height*intensity+absf(drive)*2.0),"pitch":pitch*intensity-drive*.025,
+ var rider_lag = (delayed_height-height)*.32*transmission
+ return {"offset":Vector2(sin(phase-.4)*run*1.2,height*intensity+absf(drive)*1.0),"pitch":pitch*intensity-drive*.018,
   "neck":(.11*run-pitch*.55+sin(phase-.5)*(.025*w.x+.018*w.y+.050*w.z+.075*w.w))*intensity,
   "neck_offset":Vector2(run*(3+3*sin(phase-.3)),run*(2+2*cos(phase)))*intensity,
   "tail":(.30*run+sin(phase-1.1)*(.04+.10*run))*intensity,
@@ -113,7 +115,7 @@ static func leg(index: int, phase: float, speed: float, moving: bool, stability:
  var gallop_duty = [.20,.22,.22,.26][index]
  var duty = .68*w.x+.41*w.y+canter_duty*w.z+gallop_duty*w.w
  var reach = maxf(0,speed)/maxf(.1,frequency(speed))*duty*.5
- var lift = (22*w.x+31*w.y+(43 if front else 39)*w.z+(55 if front else 49)*w.w)*smoothstep(0,85,speed)
+ var lift = (15*w.x+25*w.y+(37 if front else 33)*w.z+(46 if front else 41)*w.w)*smoothstep(0,85,speed)
  var foot = Vector2(HIP_POINTS[index].x+(8 if front else -8),GROUND)
  var nominal_contact = not moving or cycle<duty
  var contact = nominal_contact
@@ -134,7 +136,7 @@ static func leg(index: int, phase: float, speed: float, moving: bool, stability:
  # The visible shoulder/elbow and stifle are separate from carpus/hock.
  # This preserves the horse's digitigrade zig-zag instead of human knees.
  var fold = sin(swing*PI)*smoothstep(0,85,speed) if not contact else 0.0
- var proximal_vector = Vector2(-17,31).rotated(-fold*.42) if front else Vector2(32,32).rotated(-fold*.34)
+ var proximal_vector = FORE_PROXIMAL.rotated(-fold*.34) if front else HIND_PROXIMAL.rotated(-fold*.30)
  var proximal = hip+proximal_vector.rotated(float(pose.pitch))
  # Uncurl before touchdown: the last part of swing places a flat hoof,
  # rather than snapping a still-curled toe to the floor on the beat.

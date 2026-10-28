@@ -1,0 +1,12 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2548)
+ART_V044_CAPTURE gait_0 0
+ART_V044_CAPTURE gait_1 0
+ART_V044_CAPTURE gait_2 0
+ART_V044_CAPTURE gait_3 0
+ART_V044_CAPTURE arms_extremes 0
+ART_V044_CAPTURE arms_guards 0
+ART_V044_COMPLETE

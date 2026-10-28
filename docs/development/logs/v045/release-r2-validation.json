@@ -1,0 +1,26 @@
+[
+  {
+    "test": "test_motion_v045",
+    "exit": 0,
+    "passed": true,
+    "script_error": false
+  },
+  {
+    "test": "test_support_rider_v045",
+    "exit": 0,
+    "passed": true,
+    "script_error": false
+  },
+  {
+    "test": "test_integration_v045",
+    "exit": 0,
+    "passed": true,
+    "script_error": false
+  },
+  {
+    "test": "test_rules_v045",
+    "exit": 0,
+    "passed": true,
+    "script_error": false
+  }
+]

@@ -1,0 +1,3 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+CUE_CONTACTS_V045 {"failures":[],"passed":true,"samples":918,"scope":"frozen-pose current-height projection versus actual swept contacts; excludes future pose changes"}

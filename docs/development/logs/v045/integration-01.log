@@ -1,0 +1,16 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2548)
+GALUMU_BUILD v0.4.5
+ERROR: UI purchase must add one item and deduct its price
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_integration_v045.gd:16)
+       [1] run (res://tests/test_integration_v045.gd:88)
+       [2] frames (res://tests/test_integration_v045.gd:20)
+SCRIPT ERROR: Invalid access to property or key 'pressed' on a base object of type 'Nil'.
+   at: run (res://tests/test_integration_v045.gd:89)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/test_integration_v045.gd:89)
+       [1] frames (res://tests/test_integration_v045.gd:20)

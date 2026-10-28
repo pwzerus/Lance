@@ -1,0 +1,61 @@
+{
+  "version": "v0.4.5-r3",
+  "runtime_commit": "dc09976572d68f375f873d18a09e4a0c47500d37",
+  "baseline": "675f4ca",
+  "pck_sha256": "D223D4D4216331CDF512A316D5B3EDA483B876A6ACB1D1115EC51FE251F860D9",
+  "actual_exe_tests": [
+    {
+      "test": "test_motion_v045",
+      "exit": 0,
+      "passed": true,
+      "script_error": false
+    },
+    {
+      "test": "test_support_rider_v045",
+      "exit": 0,
+      "passed": true,
+      "script_error": false
+    },
+    {
+      "test": "test_transitions_v045",
+      "exit": 0,
+      "passed": true,
+      "script_error": false
+    },
+    {
+      "test": "test_integration_v045",
+      "exit": 0,
+      "passed": true,
+      "script_error": false
+    },
+    {
+      "test": "test_rules_v045",
+      "exit": 0,
+      "passed": true,
+      "script_error": false
+    }
+  ],
+  "render_smoke": "logs/v045/release-r3-smoke.log: SMOKE_TEST_COMPLETE (9 images, both modes)",
+  "movie": "360 frames/30FPS/12s offline scripted, not real-time performance",
+  "native_input": "Source QA only: OS drag pressed40907ms/released40930ms (23ms); no real hold acceleration acceptance",
+  "human_playtest": false,
+  "old_builds": [
+    {
+      "version": "v0.4.4",
+      "pck_sha256": "056CD1EE4EA6F1229D8EE630945BA5E1C6FBDDEBD2051B4230A260574740A93E"
+    },
+    {
+      "version": "v0.4.5",
+      "pck_sha256": "31D52F8FC90F2CE6D6BEBF298898C0DC4070E790193716D980B1D84AFBFED90F"
+    },
+    {
+      "version": "v0.4.5-r2",
+      "pck_sha256": "5446D8166E5C2F48F8B4C3848584DBC3A4C90B984C41609AE996B48AAB3F07E6"
+    }
+  ],
+  "known_limitations": [
+    "Pixel segmented animation, no RDR2/real horse quality claim",
+    "Full-health chase/KO balance remains separate from wounded30HP lethal mode contract",
+    "Result-covered departure still runs in background"
+  ]
+}

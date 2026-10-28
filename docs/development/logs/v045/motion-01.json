@@ -1,0 +1,77 @@
+{
+	"failures": [],
+	"gaits": [
+		{
+			"body_range": 3.0,
+			"flight_samples": 0,
+			"max_contacts": 3,
+			"min_contacts": 2,
+			"speed": 110.0
+		},
+		{
+			"body_range": 13.0259380340576,
+			"flight_samples": 43,
+			"max_contacts": 2,
+			"min_contacts": 0,
+			"speed": 210.0
+		},
+		{
+			"body_range": 22.7970623970032,
+			"flight_samples": 118,
+			"max_contacts": 2,
+			"min_contacts": 0,
+			"speed": 340.0
+		},
+		{
+			"body_range": 30.4079995155334,
+			"flight_samples": 117,
+			"max_contacts": 2,
+			"min_contacts": 0,
+			"speed": 480.0
+		}
+	],
+	"passed": true,
+	"scope": "engine injected hold/release, cancelled countdown, UI/focus, real model movement, gait support and anatomical arm anchors; not human play",
+	"speed_trace": [
+		{
+			"boost": true,
+			"speed": 0.0902777777777778,
+			"tick": 1
+		},
+		{
+			"boost": true,
+			"speed": 7.04166666666667,
+			"tick": 12
+		},
+		{
+			"boost": true,
+			"speed": 41.9791666666667,
+			"tick": 30
+		},
+		{
+			"boost": true,
+			"speed": 131.645833333333,
+			"tick": 60
+		},
+		{
+			"boost": true,
+			"speed": 311.645833333333,
+			"tick": 120
+		},
+		{
+			"boost": true,
+			"speed": 480.0,
+			"tick": 180
+		},
+		{
+			"boost": true,
+			"speed": 480.0,
+			"tick": 240
+		},
+		{
+			"release_end": 210.0,
+			"release_first": 479.909722222222
+		}
+	],
+	"stable_carry": 1.0
+}

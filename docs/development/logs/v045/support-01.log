@@ -1,0 +1,5 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2548)
+SUPPORT_DIAGNOSTIC [{"max_gap":[0.0,0.0,0.0,0.0],"nominal":[480,480,480,480],"speed":0.0,"supported":[480,480,480,480]},{"max_gap":[7.93115997314453,6.65876007080078,5.94821929931641,4.41574859619141],"nominal":[327,326,326,327],"speed":110.0,"supported":[262,272,273,281]},{"max_gap":[0.0,0.0,4.58407592773438,2.70993041992188],"nominal":[197,196,196,197],"speed":210.0,"supported":[197,196,98,130]},{"max_gap":[7.76585388183594,0.509078979492188,3.06022644042969,7.57254028320313],"nominal":[144,134,134,153],"speed":340.0,"supported":[110,132,118,0]},{"max_gap":[4.18443298339844,4.55297088623047,0.799880981445313,13.7509994506836],"nominal":[96,105,105,125],"speed":480.0,"supported":[86,76,102,0]}]

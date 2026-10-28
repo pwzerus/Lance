@@ -1,0 +1,34 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+GALUMU_BUILD v0.4.5-r3
+SMOKE_PROGRESS elapsed=96 step=0 busy=false phase=home pass=0 scale=1.0 fps=1.0
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v045/release-r3/01_home.png 0
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v045/release-r3/02_armory.png 0
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v045/release-r3/03_history.png 0
+SMOKE_PROGRESS elapsed=5105 step=4 busy=false phase=ready pass=1 scale=1.0 fps=53.0
+SMOKE_PROGRESS elapsed=10107 step=4 busy=false phase=charge pass=1 scale=1.0 fps=60.0
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v045/release-r3/04_arena.png 0
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v045/release-r3/08_arena_impact.png 0
+SMOKE_PROGRESS elapsed=15123 step=5 busy=false phase=charge pass=1 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=20140 step=5 busy=false phase=charge pass=2 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=25157 step=5 busy=false phase=charge pass=2 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=30172 step=5 busy=false phase=charge pass=2 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=35173 step=5 busy=false phase=charge pass=3 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=40193 step=5 busy=false phase=charge pass=3 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=45206 step=5 busy=false phase=charge pass=3 scale=1.0 fps=60.0
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v045/release-r3/05_result.png 0
+SMOKE_PROGRESS elapsed=50221 step=6 busy=false phase=ended pass=3 scale=1.0 fps=49.0
+SMOKE_PROGRESS elapsed=55224 step=6 busy=false phase=charge pass=1 scale=1.0 fps=60.0
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v045/release-r3/06_war.png 0
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v045/release-r3/09_war_impact.png 0
+SMOKE_PROGRESS elapsed=60239 step=7 busy=false phase=charge pass=1 scale=1.0 fps=46.0
+SMOKE_PROGRESS elapsed=65254 step=7 busy=false phase=ready pass=2 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=70256 step=7 busy=false phase=charge pass=2 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=75272 step=7 busy=false phase=charge pass=2 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=80288 step=7 busy=false phase=ready pass=3 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=85289 step=7 busy=false phase=charge pass=3 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=90305 step=7 busy=false phase=charge pass=3 scale=0.2 fps=60.0
+SMOKE_PROGRESS elapsed=95320 step=7 busy=false phase=ended pass=3 scale=1.0 fps=60.0
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v045/release-r3/07_war_result.png 0
+SMOKE_TEST_COMPLETE: ["01_home", "02_armory", "03_history", "04_arena", "08_arena_impact", "05_result", "06_war", "09_war_impact", "07_war_result"]

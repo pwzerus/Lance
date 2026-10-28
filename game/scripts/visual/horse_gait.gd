@@ -18,6 +18,9 @@ const HEIGHTS = [
  [2.0,-4.0,-9.0,-5.0,1.0,4.0,2.0,-4.0,-9.0,-5.0,1.0,4.0],
  [2.0,5.0,1.0,-4.0,-3.0,4.0,5.0,-1.0,-8.0,-15.0,-17.0,-8.0],
  [2.0,6.0,1.0,-6.0,-3.0,4.0,6.0,0.0,-10.0,-20.0,-24.0,-14.0]]
+# Trot is spring-like: back LOW at midstance, HIGH around suspension.
+# Keep the authored vertical curve aligned with the diagonal footfalls.
+const HEIGHT_PHASE = [0.0,.21,0.0,0.0]
 const PITCHES = [
  [-.008,-.012,-.007,0.0,.008,.012,.008,.012,.007,0.0,-.008,-.012],
  [-.012,-.020,-.008,.015,.020,.008,-.012,-.020,-.008,.015,.020,.008],
@@ -61,7 +64,7 @@ static func body(phase: float, speed: float, moving: bool, stability: float = 1.
  var height = 0.0
  var pitch = 0.0
  for i in range(4):
-  height += _cycle(HEIGHTS[i],cycle)*w[i]
+  height += _cycle(HEIGHTS[i],cycle+HEIGHT_PHASE[i])*w[i]
   pitch += _cycle(PITCHES[i],cycle)*w[i]
  var run = w.z+w.w
  # The back remains relatively rigid; the entire trunk rocks. Better horses
@@ -72,7 +75,7 @@ static func body(phase: float, speed: float, moving: bool, stability: float = 1.
  var delayed_height = 0.0
  var delayed_pitch = 0.0
  for i in range(4):
-  delayed_height += _cycle(HEIGHTS[i],cycle-.055)*w[i]
+  delayed_height += _cycle(HEIGHTS[i],cycle-.055+HEIGHT_PHASE[i])*w[i]
   delayed_pitch += _cycle(PITCHES[i],cycle-.04)*w[i]
  var rider_lag = (delayed_height-height)*.42*transmission
  return {"offset":Vector2(sin(phase-.4)*run*3.2,height*intensity+absf(drive)*2.0),"pitch":pitch*intensity-drive*.025,

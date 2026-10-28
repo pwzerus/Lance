@@ -134,6 +134,7 @@ func run() -> void:
    check(flight>10,"Gallop must have a readable suspension period")
  for i in range(1,ranges.size()):
   check(ranges[i].body_range>ranges[i-1].body_range+2,"Gait tiers must have visibly distinct trunk amplitudes")
+ check(Gait.body(TAU*.205,210,true).offset.y>Gait.body(TAU*.455,210,true).offset.y+8,"Trot compresses at diagonal midstance and rises around suspension")
  # Both anatomical arms use the same lengths and local shoulder convention.
  var model = Model.new()
  var f = model.fighters[0]

@@ -1,0 +1,9 @@
+{
+  "source_zip_entry": "Normal UTF-8 project.godot, CRC valid",
+  "python_extraction": "Python reads normal text; .NET/Godot saw 8192-byte TSD-header wrapper in extracted file",
+  "native_extraction": "Expand-Archive into a new directory, normal UTF-8, clean Godot import and motion pass",
+  "source_native_motion": true,
+  "windows_native_motion": true,
+  "windows_pck_matches": true,
+  "security_settings_changed": false
+}

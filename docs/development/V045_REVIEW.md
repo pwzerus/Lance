@@ -60,3 +60,6 @@
 
 - integration-01在普通sandbox写AppData QA受限，购买回滚后找不到装备按钮；停止该次后，同源码批准QA写权限重跑integration-02全通过。该失败不记为已修复的新菜单Bug，原日志保留。
 
+
+归档后追加：两ZIP CRC、Windows解压包动作、源码系统标准解压后干净导入及动作均通过。首次Python解压遭遇TSD跨程序读取差异，原失败保留，未修改安全设置。详见[最终交付回执](V045_DELIVERY_RECEIPT.md)。
+

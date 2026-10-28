@@ -1,0 +1,14 @@
+[
+  {
+    "archive": "GALUMU-v0.4.5-r3-source.zip",
+    "crc_error": null,
+    "files": 957,
+    "extracted_to": "E:\\GALUMU\\builds\\v045-r3-source-verification"
+  },
+  {
+    "archive": "LanceAndLaurel-v0.4.5-r3-Windows.zip",
+    "crc_error": null,
+    "files": 3,
+    "extracted_to": "E:\\GALUMU\\builds\\v045-r3-Windows-verification"
+  }
+]

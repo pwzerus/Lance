@@ -44,7 +44,7 @@ func _make_fighter(x: float, direction: int, stats: Dictionary) -> Dictionary:
 		"surge": 0.0, "last_hit": "", "damage_total": 0.0, "wounds": [],
 		"balance":100.0,"lean_velocity":0.0,"prev_flank":Vector2.ZERO,
 		"guard":0.0,"guard_target":0.0,"lance_stability":.85,"aim_velocity":0.0,
-		"gait_phase":0.0,"gait_moving":false,"acceleration":0.0,"lane_y":32.0 if direction==1 else -32.0}
+		"gait_phase":0.0,"gait_moving":false,"acceleration":0.0,"accel_command":0.0,"motion_drive":0.0,"mount_velocity_y":0.0,"lane_y":32.0 if direction==1 else -32.0}
 
 func _reset_positions() -> void:
 	for i in range(2):
@@ -54,6 +54,9 @@ func _reset_positions() -> void:
 		fighter.direction = 1 if i == 0 else -1
 		fighter.speed = 0.0
 		fighter.acceleration = 0.0
+		fighter.accel_command = 0.0
+		fighter.motion_drive = 0.0
+		fighter.mount_velocity_y = 0.0
 		fighter.balance = minf(100.0,float(fighter.balance)+8.0)
 		fighter.acted = false
 		fighter.surge = 0.0
@@ -69,7 +72,7 @@ static func pose_angle(fighter: Dictionary) -> float:
 	return float(fighter.lean)*(deg_to_rad(25.0) if float(fighter.lean)>=0 else deg_to_rad(45.0))+gait_pose(fighter).rider_pitch
 
 static func gait_pose(fighter: Dictionary) -> Dictionary:
-	return Gait.body(float(fighter.get("gait_phase",0.0)),float(fighter.get("speed",0.0)),bool(fighter.get("gait_moving",false)),float(fighter.stats.get("stability",1.0)))
+	return Gait.body(float(fighter.get("gait_phase",0.0)),float(fighter.get("speed",0.0)),bool(fighter.get("gait_moving",false)),float(fighter.stats.get("stability",1.0)),float(fighter.get("motion_drive",0.0)))
 
 static func saddle_offset(fighter: Dictionary) -> Vector2:
 	var pose = gait_pose(fighter)
@@ -93,7 +96,8 @@ static func hand_position(fighter: Dictionary) -> Vector2:
 static func shield_position(fighter: Dictionary) -> Vector2:
 	# Forward bracing raises the left-chest shield; leaning back withdraws
 	# the head, but exposes the abdomen and compromises saddle stability.
-	var local = Vector2(43,lerpf(-4.0,-109.0,float(fighter.get("guard",0.0))))
+	var guard = float(fighter.get("guard",0.0))
+	var local = Vector2(lerpf(44,55,smoothstep(0,.43,guard)),lerpf(-4.0,-109.0,guard))
 	return mount_origin(fighter)+(HIP+local.rotated(pose_angle(fighter)))*Vector2(int(fighter.direction),1)
 
 static func flank_position(fighter: Dictionary) -> Vector2:
@@ -125,6 +129,12 @@ func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float
 	fighter.aim = move_toward(previous_aim,clampf(aim,-.68,.58),delta*(.95 if committed else 2.2)*float(fighter.stats.get("lance_handling",1.0)))
 	fighter.aim_velocity = absf(float(fighter.aim)-previous_aim)/maxf(delta,.00001)
 	var movement = float(fighter.aim_velocity)
+	# Holding a relative angle OR compensating for the horse's vertical
+	# travel is a stable carry. Only the remaining intentional redirection
+	# pays the feint cost; otherwise the stronger gait punishes bracing.
+	var signed_turn = (float(fighter.aim)-previous_aim)/maxf(delta,.00001)
+	var mount_compensation = float(fighter.get("mount_velocity_y",0.0))/maxf(40,cos(float(fighter.aim))*lance_length(fighter))
+	movement = minf(movement,absf(signed_turn+mount_compensation))
 	# Small corrections are free. Large late redirects sacrifice the support
 	# behind the lance; the player keeps control instead of hitting an input lock.
 	if movement>.24:
@@ -164,6 +174,7 @@ func step(delta: float) -> void:
 			_cache_pose(fighter)
 		return
 	for fighter in fighters:
+		var old_mount_hand = hand_position(fighter)
 		var multiplier = float(fighter.stats.get("speed", 1.0))
 		var accelerating = bool(fighter.boost) and float(fighter.stamina) > 1.0
 		fighter.stamina = clampf(float(fighter.stamina) + (-14.0 if accelerating else 18.0) * delta, 0.0, 100.0)
@@ -174,17 +185,23 @@ func step(delta: float) -> void:
 			fighter.surge = maxf(0.0, float(fighter.surge) - delta)
 		var difference = target_speed-float(fighter.speed)
 		var desired_acceleration = (ACCELERATION if accelerating else START_ACCELERATION) if difference>0 else -COAST_DECELERATION
-		fighter.acceleration = move_toward(float(fighter.get("acceleration",0.0)),desired_acceleration,ACCELERATION_SLEW*delta)
+		if absf(difference)<.001:
+			desired_acceleration = 0
+		fighter.accel_command = move_toward(float(fighter.get("accel_command",0.0)),desired_acceleration,ACCELERATION_SLEW*delta)
 		# Releasing the spur starts deceleration on this tick, even during a
 		# rising acceleration envelope. The horse still coasts with inertia.
-		if difference<0 and float(fighter.acceleration)>0:
-			fighter.acceleration = -COAST_DECELERATION*.45
-		elif difference>0 and float(fighter.acceleration)<0:
-			fighter.acceleration = ACCELERATION*.28
-		fighter.speed = move_toward(float(fighter.speed),target_speed,absf(float(fighter.acceleration))*delta)
+		if difference<0 and float(fighter.accel_command)>0:
+			fighter.accel_command = -COAST_DECELERATION*.45
+		elif difference>0 and float(fighter.accel_command)<0:
+			fighter.accel_command = ACCELERATION*.28
+		var old_speed = float(fighter.speed)
+		fighter.speed = move_toward(old_speed,target_speed,absf(float(fighter.accel_command))*delta)
+		fighter.acceleration = (float(fighter.speed)-old_speed)/maxf(.00001,delta)
+		fighter.motion_drive = move_toward(float(fighter.get("motion_drive",0.0)),clampf(float(fighter.acceleration)/ACCELERATION,-1,1),delta*5)
 		fighter.x += int(fighter.direction) * float(fighter.speed) * delta
 		fighter.gait_moving = true
 		fighter.gait_phase += delta*TAU*Gait.frequency(float(fighter.speed))
+		fighter.mount_velocity_y = (hand_position(fighter).y-old_mount_hand.y)/maxf(.00001,delta)
 	# Gather both candidates BEFORE applying either result, preserving simultaneous hits.
 	var contacts: Array = []
 	for i in range(2):

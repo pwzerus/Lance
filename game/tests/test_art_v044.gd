@@ -3,6 +3,7 @@ const Rider = preload("res://scripts/visual/rider_view.gd")
 const Model = preload("res://scripts/core/joust_match.gd")
 const UI = preload("res://scripts/ui/ui_factory.gd")
 var page: Control
+var capture_dir = "E:/GALUMU/docs/development/screenshots/v044/art02"
 
 func _initialize() -> void:
 	call_deferred("run")
@@ -50,13 +51,16 @@ func capture(name_value: String) -> void:
 	await process_frame
 	await process_frame
 	await RenderingServer.frame_post_draw
-	DirAccess.make_dir_recursive_absolute("E:/GALUMU/docs/development/screenshots/v044/final")
-	var code = root.get_texture().get_image().save_png("E:/GALUMU/docs/development/screenshots/v044/final/"+name_value+".png")
+	DirAccess.make_dir_recursive_absolute(capture_dir)
+	var code = root.get_texture().get_image().save_png(capture_dir+"/"+name_value+".png")
 	print("ART_V044_CAPTURE ",name_value," ",code)
 	page.queue_free()
 	await process_frame
 
 func run() -> void:
+	for arg in OS.get_cmdline_user_args():
+		if arg.begins_with("--capture-dir="):
+			capture_dir = arg.trim_prefix("--capture-dir=")
 	if DisplayServer.get_name()=="headless":
 		quit(1)
 		return
@@ -76,3 +80,4 @@ func run() -> void:
 	await capture("arms_guards")
 	print("ART_V044_COMPLETE")
 	quit()
+

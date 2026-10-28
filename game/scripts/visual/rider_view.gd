@@ -30,7 +30,6 @@ var lance_recoil = 0.0
 var shield_recoil = 0.0
 var stride_phase = 0.0
 var preview = false
-var animate_departure = false
 var last_cycles = [0.0,0.0,0.0,0.0]
 var early_release = [false,false,false,false]
 var release_cycles = [0.0,0.0,0.0,0.0]
@@ -47,11 +46,7 @@ var last_feet: Array[Vector2] = [Vector2.INF,Vector2.INF,Vector2.INF,Vector2.INF
 func _process(delta: float) -> void:
 	clock += delta
 	var speed = float(fighter.get("speed",0.0))
-	if animate_departure:
-		stride_phase += delta*TAU*Gait.frequency(speed)
-		fighter.gait_phase = stride_phase
-		fighter.gait_moving = moving
-	elif fighter.has("gait_phase") and not preview:
+	if fighter.has("gait_phase") and not preview:
 		stride_phase = float(fighter.gait_phase)
 	else:
 		stride_phase += delta*TAU*Gait.frequency(speed) if moving else delta*1.2
@@ -62,7 +57,8 @@ func _process(delta: float) -> void:
 	var landed: Array[int] = []
 	for index in range(4):
 		var stability = float(fighter.get("stats",{}).get("stability",1.0))
-		var leg_pose = Gait.leg(index,stride_phase,speed,moving,stability)
+		var drive = float(fighter.get("motion_drive",0.0))
+		var leg_pose = Gait.leg(index,stride_phase,speed,moving,stability,INF,Vector2.INF,drive)
 		var facing = int(fighter.get("direction",1))
 		var cycle = float(leg_pose.cycle)
 		if cycle<float(last_cycles[index])-.5 or not moving:
@@ -72,21 +68,26 @@ func _process(delta: float) -> void:
 		if moving and leg_pose.contact and not early_release[index]:
 			if not is_finite(planted_feet[index]):
 				planted_feet[index] = position.x+leg_pose.foot.x*facing
-			leg_pose = Gait.leg(index,stride_phase,speed,true,stability,(planted_feet[index]-position.x)*facing)
+			leg_pose = Gait.leg(index,stride_phase,speed,true,stability,(planted_feet[index]-position.x)*facing,Vector2.INF,drive)
 			if not leg_pose.contact:
 				early_release[index] = true
 				release_cycles[index] = cycle
 		if moving and (not leg_pose.contact or early_release[index]):
 			if is_finite(planted_feet[index]) or not swing_starts[index].is_finite():
 				swing_starts[index] = last_feet[index] if last_feet[index].is_finite() else Vector2(position.x+leg_pose.foot.x*facing,leg_pose.foot.y)
+				release_cycles[index] = cycle
+			# Once lifted, finish the swing. A slower gait's longer duty must
+			# not replant a hoof halfway through the air on the following tick.
+			early_release[index] = true
 			planted_feet[index] = INF
 			var progress = float(leg_pose.swing)
 			if early_release[index]:
 				progress = clampf((cycle-float(release_cycles[index]))/maxf(.01,1.0-float(release_cycles[index])),0,1)
 			var target_x = Gait.HIP_POINTS[index].x+(8 if leg_pose.front else -8)+float(leg_pose.reach)
 			var trajectory = Gait._swing_point(leg_pose.front,progress,float(leg_pose.reach),float(leg_pose.lift),Gait.weights(speed).z+Gait.weights(speed).w)
-			var foot = Vector2((lerpf(swing_starts[index].x,position.x+target_x*facing,progress)-position.x)*facing,lerpf(swing_starts[index].y,Gait.GROUND,progress)+trajectory.y)
-			leg_pose = Gait.leg(index,stride_phase,speed,true,stability,INF,foot)
+			var protraction = (trajectory.x+float(leg_pose.reach))/maxf(1,2.0*float(leg_pose.reach))
+			var foot = Vector2((lerpf(swing_starts[index].x,position.x+target_x*facing,protraction)-position.x)*facing,lerpf(swing_starts[index].y,Gait.GROUND,progress)+trajectory.y)
+			leg_pose = Gait.leg(index,stride_phase,speed,true,stability,INF,foot,drive)
 			leg_pose.contact = false
 		if moving and leg_pose.contact and not previous_contacts[index]:
 			landed.append(index)
@@ -120,27 +121,28 @@ func _draw() -> void:
 	var facing = int(fighter.direction)
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 	var stride = stride_phase
-	var pace = clampf((float(fighter.get("speed",210.0))-Model.TROT_SPEED)/(Model.GALLOP_SPEED-Model.TROT_SPEED),0,1)
-	var horse_pose = Gait.body(stride,float(fighter.get("speed",0.0)),moving,float(fighter.stats.get("stability",1.0)))
-	var bounce = float(horse_pose.offset.y)
+	var horse_pose = Gait.body(stride,float(fighter.get("speed",0.0)),moving,float(fighter.stats.get("stability",1.0)),float(fighter.get("motion_drive",0.0)))
 	var horse_tint = Color(str(fighter.stats.get("horse_color","a87950"))).lerp(Color.WHITE,.48)
 	_draw_horse_leg(0,horse_tint.darkened(.29))
 	_draw_horse_leg(2,horse_tint.darkened(.25))
 	_draw_horse_leg(1,horse_tint,true,false)
 	_draw_horse_leg(3,horse_tint,true,false)
 	var tail_root = Model.HIP+(Vector2(-134,-170)-Model.HIP).rotated(horse_pose.pitch)+horse_pose.offset
-	draw_set_transform_matrix(mirrored_transform(tail_root,horse_pose.pitch+horse_pose.tail,facing))
-	draw_texture_rect_region(HorseArt.ATLAS,Rect2(-78,-5,84,127),HorseArt.PARTS.tail,horse_tint)
+	draw_set_transform_matrix(mirrored_transform(tail_root,horse_pose.pitch,facing))
+	_draw_flexible_horse_part("tail",Rect2(-78,-5,84,127),horse_pose.tail,horse_tint,false)
 	var neck_root = Model.HIP+(Vector2(80,-124)-Model.HIP).rotated(horse_pose.pitch)+horse_pose.offset
-	draw_set_transform_matrix(mirrored_transform(neck_root,horse_pose.pitch+horse_pose.neck,facing))
-	draw_texture_rect_region(HorseArt.ATLAS,Rect2(-31,-126,130,150),HorseArt.PARTS.head,horse_tint)
+	draw_set_transform_matrix(mirrored_transform(neck_root,horse_pose.pitch,facing))
+	_draw_flexible_horse_part("head",Rect2(-31,-126,130,150),horse_pose.neck,horse_tint,true)
 	draw_set_transform_matrix(mirrored_transform(Model.HIP+horse_pose.offset,horse_pose.pitch,facing))
 	draw_texture_rect_region(HorseArt.ATLAS,Rect2(-137,-20,247,106),HorseArt.PARTS.body,horse_tint)
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 	_draw_horse_leg(1,horse_tint,false,true)
 	_draw_horse_leg(3,horse_tint,false,true)
 	var muzzle = neck_root+Vector2(95,-31).rotated(horse_pose.pitch+horse_pose.neck)
-	draw_polyline(PackedVector2Array([muzzle,Vector2(65,-163+bounce),Vector2(2,-200)]),Color("493628"),2.5,true)
+	var rein_hand = ((Model.shield_position(fighter)-Vector2(fighter.x,fighter.get("lane_y",0)))*Vector2(facing,1))+Vector2(-10,4).rotated(Model.pose_angle(fighter))
+	if fighter.get("ko",false) or fighter.get("dead",false):
+		rein_hand = Model.HIP+Vector2(8,20)+horse_pose.offset
+	draw_polyline(PackedVector2Array([muzzle,muzzle.lerp(rein_hand,.55)+Vector2(0,20),rein_hand]),Color("493628"),2.5,true)
 	if bool(fighter.get("ko",false)) or bool(fighter.get("dead",false)):
 		draw_set_transform(Vector2.ZERO)
 		return
@@ -150,7 +152,7 @@ func _draw() -> void:
 	# Shared rule anchors keep the visible lance grip and shield on target.
 	var origin = Vector2(float(fighter.x),float(fighter.get("lane_y",0.0)))
 	var hand_local = (Model.hand_position(fighter)-origin)*Vector2(facing,1)
-	var shoulder = pivot+LANCE_SHOULDER.rotated(lean_angle)
+	var shoulder = pivot+lance_shoulder(facing).rotated(lean_angle)
 	var elbow = arm_elbow(shoulder,hand_local,ARM_UPPER,ARM_LOWER)
 	draw_set_transform_matrix(mirrored_transform(pivot,lean_angle,facing))
 	var shield_center = ((Model.shield_position(fighter)-origin)*Vector2(facing,1)-pivot).rotated(-lean_angle)
@@ -160,16 +162,17 @@ func _draw() -> void:
 	draw_texture_rect(head_texture,Rect2(-head_width*.5,-151,head_width,80),false)
 	if fighter.stats.has("helmet_color"):
 		draw_line(Vector2(-20,-109),Vector2(20,-109),Color(str(fighter.stats.helmet_color)),3)
-	# Right arm carries the lance on the far side; left arm and shield are
-	# on the camera-near side. Equal bones, distinct shoulders, shared mirroring.
+	# Chest faces the camera on both orientations: preserve anatomical hands
+	# instead of mirroring right into left. Depth tint changes with the yaw.
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 	_draw_rider_leg(pivot+Vector2(-11,4),.07-horse_pose.pitch*.3,Color.WHITE)
-	_draw_arm(shoulder,elbow,hand_local,Color(.71,.74,.77))
+	_draw_arm(shoulder,elbow,hand_local,Color(.71,.74,.77) if facing==-1 else Color.WHITE)
 	_draw_lance(hand_local,float(fighter.aim),Model.lance_length(fighter),bool(fighter.broken))
 	draw_circle(hand_local,6,Color("795239"))
 	draw_set_transform_matrix(mirrored_transform(pivot,lean_angle,facing))
-	var shield_hand = shield_center+Vector2(-7,9)
-	_draw_arm(SHIELD_SHOULDER,arm_elbow(SHIELD_SHOULDER,shield_hand,ARM_UPPER,ARM_LOWER),shield_hand,Color.WHITE)
+	var shield_hand = shield_center+Vector2(-10,4)
+	var shield_origin = shield_shoulder(facing)
+	_draw_arm(shield_origin,arm_elbow(shield_origin,shield_hand,ARM_UPPER,ARM_LOWER),shield_hand,Color.WHITE if facing==-1 else Color(.81,.83,.85))
 	_draw_shield(shield_center,design)
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 	for wound in fighter.get("wounds",[]):
@@ -181,8 +184,22 @@ func _draw() -> void:
 				draw_circle(pivot+(stain+offset).rotated(lean_angle),2.5,Color("69251e"))
 	draw_set_transform(Vector2.ZERO)
 
+func _draw_flexible_horse_part(part: String, rectangle: Rect2, bend: float, tint: Color, head: bool) -> void:
+	# Skin the existing texture along the neck/tail. The neck base stays in
+	# the chest while the skull is rigid; tail tips lag progressively behind.
+	var region: Rect2 = HorseArt.PARTS[part]
+	for row in range(8):
+		var vertices = PackedVector2Array()
+		var uv = PackedVector2Array()
+		for corner in [Vector2(0,row/8.0),Vector2(1,row/8.0),Vector2(1,(row+1)/8.0),Vector2(0,(row+1)/8.0)]:
+			var point = rectangle.position+rectangle.size*corner
+			var weight = maxf(smoothstep(15,-65,point.y),smoothstep(0,35,point.x)) if head else corner.y
+			vertices.append(point.rotated(bend*weight))
+			uv.append((region.position+region.size*corner)/HorseArt.ATLAS.get_size())
+		draw_polygon(vertices,PackedColorArray([tint]),uv,HorseArt.ATLAS)
+
 func _draw_horse_leg(index: int, tint: Color, upper: bool = true, lower: bool = true) -> void:
-	var pose = Gait.leg(index,stride_phase,float(fighter.get("speed",210.0)),moving,float(fighter.stats.get("stability",1.0)))
+	var pose = Gait.leg(index,stride_phase,float(fighter.get("speed",210.0)),moving,float(fighter.stats.get("stability",1.0)),INF,Vector2.INF,float(fighter.get("motion_drive",0.0)))
 	if leg_poses.size()==4:
 		pose = leg_poses[index]
 	var prefix = "fore" if pose.front else "hind"
@@ -236,6 +253,12 @@ static func arm_elbow(shoulder: Vector2, hand: Vector2, upper: float, lower: flo
 	var b = shoulder+ray.normalized().rotated(-angle)*upper
 	# Elbow hangs below the direct reach, on either facing and torso angle.
 	return a if a.y>b.y else b
+
+static func lance_shoulder(facing: int) -> Vector2:
+	return LANCE_SHOULDER*Vector2(facing,1)
+
+static func shield_shoulder(facing: int) -> Vector2:
+	return SHIELD_SHOULDER*Vector2(facing,1)
 
 static func mirrored_transform(origin: Vector2, angle: float, facing: int) -> Transform2D:
 	# Rotate in rider-local space, then reflect the complete pose. CanvasItem's

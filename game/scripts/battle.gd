@@ -397,7 +397,7 @@ func _update_camera(real_delta: float, now: int) -> void:
 	var blend = 1.0-exp(-real_delta*(5.0 if approach_slow else 3.3))
 	camera.zoom = camera.zoom.lerp(Vector2.ONE*desired_zoom,blend)
 	# At the closest framing keep raised shields clear of the top HUD.
-	var framing_y = lerpf(480,450,clampf((desired_zoom-1.0)/.65,0,1))
+	var framing_y = lerpf(480,425,clampf((desired_zoom-1.0)/.65,0,1))
 	camera.position = camera.position.lerp(Vector2(720+(a+b)*.5,framing_y),blend)
 	camera.force_update_scroll()
 
@@ -409,7 +409,6 @@ func _update_views() -> void:
 			departing = departure_elapsed*float(fighter.speed)*int(fighter.direction)
 		riders[i].position = Vector2(float(fighter.x)+departing, float(fighter.get("lane_y",0.0)))
 		riders[i].moving = match_model.phase=="charge" or (match_model.phase=="ended" and departure_elapsed<1.4)
-		riders[i].animate_departure = match_model.phase=="ended" and departure_elapsed<1.4
 		riders[i].visible = true
 		riders[i].blood_enabled = GameState.profile.settings.blood
 	effects.blood_enabled = GameState.profile.settings.blood

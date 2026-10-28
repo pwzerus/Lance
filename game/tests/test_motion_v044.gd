@@ -126,16 +126,38 @@ func run() -> void:
      var pivot = Model.HIP+Model.saddle_offset(f)
      var angle = Model.pose_angle(f)
      var hand = (Model.hand_position(f)-Vector2(f.x,f.lane_y))*Vector2(direction,1)
-     var shoulder = pivot+Rider.LANCE_SHOULDER.rotated(angle)
+     var shoulder = pivot+Rider.lance_shoulder(direction).rotated(angle)
      var elbow = Rider.arm_elbow(shoulder,hand,Rider.ARM_UPPER,Rider.ARM_LOWER)
      check(absf(elbow.distance_to(hand)-Rider.ARM_LOWER)<.05,"Right lance arm remains reachable")
      var shield_local = ((Model.shield_position(f)-Vector2(f.x,f.lane_y))*Vector2(direction,1)-pivot).rotated(-angle)
-     var shield_hand = shield_local+Vector2(-7,9)
-     var shield_elbow = Rider.arm_elbow(Rider.SHIELD_SHOULDER,shield_hand,Rider.ARM_UPPER,Rider.ARM_LOWER)
+     var shield_hand = shield_local+Vector2(-10,4)
+     var shield_elbow = Rider.arm_elbow(Rider.shield_shoulder(direction),shield_hand,Rider.ARM_UPPER,Rider.ARM_LOWER)
      check(absf(shield_elbow.distance_to(shield_hand)-Rider.ARM_LOWER)<.05,"Left shield arm remains reachable")
+     var torso = Rider.mirrored_transform(pivot,angle,direction)
+     check((torso*Rider.lance_shoulder(direction)).x<(torso*Rider.shield_shoulder(direction)).x,"Camera-facing chest preserves anatomical right and left shoulders after turning")
      var drawn = Rider.mirrored_transform(pivot,angle,direction)*Vector2(0,-111)+Vector2(f.x,f.lane_y)
      check(drawn.distance_to(Model.head_position(f))<.01,"Moving rider and real head collision share their anchor")
- var result = {"passed":failures.is_empty(),"failures":failures,"speed_trace":trace,"gaits":ranges,"scope":"engine injected hold/release, cancelled countdown, UI/focus, real model movement, gait support and anatomical arm anchors; not human play"}
+ var carry = Model.new()
+ carry.phase = "charge"
+ carry.fighters[0].x = -50000
+ carry.fighters[1].x = 50000
+ for rider in carry.fighters:
+  rider.acted = true
+ var carrier = carry.fighters[0]
+ carrier.speed = 480
+ carrier.gait_moving = true
+ var target_height = Model.hand_position(carrier).y-55
+ for tick in range(360):
+  var aim = asin(clampf((target_height-Model.hand_position(carrier).y)/Model.lance_length(carrier),-.629,.548))
+  carry.set_controls(0,aim,0,true,1.0/120)
+  carry.step(1.0/120)
+ check(carrier.lance_stability>.75,"Compensating for predictable horse motion must not destroy a stable carry")
+ var stable_support = float(carrier.lance_stability)
+ carrier.mount_velocity_y = 0
+ for tick in range(24):
+  carry.set_controls(0,.5,0,true,1.0/120)
+ check(carrier.lance_stability<stable_support-.2,"A deliberate large redirect still sacrifices support")
+ var result = {"passed":failures.is_empty(),"failures":failures,"speed_trace":trace,"gaits":ranges,"stable_carry":stable_support,"scope":"engine injected hold/release, cancelled countdown, UI/focus, real model movement, gait support and anatomical arm anchors; not human play"}
  var file = FileAccess.open("E:/GALUMU/docs/development/logs/v044/motion-controls-01.json",FileAccess.WRITE)
  file.store_string(JSON.stringify(result,"\t"))
  file.close()

@@ -30,7 +30,7 @@ func default_profile() -> Dictionary:
 	return {"version": 1, "coins": 520, "renown": 0, "wins": 0, "matches": 0, "region": 0,
 		"owned": ["mail_basic", "helm_nasal", "lance_ash", "horse_bay", "crest_bend", "shield_basic"],
 		"equipped": {"armor": "mail_basic", "helmet": "helm_nasal", "lance": "lance_ash", "horse": "horse_bay", "crest": "crest_bend", "shield":"shield_basic"},
-		"settings": {"blood": false, "shake": true, "sound": true, "mouse_only": false, "brief_seen":false,"combat_brief_v03":false,"combat_brief_v043":false,"aim_cues":true,"slow_motion":true, "difficulty": 1}}
+		"settings": {"blood": false, "shake": true, "sound": true, "mouse_only": false, "brief_seen":false,"combat_brief_v03":false,"combat_brief_v043":false,"combat_brief_v044":false,"aim_cues":true,"slow_motion":true, "difficulty": 1}}
 
 func load_profile() -> void:
 	for path in [save_path, backup_path]:
@@ -59,7 +59,7 @@ func sanitize(raw: Dictionary) -> Dictionary:
 			if item_id in clean.owned and item.get("slot", "") == slot:
 				clean.equipped[slot] = item_id
 	if raw.get("settings") is Dictionary:
-		for key in ["blood", "shake", "sound", "mouse_only", "brief_seen","combat_brief_v03","combat_brief_v043","aim_cues","slow_motion"]:
+		for key in ["blood", "shake", "sound", "mouse_only", "brief_seen","combat_brief_v03","combat_brief_v043","combat_brief_v044","aim_cues","slow_motion"]:
 			if raw.settings.get(key) is bool:
 				clean.settings[key] = raw.settings[key]
 		clean.settings.difficulty = _safe_integer(raw.settings.get("difficulty"),1,0,2)

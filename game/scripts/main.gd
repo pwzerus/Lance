@@ -39,8 +39,8 @@ var smoke_last_report = 0
 var practice_match = false
 
 func _ready() -> void:
-	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.4-dev"
-	print("GALUMU_BUILD v0.4.4-dev")
+	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.4"
+	print("GALUMU_BUILD v0.4.4")
 	get_tree().auto_accept_quit = false
 	get_window().min_size = Vector2i(960,540)
 	ui_layer = CanvasLayer.new()
@@ -59,7 +59,7 @@ func _ready() -> void:
 		smoke_started = Time.get_ticks_msec()
 	show_home()
 	if GameState.qa_input_probe:
-		get_window().title = "Lance & Laurel v0.4.4-dev QA - Desktop input"
+		get_window().title = "Lance & Laurel v0.4.4 QA - Desktop input"
 		var audit = preload("res://scripts/core/desktop_input_audit.gd").new()
 		audit.main = self
 		add_child(audit)
@@ -117,7 +117,7 @@ func show_home() -> void:
 	UI.button(screen,"历史手记",Rect2(68,569,247,50),show_history)
 	UI.button(screen,"设置",Rect2(331,569,247,50),show_settings)
 	UI.button(screen,"保存并退出",Rect2(68,645,510,50),_save_and_exit)
-	UI.label(screen,"自动保存已启用 · v0.4.4-dev",Vector2(70,727),16,UI.MUTED)
+	UI.label(screen,"自动保存已启用 · v0.4.4",Vector2(70,727),16,UI.MUTED)
 	UI.label(screen,"YOUR CHAMPION",Vector2(952,143),18,UI.GOLD)
 	_add_preview(Vector2(1035,652),1.42)
 	var champion = UI.panel(screen,Rect2(766,675,606,98),Color(.07,.12,.095,.94))
@@ -219,7 +219,7 @@ func _notification(what: int) -> void:
 		_save_and_exit()
 
 func _begin_match(mode: String, practice: bool = false) -> void:
-	if GameState.profile.settings.get("combat_brief_v043",false):
+	if GameState.profile.settings.get("combat_brief_v044",false):
 		_start_match(mode,practice)
 		return
 	var shade = ColorRect.new()
@@ -236,6 +236,7 @@ func _begin_match(mode: String, practice: bool = false) -> void:
 	UI.button(panel,"明白了，出战",Rect2(32,448,480,58),func():
 		GameState.set_setting("brief_seen",true)
 		GameState.set_setting("combat_brief_v043",true)
+		GameState.set_setting("combat_brief_v044",true)
 		_start_match(mode,practice),true)
 	UI.button(panel,"返回选择",Rect2(530,448,248,58),func():shade.queue_free())
 

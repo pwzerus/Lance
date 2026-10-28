@@ -51,7 +51,7 @@ static func _cycle(values: Array, cycle: float) -> float:
  var d = float(values[(i+2)%values.size()])
  return .5*((2*b)+(-a+c)*t+(2*a-5*b+4*c-d)*t*t+(-a+3*b-3*c+d)*t*t*t)
 
-static func body(phase: float, speed: float, moving: bool, stability: float = 1.0) -> Dictionary:
+static func body(phase: float, speed: float, moving: bool, stability: float = 1.0, drive: float = 0.0) -> Dictionary:
  if not moving:
   return {"offset":Vector2(0,sin(phase)*.45),"pitch":0.0,"neck":sin(phase)*.008,"tail":sin(phase*.7)*.045,"rider_offset":Vector2.ZERO,"rider_pitch":0.0,"gait":0}
  var w = weights(speed)
@@ -67,11 +67,11 @@ static func body(phase: float, speed: float, moving: bool, stability: float = 1.
  # moderate rider transmission without eliminating their visible stride.
  var transmission = clampf(1.0/stability,.82,1.18)
  var rider_lag = sin(phase-.65)*(1.0*w.y+2.5*w.z+4.5*w.w)*transmission
- return {"offset":Vector2(sin(phase-.4)*run*3.2,height*intensity),"pitch":pitch*intensity,
+ return {"offset":Vector2(sin(phase-.4)*run*3.2,height*intensity+absf(drive)*2.0),"pitch":pitch*intensity-drive*.025,
   "neck":(-pitch*.55+sin(phase-.5)*(.025*w.x+.018*w.y+.050*w.z+.075*w.w))*intensity,
   "tail":(-.18*run+sin(phase-.9)*(.04+.16*run))*intensity,
   "rider_offset":Vector2(-sin(phase)*run*1.7,rider_lag*intensity),
-  "rider_pitch":pitch*.42+sin(phase-.9)*.018*run*transmission,"gait":gait_index(speed)}
+  "rider_pitch":pitch*.42+sin(phase-.9)*.018*run*transmission+drive*.035,"gait":gait_index(speed)}
 
 static func _swing_point(front: bool, t: float, reach: float, lift: float, run: float) -> Vector2:
  var times = [0.0,.18,.42,.75,1.0] if front else [0.0,.22,.55,.84,1.0]
@@ -88,8 +88,8 @@ static func _swing_point(front: bool, t: float, reach: float, lift: float, run: 
    return result
  return Vector2(reach,0)
 
-static func leg(index: int, phase: float, speed: float, moving: bool, stability: float = 1.0, planted_x: float = INF, override_foot: Vector2 = Vector2.INF) -> Dictionary:
- var pose = body(phase,speed,moving,stability)
+static func leg(index: int, phase: float, speed: float, moving: bool, stability: float = 1.0, planted_x: float = INF, override_foot: Vector2 = Vector2.INF, drive: float = 0.0) -> Dictionary:
+ var pose = body(phase,speed,moving,stability,drive)
  var hip: Vector2 = Vector2(-18,-168)+(HIP_POINTS[index]-Vector2(-18,-168)).rotated(pose.pitch)+pose.offset
  var front = index>=2
  var w = weights(speed)

@@ -1,0 +1,197 @@
+{
+	"samples": [
+		{
+			"body_y": -0.000000428316440093113,
+			"boost": false,
+			"frame": 0,
+			"gait": 0,
+			"seconds": 0.0,
+			"speed": 0.270833333333333
+		},
+		{
+			"body_y": -1.87857186794281,
+			"boost": false,
+			"frame": 15,
+			"gait": 0,
+			"seconds": 0.5,
+			"speed": 81.2777777777778
+		},
+		{
+			"body_y": -1.27156853675842,
+			"boost": true,
+			"frame": 30,
+			"gait": 1,
+			"seconds": 1.0,
+			"speed": 249.555555555556
+		},
+		{
+			"body_y": -16.5789585113525,
+			"boost": true,
+			"frame": 45,
+			"gait": 3,
+			"seconds": 1.5,
+			"speed": 429.555555555556
+		},
+		{
+			"body_y": -20.4841804504395,
+			"boost": true,
+			"frame": 60,
+			"gait": 3,
+			"seconds": 2.0,
+			"speed": 480.0
+		},
+		{
+			"body_y": -23.253396987915,
+			"boost": true,
+			"frame": 75,
+			"gait": 3,
+			"seconds": 2.5,
+			"speed": 480.0
+		},
+		{
+			"body_y": -24.1533279418945,
+			"boost": true,
+			"frame": 90,
+			"gait": 3,
+			"seconds": 3.0,
+			"speed": 480.0
+		},
+		{
+			"body_y": -21.6370506286621,
+			"boost": true,
+			"frame": 105,
+			"gait": 3,
+			"seconds": 3.5,
+			"speed": 480.0
+		},
+		{
+			"body_y": -14.6321067810059,
+			"boost": false,
+			"frame": 120,
+			"gait": 2,
+			"seconds": 4.0,
+			"speed": 370.000000000001
+		},
+		{
+			"body_y": -4.81543874740601,
+			"boost": false,
+			"frame": 135,
+			"gait": 1,
+			"seconds": 4.5,
+			"speed": 260.000000000002
+		},
+		{
+			"body_y": -4.40292024612427,
+			"boost": false,
+			"frame": 150,
+			"gait": 1,
+			"seconds": 5.0,
+			"speed": 210.0
+		},
+		{
+			"body_y": 4.00721836090088,
+			"boost": false,
+			"frame": 165,
+			"gait": 1,
+			"seconds": 5.5,
+			"speed": 210.0
+		},
+		{
+			"body_y": -4.30239915847778,
+			"boost": true,
+			"frame": 180,
+			"gait": 2,
+			"seconds": 6.0,
+			"speed": 363.076666666667
+		},
+		{
+			"body_y": -5.11707353591919,
+			"boost": true,
+			"frame": 195,
+			"gait": 3,
+			"seconds": 6.5,
+			"speed": 480.0
+		},
+		{
+			"body_y": -3.0147533416748,
+			"boost": true,
+			"frame": 210,
+			"gait": 3,
+			"seconds": 7.0,
+			"speed": 480.0
+		},
+		{
+			"body_y": -0.0136115550994873,
+			"boost": true,
+			"frame": 225,
+			"gait": 3,
+			"seconds": 7.5,
+			"speed": 480.0
+		},
+		{
+			"body_y": 3.25165390968323,
+			"boost": true,
+			"frame": 240,
+			"gait": 3,
+			"seconds": 8.0,
+			"speed": 480.0
+		},
+		{
+			"body_y": 5.1951003074646,
+			"boost": true,
+			"frame": 255,
+			"gait": 3,
+			"seconds": 8.5,
+			"speed": 480.0
+		},
+		{
+			"body_y": 6.16529273986816,
+			"boost": true,
+			"frame": 270,
+			"gait": 3,
+			"seconds": 9.0,
+			"speed": 480.0
+		},
+		{
+			"body_y": 5.39803838729858,
+			"boost": false,
+			"frame": 285,
+			"gait": 2,
+			"seconds": 9.5,
+			"speed": 370.000000000001
+		},
+		{
+			"body_y": 2.83647012710571,
+			"boost": false,
+			"frame": 300,
+			"gait": 1,
+			"seconds": 10.0,
+			"speed": 260.000000000002
+		},
+		{
+			"body_y": -8.01082324981689,
+			"boost": false,
+			"frame": 315,
+			"gait": 1,
+			"seconds": 10.5,
+			"speed": 210.0
+		},
+		{
+			"body_y": -0.0093991830945015,
+			"boost": false,
+			"frame": 330,
+			"gait": 1,
+			"seconds": 11.0,
+			"speed": 210.0
+		},
+		{
+			"body_y": 2.3635094165802,
+			"boost": false,
+			"frame": 345,
+			"gait": 1,
+			"seconds": 11.5,
+			"speed": 210.0
+		}
+	],
+	"scope": "Godot Movie Maker fixed-30FPS offline rendering, scripted viewport hold/release, QA profile, fixed following camera; not OS input or real-time performance evidence"
+}

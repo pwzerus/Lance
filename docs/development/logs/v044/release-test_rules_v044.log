@@ -1,0 +1,3 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+RULE_TEST_REPORT {"arena_hits":6,"checks":410,"failures":[],"full_health_tracking_balance":"prior 16 seed cases had no KO/death; unresolved gameplay balance, not a mode prohibition","passed":true,"war_death_observed":true,"war_lethal_fixture_start_hp":30}

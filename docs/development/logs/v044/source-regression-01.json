@@ -1,0 +1,38 @@
+[
+  {
+    "test": "test_rules_v044",
+    "exit": 1,
+    "passed": false,
+    "script_error": false
+  },
+  {
+    "test": "test_integration_v044",
+    "exit": 0,
+    "passed": true,
+    "script_error": false
+  },
+  {
+    "test": "test_menu_flow_v044",
+    "exit": 0,
+    "passed": true,
+    "script_error": false
+  },
+  {
+    "test": "test_ai_v044",
+    "exit": 0,
+    "passed": true,
+    "script_error": false
+  },
+  {
+    "test": "test_cue_contacts_v044",
+    "exit": 0,
+    "passed": true,
+    "script_error": false
+  },
+  {
+    "test": "test_shield_sweep_v044",
+    "exit": 0,
+    "passed": true,
+    "script_error": false
+  }
+]

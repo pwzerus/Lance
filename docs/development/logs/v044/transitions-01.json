@@ -1,0 +1,330 @@
+{
+	"failures": [
+		"Planted hoof slid during hold/release transitions",
+		"Gait transitions caused a visible hoof discontinuity"
+	],
+	"passed": false,
+	"rows": [
+		{
+			"contact_samples": 549,
+			"facing": 1,
+			"horse": "horse_bay",
+			"hz": 30,
+			"max_hoof_velocity": 1283.76251220703,
+			"max_support_slide": 0.0078125
+		},
+		{
+			"contact_samples": 532,
+			"facing": -1,
+			"horse": "horse_bay",
+			"hz": 30,
+			"max_hoof_velocity": 3070751.015625,
+			"max_support_slide": 32.0
+		},
+		{
+			"contact_samples": 2205,
+			"facing": 1,
+			"horse": "horse_bay",
+			"hz": 120,
+			"max_hoof_velocity": 1356.58184051514,
+			"max_support_slide": 0.0078125
+		},
+		{
+			"contact_samples": 2120,
+			"facing": -1,
+			"horse": "horse_bay",
+			"hz": 120,
+			"max_hoof_velocity": 12282744.375,
+			"max_support_slide": 8.0
+		},
+		{
+			"contact_samples": 536,
+			"facing": 1,
+			"horse": "horse_grey",
+			"hz": 30,
+			"max_hoof_velocity": 1283.76251220703,
+			"max_support_slide": 0.0078125
+		},
+		{
+			"contact_samples": 522,
+			"facing": -1,
+			"horse": "horse_grey",
+			"hz": 30,
+			"max_hoof_velocity": 3070751.015625,
+			"max_support_slide": 33.9201049804688
+		},
+		{
+			"contact_samples": 2126,
+			"facing": 1,
+			"horse": "horse_grey",
+			"hz": 120,
+			"max_hoof_velocity": 5350.34591674805,
+			"max_support_slide": 0.0078125
+		},
+		{
+			"contact_samples": 2114,
+			"facing": -1,
+			"horse": "horse_grey",
+			"hz": 120,
+			"max_hoof_velocity": 12282744.375,
+			"max_support_slide": 8.4801025390625
+		},
+		{
+			"contact_samples": 588,
+			"facing": 1,
+			"horse": "horse_chestnut",
+			"hz": 30,
+			"max_hoof_velocity": 1283.76251220703,
+			"max_support_slide": 0.0078125
+		},
+		{
+			"contact_samples": 562,
+			"facing": -1,
+			"horse": "horse_chestnut",
+			"hz": 30,
+			"max_hoof_velocity": 3070751.015625,
+			"max_support_slide": 28.800048828125
+		},
+		{
+			"contact_samples": 2366,
+			"facing": 1,
+			"horse": "horse_chestnut",
+			"hz": 120,
+			"max_hoof_velocity": 1416.13368988037,
+			"max_support_slide": 0.0078125
+		},
+		{
+			"contact_samples": 2253,
+			"facing": -1,
+			"horse": "horse_chestnut",
+			"hz": 120,
+			"max_hoof_velocity": 12282744.375,
+			"max_support_slide": 7.2001953125
+		},
+		{
+			"contact_samples": 529,
+			"facing": 1,
+			"horse": "horse_e1",
+			"hz": 30,
+			"max_hoof_velocity": 1283.76251220703,
+			"max_support_slide": 0.0078125
+		},
+		{
+			"contact_samples": 529,
+			"facing": -1,
+			"horse": "horse_e1",
+			"hz": 30,
+			"max_hoof_velocity": 3070751.015625,
+			"max_support_slide": 35.2000732421875
+		},
+		{
+			"contact_samples": 2098,
+			"facing": 1,
+			"horse": "horse_e1",
+			"hz": 120,
+			"max_hoof_velocity": 1387.85694122314,
+			"max_support_slide": 0.0078125
+		},
+		{
+			"contact_samples": 2118,
+			"facing": -1,
+			"horse": "horse_e1",
+			"hz": 120,
+			"max_hoof_velocity": 12282744.375,
+			"max_support_slide": 8.92291259765625
+		},
+		{
+			"contact_samples": 560,
+			"facing": 1,
+			"horse": "horse_e2",
+			"hz": 30,
+			"max_hoof_velocity": 1283.76251220703,
+			"max_support_slide": 0.0078125
+		},
+		{
+			"contact_samples": 550,
+			"facing": -1,
+			"horse": "horse_e2",
+			"hz": 30,
+			"max_hoof_velocity": 3070751.015625,
+			"max_support_slide": 31.0400390625
+		},
+		{
+			"contact_samples": 2205,
+			"facing": 1,
+			"horse": "horse_e2",
+			"hz": 120,
+			"max_hoof_velocity": 1436.42509460449,
+			"max_support_slide": 0.0078125
+		},
+		{
+			"contact_samples": 2179,
+			"facing": -1,
+			"horse": "horse_e2",
+			"hz": 120,
+			"max_hoof_velocity": 12282744.375,
+			"max_support_slide": 7.760009765625
+		},
+		{
+			"contact_samples": 511,
+			"facing": 1,
+			"horse": "horse_e3",
+			"hz": 30,
+			"max_hoof_velocity": 1366.30451202393,
+			"max_support_slide": 0.0078125
+		},
+		{
+			"contact_samples": 504,
+			"facing": -1,
+			"horse": "horse_e3",
+			"hz": 30,
+			"max_hoof_velocity": 3070751.015625,
+			"max_support_slide": 37.760009765625
+		},
+		{
+			"contact_samples": 2041,
+			"facing": 1,
+			"horse": "horse_e3",
+			"hz": 120,
+			"max_hoof_velocity": 1556.08509063721,
+			"max_support_slide": 0.0078125
+		},
+		{
+			"contact_samples": 2058,
+			"facing": -1,
+			"horse": "horse_e3",
+			"hz": 120,
+			"max_hoof_velocity": 12282744.375,
+			"max_support_slide": 9.5355224609375
+		},
+		{
+			"contact_samples": 524,
+			"facing": 1,
+			"horse": "horse_e4",
+			"hz": 30,
+			"max_hoof_velocity": 1283.76251220703,
+			"max_support_slide": 0.0078125
+		},
+		{
+			"contact_samples": 522,
+			"facing": -1,
+			"horse": "horse_e4",
+			"hz": 30,
+			"max_hoof_velocity": 3070751.015625,
+			"max_support_slide": 34.56005859375
+		},
+		{
+			"contact_samples": 2103,
+			"facing": 1,
+			"horse": "horse_e4",
+			"hz": 120,
+			"max_hoof_velocity": 1400.63335418701,
+			"max_support_slide": 0.0078125
+		},
+		{
+			"contact_samples": 2117,
+			"facing": -1,
+			"horse": "horse_e4",
+			"hz": 120,
+			"max_hoof_velocity": 12282744.375,
+			"max_support_slide": 8.64013671875
+		},
+		{
+			"contact_samples": 567,
+			"facing": 1,
+			"horse": "horse_cob",
+			"hz": 30,
+			"max_hoof_velocity": 1490.37128448486,
+			"max_support_slide": 0.0078125
+		},
+		{
+			"contact_samples": 546,
+			"facing": -1,
+			"horse": "horse_cob",
+			"hz": 30,
+			"max_hoof_velocity": 3070751.015625,
+			"max_support_slide": 30.080078125
+		},
+		{
+			"contact_samples": 2269,
+			"facing": 1,
+			"horse": "horse_cob",
+			"hz": 120,
+			"max_hoof_velocity": 5389.98046875,
+			"max_support_slide": 0.0078125
+		},
+		{
+			"contact_samples": 2186,
+			"facing": -1,
+			"horse": "horse_cob",
+			"hz": 120,
+			"max_hoof_velocity": 12282744.375,
+			"max_support_slide": 7.52001953125
+		},
+		{
+			"contact_samples": 500,
+			"facing": 1,
+			"horse": "horse_courser",
+			"hz": 30,
+			"max_hoof_velocity": 1356.11835479736,
+			"max_support_slide": 0.0078125
+		},
+		{
+			"contact_samples": 516,
+			"facing": -1,
+			"horse": "horse_courser",
+			"hz": 30,
+			"max_hoof_velocity": 3070751.015625,
+			"max_support_slide": 39.6801147460938
+		},
+		{
+			"contact_samples": 2014,
+			"facing": 1,
+			"horse": "horse_courser",
+			"hz": 120,
+			"max_hoof_velocity": 1504.9817276001,
+			"max_support_slide": 0.0078125
+		},
+		{
+			"contact_samples": 2016,
+			"facing": -1,
+			"horse": "horse_courser",
+			"hz": 120,
+			"max_hoof_velocity": 12282744.375,
+			"max_support_slide": 9.92010498046875
+		},
+		{
+			"contact_samples": 543,
+			"facing": 1,
+			"horse": "horse_steady",
+			"hz": 30,
+			"max_hoof_velocity": 1283.76251220703,
+			"max_support_slide": 0.0078125
+		},
+		{
+			"contact_samples": 541,
+			"facing": -1,
+			"horse": "horse_steady",
+			"hz": 30,
+			"max_hoof_velocity": 3070751.015625,
+			"max_support_slide": 32.64013671875
+		},
+		{
+			"contact_samples": 2175,
+			"facing": 1,
+			"horse": "horse_steady",
+			"hz": 120,
+			"max_hoof_velocity": 1419.55707550049,
+			"max_support_slide": 0.0078125
+		},
+		{
+			"contact_samples": 2132,
+			"facing": -1,
+			"horse": "horse_steady",
+			"hz": 120,
+			"max_hoof_velocity": 12282744.375,
+			"max_support_slide": 8.16015625
+		}
+	],
+	"scope": "10 horses, both directions, 30/120Hz, repeated acceleration/deceleration, actual RiderView world-planted support and swing; not human quality rating"
+}

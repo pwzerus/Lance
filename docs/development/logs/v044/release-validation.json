@@ -1,0 +1,26 @@
+[
+  {
+    "test": "test_motion_v044",
+    "exit": 0,
+    "passed": true,
+    "script_error": false
+  },
+  {
+    "test": "test_integration_v044",
+    "exit": 0,
+    "passed": true,
+    "script_error": false
+  },
+  {
+    "test": "test_menu_flow_v044",
+    "exit": 0,
+    "passed": true,
+    "script_error": false
+  },
+  {
+    "test": "test_rules_v044",
+    "exit": 0,
+    "passed": true,
+    "script_error": false
+  }
+]

@@ -1,3 +1,7 @@
+# 当前交付：v0.4.4（2026-10-28）
+
+运行代码82b6027；Play-Latest指向独立v0.4.4包。按住催马/松手减速、四档全身步态与解剖持盾手已修；实际EXE四项专项与双模式九图完成。真实桌面和真人待验收；满血追头落马平衡待修。详见[DEV-044交接](handoffs/2026-10-28-DEV-044-Codex.md)。以下旧版本记录保留供追溯。
+
 # 当前实现与接手地图
 
 2026-10-27，DEV-043，当前发布 **v0.4.3-r2**，版本分支 `codex/v0.4`。本轮从 `84de76e` 改进 AI、开始／存档／退出流程、三档防御和枪线／命中提示。运行代码基线 `dad3db7`；后续只有测试、启动器和文档时无须重导。修复和证据见 [V043_REVIEW](../development/V043_REVIEW.md)，交接见 [DEV-043](handoffs/2026-10-27-DEV-043-Codex.md)。用户最新指示与 [DESIGN_DECISIONS](../../DESIGN_DECISIONS.md) 优先。
@@ -93,3 +97,4 @@ v0.4.3-r2 PCK SHA256：`0B6742C495AF7C77D1FB9DC8AF3FAEA188B781547FFAE1FCB6F0217C
 R2补充：鼠标点暂停→Esc恢复后，HUD按钮曾保留焦点，Space会再次暂停。dad3db7仅关闭该战斗按钮的键盘焦点（Esc仍可用），版本标识改r2；空间键恢复后的实际催马回归纳入新包验证。初版与r2包都保留，最终身份见交接回执与V043_VALIDATION。
 
 最终R2源快照2f3a67d、Windows与源码ZIP的CRC及干净导入／暂停加速回归均通过，完整身份为[V043_VALIDATION](../development/V043_VALIDATION.json)。r2-smoke与r2-validation记录实际新包验证；自动截图一次44FPS，不作无截图性能基准。
+

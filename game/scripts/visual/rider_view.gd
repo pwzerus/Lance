@@ -284,7 +284,19 @@ func _draw_horse_upper(part: String, start: Vector2, middle: Vector2, end: Vecto
 			vertices.append(center+Vector2(tangent.y,-tangent.x)*transverse*width/float(HorseArt.WIDTHS[part]))
 			uv.append(pixel/HorseArt.ATLAS.get_size())
 		for triangle in [[0,1,2],[0,2,3]]:
-			draw_polygon(PackedVector2Array([vertices[triangle[0]],vertices[triangle[1]],vertices[triangle[2]]]),PackedColorArray([tint]),PackedVector2Array([uv[triangle[0]],uv[triangle[1]],uv[triangle[2]]]),HorseArt.ATLAS)
+			var points = PackedVector2Array([vertices[triangle[0]],vertices[triangle[1]],vertices[triangle[2]]])
+			# A folded strip can briefly collapse to a line during idle breathing.
+			# It has no visible surface and cannot be triangulated by the renderer.
+			if triangle_has_area(points):
+				draw_polygon(points,PackedColorArray([tint]),PackedVector2Array([uv[triangle[0]],uv[triangle[1]],uv[triangle[2]]]),HorseArt.ATLAS)
+
+static func triangle_has_area(points: PackedVector2Array) -> bool:
+	if points.size()!=3:
+		return false
+	for point in points:
+		if not point.is_finite():
+			return false
+	return absf((points[1]-points[0]).cross(points[2]-points[0]))>.01
 
 func _draw_horse_bone(part: String, start: Vector2, end: Vector2, width: float, tint: Color) -> void:
 	# Map measured joint centers, not the rectangle corners, onto the bones.

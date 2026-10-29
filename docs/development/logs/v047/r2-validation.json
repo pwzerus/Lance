@@ -1,0 +1,14 @@
+[
+  {
+    "test": "test_hud_edges_v047",
+    "exit": 0
+  },
+  {
+    "test": "test_motion_v046",
+    "exit": 0
+  },
+  {
+    "test": "test_integration_v045",
+    "exit": 0
+  }
+]

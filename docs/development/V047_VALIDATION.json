@@ -1,0 +1,50 @@
+{
+  "task": "DEV-047",
+  "version": "0.4.7-r3",
+  "branch": "codex/v0.4",
+  "baseline": "fe94f9bd393ccda31226c3ee46fa5ab501892feb",
+  "runtime_commit": "658b4c98bfec80efacf4ebf9b2a3faf26ca4dcbc",
+  "pck_sha256": "7124E158627F5B9D69E557F36811CBF8CA31739776677F7645E106335FC81F38",
+  "windows_zip_sha256": "4DE04903758B3DDC992F1C557198DB54EC31EA76E4FBF5B006D39AF770DC7D21",
+  "release_tests": [
+    {
+      "test": "test_idle_mesh_v047",
+      "exit": 0
+    },
+    {
+      "test": "test_arms_v047",
+      "exit": 0
+    },
+    {
+      "test": "test_hud_edges_v047",
+      "exit": 0
+    },
+    {
+      "test": "full_smoke",
+      "exit": 0
+    }
+  ],
+  "os_scope": [
+    "v047: menu, practice, guard key and button, pause, restart, three-pass result, return, exit",
+    "r2: side-letterbox short clicks, normal exit",
+    "r3 ZIP extraction: menu rendering and normal exit"
+  ],
+  "not_verified": [
+    "OS sustained mouse hold",
+    "new human player approval",
+    "other hardware/DPI",
+    "phone touch"
+  ],
+  "deferred": [
+    "horse body-leg art seams",
+    "charge approach impact tension",
+    "body and shield recoil animation"
+  ],
+  "isolated_save": "qa_test / qa_smoke / qa_desktop_v047",
+  "failure_records": [
+    "arms-01: unjustified elbow-speed test threshold corrected",
+    "hud-edges01: engine letterbox input reproduced and fixed",
+    "desktop-01: external QA wait coroutine exit warning; desktop02/03 clean exit",
+    "desktop-02: one old horse mesh triangulation error; finite-area guard and final rendered sweep clean"
+  ]
+}

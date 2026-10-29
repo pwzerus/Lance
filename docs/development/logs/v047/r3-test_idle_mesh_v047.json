@@ -1,0 +1,36 @@
+{
+	"diagnostic_neighborhood": [
+		3.5499,
+		3.54999,
+		3.549999698556,
+		3.55001,
+		3.5501
+	],
+	"drawn_frames": 635,
+	"engine_error_log_review_required": true,
+	"failures": [],
+	"passed": true,
+	"phase_end": 6.28318530717959,
+	"phase_start": 0.0,
+	"phase_step": 0.01,
+	"project_version": "0.4.7",
+	"rendered_phase_samples": 635,
+	"scope": "Production home-menu Rider preview, fixed idle phases through a complete cycle plus the near-degenerate foreleg neighborhood, actual rendered frames. Helper accepts both triangle windings and rejects collinear/non-finite/near-zero triangles. Passed here means the helper and sweep completed; caller must separately inspect renderer ERROR logs. No OS input or human visual-quality claim.",
+	"screenshots": [
+		{
+			"error": 0,
+			"path": "E:/GALUMU/docs/development/screenshots/v047/r3-test_idle_mesh_v047/menu_idle_start.png",
+			"phase": 0.0
+		},
+		{
+			"error": 0,
+			"path": "E:/GALUMU/docs/development/screenshots/v047/r3-test_idle_mesh_v047/menu_idle_phase_3p55.png",
+			"phase": 3.549999698556
+		},
+		{
+			"error": 0,
+			"path": "E:/GALUMU/docs/development/screenshots/v047/r3-test_idle_mesh_v047/menu_idle_full_cycle.png",
+			"phase": 6.28318530717959
+		}
+	]
+}

@@ -1,0 +1,461 @@
+{
+	"examples": [
+		{
+			"context": {
+				"facing": 1,
+				"hz": 30,
+				"joint": "left_elbow",
+				"seconds": 0.2,
+				"step": 20.8320770263672
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 30,
+				"joint": "left_elbow",
+				"seconds": 0.233333333333333,
+				"step": 20.1664752960205
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 30,
+				"joint": "left_elbow",
+				"seconds": 0.866666666666667,
+				"step": 21.098783493042
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 30,
+				"joint": "left_elbow",
+				"seconds": 2.33333333333333,
+				"step": 21.3352546691895
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 30,
+				"joint": "left_elbow",
+				"seconds": 3.86666666666667,
+				"step": 21.1021785736084
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 30,
+				"joint": "left_elbow",
+				"seconds": 5.33333333333333,
+				"step": 21.331844329834
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 60,
+				"joint": "left_elbow",
+				"seconds": 0.216666666666667,
+				"step": 10.9423198699951
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 60,
+				"joint": "left_elbow",
+				"seconds": 0.233333333333333,
+				"step": 10.6876554489136
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 60,
+				"joint": "left_elbow",
+				"seconds": 0.85,
+				"step": 10.2902135848999
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 60,
+				"joint": "left_elbow",
+				"seconds": 0.866666666666667,
+				"step": 10.968786239624
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 60,
+				"joint": "left_elbow",
+				"seconds": 0.883333333333333,
+				"step": 10.5799217224121
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 60,
+				"joint": "left_elbow",
+				"seconds": 2.3,
+				"step": 10.319242477417
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 60,
+				"joint": "left_elbow",
+				"seconds": 2.31666666666667,
+				"step": 10.9964237213135
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 60,
+				"joint": "left_elbow",
+				"seconds": 2.33333333333333,
+				"step": 10.4993076324463
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 60,
+				"joint": "left_elbow",
+				"seconds": 3.85,
+				"step": 10.2812385559082
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 60,
+				"joint": "left_elbow",
+				"seconds": 3.86666666666667,
+				"step": 10.9731416702271
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 60,
+				"joint": "left_elbow",
+				"seconds": 3.88333333333333,
+				"step": 10.5760221481323
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 60,
+				"joint": "left_elbow",
+				"seconds": 5.3,
+				"step": 10.3153209686279
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 60,
+				"joint": "left_elbow",
+				"seconds": 5.31666666666667,
+				"step": 10.9964933395386
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 60,
+				"joint": "left_elbow",
+				"seconds": 5.33333333333333,
+				"step": 10.5068588256836
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 120,
+				"joint": "left_elbow",
+				"seconds": 0.208333333333333,
+				"step": 5.20603704452515
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 120,
+				"joint": "left_elbow",
+				"seconds": 0.216666666666667,
+				"step": 5.45187902450562
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 120,
+				"joint": "left_elbow",
+				"seconds": 0.225,
+				"step": 5.5237340927124
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 120,
+				"joint": "left_elbow",
+				"seconds": 0.233333333333333,
+				"step": 5.45354604721069
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 120,
+				"joint": "left_elbow",
+				"seconds": 0.241666666666667,
+				"step": 5.25317478179932
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 120,
+				"joint": "left_elbow",
+				"seconds": 0.858333333333333,
+				"step": 5.28713512420654
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 120,
+				"joint": "left_elbow",
+				"seconds": 0.866666666666667,
+				"step": 5.47589111328125
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 120,
+				"joint": "left_elbow",
+				"seconds": 0.875,
+				"step": 5.52608108520508
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 120,
+				"joint": "left_elbow",
+				"seconds": 0.883333333333333,
+				"step": 5.415855884552
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 120,
+				"joint": "left_elbow",
+				"seconds": 0.891666666666667,
+				"step": 5.16321611404419
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 120,
+				"joint": "left_elbow",
+				"seconds": 2.30833333333333,
+				"step": 5.33259296417236
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 120,
+				"joint": "left_elbow",
+				"seconds": 2.31666666666667,
+				"step": 5.49894189834595
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 120,
+				"joint": "left_elbow",
+				"seconds": 2.325,
+				"step": 5.51523923873901
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 120,
+				"joint": "left_elbow",
+				"seconds": 2.33333333333333,
+				"step": 5.37591886520386
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 120,
+				"joint": "left_elbow",
+				"seconds": 2.34166666666667,
+				"step": 5.14222145080566
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		},
+		{
+			"context": {
+				"facing": 1,
+				"hz": 120,
+				"joint": "left_elbow",
+				"seconds": 3.85833333333333,
+				"step": 5.28603076934814
+			},
+			"issue": "Arm joint changes continuously without an IK elbow-branch flip"
+		}
+	],
+	"failures": [
+		"Arm joint changes continuously without an IK elbow-branch flip"
+	],
+	"grid_poses": 7920,
+	"passed": false,
+	"project_version": "0.4.6-r3",
+	"rows": [
+		{
+			"far": {
+				"aim_delta": 0.0183333333333333,
+				"facing": 1,
+				"gap": 4000.0,
+				"guard_delta": 0.0233333333333333,
+				"lean_delta": 0.000416666666666667
+			},
+			"kind": "first_control_tick",
+			"near": {
+				"aim_delta": 0.00791666666666668,
+				"facing": 1,
+				"gap": 800.0,
+				"guard_delta": 0.0233333333333333,
+				"lean_delta": 0.000416666666666667
+			}
+		},
+		{
+			"facing": 1,
+			"kind": "shield_travel",
+			"lowering_seconds": 0.358333333333334,
+			"raising_seconds": 0.358333333333334
+		},
+		{
+			"far": {
+				"aim_delta": 0.0183333333333333,
+				"facing": -1,
+				"gap": 4000.0,
+				"guard_delta": 0.0233333333333333,
+				"lean_delta": 0.000416666666666667
+			},
+			"kind": "first_control_tick",
+			"near": {
+				"aim_delta": 0.00791666666666668,
+				"facing": -1,
+				"gap": 800.0,
+				"guard_delta": 0.0233333333333333,
+				"lean_delta": 0.000416666666666667
+			}
+		},
+		{
+			"facing": -1,
+			"kind": "shield_travel",
+			"lowering_seconds": 0.358333333333334,
+			"raising_seconds": 0.358333333333334
+		},
+		{
+			"facing": 1,
+			"hz": 30,
+			"kind": "dynamic_arm_motion",
+			"max_local_joint_step": 21.3352546691895,
+			"seconds": 6
+		},
+		{
+			"facing": 1,
+			"hz": 60,
+			"kind": "dynamic_arm_motion",
+			"max_local_joint_step": 10.9964933395386,
+			"seconds": 6
+		},
+		{
+			"facing": 1,
+			"hz": 120,
+			"kind": "dynamic_arm_motion",
+			"max_local_joint_step": 5.52608108520508,
+			"seconds": 6
+		},
+		{
+			"facing": -1,
+			"hz": 30,
+			"kind": "dynamic_arm_motion",
+			"max_local_joint_step": 10.4125366210938,
+			"seconds": 6
+		},
+		{
+			"facing": -1,
+			"hz": 60,
+			"kind": "dynamic_arm_motion",
+			"max_local_joint_step": 5.21758413314819,
+			"seconds": 6
+		},
+		{
+			"facing": -1,
+			"hz": 120,
+			"kind": "dynamic_arm_motion",
+			"max_local_joint_step": 2.61066818237305,
+			"seconds": 6
+		}
+	],
+	"scope": "Shared arm drawing anchors, both anatomical sides/facings, lean/guard/aim/gait extremes; actual limited controls and dynamic joint continuity at 30/60/120Hz. Optional real rendering previews. No OS input, no human anatomy/art approval or fun claim."
+}

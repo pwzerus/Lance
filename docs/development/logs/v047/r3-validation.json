@@ -1,0 +1,18 @@
+[
+  {
+    "test": "test_idle_mesh_v047",
+    "exit": 0
+  },
+  {
+    "test": "test_arms_v047",
+    "exit": 0
+  },
+  {
+    "test": "test_hud_edges_v047",
+    "exit": 0
+  },
+  {
+    "test": "full_smoke",
+    "exit": 0
+  }
+]

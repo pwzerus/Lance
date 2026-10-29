@@ -1,0 +1,1482 @@
+{
+	"edges": [
+		{
+			"actual_window": [
+				960,
+				540
+			],
+			"expected_content_rect": [
+				0.0,
+				0.0,
+				960.0,
+				540.0
+			],
+			"guard_button_physical_height": 29.3333333333333,
+			"logical_viewport": [
+				1440.0,
+				810.0
+			],
+			"minimum_hint_font_physical_px": 9.33333333333333,
+			"physical_scale": 0.666666666666667,
+			"probes": [
+				{
+					"aim_after": 0.0260271429343987,
+					"aim_before": -0.08,
+					"battle_aim_pointer_matches_observed_event": true,
+					"battle_urged_during_press": true,
+					"delivered_logical_point": [
+						719.999938964844,
+						404.999969482422
+					],
+					"embedder_mapping_matches_content_math": true,
+					"expected_content_logical_point": [
+						720.0,
+						405.0
+					],
+					"expected_letterbox": false,
+					"observer_received_mouse_event": true,
+					"physical_embedder_point": [
+						480.0,
+						270.0
+					],
+					"source": "engine_embedder_injection_not_OS",
+					"tag": "content_center"
+				}
+			],
+			"requested_window": [
+				960,
+				540
+			]
+		},
+		{
+			"actual_window": [
+				1024,
+				768
+			],
+			"expected_content_rect": [
+				0.0,
+				96.0,
+				1024.0,
+				576.0
+			],
+			"guard_button_physical_height": 31.2888888888889,
+			"logical_viewport": [
+				1440.0,
+				810.0
+			],
+			"minimum_hint_font_physical_px": 9.95555555555556,
+			"physical_scale": 0.711111111111111,
+			"probes": [
+				{
+					"aim_after": 0.0260272665292068,
+					"aim_before": -0.08,
+					"battle_aim_pointer_matches_observed_event": true,
+					"battle_urged_during_press": true,
+					"delivered_logical_point": [
+						720.0,
+						405.0
+					],
+					"embedder_mapping_matches_content_math": true,
+					"expected_content_logical_point": [
+						720.0,
+						405.0
+					],
+					"expected_letterbox": false,
+					"observer_received_mouse_event": true,
+					"physical_embedder_point": [
+						512.0,
+						384.0
+					],
+					"source": "engine_embedder_injection_not_OS",
+					"tag": "content_center"
+				},
+				{
+					"aim_after": 0.0260272665292068,
+					"aim_before": 0.0260272665292068,
+					"battle_aim_pointer_matches_observed_event": true,
+					"battle_urged_during_press": false,
+					"delivered_logical_point": [
+						720.0,
+						-67.5
+					],
+					"embedder_mapping_matches_content_math": true,
+					"expected_content_logical_point": [
+						720.0,
+						-67.5
+					],
+					"expected_letterbox": true,
+					"observer_received_mouse_event": true,
+					"physical_embedder_point": [
+						512.0,
+						48.0
+					],
+					"source": "engine_embedder_injection_not_OS",
+					"tag": "top_letterbox"
+				}
+			],
+			"requested_window": [
+				1024,
+				768
+			]
+		},
+		{
+			"actual_window": [
+				1920,
+				800
+			],
+			"expected_content_rect": [
+				248.888854980469,
+				0.0,
+				1422.22229003906,
+				800.0
+			],
+			"guard_button_physical_height": 43.4567901234568,
+			"logical_viewport": [
+				1440.0,
+				810.0
+			],
+			"minimum_hint_font_physical_px": 13.8271604938272,
+			"physical_scale": 0.987654320987654,
+			"probes": [
+				{
+					"aim_after": 0.0260272665292068,
+					"aim_before": -0.08,
+					"battle_aim_pointer_matches_observed_event": true,
+					"battle_urged_during_press": true,
+					"delivered_logical_point": [
+						720.0,
+						405.000030517578
+					],
+					"embedder_mapping_matches_content_math": true,
+					"expected_content_logical_point": [
+						720.0,
+						405.0
+					],
+					"expected_letterbox": false,
+					"observer_received_mouse_event": true,
+					"physical_embedder_point": [
+						960.0,
+						400.0
+					],
+					"source": "engine_embedder_injection_not_OS",
+					"tag": "content_center"
+				},
+				{
+					"aim_after": 0.0260272665292068,
+					"aim_before": 0.0260272665292068,
+					"battle_aim_pointer_matches_observed_event": true,
+					"battle_urged_during_press": false,
+					"delivered_logical_point": [
+						-126.132225036621,
+						405.000030517578
+					],
+					"embedder_mapping_matches_content_math": true,
+					"expected_content_logical_point": [
+						-125.999984741211,
+						405.0
+					],
+					"expected_letterbox": true,
+					"observer_received_mouse_event": true,
+					"physical_embedder_point": [
+						124.444427490234,
+						400.0
+					],
+					"source": "engine_embedder_injection_not_OS",
+					"tag": "left_letterbox"
+				},
+				{
+					"aim_after": 0.0260272665292068,
+					"aim_before": 0.0260272665292068,
+					"battle_aim_pointer_matches_observed_event": true,
+					"battle_urged_during_press": false,
+					"delivered_logical_point": [
+						1566.13220214844,
+						405.000030517578
+					],
+					"embedder_mapping_matches_content_math": true,
+					"expected_content_logical_point": [
+						1566.00012207031,
+						405.0
+					],
+					"expected_letterbox": true,
+					"observer_received_mouse_event": true,
+					"physical_embedder_point": [
+						1795.55554199219,
+						400.0
+					],
+					"source": "engine_embedder_injection_not_OS",
+					"tag": "right_letterbox"
+				}
+			],
+			"requested_window": [
+				1920,
+				800
+			]
+		}
+	],
+	"failures": [],
+	"input_events": [
+		{
+			"device": 0,
+			"global_position": [
+				719.999938964844,
+				404.999969482422
+			],
+			"logical_position": [
+				719.999938964844,
+				404.999969482422
+			],
+			"mouse_held_before_dispatch": false,
+			"pointer_before_dispatch": -0.08,
+			"screen_cursor_poll": [
+				598,
+				807
+			],
+			"source": "engine_embedder_injection",
+			"tag": "content_center",
+			"type": "InputEventMouseMotion",
+			"wall_msec": 4969,
+			"window_client_origin": [
+				320,
+				210
+			],
+			"window_size": [
+				960,
+				540
+			]
+		},
+		{
+			"device": 0,
+			"global_position": [
+				719.999938964844,
+				404.999969482422
+			],
+			"logical_position": [
+				719.999938964844,
+				404.999969482422
+			],
+			"mouse_held_before_dispatch": false,
+			"pointer_before_dispatch": 0.0260271429343987,
+			"screen_cursor_poll": [
+				598,
+				807
+			],
+			"source": "engine_embedder_injection",
+			"tag": "content_center",
+			"type": "InputEventMouseButton",
+			"wall_msec": 4969,
+			"window_client_origin": [
+				320,
+				210
+			],
+			"window_size": [
+				960,
+				540
+			]
+		},
+		{
+			"device": 0,
+			"global_position": [
+				719.999938964844,
+				404.999969482422
+			],
+			"logical_position": [
+				719.999938964844,
+				404.999969482422
+			],
+			"mouse_held_before_dispatch": true,
+			"pointer_before_dispatch": 0.0260271429343987,
+			"screen_cursor_poll": [
+				598,
+				807
+			],
+			"source": "engine_embedder_injection",
+			"tag": "content_center",
+			"type": "InputEventMouseButton",
+			"wall_msec": 4970,
+			"window_client_origin": [
+				320,
+				210
+			],
+			"window_size": [
+				960,
+				540
+			]
+		},
+		{
+			"device": 0,
+			"global_position": [
+				720.0,
+				405.0
+			],
+			"logical_position": [
+				720.0,
+				405.0
+			],
+			"mouse_held_before_dispatch": false,
+			"pointer_before_dispatch": -0.08,
+			"screen_cursor_poll": [
+				598,
+				807
+			],
+			"source": "engine_embedder_injection",
+			"tag": "content_center",
+			"type": "InputEventMouseMotion",
+			"wall_msec": 5589,
+			"window_client_origin": [
+				320,
+				210
+			],
+			"window_size": [
+				1024,
+				768
+			]
+		},
+		{
+			"device": 0,
+			"global_position": [
+				720.0,
+				405.0
+			],
+			"logical_position": [
+				720.0,
+				405.0
+			],
+			"mouse_held_before_dispatch": false,
+			"pointer_before_dispatch": 0.0260272665292068,
+			"screen_cursor_poll": [
+				598,
+				807
+			],
+			"source": "engine_embedder_injection",
+			"tag": "content_center",
+			"type": "InputEventMouseButton",
+			"wall_msec": 5589,
+			"window_client_origin": [
+				320,
+				210
+			],
+			"window_size": [
+				1024,
+				768
+			]
+		},
+		{
+			"device": 0,
+			"global_position": [
+				720.0,
+				405.0
+			],
+			"logical_position": [
+				720.0,
+				405.0
+			],
+			"mouse_held_before_dispatch": true,
+			"pointer_before_dispatch": 0.0260272665292068,
+			"screen_cursor_poll": [
+				598,
+				807
+			],
+			"source": "engine_embedder_injection",
+			"tag": "content_center",
+			"type": "InputEventMouseButton",
+			"wall_msec": 5589,
+			"window_client_origin": [
+				320,
+				210
+			],
+			"window_size": [
+				1024,
+				768
+			]
+		},
+		{
+			"device": 0,
+			"global_position": [
+				720.0,
+				-67.5
+			],
+			"logical_position": [
+				720.0,
+				-67.5
+			],
+			"mouse_held_before_dispatch": false,
+			"pointer_before_dispatch": 0.0260272665292068,
+			"screen_cursor_poll": [
+				598,
+				807
+			],
+			"source": "engine_embedder_injection",
+			"tag": "top_letterbox",
+			"type": "InputEventMouseMotion",
+			"wall_msec": 5590,
+			"window_client_origin": [
+				320,
+				210
+			],
+			"window_size": [
+				1024,
+				768
+			]
+		},
+		{
+			"device": 0,
+			"global_position": [
+				720.0,
+				-67.5
+			],
+			"logical_position": [
+				720.0,
+				-67.5
+			],
+			"mouse_held_before_dispatch": false,
+			"pointer_before_dispatch": 0.0260272665292068,
+			"screen_cursor_poll": [
+				598,
+				807
+			],
+			"source": "engine_embedder_injection",
+			"tag": "top_letterbox",
+			"type": "InputEventMouseButton",
+			"wall_msec": 5590,
+			"window_client_origin": [
+				320,
+				210
+			],
+			"window_size": [
+				1024,
+				768
+			]
+		},
+		{
+			"device": 0,
+			"global_position": [
+				720.0,
+				-67.5
+			],
+			"logical_position": [
+				720.0,
+				-67.5
+			],
+			"mouse_held_before_dispatch": false,
+			"pointer_before_dispatch": 0.0260272665292068,
+			"screen_cursor_poll": [
+				598,
+				807
+			],
+			"source": "engine_embedder_injection",
+			"tag": "top_letterbox",
+			"type": "InputEventMouseButton",
+			"wall_msec": 5590,
+			"window_client_origin": [
+				320,
+				210
+			],
+			"window_size": [
+				1024,
+				768
+			]
+		},
+		{
+			"device": 0,
+			"global_position": [
+				720.0,
+				405.000030517578
+			],
+			"logical_position": [
+				720.0,
+				405.000030517578
+			],
+			"mouse_held_before_dispatch": false,
+			"pointer_before_dispatch": -0.08,
+			"screen_cursor_poll": [
+				598,
+				807
+			],
+			"source": "engine_embedder_injection",
+			"tag": "content_center",
+			"type": "InputEventMouseMotion",
+			"wall_msec": 6325,
+			"window_client_origin": [
+				320,
+				210
+			],
+			"window_size": [
+				1920,
+				800
+			]
+		},
+		{
+			"device": 0,
+			"global_position": [
+				720.0,
+				405.000030517578
+			],
+			"logical_position": [
+				720.0,
+				405.000030517578
+			],
+			"mouse_held_before_dispatch": false,
+			"pointer_before_dispatch": 0.0260272665292068,
+			"screen_cursor_poll": [
+				598,
+				807
+			],
+			"source": "engine_embedder_injection",
+			"tag": "content_center",
+			"type": "InputEventMouseButton",
+			"wall_msec": 6325,
+			"window_client_origin": [
+				320,
+				210
+			],
+			"window_size": [
+				1920,
+				800
+			]
+		},
+		{
+			"device": 0,
+			"global_position": [
+				720.0,
+				405.000030517578
+			],
+			"logical_position": [
+				720.0,
+				405.000030517578
+			],
+			"mouse_held_before_dispatch": true,
+			"pointer_before_dispatch": 0.0260272665292068,
+			"screen_cursor_poll": [
+				598,
+				807
+			],
+			"source": "engine_embedder_injection",
+			"tag": "content_center",
+			"type": "InputEventMouseButton",
+			"wall_msec": 6326,
+			"window_client_origin": [
+				320,
+				210
+			],
+			"window_size": [
+				1920,
+				800
+			]
+		},
+		{
+			"device": 0,
+			"global_position": [
+				-126.132225036621,
+				405.000030517578
+			],
+			"logical_position": [
+				-126.132225036621,
+				405.000030517578
+			],
+			"mouse_held_before_dispatch": false,
+			"pointer_before_dispatch": 0.0260272665292068,
+			"screen_cursor_poll": [
+				598,
+				807
+			],
+			"source": "engine_embedder_injection",
+			"tag": "left_letterbox",
+			"type": "InputEventMouseMotion",
+			"wall_msec": 6326,
+			"window_client_origin": [
+				320,
+				210
+			],
+			"window_size": [
+				1920,
+				800
+			]
+		},
+		{
+			"device": 0,
+			"global_position": [
+				-126.132225036621,
+				405.000030517578
+			],
+			"logical_position": [
+				-126.132225036621,
+				405.000030517578
+			],
+			"mouse_held_before_dispatch": false,
+			"pointer_before_dispatch": 0.0260272665292068,
+			"screen_cursor_poll": [
+				598,
+				807
+			],
+			"source": "engine_embedder_injection",
+			"tag": "left_letterbox",
+			"type": "InputEventMouseButton",
+			"wall_msec": 6326,
+			"window_client_origin": [
+				320,
+				210
+			],
+			"window_size": [
+				1920,
+				800
+			]
+		},
+		{
+			"device": 0,
+			"global_position": [
+				-126.132225036621,
+				405.000030517578
+			],
+			"logical_position": [
+				-126.132225036621,
+				405.000030517578
+			],
+			"mouse_held_before_dispatch": false,
+			"pointer_before_dispatch": 0.0260272665292068,
+			"screen_cursor_poll": [
+				598,
+				807
+			],
+			"source": "engine_embedder_injection",
+			"tag": "left_letterbox",
+			"type": "InputEventMouseButton",
+			"wall_msec": 6327,
+			"window_client_origin": [
+				320,
+				210
+			],
+			"window_size": [
+				1920,
+				800
+			]
+		},
+		{
+			"device": 0,
+			"global_position": [
+				1566.13220214844,
+				405.000030517578
+			],
+			"logical_position": [
+				1566.13220214844,
+				405.000030517578
+			],
+			"mouse_held_before_dispatch": false,
+			"pointer_before_dispatch": 0.0260272665292068,
+			"screen_cursor_poll": [
+				598,
+				807
+			],
+			"source": "engine_embedder_injection",
+			"tag": "right_letterbox",
+			"type": "InputEventMouseMotion",
+			"wall_msec": 6328,
+			"window_client_origin": [
+				320,
+				210
+			],
+			"window_size": [
+				1920,
+				800
+			]
+		},
+		{
+			"device": 0,
+			"global_position": [
+				1566.13220214844,
+				405.000030517578
+			],
+			"logical_position": [
+				1566.13220214844,
+				405.000030517578
+			],
+			"mouse_held_before_dispatch": false,
+			"pointer_before_dispatch": 0.0260272665292068,
+			"screen_cursor_poll": [
+				598,
+				807
+			],
+			"source": "engine_embedder_injection",
+			"tag": "right_letterbox",
+			"type": "InputEventMouseButton",
+			"wall_msec": 6328,
+			"window_client_origin": [
+				320,
+				210
+			],
+			"window_size": [
+				1920,
+				800
+			]
+		},
+		{
+			"device": 0,
+			"global_position": [
+				1566.13220214844,
+				405.000030517578
+			],
+			"logical_position": [
+				1566.13220214844,
+				405.000030517578
+			],
+			"mouse_held_before_dispatch": false,
+			"pointer_before_dispatch": 0.0260272665292068,
+			"screen_cursor_poll": [
+				598,
+				807
+			],
+			"source": "engine_embedder_injection",
+			"tag": "right_letterbox",
+			"type": "InputEventMouseButton",
+			"wall_msec": 6329,
+			"window_client_origin": [
+				320,
+				210
+			],
+			"window_size": [
+				1920,
+				800
+			]
+		}
+	],
+	"layout": [
+		{
+			"camera_y": 463.977386474609,
+			"figures": [
+				[
+					212.181945800781,
+					271.054595947266,
+					597.223754882813,
+					422.945343017578
+				],
+				[
+					626.988525390625,
+					193.172821044922,
+					600.82958984375,
+					423.445343017578
+				]
+			],
+			"hud": [
+				{
+					"node": "@Panel@51",
+					"rect": [
+						0.0,
+						0.0,
+						1440.0,
+						58.0
+					],
+					"type": "Panel"
+				},
+				{
+					"node": "@Label@52",
+					"rect": [
+						20.0,
+						12.0,
+						175.0,
+						33.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Label@53",
+					"rect": [
+						290.0,
+						17.0,
+						127.0,
+						25.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Label@54",
+					"rect": [
+						1065.0,
+						16.0,
+						120.0,
+						30.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Button@55",
+					"rect": [
+						1275.0,
+						8.0,
+						145.0,
+						42.0
+					],
+					"type": "Button"
+				},
+				{
+					"node": "@Panel@56",
+					"rect": [
+						0.0,
+						58.0,
+						1440.0,
+						40.0
+					],
+					"type": "Panel"
+				},
+				{
+					"node": "@Label@57",
+					"rect": [
+						18.0,
+						66.0,
+						895.0,
+						24.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Label@58",
+					"rect": [
+						930.0,
+						66.0,
+						490.0,
+						24.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Panel@64",
+					"rect": [
+						0.0,
+						98.0,
+						1440.0,
+						46.0
+					],
+					"type": "Panel"
+				},
+				{
+					"node": "@Label@65",
+					"rect": [
+						18.0,
+						108.0,
+						690.0,
+						27.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Label@66",
+					"rect": [
+						735.0,
+						108.0,
+						685.0,
+						27.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Panel@67",
+					"rect": [
+						0.0,
+						720.0,
+						1440.0,
+						90.0
+					],
+					"type": "Panel"
+				},
+				{
+					"node": "@Label@68",
+					"rect": [
+						18.0,
+						727.0,
+						158.0,
+						22.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Button@69",
+					"rect": [
+						18.0,
+						752.0,
+						110.0,
+						44.0
+					],
+					"type": "Button"
+				},
+				{
+					"node": "@Button@70",
+					"rect": [
+						136.0,
+						752.0,
+						110.0,
+						53.0
+					],
+					"type": "Button"
+				},
+				{
+					"node": "@Button@71",
+					"rect": [
+						254.0,
+						752.0,
+						110.0,
+						44.0
+					],
+					"type": "Button"
+				},
+				{
+					"node": "@Panel@72",
+					"rect": [
+						390.0,
+						728.0,
+						510.0,
+						72.0
+					],
+					"type": "Panel"
+				},
+				{
+					"node": "@Label@73",
+					"rect": [
+						402.0,
+						734.0,
+						486.0,
+						27.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Label@74",
+					"rect": [
+						402.0,
+						765.0,
+						486.0,
+						22.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Label@76",
+					"rect": [
+						950.0,
+						768.0,
+						470.0,
+						22.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@ProgressBar@75",
+					"rect": [
+						950.0,
+						742.0,
+						470.0,
+						27.0
+					],
+					"type": "ProgressBar"
+				}
+			],
+			"name": "960x540_close_high_shields",
+			"safe": [
+				16.0,
+				154.0,
+				1408.0,
+				548.0
+			],
+			"viewport": [
+				1440.0,
+				810.0
+			],
+			"window": [
+				960,
+				540
+			],
+			"zoom": 1.20909059047699
+		},
+		{
+			"camera_y": 463.977386474609,
+			"figures": [
+				[
+					212.181945800781,
+					271.054595947266,
+					597.223754882813,
+					422.945343017578
+				],
+				[
+					626.988525390625,
+					193.172821044922,
+					600.82958984375,
+					423.445343017578
+				]
+			],
+			"hud": [
+				{
+					"node": "@Panel@102",
+					"rect": [
+						0.0,
+						0.0,
+						1440.0,
+						58.0
+					],
+					"type": "Panel"
+				},
+				{
+					"node": "@Label@103",
+					"rect": [
+						20.0,
+						12.0,
+						175.0,
+						33.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Label@104",
+					"rect": [
+						290.0,
+						17.0,
+						127.0,
+						25.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Label@105",
+					"rect": [
+						1065.0,
+						16.0,
+						120.0,
+						30.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Button@106",
+					"rect": [
+						1275.0,
+						8.0,
+						145.0,
+						42.0
+					],
+					"type": "Button"
+				},
+				{
+					"node": "@Panel@107",
+					"rect": [
+						0.0,
+						58.0,
+						1440.0,
+						40.0
+					],
+					"type": "Panel"
+				},
+				{
+					"node": "@Label@108",
+					"rect": [
+						18.0,
+						66.0,
+						895.0,
+						24.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Label@109",
+					"rect": [
+						930.0,
+						66.0,
+						490.0,
+						24.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Panel@115",
+					"rect": [
+						0.0,
+						98.0,
+						1440.0,
+						46.0
+					],
+					"type": "Panel"
+				},
+				{
+					"node": "@Label@116",
+					"rect": [
+						18.0,
+						108.0,
+						690.0,
+						27.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Label@117",
+					"rect": [
+						735.0,
+						108.0,
+						685.0,
+						27.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Panel@118",
+					"rect": [
+						0.0,
+						720.0,
+						1440.0,
+						90.0
+					],
+					"type": "Panel"
+				},
+				{
+					"node": "@Label@119",
+					"rect": [
+						18.0,
+						727.0,
+						158.0,
+						22.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Button@120",
+					"rect": [
+						18.0,
+						752.0,
+						110.0,
+						44.0
+					],
+					"type": "Button"
+				},
+				{
+					"node": "@Button@121",
+					"rect": [
+						136.0,
+						752.0,
+						110.0,
+						53.0
+					],
+					"type": "Button"
+				},
+				{
+					"node": "@Button@122",
+					"rect": [
+						254.0,
+						752.0,
+						110.0,
+						44.0
+					],
+					"type": "Button"
+				},
+				{
+					"node": "@Panel@123",
+					"rect": [
+						390.0,
+						728.0,
+						510.0,
+						72.0
+					],
+					"type": "Panel"
+				},
+				{
+					"node": "@Label@124",
+					"rect": [
+						402.0,
+						734.0,
+						486.0,
+						27.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Label@125",
+					"rect": [
+						402.0,
+						765.0,
+						486.0,
+						22.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Label@127",
+					"rect": [
+						950.0,
+						768.0,
+						470.0,
+						22.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@ProgressBar@126",
+					"rect": [
+						950.0,
+						742.0,
+						470.0,
+						27.0
+					],
+					"type": "ProgressBar"
+				}
+			],
+			"name": "1024x768_close_high_shields",
+			"safe": [
+				16.0,
+				154.0,
+				1408.0,
+				548.0
+			],
+			"viewport": [
+				1440.0,
+				810.0
+			],
+			"window": [
+				1024,
+				768
+			],
+			"zoom": 1.20909059047699
+		},
+		{
+			"camera_y": 463.977386474609,
+			"figures": [
+				[
+					212.181945800781,
+					271.054595947266,
+					597.223754882813,
+					422.945343017578
+				],
+				[
+					626.988525390625,
+					193.172821044922,
+					600.82958984375,
+					423.445343017578
+				]
+			],
+			"hud": [
+				{
+					"node": "@Panel@153",
+					"rect": [
+						0.0,
+						0.0,
+						1440.0,
+						58.0
+					],
+					"type": "Panel"
+				},
+				{
+					"node": "@Label@154",
+					"rect": [
+						20.0,
+						12.0,
+						175.0,
+						33.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Label@155",
+					"rect": [
+						290.0,
+						17.0,
+						127.0,
+						25.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Label@156",
+					"rect": [
+						1065.0,
+						16.0,
+						120.0,
+						30.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Button@157",
+					"rect": [
+						1275.0,
+						8.0,
+						145.0,
+						42.0
+					],
+					"type": "Button"
+				},
+				{
+					"node": "@Panel@158",
+					"rect": [
+						0.0,
+						58.0,
+						1440.0,
+						40.0
+					],
+					"type": "Panel"
+				},
+				{
+					"node": "@Label@159",
+					"rect": [
+						18.0,
+						66.0,
+						895.0,
+						24.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Label@160",
+					"rect": [
+						930.0,
+						66.0,
+						490.0,
+						24.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Panel@166",
+					"rect": [
+						0.0,
+						98.0,
+						1440.0,
+						46.0
+					],
+					"type": "Panel"
+				},
+				{
+					"node": "@Label@167",
+					"rect": [
+						18.0,
+						108.0,
+						690.0,
+						27.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Label@168",
+					"rect": [
+						735.0,
+						108.0,
+						685.0,
+						27.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Panel@169",
+					"rect": [
+						0.0,
+						720.0,
+						1440.0,
+						90.0
+					],
+					"type": "Panel"
+				},
+				{
+					"node": "@Label@170",
+					"rect": [
+						18.0,
+						727.0,
+						158.0,
+						22.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Button@171",
+					"rect": [
+						18.0,
+						752.0,
+						110.0,
+						44.0
+					],
+					"type": "Button"
+				},
+				{
+					"node": "@Button@172",
+					"rect": [
+						136.0,
+						752.0,
+						110.0,
+						53.0
+					],
+					"type": "Button"
+				},
+				{
+					"node": "@Button@173",
+					"rect": [
+						254.0,
+						752.0,
+						110.0,
+						44.0
+					],
+					"type": "Button"
+				},
+				{
+					"node": "@Panel@174",
+					"rect": [
+						390.0,
+						728.0,
+						510.0,
+						72.0
+					],
+					"type": "Panel"
+				},
+				{
+					"node": "@Label@175",
+					"rect": [
+						402.0,
+						734.0,
+						486.0,
+						27.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Label@176",
+					"rect": [
+						402.0,
+						765.0,
+						486.0,
+						22.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@Label@178",
+					"rect": [
+						950.0,
+						768.0,
+						470.0,
+						22.0
+					],
+					"type": "Label"
+				},
+				{
+					"node": "@ProgressBar@177",
+					"rect": [
+						950.0,
+						742.0,
+						470.0,
+						27.0
+					],
+					"type": "ProgressBar"
+				}
+			],
+			"name": "1920x800_close_high_shields",
+			"safe": [
+				16.0,
+				154.0,
+				1408.0,
+				548.0
+			],
+			"viewport": [
+				1440.0,
+				810.0
+			],
+			"window": [
+				1920,
+				800
+			],
+			"zoom": 1.20909059047699
+		}
+	],
+	"observed_non_test_event_count": 0,
+	"passed": true,
+	"scope": "Three rendered window-edge fixtures using production keep-aspect stretch, formal high-shield near view, HUD and figure geometry. Synthetic Viewport embedder input is labelled and actual delivered coordinates recorded; passive unlabelled events are observations, not automatically OS black-bar acceptance. No direct _input calls, no OS injection, no human readability rating."
+}

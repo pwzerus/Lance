@@ -1,0 +1,22 @@
+[
+  {
+    "exit": 0,
+    "test": "test_arms_v047"
+  },
+  {
+    "exit": 0,
+    "test": "test_hud_v047"
+  },
+  {
+    "exit": 0,
+    "test": "test_charge_camera_v046"
+  },
+  {
+    "exit": 0,
+    "test": "test_motion_v046"
+  },
+  {
+    "exit": 0,
+    "test": "test_integration_v045"
+  }
+]

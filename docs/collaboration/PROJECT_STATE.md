@@ -28,11 +28,11 @@
 
 ## 启动与工具
 
-- [Play-Latest.cmd](../../Play-Latest.cmd)指向独立[Windows目录](../../builds/LanceAndLaurel-v0.4.6-r3/)，EXE和PCK同目录；旧包与失败候选不覆盖。
+- [Play-Latest.cmd](../../Play-Latest.cmd)指向独立[Windows目录](../../builds/LanceAndLaurel-v0.4.8/)，EXE和PCK同目录；旧包与失败候选不覆盖。
 - 主项目[game/project.godot](../../game/project.godot)，Godot4.5.1/GDScript/Compatibility，Windows x86_64。
 - 本机引擎tools/godot-4.5.1/Godot_v4.5.1-stable_win64_console.exe；导出模板tools/templates/windows_release_x86_64.exe。
-- PCK SHA256：8D28B274BA832EB2053B0FD8618B56058E262F8A2802E48C29639CA9B64B3BAF。
-- 完整文档、ZIP身份、远程SHA及当前测试结果以DEV-046最终回执为准。根HANDOFF仍是旧入口，不能将其v0.4早期状态覆盖本文。
+- PCK SHA256：B88FA47AC141A0B603E5214B1ADA08A472DCB4787F23609B91A669DD091CADD0。
+- 完整文档、ZIP身份、远程SHA及当前测试结果以DEV-048最终回执为准；342c4bf里程碑已推送核对。根HANDOFF仍是旧入口，不能将其v0.4早期状态覆盖本文。
 
 ## 玩家控制与规则
 

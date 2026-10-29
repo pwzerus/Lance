@@ -9,6 +9,27 @@ var main: Node
 var capture_dir = "E:/GALUMU/docs/development/screenshots/v046/charge-camera"
 var report_path = "E:/GALUMU/docs/development/logs/v046/charge-camera-01.json"
 var requested_modes: Array = ["arena","war"]
+var input_audit: Node
+
+class InputAudit extends Node:
+	var events: Array = []
+	var test_injection = false
+	var mode_name = ""
+	var director_tick = -1
+	var battle
+	func _input(event: InputEvent) -> void:
+		if not (event is InputEventMouse or event is InputEventScreenTouch or event is InputEventScreenDrag):
+			return
+		var row = {"mode":mode_name,"director_tick":director_tick,"wall_msec":Time.get_ticks_msec(),"process_frame":Engine.get_process_frames(),"type":event.get_class(),"injected_by_this_test":test_injection,"device":event.device}
+		if event is InputEventMouse or event is InputEventScreenTouch or event is InputEventScreenDrag:
+			row["position"] = [event.position.x,event.position.y]
+		if event is InputEventMouseMotion or event is InputEventScreenDrag:
+			row["relative"] = [event.relative.x,event.relative.y]
+		if is_instance_valid(battle):
+			row["pointer_aim_before_dispatch"] = battle.pointer_aim
+			row["battle_input_enabled"] = battle.is_processing_input()
+			row["battle_unhandled_input_enabled"] = battle.is_processing_unhandled_input()
+		events.append(row)
 
 func _initialize() -> void:
 	call_deferred("run")
@@ -99,16 +120,33 @@ func run_mode(mode_name: String) -> void:
 	main._start_match(mode_name,true)
 	var battle = main.battle
 	configure(battle)
+	input_audit.mode_name = mode_name
+	input_audit.director_tick = -1
+	input_audit.battle = battle
 	await process_frame
-	# Establish the real ready framing, then let the charge camera blend normally.
-	for tick in range(60):
-		battle._update_camera(DT,Time.get_ticks_msec())
-	battle._update_views()
-	battle._update_hud()
+	# Advance the real countdown. The final 1.35 ready seconds deliberately
+	# settle into run-up framing; holding phase_time fixed bypassed that code.
 	var model = battle.match_model
 	model.rng.seed = 4603
-	model.phase = "charge"
-	model.time_elapsed = 0.0
+	var ready_samples: Array = []
+	var ready_seconds = 0.0
+	while model.phase=="ready" and ready_seconds<3.0:
+		await process_frame
+		model.step(DT)
+		ready_seconds += DT
+		for event in model.drain_events():
+			battle._handle_event(event)
+		battle._update_views()
+		for view in battle.riders:
+			view._process(DT)
+		battle._update_camera(DT,Time.get_ticks_msec())
+		battle._update_hud()
+		var row = snapshot(battle,-maxf(0.0,2.6-ready_seconds))
+		row["phase_time"] = model.phase_time
+		ready_samples.append(row)
+	check(model.phase=="charge","Real ready countdown did not reach charge")
+	check(ready_seconds>=2.6-DT and ready_seconds<=2.6+DT*2,"Ready countdown was not advanced for its real duration")
+	check(float(player_speed(model))==0.0,"Countdown framing moved the horse before charge")
 	for fighter in model.fighters:
 		fighter.acted = false
 		fighter.guard = .43
@@ -122,9 +160,16 @@ func run_mode(mode_name: String) -> void:
 	var motion = InputEventMouseMotion.new()
 	motion.position = battle.world.get_global_transform_with_canvas()*pointer_world
 	motion.relative = Vector2(2,0)
+	input_audit.test_injection = true
 	root.push_input(motion,true)
+	input_audit.test_injection = false
 	var committed_pointer = float(battle.pointer_aim)
 	check(absf(committed_pointer+.25)<.02,"Initial pointer event did not select the expected real lance height")
+	# The old camera02 failure had no input-event log, so OS interference is
+	# a hypothesis, not a proven attribution. Isolate callbacks for this
+	# camera-only retest while the observer still records external events.
+	battle.set_process_input(false)
+	battle.set_process_unhandled_input(false)
 	var captures: Array = []
 	var samples: Array = []
 	var seen: Dictionary = {}
@@ -139,6 +184,7 @@ func run_mode(mode_name: String) -> void:
 	var crossed = false
 	var seconds = 0.0
 	for tick in range(900):
+		input_audit.director_tick = tick
 		await process_frame
 		var game_dt = DT*(.72 if battle.approach_slow else 1.0)
 		var x_before = float(player.x)
@@ -216,9 +262,12 @@ func run_mode(mode_name: String) -> void:
 	for fighter in battle.match_model.fighters:
 		check(fighter.speed==0 and not fighter.gait_moving,"Restart retained moving horse state")
 	check(not paused and is_equal_approx(Engine.time_scale,1.0),"Restart left pause/time scale active")
-	mode_reports.append({"mode":mode_name,"seconds":seconds,"world_step_error_max":max_world_step_error,"minimum_committed_horizontal_margin":minimum_committed_margin,"max_head_screen_velocity_px_s":max_player_screen_velocity,"max_head_screen_acceleration_px_s2":max_player_screen_accel,"contact_count":contacts.size(),"contacts":contacts,"stationary_pointer_aim":committed_pointer,"captures":captures,"samples":samples,"scope":"Screen velocity/acceleration are measurements for review, not an assertion that the transition is natural."})
+	mode_reports.append({"mode":mode_name,"seconds":seconds,"ready_seconds":ready_seconds,"ready_samples":ready_samples,"world_step_error_max":max_world_step_error,"minimum_committed_horizontal_margin":minimum_committed_margin,"max_head_screen_velocity_px_s":max_player_screen_velocity,"max_head_screen_acceleration_px_s2":max_player_screen_accel,"contact_count":contacts.size(),"contacts":contacts,"stationary_pointer_aim":committed_pointer,"input_isolation":"After one observed viewport motion event, BattleScene _input and _unhandled_input callbacks disabled; real _physics_process probes still run. Observer continues logging other pointer/touch events.","captures":captures,"samples":samples,"scope":"Screen velocity/acceleration are measurements for review, not an assertion that the transition is natural."})
 	main._close_battle()
 	await process_frame
+
+func player_speed(model) -> float:
+	return float(model.fighters[0].speed)
 
 func run() -> void:
 	for arg in OS.get_cmdline_user_args():
@@ -249,13 +298,16 @@ func run() -> void:
 	root.size = Vector2i(1280,720)
 	main = load("res://scenes/main.tscn").instantiate()
 	root.add_child(main)
+	input_audit = InputAudit.new()
+	input_audit.process_mode = Node.PROCESS_MODE_ALWAYS
+	root.add_child(input_audit)
 	for mode_name in requested_modes:
 		check(mode_name in ["arena","war"],"Unknown camera-study mode")
 		if mode_name in ["arena","war"]:
 			await run_mode(mode_name)
 	main.queue_free()
 	await process_frame
-	var report = {"passed":failures.is_empty(),"failures":failures,"project_version":ProjectSettings.get_setting("application/config/version","unknown"),"fixed_real_dt":DT,"scope":"Actual BattleScene/world/riders/camera rendering and real continuous rule movement; scripted controls and one viewport pointer event; threshold/collision/crossing captures, pause/restart. No OS input or human quality claim.","modes":mode_reports}
+	var report = {"passed":failures.is_empty(),"failures":failures,"project_version":ProjectSettings.get_setting("application/config/version","unknown"),"fixed_real_dt":DT,"prior_camera02_failure":{"status":"origin unproven; previous run had no event audit","mode":"war","sample_index":96,"seconds":3.23333333333333,"gap":1746.74074074074,"aim_before":-.249999944478716,"aim_after":-.164167063468855,"static_finding":"Camera has no pointer_aim assignment; event-driven _set_pointer_aim does. Isolation retest evaluates camera/physics without external callbacks, not whether the old event was an OS event."},"input_events":input_audit.events,"scope":"Actual BattleScene/world/riders/camera rendering, real 2.6s ready countdown and continuous rule movement; scripted controls and one audited viewport pointer event; callbacks then isolated, threshold/collision/crossing captures, pause/restart. No OS input or human quality claim.","modes":mode_reports}
 	var file = FileAccess.open(report_path,FileAccess.WRITE)
 	file.store_string(JSON.stringify(report,"\t"))
 	file.close()

@@ -429,6 +429,13 @@ func _update_camera(real_delta: float, now: int) -> void:
 	# At the closest framing keep raised shields clear of the top HUD.
 	var framing_y = lerpf(480,425,clampf((desired_zoom-1.0)/.65,0,1))
 	camera.position = camera.position.lerp(Vector2(center_x,framing_y),blend)
+	if match_model.phase=="ready":
+		# Interpolate the rider's SCREEN position, not two incompatible
+		# world centres while zoom changes. The old blend briefly cropped
+		# both horses during the ready-to-follow transition.
+		var settle = 1.0-smoothstep(.25,1.35,float(match_model.phase_time))
+		var player_screen_x = lerpf(720.0-Model.START_X*.28,270.0,settle)
+		camera.position.x = 720+a+(720-player_screen_x)/camera.zoom.x
 	camera.force_update_scroll()
 	# Distant scenery moves less than the near track; it is not tied to a
 	# fabricated speed timer. Keep overscan so no image edge becomes visible.

@@ -1,0 +1,9 @@
+# DEV-047 anatomical arm atlas
+
+Generated with the built-in imagegen tool on 2026-10-28 (America/New_York). File: `arms_atlas.png`, 1254×1254 RGBA; alpha extrema 0–255, corner alpha 0. Original output copied intact, not re-encoded. Source style reference: `../pixel_v03/rider_atlas.png`. This is AI-assisted pixel-style art, not claimed to be hand-pixelled or a historical reconstruction.
+
+Six separated parts: anatomical left/right upper sleeves, forearms and glove grips. Left forearm shows the inner leather support; right forearm shows exterior mail. The left glove and right glove are separate source regions, not a recolour or runtime horizontal copy. Runtime metadata and measured attachment pixels are in `scripts/visual/rider_arm_art.gd`; source bounds use opaque-alpha inspection (>100) plus visual margins. No assumption that the output obeys a perfect regular grid.
+
+Prompt specification: one transparent two-column/three-row arm atlas matching the reference dark outlines, silver mail, brown leather edging and modest brass trim. Left column anatomical shield arm, right column lance arm. Top row upper arms shoulder-at-top/elbow-at-bottom, middle row forearms elbow-left/wrist-right with no hand, bottom row separate curled gloves wrist-left. Distinct left palm/shield grip and right knuckle/lance grip; opaque joint overlap, no held weapons, body, text, labels, grid, backdrop or cast shadows. Preserve modest pixel clusters and matching scale/lighting.
+
+The generated upper-arm silhouette includes a shoulder cap. Runtime uses a broad mail underlap over the existing torso's shoulder opening, independent sleeve rotation and separate glove grip. Far upper arm is behind the torso; the forearm can pass in front to reach the shield/lance. Visual quality must be verified in both orientations and actual poses; source metadata alone does not certify anatomy.

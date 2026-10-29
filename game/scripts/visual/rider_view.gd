@@ -8,6 +8,7 @@ const Art = preload("res://scripts/visual/equipment_art.gd")
 const HorseArt = preload("res://scripts/visual/horse_art.gd")
 const Gait = preload("res://scripts/visual/horse_gait.gd")
 const Shield = preload("res://scripts/core/shield_geometry.gd")
+const ArmArt = preload("res://scripts/visual/rider_arm_art.gd")
 const ARM_UPPER = 44.0
 const ARM_LOWER = 46.0
 const LANCE_SHOULDER = Vector2(-25,-64)
@@ -174,31 +175,51 @@ func _draw() -> void:
 	var lean_angle = Model.pose_angle(fighter)
 	var pivot = Model.HIP+Model.saddle_offset(fighter)
 	_draw_rider_leg(pivot+Vector2(3,-1),-.05,Color(.65,.64,.61))
-	# Shared rule anchors keep the visible lance grip and shield on target.
+	# One camera-facing torso space carries anatomical shoulders, both arm
+	# chains and the actual rule grips. Turning changes depth, not handedness.
 	var origin = Vector2(float(fighter.x),float(fighter.get("lane_y",0.0)))
-	var hand_local = (Model.hand_position(fighter)-origin)*Vector2(facing,1)
-	var shoulder = pivot+lance_shoulder(facing).rotated(lean_angle)
-	var elbow = arm_elbow(shoulder,hand_local,ARM_UPPER,ARM_LOWER)
-	draw_set_transform_matrix(mirrored_transform(pivot,lean_angle,facing))
-	var shield_center = ((Model.shield_position(fighter)-origin)*Vector2(facing,1)-pivot).rotated(-lean_angle)
+	var pose = arm_pose(fighter)
+	var torso_transform: Transform2D = pose.torso_transform
+	torso_transform.origin -= origin
+	var torso_inverse: Transform2D = pose.torso_transform.affine_inverse()
+	var right_arm = _arm_in_space(pose.right,torso_inverse)
+	var left_arm = _arm_in_space(pose.left,torso_inverse)
+	var shield_center: Vector2 = torso_inverse*pose.shield_center
+	var far_arm: Dictionary = left_arm if facing==1 else right_arm
+	var near_arm: Dictionary = right_arm if facing==1 else left_arm
+	var far_side = "left" if facing==1 else "right"
+	var near_side = "right" if facing==1 else "left"
+	draw_set_transform_matrix(torso_transform)
+	_draw_anatomical_arm(far_side,far_arm,Color(.70,.73,.76),true,true)
 	draw_texture_rect(torso_texture,Rect2(-47,-94,94,104),false)
 	_draw_armor_detail()
+	_draw_shoulder_seal(right_arm,Color.WHITE if facing==1 else Color(.76,.79,.82))
+	_draw_shoulder_seal(left_arm,Color(.76,.79,.82) if facing==1 else Color.WHITE)
+	_draw_anatomical_arm(near_side,near_arm,Color.WHITE,true,true)
+	# The distant forearm can cross in front of the chest to reach its grip;
+	# its upper arm remains behind the torso instead of painting over it.
+	_draw_anatomical_arm(far_side,far_arm,Color(.78,.81,.84),false,true)
+	var head_transform = torso_transform
+	head_transform.x *= facing
+	draw_set_transform_matrix(head_transform)
 	var head_width = 84.0 if head_tier==4 else 70.0
 	draw_texture_rect(head_texture,Rect2(-head_width*.5,-151,head_width,80),false)
 	if fighter.stats.has("helmet_color"):
 		draw_line(Vector2(-20,-109),Vector2(20,-109),Color(str(fighter.stats.helmet_color)),3)
-	# Chest faces the camera on both orientations: preserve anatomical hands
-	# instead of mirroring right into left. Depth tint changes with the yaw.
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 	_draw_rider_leg(pivot+Vector2(-11,4),.07-horse_pose.pitch*.3,Color.WHITE)
-	_draw_arm(shoulder,elbow,hand_local,Color(.71,.74,.77) if facing==-1 else Color.WHITE)
+	var hand_local: Vector2 = (pose.right.hand-origin)*Vector2(facing,1)
 	_draw_lance(hand_local,float(fighter.aim),Model.lance_length(fighter),bool(fighter.broken))
-	draw_circle(hand_local,6,Color("795239"))
-	draw_set_transform_matrix(mirrored_transform(pivot,lean_angle,facing))
-	var shield_hand = shield_center+Vector2(-10,4)
-	var shield_origin = shield_shoulder(facing)
-	_draw_arm(shield_origin,arm_elbow(shield_origin,shield_hand,ARM_UPPER,ARM_LOWER),shield_hand,Color.WHITE if facing==-1 else Color(.81,.83,.85))
-	_draw_shield(shield_center,design)
+	draw_set_transform_matrix(torso_transform)
+	_draw_grip("right",right_arm,Color.WHITE if facing==1 else Color(.83,.85,.88))
+	# Left hand grips the rear handle. The shield face then occludes fingers
+	# naturally; the independently drawn palm is visible around the inner rim.
+	draw_line(left_arm.hand+Vector2(-3,-9),left_arm.hand+Vector2(-3,10),Color("30251e"),5)
+	_draw_grip("left",left_arm,Color(.86,.88,.90) if facing==1 else Color.WHITE)
+	var shield_transform = torso_transform
+	shield_transform.x *= facing
+	draw_set_transform_matrix(shield_transform)
+	_draw_shield(shield_center*Vector2(facing,1),design)
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 	for wound in fighter.get("wounds",[]):
 		var mark = Vector2(-18,-125) if wound.zone=="head" else Vector2(-25,-50)
@@ -292,13 +313,45 @@ func _draw_rider_leg(hip: Vector2, angle: float, tint: Color) -> void:
 	draw_part("rider_leg",Rect2(-22,-12,61,91),tint)
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 
-func _draw_arm(shoulder: Vector2, elbow: Vector2, hand: Vector2, tint: Color) -> void:
-	# Measured opaque joints, not rectangle corners, meet at the IK elbow.
-	draw_line(shoulder,elbow,Color("343c40")*tint,12)
-	draw_line(elbow,hand,Color("343c40")*tint,10)
-	_draw_arm_segment(Rect2(710,47,152,266),shoulder,elbow,19,true,tint)
-	_draw_arm_segment(Rect2(943,155,284,119),elbow,hand,17,false,tint)
-	draw_circle(hand,5,Color("795239"))
+static func arm_pose(value: Dictionary) -> Dictionary:
+	var facing = int(value.direction)
+	var transform = Transform2D(Model.pose_angle(value)*facing,Model.mount_origin(value)+Model.HIP*Vector2(facing,1))
+	var inverse = transform.affine_inverse()
+	var right_hand: Vector2 = inverse*Model.hand_position(value)
+	var shield_center: Vector2 = inverse*Model.shield_position(value)
+	var left_hand = shield_center+Vector2(-10*facing,4)
+	var result = {"torso_transform":transform,"shield_center":Model.shield_position(value),"shield_grip":transform*left_hand}
+	for side in ["right","left"]:
+		var shoulder = LANCE_SHOULDER if side=="right" else SHIELD_SHOULDER
+		var hand = right_hand if side=="right" else left_hand
+		var elbow = arm_elbow(shoulder,hand,ARM_UPPER,ARM_LOWER)
+		result[side] = {"shoulder":transform*shoulder,"elbow":transform*elbow,"hand":transform*hand}
+	return result
+
+static func _arm_in_space(arm: Dictionary, inverse: Transform2D) -> Dictionary:
+	return {"shoulder":inverse*arm.shoulder,"elbow":inverse*arm.elbow,"hand":inverse*arm.hand}
+
+func _draw_shoulder_seal(arm: Dictionary, tint: Color) -> void:
+	# Broad mail underlap covers the torso's baked arm socket while the
+	# sleeve rotates. It stays on the shoulder, never drags the chest bitmap.
+	var center: Vector2 = arm.shoulder
+	var outward = -1.0 if center.x<0 else 1.0
+	var contour = PackedVector2Array([center+Vector2(-12,-9),center+Vector2(outward*19,-5),center+Vector2(outward*18,13),center+Vector2(-outward*8,15)])
+	draw_colored_polygon(contour,Color("343c40")*tint)
+	draw_line(center+Vector2(outward*10,-4),center+Vector2(outward*10,11),Color("717b83")*tint,6)
+
+func _draw_anatomical_arm(side: String, arm: Dictionary, tint: Color, upper: bool, lower: bool) -> void:
+	if upper:
+		ArmArt.draw_segment(self,side+"_upper",arm.shoulder,arm.elbow,30,tint)
+	if lower:
+		var wrist: Vector2 = arm.hand+(arm.elbow-arm.hand).normalized()*9
+		# Mail underlap bridges elbow rotation; forearm and glove stay separate.
+		draw_circle(arm.elbow,8.0,Color("555f68")*tint)
+		ArmArt.draw_segment(self,side+"_forearm",arm.elbow,wrist,17,tint)
+
+func _draw_grip(side: String, arm: Dictionary, tint: Color) -> void:
+	var wrist: Vector2 = arm.hand+(arm.elbow-arm.hand).normalized()*9
+	ArmArt.draw_segment(self,side+"_hand",wrist,arm.hand,12,tint)
 
 static func arm_elbow(shoulder: Vector2, hand: Vector2, upper: float, lower: float) -> Vector2:
 	var ray = hand-shoulder
@@ -321,23 +374,6 @@ static func mirrored_transform(origin: Vector2, angle: float, facing: int) -> Tr
 	# reflected rotation twice, detaching the left-facing shield/shoulder.
 	var mirror = Vector2(facing,1)
 	return Transform2D(Vector2.RIGHT.rotated(angle)*mirror,Vector2.DOWN.rotated(angle)*mirror,origin*mirror)
-
-func _draw_arm_segment(source: Rect2, start: Vector2, end: Vector2, width: float, vertical: bool, tint: Color) -> void:
-	var joint_a = Vector2(788,121) if vertical else Vector2(974,217)
-	var joint_b = Vector2(776,280) if vertical else Vector2(1182,220)
-	var source_axis = (joint_b-joint_a).normalized()
-	var source_side = Vector2(-source_axis.y,source_axis.x)
-	var axis = (end-start).normalized()
-	var side = Vector2(-axis.y,axis.x)
-	var ratio = start.distance_to(end)/joint_a.distance_to(joint_b)
-	var thickness = width/(110.0 if vertical else 84.0)
-	var points = PackedVector2Array()
-	var uv = PackedVector2Array()
-	for corner in [source.position,Vector2(source.end.x,source.position.y),source.end,Vector2(source.position.x,source.end.y)]:
-		var relative: Vector2 = corner-joint_a
-		points.append(start+axis*relative.dot(source_axis)*ratio+side*relative.dot(source_side)*thickness)
-		uv.append(corner/ATLAS.get_size())
-	draw_polygon(points,PackedColorArray([tint,tint,tint,tint]),uv,ATLAS)
 
 func _draw_lance(hand: Vector2, angle: float, length: float, broken: bool) -> void:
 	var direction = Vector2(cos(angle),sin(angle))

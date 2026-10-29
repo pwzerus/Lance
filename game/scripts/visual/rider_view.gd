@@ -104,7 +104,10 @@ func _process(delta: float) -> void:
 			var protraction = (trajectory.x+float(leg_pose.reach))/maxf(1,2.0*float(leg_pose.reach))
 			# Aim the swing at where the body WILL be at landing. Chasing the
 			# body's current position made every step stall then whip forward.
-			var remaining_travel = speed*swing_durations[index]*(1-progress)
+			# Recompute remaining time from the current continuous cycle. A
+			# duration captured near standstill can be >3s; after acceleration
+			# it predicted a landing far beyond reach, then whipped back late.
+			var remaining_travel = speed*(1-cycle)/maxf(.1,Gait.frequency(speed))
 			var landing_x = position.x+(target_x+remaining_travel)*facing
 			var foot = Vector2((lerpf(swing_starts[index].x,landing_x,protraction)-position.x)*facing,lerpf(swing_starts[index].y,Gait.GROUND,progress)+trajectory.y)
 			leg_pose = Gait.leg(index,stride_phase,speed,true,stability,INF,foot,drive,progress,cycle)

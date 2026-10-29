@@ -207,6 +207,7 @@ func _build_hud() -> void:
 	pause_button.focus_mode = Control.FOCUS_NONE
 	ready_panel = UI.panel(hud,Rect2(315,119,810,211),Color(.045,.08,.065,.90))
 	runup_panel = UI.panel(hud,Rect2(360,177,720,42),Color(.045,.08,.065,.90))
+	runup_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	callout = UI.label(hud,"整装待发",Vector2(420,123),40,UI.INK,600)
 	callout.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	subcallout = UI.label(hud,"",Vector2(370,183),18,UI.GOLD,700)
@@ -422,7 +423,8 @@ func _update_camera(real_delta: float, now: int) -> void:
 		desired_zoom = clampf(1120.0/(separation+300.0),.44,1.65)
 	if terminal_at>0:
 		desired_zoom = 1.6 if now-terminal_at<850 else 1.05
-	var blend = 1.0-exp(-real_delta*(5.0 if approach_slow else 3.3))
+	var response = 10.0 if match_model.phase=="ready" else (5.0 if approach_slow else 3.3)
+	var blend = 1.0-exp(-real_delta*response)
 	camera.zoom = camera.zoom.lerp(Vector2.ONE*desired_zoom,blend)
 	# At the closest framing keep raised shields clear of the top HUD.
 	var framing_y = lerpf(480,425,clampf((desired_zoom-1.0)/.65,0,1))

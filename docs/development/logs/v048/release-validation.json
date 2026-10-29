@@ -1,0 +1,10 @@
+[
+  {
+    "exit": 0,
+    "test": "character"
+  },
+  {
+    "exit": 0,
+    "test": "dual_mode_smoke"
+  }
+]

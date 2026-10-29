@@ -1,0 +1,11 @@
+{
+  "version": "0.4.8",
+  "runtime_commit": "ff8f85b6ad97bdc9fbc6696ed6ddacb3881d4de9",
+  "method": "Computer Use sky native mouse; ordinary main scene; -- --test-profile",
+  "exe": "builds/verify-v048-windows/LanceAndLaurel-v0.4.8/LanceAndLaurel.exe",
+  "observed": ["home character button", "beard dropdown selected full beard", "portrait and rider preview changed", "save returned home", "reopen retained full beard", "narrow face draft changed", "cancel returned home", "reopen restored original round face", "save and exit process exit 0"],
+  "screenshots": "Observed tool screenshots in task conversation; not separately saved to repo.",
+  "log": "desktop01.log",
+  "not_verified": ["new human visual acceptance", "sustained physical LMB hold", "all appearance and equipment combinations", "other machines and touch devices"],
+  "player_save_used": false
+}

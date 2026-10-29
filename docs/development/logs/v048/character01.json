@@ -1,0 +1,33 @@
+{
+	"checks": 917,
+	"failures": [
+		"Appearance is actually present in the auto-save file"
+	],
+	"passed": false,
+	"rows": [
+		{
+			"context": {
+
+			},
+			"failure": "Appearance is actually present in the auto-save file"
+		},
+		{
+			"choice": {
+				"beard": 4,
+				"brows": 3,
+				"eyes": 4,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 5
+			},
+			"kind": "persistence",
+			"legacy_coins": 734,
+			"qa_path": "user://qa_character_v048_5099023.json"
+		},
+		{
+			"kind": "seated_scope",
+			"note": "Finite local anchors and full rendered sheets; near/far layer order needs source and image review, not a y-sort assertion."
+		}
+	],
+	"scope": "Isolated real save files, old-profile migration, sanitizer, auto/manual persistence, programmatic OptionButton draft/cancel/save/reopen flow, seated local joint sanity, actual face-pixel differences and render sheets. Does not prove OS input, movement timing, depth from joint numbers alone, or player visual/feel approval."
+}

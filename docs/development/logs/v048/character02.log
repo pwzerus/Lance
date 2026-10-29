@@ -1,0 +1,5 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+GALUMU_BUILD v0.4.8
+CHARACTER_V048 {"checks":924,"failures":[],"passed":true,"rows":[{"choice":{"beard":4,"brows":3,"eyes":4,"face_shape":3,"hair":3,"skin":5},"kind":"persistence","legacy_coins":734,"qa_path":"user://qa_character_v048_4413434.json"},{"kind":"seated_scope","note":"Finite local anchors and full rendered sheets; near/far layer order needs source and image review, not a y-sort assertion."}],"scope":"Isolated real save files, old-profile migration, sanitizer, auto/manual persistence, programmatic OptionButton draft/cancel/save/reopen flow, seated local joint sanity, actual face-pixel differences and render sheets. Does not prove OS input, movement timing, depth from joint numbers alone, or player visual/feel approval."}

@@ -74,6 +74,7 @@ var zone_overlay: Node2D
 var combat_cues: Node2D
 var aim_label: Label
 var guard_high = false
+const COMBAT_SAFE_RECT = Rect2(16,154,1408,548)
 const GUARD_VALUES = [1.0,.43,0.0]
 const GUARD_NAMES = ["护头","护胸","护腹"]
 var guard_slot = 1
@@ -197,34 +198,48 @@ func _build_hud() -> void:
 	hud.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	hud.theme = UI.theme()
 	layer.add_child(hud)
-	var top = UI.panel(hud, Rect2(0,0,1440,76), Color(.045,.08,.065,.96))
-	UI.label(top, "LANCE & LAUREL", Vector2(28,13), 24, UI.GOLD)
-	UI.label(top,"练习场 · 无奖励 / 盾位按轮次变化" if practice else (("竞技场" if mode=="arena" else "实战")+" · "+ai_controller.NAMES[int(GameState.profile.settings.difficulty)]),Vector2(280,23),18)
-	pass_label = UI.label(top,"PASS  01 / 03",Vector2(1050,20),22,UI.GOLD)
-	var pause_button = UI.button(top,"暂停  Esc",Rect2(1240,14,165,45),_toggle_pause)
-	# Esc remains the keyboard shortcut. A focused HUD button would consume
-	# Space after resume and pause again instead of letting the rider spur.
+	# Every normal HUD element stays in one of the edge bands. The middle
+	# rectangle belongs to the riders, including raised shields and hooves.
+	var top = UI.panel(hud,Rect2(0,0,1440,58),Color(.045,.08,.065,.96))
+	UI.label(top,"LANCE & LAUREL",Vector2(20,12),22,UI.GOLD)
+	UI.label(top,"练习场 · 无奖励" if practice else (("竞技场" if mode=="arena" else "实战")+" · "+ai_controller.NAMES[int(GameState.profile.settings.difficulty)]),Vector2(290,17),17)
+	pass_label = UI.label(top,"PASS  01 / 03",Vector2(1065,16),20,UI.GOLD)
+	var pause_button = UI.button(top,"暂停 Esc",Rect2(1275,8,145,42),_toggle_pause)
 	pause_button.focus_mode = Control.FOCUS_NONE
-	ready_panel = UI.panel(hud,Rect2(315,119,810,211),Color(.045,.08,.065,.90))
-	runup_panel = UI.panel(hud,Rect2(360,177,720,42),Color(.045,.08,.065,.90))
+	var status = UI.panel(hud,Rect2(0,58,1440,40),Color(.045,.08,.065,.94))
+	tactics_label = UI.label(status,"",Vector2(18,8),16,UI.INK,895)
+	speed_label = UI.label(status,"",Vector2(930,8),16,UI.GOLD,490)
+	ready_panel = UI.panel(hud,Rect2(0,98,1440,46),Color(.045,.08,.065,.90))
+	runup_panel = UI.panel(hud,Rect2(0,98,1440,46),Color(.045,.08,.065,.90))
 	runup_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	callout = UI.label(hud,"整装待发",Vector2(420,123),40,UI.INK,600)
-	callout.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	subcallout = UI.label(hud,"",Vector2(370,183),18,UI.GOLD,700)
-	subcallout.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	intermission = UI.label(hud,"",Vector2(330,245),19,UI.INK,780)
-	intermission.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	var bottom = UI.panel(hud,Rect2(0,758,1440,52),Color(.045,.08,.065,.96))
-	hint = UI.label(bottom,"鼠标瞄准 · 左键催马 · 1/2/3 护头/胸/腹 · W/S 倾身",Vector2(25,14),16,UI.MUTED)
-	speed_label = UI.label(bottom,"",Vector2(925,14),16,UI.GOLD,500)
-	contact_panel = UI.panel(hud,Rect2(360,575,720,82),Color(.045,.08,.065,.93))
-	contact_label = UI.label(contact_panel,"",Vector2(16,7),20,UI.GOLD,688)
-	contact_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	enemy_contact_label = UI.label(contact_panel,"",Vector2(16,43),20,UI.GOLD,688)
-	enemy_contact_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	callout = UI.label(hud,"整装待发",Vector2(20,106),23,UI.INK,285)
+	subcallout = UI.label(hud,"",Vector2(315,109),18,UI.GOLD,540)
+	intermission = UI.label(hud,"",Vector2(870,110),16,UI.INK,550)
+	intermission.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	contact_panel = UI.panel(hud,Rect2(0,98,1440,46),Color(.045,.08,.065,.94))
+	contact_label = UI.label(contact_panel,"",Vector2(18,10),18,UI.GOLD,690)
+	enemy_contact_label = UI.label(contact_panel,"",Vector2(735,10),18,UI.GOLD,685)
+	for label in [contact_label,enemy_contact_label,tactics_label,speed_label,intermission]:
+		label.autowrap_mode = TextServer.AUTOWRAP_OFF
+		label.clip_text = true
+		label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	var bottom = UI.panel(hud,Rect2(0,720,1440,90),Color(.045,.08,.065,.96))
+	UI.label(bottom,"防盾落点 · 右键 / Q 循环",Vector2(18,7),14,UI.MUTED)
+	guard_buttons.clear()
+	for i in range(3):
+		var slot = i
+		var button = UI.button(bottom,"%d  %s" % [i+1,GUARD_NAMES[i]],Rect2(18+i*118,752-720,110,44),func():_select_guard(slot))
+		button.toggle_mode = true
+		button.focus_mode = Control.FOCUS_NONE
+		button.add_theme_stylebox_override("pressed",UI.box(Color("b69a60"),Color("f0d08c"),5))
+		button.add_theme_color_override("font_pressed_color",Color("15221e"))
+		guard_buttons.append(button)
+	var aim_panel = UI.panel(bottom,Rect2(390,8,510,72),Color(.045,.08,.065,0))
+	aim_label = UI.label(aim_panel,"",Vector2(12,6),18,UI.INK,486)
+	UI.label(aim_panel,"连续调枪 · 以实际接触为准",Vector2(12,37),14,UI.MUTED,486)
 	speed_meter = ProgressBar.new()
-	speed_meter.position = Vector2(950,735)
-	speed_meter.size = Vector2(440,12)
+	speed_meter.position = Vector2(950,742)
+	speed_meter.size = Vector2(470,10)
 	speed_meter.min_value = 0.0
 	speed_meter.max_value = Model.SURGE_SPEED*float(match_model.fighters[0].stats.get("speed",1.0))
 	speed_meter.show_percentage = false
@@ -238,22 +253,13 @@ func _build_hud() -> void:
 	speed_meter.add_theme_stylebox_override("background",meter_background)
 	speed_meter.add_theme_stylebox_override("fill",meter_fill)
 	hud.add_child(speed_meter)
-	var tactic_panel = UI.panel(hud,Rect2(16,81,1000,35),Color(.045,.08,.065,.91))
-	tactics_label = UI.label(tactic_panel,"",Vector2(13,3),18,UI.GOLD,970)
-	guard_buttons.clear()
-	for i in range(3):
-		var slot = i
-		var button = UI.button(hud,"%d  %s" % [i+1,GUARD_NAMES[i]],Rect2(28+i*127,688,118,54),func():_select_guard(slot))
-		button.toggle_mode = true
-		button.focus_mode = Control.FOCUS_NONE
-		button.add_theme_stylebox_override("pressed",UI.box(Color("b69a60"),Color("f0d08c"),5))
-		button.add_theme_color_override("font_pressed_color",Color("15221e"))
-		guard_buttons.append(button)
-	var guard_hint = UI.panel(hud,Rect2(28,657,372,29),Color(.045,.08,.065,.93))
-	UI.label(guard_hint,"防盾落点 · 右键 / Q 循环",Vector2(10,3),15,UI.MUTED)
-	var aim_panel = UI.panel(hud,Rect2(440,680,480,66),Color(.045,.08,.065,.93))
-	aim_label = UI.label(aim_panel,"",Vector2(15,7),19,UI.INK,450)
-	UI.label(aim_panel,"按当前姿态估计 · 以实际交锋为准",Vector2(15,39),14,UI.MUTED,450)
+	hint = UI.label(bottom,"鼠标调枪 · 左键/空格催马 · W/S俯仰",Vector2(950,48),14,UI.MUTED,470)
+
+func combat_safe_rect() -> Rect2:
+	return COMBAT_SAFE_RECT
+
+func _pointer_over_hud(point: Vector2) -> bool:
+	return point.y<COMBAT_SAFE_RECT.position.y or point.y>=720.0 or (paused and is_instance_valid(pause_panel) and pause_panel.get_global_rect().has_point(point))
 
 func _physics_process(delta: float) -> void:
 	if paused or is_finished:
@@ -423,12 +429,26 @@ func _update_camera(real_delta: float, now: int) -> void:
 		desired_zoom = clampf(1120.0/(separation+300.0),.44,1.65)
 	if terminal_at>0:
 		desired_zoom = 1.6 if now-terminal_at<850 else 1.05
+	# A horizontal close-up must also fit the whole mounted silhouette.
+	# This stable vertical envelope includes helmet decoration, raised shield,
+	# the larger gait phases, both lanes and a small strip below all hooves.
+	# Keeping the envelope independent of the current stride avoids chasing
+	# the horse's bob with the camera and cancelling its visible movement.
+	var vertical_bounds = _mounted_vertical_bounds()
+	var safe = COMBAT_SAFE_RECT.grow(-8)
+	var zoom_limit = safe.size.y/maxf(1.0,vertical_bounds.y-vertical_bounds.x)
+	desired_zoom = minf(desired_zoom,zoom_limit)
 	var response = 10.0 if match_model.phase=="ready" else (5.0 if approach_slow else 3.3)
 	var blend = 1.0-exp(-real_delta*response)
 	camera.zoom = camera.zoom.lerp(Vector2.ONE*desired_zoom,blend)
-	# At the closest framing keep raised shields clear of the top HUD.
-	var framing_y = lerpf(480,425,clampf((desired_zoom-1.0)/.65,0,1))
+	var viewport_center_y = get_viewport_rect().size.y*.5
+	var framing_y = (vertical_bounds.x+vertical_bounds.y)*.5-(safe.get_center().y-viewport_center_y)/maxf(.01,camera.zoom.y)
 	camera.position = camera.position.lerp(Vector2(center_x,framing_y),blend)
+	# Keep the entire envelope between the HUD bands during zoom transitions.
+	var lowest_center = vertical_bounds.y-(safe.end.y-viewport_center_y)/camera.zoom.y
+	var highest_center = vertical_bounds.x-(safe.position.y-viewport_center_y)/camera.zoom.y
+	if lowest_center<=highest_center:
+		camera.position.y = clampf(camera.position.y,lowest_center,highest_center)
 	if match_model.phase=="ready":
 		# Interpolate the rider's SCREEN position, not two incompatible
 		# world centres while zoom changes. The old blend briefly cropped
@@ -440,6 +460,15 @@ func _update_camera(real_delta: float, now: int) -> void:
 	# Distant scenery moves less than the near track; it is not tied to a
 	# fabricated speed timer. Keep overscan so no image edge becomes visible.
 	backdrop.position.x = -80-clampf((camera.position.x-720)*.025,-60,60)
+
+func _mounted_vertical_bounds() -> Vector2:
+	var top = INF
+	var bottom = -INF
+	for fighter in match_model.fighters:
+		var lane = float(fighter.get("lane_y",0.0))
+		top = minf(top,world.position.y+lane-350.0)
+		bottom = maxf(bottom,world.position.y+lane+26.0)
+	return Vector2(top,bottom)
 
 func _update_views() -> void:
 	for i in range(2):
@@ -489,10 +518,10 @@ func _update_hud() -> void:
 	tactics_label.modulate = Color(1.3,1.2,.7) if Time.get_ticks_msec()<input_flash_until else Color.WHITE
 	if practice:
 		hint.text = "练习 · 催马%s　调枪%s　防盾%s　俯仰%s" % ["✓" if learned.boost else "·","✓" if learned.aim else "·","✓" if learned.guard else "·","✓" if learned.posture else "·"]
-	contact_label.visible = Time.get_ticks_msec()<contact_until
+	contact_label.visible = Time.get_ticks_msec()<contact_until and phase in ["charge","ended"]
 	enemy_contact_label.visible = contact_label.visible
-	contact_label.position.y = 7 if not enemy_contact_label.text.is_empty() else 24
-	enemy_contact_label.position.y = 43 if not contact_label.text.is_empty() else 24
+	contact_label.position.y = 10
+	enemy_contact_label.position.y = 10
 	contact_panel.visible = contact_label.visible
 	pass_label.text = "PASS  %02d / 03" % match_model.pass_number
 	intermission.visible = phase in ["ready","turn"]
@@ -500,13 +529,11 @@ func _update_hud() -> void:
 		callout.text = "第 %s 次对冲" % ["一","二","三"][match_model.pass_number-1]
 		callout.modulate.a = 1
 		subcallout.text = "整装 · %d" % maxi(1,ceili(match_model.phase_time))
-		intermission.text = "骑手状态  %d%%     对手  %d%%\n%s" % [roundi(match_model.fighters[0].hp),roundi(match_model.fighters[1].hp),"新比武枪已备妥" if mode=="arena" else ("断枪未更换 · 残柄作战" if match_model.fighters[0].broken else "实战枪已备妥 · 留意头部防护")]
-		if practice:
-			intermission.text += "\n1 护头 · 2 护胸 · 3 护腹；观察枪尖颜色与部位提示。"
+		intermission.text = "骑手 %d%% · 对手 %d%% · %s" % [roundi(match_model.fighters[0].hp),roundi(match_model.fighters[1].hp),"每轮新枪" if mode=="arena" else ("残柄作战" if match_model.fighters[0].broken else "实战枪已备妥")]
 	elif phase == "charge":
 		callout.text = ""
 		var gap = float(match_model.fighters[1].x)-float(f.x)
-		subcallout.text = "对手在前方 · 按住左键催马，松手减速" if gap>2000 else ""
+		subcallout.text = "对手在前方 · 按住催马，松手减速" if gap>2000 else ""
 	elif phase == "turn":
 		callout.text = "回身重整"
 		subcallout.text = "下一次对冲即将开始"
@@ -514,6 +541,8 @@ func _update_hud() -> void:
 	elif phase == "ended":
 		callout.text = "交锋已定"
 		subcallout.text = ""
+	callout.visible = not is_finished and phase in ["ready","turn","ended"] and not contact_panel.visible
+	subcallout.visible = not is_finished and not contact_panel.visible and not subcallout.text.is_empty()
 	if not paused:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
@@ -586,6 +615,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			wheel_lean = 0
 	if event is InputEventScreenTouch:
 		if event.pressed and not event.canceled:
+			if _pointer_over_hud(event.position):
+				return
 			var role = "lean" if event.position.x < 720 else ("boost" if touch_roles.values().has("aim") else "aim")
 			touch_roles[event.index] = role
 			touch_origin[event.index] = event.position
@@ -618,10 +649,10 @@ func _input(event: InputEvent) -> void:
 			_select_guard(slot)
 			get_viewport().set_input_as_handled()
 			return
-	if event is InputEventMouseMotion and not paused and _guard_at(event.position)<0:
+	if event is InputEventMouseMotion and not paused and not _pointer_over_hud(event.position):
 		_set_pointer_aim(event.position)
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:
-		ui_pointer_held = event.pressed and _guard_at(event.position)>=0
+		ui_pointer_held = event.pressed and _pointer_over_hud(event.position)
 		mouse_held = event.pressed and not paused and not ui_pointer_held
 		if mouse_held:
 			input_flash_until = Time.get_ticks_msec()+350
@@ -713,4 +744,3 @@ func _exit_tree() -> void:
 	Engine.time_scale = 1.0
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-

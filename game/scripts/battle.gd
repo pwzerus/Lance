@@ -259,7 +259,8 @@ func combat_safe_rect() -> Rect2:
 	return COMBAT_SAFE_RECT
 
 func _pointer_over_hud(point: Vector2) -> bool:
-	return point.y<COMBAT_SAFE_RECT.position.y or point.y>=720.0 or (paused and is_instance_valid(pause_panel) and pause_panel.get_global_rect().has_point(point))
+	# Keep-aspect windows can deliver negative / oversized logical X for side bars.
+	return point.x<0.0 or point.x>=1440.0 or point.y<COMBAT_SAFE_RECT.position.y or point.y>=720.0 or (paused and is_instance_valid(pause_panel) and pause_panel.get_global_rect().has_point(point))
 
 func _physics_process(delta: float) -> void:
 	if paused or is_finished:

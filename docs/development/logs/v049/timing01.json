@@ -1,0 +1,380 @@
+{
+	"examples": [],
+	"failures": [],
+	"passed": true,
+	"rows": [
+		{
+			"approach_seconds": 1.13333333333333,
+			"hz": 30,
+			"kind": "approach_budget",
+			"minimum_scale": 0.45,
+			"states": [
+				"approach",
+				"release",
+				"runup"
+			],
+			"total_slow_seconds": 1.36666666666667
+		},
+		{
+			"duration": 0.6,
+			"final_aim": -0.486204589664202,
+			"final_guard": 0.571186472568666,
+			"game_seconds": 0.203995168774524,
+			"hz": 30,
+			"kind": "impact_budget_and_controls",
+			"read_seconds": 0.266666666666667,
+			"release_seconds": 0.233333333333333,
+			"stop_seconds": 0.1,
+			"zone": "body"
+		},
+		{
+			"duration": 0.6,
+			"final_aim": -0.471762611665508,
+			"final_guard": 0.613752302459554,
+			"game_seconds": 0.219197250878412,
+			"hz": 30,
+			"kind": "impact_budget_and_controls",
+			"read_seconds": 0.3,
+			"release_seconds": 0.233333333333333,
+			"stop_seconds": 0.0666666666666667,
+			"zone": "shield"
+		},
+		{
+			"hz": 30,
+			"kind": "simultaneous_order_and_repeated_contact",
+			"sample": {
+				"approach": 0.0,
+				"approach_elapsed": 0.0,
+				"audio_duck": 0.0,
+				"focus": "(-20.0, -210.0)",
+				"focus_weight": 0.0,
+				"hitstop": false,
+				"impact_active": false,
+				"impact_elapsed": 0.597941176470588,
+				"pass_connected": true,
+				"pass_id": 1,
+				"paused": false,
+				"release": 0.0,
+				"scale": 1.0,
+				"stage_elapsed": 0.0,
+				"state": "runup",
+				"strength": 1.0
+			}
+		},
+		{
+			"hz": 30,
+			"kind": "pause_and_phase_reset"
+		},
+		{
+			"hz": 30,
+			"kind": "settings_and_large_delta"
+		},
+		{
+			"after": {
+				"approach": 0.0,
+				"approach_elapsed": 0.0,
+				"audio_duck": 0.0,
+				"focus": "(20.0, -210.0)",
+				"focus_weight": 0.0,
+				"hitstop": false,
+				"impact_active": false,
+				"impact_elapsed": 0.597941176470588,
+				"pass_connected": true,
+				"pass_id": 1,
+				"paused": false,
+				"release": 0.0,
+				"scale": 1.0,
+				"stage_elapsed": 0.0,
+				"state": "runup",
+				"strength": 0.941176470588235
+			},
+			"before": {
+				"approach": 0.0,
+				"approach_elapsed": 0.0,
+				"audio_duck": 0.0115471058823529,
+				"focus": "(20.0, -210.0)",
+				"focus_weight": 0.017534494117647,
+				"hitstop": false,
+				"impact_active": true,
+				"impact_elapsed": 0.577941176470588,
+				"pass_connected": true,
+				"pass_id": 1,
+				"paused": false,
+				"release": 0.92,
+				"scale": 0.98618624,
+				"stage_elapsed": 0.23,
+				"state": "release",
+				"strength": 0.941176470588235
+			},
+			"hz": 30,
+			"kind": "late_release_setting_change"
+		},
+		{
+			"approach_seconds": 1.13333333333333,
+			"crossed": true,
+			"hit_count": 0,
+			"hz": 30,
+			"kind": "actual_swept_miss",
+			"mode": "arena",
+			"real_seconds": 5.93333333333332
+		},
+		{
+			"approach_seconds": 1.13333333333333,
+			"crossed": true,
+			"hit_count": 0,
+			"hz": 30,
+			"kind": "actual_swept_miss",
+			"mode": "war",
+			"real_seconds": 5.93333333333332
+		},
+		{
+			"approach_seconds": 1.13333333333333,
+			"hz": 60,
+			"kind": "approach_budget",
+			"minimum_scale": 0.45,
+			"states": [
+				"approach",
+				"release",
+				"runup"
+			],
+			"total_slow_seconds": 1.38333333333333
+		},
+		{
+			"duration": 0.6,
+			"final_aim": -0.47640538926829,
+			"final_guard": 0.600068326367144,
+			"game_seconds": 0.214310116559694,
+			"hz": 60,
+			"kind": "impact_budget_and_controls",
+			"read_seconds": 0.266666666666667,
+			"release_seconds": 0.25,
+			"stop_seconds": 0.0833333333333333,
+			"zone": "body"
+		},
+		{
+			"duration": 0.6,
+			"final_aim": -0.465744958454563,
+			"final_guard": 0.631488543502339,
+			"game_seconds": 0.225531622679407,
+			"hz": 60,
+			"kind": "impact_budget_and_controls",
+			"read_seconds": 0.283333333333333,
+			"release_seconds": 0.25,
+			"stop_seconds": 0.0666666666666667,
+			"zone": "shield"
+		},
+		{
+			"hz": 60,
+			"kind": "simultaneous_order_and_repeated_contact",
+			"sample": {
+				"approach": 0.0,
+				"approach_elapsed": 0.0,
+				"audio_duck": 0.0,
+				"focus": "(-20.0, -210.0)",
+				"focus_weight": 0.0,
+				"hitstop": false,
+				"impact_active": false,
+				"impact_elapsed": 0.597941176470588,
+				"pass_connected": true,
+				"pass_id": 1,
+				"paused": false,
+				"release": 0.0,
+				"scale": 1.0,
+				"stage_elapsed": 0.0,
+				"state": "runup",
+				"strength": 1.0
+			}
+		},
+		{
+			"hz": 60,
+			"kind": "pause_and_phase_reset"
+		},
+		{
+			"hz": 60,
+			"kind": "settings_and_large_delta"
+		},
+		{
+			"after": {
+				"approach": 0.0,
+				"approach_elapsed": 0.0,
+				"audio_duck": 0.0,
+				"focus": "(20.0, -210.0)",
+				"focus_weight": 0.0,
+				"hitstop": false,
+				"impact_active": false,
+				"impact_elapsed": 0.597941176470588,
+				"pass_connected": true,
+				"pass_id": 1,
+				"paused": false,
+				"release": 0.0,
+				"scale": 1.0,
+				"stage_elapsed": 0.0,
+				"state": "runup",
+				"strength": 0.941176470588235
+			},
+			"before": {
+				"approach": 0.0,
+				"approach_elapsed": 0.0,
+				"audio_duck": 0.0115471058823529,
+				"focus": "(20.0, -210.0)",
+				"focus_weight": 0.017534494117647,
+				"hitstop": false,
+				"impact_active": true,
+				"impact_elapsed": 0.577941176470588,
+				"pass_connected": true,
+				"pass_id": 1,
+				"paused": false,
+				"release": 0.92,
+				"scale": 0.98618624,
+				"stage_elapsed": 0.23,
+				"state": "release",
+				"strength": 0.941176470588235
+			},
+			"hz": 60,
+			"kind": "late_release_setting_change"
+		},
+		{
+			"approach_seconds": 1.13333333333333,
+			"crossed": true,
+			"hit_count": 0,
+			"hz": 60,
+			"kind": "actual_swept_miss",
+			"mode": "arena",
+			"real_seconds": 5.94999999999998
+		},
+		{
+			"approach_seconds": 1.13333333333333,
+			"crossed": true,
+			"hit_count": 0,
+			"hz": 60,
+			"kind": "actual_swept_miss",
+			"mode": "war",
+			"real_seconds": 5.94999999999998
+		},
+		{
+			"approach_seconds": 1.14166666666667,
+			"hz": 120,
+			"kind": "approach_budget",
+			"minimum_scale": 0.45,
+			"states": [
+				"approach",
+				"release",
+				"runup"
+			],
+			"total_slow_seconds": 1.39166666666666
+		},
+		{
+			"duration": 0.6,
+			"final_aim": -0.471501241851912,
+			"final_guard": 0.614522655594364,
+			"game_seconds": 0.219472376997987,
+			"hz": 120,
+			"kind": "impact_budget_and_controls",
+			"read_seconds": 0.275,
+			"release_seconds": 0.25,
+			"stop_seconds": 0.075,
+			"zone": "body"
+		},
+		{
+			"duration": 0.591666666666667,
+			"final_aim": -0.470658056209547,
+			"final_guard": 0.617007834329756,
+			"game_seconds": 0.220359940832056,
+			"hz": 120,
+			"kind": "impact_budget_and_controls",
+			"read_seconds": 0.275,
+			"release_seconds": 0.25,
+			"stop_seconds": 0.0666666666666667,
+			"zone": "shield"
+		},
+		{
+			"hz": 120,
+			"kind": "simultaneous_order_and_repeated_contact",
+			"sample": {
+				"approach": 0.0,
+				"approach_elapsed": 0.0,
+				"audio_duck": 0.0,
+				"focus": "(-20.0, -210.0)",
+				"focus_weight": 0.0,
+				"hitstop": false,
+				"impact_active": false,
+				"impact_elapsed": 0.597941176470589,
+				"pass_connected": true,
+				"pass_id": 1,
+				"paused": false,
+				"release": 0.0,
+				"scale": 1.0,
+				"stage_elapsed": 0.0,
+				"state": "runup",
+				"strength": 1.0
+			}
+		},
+		{
+			"hz": 120,
+			"kind": "pause_and_phase_reset"
+		},
+		{
+			"hz": 120,
+			"kind": "settings_and_large_delta"
+		},
+		{
+			"after": {
+				"approach": 0.0,
+				"approach_elapsed": 0.0,
+				"audio_duck": 0.0,
+				"focus": "(20.0, -210.0)",
+				"focus_weight": 0.0,
+				"hitstop": false,
+				"impact_active": false,
+				"impact_elapsed": 0.597941176470589,
+				"pass_connected": true,
+				"pass_id": 1,
+				"paused": false,
+				"release": 0.0,
+				"scale": 1.0,
+				"stage_elapsed": 0.0,
+				"state": "runup",
+				"strength": 0.941176470588235
+			},
+			"before": {
+				"approach": 0.0,
+				"approach_elapsed": 0.0,
+				"audio_duck": 0.0115471058823529,
+				"focus": "(20.0, -210.0)",
+				"focus_weight": 0.017534494117647,
+				"hitstop": false,
+				"impact_active": true,
+				"impact_elapsed": 0.577941176470589,
+				"pass_connected": true,
+				"pass_id": 1,
+				"paused": false,
+				"release": 0.92,
+				"scale": 0.98618624,
+				"stage_elapsed": 0.23,
+				"state": "release",
+				"strength": 0.941176470588235
+			},
+			"hz": 120,
+			"kind": "late_release_setting_change"
+		},
+		{
+			"approach_seconds": 1.14166666666667,
+			"crossed": true,
+			"hit_count": 0,
+			"hz": 120,
+			"kind": "actual_swept_miss",
+			"mode": "arena",
+			"real_seconds": 5.95000000000009
+		},
+		{
+			"approach_seconds": 1.14166666666667,
+			"crossed": true,
+			"hit_count": 0,
+			"hz": 120,
+			"kind": "actual_swept_miss",
+			"mode": "war",
+			"real_seconds": 5.95000000000009
+		}
+	],
+	"scope": "Pure production director with real-delta budgets at 30/60/120Hz; synthetic impact fixtures for clock/control limits, actual Model swept misses in both modes, pause/resume, phase resets and large deltas. No Engine time-scale restoration, rendered scene, OS input or human experience claim; formal Battle integration is separate."
+}

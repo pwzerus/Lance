@@ -1,0 +1,132 @@
+{
+	"examples": [],
+	"failures": [],
+	"grid_poses": 7920,
+	"passed": true,
+	"project_version": "0.4.8",
+	"rows": [
+		{
+			"far": {
+				"aim_delta": 0.0183333333333333,
+				"facing": 1,
+				"gap": 4000.0,
+				"guard_delta": 0.0233333333333333,
+				"lean_delta": 0.000416666666666667
+			},
+			"kind": "first_control_tick",
+			"near": {
+				"aim_delta": 0.00791666666666668,
+				"facing": 1,
+				"gap": 800.0,
+				"guard_delta": 0.0233333333333333,
+				"lean_delta": 0.000416666666666667
+			}
+		},
+		{
+			"facing": 1,
+			"kind": "shield_travel",
+			"lowering_seconds": 0.358333333333334,
+			"raising_seconds": 0.358333333333334
+		},
+		{
+			"far": {
+				"aim_delta": 0.0183333333333333,
+				"facing": -1,
+				"gap": 4000.0,
+				"guard_delta": 0.0233333333333333,
+				"lean_delta": 0.000416666666666667
+			},
+			"kind": "first_control_tick",
+			"near": {
+				"aim_delta": 0.00791666666666668,
+				"facing": -1,
+				"gap": 800.0,
+				"guard_delta": 0.0233333333333333,
+				"lean_delta": 0.000416666666666667
+			}
+		},
+		{
+			"facing": -1,
+			"kind": "shield_travel",
+			"lowering_seconds": 0.358333333333334,
+			"raising_seconds": 0.358333333333334
+		},
+		{
+			"facing": 1,
+			"hz": 30,
+			"kind": "dynamic_arm_motion",
+			"max_local_joint_step": 21.3352546691895,
+			"minimum_abs_ik_branch_sine": 0.584617977319097,
+			"seconds": 6
+		},
+		{
+			"facing": 1,
+			"hz": 60,
+			"kind": "dynamic_arm_motion",
+			"max_local_joint_step": 10.9964933395386,
+			"minimum_abs_ik_branch_sine": 0.584608921194617,
+			"seconds": 6
+		},
+		{
+			"facing": 1,
+			"hz": 120,
+			"kind": "dynamic_arm_motion",
+			"max_local_joint_step": 5.52608108520508,
+			"minimum_abs_ik_branch_sine": 0.584594230580263,
+			"seconds": 6
+		},
+		{
+			"facing": -1,
+			"hz": 30,
+			"kind": "dynamic_arm_motion",
+			"max_local_joint_step": 10.4125366210938,
+			"minimum_abs_ik_branch_sine": 0.259653505882037,
+			"seconds": 6
+		},
+		{
+			"facing": -1,
+			"hz": 60,
+			"kind": "dynamic_arm_motion",
+			"max_local_joint_step": 5.21758413314819,
+			"minimum_abs_ik_branch_sine": 0.259685381929215,
+			"seconds": 6
+		},
+		{
+			"facing": -1,
+			"hz": 120,
+			"kind": "dynamic_arm_motion",
+			"max_local_joint_step": 2.61066818237305,
+			"minimum_abs_ik_branch_sine": 0.259600763072345,
+			"seconds": 6
+		},
+		{
+			"facing": 1,
+			"kind": "joint_timestep_convergence",
+			"ratios": [
+				{
+					"coarse_hz": 30,
+					"ratio": 0.515414205738016
+				},
+				{
+					"coarse_hz": 60,
+					"ratio": 0.502531208320357
+				}
+			]
+		},
+		{
+			"facing": -1,
+			"kind": "joint_timestep_convergence",
+			"ratios": [
+				{
+					"coarse_hz": 30,
+					"ratio": 0.501086749849061
+				},
+				{
+					"coarse_hz": 60,
+					"ratio": 0.500359575571965
+				}
+			]
+		}
+	],
+	"scope": "Shared arm drawing anchors, both anatomical sides/facings, lean/guard/aim/gait extremes; actual limited controls, nonsingular IK branch identity and 30/60/120Hz timestep convergence. Optional guards/extremes/motion and torso-tier render previews. No absolute physical elbow-speed claim, OS input, human anatomy/art approval or fun claim."
+}

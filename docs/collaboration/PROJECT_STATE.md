@@ -1,6 +1,16 @@
 # 当前实现与接手地图
 
-## 最新阶段：DEV-048（2026-10-28，EDT）
+## 最新阶段：DEV-049（2026-10-29，EDT）
+
+当前发布 **v0.4.9**，运行代码 **8c9108834df2aadf4f97e389bdc85dab42d358b8**，分支 `codex/v0.4`。马体里程碑 `ce06849` 与节奏里程碑 `8c91088` 已推送核对；Play-Latest 指向独立 v0.4.9。基线 `c2078b6`。详情见 [DEV-049交接](handoffs/2026-10-29-DEV-049-Codex.md)、[V049审查](../development/V049_REVIEW.md)及[分层验证记录](../development/V049_VALIDATION.md)。下文旧阶段仅是沿用基线。
+
+- 马肩、臀部、躯干和近侧上腿共用连续皮肤与动态网格；远侧上腿也取同一母片，下腿先画再覆盖接缝。固定权重/UV缓存，沿用原四步态、骨长、世界锁蹄和鞍座，不重新调大弹跳。新图为AI辅助像素素材，有原图、提示词和挂点记录；不宣称人工逐像素或历史实物复原。
+- `visual/exchange_director.gd` 管理有限接近→实际接触→读击→平滑释放。接近最低0.45倍、最多1.15墙钟秒；实际命中顿帧35–70ms，读击0.28秒@0.24倍，释放0.25秒。关闭慢动作仍保留短命中停顿、快速恢复。同一批双方命中完整消费，不因事件顺序缩短反馈；重复接触不无限延长演出。
+- 枪盾保持原有游戏时间限速，慢动作不会瞬移。真实接触点色火花、短定向镜头冲击、枪身弯曲、胸甲/盾面弹性和合成受力音同步；握点、枪尖和规则碰撞位置不变。暂停冻结音画和说明寿命；新命中从首个可见帧开始预算，避免旧帧/存盘耗掉顿帧。
+- 源码导入、挂点/步态/HUD/时钟回归完成；最终EXE实际扫掠命中/错过、双方同批命中、设置、伤员终局、暂停恢复与双模式三轮结算通过。OS桌面完成菜单、练习、调枪、换盾、暂停恢复、重开、结果/保存退出。30ms鼠标按压不能算持续3秒长按；真人手感、跨机/DPI、触控未验收。
+- PCK SHA256：`E81C28C27650F06FE3D22F8C250F628CBE9A47F359BEA9BBFCE0F14AD6015307`。独立Windows ZIP与解压校验以 V049_VALIDATION 最后回执为准。旧v0.4.8包保留；GitHub分支包含源码与证据，不等于上传了GitHub Release。
+
+## 沿用基线：DEV-048（2026-10-28，EDT）
 
 当前发布 **v0.4.8**，运行代码 **ff8f85b6ad97bdc9fbc6696ed6ddacb3881d4de9**，分支codex/v0.4；Play-Latest已指向独立v0.4.8。基线a76a9df，96fbff8加入外观编辑与保存，ff8f85b修跨坐和肩盾衔接。详情见[DEV-048交接](handoffs/2026-10-28-DEV-048-Codex.md)及[V048审查](../development/V048_REVIEW.md)。下文DEV-047/046为历史基线，不是当前包身份。
 
@@ -28,11 +38,11 @@
 
 ## 启动与工具
 
-- [Play-Latest.cmd](../../Play-Latest.cmd)指向独立[Windows目录](../../builds/LanceAndLaurel-v0.4.8/)，EXE和PCK同目录；旧包与失败候选不覆盖。
+- [Play-Latest.cmd](../../Play-Latest.cmd)指向独立[Windows目录](../../builds/LanceAndLaurel-v0.4.9/)，EXE和PCK同目录；旧包与失败候选不覆盖。
 - 主项目[game/project.godot](../../game/project.godot)，Godot4.5.1/GDScript/Compatibility，Windows x86_64。
 - 本机引擎tools/godot-4.5.1/Godot_v4.5.1-stable_win64_console.exe；导出模板tools/templates/windows_release_x86_64.exe。
-- PCK SHA256：B88FA47AC141A0B603E5214B1ADA08A472DCB4787F23609B91A669DD091CADD0。
-- 完整文档、ZIP身份、远程SHA及当前测试结果以DEV-048最终回执为准；342c4bf里程碑已推送核对。根HANDOFF仍是旧入口，不能将其v0.4早期状态覆盖本文。
+- PCK SHA256：E81C28C27650F06FE3D22F8C250F628CBE9A47F359BEA9BBFCE0F14AD6015307。
+- 完整文档、ZIP身份、远程SHA及当前测试结果以DEV-049最终回执为准。根HANDOFF仍是旧入口且包含对方未提交内容，不能将其v0.4早期状态覆盖本文。
 
 ## 玩家控制与规则
 
@@ -42,7 +52,7 @@
 
 竞技场非致死、每轮新枪不回血；实战允许死亡且断枪跨轮，整体更不易断。血腥只改表现。三档AI、三轮结算、练习、商店、自动存档/三手动槽沿用；无刀剑或近战。四国72骑枪、各24甲胄/头盔/盾和10匹共通马，历史年代/身份不等同品质等级。
 
-## 本轮动作和速度感
+## 沿用动作和速度感（DEV-046；皮肤与交锋节奏由上方DEV-049增补）
 
 马腿根对应肩与臀，前后近端骨方向独立；UPPER/LOWER均68。宽度独立于长度缩放，单张上腿纹理在hip→proximal→knee间连续蒙皮，根部由身体遮挡，避免细竹竿与圆形贴片。原atlas复用，无新位图生成。
 
@@ -55,7 +65,8 @@
 | 文件 | 职责 |
 | --- | --- |
 | visual/horse_gait.gd | 确定性四步态、躯干/骑手姿态与多段腿 |
-| visual/rider_view.gd、horse_art.gd | 挂点、世界锁脚/落点预测、连续肌肉蒙皮与素材区域 |
+| visual/rider_view.gd、horse_art.gd、horse_skin.gd | 挂点、世界锁脚/落点预测、连续马体蒙皮与素材区域 |
+| visual/exchange_director.gd | 有界墙钟接近/命中/释放；不写规则、输入或坐标 |
 | core/joust_match.gd | 真实速度、枪盾挂点、碰撞与两模式规则 |
 | battle.gd | 输入、镜头、世界地面、HUD与分跑道表现 |
 | visual/impact_fx.gd、sound_bank.gd | 有界尘土、远尘遮挡、冲击/蹄/风合成声 |
@@ -70,6 +81,6 @@
 1. 用户试玩最终包，重点确认按住/松手及远段冲锋是否有可读速度感、是否仍有异常弹跳或腿部接缝，按具体片段继续改。
 2. 满血追头对局落马/死亡节奏仍需独立平衡复核；30HP伤员致死夹具只是模式契约。
 3. 程序分件旋转仍有像素边缘闪烁与局部接缝；不宣称已达到运动捕捉品质。
-4. 桌面QA外部脚本Alt+F4退出出现ObjectDB警告，未证明影响生产正常退出；跨机/DPI、触控与真人长测仍未覆盖。
+4. 旧桌面QA外部脚本Alt+F4退出曾出现ObjectDB警告；DEV-049无注入观察器已在超时清理和保存退出两条路径干净退出，但不能据此宣称所有历史退出路径已解决。跨机/DPI、触控与真人长测仍未覆盖。
 
 历史与装备资料见docs/HISTORICAL_RESEARCH.md、HISTORICAL_ASSET_BRIEFS.md、EQUIPMENT_PROGRESSION.md；本轮一手动作/竞品资料与未观看视频的边界见V046_REVIEW。双方文件认领唯一入口TASK_BOARD，既有Claude文档差异继续保留。

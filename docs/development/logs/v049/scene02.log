@@ -1,0 +1,26 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+GALUMU_BUILD v0.4.8
+EXCHANGE_SCENE_CAPTURE arena_shield_slow_on approach 0
+EXCHANGE_SCENE_CAPTURE arena_shield_slow_on first_contact 0
+EXCHANGE_SCENE_CAPTURE arena_shield_slow_on read 0
+EXCHANGE_SCENE_CAPTURE arena_shield_slow_on release 0
+EXCHANGE_SCENE_CAPTURE arena_shield_slow_on crossed_restored 0
+EXCHANGE_SCENE_CAPTURE arena_shield_slow_off first_contact 0
+EXCHANGE_SCENE_CAPTURE arena_shield_slow_off crossed_restored 0
+EXCHANGE_SCENE_CAPTURE war_body_slow_on approach 0
+EXCHANGE_SCENE_CAPTURE war_body_slow_on first_contact 0
+EXCHANGE_SCENE_CAPTURE war_body_slow_on read 0
+EXCHANGE_SCENE_CAPTURE war_body_slow_on release 0
+EXCHANGE_SCENE_CAPTURE war_body_slow_on crossed_restored 0
+EXCHANGE_SCENE_CAPTURE arena_miss_slow_on approach 0
+EXCHANGE_SCENE_CAPTURE arena_miss_slow_on release 0
+EXCHANGE_SCENE_CAPTURE arena_miss_slow_on crossed_restored 0
+EXCHANGE_SCENE_CAPTURE war_miss_slow_off crossed_restored 0
+EXCHANGE_SCENE_CAPTURE war_wounded_slow_on approach 0
+EXCHANGE_SCENE_CAPTURE war_wounded_slow_on first_contact 0
+EXCHANGE_SCENE_CAPTURE war_wounded_slow_on read 0
+EXCHANGE_SCENE_CAPTURE war_wounded_slow_on release 0
+EXCHANGE_SCENE_CAPTURE war_wounded_slow_on terminal_restored 0
+EXCHANGE_SCENE_V049 true failures=[]

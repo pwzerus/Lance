@@ -1,6 +1,6 @@
 # 任务、审查建议与文件认领
 
-最后整理：2026-10-28。DEV-043的AI、菜单、存档和枪盾反馈已交付v0.4.3，审查、验包与文件释放见下表。其他建议尚未指派给Claude，不代表已在后台进行。
+最后整理：2026-10-29。DEV-049马体接缝和交锋张力已交付独立v0.4.9，运行代码8c91088；实际包、桌面操作与Windows归档验证见DEV-049交接。其他建议尚未指派给Claude，不代表已在后台进行。
 
 当前版本分支为 `codex/v0.4`。同版本的修复、同一／相近功能继续在该分支提交 commit；大的结构性改动形成新版本时再创建新的版本分支。不按每个小任务新建分支。
 
@@ -8,7 +8,7 @@
 
 | 负责人 | 任务 | 占用文件 | 状态 |
 | --- | --- | --- | --- |
-| Codex | DEV-049：马身腿根接缝与冲锋/近身/命中张力 | root：visual/{rider_view,horse_art,horse_gait,impact_fx,sound_bank}.gd、battle.gd、core/joust_match.gd、main.gd版本、project/export、Play-Latest、设计/协作文档；motion_review仅新增visual/exchange_director.gd；appearance仅新增assets/art/pixel_v049/及art_sources/v049/和紧邻来源说明；QA仅只读待接口确认后新增tests/*v049* | 基线c2078b6，2026-10-29 22:24:32 UTC开始，至2026-10-30 02:54:32 UTC（本地10月29日18:24–22:54），4.5小时。先形体接缝，再节奏张力；保留枪盾连续运动、QA隔离、旧包及Claude既有改动；同分支codex/v0.4。 |
+| Codex | DEV-049：开发/试玩观察/审查完成，全部文件释放 | visual/{rider_view,horse_skin,exchange_director,impact_fx,sound_bank}.gd、mounted_pixel.gdshader、battle、main版本、core/desktop_input_audit、project/export/Play-Latest、pixel_v049/art_sources及来源、tests/*v049*、设计与协作文档 | 基线c2078b6→8c91088运行代码，ce06849与8c91088已推送核对；4.5小时上限内提前完成。独立v0.4.9实包专项/两模式/OS菜单调枪换盾暂停重开、ZIP解压启动通过；枪盾有限速、QA隔离、旧包/Claude既有改动保留。真人/持续OS长按未验收，见DEV-049交接。 |
 | Codex | DEV-048：已完成，全部文件释放 | rider_view、core/character_appearance、visual/character_face、game_state、main、版本/导出/启动器、tests/*v048*及本轮证据和协作文档 | 基线a76a9df→ff8f85b运行代码，独立v0.4.8。实际EXE外观与双模式通过；解压Windows包以OS鼠标完成修改/保存/重开/取消/退出。保留旧档、枪盾限速、旧包和Claude改动。详情见DEV-048交接。 |
 | Codex | DEV-047：已完成，全部文件已释放 | rider_view、rider_arm_art、新pixel_v047、battle、main、project/export、Play-Latest、tests/*v047*、协作文档与最终归档证据 | 基线fe94f9b→658b4c9运行代码；codex/v0.4，独立v0.4.7-r3。实包/OS/Windows及源码验包完成，91b7d63已推送核对，最后验包回执见HEAD；枪盾限速保留，马体/打击大修留下一次4.5小时，未自动开始。 |
 | Codex | DEV-046：开发与验证完成，文件已释放 | 主负责人：game/scripts/visual/{horse_gait,horse_art,rider_view,sound_bank,impact_fx}.gd，core/joust_match.gd，battle.gd，main.gd，project.godot，export_presets.cfg，Play-Latest.cmd；game/tests/*v046*；DESIGN_DECISIONS.md；docs/collaboration/{TASK_BOARD,PROJECT_STATE,WORK_LOG}.md、handoffs/*046*；docs/development/*046*。motion_review只读研究与审查；motion_qa仅新test_motion_showcase_v046.gd及uid，须串行QA | 基线c255844，codex/v0.4。2026-10-28 22:44:33 UTC开始，2026-10-29 01:14:33 UTC截止。既有Claude文档与历史未跟踪证据保留。先改善已有结构，不重写玩法。 |
@@ -20,6 +20,10 @@
 DEV-049文件细分补充：root新增visual/horse_skin.gd与mounted_pixel.gdshader用于连续马体蒙皮，现接手exchange_director.gd；motion_review仅修改visual/sound_bank.gd；appearance新增素材已释放、转只读复核；motion_qa独占新增tests/test_exchange_timing_v049.gd、test_exchange_scene_v049.gd、test_mount_seams_v049.gd及UID。所有引擎运行由root串行执行，子任务不得并发写QA档。
 
 DEV-049桌面复核补充：root认领core/desktop_input_audit.gd，仅给隔离QA日志增加实际时间缩放、演出阶段与枪盾/镜头记录；不改变输入行为或正式存档。
+
+DEV-049发布复核：root新增tests/test_desktop_v049.gd，沿用v047的无注入桌面观察器，改为独立v049 QA路径和新日志；只记录原生桌面操作。
+
+DEV-049证据整理完成：motion_qa交回V049_VALIDATION及desktop-summary，root补入归档/发布回执；上方DEV-049各细分认领全部释放。历史过程保留，不代表仍有后台任务运行。
 
 认领前登记任务 ID、负责人、文件、开始时间与基线 SHA。修改范围扩大时先更新占用。完成／暂停／交出时释放，并留下具体交接记录。此表不是技术锁；`battle.gd`、`main.gd`、规则模型和同一图集禁止两人各改一套后互相覆盖。审查者先只读，修复需协调文件负责人。
 

@@ -1,0 +1,192 @@
+{
+  "asset": "horse_continuous_skin_v049_02.png",
+  "task": "DEV-049",
+  "status": "shading variant; source compatible enough for render comparison; not integrated",
+  "source": "../../../art_sources/v049/horse_continuous_source_v049_02.png",
+  "edit_target": "../../../art_sources/v049/horse_continuous_source_v049_01.png",
+  "generator": "OpenAI built-in image_gen.imagegen",
+  "generated_utc_date": "2026-10-29",
+  "sha256": "ff7cb7d1e7a2c9a679eb4a6e374f454deb3f98a45ebe680ada322efba4f08ac0",
+  "size": [
+    1536,
+    1024
+  ],
+  "requested_scope": "Internal haunch/forearm muscle shading only; exact silhouette and tack preservation requested.",
+  "observed_scope": "Haunch swirl bands reduced and forearm shading broadened. Outline is close but not identical; some tack interior pixels changed.",
+  "alpha": {
+    "zero": 866978,
+    "one_to_254": 705886,
+    "fully_255": 0,
+    "max": 254,
+    "bounds_at_least_128_inclusive": [
+      121,
+      50,
+      1404,
+      972
+    ],
+    "unchanged_after_generation": true
+  },
+  "comparison_to_01": {
+    "threshold": 128,
+    "old_mask_area": 677271,
+    "new_mask_area": 676511,
+    "intersection": 675819,
+    "union": 677963,
+    "intersection_over_union": 0.996837586,
+    "alpha_changed_pixels": 161364,
+    "opaque_rgb_changed_over_8": 230847,
+    "saddle_roi": [
+      700,
+      100,
+      300,
+      300
+    ],
+    "saddle_roi_pixels_rgb_changed_over_8": 12113,
+    "saddle_roi_max_rgb_channel_delta": 187,
+    "contour_samples": [
+      {
+        "row": 571,
+        "old_spans": [
+          [
+            242,
+            513
+          ],
+          [
+            618,
+            1340
+          ]
+        ],
+        "new_spans": [
+          [
+            243,
+            512
+          ],
+          [
+            618,
+            1341
+          ]
+        ]
+      },
+      {
+        "row": 803,
+        "old_spans": [
+          [
+            156,
+            317
+          ],
+          [
+            1267,
+            1397
+          ]
+        ],
+        "new_spans": [
+          [
+            156,
+            311
+          ],
+          [
+            1268,
+            1397
+          ]
+        ]
+      },
+      {
+        "row": 830,
+        "old_spans": [
+          [
+            169,
+            308
+          ],
+          [
+            1264,
+            1404
+          ]
+        ],
+        "new_spans": [
+          [
+            169,
+            308
+          ],
+          [
+            1268,
+            1404
+          ]
+        ]
+      },
+      {
+        "row": 942,
+        "old_spans": [
+          [
+            234,
+            349
+          ],
+          [
+            1260,
+            1370
+          ]
+        ],
+        "new_spans": [
+          [
+            234,
+            349
+          ],
+          [
+            1261,
+            1370
+          ]
+        ]
+      }
+    ]
+  },
+  "suggested_binding": {
+    "source_body": [
+      120,
+      50,
+      1285,
+      595
+    ],
+    "hind": [
+      [
+        355,
+        310
+      ],
+      [
+        392,
+        571
+      ],
+      [
+        239,
+        803
+      ],
+      [
+        284,
+        942
+      ]
+    ],
+    "fore": [
+      [
+        1200,
+        300
+      ],
+      [
+        1183,
+        580
+      ],
+      [
+        1341,
+        830
+      ],
+      [
+        1316,
+        946
+      ]
+    ],
+    "basis": "Reuse 01 landmarks for a render comparison; observed silhouette deviations are small relative to their original 15-25px visual-estimate tolerance. Not a claim of exact pixel/anchor preservation."
+  },
+  "limitations": [
+    "No Godot import or rendering performed by asset author.",
+    "Do not substitute automatically without checking the kneecap/hock overlap.",
+    "Tack is visually preserved but not pixel-identical.",
+    "Original 01 retained unchanged."
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "asset": "horse_continuous_skin_v049.png",
+  "task": "DEV-049",
+  "status": "generated source plate; integration/render pending",
+  "source": "../../../art_sources/v049/horse_continuous_source_v049_01.png",
+  "reference": "../pixel_v041/horse_atlas.png",
+  "generator": "OpenAI built-in image_gen.imagegen",
+  "generated_utc_date": "2026-10-29",
+  "sha256": "5894d64a8c22ea893171cb840bb6e5d3a1976b35680fc658d018b15d3e29f4d8",
+  "size": [
+    1536,
+    1024
+  ],
+  "coordinates": "source pixels, top-left origin, right/down positive; visual estimates, tolerance about 15-25 pixels",
+  "alpha": {
+    "zero": 861633,
+    "one_to_254": 711231,
+    "fully_255": 0,
+    "max": 254,
+    "bounds_at_least_128_inclusive": [
+      120,
+      50,
+      1405,
+      971
+    ],
+    "interior_samples": [
+      253,
+      254
+    ],
+    "unchanged": true
+  },
+  "landmarks": {
+    "saddle_seat": [
+      825,
+      204
+    ],
+    "back_left": [
+      445,
+      117
+    ],
+    "back_right": [
+      1108,
+      168
+    ],
+    "croup_root": [
+      355,
+      310
+    ],
+    "hind_stifle": [
+      392,
+      571
+    ],
+    "hind_hock": [
+      239,
+      803
+    ],
+    "hind_tab_end": [
+      284,
+      942
+    ],
+    "shoulder_root": [
+      1200,
+      300
+    ],
+    "fore_elbow": [
+      1183,
+      580
+    ],
+    "fore_carpus": [
+      1341,
+      830
+    ],
+    "fore_tab_end": [
+      1316,
+      946
+    ],
+    "belly_middle": [
+      766,
+      594
+    ],
+    "neck_overlap_edge": [
+      1350,
+      370
+    ]
+  },
+  "proposed_source_regions": {
+    "rigid_torso_and_tack": [
+      120,
+      50,
+      1285,
+      595
+    ],
+    "hind_transition": [
+      142,
+      282,
+      460,
+      565
+    ],
+    "fore_transition": [
+      1078,
+      244,
+      327,
+      647
+    ],
+    "notes": "Regions overlap intentionally. Do not independently draw these rectangles as layered cuts. Use one connected UV mesh with shared seam vertices and gradient weights; whole texture alpha provides silhouette."
+  },
+  "suggested_binding": "Gait near hip/proximal/knee correspond to root/stifle-or-elbow/hock-or-carpus. Leave torso/saddle stable; blend in roots; reuse old lower legs and measured hoof targets.",
+  "exclusions_observed": [
+    "head",
+    "neck",
+    "tail",
+    "far legs",
+    "hooves",
+    "rider",
+    "UI/text"
+  ],
+  "limitations": [
+    "Near fore carpus and hind hock are large; distal tabs can be occluded or excluded by runtime mesh.",
+    "Not a completed animation or guarantee of a strict authored pixel grid.",
+    "Interior alpha is 253-254, not 255.",
+    "No Godot import/render performed by asset author; actual lower-leg joining needs validation."
+  ]
+}

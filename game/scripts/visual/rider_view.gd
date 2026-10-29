@@ -10,6 +10,8 @@ const Gait = preload("res://scripts/visual/horse_gait.gd")
 const Shield = preload("res://scripts/core/shield_geometry.gd")
 const ArmArt = preload("res://scripts/visual/rider_arm_art.gd")
 const Face = preload("res://scripts/visual/character_face.gd")
+const HorseSkin = preload("res://scripts/visual/horse_skin.gd")
+const PIXEL_SHADER = preload("res://scripts/visual/mounted_pixel.gdshader")
 const ARM_UPPER = 44.0
 const ARM_LOWER = 46.0
 const LANCE_SHOULDER = Vector2(-25,-64)
@@ -30,6 +32,9 @@ var mode = "arena"
 var impact_recoil = 0.0
 var lance_recoil = 0.0
 var shield_recoil = 0.0
+var impact_velocity = 0.0
+var lance_velocity = 0.0
+var shield_velocity = 0.0
 var stride_phase = 0.0
 var preview = false
 var last_cycles = [0.0,0.0,0.0,0.0]
@@ -47,6 +52,14 @@ var swing_durations: Array[float] = [.3,.3,.3,.3]
 var last_feet: Array[Vector2] = [Vector2.INF,Vector2.INF,Vector2.INF,Vector2.INF]
 var previous_stride_phase = 0.0
 var cycles_initialized = false
+var horse_skin = HorseSkin.new()
+var far_hind_skin = HorseSkin.new("hind")
+var far_fore_skin = HorseSkin.new("fore")
+
+func _init() -> void:
+	var pixel_material = ShaderMaterial.new()
+	pixel_material.shader = PIXEL_SHADER
+	material = pixel_material
 
 func _process(delta: float) -> void:
 	clock += delta
@@ -125,10 +138,28 @@ func _process(delta: float) -> void:
 	if moving and delta>0 and delta<.2:
 		for index in landed:
 			hoof_contact.emit(index)
-	impact_recoil = move_toward(impact_recoil,0,delta*3)
-	lance_recoil = move_toward(lance_recoil,0,delta*4)
-	shield_recoil = move_toward(shield_recoil,0,delta*4)
+	# Contact adds momentum; the mesh never jumps to a new weapon/guard pose.
+	# Stable small game-time steps keep recoil independent of render rate.
+	var remaining = minf(delta,.25)
+	while remaining>0.000001:
+		var dt = minf(remaining,1.0/120.0)
+		impact_velocity += (-310.0*impact_recoil-25.0*impact_velocity)*dt
+		lance_velocity += (-520.0*lance_recoil-22.0*lance_velocity)*dt
+		shield_velocity += (-460.0*shield_recoil-28.0*shield_velocity)*dt
+		impact_recoil += impact_velocity*dt
+		lance_recoil += lance_velocity*dt
+		shield_recoil += shield_velocity*dt
+		remaining -= dt
 	queue_redraw()
+
+func receive_impact(strength: float, on_shield: bool) -> void:
+	impact_velocity = minf(impact_velocity+clampf(strength,0,1)*(10.0 if on_shield else 23.0),28.0)
+	if on_shield:
+		shield_velocity = minf(shield_velocity+clampf(strength,0,1)*25.0,30.0)
+
+func receive_lance_contact(strength: float) -> void:
+	lance_velocity = minf(lance_velocity+clampf(strength,0,1)*32.0,36.0)
+
 func draw_part(part: String, destination: Rect2, color: Color = Color.WHITE) -> void:
 	draw_texture_rect_region(ATLAS,destination,PARTS[part],color)
 
@@ -158,19 +189,21 @@ func _draw() -> void:
 	# Drawing both after the barrel made the rider appear side-saddle.
 	if rider_visible:
 		_draw_seated_leg(seated.far,Color(.63,.66,.69),false)
-	_draw_horse_leg(1,horse_tint,true,false)
-	_draw_horse_leg(3,horse_tint,true,false)
 	var tail_root = Model.HIP+(Vector2(-134,-170)-Model.HIP).rotated(horse_pose.pitch)+horse_pose.offset
 	draw_set_transform_matrix(mirrored_transform(tail_root,horse_pose.pitch,facing))
 	_draw_flexible_horse_part("tail",Rect2(-78,-5,84,127),horse_pose.tail,horse_tint,false)
 	var neck_root = Model.HIP+(Vector2(80,-124)-Model.HIP+horse_pose.neck_offset).rotated(horse_pose.pitch)+horse_pose.offset
 	draw_set_transform_matrix(mirrored_transform(neck_root,horse_pose.pitch,facing))
 	_draw_flexible_horse_part("head",Rect2(-31,-126,130,150),horse_pose.neck,horse_tint,true)
-	draw_set_transform_matrix(mirrored_transform(Model.HIP+horse_pose.offset,horse_pose.pitch,facing))
-	draw_texture_rect_region(HorseArt.ATLAS,Rect2(-137,-20,247,106),HorseArt.PARTS.body,horse_tint)
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
+	var hind_pose = _horse_leg_pose(1)
+	var fore_pose = _horse_leg_pose(3)
+	# The lower-leg root goes UNDER the continuous upper skin. Otherwise two
+	# independently outlined wrist/hock caps read as a peg bolted to the coat.
 	_draw_horse_leg(1,horse_tint,false,true)
 	_draw_horse_leg(3,horse_tint,false,true)
+	horse_skin.update(horse_pose,hind_pose,fore_pose)
+	horse_skin.draw(self,horse_tint)
 	var muzzle = neck_root+Vector2(95,-31).rotated(horse_pose.pitch+horse_pose.neck)
 	var rein_hand = ((Model.shield_position(fighter)-Vector2(fighter.x,fighter.get("lane_y",0)))*Vector2(facing,1))+Vector2(-10,4).rotated(Model.pose_angle(fighter))
 	if fighter.get("ko",false) or fighter.get("dead",false):
@@ -197,7 +230,7 @@ func _draw() -> void:
 	var near_side = "right" if facing==1 else "left"
 	draw_set_transform_matrix(torso_transform)
 	_draw_anatomical_arm(far_side,far_arm,Color(.70,.73,.76),true,true)
-	draw_texture_rect(torso_texture,Rect2(-47,-94,94,104),false)
+	_draw_impact_torso()
 	_draw_armor_detail()
 	_draw_anatomical_arm(near_side,near_arm,Color.WHITE,true,true)
 	# Shoulder caps overlap the rotating upper sleeves, closing the socket.
@@ -262,11 +295,9 @@ func _draw_flexible_horse_part(part: String, rectangle: Rect2, bend: float, tint
 		draw_polygon(vertices,PackedColorArray([tint]),uv,HorseArt.ATLAS)
 
 func _draw_horse_leg(index: int, tint: Color, upper: bool = true, lower: bool = true) -> void:
-	var pose = Gait.leg(index,stride_phase,float(fighter.get("speed",210.0)),moving,float(fighter.stats.get("stability",1.0)),INF,Vector2.INF,float(fighter.get("motion_drive",0.0)))
-	if leg_poses.size()==4:
-		pose = leg_poses[index]
+	var pose = _horse_leg_pose(index)
 	var prefix = "fore" if pose.front else "hind"
-	if upper:
+	if upper and index not in [0,2]:
 		_draw_horse_upper(prefix+"_upper",pose.hip,pose.proximal,pose.knee,46 if pose.front else 65,tint)
 	if not lower:
 		return
@@ -276,6 +307,16 @@ func _draw_horse_leg(index: int, tint: Color, upper: bool = true, lower: bool = 
 	draw_set_transform_matrix(mirrored_transform(pose.foot,pose.toe_angle,facing))
 	draw_texture_rect_region(HorseArt.ATLAS,Rect2(-11,-14,22,14),HorseArt.PARTS.hoof,tint)
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
+	if upper and index in [0,2]:
+		var skin = far_hind_skin if index==0 else far_fore_skin
+		skin.update(Model.gait_pose(fighter),pose,pose)
+		skin.draw(self,tint)
+
+func _horse_leg_pose(index: int) -> Dictionary:
+	var pose = Gait.leg(index,stride_phase,float(fighter.get("speed",210.0)),moving,float(fighter.stats.get("stability",1.0)),INF,Vector2.INF,float(fighter.get("motion_drive",0.0)))
+	if leg_poses.size()==4:
+		pose = leg_poses[index]
+	return pose
 
 func _draw_horse_upper(part: String, start: Vector2, middle: Vector2, end: Vector2, width: float, tint: Color) -> void:
 	# One continuous muscle skin over shoulder/elbow or hip/stifle. Repeating
@@ -449,8 +490,10 @@ func _draw_lance(hand: Vector2, angle: float, length: float, broken: bool) -> vo
 	var tip = hand+direction*length
 	var butt = hand-direction*67
 	var normal = Vector2(-direction.y,direction.x)
-	var middle = hand.lerp(tip,.55)+normal*lance_recoil*10*(0 if broken else 1)
-	var shaft = PackedVector2Array([butt,hand,middle,tip])
+	var shaft = PackedVector2Array([butt,hand])
+	for i in range(1,17):
+		var t = float(i)/16.0
+		shaft.append(_lance_surface_point(hand,angle,length,broken,length*t))
 	var type = str(fighter.stats.get("lance_type","standard"))
 	var width = 6.0 if type=="light" else (10.0 if type=="stout" else 8.0)
 	draw_polyline(shaft,Color("302318"),width,true)
@@ -463,11 +506,11 @@ func _draw_lance(hand: Vector2, angle: float, length: float, broken: bool) -> vo
 	if fighter.stats.has("lance_color"):
 		var paint = Color(str(fighter.stats.lance_color))
 		for band in range(quality+1):
-			var mark = hand+direction*(25+band*14)
+			var mark = _lance_surface_point(hand,angle,length,broken,25+band*14)
 			if 25+band*14<length-26:
 				draw_line(mark-normal*(width*.45),mark+normal*(width*.45),paint,5)
 		if quality>=3:
-			var guard = hand+direction*14
+			var guard = _lance_surface_point(hand,angle,length,broken,14)
 			draw_line(guard-normal*12,guard+normal*12,Color("383d3b"),7)
 			draw_line(guard-normal*10,guard+normal*10,Color("bea05d"),3)
 	if not broken:
@@ -479,6 +522,11 @@ func _draw_lance(hand: Vector2, angle: float, length: float, broken: bool) -> vo
 		draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 	else:
 		draw_line(tip+Vector2(-3,-4),tip+Vector2(3,3),Color("ebd5a0"),2)
+
+func _lance_surface_point(hand: Vector2, angle: float, length: float, broken: bool, distance: float) -> Vector2:
+	var direction = Vector2(cos(angle),sin(angle))
+	var t = clampf(distance/maxf(1,length),0,1)
+	return hand+direction*distance+Vector2(-direction.y,direction.x)*lance_recoil*14.0*sin(PI*t)*(0 if broken else 1)
 
 func _draw_heraldry(center: Vector2, design: String) -> void:
 	if design == "cross":
@@ -496,7 +544,7 @@ func _draw_shield(center: Vector2, design: String) -> void:
 	if float(fighter.shield)<=0:
 		return
 	var ratio = float(fighter.shield)/float(fighter.stats.get("shield_capacity",78.0))
-	var tint = Color.WHITE.darkened(.18 if ratio<.32 else 0).lerp(Color(2,2,1.5),shield_recoil*.55)
+	var tint = Color.WHITE.darkened(.18 if ratio<.32 else 0).lerp(Color(1.5,1.5,1.25),maxf(0,shield_recoil)*.55)
 	# A compressed, slanted face plus a visible wooden rear rim makes the
 	# shield brace toward the opponent instead of reading as a screen decal.
 	var base_outline = Shield.outline(str(fighter.stats.get("shield_shape","kite")))
@@ -514,7 +562,7 @@ func _draw_shield(center: Vector2, design: String) -> void:
 		var inner = PackedVector2Array()
 		for point in outline:
 			outer.append(center+shield_projection(point))
-			inner.append(center+shield_projection(point*.87))
+			inner.append(center+shield_projection(point*.87)+Vector2(-2.5,0)*shield_recoil)
 		draw_colored_polygon(outer,Color("292b25"))
 		draw_colored_polygon(inner,Color(str(fighter.stats.shield_color))*tint)
 		var rim = inner.duplicate()
@@ -532,19 +580,36 @@ func _draw_shield(center: Vector2, design: String) -> void:
 		draw_polygon(face,PackedColorArray([tint]),uv,shield_texture)
 		face.append(face[0])
 		draw_polyline(face,Color("c5a568")*tint,3)
-	_draw_heraldry(center,design)
+	_draw_heraldry(center+Vector2(-2.5,0)*shield_recoil,design)
 	if ratio<.54:
 		draw_polyline(PackedVector2Array([center+Vector2(-5,-27),center+Vector2(3,-9),center+Vector2(-4,7),center+Vector2(4,24)]),Color("302d28"),2,true)
 
 static func shield_projection(point: Vector2) -> Vector2:
 	return Shield.project(point)
 
+func _torso_surface_point(point: Vector2) -> Vector2:
+	# Small armour/cloth compression only. Neck, seat, shoulder sockets and
+	# every rule anchor stay fixed; contact feedback cannot fake a dodge.
+	var t = clampf((point.y+94.0)/104.0,0,1)
+	return point+Vector2(-int(fighter.direction)*5.5*impact_recoil*sin(PI*t),0)
+
+func _draw_impact_torso() -> void:
+	for row in range(6):
+		var points = PackedVector2Array()
+		var uv = PackedVector2Array()
+		for corner in [Vector2(0,row/6.0),Vector2(1,row/6.0),Vector2(1,(row+1)/6.0),Vector2(0,(row+1)/6.0)]:
+			points.append(_torso_surface_point(Vector2(-47,-94)+corner*Vector2(94,104)))
+			uv.append(corner)
+		draw_polygon(points,PackedColorArray([Color.WHITE]),uv,torso_texture)
+
 func _draw_armor_detail() -> void:
 	if not fighter.stats.has("armor_color"):
 		return
 	var color = Color(str(fighter.stats.armor_color))
 	var quality = int(fighter.stats.get("armor_quality",0))
-	var cloth = PackedVector2Array([Vector2(-25,-65),Vector2(16,-64),Vector2(25,-22),Vector2(-22,-19)])
+	var cloth = PackedVector2Array()
+	for point in [Vector2(-25,-65),Vector2(16,-64),Vector2(25,-22),Vector2(-22,-19)]:
+		cloth.append(_torso_surface_point(point))
 	draw_colored_polygon(cloth,color.darkened(.15))
 	draw_line(Vector2(-21,-61),Vector2(-18,-23),color.lightened(.25),3)
 	if quality>=1:

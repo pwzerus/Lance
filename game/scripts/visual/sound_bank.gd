@@ -89,7 +89,10 @@ func _synthesize(sound_name: String) -> AudioStreamWAV:
 			"impact": sample = (random_source.randf_range(-1,1)*.7 + sin(TAU*(95-50*t)*t)*.5)*exp(-t*14)*.7
 			"shield": sample = (random_source.randf_range(-1,1)*exp(-t*30)*.6+sin(TAU*172*t)*exp(-t*15)*.35+sin(TAU*417*t)*exp(-t*12)*.15)*.8
 			"break": sample = random_source.randf_range(-1,1)*exp(-t*10)*(1+.3*sin(t*280))*.65
-			"hoof": sample = (sin(t*TAU*115)*.65+random_source.randf_range(-1,1)*.3)*exp(-t*35)*.6
+			"hoof":
+				var strike = random_source.randf_range(-1,1)*exp(-t*110)*.45
+				var weight = sin(TAU*(86*t-95*t*t))*exp(-t*29)*.68
+				sample = (strike+weight)*.78
 			"click": sample = sin(t*TAU*600)*exp(-t*65)*.35
 			"horn": sample = (sin(t*TAU*196)+.3*sin(t*TAU*392))*minf(1,t*8)*maxf(0,1-t/1.2)*.3
 			"win": sample = sin(t*TAU*[261.63,329.63,392.0,523.25][mini(3,int(t/.3))])*exp(-fmod(t,.3)*5)*maxf(0,1-t/1.6)*.4

@@ -12,9 +12,14 @@ var blood_enabled = false
 var bursts: Array = []
 var debris: Array = []
 var rng = RandomNumberGenerator.new()
+var far_dust: Node2D
 
 func _ready() -> void:
 	rng.randomize()
+	far_dust = Node2D.new()
+	far_dust.z_index = -11 # Parent effects is +10; far dust belongs behind rail +1.
+	far_dust.draw.connect(_draw_far_dust)
+	add_child(far_dust)
 
 func clear_blood() -> void:
 	stains.clear()
@@ -64,9 +69,10 @@ func break_lance(event: Dictionary, mode: String) -> void:
 		debris.append(body)
 		cursor += length
 
-func dust(point: Vector2, direction: int) -> void:
-	particles.append({"p": point, "v": Vector2(-direction * rng.randf_range(25,65), -rng.randf_range(8,25)), "life": .42,
-		"color": Color(.70,.59,.39,.24), "size": rng.randf_range(3,7), "blood": false})
+func dust(point: Vector2, direction: int, pace: float = 0.0) -> void:
+	for i in range(1+int(pace*3)):
+		particles.append({"p": point, "v": Vector2(-direction*rng.randf_range(30,75)*(1+pace),-rng.randf_range(12,32)), "life": lerpf(.28,.48,pace),
+			"color": Color(.70,.59,.39,lerpf(.24,.42,pace)), "size": rng.randf_range(3,6+pace*4), "blood": false, "dust":true,"floor":point.y+2})
 
 func fall(fighter: Dictionary, direction: int) -> void:
 	# Independent ragdoll pieces use RigidBody2D and PinJoint2D; horses continue on their own lanes.
@@ -128,9 +134,21 @@ func _process(delta: float) -> void:
 	for particle in particles:
 		particle.life -= delta
 		particle.p += Vector2(particle.v) * delta
-		particle.v.y += delta * 380.0
+		particle.v.y += delta * (100.0 if particle.get("dust",false) else 380.0)
+		if particle.get("dust",false) and particle.p.y>particle.floor:
+			particle.p.y = particle.floor
+			particle.v *= exp(-17.0*delta)
 	particles = particles.filter(func(p): return p.life > 0.0)
+	if far_dust:
+		far_dust.queue_redraw()
 	queue_redraw()
+
+func _draw_far_dust() -> void:
+	for particle in particles:
+		if particle.get("dust",false) and float(particle.floor)<0:
+			var color = Color(particle.color)
+			color.a *= clampf(float(particle.life)*3.0,0,1)
+			far_dust.draw_rect(Rect2(Vector2(particle.p),Vector2.ONE*float(particle.size)),color)
 
 func _draw() -> void:
 	for burst in bursts:
@@ -151,6 +169,8 @@ func _draw() -> void:
 			draw_circle(Vector2.ZERO, stain.radius, Color(.31,.09,.07,.60))
 		draw_set_transform(Vector2.ZERO)
 	for particle in particles:
+		if particle.get("dust",false) and float(particle.floor)<0:
+			continue
 		var color = Color(particle.color)
 		color.a *= clampf(float(particle.life) * 3.0,0,1)
 		draw_rect(Rect2(Vector2(particle.p), Vector2.ONE * float(particle.size)), color)

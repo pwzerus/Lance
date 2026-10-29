@@ -19,6 +19,8 @@ var mode = "arena"
 var world: Node2D
 var riders: Array = []
 var rail: Node2D
+var track: Node2D
+var backdrop: TextureRect
 var effects: ImpactFX
 var hud: Control
 var callout: Label
@@ -81,6 +83,7 @@ var speed_meter: ProgressBar
 var tactics_label: Label
 var input_flash_until = 0
 var ready_panel: Control
+var runup_panel: Control
 var contact_panel: Control
 var practice = false
 var learned = {"boost":false,"aim":false,"guard":false,"posture":false}
@@ -107,10 +110,11 @@ func _ready() -> void:
 	var scenery = CanvasLayer.new()
 	scenery.layer = -20
 	add_child(scenery)
-	var backdrop = TextureRect.new()
+	backdrop = TextureRect.new()
 	backdrop.texture = WAR_BACKGROUND if mode=="war" else BACKGROUND
 	backdrop.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	backdrop.size = Vector2(1440,810)
+	backdrop.size = Vector2(1600,900)
+	backdrop.position = Vector2(-80,-45)
 	backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	scenery.add_child(backdrop)
 	camera = Camera2D.new()
@@ -132,6 +136,10 @@ func _ready() -> void:
 	shape.shape = rectangle
 	ground.add_child(shape)
 	world.add_child(ground)
+	track = Node2D.new()
+	track.z_index = -3
+	track.draw.connect(_draw_track)
+	world.add_child(track)
 	for lane_y in [-32.0,32.0]:
 		var lane_ground = StaticBody2D.new()
 		lane_ground.position = Vector2(0,lane_y+22)
@@ -198,6 +206,7 @@ func _build_hud() -> void:
 	# Space after resume and pause again instead of letting the rider spur.
 	pause_button.focus_mode = Control.FOCUS_NONE
 	ready_panel = UI.panel(hud,Rect2(315,119,810,211),Color(.045,.08,.065,.90))
+	runup_panel = UI.panel(hud,Rect2(360,177,720,42),Color(.045,.08,.065,.90))
 	callout = UI.label(hud,"整装待发",Vector2(420,123),40,UI.INK,600)
 	callout.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	subcallout = UI.label(hud,"",Vector2(370,183),18,UI.GOLD,700)
@@ -290,8 +299,8 @@ func _on_hoof_contact(leg_index: int, rider_index: int) -> void:
 	var pose = riders[rider_index].Gait.leg(leg_index,riders[rider_index].stride_phase,float(fighter.speed),true)
 	if riders[rider_index].leg_poses.size()==4:
 		pose = riders[rider_index].leg_poses[leg_index]
-	effects.dust(Vector2(float(fighter.x)+pose.foot.x*int(fighter.direction),float(fighter.lane_y)+pose.foot.y),int(fighter.direction))
-	sound.play("hoof",lerpf(-25,-17,pace)-(3 if rider_index==1 else 0),.92 if leg_index<2 else 1.12)
+	effects.dust(Vector2(float(fighter.x)+pose.foot.x*int(fighter.direction),float(fighter.lane_y)+pose.foot.y),int(fighter.direction),pace)
+	sound.play("hoof",lerpf(-24,-12,pace)-(5 if rider_index==1 else 0),.88 if leg_index<2 else 1.06)
 
 func _update_ai(delta: float) -> void:
 	var difficulty = 0 if practice else int(GameState.profile.settings.difficulty)
@@ -356,7 +365,7 @@ func _process(delta: float) -> void:
 	if not paused:
 		_update_camera(real_delta,now)
 		Engine.time_scale = .001 if now < hitstop_until else (.20 if now < slow_until else (.72 if approach_slow else 1.0))
-		if terminal_at>0 and now>=hitstop_until:
+		if terminal_at>0 and now>=hitstop_until and not is_finished:
 			# Keep riding out until the results cover the arena. Cutting off
 			# at 1.4s snapped a galloping horse into its standing pose.
 			departure_elapsed += delta
@@ -371,7 +380,8 @@ func _process(delta: float) -> void:
 		shake = move_toward(shake,0,4.8*real_delta)
 		if wind and match_model:
 			var pace = clampf((float(match_model.fighters[0].speed)-Model.TROT_SPEED)/(Model.GALLOP_SPEED-Model.TROT_SPEED),0,1)
-			wind.volume_db = lerpf(wind.volume_db,lerpf(-34,-19,pace) if match_model.phase=="charge" else -50,1-exp(-real_delta*4))
+			wind.volume_db = lerpf(wind.volume_db,lerpf(-36,-12,pace) if match_model.phase=="charge" else -50,1-exp(-real_delta*5))
+			wind.pitch_scale = lerpf(.80,1.22,pace)
 	if camera:
 		var shake_amount = shake if GameState.profile.settings.shake and not paused else 0.0
 		camera.offset = Vector2(noise.get_noise_1d(now*.035),noise.get_noise_1d(now*.035+100))*shake_amount
@@ -391,17 +401,36 @@ func _update_camera(real_delta: float, now: int) -> void:
 	var separation = absf(b-a)
 	var before_crossing = a<b
 	approach_slow = GameState.profile.settings.get("slow_motion",true) and match_model.phase=="charge" and before_crossing and separation<650 and not pass_connected
-	# Sublinear zoom preserves visible approach motion. Inverse-distance
-	# framing nearly pinned both riders in place and concealed acceleration.
-	var desired_zoom = clampf(.28*pow((Model.START_X*2.0)/maxf(separation,250),.65),.28,1.65)
+	# Establish both riders before the start. During the long run-up follow
+	# the player at a stable scale, so world-fixed posts/ground convey speed.
+	# Return to a two-rider frame BEFORE the 1100-unit aiming commitment.
+	var desired_zoom = .28
+	var center_x = 720+(a+b)*.5
+	if match_model.phase=="ready":
+		# Settle into the run-up framing before the horse starts. Otherwise
+		# camera travel on the first spur is mistaken for acceleration.
+		var settle = 1.0-smoothstep(.25,1.35,float(match_model.phase_time))
+		desired_zoom = lerpf(.28,.82,settle)
+		center_x = lerpf(center_x,720+a+450.0/desired_zoom,settle)
+	elif match_model.phase=="charge" and before_crossing:
+		var duel = 1.0-smoothstep(1800,2800,separation)
+		var duel_zoom = clampf(1120.0/(separation+300.0),.44,1.65)
+		desired_zoom = lerpf(.82,duel_zoom,duel)
+		var follow_x = 720+a+450.0/desired_zoom
+		center_x = lerpf(follow_x,720+(a+b)*.5,duel)
+	elif match_model.phase in ["charge","turn","ended"]:
+		desired_zoom = clampf(1120.0/(separation+300.0),.44,1.65)
 	if terminal_at>0:
 		desired_zoom = 1.6 if now-terminal_at<850 else 1.05
 	var blend = 1.0-exp(-real_delta*(5.0 if approach_slow else 3.3))
 	camera.zoom = camera.zoom.lerp(Vector2.ONE*desired_zoom,blend)
 	# At the closest framing keep raised shields clear of the top HUD.
 	var framing_y = lerpf(480,425,clampf((desired_zoom-1.0)/.65,0,1))
-	camera.position = camera.position.lerp(Vector2(720+(a+b)*.5,framing_y),blend)
+	camera.position = camera.position.lerp(Vector2(center_x,framing_y),blend)
 	camera.force_update_scroll()
+	# Distant scenery moves less than the near track; it is not tied to a
+	# fabricated speed timer. Keep overscan so no image edge becomes visible.
+	backdrop.position.x = -80-clampf((camera.position.x-720)*.025,-60,60)
 
 func _update_views() -> void:
 	for i in range(2):
@@ -410,7 +439,7 @@ func _update_views() -> void:
 		if match_model.phase == "ended" and terminal_at > 0:
 			departing = departure_elapsed*float(fighter.speed)*int(fighter.direction)
 		riders[i].position = Vector2(float(fighter.x)+departing, float(fighter.get("lane_y",0.0)))
-		riders[i].moving = match_model.phase=="charge" or (match_model.phase=="turn" and fighter.gait_moving) or (match_model.phase=="ended" and float(fighter.speed)>.5)
+		riders[i].moving = not is_finished and (match_model.phase=="charge" or (match_model.phase=="turn" and fighter.gait_moving) or (match_model.phase=="ended" and float(fighter.speed)>.5))
 		riders[i].visible = true
 		riders[i].blood_enabled = GameState.profile.settings.blood
 	effects.blood_enabled = GameState.profile.settings.blood
@@ -422,6 +451,7 @@ func _update_hud() -> void:
 		return
 	hud.visible = not is_finished
 	var phase = match_model.phase
+	runup_panel.visible = phase=="charge" and float(match_model.fighters[1].x)-float(match_model.fighters[0].x)>2000 and not is_finished
 	ready_panel.visible = phase in ["ready","turn"] or (phase=="ended" and not is_finished)
 	callout.visible = not is_finished
 	subcallout.visible = not is_finished
@@ -466,7 +496,8 @@ func _update_hud() -> void:
 			intermission.text += "\n1 护头 · 2 护胸 · 3 护腹；观察枪尖颜色与部位提示。"
 	elif phase == "charge":
 		callout.text = ""
-		subcallout.text = ""
+		var gap = float(match_model.fighters[1].x)-float(f.x)
+		subcallout.text = "对手在前方 · 按住左键催马，松手减速" if gap>2000 else ""
 	elif phase == "turn":
 		callout.text = "回身重整"
 		subcallout.text = "下一次对冲即将开始"
@@ -495,6 +526,20 @@ func _draw_rail() -> void:
 	rail.draw_rect(Rect2(-5700,-94,11500,12),Color("9e7843"))
 	rail.draw_line(Vector2(-5700,-94),Vector2(5800,-94),Color("d3af69"),2)
 	rail.draw_rect(Rect2(-5700,-43,11500,7),Color("705231"))
+
+func _draw_track() -> void:
+	# World-space hoof tracks and tufts supply a stable parallax reference.
+	# Both lanes stay distinct and every mark remains fixed to the ground.
+	for lane in [-32.0,32.0]:
+		track.draw_rect(Rect2(-5700,lane+7,11500,28),Color(.36,.31,.22,.30))
+		for i in range(-74,75):
+			var x = i*78.0
+			var y = lane+16+posmod(i*17,15)
+			track.draw_line(Vector2(x,y),Vector2(x+19+posmod(i*7,21),y),Color(.30,.26,.18,.46),3)
+			track.draw_line(Vector2(x+35,y+7),Vector2(x+43,y+7),Color(.65,.56,.36,.40),2)
+	for i in range(-50,51):
+		var x = i*113.0
+		track.draw_polyline(PackedVector2Array([Vector2(x,83),Vector2(x-4,76),Vector2(x+1,80),Vector2(x+4,73)]),Color("777445"),2)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:

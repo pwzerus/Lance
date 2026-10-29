@@ -4,6 +4,21 @@ const Art = preload("res://scripts/visual/equipment_art.gd")
 const Model = preload("res://scripts/core/joust_match.gd")
 const Shard = preload("res://scripts/visual/lance_shard.gd")
 const Cues = preload("res://scripts/visual/combat_cues.gd")
+const Face = preload("res://scripts/visual/character_face.gd")
+
+class FallenHead extends Node2D:
+	var stats: Dictionary = {}
+	var facing = 1
+	func _draw() -> void:
+		var tier = int(stats.get("helmet_tier",0))
+		var width = 84.0 if tier==4 else 70.0
+		var rectangle = Rect2(-width*.5,-40,width,80)
+		draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
+		if tier==0:
+			var appearance: Dictionary = stats.get("appearance",Face.Appearance.variant(hash(str(stats.get("armor_color",""))+str(stats.get("shield_color","")))))
+			Face.draw_head(self,appearance,tier,Color(str(stats.get("helmet_color","8e999c"))),rectangle)
+		else:
+			draw_texture_rect(Art.helmet(tier,bool(stats.get("gilt",false))),rectangle,false)
 
 var particles: Array = []
 var stains: Array = []
@@ -26,8 +41,14 @@ func clear_blood() -> void:
 	particles = particles.filter(func(p): return not p.get("blood", false))
 	queue_redraw()
 
-func hit(point: Vector2, direction: int, damage: float, shield: bool, broke: bool, zone: String = "body") -> void:
-	bursts.append({"p":point,"life":.42,"shield":shield,"zone":"shield" if shield else zone,"size":clampf(20+damage*.42,24,42)})
+func hit(point: Vector2, direction: int, damage: float, shield: bool, broke: bool, zone: String = "body", impulse_strength: float = .5) -> void:
+	# The caller supplies strength from this actual contact. No anticipation
+	# marker, target prediction, or blood setting creates a contact flash.
+	var strength = clampf(impulse_strength,0.0,1.0) if is_finite(impulse_strength) else .5
+	var duration = lerpf(.28,.36,strength)
+	bursts.append({"p":point,"life":duration,"duration":duration,"shield":shield,
+		"zone":"shield" if shield else zone,"direction":-1 if direction<0 else 1,
+		"strength":strength,"size":lerpf(18.0,28.0,strength)})
 	var blood = blood_enabled and not shield and damage > 11.0
 	for i in range(18 if broke else 11):
 		var velocity = Vector2(rng.randf_range(-150,150) + direction * 65, rng.randf_range(-165,-35))
@@ -37,6 +58,7 @@ func hit(point: Vector2, direction: int, damage: float, shield: bool, broke: boo
 		for i in range(12):
 			particles.append({"p":point,"v":Vector2(direction*rng.randf_range(30,160),rng.randf_range(-100,5)),"life":rng.randf_range(.3,.7),"color":Color("8b2c24"),"size":rng.randf_range(2,4),"blood":true})
 		stains.append({"p": Vector2(point.x, rng.randf_range(-2,8)), "radius": rng.randf_range(10,19)})
+	queue_redraw()
 
 func break_lance(event: Dictionary, mode: String) -> void:
 	var ray = Vector2(cos(float(event.break_angle))*int(event.break_direction),sin(float(event.break_angle)))
@@ -101,18 +123,24 @@ func fall(fighter: Dictionary, direction: int) -> void:
 		rectangle.size = info.s
 		collision.shape = rectangle
 		body.add_child(collision)
-		var sprite = Sprite2D.new()
 		var part_index = pieces.size()
+		var sprite: Node2D
 		var texture = Art.torso(int(fighter.stats.get("armor_tier",0)),bool(fighter.stats.get("armor_red",fighter.get("red",false))))
 		if part_index == 1:
-			texture = Art.helmet(int(fighter.stats.get("helmet_tier",0)),bool(fighter.stats.get("gilt",false)))
+			# Preserve the mounted rider's actual face/helmet at impact. The old
+			# ragdoll swapped a nasal-helmet pixel face for the original AI head.
+			sprite = FallenHead.new()
+			sprite.stats = fighter.stats.duplicate(true)
+			sprite.facing = facing
 		elif part_index in [2,3]:
 			texture = Art.region(Art.BASE,Rect2(710,47,152,266))
 		elif part_index in [4,5]:
 			texture = Art.region(Art.BASE,Rect2(687,633,204,288))
-		sprite.texture = texture
-		sprite.scale = Vector2(info.s) / texture.get_size()
-		sprite.flip_h = int(fighter.direction)==-1
+		if part_index!=1:
+			sprite = Sprite2D.new()
+			sprite.texture = texture
+			sprite.scale = Vector2(info.s) / texture.get_size()
+			sprite.flip_h = facing==-1
 		body.add_child(sprite)
 		add_child(body)
 		pieces.append(body)
@@ -152,17 +180,7 @@ func _draw_far_dust() -> void:
 
 func _draw() -> void:
 	for burst in bursts:
-		var alpha = clampf(float(burst.life)/.20,0,1)
-		var radius = float(burst.size)*(1.2-float(burst.life))
-		var color = Color(Cues.COLORS.get(burst.get("zone","body"),Cues.COLORS.body),alpha)
-		var ring = PackedVector2Array()
-		for j in range(9):
-			ring.append(Vector2(burst.p)+Vector2.from_angle(j*TAU/8)*radius*1.25)
-		draw_polyline(ring,Color(color,alpha*.65),2)
-		for i in range(8):
-			var ray = Vector2.from_angle(i*TAU/8)
-			draw_line(Vector2(burst.p)+ray*radius*.25,Vector2(burst.p)+ray*radius,color,3)
-		draw_circle(burst.p,3.5,Color(1,1,.9,alpha))
+		_draw_contact_burst(burst)
 	if blood_enabled:
 		for stain in stains:
 			draw_set_transform(stain.p, 0, Vector2(1,.22))
@@ -174,3 +192,37 @@ func _draw() -> void:
 		var color = Color(particle.color)
 		color.a *= clampf(float(particle.life) * 3.0,0,1)
 		draw_rect(Rect2(Vector2(particle.p), Vector2.ONE * float(particle.size)), color)
+
+func _draw_contact_burst(burst: Dictionary) -> void:
+	# A small asymmetric star establishes the exact point, followed by a
+	# short directional fan. Keep the defender readable: no expanding ring.
+	var duration = float(burst.duration)
+	var age = maxf(0.0,duration-float(burst.life))
+	var t = clampf(age/duration,0.0,1.0)
+	var point: Vector2 = burst.p
+	var direction = int(burst.direction)
+	var strength = float(burst.strength)
+	var radius = float(burst.size)
+	var zone_color = Color(Cues.COLORS.get(burst.zone,Cues.COLORS.body))
+	var flash = 1.0-smoothstep(.035,.12,age)
+	if flash>0.0:
+		var size = radius*lerpf(.78,1.0,smoothstep(0.0,.05,age))
+		var star = PackedVector2Array()
+		for corner in [Vector2(-.56,0),Vector2(-.13,-.13),Vector2(0,-.64),Vector2(.18,-.16),
+			Vector2(1.0,0),Vector2(.18,.16),Vector2(0,.64),Vector2(-.13,.13)]:
+			star.append(point+corner*Vector2(direction,1)*size)
+		draw_colored_polygon(star,Color(zone_color,flash*.92))
+		var core = lerpf(4.0,7.0,strength)*flash
+		draw_rect(Rect2(point-Vector2.ONE*core*.5,Vector2.ONE*core),Color(1.0,.98,.86,flash))
+	# Blocked contacts throw sparks back along the incoming lance; an armor
+	# hit carries the fan forward. This is visual direction only, not force.
+	var scatter_direction = -direction if bool(burst.shield) else direction
+	var fan_alpha = pow(1.0-t,1.5)
+	var travel = lerpf(3.0,19.0,t)
+	for i in range(5):
+		var angle = lerpf(-.92,.92,float(i)/4.0)
+		var ray = Vector2(cos(angle)*scatter_direction,sin(angle))
+		var length = radius*(.30 if i in [0,4] else .48)*(1.0-t*.6)
+		var start = point+ray*(6.0+travel)
+		var end = start+ray*length
+		draw_line(start,end,Color(zone_color,fan_alpha),3.0 if strength>.6 else 2.0)

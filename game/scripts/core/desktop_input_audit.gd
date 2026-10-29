@@ -33,4 +33,5 @@ func _process(_delta: float) -> void:
 	var battle = main.battle
 	var f = battle.match_model.fighters[0]
 	var pose = battle.Model.gait_pose(f)
-	write({"kind":"state","phase":battle.match_model.phase,"boost":f.boost,"speed":f.speed,"x":f.x,"stamina":f.stamina,"guard":f.guard,"raw_button":Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT),"paused":battle.paused,"gait":pose.gait,"back_y":pose.offset.y,"rider_y":pose.rider_offset.y,"pitch":pose.pitch,"mouse_held":battle.mouse_held})
+	write({"kind":"state","phase":battle.match_model.phase,"boost":f.boost,"speed":f.speed,"x":f.x,"stamina":f.stamina,"guard":f.guard,"raw_button":Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT),"paused":battle.paused,"gait":pose.gait,"back_y":pose.offset.y,"rider_y":pose.rider_offset.y,"pitch":pose.pitch,"mouse_held":battle.mouse_held,
+		"time_scale":Engine.time_scale,"exchange_state":battle.exchange_state.state,"aim":f.aim,"guard_target":f.guard_target,"pass":battle.match_model.pass_number,"zoom":battle.camera.zoom.x,"camera_offset":battle.camera.offset,"hits_seen":battle.exchange_log.size()})

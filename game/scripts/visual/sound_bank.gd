@@ -8,6 +8,8 @@ static var shared_streams: Dictionary = {}
 const MAX_VOICES = 12
 var voices: Array[AudioStreamPlayer] = []
 var next_voice = 0
+var playback_paused = false
+var _music_start_on_resume = false
 
 func _ready() -> void:
 	music = AudioStreamPlayer.new()
@@ -19,22 +21,44 @@ func _ready() -> void:
 	music.volume_db = -16.0
 	add_child(music)
 	music.finished.connect(_loop_music)
+	music.stream_paused = playback_paused
 	if enabled:
-		music.play()
+		if playback_paused:
+			_music_start_on_resume = true
+		else:
+			music.play()
+
+func set_paused(value: bool) -> void:
+	# Battle is PROCESS_MODE_ALWAYS. Tree pause alone therefore does not
+	# freeze this bank's inherited players; pause their actual playheads.
+	playback_paused = value
+	if is_instance_valid(music):
+		music.stream_paused = value
+	for voice in voices:
+		voice.stream_paused = value
+	if not value and _music_start_on_resume:
+		_music_start_on_resume = false
+		if enabled and is_instance_valid(music) and music.stream and not music.has_stream_playback():
+			music.play()
 
 func set_enabled(value: bool) -> void:
 	enabled = value
 	if not enabled:
+		_music_start_on_resume = false
 		for voice in voices:
 			voice.stop()
 	if music:
-		if enabled and not music.playing:
-			music.play()
+		if enabled and not music.has_stream_playback():
+			if playback_paused:
+				_music_start_on_resume = true
+			else:
+				music.stream_paused = false
+				music.play()
 		elif not enabled:
 			music.stop()
 
 func play(sound: String, volume_db: float = -5.0, pitch: float = 1.0) -> void:
-	if not enabled:
+	if not enabled or playback_paused:
 		return
 	# A bounded pool avoids accumulating playing nodes during a burst of
 	# impacts/hooves, and makes scene teardown stop every active voice.
@@ -52,6 +76,7 @@ func play(sound: String, volume_db: float = -5.0, pitch: float = 1.0) -> void:
 			player = voices[next_voice]
 			next_voice = (next_voice + 1) % MAX_VOICES
 	player.stop()
+	player.stream_paused = false
 	player.stream = streams.get(sound,streams.impact)
 	player.volume_db = volume_db
 	player.pitch_scale = pitch
@@ -59,9 +84,13 @@ func play(sound: String, volume_db: float = -5.0, pitch: float = 1.0) -> void:
 
 func _loop_music() -> void:
 	if enabled and is_inside_tree():
-		music.play()
+		if playback_paused:
+			_music_start_on_resume = true
+		else:
+			music.play()
 
 func stop_all() -> void:
+	_music_start_on_resume = false
 	if music:
 		music.stop()
 		music.stream = null
@@ -82,12 +111,30 @@ func _synthesize(sound_name: String) -> AudioStreamWAV:
 	random_source.seed = 781
 	var notes = [146.83,220.0,293.66,349.23,293.66,220.0,164.81,196.0,261.63,329.63,261.63,196.0,130.81,196.0,261.63,293.66]
 	var filtered_noise = 0.0
+	var contact_noise = 0.0
 	for i in range(count):
 		var t = float(i)/rate
 		var sample = 0.0
 		match sound_name:
-			"impact": sample = (random_source.randf_range(-1,1)*.7 + sin(TAU*(95-50*t)*t)*.5)*exp(-t*14)*.7
-			"shield": sample = (random_source.randf_range(-1,1)*exp(-t*30)*.6+sin(TAU*172*t)*exp(-t*15)*.35+sin(TAU*417*t)*exp(-t*12)*.15)*.8
+			"impact":
+				var raw = random_source.randf_range(-1,1)
+				contact_noise = lerpf(contact_noise,raw,.18)
+				var attack = (raw-contact_noise)*.5*exp(-t*90)*.25
+				var plate = (sin(TAU*1180*t)*.10+sin(TAU*2090*t)*.06)*exp(-t*55)
+				var weight = sin(TAU*(82*t-38*t*t))*exp(-t*11)*.34
+				var chest = sin(TAU*137*t)*exp(-t*18)*.10
+				# Short surface attack plus a lower resonant body. Absolute
+				# layer weights sum to <=.85; clipping is not the loudness tool.
+				sample = (attack+plate+weight+chest)*minf(1.0,t/.0015)*minf(1.0,(float(durations[sound_name])-t)/.012)
+			"shield":
+				var raw = random_source.randf_range(-1,1)
+				contact_noise = lerpf(contact_noise,raw,.22)
+				var attack = (raw-contact_noise)*.5*exp(-t*80)*.21
+				var wood = sin(TAU*144*t)*exp(-t*16)*.31+sin(TAU*237*t)*exp(-t*22)*.12
+				var boss = sin(TAU*565*t)*exp(-t*15)*.10+sin(TAU*1007*t)*exp(-t*20)*.06
+				# Distinct dull board/boss layers, not a brighter copy of a
+				# body hit. Game synthesis, not a recorded material simulation.
+				sample = (attack+wood+boss)*minf(1.0,t/.0012)*minf(1.0,(float(durations[sound_name])-t)/.012)
 			"break": sample = random_source.randf_range(-1,1)*exp(-t*10)*(1+.3*sin(t*280))*.65
 			"hoof":
 				var strike = random_source.randf_range(-1,1)*exp(-t*110)*.45

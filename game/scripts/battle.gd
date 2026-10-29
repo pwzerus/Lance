@@ -9,6 +9,7 @@ const Model = preload("res://scripts/core/joust_match.gd")
 const Rider = preload("res://scripts/visual/rider_view.gd")
 const FX = preload("res://scripts/visual/impact_fx.gd")
 const Cues = preload("res://scripts/visual/combat_cues.gd")
+const Exchange = preload("res://scripts/visual/exchange_director.gd")
 const UI = preload("res://scripts/ui/ui_factory.gd")
 const Catalogue = preload("res://scripts/core/catalogue.gd")
 const BACKGROUND = preload("res://assets/art/pixel_v03/tournament_field.png")
@@ -35,9 +36,12 @@ var is_finished = false
 var terminal_at = 0
 var departure_elapsed = 0.0
 var last_visual_time = 0
-var hitstop_until = 0
-var slow_until = 0
+var exchange_director = Exchange.new()
+var exchange_state: Dictionary = exchange_director.sample()
+var contact_first_frame_pending = false
+var contact_audio: Array[Dictionary] = []
 var shake = 0.0
+var impact_kick = Vector2.ZERO
 var noise = FastNoiseLite.new()
 var wheel_lean = 0.0
 var touch_lean = 0.0
@@ -268,8 +272,7 @@ func _physics_process(delta: float) -> void:
 	if match_model.phase=="ended":
 		# A terminal state can be queued outside step() (e.g. a scripted end).
 		# Stop controls, but still deliver the pending result exactly once.
-		for event in match_model.drain_events():
-			_handle_event(event)
+		_consume_events(match_model.drain_events())
 		return
 	var fighter = match_model.fighters[0]
 	var hand = Model.hand_position(fighter)
@@ -293,11 +296,37 @@ func _physics_process(delta: float) -> void:
 		lean = 0.15
 	match_model.set_controls(0,aim,lean,boost,delta,GUARD_VALUES[guard_slot])
 	_update_ai(delta)
-	match_model.time_effect_active = Time.get_ticks_msec() < slow_until
+	match_model.time_effect_active = bool(exchange_state.impact_active)
 	match_model.step(delta)
-	for event in match_model.drain_events():
-		_handle_event(event)
+	_consume_events(match_model.drain_events())
 	_update_views()
+
+func _exchange_context() -> Dictionary:
+	var a: Dictionary = match_model.fighters[0]
+	var b: Dictionary = match_model.fighters[1]
+	return {"phase":match_model.phase,"pass_id":match_model.pass_number,
+		"gap":float(b.x)-float(a.x),"closing_speed":float(a.speed)+float(b.speed),
+		"reach":maxf(Model.lance_length(a),Model.lance_length(b))+35.0,
+		"slow_motion":bool(GameState.profile.settings.get("slow_motion",true))}
+
+func _advance_exchange(real_delta: float) -> void:
+	exchange_state = exchange_director.advance(real_delta,_exchange_context())
+	approach_slow = exchange_state.state=="approach"
+	pass_connected = bool(exchange_state.pass_connected)
+	Engine.time_scale = 1.0 if is_finished else float(exchange_state.scale)
+
+func _consume_events(events: Array) -> void:
+	if events.is_empty():
+		return
+	# Aggregate a physics step before consuming it: simultaneous shield/body
+	# contacts cannot shorten each other's hold or restart the same exchange.
+	var prior_state = str(exchange_state.state)
+	exchange_director.notify_contacts(events)
+	_advance_exchange(0.0)
+	if prior_state!="contact" and exchange_state.state=="contact":
+		contact_first_frame_pending = true
+	for event in events:
+		_handle_event(event)
 
 func _on_hoof_contact(leg_index: int, rider_index: int) -> void:
 	if paused or match_model.phase!="charge":
@@ -323,21 +352,20 @@ func _handle_event(event: Dictionary) -> void:
 			exchange_log.append(event.duplicate(true))
 			pass_connected = true
 			var index = int(event.defender)
-			riders[index].impact_recoil = 1.0
-			if event.zone=="shield":
-				riders[index].shield_recoil = 1.0
-			riders[int(event.attacker)].lance_recoil = clampf(float(event.impulse)/75,.25,1)
-			effects.hit(event.position,int(match_model.fighters[int(event.attacker)].direction),event.damage,event.zone=="shield",event.broke,event.zone)
+			var strength = clampf(float(event.impulse)/85.0,.15,1.0)
+			riders[index].receive_impact(strength,event.zone=="shield")
+			riders[int(event.attacker)].receive_lance_contact(strength)
+			effects.hit(event.position,int(match_model.fighters[int(event.attacker)].direction),event.damage,event.zone=="shield",event.broke,event.zone,strength)
 			if event.broke:
 				effects.break_lance(event,mode)
-			shake = maxf(shake,clampf(float(event.impulse)*.09,2,8))
+			shake = maxf(shake,lerpf(1.2,5.0,strength))
+			var kick_direction = int(match_model.fighters[int(event.attacker)].direction)
+			impact_kick += Vector2(kick_direction*lerpf(1.0,5.0,strength),-1.5*strength)
+			impact_kick = impact_kick.limit_length(6.0)
 			var now = Time.get_ticks_msec()
-			hitstop_until = now + (65 if event.zone!="shield" else 40)
-			slow_until = now+510 if GameState.profile.settings.get("slow_motion",true) else 0
-			Engine.time_scale = .001
-			sound.play("impact" if event.zone!="shield" else "shield",-4,.85 if event.zone!="shield" else 1.05)
+			contact_audio.append({"cue":"impact" if event.zone!="shield" else "shield","db":lerpf(-11,-4,strength),"pitch":.90 if event.zone!="shield" else 1.05})
 			if event.broke:
-				sound.play("break",-7)
+				contact_audio.append({"cue":"break","db":-7.0,"pitch":1.0})
 			var zones = {"head":"头盔 / 头部","body":"胸甲","flank":"腰腹","shield":"盾牌格挡"}
 			var hit_text = ("你命中 · " if int(event.attacker)==0 else "对手命中 · ")+zones.get(event.zone,event.zone)
 			if event.ko:
@@ -368,12 +396,23 @@ func _handle_event(event: Dictionary) -> void:
 
 func _process(delta: float) -> void:
 	var now = Time.get_ticks_msec()
-	var real_delta = clampf(float(now-last_visual_time)/1000.0,0,.1)
+	var elapsed = maxf(0.0,float(now-last_visual_time)/1000.0)
+	var real_delta = minf(elapsed,.1)
 	last_visual_time = now
 	if not paused:
+		var fresh_contact = not contact_audio.is_empty()
+		# Start the contact's wall-clock budget at its first displayed frame.
+		# A long pre-hit frame or synchronous result save must not consume
+		# the whole hold before the player has seen that actual collision.
+		_advance_exchange(0.0 if contact_first_frame_pending else elapsed)
+		contact_first_frame_pending = false
+		# Start the short attack beside its visible frame, after any synchronous
+		# result persistence. Keep hit rules and rewards in the physics step.
+		for cue in contact_audio:
+			sound.play(cue.cue,cue.db,cue.pitch)
+		contact_audio.clear()
 		_update_camera(real_delta,now)
-		Engine.time_scale = .001 if now < hitstop_until else (.20 if now < slow_until else (.72 if approach_slow else 1.0))
-		if terminal_at>0 and now>=hitstop_until and not is_finished:
+		if terminal_at>0 and not bool(exchange_state.hitstop) and not is_finished:
 			# Keep riding out until the results cover the arena. Cutting off
 			# at 1.4s snapped a galloping horse into its standing pose.
 			departure_elapsed += delta
@@ -385,18 +424,38 @@ func _process(delta: float) -> void:
 			is_finished = true
 			Engine.time_scale = 1.0
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		shake = move_toward(shake,0,4.8*real_delta)
+		# Short directed compression, then a fast-dying residual vibration.
+		# A one-second random buzz obscured the very contact being highlighted.
+		if not fresh_contact:
+			shake *= exp(-13.0*real_delta)
+			impact_kick *= exp(-17.0*real_delta)
 		if wind and match_model:
 			var pace = clampf((float(match_model.fighters[0].speed)-Model.TROT_SPEED)/(Model.GALLOP_SPEED-Model.TROT_SPEED),0,1)
-			wind.volume_db = lerpf(wind.volume_db,lerpf(-36,-12,pace) if match_model.phase=="charge" else -50,1-exp(-real_delta*5))
-			wind.pitch_scale = lerpf(.80,1.22,pace)
+			var duck = float(exchange_state.audio_duck)
+			var wind_target = lerpf(-36,-12,pace)-duck*21.0 if match_model.phase=="charge" else -50.0
+			wind.volume_db = lerpf(wind.volume_db,wind_target,1-exp(-real_delta*(24.0 if duck>.3 else 7.0)))
+			var pitch_target = lerpf(.80,1.22,pace)*lerpf(1.0,.62,duck)
+			wind.pitch_scale = lerpf(wind.pitch_scale,pitch_target,1-exp(-real_delta*12.0))
 	if camera:
-		var shake_amount = shake if GameState.profile.settings.shake and not paused else 0.0
-		camera.offset = Vector2(noise.get_noise_1d(now*.035),noise.get_noise_1d(now*.035+100))*shake_amount
+		if not paused:
+			var offset = (Vector2(noise.get_noise_1d(now*.035),noise.get_noise_1d(now*.035+100))*shake+impact_kick) if GameState.profile.settings.shake else Vector2.ZERO
+			camera.offset = _safe_camera_offset(offset)
 	if match_model and match_model.phase == "ended" and world:
 		_update_views()
 	_update_hud()
 	queue_redraw()
+
+func _safe_camera_offset(offset: Vector2) -> Vector2:
+	# Camera offsets bypass position framing. Bound the final kick as well,
+	# so a raised shield or hoof cannot briefly cross into a HUD band.
+	var bounds = _mounted_vertical_bounds()
+	var safe = COMBAT_SAFE_RECT.grow(-2)
+	var center_y = get_viewport_rect().size.y*.5
+	var lower = bounds.y-(safe.end.y-center_y)/camera.zoom.y-camera.position.y
+	var upper = bounds.x-(safe.position.y-center_y)/camera.zoom.y-camera.position.y
+	if lower<=upper:
+		offset.y = clampf(offset.y,lower,upper)
+	return offset
 
 func _update_camera(real_delta: float, now: int) -> void:
 	if not match_model or not camera:
@@ -408,7 +467,6 @@ func _update_camera(real_delta: float, now: int) -> void:
 	var b = float(match_model.fighters[1].x)
 	var separation = absf(b-a)
 	var before_crossing = a<b
-	approach_slow = GameState.profile.settings.get("slow_motion",true) and match_model.phase=="charge" and before_crossing and separation<650 and not pass_connected
 	# Establish both riders before the start. During the long run-up follow
 	# the player at a stable scale, so world-fixed posts/ground convey speed.
 	# Return to a two-rider frame BEFORE the 1100-unit aiming commitment.
@@ -430,6 +488,12 @@ func _update_camera(real_delta: float, now: int) -> void:
 		desired_zoom = clampf(1120.0/(separation+300.0),.44,1.65)
 	if terminal_at>0:
 		desired_zoom = 1.6 if now-terminal_at<850 else 1.05
+	# The contact lies on an actual swept hit. Bias horizontally toward it;
+	# keep the full mounted vertical silhouette and both riders in frame.
+	var focus_weight = float(exchange_state.focus_weight)
+	if focus_weight>0.0:
+		var focus_x = world.position.x+Vector2(exchange_state.focus).x
+		center_x = lerpf(center_x,clampf(focus_x,720+(a+b)*.5-75,720+(a+b)*.5+75),focus_weight*.65)
 	# A horizontal close-up must also fit the whole mounted silhouette.
 	# This stable vertical envelope includes helmet decoration, raised shield,
 	# the larger gait phases, both lanes and a small strip below all hooves.
@@ -439,7 +503,7 @@ func _update_camera(real_delta: float, now: int) -> void:
 	var safe = COMBAT_SAFE_RECT.grow(-8)
 	var zoom_limit = safe.size.y/maxf(1.0,vertical_bounds.y-vertical_bounds.x)
 	desired_zoom = minf(desired_zoom,zoom_limit)
-	var response = 10.0 if match_model.phase=="ready" else (5.0 if approach_slow else 3.3)
+	var response = 10.0 if match_model.phase=="ready" else (8.0 if focus_weight>0.0 else (5.0 if approach_slow else 3.3))
 	var blend = 1.0-exp(-real_delta*response)
 	camera.zoom = camera.zoom.lerp(Vector2.ONE*desired_zoom,blend)
 	var viewport_center_y = get_viewport_rect().size.y*.5
@@ -496,7 +560,7 @@ func _update_hud() -> void:
 	subcallout.visible = not is_finished
 	var f = match_model.fighters[0]
 	var projection = Cues.project(match_model)
-	aim_label.text = "◇ 当前枪线："+Cues.NAMES[projection.zone] if projection.active else "交锋间隙 · 调整下一轮枪盾"
+	aim_label.text = "◇ 当前枪线："+Cues.NAMES[projection.zone] if projection.active else _exchange_hint()
 	aim_label.add_theme_color_override("font_color",Cues.COLORS[projection.zone])
 	aim_label.get_parent().visible = GameState.profile.settings.get("aim_cues",true)
 	speed_meter.value = float(f.speed)
@@ -519,7 +583,8 @@ func _update_hud() -> void:
 	tactics_label.modulate = Color(1.3,1.2,.7) if Time.get_ticks_msec()<input_flash_until else Color.WHITE
 	if practice:
 		hint.text = "练习 · 催马%s　调枪%s　防盾%s　俯仰%s" % ["✓" if learned.boost else "·","✓" if learned.aim else "·","✓" if learned.guard else "·","✓" if learned.posture else "·"]
-	contact_label.visible = Time.get_ticks_msec()<contact_until and phase in ["charge","ended"]
+	var hud_now = pause_started if paused else Time.get_ticks_msec()
+	contact_label.visible = hud_now<contact_until and phase in ["charge","ended"]
 	enemy_contact_label.visible = contact_label.visible
 	contact_label.position.y = 10
 	enemy_contact_label.position.y = 10
@@ -546,6 +611,15 @@ func _update_hud() -> void:
 	subcallout.visible = not is_finished and not contact_panel.visible and not subcallout.text.is_empty()
 	if not paused:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func _exchange_hint() -> String:
+	if match_model.phase=="ended":
+		return "本场交锋已定 · 等待结果"
+	var player: Dictionary = match_model.fighters[0]
+	var opponent: Dictionary = match_model.fighters[1]
+	if match_model.phase=="charge" and float(player.x)<float(opponent.x) and bool(player.acted) and not bool(opponent.acted):
+		return "已经出枪 · 继续防住对方来枪"
+	return "交锋间隙 · 调整下一轮枪盾"
 
 func _draw() -> void:
 	for i in range(2):
@@ -695,6 +769,8 @@ func _toggle_pause() -> void:
 	paused = not paused
 	get_tree().paused = paused
 	wind.stream_paused = paused
+	sound.set_paused(paused)
+	exchange_director.set_paused(paused)
 	if paused:
 		pause_started = Time.get_ticks_msec()
 		_clear_touch()
@@ -713,12 +789,15 @@ func _toggle_pause() -> void:
 		UI.label(pause_panel,"血腥设置只改变画面，不改变伤害或死亡结果。",Vector2(28,353),15,UI.MUTED,454)
 	else:
 		pause_panel.queue_free()
+		var pause_duration = Time.get_ticks_msec()-pause_started
 		if terminal_at > 0:
-			terminal_at += Time.get_ticks_msec()-pause_started
-		# Effects use wall time; no time scale can become stuck after pause.
-		hitstop_until = 0
-		slow_until = 0
-		Engine.time_scale = 1.0
+			terminal_at += pause_duration
+		if contact_until>pause_started:
+			contact_until += pause_duration
+		# A paused impact resumes its remaining budget; paused wall time is
+		# excluded from presentation just as it is from physics and audio.
+		last_visual_time = Time.get_ticks_msec()
+		Engine.time_scale = float(exchange_state.scale)
 
 func _clear_touch() -> void:
 	spur_left = 0

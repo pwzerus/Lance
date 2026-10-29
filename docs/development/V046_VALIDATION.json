@@ -1,0 +1,37 @@
+{
+  "task": "DEV-046",
+  "release": "v0.4.6-r3",
+  "branch": "codex/v0.4",
+  "runtime_commit": "43a6058b6502770cd889a6e52c1c6ccc144b4036",
+  "baseline_commit": "c255844aa408de4bd4a5578b4dc54f1dc349f3bc",
+  "pck_sha256": "8D28B274BA832EB2053B0FD8618B56058E262F8A2802E48C29639CA9B64B3BAF",
+  "windows_zip_sha256": "619CB0C520DE9DC419A7BB3872FF13C50A8BAF4CFF2A4B85B799D4FE5CE21A86",
+  "r2_actual_executable": {
+    "tests": ["motion_v046", "support_rider_v046", "transitions_v045", "integration_v045", "rules_v045"],
+    "all_exit_zero": true,
+    "evidence": "logs/v046/release-r2-validation.json"
+  },
+  "r3_actual_executable": {
+    "camera_both_modes": "passed; full ready, charge, contact, crossing, pause and restart",
+    "ready_minimum_player_left_screen_x": 55.27997,
+    "motion_and_integration_exit_zero": true,
+    "smoke": "SMOKE_TEST_COMPLETE; both modes, three passes, results, nine images",
+    "preview": "360 frames at fixed 30 FPS, 12 seconds; offline, not real-time performance",
+    "evidence": ["logs/v046/release-r3-camera.json", "logs/v046/release-r3-validation.json", "logs/v046/release-r3-smoke02.log", "logs/v046/release-r3-showcase.json"]
+  },
+  "windows_archive": {
+    "native_extraction_to_new_directory": true,
+    "pck_matches": true,
+    "motion_exit_zero": true,
+    "evidence": "logs/v046/windows-archive-validation.json"
+  },
+  "native_desktop": {
+    "release_observed": "v0.4.6-r2",
+    "operations": ["start menu", "practice selection", "first-run instructions", "Escape pause", "click restart"],
+    "sustained_mouse_hold_verified": false,
+    "note": "Observed ready framing defect fixed in r3; external QA harness exit reported ObjectDB warning"
+  },
+  "save_safety": "All execution used isolated test-profile, smoke-test or qa_desktop_v046 saves",
+  "human_satisfaction": "No new human evaluation of r3",
+  "known_limits": ["Pixel rotation seams remain possible", "Close impact framing crops feet behind HUD", "Old camera02 pointer-change cause remains unproven", "Cross-machine, DPI and touch acceptance not performed", "Full-health head-targeting match balance remains a separate task"]
+}

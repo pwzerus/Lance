@@ -1,0 +1,321 @@
+{
+	"failures": [],
+	"passed": true,
+	"resets": [
+		{
+			"direct_rewind_x": 40000.0,
+			"facing": 1,
+			"old_x": 20454.6666666673,
+			"speed_before_reset": 110.0,
+			"stationary_restart_x": -30000.0
+		},
+		{
+			"direct_rewind_x": -40000.0,
+			"facing": -1,
+			"old_x": -20454.6666666673,
+			"speed_before_reset": 110.0,
+			"stationary_restart_x": 30000.0
+		},
+		{
+			"direct_rewind_x": 40000.0,
+			"facing": 1,
+			"old_x": 20507.5,
+			"speed_before_reset": 210.0,
+			"stationary_restart_x": -30000.0
+		},
+		{
+			"direct_rewind_x": -40000.0,
+			"facing": -1,
+			"old_x": -20507.5,
+			"speed_before_reset": 210.0,
+			"stationary_restart_x": 30000.0
+		},
+		{
+			"direct_rewind_x": 40000.0,
+			"facing": 1,
+			"old_x": 20849.9999999996,
+			"speed_before_reset": 340.0,
+			"stationary_restart_x": -30000.0
+		},
+		{
+			"direct_rewind_x": -40000.0,
+			"facing": -1,
+			"old_x": -20849.9999999996,
+			"speed_before_reset": 340.0,
+			"stationary_restart_x": 30000.0
+		},
+		{
+			"direct_rewind_x": 40000.0,
+			"facing": 1,
+			"old_x": 21144.0,
+			"speed_before_reset": 480.0,
+			"stationary_restart_x": -30000.0
+		},
+		{
+			"direct_rewind_x": -40000.0,
+			"facing": -1,
+			"old_x": -21144.0,
+			"speed_before_reset": 480.0,
+			"stationary_restart_x": 30000.0
+		}
+	],
+	"rows": [
+		{
+			"facing": 1,
+			"first_deficit": {
+
+			},
+			"flight_frames": 0,
+			"hz": 120.0,
+			"landing_events": [
+				5,
+				3,
+				3,
+				5
+			],
+			"longest_support_run": [
+				76,
+				79,
+				85,
+				85
+			],
+			"minimum_supports": 2,
+			"observed_cycles": 2,
+			"observed_frames": 248,
+			"speed": 110.0,
+			"support_frames": [
+				152,
+				158,
+				170,
+				170
+			],
+			"walk_deficit_frames": 0,
+			"warm_cycles": 2
+		},
+		{
+			"facing": -1,
+			"first_deficit": {
+
+			},
+			"flight_frames": 0,
+			"hz": 120.0,
+			"landing_events": [
+				5,
+				3,
+				3,
+				5
+			],
+			"longest_support_run": [
+				76,
+				79,
+				85,
+				85
+			],
+			"minimum_supports": 2,
+			"observed_cycles": 2,
+			"observed_frames": 248,
+			"speed": 110.0,
+			"support_frames": [
+				152,
+				158,
+				170,
+				170
+			],
+			"walk_deficit_frames": 0,
+			"warm_cycles": 2
+		},
+		{
+			"facing": 1,
+			"first_deficit": {
+
+			},
+			"flight_frames": 26,
+			"hz": 120.0,
+			"landing_events": [
+				5,
+				3,
+				3,
+				5
+			],
+			"longest_support_run": [
+				29,
+				30,
+				30,
+				29
+			],
+			"minimum_supports": 0,
+			"observed_cycles": 2,
+			"observed_frames": 145,
+			"speed": 210.0,
+			"support_frames": [
+				59,
+				60,
+				60,
+				59
+			],
+			"walk_deficit_frames": 0,
+			"warm_cycles": 2
+		},
+		{
+			"facing": -1,
+			"first_deficit": {
+
+			},
+			"flight_frames": 26,
+			"hz": 120.0,
+			"landing_events": [
+				5,
+				3,
+				3,
+				5
+			],
+			"longest_support_run": [
+				29,
+				30,
+				30,
+				29
+			],
+			"minimum_supports": 0,
+			"observed_cycles": 2,
+			"observed_frames": 145,
+			"speed": 210.0,
+			"support_frames": [
+				59,
+				60,
+				60,
+				59
+			],
+			"walk_deficit_frames": 0,
+			"warm_cycles": 2
+		},
+		{
+			"facing": 1,
+			"first_deficit": {
+
+			},
+			"flight_frames": 18,
+			"hz": 120.0,
+			"landing_events": [
+				5,
+				3,
+				3,
+				5
+			],
+			"longest_support_run": [
+				22,
+				21,
+				21,
+				24
+			],
+			"minimum_supports": 0,
+			"observed_cycles": 2,
+			"observed_frames": 150,
+			"speed": 340.0,
+			"support_frames": [
+				44,
+				42,
+				42,
+				48
+			],
+			"walk_deficit_frames": 0,
+			"warm_cycles": 2
+		},
+		{
+			"facing": -1,
+			"first_deficit": {
+
+			},
+			"flight_frames": 18,
+			"hz": 120.0,
+			"landing_events": [
+				5,
+				3,
+				3,
+				5
+			],
+			"longest_support_run": [
+				22,
+				21,
+				21,
+				24
+			],
+			"minimum_supports": 0,
+			"observed_cycles": 2,
+			"observed_frames": 150,
+			"speed": 340.0,
+			"support_frames": [
+				44,
+				42,
+				42,
+				48
+			],
+			"walk_deficit_frames": 0,
+			"warm_cycles": 2
+		},
+		{
+			"facing": 1,
+			"first_deficit": {
+
+			},
+			"flight_frames": 35,
+			"hz": 120.0,
+			"landing_events": [
+				5,
+				3,
+				3,
+				5
+			],
+			"longest_support_run": [
+				14,
+				16,
+				16,
+				19
+			],
+			"minimum_supports": 0,
+			"observed_cycles": 2,
+			"observed_frames": 143,
+			"speed": 480.0,
+			"support_frames": [
+				29,
+				31,
+				31,
+				37
+			],
+			"walk_deficit_frames": 0,
+			"warm_cycles": 2
+		},
+		{
+			"facing": -1,
+			"first_deficit": {
+
+			},
+			"flight_frames": 35,
+			"hz": 120.0,
+			"landing_events": [
+				5,
+				3,
+				3,
+				5
+			],
+			"longest_support_run": [
+				14,
+				16,
+				16,
+				19
+			],
+			"minimum_supports": 0,
+			"observed_cycles": 2,
+			"observed_frames": 143,
+			"speed": 480.0,
+			"support_frames": [
+				29,
+				31,
+				31,
+				37
+			],
+			"walk_deficit_frames": 0,
+			"warm_cycles": 2
+		}
+	],
+	"scope": "Actual RiderView world-translated at four steady speeds and both facings; two warm-up and two observed cycles; each leg lands and supports, walk support count, gallop suspension, reset world-cache isolation. Not human motion-quality evidence."
+}

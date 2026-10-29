@@ -1,0 +1,23 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+GALUMU_BUILD v0.4.6-r3
+CHARGE_CAMERA_CAPTURE arena 01_time_0p8 0
+CHARGE_CAMERA_CAPTURE arena 02_time_2p0 0
+CHARGE_CAMERA_CAPTURE arena pause_after_2s 0
+CHARGE_CAMERA_CAPTURE arena gap_2800 0
+CHARGE_CAMERA_CAPTURE arena gap_1800 0
+CHARGE_CAMERA_CAPTURE arena gap_1100 0
+CHARGE_CAMERA_CAPTURE arena gap_650 0
+CHARGE_CAMERA_CAPTURE arena contact_actual 0
+CHARGE_CAMERA_CAPTURE arena crossed 0
+CHARGE_CAMERA_CAPTURE war 01_time_0p8 0
+CHARGE_CAMERA_CAPTURE war 02_time_2p0 0
+CHARGE_CAMERA_CAPTURE war pause_after_2s 0
+CHARGE_CAMERA_CAPTURE war gap_2800 0
+CHARGE_CAMERA_CAPTURE war gap_1800 0
+CHARGE_CAMERA_CAPTURE war gap_1100 0
+CHARGE_CAMERA_CAPTURE war gap_650 0
+CHARGE_CAMERA_CAPTURE war contact_actual 0
+CHARGE_CAMERA_CAPTURE war crossed 0
+CHARGE_CAMERA_V046 true failures=[]

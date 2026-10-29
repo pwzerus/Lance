@@ -1,0 +1,27 @@
+[
+  {
+    "report": "E:/GALUMU/docs/development/logs/v046/release-test_motion_v046.json",
+    "test": "test_motion_v046",
+    "exit": 0
+  },
+  {
+    "report": "E:/GALUMU/docs/development/logs/v046/release-test_support_rider_v046.json",
+    "test": "test_support_rider_v046",
+    "exit": 0
+  },
+  {
+    "report": "E:/GALUMU/docs/development/logs/v046/release-test_transitions_v045.json",
+    "test": "test_transitions_v045",
+    "exit": 1
+  },
+  {
+    "report": "E:/GALUMU/docs/development/logs/v046/release-test_integration_v045.json",
+    "test": "test_integration_v045",
+    "exit": 0
+  },
+  {
+    "report": "E:/GALUMU/docs/development/logs/v046/release-test_rules_v045.json",
+    "test": "test_rules_v045",
+    "exit": 0
+  }
+]

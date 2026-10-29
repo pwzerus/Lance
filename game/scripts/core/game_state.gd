@@ -3,6 +3,7 @@ extends Node
 signal profile_changed
 
 const Catalogue = preload("res://scripts/core/catalogue.gd")
+const Appearance = preload("res://scripts/core/character_appearance.gd")
 const SAVE_PATH = "user://profile_v1.json"
 const BACKUP_PATH = "user://profile_v1.backup.json"
 var save_path = SAVE_PATH
@@ -28,6 +29,7 @@ func _ready() -> void:
 
 func default_profile() -> Dictionary:
 	return {"version": 1, "coins": 520, "renown": 0, "wins": 0, "matches": 0, "region": 0,
+		"appearance": Appearance.defaults(),
 		"owned": ["mail_basic", "helm_nasal", "lance_ash", "horse_bay", "crest_bend", "shield_basic"],
 		"equipped": {"armor": "mail_basic", "helmet": "helm_nasal", "lance": "lance_ash", "horse": "horse_bay", "crest": "crest_bend", "shield":"shield_basic"},
 		"settings": {"blood": false, "shake": true, "sound": true, "mouse_only": false, "brief_seen":false,"combat_brief_v03":false,"combat_brief_v043":false,"combat_brief_v044":false,"aim_cues":true,"slow_motion":true, "difficulty": 1}}
@@ -48,6 +50,7 @@ func sanitize(raw: Dictionary) -> Dictionary:
 	for key in ["coins", "renown", "wins", "matches"]:
 		clean[key] = _safe_integer(raw.get(key), int(clean[key]),0,999999999)
 	clean.region = _safe_integer(raw.get("region"),0,0,3)
+	clean.appearance = Appearance.sanitize(raw.get("appearance",{}))
 	if raw.get("owned") is Array:
 		for item_id in raw.owned:
 			if item_id is String and not Catalogue.find(items, item_id).is_empty() and item_id not in clean.owned:
@@ -198,7 +201,18 @@ func award_match(session_id: String, outcome: int, mode: String) -> Dictionary:
 	return {"coins": coins, "renown": renown}
 
 func player_stats() -> Dictionary:
-	return Catalogue.stats(items, profile.equipped)
+	var stats = Catalogue.stats(items, profile.equipped)
+	stats.appearance = Appearance.sanitize(profile.get("appearance",{}))
+	return stats
+
+func set_appearance(data: Dictionary) -> bool:
+	var previous: Dictionary = Appearance.sanitize(profile.get("appearance",{}))
+	profile.appearance = Appearance.sanitize(data)
+	if not save_profile():
+		profile.appearance = previous
+		return false
+	profile_changed.emit()
+	return true
 
 func set_setting(key: String, value: Variant) -> void:
 	if not profile.settings.has(key):

@@ -6,7 +6,14 @@ const Rider = preload("res://scripts/visual/rider_view.gd")
 const Model = preload("res://scripts/core/joust_match.gd")
 const Battle = preload("res://scripts/battle.gd")
 const Art = preload("res://scripts/visual/equipment_art.gd")
+const Appearance = preload("res://scripts/core/character_appearance.gd")
 const BACKGROUND = preload("res://assets/art/pixel_v03/tournament_field.png")
+
+class CharacterFaceCanvas extends Node2D:
+	const Face = preload("res://scripts/visual/character_face.gd")
+	var appearance: Dictionary = {}
+	func _draw() -> void:
+		Face.draw_face(self,appearance,Rect2(0,0,192,240))
 
 var ui_layer: CanvasLayer
 var screen: Control
@@ -37,10 +44,13 @@ var smoke_original_profile: Dictionary = {}
 var smoke_contacts: Array = []
 var smoke_last_report = 0
 var practice_match = false
+var appearance_draft: Dictionary = {}
+var character_options: Dictionary = {}
+var character_face_preview: CharacterFaceCanvas
 
 func _ready() -> void:
-	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.7"
-	print("GALUMU_BUILD v0.4.7")
+	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.8"
+	print("GALUMU_BUILD v0.4.8")
 	get_tree().auto_accept_quit = false
 	get_window().min_size = Vector2i(960,540)
 	ui_layer = CanvasLayer.new()
@@ -59,7 +69,7 @@ func _ready() -> void:
 		smoke_started = Time.get_ticks_msec()
 	show_home()
 	if GameState.qa_input_probe:
-		get_window().title = "Lance & Laurel v0.4.7 QA - Desktop input"
+		get_window().title = "Lance & Laurel v0.4.8 QA - Desktop input"
 		var audit = preload("res://scripts/core/desktop_input_audit.gd").new()
 		audit.main = self
 		add_child(audit)
@@ -77,6 +87,8 @@ func _clear_screen() -> void:
 	ui_layer.add_child(screen)
 	message_label = null
 	currency_label = null
+	character_face_preview = null
+	character_options.clear()
 
 func _header(subtitle: String) -> void:
 	UI.label(screen,"LANCE & LAUREL",Vector2(52,28),25,UI.GOLD)
@@ -117,8 +129,9 @@ func show_home() -> void:
 	UI.button(screen,"历史手记",Rect2(68,569,247,50),show_history)
 	UI.button(screen,"设置",Rect2(331,569,247,50),show_settings)
 	UI.button(screen,"保存并退出",Rect2(68,645,510,50),_save_and_exit)
-	UI.label(screen,"自动保存已启用 · v0.4.7",Vector2(70,727),16,UI.MUTED)
-	UI.label(screen,"YOUR CHAMPION",Vector2(952,143),18,UI.GOLD)
+	UI.label(screen,"自动保存已启用 · v0.4.8",Vector2(70,727),16,UI.MUTED)
+	UI.label(screen,"你的骑士",Vector2(790,145),20,UI.GOLD)
+	UI.button(screen,"角色外观",Rect2(1010,129,362,54),show_character,true)
 	_add_preview(Vector2(1035,652),1.42)
 	var champion = UI.panel(screen,Rect2(766,675,606,98),Color(.07,.12,.095,.94))
 	UI.label(champion,"%s  ·  %s 胜 / %s 场" % [Catalogue.REGIONS[int(GameState.profile.region)],_short_number(int(GameState.profile.wins)),_short_number(int(GameState.profile.matches))],Vector2(22,14),23,UI.GOLD)
@@ -126,6 +139,76 @@ func show_home() -> void:
 	if not GameState.save_error.is_empty():
 		UI.label(screen,GameState.save_error,Vector2(70,757),14,Color("efb566"),650)
 	queue_redraw()
+
+func show_character() -> void:
+	page = "character"
+	_clear_screen()
+	appearance_draft = Appearance.sanitize(GameState.profile.get("appearance",Appearance.defaults()))
+	_header("角色外观 · 像素骑士")
+	UI.label(screen,"塑造你的骑士",Vector2(60,111),36,UI.INK)
+	UI.label(screen,"即时预览；保存后用于营地与骑乘形象。",Vector2(64,170),18,UI.MUTED,850)
+	UI.button(screen,"取消并返回",Rect2(1210,106,175,48),_cancel_character)
+	var panel = UI.panel(screen,Rect2(60,215,590,435))
+	var keys = ["face_shape","skin","brows","beard","eyes","hair"]
+	var titles = ["脸型","肤色","眉毛","胡子","瞳色","发色"]
+	for row in range(keys.size()):
+		var field: String = keys[row]
+		UI.label(panel,titles[row],Vector2(24,29+row*58),20,UI.GOLD)
+		var option = OptionButton.new()
+		option.position = Vector2(190,20+row*58)
+		option.size = Vector2(374,46)
+		for label in Appearance.OPTIONS[field]:
+			option.add_item(str(label))
+		option.selected = int(appearance_draft[field])
+		option.item_selected.connect(func(index: int):_change_character_option(field,index))
+		panel.add_child(option)
+		character_options[field] = option
+	UI.label(panel,"外观不改变装备属性或比赛判定。",Vector2(24,390),16,UI.MUTED,540)
+	var face_panel = UI.panel(screen,Rect2(715,215,236,340),Color(.055,.10,.08,.95))
+	UI.label(face_panel,"无盔头像",Vector2(24,14),18,UI.GOLD)
+	character_face_preview = CharacterFaceCanvas.new()
+	character_face_preview.position = Vector2(737,272)
+	character_face_preview.appearance = appearance_draft.duplicate(true)
+	screen.add_child(character_face_preview)
+	UI.label(face_panel,"眼睛与眉须细节预览",Vector2(24,307),14,UI.MUTED,205)
+	UI.label(screen,"当前装备 · 骑乘预览",Vector2(1010,222),18,UI.GOLD)
+	var stats = GameState.player_stats().duplicate(true)
+	stats["appearance"] = appearance_draft.duplicate(true)
+	_add_preview(Vector2(1170,620),.9,stats)
+	UI.label(screen,"头盔按当前装备显示；闭盔会遮住部分面容。",Vector2(715,646),15,UI.MUTED,670)
+	UI.button(screen,"保存并返回",Rect2(60,686,380,58),_save_character,true)
+	UI.button(screen,"取消修改",Rect2(460,686,190,58),_cancel_character)
+	message_label = UI.label(screen,"尚未保存 · 修改只影响本页预览",Vector2(715,691),17,UI.MUTED,670)
+	queue_redraw()
+
+func _change_character_option(field: String, index: int) -> void:
+	if page!="character" or not Appearance.OPTIONS.has(field):
+		return
+	appearance_draft[field] = index
+	appearance_draft = Appearance.sanitize(appearance_draft)
+	if is_instance_valid(preview):
+		preview.fighter.stats["appearance"] = appearance_draft.duplicate(true)
+		preview.queue_redraw()
+	if is_instance_valid(character_face_preview):
+		character_face_preview.appearance = appearance_draft.duplicate(true)
+		character_face_preview.queue_redraw()
+	if is_instance_valid(message_label):
+		message_label.text = "尚未保存 · 修改只影响本页预览"
+		message_label.add_theme_color_override("font_color",UI.MUTED)
+
+func _save_character() -> void:
+	if page!="character":
+		return
+	if GameState.set_appearance(appearance_draft):
+		show_home()
+		return
+	if is_instance_valid(message_label):
+		message_label.text = "保存失败 · "+GameState.save_error+"\n修改仍在本页，可重试或取消。"
+		message_label.add_theme_color_override("font_color",Color("efb566"))
+
+func _cancel_character() -> void:
+	appearance_draft.clear()
+	show_home()
 
 func show_match_setup() -> void:
 	page = "setup"

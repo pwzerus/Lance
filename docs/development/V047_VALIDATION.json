@@ -46,5 +46,14 @@
     "hud-edges01: engine letterbox input reproduced and fixed",
     "desktop-01: external QA wait coroutine exit warning; desktop02/03 clean exit",
     "desktop-02: one old horse mesh triangulation error; finite-area guard and final rendered sweep clean"
-  ]
+  ],
+  "source_archive": {
+    "commit": "91b7d63b8f2008d9ffd702cc4bf17aa282a6dd4e",
+    "zip_sha256": "2D1CBC381147F717539A4C65A51BAE15BE05D816B73D77579ACCA07A27DC1EB8",
+    "extraction": "Windows Expand-Archive, new directory",
+    "godot_first_import_exit": 0,
+    "arms_controls_test_exit": 0,
+    "engine_errors_and_warnings": 0
+  },
+  "verified_remote_checkpoint": "91b7d63b8f2008d9ffd702cc4bf17aa282a6dd4e"
 }

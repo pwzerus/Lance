@@ -25,6 +25,13 @@
     "motion_exit_zero": true,
     "evidence": "logs/v046/windows-archive-validation.json"
   },
+  "source_archive": {
+    "snapshot_commit": "199a280527ac40121cc5f6e008fb845fe25c8ada",
+    "zip_sha256": "CC5ABB214D420095962E39770F1248F05836E801F793BAA4C79E61B6632B5EBB",
+    "fresh_import_exit_zero": true,
+    "motion_exit_zero": true,
+    "evidence": "logs/v046/source-archive-validation.json"
+  },
   "native_desktop": {
     "release_observed": "v0.4.6-r2",
     "operations": ["start menu", "practice selection", "first-run instructions", "Escape pause", "click restart"],

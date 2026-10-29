@@ -8,6 +8,7 @@
 
 | 负责人 | 任务 | 占用文件 | 状态 |
 | --- | --- | --- | --- |
+| Codex | DEV-048：跨坐双腿、换盾衔接、角色外观编辑 | root：rider_view.gd、版本/导出/启动器与协作文档；appearance子任务：新core/character_appearance.gd、visual/character_face.gd、game_state.gd；UI子任务：main.gd；QA子任务：新tests/*v048*和审查报告 | 基线a76a9df，2026-10-29 02:47:36—03:17:36 UTC，30分钟。保持旧档/枪盾限速/现有规则，版本分支codex/v0.4；不覆盖Claude既有改动或旧包。 |
 | Codex | DEV-047：已完成，全部文件已释放 | rider_view、rider_arm_art、新pixel_v047、battle、main、project/export、Play-Latest、tests/*v047*、协作文档与最终归档证据 | 基线fe94f9b→658b4c9运行代码；codex/v0.4，独立v0.4.7-r3。实包/OS/Windows及源码验包完成，91b7d63已推送核对，最后验包回执见HEAD；枪盾限速保留，马体/打击大修留下一次4.5小时，未自动开始。 |
 | Codex | DEV-046：开发与验证完成，文件已释放 | 主负责人：game/scripts/visual/{horse_gait,horse_art,rider_view,sound_bank,impact_fx}.gd，core/joust_match.gd，battle.gd，main.gd，project.godot，export_presets.cfg，Play-Latest.cmd；game/tests/*v046*；DESIGN_DECISIONS.md；docs/collaboration/{TASK_BOARD,PROJECT_STATE,WORK_LOG}.md、handoffs/*046*；docs/development/*046*。motion_review只读研究与审查；motion_qa仅新test_motion_showcase_v046.gd及uid，须串行QA | 基线c255844，codex/v0.4。2026-10-28 22:44:33 UTC开始，2026-10-29 01:14:33 UTC截止。既有Claude文档与历史未跟踪证据保留。先改善已有结构，不重写玩法。 |
 | Codex | DEV-045：已完成，文件已释放 | 主负责人：visual/{horse_gait,rider_view,horse_art}.gd、core/joust_match.gd、battle/main版本标识、project/export、Play-Latest、game/tests/test_*v045*、DESIGN_DECISIONS、协作与v045证据文档；子代理motion_review只读，motion_qa仅test_motion_showcase_v045.gd及uid | 2026-10-28 21:13:39 UTC开始，22:13:39 UTC停止扩展；基线675f4ca，codex/v0.4。既有Claude文档差异归属已知并保留；在原动作代码上修，不重写玩法。 |

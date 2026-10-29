@@ -9,6 +9,7 @@ const HorseArt = preload("res://scripts/visual/horse_art.gd")
 const Gait = preload("res://scripts/visual/horse_gait.gd")
 const Shield = preload("res://scripts/core/shield_geometry.gd")
 const ArmArt = preload("res://scripts/visual/rider_arm_art.gd")
+const Face = preload("res://scripts/visual/character_face.gd")
 const ARM_UPPER = 44.0
 const ARM_LOWER = 46.0
 const LANCE_SHOULDER = Vector2(-25,-64)
@@ -149,8 +150,14 @@ func _draw() -> void:
 	var stride = stride_phase
 	var horse_pose = Gait.body(stride,float(fighter.get("speed",0.0)),moving,float(fighter.stats.get("stability",1.0)),float(fighter.get("motion_drive",0.0)))
 	var horse_tint = Color(str(fighter.stats.get("horse_color","a87950"))).lerp(Color.WHITE,.48)
+	var seated = seated_leg_pose(fighter)
+	var rider_visible = not bool(fighter.get("ko",false)) and not bool(fighter.get("dead",false))
 	_draw_horse_leg(0,horse_tint.darkened(.29))
 	_draw_horse_leg(2,horse_tint.darkened(.25))
+	# A straddling rider's far thigh and shin are behind the horse barrel.
+	# Drawing both after the barrel made the rider appear side-saddle.
+	if rider_visible:
+		_draw_seated_leg(seated.far,Color(.63,.66,.69),false)
 	_draw_horse_leg(1,horse_tint,true,false)
 	_draw_horse_leg(3,horse_tint,true,false)
 	var tail_root = Model.HIP+(Vector2(-134,-170)-Model.HIP).rotated(horse_pose.pitch)+horse_pose.offset
@@ -174,7 +181,6 @@ func _draw() -> void:
 		return
 	var lean_angle = Model.pose_angle(fighter)
 	var pivot = Model.HIP+Model.saddle_offset(fighter)
-	_draw_rider_leg(pivot+Vector2(3,-1),-.05,Color(.65,.64,.61))
 	# One camera-facing torso space carries anatomical shoulders, both arm
 	# chains and the actual rule grips. Turning changes depth, not handedness.
 	var origin = Vector2(float(fighter.x),float(fighter.get("lane_y",0.0)))
@@ -193,9 +199,10 @@ func _draw() -> void:
 	_draw_anatomical_arm(far_side,far_arm,Color(.70,.73,.76),true,true)
 	draw_texture_rect(torso_texture,Rect2(-47,-94,94,104),false)
 	_draw_armor_detail()
+	_draw_anatomical_arm(near_side,near_arm,Color.WHITE,true,true)
+	# Shoulder caps overlap the rotating upper sleeves, closing the socket.
 	_draw_shoulder_seal(right_arm,Color.WHITE if facing==1 else Color(.76,.79,.82))
 	_draw_shoulder_seal(left_arm,Color(.76,.79,.82) if facing==1 else Color.WHITE)
-	_draw_anatomical_arm(near_side,near_arm,Color.WHITE,true,true)
 	# The distant forearm can cross in front of the chest to reach its grip;
 	# its upper arm remains behind the torso instead of painting over it.
 	_draw_anatomical_arm(far_side,far_arm,Color(.78,.81,.84),false,true)
@@ -203,11 +210,16 @@ func _draw() -> void:
 	head_transform.x *= facing
 	draw_set_transform_matrix(head_transform)
 	var head_width = 84.0 if head_tier==4 else 70.0
-	draw_texture_rect(head_texture,Rect2(-head_width*.5,-151,head_width,80),false)
-	if fighter.stats.has("helmet_color"):
-		draw_line(Vector2(-20,-109),Vector2(20,-109),Color(str(fighter.stats.helmet_color)),3)
+	if head_tier==0:
+		var appearance: Dictionary = fighter.stats.get("appearance",Face.Appearance.variant(hash(str(fighter.stats.get("armor_color",""))+str(fighter.stats.get("shield_color","")))))
+		Face.draw_head(self,appearance,head_tier,Color(str(fighter.stats.get("helmet_color","8e999c"))),Rect2(-head_width*.5,-151,head_width,80))
+	else:
+		# Keep enclosed/gilt equipment intact; it naturally hides facial detail.
+		draw_texture_rect(head_texture,Rect2(-head_width*.5,-151,head_width,80),false)
+		if fighter.stats.has("helmet_color"):
+			draw_line(Vector2(-20,-109),Vector2(20,-109),Color(str(fighter.stats.helmet_color)),3)
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
-	_draw_rider_leg(pivot+Vector2(-11,4),.07-horse_pose.pitch*.3,Color.WHITE)
+	_draw_seated_leg(seated.near,Color.WHITE,true)
 	var hand_local: Vector2 = (pose.right.hand-origin)*Vector2(facing,1)
 	_draw_lance(hand_local,float(fighter.aim),Model.lance_length(fighter),bool(fighter.broken))
 	draw_set_transform_matrix(torso_transform)
@@ -215,6 +227,11 @@ func _draw() -> void:
 	# Left hand grips the rear handle. The shield face then occludes fingers
 	# naturally; the independently drawn palm is visible around the inner rim.
 	draw_line(left_arm.hand+Vector2(-3,-9),left_arm.hand+Vector2(-3,10),Color("30251e"),5)
+	var brace_axis: Vector2 = (left_arm.hand-left_arm.elbow).normalized()
+	var brace_side = Vector2(-brace_axis.y,brace_axis.x)
+	var brace = left_arm.hand-brace_axis*14
+	draw_line(brace-brace_side*8,brace+brace_side*8,Color("533925"),5)
+	draw_line(brace-brace_side*7,brace+brace_side*7,Color("b08a4b"),2)
 	_draw_grip("left",left_arm,Color(.86,.88,.90) if facing==1 else Color.WHITE)
 	var shield_transform = torso_transform
 	shield_transform.x *= facing
@@ -319,11 +336,48 @@ func _draw_horse_bone(part: String, start: Vector2, end: Vector2, width: float, 
 		uv.append(corner/HorseArt.ATLAS.get_size())
 	draw_polygon(vertices,PackedColorArray([tint,tint,tint,tint]),uv,HorseArt.ATLAS)
 
-func _draw_rider_leg(hip: Vector2, angle: float, tint: Color) -> void:
-	var facing = int(fighter.direction)
-	draw_set_transform_matrix(mirrored_transform(hip,angle,facing))
-	draw_part("rider_leg",Rect2(-22,-12,61,91),tint)
-	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
+static func seated_leg_pose(value: Dictionary) -> Dictionary:
+	# Local side-view projection. Depth is supplied by draw order, not by
+	# moving both thighs to the visible side. Pelvis stays on the saddle.
+	var pivot = Model.HIP+Model.saddle_offset(value)
+	var pitch = Model.gait_pose(value).pitch
+	var result = {}
+	for side in ["far","near"]:
+		var far = side=="far"
+		var hip = pivot+(Vector2(14,-8) if far else Vector2(-11,3))
+		var knee = hip+(Vector2(21,24) if far else Vector2(23,29)).rotated(pitch*.3)
+		var ankle = hip+(Vector2(10,78) if far else Vector2(7,82)).rotated(pitch*.15)
+		result[side] = {"hip":hip,"knee":knee,"ankle":ankle,"foot":ankle+Vector2(17,8)}
+	return result
+
+func _draw_seated_leg(pose: Dictionary, tint: Color, near: bool) -> void:
+	# Measured joints from the existing rider atlas; keep the decorative
+	# thigh and boot, but give their knee a shared attachment.
+	var strap_top: Vector2 = pose.hip+Vector2(-3,-1)
+	var stirrup: Vector2 = pose.ankle+Vector2(9,11)
+	draw_line(strap_top,stirrup,Color("30261d")*tint,4)
+	draw_line(strap_top+Vector2(1,0),stirrup+Vector2(1,0),Color("805b34")*tint,2)
+	_draw_rider_leg_patch(Rect2(687,633,204,117),Vector2(749,663),Vector2(823,748),pose.hip,pose.knee,.30,tint)
+	_draw_rider_leg_patch(Rect2(744,736,148,197),Vector2(823,748),Vector2(804,862),pose.knee,pose.ankle,.29,tint)
+	var loop = PackedVector2Array([stirrup+Vector2(-9,-7),stirrup+Vector2(-12,9),stirrup+Vector2(14,9),stirrup+Vector2(10,-7)])
+	draw_polyline(loop,Color("242b2b")*tint,4)
+	draw_line(stirrup+Vector2(-10,8),stirrup+Vector2(12,8),Color("9b9d8d")*tint,2)
+	if near:
+		draw_line(pose.hip+Vector2(-9,0),pose.hip+Vector2(9,4),Color("b38e47"),3)
+
+func _draw_rider_leg_patch(region: Rect2, source_a: Vector2, source_b: Vector2, a: Vector2, b: Vector2, thickness: float, tint: Color) -> void:
+	var source_axis = (source_b-source_a).normalized()
+	var source_side = Vector2(-source_axis.y,source_axis.x)
+	var axis = (b-a).normalized()
+	var side = Vector2(-axis.y,axis.x)
+	var longitudinal = a.distance_to(b)/source_a.distance_to(source_b)
+	var points = PackedVector2Array()
+	var uv = PackedVector2Array()
+	for corner in [region.position,Vector2(region.end.x,region.position.y),region.end,Vector2(region.position.x,region.end.y)]:
+		var relative: Vector2 = corner-source_a
+		points.append(a+axis*relative.dot(source_axis)*longitudinal+side*relative.dot(source_side)*thickness)
+		uv.append(corner/ATLAS.get_size())
+	draw_polygon(points,PackedColorArray([tint]),uv,ATLAS)
 
 static func arm_pose(value: Dictionary) -> Dictionary:
 	var facing = int(value.direction)
@@ -348,9 +402,12 @@ func _draw_shoulder_seal(arm: Dictionary, tint: Color) -> void:
 	# sleeve rotates. It stays on the shoulder, never drags the chest bitmap.
 	var center: Vector2 = arm.shoulder
 	var outward = -1.0 if center.x<0 else 1.0
-	var contour = PackedVector2Array([center+Vector2(-12,-9),center+Vector2(outward*19,-5),center+Vector2(outward*18,13),center+Vector2(-outward*8,15)])
+	var contour = PackedVector2Array([center+Vector2(-outward*10,-11),center+Vector2(outward*8,-13),center+Vector2(outward*18,-5),center+Vector2(outward*18,9),center+Vector2(outward*8,14),center+Vector2(-outward*9,10)])
 	draw_colored_polygon(contour,Color("343c40")*tint)
-	draw_line(center+Vector2(outward*10,-4),center+Vector2(outward*10,11),Color("717b83")*tint,6)
+	draw_line(center+Vector2(outward*11,-5),center+Vector2(outward*11,8),Color("717b83")*tint,5)
+	for row in range(3):
+		for column in range(3):
+			draw_rect(Rect2(center+Vector2(-6+column*6+(row%2)*2,-7+row*6),Vector2(3,2)),Color("929a9d")*tint)
 
 func _draw_anatomical_arm(side: String, arm: Dictionary, tint: Color, upper: bool, lower: bool) -> void:
 	if upper:

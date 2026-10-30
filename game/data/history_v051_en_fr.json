@@ -1,0 +1,386 @@
+[
+  {
+    "id": "eng_helmet_0",
+    "name": "英格兰 · 欧洲式鼻铁盔",
+    "era": 0,
+    "historical_window": "12世纪末–13世纪初",
+    "source": "Met L.2018.48.13",
+    "source_url": "https://www.metmuseum.org/art/collection/search/810947",
+    "description": "开放式盔碗与独立鼻铁保留清晰轮廓；未遮住两颊。",
+    "historical_note": "欧洲共通形制；馆方未定具体产地，英格兰收藏线为游戏编排，银线简化。",
+    "manufacture": "欧洲；具体工坊未定",
+    "use_context": "西欧鼻铁盔结构参考；不证明此原物曾在英格兰使用",
+    "art_id": "eng_helmet_0",
+    "stats": {
+      "helmet_material": "steel"
+    }
+  },
+  {
+    "id": "eng_helmet_1",
+    "name": "英格兰 · 平顶包面大盔",
+    "era": 0,
+    "historical_window": "约1250",
+    "source": "Met 17.190.231",
+    "source_url": "https://www.metmuseum.org/art/collection/search/464233",
+    "description": "平顶筒状包面盔，窄视缝与硬直前脸明显区别鼻铁盔。",
+    "historical_note": "原物是约1250年英国骑士棋子，不是实存钢盔；钢制结构与孔位为据图改编。",
+    "manufacture": "棋子可能伦敦制作；所示钢盔工坊不详",
+    "use_context": "同期英国骑士装备图证；不复制棋子的人脸与象牙材质",
+    "art_id": "eng_helmet_1",
+    "stats": {
+      "helmet_material": "steel"
+    }
+  },
+  {
+    "id": "eng_helmet_2",
+    "name": "英格兰 · 尖顶铆接大盔",
+    "era": 1,
+    "historical_window": "14世纪中叶",
+    "source": "Royal Armouries IV.600",
+    "source_url": "https://royalarmouries.org/objects-and-stories/stories/the-hundred-years-war-1337-1453",
+    "description": "高尖盔顶、中央脊与分段铆缝；单侧呼吸孔形成不对称前脸。",
+    "historical_note": "馆方称英格兰／欧洲；不把大盔所有时期都称比武专用，也不虚构原佩戴者。",
+    "manufacture": "英格兰／欧洲；工坊未定",
+    "use_context": "百年战争早期骑兵防护结构参考；后期大盔与比武的联系增强",
+    "art_id": "eng_helmet_2",
+    "stats": {
+      "helmet_material": "steel"
+    }
+  },
+  {
+    "id": "eng_helmet_3",
+    "name": "英格兰 · 尖脊短尾萨莱特",
+    "era": 3,
+    "historical_window": "15世纪晚期",
+    "source": "Met 29.150.13",
+    "source_url": "https://www.metmuseum.org/art/collection/search/26451",
+    "description": "后倾尖脊盔碗、分离额片和短外撇颈尾；保留前方开口。",
+    "historical_note": "可能意大利制造的法勃艮第风格；在英有同类，不证明此件为英制；原物修补甚多。",
+    "manufacture": "可能意大利；法勃艮第式样",
+    "use_context": "英格兰线的大陆式样改编；馆方提及英格兰教堂保存的同类",
+    "art_id": "eng_helmet_3",
+    "stats": {
+      "helmet_material": "steel"
+    }
+  },
+  {
+    "id": "eng_helmet_4",
+    "name": "英格兰 · 格林尼治圆喙闭盔",
+    "era": 3,
+    "historical_window": "铭年1527",
+    "source": "Met 19.131.1a–r,t–w,.2a–f,l",
+    "source_url": "https://www.metmuseum.org/art/collection/search/22741",
+    "description": "圆凸盔碗、较钝的封闭面甲与成组呼吸孔；颈缘封合。",
+    "historical_note": "现归属为可能为亨利八世制作；旧称热努亚克甲不能当法国制造证据。",
+    "manufacture": "英格兰格林尼治王家工坊",
+    "use_context": "有战场及比武换装件的组合甲；可能曾作为赠予法国使节的礼物",
+    "art_id": "eng_helmet_4",
+    "stats": {
+      "helmet_material": "steel"
+    }
+  },
+  {
+    "id": "eng_helmet_5",
+    "name": "英格兰 · 伊丽莎白式尖喙闭盔",
+    "era": 4,
+    "historical_window": "1586",
+    "source": "Met 32.130.6a–y;36.98.1",
+    "source_url": "https://www.metmuseum.org/art/collection/search/851637",
+    "description": "高脊与尖突面甲配合叠片颈圈；金饰集中为大块带纹。",
+    "historical_note": "据克利福德组合甲改编；都铎玫瑰、百合与双E属特定人物和宫廷，不是全国制服。",
+    "manufacture": "英格兰格林尼治；Jacob Halder主持",
+    "use_context": "George Clifford的战场／比武组合甲；非所有附加件同时装用",
+    "art_id": "eng_helmet_5",
+    "stats": {
+      "helmet_material": "steel"
+    }
+  },
+  {
+    "id": "eng_armor_0",
+    "name": "英格兰 · 共通式锁甲衫",
+    "era": 0,
+    "historical_window": "约1244–1254图证；1100–1300主题",
+    "source": "Morgan MS M.638 f.23v",
+    "source_url": "https://ica.themorgan.org/manuscript/page/46/158530",
+    "description": "露出整片链环胸身与柔软腰部，领缘承接锁甲兜，不画钢胸板。",
+    "historical_note": "图证绘于巴黎；此处采用西欧共通锁甲结构，英格兰配装和轮廓整理为游戏改编。",
+    "manufacture": "图像：巴黎；实际锁甲产地未定",
+    "use_context": "圣经故事中的13世纪装备图证，不是早期圣经时代军服",
+    "art_id": "eng_armor_0",
+    "stats": {
+      "armor_material": "mail"
+    }
+  },
+  {
+    "id": "eng_armor_1",
+    "name": "英格兰 · 无袖罩袍锁甲",
+    "era": 0,
+    "historical_window": "约1250",
+    "source": "Met 17.190.231",
+    "source_url": "https://www.metmuseum.org/art/collection/search/464233",
+    "description": "无袖长罩袍覆盖链环，宽松胸腹、骑乘开衩与系腰形成新轮廓。",
+    "historical_note": "棋子提供罩袍覆锁甲的图证；衣料颜色、玩家纹章和内层细节为游戏改编。",
+    "manufacture": "棋子可能伦敦制作；所示防具工坊不详",
+    "use_context": "英国骑士图像；不是仅把上一件锁甲换色",
+    "art_id": "eng_armor_1",
+    "stats": {
+      "armor_material": "mail"
+    }
+  },
+  {
+    "id": "eng_armor_2",
+    "name": "英格兰 · 绗缝纹章短罩衣",
+    "era": 1,
+    "historical_window": "约1360–1376；1376前遗物",
+    "source": "Canterbury 01107 / SMG Fig.9",
+    "source_url": "https://journal.sciencemuseum.ac.uk/article/panstereomachia/",
+    "description": "合体短腰身、前襟系结与竖向绗缝；纹章分区按大色块整理。",
+    "historical_note": "黑太子原物是覆在金属甲外的绗缝罩衣；本件保留防护槽，内层和数值为游戏适配。",
+    "manufacture": "英格兰关联遗物；具体制作者未定",
+    "use_context": "Canterbury黑太子遗物；不是单独钢甲，展示图中的复制品须区别",
+    "art_id": "eng_armor_2",
+    "stats": {
+      "armor_material": "padded"
+    }
+  },
+  {
+    "id": "eng_armor_3",
+    "name": "英格兰 · 大陆式双片覆布甲",
+    "era": 2,
+    "historical_window": "约1400–1450；现陈列含后配",
+    "source": "Met 29.154.3",
+    "source_url": "https://www.metmuseum.org/art/collection/search/23205",
+    "description": "两块大胸片支撑合体躯干，中心三道横扣、金属包边与短下摆。",
+    "historical_note": "原物为意大利组合甲，20世纪重组且天鹅绒为现代；英格兰线进口式样为游戏改编。",
+    "manufacture": "意大利；Chalcis出土零件；1920年代组合",
+    "use_context": "展示早期大胸片与小铆片结合；不声称本件曾由英格兰人穿用",
+    "art_id": "eng_armor_3",
+    "stats": {
+      "armor_material": "brigandine"
+    }
+  },
+  {
+    "id": "eng_armor_4",
+    "name": "英格兰 · 格林尼治圆腹胸甲",
+    "era": 3,
+    "historical_window": "铭年1527",
+    "source": "Met 19.131.1a–r,t–w,.2a–f,l",
+    "source_url": "https://www.metmuseum.org/art/collection/search/22741",
+    "description": "圆凸胸腹、紧腰、卷起颈臂缘和横叠腰甲；保留右侧枪托接口。",
+    "historical_note": "原组合甲有不同战斗与比武附件；不把所有加固件合成同一实战套装，数值仍为游戏值。",
+    "manufacture": "英格兰格林尼治王家工坊",
+    "use_context": "可能亨利八世的战场／比武组合甲；原始所有人仍保留可能性",
+    "art_id": "eng_armor_4",
+    "stats": {
+      "armor_material": "plate"
+    }
+  },
+  {
+    "id": "eng_armor_5",
+    "name": "英格兰 · 克利福德尖腹组合甲",
+    "era": 4,
+    "historical_window": "1586",
+    "source": "Met 32.130.6a–y;36.98.1",
+    "source_url": "https://www.metmuseum.org/art/collection/search/851637",
+    "description": "向下尖突腹甲、明显窄腰与曲瓣腰裙；大纵带金饰强调金属体积。",
+    "historical_note": "深蓝原色现呈褐色；恢复蓝金效果是有依据的设计解释，不把每条小金线照搬进像素。",
+    "manufacture": "英格兰格林尼治；Jacob Halder主持",
+    "use_context": "英格兰宫廷骑士的战场／比武组合甲；游戏未复原整套附件",
+    "art_id": "eng_armor_5",
+    "stats": {
+      "armor_material": "plate"
+    }
+  },
+  {
+    "id": "fr_helmet_0",
+    "name": "法兰西 · 宽檐铁帽",
+    "era": 0,
+    "historical_window": "约1244–1254",
+    "source": "Morgan MS M.638 f.23v",
+    "source_url": "https://ica.themorgan.org/manuscript/page/46/158530",
+    "description": "低圆盔碗配四周外伸檐，脸部开放；轮廓区别鼻铁盔。",
+    "historical_note": "巴黎画本中的当代装备形制；非法国独有，移入骑枪玩法不等于严格比武安全复原。",
+    "manufacture": "图像绘于巴黎；所示铁帽工坊未定",
+    "use_context": "13世纪法国图像中的战斗装备；外檐尺寸作像素可读性调整",
+    "art_id": "fr_helmet_0",
+    "stats": {
+      "helmet_material": "steel"
+    }
+  },
+  {
+    "id": "fr_helmet_1",
+    "name": "法兰西 · 平顶包面盔",
+    "era": 0,
+    "historical_window": "约1244–1254",
+    "source": "Morgan MS M.638 f.23v",
+    "source_url": "https://ica.themorgan.org/manuscript/page/46/158530",
+    "description": "低平盔顶、硬直包面片、成对眼孔和前脸铆带；颈部仍接锁甲。",
+    "historical_note": "同页不同人物并非同一种民族制服；颜色和呼吸孔排列按可读性改编，不编造专属制式。",
+    "manufacture": "图像绘于巴黎；所示钢盔工坊未定",
+    "use_context": "法国13世纪图证；绘画为结构来源，不是存世整盔的测绘",
+    "art_id": "fr_helmet_1",
+    "stats": {
+      "helmet_material": "steel"
+    }
+  },
+  {
+    "id": "fr_helmet_2",
+    "name": "法兰西 · 尖吻巴西内盔",
+    "era": 1,
+    "historical_window": "约1350–1380（具体馆签）",
+    "source": "Musée de l’Armée H21",
+    "source_url": "https://www.musee-armee.fr/en/collections/museum-treasures/hounskull-bascinet.html",
+    "description": "长尖吻面甲、细眼缝、侧轴铰链和后斜高尖盔碗，锁甲连接孔清楚。",
+    "historical_note": "馆签产地西欧，不写法国制造；尖吻别称是后世分类，页面概论年代不替代具体标签。",
+    "manufacture": "西欧；工坊未知；锻铁",
+    "use_context": "晚14世纪头部防护结构；无已知具体法国佩戴者归属",
+    "art_id": "fr_helmet_2",
+    "stats": {
+      "helmet_material": "steel"
+    }
+  },
+  {
+    "id": "fr_helmet_3",
+    "name": "法兰西 · 高尖开放巴西内盔",
+    "era": 2,
+    "historical_window": "约1375–1425；选取1400前后造型",
+    "source": "Met 04.3.241",
+    "source_url": "https://www.metmuseum.org/art/collection/search/21988",
+    "description": "高尖后倾盔碗、大拱面部开口、下沿连接铆孔；保留暗色锻铁感。",
+    "historical_note": "馆方仅称可能法国，贞德归属传奇大概不实；原物缺面甲，不臆造为确证完整配件。",
+    "manufacture": "可能法国；工坊未定",
+    "use_context": "可能有战斗损伤；游戏以开放面陈列轮廓改编，品质不代表开面更安全",
+    "art_id": "fr_helmet_3",
+    "stats": {
+      "helmet_material": "steel"
+    }
+  },
+  {
+    "id": "fr_helmet_4",
+    "name": "法兰西 · 短尾覆面萨莱特",
+    "era": 3,
+    "historical_window": "约1475",
+    "source": "Met 04.3.227",
+    "source_url": "https://www.metmuseum.org/art/collection/search/21982",
+    "description": "圆滑盔碗、短后尾、低长视缝与前翻檐缘，整体低而宽。",
+    "historical_note": "可能法国或佛兰德；短尾形制并非法国专利，游戏重新整理铆孔，不复制腐蚀斑。",
+    "manufacture": "可能法国或佛兰德；工坊未定",
+    "use_context": "15世纪头盔；不混成德式超长尾或后世莫里昂盔",
+    "art_id": "fr_helmet_4",
+    "stats": {
+      "helmet_material": "steel"
+    }
+  },
+  {
+    "id": "fr_helmet_5",
+    "name": "法兰西 · 浮雕梳冠勃艮第盔",
+    "era": 4,
+    "historical_window": "约1550",
+    "source": "Met 04.3.217",
+    "source_url": "https://www.metmuseum.org/art/collection/search/21979",
+    "description": "高弧梳冠、上翘长前檐、独立颊片和颈缘；圆章浮雕采用大块明暗。",
+    "historical_note": "馆方称法国，可能为亨利二世制作，后赠美第奇；外交流转不改变制造地，不当普通军用制式。",
+    "manufacture": "法国；装饰与枫丹白露宫廷艺术关联",
+    "use_context": "宫廷豪华头盔；可拆护面配件不与各时代头盔随意混装",
+    "art_id": "fr_helmet_5",
+    "stats": {
+      "helmet_material": "steel"
+    }
+  },
+  {
+    "id": "fr_armor_0",
+    "name": "法兰西 · 外露长身锁甲",
+    "era": 0,
+    "historical_window": "约1244–1254",
+    "source": "Morgan MS M.638 f.23v",
+    "source_url": "https://ica.themorgan.org/manuscript/page/46/158530",
+    "description": "连续链环覆盖胸腹，宽颈口与腰带压褶；无需画成刻满线条的胸板。",
+    "historical_note": "巴黎图证中的锁甲为欧洲共通形制；与英格兰线的比例、领缘处理是游戏造型分配。",
+    "manufacture": "图像绘于巴黎；所示锁甲工坊未定",
+    "use_context": "13世纪人物图像；不是古代以色列的装备复原",
+    "art_id": "fr_armor_0",
+    "stats": {
+      "armor_material": "mail"
+    }
+  },
+  {
+    "id": "fr_armor_1",
+    "name": "法兰西 · 垂褶罩袍锁甲",
+    "era": 0,
+    "historical_window": "1248之后–1267之前",
+    "source": "Met 25.120.201",
+    "source_url": "https://www.metmuseum.org/art/collection/search/470599",
+    "description": "无袖罩袍宽开肩口、胸腹纵褶和系带收腰；领缘露出锁甲。",
+    "historical_note": "原物是卢瓦尔河谷骑士墓像而非铠甲，原色不能由现石色确定；不搬用其特殊剑。",
+    "manufacture": "法国卢瓦尔河谷石雕；所示防具工坊不明",
+    "use_context": "d’Aluye家族骑士纪念像；身份具体归属亦有讨论",
+    "art_id": "fr_armor_1",
+    "stats": {
+      "armor_material": "mail"
+    }
+  },
+  {
+    "id": "fr_armor_2",
+    "name": "法兰西 · 层叠大铆片衣甲",
+    "era": 1,
+    "historical_window": "约1400（解锁段边界）",
+    "source": "Met 29.150.105",
+    "source_url": "https://www.metmuseum.org/art/collection/search/34331",
+    "description": "布面内覆宽大长方铆片，肩口收窄、腰腹横排；稀疏铆列提示结构。",
+    "historical_note": "原物意大利制、希腊Chalcis出土，非法国产；加入法兰西线是共通形制改编，布面为补全。",
+    "manufacture": "意大利；在Chalcis堡垒遗存中发现",
+    "use_context": "躯干铆片防护；不把外露考古残片当成原始外表面",
+    "art_id": "fr_armor_2",
+    "stats": {
+      "armor_material": "brigandine"
+    }
+  },
+  {
+    "id": "fr_armor_3",
+    "name": "法兰西 · 意式细铆绒甲",
+    "era": 3,
+    "historical_window": "约1500–1525",
+    "source": "Cleveland 1921.1250",
+    "source_url": "https://www.clevelandart.org/art/1921.1250",
+    "description": "小铆片密集网格、圆领、侧系绳与波瓣下摆；软硬层次区别整块胸板。",
+    "historical_note": "馆方仅定可能意大利；法国线进口主题为游戏编排，不证明本件曾在法国使用或原色等同现色。",
+    "manufacture": "可能意大利；具体工坊未知",
+    "use_context": "骑士及步兵皆可用的brigandine形制；本例采用金绒豪华面层",
+    "art_id": "fr_armor_3",
+    "stats": {
+      "armor_material": "brigandine"
+    }
+  },
+  {
+    "id": "fr_armor_4",
+    "name": "法兰西 · 王太子嵌银战甲",
+    "era": 4,
+    "historical_window": "约1540；制作约1536–1547",
+    "source": "Musée de l’Armée G118",
+    "source_url": "https://www.musee-armee.fr/en/collections/museum-treasures/armour-of-the-dauphin.html",
+    "description": "较长圆腹、窄腰与叠片腰裙；黑银纵带、对称海豚与弦月只留大纹样。",
+    "historical_note": "米兰制造、法国王太子亨利关联；馆方认为用于军事，不把意大利工坊误称法国制造。",
+    "manufacture": "米兰；可能Filippo与Francesco Negroli",
+    "use_context": "未来亨利二世的军用护甲；游戏不复制整套甲和所有宫廷徽记",
+    "art_id": "fr_armor_4",
+    "stats": {
+      "armor_material": "plate"
+    }
+  },
+  {
+    "id": "fr_armor_5",
+    "name": "法兰西 · 王室浮雕仪仗甲",
+    "era": 4,
+    "historical_window": "约1555",
+    "source": "Met 39.121a–n",
+    "source_url": "https://www.metmuseum.org/art/collection/search/24671",
+    "description": "微凸胸腹、窄腰、长分片腰裙；中心浮雕大章与暗金卷草形成分区。",
+    "historical_note": "法国可能巴黎制造的仪仗甲；在骑枪中使用、强度数值与简化浮雕均属明确游戏改编。",
+    "manufacture": "法国，可能巴黎；多位设计者参与",
+    "use_context": "亨利二世仪仗甲的装饰主题，不宣传为已经复原的实战骑枪专用甲",
+    "art_id": "fr_armor_5",
+    "stats": {
+      "armor_material": "plate"
+    }
+  }
+]

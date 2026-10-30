@@ -6,6 +6,8 @@
 
 ## 当前文件占用
 
+QA-051B / 2026-10-30 21:02 UTC：已完成原生鼠标购盔/装备/历史滚动/槽1保存，窗口被最小化且连续用户输入后停止前台操作，等待桌面可用回复。基线05bb448，修改仅test_desktop_v051.gd的隔离QA初始化/重载与验证文档/日志；生产功能未改。desktop_audit独立只读核对QA档与槽1一致。文件释放，后续继续同次QA档，不把未完成对冲记通过。
+
 DEV-051完成：全部文件已释放。运行22c8104与QA/交接4b37a61已推送核对，独立.11实际包/解压双模式/26例真实接触已验。OS仅菜单观察，物理Esc后停止；真人与完整OS流程未验。下面认领段落保留为本轮责任历史。
 
 DEV-051 / 第三阶段（2026-10-29 EDT，03:19:37 UTC开始）：基线7c727b2；root负责catalogue/equipment数据、equipment_art/rider_view/character_face及必要UI/存档挂点、版本/导出/启动器、专项测试和协作文档。motion_review仅负责新增docs/research/V051_EN_FR.md；motion_qa仅负责新增docs/research/V051_DE_IT.md；appearance048负责新pixel_v051/art_sources/v051素材与来源元数据（先诊断/等考据简报），不得改共享渲染器。引擎仅root串行QA。保留既有Claude脏文件；同版本codex/v0.4，拟独立v0.4.11。阶段四运动甲片声不在本轮。

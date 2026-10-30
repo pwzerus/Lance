@@ -7,11 +7,11 @@ extends RefCounted
 const APPROACH_MAX_DURATION = 1.15
 const APPROACH_ENTER_DURATION = .18
 const APPROACH_MIN_SCALE = .45
-const HITSTOP_MIN_DURATION = .035
-const HITSTOP_MAX_DURATION = .070
+const HITSTOP_MIN_DURATION = .045
+const HITSTOP_MAX_DURATION = .085
 const HITSTOP_SCALE = .001
-const READ_DURATION = .28
-const READ_SCALE = .24
+const READ_DURATION = .25
+const READ_SCALE = .32
 const RELEASE_DURATION = .25
 const FAST_RELEASE_DURATION = .12
 const MAX_IMPACT_DURATION = HITSTOP_MAX_DURATION+READ_DURATION+RELEASE_DURATION
@@ -108,6 +108,15 @@ static func _merge_summary(a: Dictionary, b: Dictionary) -> Dictionary:
 			result[key] = b[key]
 	return result
 
+static func contact_strength(event: Dictionary) -> float:
+	var strength = clampf(maxf(0.0,float(event.get("impulse",0.0)))/85.0,0.0,1.0)
+	# A blocked blow can be loud and forceful while transferring little injury
+	# impulse to its rider. Use actual contact speed for that presentation.
+	var speed: Variant = event.get("speed",0.0)
+	if event.get("zone","")=="shield" and (speed is int or speed is float) and is_finite(float(speed)):
+		strength = maxf(strength,clampf(float(speed)/900.0,0.0,1.0)*.75)
+	return strength
+
 func notify_contacts(events: Array) -> void:
 	if _paused:
 		return
@@ -118,7 +127,7 @@ func notify_contacts(events: Array) -> void:
 		if not (raw_impulse is int or raw_impulse is float) or not is_finite(float(raw_impulse)):
 			continue
 		# These are presentation tuning units, not historical force values.
-		var strength = clampf(maxf(0.0,float(raw_impulse))/85.0,0.0,1.0)
+		var strength = contact_strength(event)
 		if bool(event.get("broke",false)):
 			strength = minf(1.0,strength+.08)
 		if bool(event.get("ko",false)) or bool(event.get("dead",false)):

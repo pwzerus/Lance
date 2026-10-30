@@ -1,0 +1,351 @@
+{
+  "asset": "horse_complete_skin_v050_01.png",
+  "task": "DEV-050",
+  "status": "complete near-side source plate; animation binding and game validation pending",
+  "source": "../../../art_sources/v050/horse_complete_source_v050_01.png",
+  "generated_utc_date": "2026-10-30",
+  "generator": "OpenAI built-in image_gen.imagegen",
+  "sha256": "af974af28cc6d7aa56909009528e9e214626152c546aba7e0f345de88fb97512",
+  "size": [
+    1536,
+    1024
+  ],
+  "origin": "top-left, x right/y down, source pixels",
+  "facing": "right",
+  "visible_legs": "one near foreleg and one near hindleg only; far legs intentionally omitted",
+  "geometry_basis": "Whole horse redesigned from side-view conformation reference; existing v049 plate used only for coat/tack style, not as a skeleton template.",
+  "alpha": {
+    "zero": 1007994,
+    "one_to_254": 564870,
+    "fully_255": 0,
+    "max": 254,
+    "bounds_at_least_128_inclusive": [
+      67,
+      12,
+      1493,
+      992
+    ],
+    "sample_coat_alpha": [
+      252,
+      253
+    ],
+    "background_samples": 0,
+    "postprocessed": false
+  },
+  "landmarks": {
+    "saddle": [
+      749,
+      326
+    ],
+    "withers": [
+      940,
+      294
+    ],
+    "back_mid": [
+      745,
+      290
+    ],
+    "croup_top": [
+      460,
+      268
+    ],
+    "neck_base": [
+      1090,
+      390
+    ],
+    "poll": [
+      1317,
+      100
+    ],
+    "head_pivot": [
+      1324,
+      155
+    ],
+    "muzzle": [
+      1464,
+      285
+    ],
+    "bit": [
+      1394,
+      269
+    ],
+    "fore_shoulder": [
+      1080,
+      450
+    ],
+    "fore_elbow": [
+      1011,
+      585
+    ],
+    "fore_carpus": [
+      1013,
+      752
+    ],
+    "fore_fetlock": [
+      1009,
+      902
+    ],
+    "fore_coronet": [
+      1036,
+      948
+    ],
+    "fore_sole": [
+      1056,
+      992
+    ],
+    "fore_toe": [
+      1097,
+      987
+    ],
+    "fore_heel": [
+      1015,
+      979
+    ],
+    "hind_hip": [
+      450,
+      400
+    ],
+    "hind_stifle": [
+      500,
+      560
+    ],
+    "hind_hock": [
+      322,
+      730
+    ],
+    "hind_fetlock": [
+      330,
+      891
+    ],
+    "hind_coronet": [
+      364,
+      940
+    ],
+    "hind_sole": [
+      376,
+      986
+    ],
+    "hind_toe": [
+      419,
+      983
+    ],
+    "hind_heel": [
+      327,
+      970
+    ],
+    "tail_root": [
+      293,
+      340
+    ],
+    "tail_mid": [
+      195,
+      630
+    ],
+    "tail_tip": [
+      115,
+      924
+    ]
+  },
+  "landmark_precision": "Musculoskeletal points are visual art-binding estimates, roughly +/-10-15 px; not skeletal imaging. Sole bottom y values 992/986 were measured from alpha>=128 pixels in separate hoof ROIs.",
+  "proposed_uniform_mapping": {
+    "source_pivot": [
+      749,
+      326
+    ],
+    "game_pivot": [
+      -18,
+      -168
+    ],
+    "scale": 0.2702702702702703,
+    "formula": "game_point = (-18,-168) + (source_point - (749,326)) * (180/666)",
+    "note": "Preserves saddle/Model.HIP and places fore bottom at game GROUND12. Hind sole is 6 source px higher: use its own hoof support/IK to meet ground; do not nonuniformly squash body."
+  },
+  "suggested_regions": {
+    "whole": [
+      60,
+      8,
+      1440,
+      990
+    ],
+    "torso": [
+      275,
+      250,
+      885,
+      375
+    ],
+    "neck_head": [
+      890,
+      10,
+      610,
+      575
+    ],
+    "fore_leg": [
+      950,
+      485,
+      180,
+      510
+    ],
+    "tail": [
+      65,
+      290,
+      280,
+      665
+    ],
+    "hind_leg_polygon": [
+      [
+        380,
+        370
+      ],
+      [
+        552,
+        420
+      ],
+      [
+        548,
+        535
+      ],
+      [
+        490,
+        590
+      ],
+      [
+        440,
+        650
+      ],
+      [
+        390,
+        700
+      ],
+      [
+        380,
+        830
+      ],
+      [
+        430,
+        995
+      ],
+      [
+        300,
+        995
+      ],
+      [
+        280,
+        890
+      ],
+      [
+        280,
+        790
+      ],
+      [
+        269,
+        730
+      ],
+      [
+        276,
+        687
+      ],
+      [
+        311,
+        640
+      ],
+      [
+        335,
+        590
+      ],
+      [
+        325,
+        545
+      ],
+      [
+        320,
+        500
+      ],
+      [
+        350,
+        455
+      ]
+    ],
+    "note": "These are mesh/UV guides, not separate exported images. Head/neck chest overlap must share topology and smoothly blended weights. Fore and hind branches use all their own joints through hoof. For far legs reuse the same leg-specific UV mesh behind the torso; hind polygon deliberately excludes the adjacent tail."
+  },
+  "measured_alpha_rows": {
+    "560": [
+      [
+        139,
+        282
+      ],
+      [
+        334,
+        513
+      ],
+      [
+        596,
+        1120
+      ]
+    ],
+    "730": [
+      [
+        118,
+        250
+      ],
+      [
+        281,
+        379
+      ],
+      [
+        978,
+        1051
+      ]
+    ],
+    "800": [
+      [
+        108,
+        238
+      ],
+      [
+        297,
+        357
+      ],
+      [
+        988,
+        1039
+      ]
+    ],
+    "902": [
+      [
+        75,
+        220
+      ],
+      [
+        292,
+        378
+      ],
+      [
+        975,
+        1051
+      ]
+    ],
+    "980": [
+      [
+        329,
+        421
+      ],
+      [
+        1006,
+        1100
+      ]
+    ]
+  },
+  "reference_urls": [
+    "https://extension.umn.edu/agriculture/animals-and-livestock/horse/conformation-of-the-horse",
+    "https://extension.umn.edu/sites/extension.umn.edu/files/styles/caption_large/public/Thirds-horse.png?itok=YxjDAFqJ",
+    "https://extension.umn.edu/sites/extension.umn.edu/files/styles/caption_large/public/Head-neck-conformation.png?itok=dQQal9WQ"
+  ],
+  "limitations": [
+    "Generated plate includes white blaze/stockings; coherent chestnut style but not identical markings to the old horse.",
+    "Canvas top margin is about12px; no observed clipped ear, but very tight top border.",
+    "Haunch shading remains stylized; no claim of veterinary or medieval-breed reconstruction.",
+    "The target coordinates in the prompt are composition guidance only; use observed landmarks above.",
+    "No Godot import/render or animation tested by asset author.",
+    "Source is AI-generated pixel-art-style art, not a guarantee of manually authored exact pixel grid."
+  ]
+}

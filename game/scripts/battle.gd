@@ -181,6 +181,11 @@ func _ready() -> void:
 	sound.enabled = GameState.profile.settings.sound
 	add_child(sound)
 	sound.music.stop()
+	effects.rider_landed.connect(func(impact_speed: float):
+		var cue = sound.landing_cue(impact_speed)
+		if not cue.is_empty():
+			for limited in sound.limit_contact_group([cue]):
+				sound.play(limited.cue,limited.db,limited.pitch))
 	wind = AudioStreamPlayer.new()
 	wind.stream = sound.streams.wind_loop
 	wind.volume_db = -50
@@ -352,20 +357,20 @@ func _handle_event(event: Dictionary) -> void:
 			exchange_log.append(event.duplicate(true))
 			pass_connected = true
 			var index = int(event.defender)
-			var strength = clampf(float(event.impulse)/85.0,.15,1.0)
+			var strength = clampf(Exchange.contact_strength(event),.15,1.0)
 			riders[index].receive_impact(strength,event.zone=="shield")
 			riders[int(event.attacker)].receive_lance_contact(strength)
 			effects.hit(event.position,int(match_model.fighters[int(event.attacker)].direction),event.damage,event.zone=="shield",event.broke,event.zone,strength)
 			if event.broke:
 				effects.break_lance(event,mode)
-			shake = maxf(shake,lerpf(1.2,5.0,strength))
+			shake = maxf(shake,lerpf(1.5,7.0,strength))
 			var kick_direction = int(match_model.fighters[int(event.attacker)].direction)
-			impact_kick += Vector2(kick_direction*lerpf(1.0,5.0,strength),-1.5*strength)
-			impact_kick = impact_kick.limit_length(6.0)
+			impact_kick += Vector2(kick_direction*lerpf(2.0,9.0,strength),-2.5*strength)
+			impact_kick = impact_kick.limit_length(10.0)
 			var now = Time.get_ticks_msec()
-			contact_audio.append({"cue":"impact" if event.zone!="shield" else "shield","db":lerpf(-11,-4,strength),"pitch":.90 if event.zone!="shield" else 1.05})
+			contact_audio.append(sound.impact_cue(event,match_model.fighters[index].stats))
 			if event.broke:
-				contact_audio.append({"cue":"break","db":-7.0,"pitch":1.0})
+				contact_audio.append(sound.break_cue(event))
 			var zones = {"head":"头盔 / 头部","body":"胸甲","flank":"腰腹","shield":"盾牌格挡"}
 			var hit_text = ("你命中 · " if int(event.attacker)==0 else "对手命中 · ")+zones.get(event.zone,event.zone)
 			if event.ko:
@@ -384,7 +389,7 @@ func _handle_event(event: Dictionary) -> void:
 			actual_label.add_theme_color_override("font_color",Cues.COLORS[event.zone])
 			contact_until = now+2100
 			if bool(event.ko) or bool(event.dead):
-				effects.fall(match_model.fighters[index],int(match_model.fighters[int(event.attacker)].direction))
+				effects.fall(match_model.fighters[index],int(match_model.fighters[int(event.attacker)].direction),event,riders[index])
 		"charge":
 			sound.play("horn",-10)
 		"end":
@@ -408,7 +413,7 @@ func _process(delta: float) -> void:
 		contact_first_frame_pending = false
 		# Start the short attack beside its visible frame, after any synchronous
 		# result persistence. Keep hit rules and rewards in the physics step.
-		for cue in contact_audio:
+		for cue in sound.limit_contact_group(contact_audio):
 			sound.play(cue.cue,cue.db,cue.pitch)
 		contact_audio.clear()
 		_update_camera(real_delta,now)
@@ -420,7 +425,7 @@ func _process(delta: float) -> void:
 				fighter.gait_moving = float(fighter.speed)>.5
 				if fighter.gait_moving:
 					fighter.gait_phase += delta*TAU*Model.Gait.frequency(float(fighter.speed))
-		if terminal_at > 0 and now - terminal_at > 2600 and not is_finished:
+		if terminal_at > 0 and now-terminal_at>2600 and (effects.falls_settled() or now-terminal_at>4500) and not is_finished:
 			is_finished = true
 			Engine.time_scale = 1.0
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -488,6 +493,12 @@ func _update_camera(real_delta: float, now: int) -> void:
 		desired_zoom = clampf(1120.0/(separation+300.0),.44,1.65)
 	if terminal_at>0:
 		desired_zoom = 1.6 if now-terminal_at<850 else 1.05
+		if not effects.bodies.is_empty():
+			var fall_center = 0.0
+			for fallen in effects.bodies:
+				fall_center += fallen.position.x
+			fall_center /= effects.bodies.size()
+			center_x = lerpf(center_x,world.position.x+fall_center,smoothstep(100,650,now-terminal_at))
 	# The contact lies on an actual swept hit. Bias horizontally toward it;
 	# keep the full mounted vertical silhouette and both riders in frame.
 	var focus_weight = float(exchange_state.focus_weight)
@@ -546,6 +557,11 @@ func _update_views() -> void:
 		riders[i].visible = true
 		riders[i].blood_enabled = GameState.profile.settings.blood
 	effects.blood_enabled = GameState.profile.settings.blood
+	for fallen in effects.bodies:
+		if is_instance_valid(fallen):
+			for renderer in [fallen.visual,fallen.far_leg]:
+				renderer.blood_enabled = GameState.profile.settings.blood
+				renderer.queue_redraw()
 	zone_overlay.visible = training_zones
 	combat_cues.enabled = GameState.profile.settings.get("aim_cues",true)
 

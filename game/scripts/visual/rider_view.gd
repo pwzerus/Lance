@@ -23,6 +23,13 @@ const PARTS = {
 	"horse_upper":Rect2(776,344,146,274),"horse_lower":Rect2(1067,357,125,252),
 	"rider_leg":Rect2(687,633,204,288),"banner":Rect2(947,700,285,192),
 	"coronel":Rect2(630,994,287,169),"point":Rect2(935,1048,298,87)}
+var detached_lance_visible = true
+var lance_only = false
+var detached_pose: Dictionary = {}
+var detached_legs: Dictionary = {}
+var detached_far_only = false
+var detached_far_visible = true
+var stirrup_alpha = 1.0
 var fighter: Dictionary = {}
 var red = false
 var clock = 0.0
@@ -52,9 +59,9 @@ var swing_durations: Array[float] = [.3,.3,.3,.3]
 var last_feet: Array[Vector2] = [Vector2.INF,Vector2.INF,Vector2.INF,Vector2.INF]
 var previous_stride_phase = 0.0
 var cycles_initialized = false
-var horse_skin = HorseSkin.new()
-var far_hind_skin = HorseSkin.new("hind")
-var far_fore_skin = HorseSkin.new("fore")
+var horse_skin: RefCounted
+var far_hind_skin: RefCounted
+var far_fore_skin: RefCounted
 
 func _init() -> void:
 	var pixel_material = ShaderMaterial.new()
@@ -62,6 +69,10 @@ func _init() -> void:
 	material = pixel_material
 
 func _process(delta: float) -> void:
+	if not detached_pose.is_empty() or lance_only:
+		_advance_recoil(delta)
+		queue_redraw()
+		return
 	clock += delta
 	var speed = float(fighter.get("speed",0.0))
 	if fighter.has("gait_phase") and not preview:
@@ -114,7 +125,7 @@ func _process(delta: float) -> void:
 			var progress = float(leg_pose.swing)
 			if early_release[index]:
 				progress = clampf((cycle-float(release_cycles[index]))/maxf(.01,1.0-float(release_cycles[index])),0,1)
-			var target_x = Gait.HIP_POINTS[index].x+(8 if leg_pose.front else -8)+float(leg_pose.reach)
+			var target_x = Gait.rest_foot(index).x+float(leg_pose.reach)
 			var trajectory = Gait._swing_point(leg_pose.front,progress,float(leg_pose.reach),float(leg_pose.lift),Gait.weights(speed).z+Gait.weights(speed).w)
 			var protraction = (trajectory.x+float(leg_pose.reach))/maxf(1,2.0*float(leg_pose.reach))
 			# Aim the swing at where the body WILL be at landing. Chasing the
@@ -138,6 +149,10 @@ func _process(delta: float) -> void:
 	if moving and delta>0 and delta<.2:
 		for index in landed:
 			hoof_contact.emit(index)
+	_advance_recoil(delta)
+	queue_redraw()
+
+func _advance_recoil(delta: float) -> void:
 	# Contact adds momentum; the mesh never jumps to a new weapon/guard pose.
 	# Stable small game-time steps keep recoil independent of render rate.
 	var remaining = minf(delta,.25)
@@ -150,12 +165,11 @@ func _process(delta: float) -> void:
 		lance_recoil += lance_velocity*dt
 		shield_recoil += shield_velocity*dt
 		remaining -= dt
-	queue_redraw()
 
 func receive_impact(strength: float, on_shield: bool) -> void:
-	impact_velocity = minf(impact_velocity+clampf(strength,0,1)*(10.0 if on_shield else 23.0),28.0)
+	impact_velocity = minf(impact_velocity+clampf(strength,0,1)*(17.0 if on_shield else 42.0),48.0)
 	if on_shield:
-		shield_velocity = minf(shield_velocity+clampf(strength,0,1)*25.0,30.0)
+		shield_velocity = minf(shield_velocity+clampf(strength,0,1)*36.0,42.0)
 
 func receive_lance_contact(strength: float) -> void:
 	lance_velocity = minf(lance_velocity+clampf(strength,0,1)*32.0,36.0)
@@ -165,6 +179,9 @@ func draw_part(part: String, destination: Rect2, color: Color = Color.WHITE) -> 
 
 func _draw() -> void:
 	if fighter.is_empty():
+		return
+	if lance_only:
+		_draw_lance(Vector2.ZERO,0.0,Model.lance_length(fighter),bool(fighter.broken))
 		return
 	var tier = int(fighter.stats.get("armor_tier",0))
 	var head_tier = int(fighter.stats.get("helmet_tier",0))
@@ -177,7 +194,18 @@ func _draw() -> void:
 		head_texture = Art.helmet(head_tier,bool(fighter.stats.get("gilt",false)))
 		shield_texture = Art.shield(design)
 	var facing = int(fighter.direction)
+	if not detached_pose.is_empty():
+		if detached_far_visible or detached_far_only:
+			draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
+			_draw_seated_leg(detached_legs.far,Color(.63,.66,.69),false)
+		if not detached_far_only:
+			_draw_rider(detached_pose,detached_legs,Vector2.ZERO)
+		return
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
+	if horse_skin==null:
+		horse_skin = HorseSkin.new()
+		far_hind_skin = HorseSkin.new("hind")
+		far_fore_skin = HorseSkin.new("fore")
 	var stride = stride_phase
 	var horse_pose = Gait.body(stride,float(fighter.get("speed",0.0)),moving,float(fighter.stats.get("stability",1.0)),float(fighter.get("motion_drive",0.0)))
 	var horse_tint = Color(str(fighter.stats.get("horse_color","a87950"))).lerp(Color.WHITE,.48)
@@ -189,22 +217,11 @@ func _draw() -> void:
 	# Drawing both after the barrel made the rider appear side-saddle.
 	if rider_visible:
 		_draw_seated_leg(seated.far,Color(.63,.66,.69),false)
-	var tail_root = Model.HIP+(Vector2(-134,-170)-Model.HIP).rotated(horse_pose.pitch)+horse_pose.offset
-	draw_set_transform_matrix(mirrored_transform(tail_root,horse_pose.pitch,facing))
-	_draw_flexible_horse_part("tail",Rect2(-78,-5,84,127),horse_pose.tail,horse_tint,false)
-	var neck_root = Model.HIP+(Vector2(80,-124)-Model.HIP+horse_pose.neck_offset).rotated(horse_pose.pitch)+horse_pose.offset
-	draw_set_transform_matrix(mirrored_transform(neck_root,horse_pose.pitch,facing))
-	_draw_flexible_horse_part("head",Rect2(-31,-126,130,150),horse_pose.neck,horse_tint,true)
-	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 	var hind_pose = _horse_leg_pose(1)
 	var fore_pose = _horse_leg_pose(3)
-	# The lower-leg root goes UNDER the continuous upper skin. Otherwise two
-	# independently outlined wrist/hock caps read as a peg bolted to the coat.
-	_draw_horse_leg(1,horse_tint,false,true)
-	_draw_horse_leg(3,horse_tint,false,true)
 	horse_skin.update(horse_pose,hind_pose,fore_pose)
 	horse_skin.draw(self,horse_tint)
-	var muzzle = neck_root+Vector2(95,-31).rotated(horse_pose.pitch+horse_pose.neck)
+	var muzzle = HorseSkin.muzzle_point(horse_pose)
 	var rein_hand = ((Model.shield_position(fighter)-Vector2(fighter.x,fighter.get("lane_y",0)))*Vector2(facing,1))+Vector2(-10,4).rotated(Model.pose_angle(fighter))
 	if fighter.get("ko",false) or fighter.get("dead",false):
 		rein_hand = Model.HIP+Vector2(8,20)+horse_pose.offset
@@ -212,12 +229,12 @@ func _draw() -> void:
 	if bool(fighter.get("ko",false)) or bool(fighter.get("dead",false)):
 		draw_set_transform(Vector2.ZERO)
 		return
-	var lean_angle = Model.pose_angle(fighter)
-	var pivot = Model.HIP+Model.saddle_offset(fighter)
-	# One camera-facing torso space carries anatomical shoulders, both arm
-	# chains and the actual rule grips. Turning changes depth, not handedness.
-	var origin = Vector2(float(fighter.x),float(fighter.get("lane_y",0.0)))
-	var pose = arm_pose(fighter)
+	_draw_rider(arm_pose(fighter),seated,Vector2(float(fighter.x),float(fighter.get("lane_y",0.0))))
+
+func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
+	var facing = int(fighter.direction)
+	var head_tier = int(fighter.stats.get("helmet_tier",0))
+	var design = str(fighter.stats.get("heraldry","bend"))
 	var torso_transform: Transform2D = pose.torso_transform
 	torso_transform.origin -= origin
 	var torso_inverse: Transform2D = pose.torso_transform.affine_inverse()
@@ -254,7 +271,8 @@ func _draw() -> void:
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 	_draw_seated_leg(seated.near,Color.WHITE,true)
 	var hand_local: Vector2 = (pose.right.hand-origin)*Vector2(facing,1)
-	_draw_lance(hand_local,float(fighter.aim),Model.lance_length(fighter),bool(fighter.broken))
+	if detached_lance_visible:
+		_draw_lance(hand_local,float(fighter.aim),Model.lance_length(fighter),bool(fighter.broken))
 	draw_set_transform_matrix(torso_transform)
 	_draw_grip("right",right_arm,Color.WHITE if facing==1 else Color(.83,.85,.88))
 	# Left hand grips the rear handle. The shield face then occludes fingers
@@ -270,14 +288,14 @@ func _draw() -> void:
 	shield_transform.x *= facing
 	draw_set_transform_matrix(shield_transform)
 	_draw_shield(shield_center*Vector2(facing,1),design)
-	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
+	draw_set_transform_matrix(torso_transform)
 	for wound in fighter.get("wounds",[]):
 		var mark = Vector2(-18,-125) if wound.zone=="head" else Vector2(-25,-50)
-		draw_line(pivot+mark.rotated(lean_angle),pivot+(mark+Vector2(10,12)).rotated(lean_angle),Color("35352f"),2)
+		draw_line(mark,mark+Vector2(10,12),Color("35352f"),2)
 		if blood_enabled:
 			var stain = Vector2(0,-106 if head_tier==0 else -84) if wound.zone=="head" else Vector2(-8,-48)
 			for offset in [Vector2.ZERO,Vector2(7,7),Vector2(-4,13)]:
-				draw_circle(pivot+(stain+offset).rotated(lean_angle),2.5,Color("69251e"))
+				draw_circle(stain+offset,2.5,Color("69251e"))
 	draw_set_transform(Vector2.ZERO)
 
 func _draw_flexible_horse_part(part: String, rectangle: Rect2, bend: float, tint: Color, head: bool) -> void:
@@ -294,23 +312,13 @@ func _draw_flexible_horse_part(part: String, rectangle: Rect2, bend: float, tint
 			uv.append((region.position+region.size*corner)/HorseArt.ATLAS.get_size())
 		draw_polygon(vertices,PackedColorArray([tint]),uv,HorseArt.ATLAS)
 
-func _draw_horse_leg(index: int, tint: Color, upper: bool = true, lower: bool = true) -> void:
-	var pose = _horse_leg_pose(index)
-	var prefix = "fore" if pose.front else "hind"
-	if upper and index not in [0,2]:
-		_draw_horse_upper(prefix+"_upper",pose.hip,pose.proximal,pose.knee,46 if pose.front else 65,tint)
-	if not lower:
+func _draw_horse_leg(index: int, tint: Color, _upper: bool = true, _lower: bool = true) -> void:
+	if index not in [0,2]:
 		return
-	_draw_horse_bone(prefix+"_lower",pose.knee,pose.ankle,14 if pose.front else 16,tint)
-	_draw_horse_bone(prefix+"_lower",pose.ankle,pose.foot,12,tint)
-	var facing = int(fighter.direction)
-	draw_set_transform_matrix(mirrored_transform(pose.foot,pose.toe_angle,facing))
-	draw_texture_rect_region(HorseArt.ATLAS,Rect2(-11,-14,22,14),HorseArt.PARTS.hoof,tint)
-	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
-	if upper and index in [0,2]:
-		var skin = far_hind_skin if index==0 else far_fore_skin
-		skin.update(Model.gait_pose(fighter),pose,pose)
-		skin.draw(self,tint)
+	var pose = _horse_leg_pose(index)
+	var skin = far_hind_skin if index==0 else far_fore_skin
+	skin.update(Model.gait_pose(fighter),pose,pose)
+	skin.draw(self,tint)
 
 func _horse_leg_pose(index: int) -> Dictionary:
 	var pose = Gait.leg(index,stride_phase,float(fighter.get("speed",210.0)),moving,float(fighter.stats.get("stability",1.0)),INF,Vector2.INF,float(fighter.get("motion_drive",0.0)))
@@ -396,13 +404,14 @@ func _draw_seated_leg(pose: Dictionary, tint: Color, near: bool) -> void:
 	# thigh and boot, but give their knee a shared attachment.
 	var strap_top: Vector2 = pose.hip+Vector2(-3,-1)
 	var stirrup: Vector2 = pose.ankle+Vector2(9,11)
-	draw_line(strap_top,stirrup,Color("30261d")*tint,4)
-	draw_line(strap_top+Vector2(1,0),stirrup+Vector2(1,0),Color("805b34")*tint,2)
+	var stirrup_tint = Color(tint,tint.a*stirrup_alpha)
+	draw_line(strap_top,stirrup,Color("30261d")*stirrup_tint,4)
+	draw_line(strap_top+Vector2(1,0),stirrup+Vector2(1,0),Color("805b34")*stirrup_tint,2)
 	_draw_rider_leg_patch(Rect2(687,633,204,117),Vector2(749,663),Vector2(823,748),pose.hip,pose.knee,.30,tint)
 	_draw_rider_leg_patch(Rect2(744,736,148,197),Vector2(823,748),Vector2(804,862),pose.knee,pose.ankle,.29,tint)
 	var loop = PackedVector2Array([stirrup+Vector2(-9,-7),stirrup+Vector2(-12,9),stirrup+Vector2(14,9),stirrup+Vector2(10,-7)])
-	draw_polyline(loop,Color("242b2b")*tint,4)
-	draw_line(stirrup+Vector2(-10,8),stirrup+Vector2(12,8),Color("9b9d8d")*tint,2)
+	draw_polyline(loop,Color("242b2b")*stirrup_tint,4)
+	draw_line(stirrup+Vector2(-10,8),stirrup+Vector2(12,8),Color("9b9d8d")*stirrup_tint,2)
 	if near:
 		draw_line(pose.hip+Vector2(-9,0),pose.hip+Vector2(9,4),Color("b38e47"),3)
 

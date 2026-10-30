@@ -1,24 +1,8 @@
 class_name ImpactFX
 extends Node2D
-const Art = preload("res://scripts/visual/equipment_art.gd")
-const Model = preload("res://scripts/core/joust_match.gd")
+signal rider_landed(impact_speed: float)
 const Shard = preload("res://scripts/visual/lance_shard.gd")
 const Cues = preload("res://scripts/visual/combat_cues.gd")
-const Face = preload("res://scripts/visual/character_face.gd")
-
-class FallenHead extends Node2D:
-	var stats: Dictionary = {}
-	var facing = 1
-	func _draw() -> void:
-		var tier = int(stats.get("helmet_tier",0))
-		var width = 84.0 if tier==4 else 70.0
-		var rectangle = Rect2(-width*.5,-40,width,80)
-		draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
-		if tier==0:
-			var appearance: Dictionary = stats.get("appearance",Face.Appearance.variant(hash(str(stats.get("armor_color",""))+str(stats.get("shield_color","")))))
-			Face.draw_head(self,appearance,tier,Color(str(stats.get("helmet_color","8e999c"))),rectangle)
-		else:
-			draw_texture_rect(Art.helmet(tier,bool(stats.get("gilt",false))),rectangle,false)
 
 var particles: Array = []
 var stains: Array = []
@@ -96,63 +80,25 @@ func dust(point: Vector2, direction: int, pace: float = 0.0) -> void:
 		particles.append({"p": point, "v": Vector2(-direction*rng.randf_range(30,75)*(1+pace),-rng.randf_range(12,32)), "life": lerpf(.28,.48,pace),
 			"color": Color(.70,.59,.39,lerpf(.24,.42,pace)), "size": rng.randf_range(3,6+pace*4), "blood": false, "dust":true,"floor":point.y+2})
 
-func fall(fighter: Dictionary, direction: int) -> void:
-	# Independent ragdoll pieces use RigidBody2D and PinJoint2D; horses continue on their own lanes.
-	var origin = Model.body_position(fighter)
-	var pieces: Array = []
-	for info in [{"o":Vector2(0,0),"s":Vector2(78,94)},
-		{"o":Vector2(0,-67),"s":Vector2(58,68)},
-		{"o":Vector2(-40,4),"s":Vector2(18,56)},
-		{"o":Vector2(40,5),"s":Vector2(18,56)},
-		{"o":Vector2(-19,91),"s":Vector2(24,77)},
-		{"o":Vector2(19,91),"s":Vector2(24,77)}]:
-		var body = RigidBody2D.new()
-		var facing = int(fighter.direction)
-		var pose_rotation = Model.pose_angle(fighter)*facing
-		body.position = origin + (Vector2(info.o)*Vector2(facing,1)).rotated(pose_rotation)
-		body.rotation = pose_rotation
-		body.z_index = -8 if float(fighter.get("lane_y",0))>=0 else -10
-		body.mass = 3.0 if pieces.is_empty() else 1.0
-		body.collision_layer = 4
-		body.collision_mask = 32 if float(fighter.get("lane_y",0))>=0 else 16
-		body.gravity_scale = 1.1
-		body.linear_velocity = Vector2(direction * 170, -95)
-		body.angular_velocity = rng.randf_range(-3.5,3.5)
-		var collision = CollisionShape2D.new()
-		var rectangle = RectangleShape2D.new()
-		rectangle.size = info.s
-		collision.shape = rectangle
-		body.add_child(collision)
-		var part_index = pieces.size()
-		var sprite: Node2D
-		var texture = Art.torso(int(fighter.stats.get("armor_tier",0)),bool(fighter.stats.get("armor_red",fighter.get("red",false))))
-		if part_index == 1:
-			# Preserve the mounted rider's actual face/helmet at impact. The old
-			# ragdoll swapped a nasal-helmet pixel face for the original AI head.
-			sprite = FallenHead.new()
-			sprite.stats = fighter.stats.duplicate(true)
-			sprite.facing = facing
-		elif part_index in [2,3]:
-			texture = Art.region(Art.BASE,Rect2(710,47,152,266))
-		elif part_index in [4,5]:
-			texture = Art.region(Art.BASE,Rect2(687,633,204,288))
-		if part_index!=1:
-			sprite = Sprite2D.new()
-			sprite.texture = texture
-			sprite.scale = Vector2(info.s) / texture.get_size()
-			sprite.flip_h = facing==-1
-		body.add_child(sprite)
-		add_child(body)
-		pieces.append(body)
-		bodies.append(body)
-	for index in range(1,pieces.size()):
-		var joint = PinJoint2D.new()
-		joint.position = (pieces[0].position + pieces[index].position) * .5
-		add_child(joint)
-		joint.node_a = joint.get_path_to(pieces[0])
-		joint.node_b = joint.get_path_to(pieces[index])
-		joint.disable_collision = true
-		joint.softness = .35
+func fall(fighter: Dictionary, direction: int, event: Dictionary = {}, mounted: RiderView = null) -> void:
+	# Capture the same skeleton, face, armor and hands used on horseback.
+	var fall_event = event.duplicate(true)
+	fall_event.direction = direction
+	var rider = preload("res://scripts/visual/fallen_rider.gd").new()
+	rider.z_index = -8 if float(fighter.get("lane_y",0))>=0 else -10
+	add_child(rider)
+	rider.setup(fighter,fall_event,mounted)
+	rider.landed.connect(func(point: Vector2, force: float):
+		dust(point,-direction,force)
+		dust(point,direction,force)
+		rider_landed.emit(rider.landing_speed))
+	bodies.append(rider)
+
+func falls_settled() -> bool:
+	for body in bodies:
+		if is_instance_valid(body) and not body.settled:
+			return false
+	return true
 
 func _process(delta: float) -> void:
 	for burst in bursts:

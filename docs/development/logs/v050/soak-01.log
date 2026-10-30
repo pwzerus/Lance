@@ -1,0 +1,35 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+GALUMU_BUILD v0.4.10
+SOAK_PROGRESS 1/30 seconds=37.235 nodes=28.0 orphans=0.0 memory=110519415.0
+SOAK_PROGRESS 2/30 seconds=37.042 nodes=28.0 orphans=0.0 memory=110538363.0
+SOAK_PROGRESS 3/30 seconds=37.71 nodes=28.0 orphans=0.0 memory=110550827.0
+SOAK_PROGRESS 4/30 seconds=37.378 nodes=28.0 orphans=0.0 memory=110691343.0
+SOAK_PROGRESS 5/30 seconds=37.075 nodes=28.0 orphans=0.0 memory=110703567.0
+SOAK_PROGRESS 6/30 seconds=36.444 nodes=28.0 orphans=0.0 memory=110707527.0
+SOAK_PROGRESS 7/30 seconds=36.011 nodes=28.0 orphans=0.0 memory=110713091.0
+SOAK_PROGRESS 8/30 seconds=22.378 nodes=28.0 orphans=0.0 memory=110716171.0
+SOAK_PROGRESS 9/30 seconds=39.838 nodes=28.0 orphans=0.0 memory=110724215.0
+SOAK_PROGRESS 10/30 seconds=36.06 nodes=28.0 orphans=0.0 memory=110728231.0
+SOAK_PROGRESS 11/30 seconds=35.51 nodes=28.0 orphans=0.0 memory=110731863.0
+SOAK_PROGRESS 12/30 seconds=36.193 nodes=28.0 orphans=0.0 memory=110735831.0
+SOAK_PROGRESS 13/30 seconds=39.577 nodes=28.0 orphans=0.0 memory=110739775.0
+SOAK_PROGRESS 14/30 seconds=22.427 nodes=28.0 orphans=0.0 memory=110742439.0
+SOAK_PROGRESS 15/30 seconds=35.261 nodes=28.0 orphans=0.0 memory=110745807.0
+SOAK_PROGRESS 16/30 seconds=36.077 nodes=28.0 orphans=0.0 memory=110749223.0
+SOAK_PROGRESS 17/30 seconds=37.09 nodes=28.0 orphans=0.0 memory=110752615.0
+SOAK_PROGRESS 18/30 seconds=23.877 nodes=28.0 orphans=0.0 memory=110755471.0
+SOAK_PROGRESS 19/30 seconds=36.31 nodes=28.0 orphans=0.0 memory=110758815.0
+SOAK_PROGRESS 20/30 seconds=36.927 nodes=28.0 orphans=0.0 memory=110762567.0
+SOAK_PROGRESS 21/30 seconds=36.893 nodes=28.0 orphans=0.0 memory=110765791.0
+SOAK_PROGRESS 22/30 seconds=40.544 nodes=28.0 orphans=0.0 memory=110769699.0
+SOAK_PROGRESS 23/30 seconds=36.043 nodes=28.0 orphans=0.0 memory=110773643.0
+SOAK_PROGRESS 24/30 seconds=36.76 nodes=28.0 orphans=0.0 memory=110776867.0
+SOAK_PROGRESS 25/30 seconds=37.293 nodes=28.0 orphans=0.0 memory=110780283.0
+SOAK_PROGRESS 26/30 seconds=23.61 nodes=28.0 orphans=0.0 memory=110782947.0
+SOAK_PROGRESS 27/30 seconds=35.812 nodes=28.0 orphans=0.0 memory=110786315.0
+SOAK_PROGRESS 28/30 seconds=37.291 nodes=28.0 orphans=0.0 memory=110789803.0
+SOAK_PROGRESS 29/30 seconds=36.094 nodes=28.0 orphans=0.0 memory=110793363.0
+SOAK_PROGRESS 30/30 seconds=23.561 nodes=28.0 orphans=0.0 memory=110796131.0
+SOAK_V050 true rounds=30 seconds=1040.522 failures=[]

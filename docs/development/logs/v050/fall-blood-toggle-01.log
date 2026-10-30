@@ -1,0 +1,21 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+GALUMU_BUILD v0.4.10
+FALL_SCENE_CAPTURE arena_head_facing_left_whole pre_contact
+FALL_SCENE_CAPTURE arena_head_facing_left_whole blood_on_before_toggle
+FALL_SCENE_CAPTURE arena_head_facing_left_whole blood_off_paused
+FALL_SCENE_CAPTURE arena_head_facing_left_whole first_contact_detached
+FALL_SCENE_CAPTURE arena_head_facing_left_whole airborne
+FALL_SCENE_CAPTURE arena_head_facing_left_whole released_023
+FALL_SCENE_CAPTURE arena_head_facing_left_whole landed
+FALL_SCENE_CAPTURE arena_head_facing_left_whole settled
+FALL_SCENE_CAPTURE war_head_facing_left_whole pre_contact
+FALL_SCENE_CAPTURE war_head_facing_left_whole blood_on_before_toggle
+FALL_SCENE_CAPTURE war_head_facing_left_whole blood_off_paused
+FALL_SCENE_CAPTURE war_head_facing_left_whole first_contact_detached
+FALL_SCENE_CAPTURE war_head_facing_left_whole airborne
+FALL_SCENE_CAPTURE war_head_facing_left_whole released_023
+FALL_SCENE_CAPTURE war_head_facing_left_whole landed
+FALL_SCENE_CAPTURE war_head_facing_left_whole settled
+FALL_SCENE_V050 passed=true cases=2 failures=[]

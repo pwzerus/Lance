@@ -1,0 +1,72 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+ERROR: Steady 110 / facing 1 / 30Hz: walk has fewer than two supporting hooves
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:23)
+       [1] steady_trial (res://tests/test_horse_anatomy_v050.gd:182)
+       [2] run (res://tests/test_horse_anatomy_v050.gd:241)
+ERROR: Steady 340 / facing 1 / 30Hz: leg 3 never sustained support
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:23)
+       [1] steady_trial (res://tests/test_horse_anatomy_v050.gd:179)
+       [2] run (res://tests/test_horse_anatomy_v050.gd:241)
+       [3] steady_trial (res://tests/test_horse_anatomy_v050.gd:187)
+ERROR: Steady 480 / facing 1 / 30Hz: leg 3 never sustained support
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:23)
+       [1] steady_trial (res://tests/test_horse_anatomy_v050.gd:179)
+       [2] run (res://tests/test_horse_anatomy_v050.gd:241)
+       [3] steady_trial (res://tests/test_horse_anatomy_v050.gd:187)
+ERROR: Steady 110 / facing -1 / 30Hz: walk has fewer than two supporting hooves
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:23)
+       [1] steady_trial (res://tests/test_horse_anatomy_v050.gd:182)
+       [2] run (res://tests/test_horse_anatomy_v050.gd:241)
+       [3] transition_trial (res://tests/test_horse_anatomy_v050.gd:229)
+ERROR: Steady 340 / facing -1 / 30Hz: leg 3 never sustained support
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:23)
+       [1] steady_trial (res://tests/test_horse_anatomy_v050.gd:179)
+       [2] run (res://tests/test_horse_anatomy_v050.gd:241)
+       [3] steady_trial (res://tests/test_horse_anatomy_v050.gd:187)
+ERROR: Steady 480 / facing -1 / 30Hz: leg 3 never sustained support
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:23)
+       [1] steady_trial (res://tests/test_horse_anatomy_v050.gd:179)
+       [2] run (res://tests/test_horse_anatomy_v050.gd:241)
+       [3] steady_trial (res://tests/test_horse_anatomy_v050.gd:187)
+ERROR: Steady 110 / facing 1 / 60Hz: walk has fewer than two supporting hooves
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:23)
+       [1] steady_trial (res://tests/test_horse_anatomy_v050.gd:182)
+       [2] run (res://tests/test_horse_anatomy_v050.gd:241)
+       [3] transition_trial (res://tests/test_horse_anatomy_v050.gd:229)
+ERROR: Steady 110 / facing -1 / 60Hz: walk has fewer than two supporting hooves
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:23)
+       [1] steady_trial (res://tests/test_horse_anatomy_v050.gd:182)
+       [2] run (res://tests/test_horse_anatomy_v050.gd:241)
+       [3] transition_trial (res://tests/test_horse_anatomy_v050.gd:229)
+ERROR: Steady 110 / facing 1 / 120Hz: walk has fewer than two supporting hooves
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:23)
+       [1] steady_trial (res://tests/test_horse_anatomy_v050.gd:182)
+       [2] run (res://tests/test_horse_anatomy_v050.gd:241)
+       [3] transition_trial (res://tests/test_horse_anatomy_v050.gd:229)
+ERROR: Steady 110 / facing -1 / 120Hz: walk has fewer than two supporting hooves
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:23)
+       [1] steady_trial (res://tests/test_horse_anatomy_v050.gd:182)
+       [2] run (res://tests/test_horse_anatomy_v050.gd:241)
+       [3] transition_trial (res://tests/test_horse_anatomy_v050.gd:229)
+HORSE_ANATOMY_V050 false failures=["Steady 110 / facing 1 / 30Hz: walk has fewer than two supporting hooves", "Steady 340 / facing 1 / 30Hz: leg 3 never sustained support", "Steady 480 / facing 1 / 30Hz: leg 3 never sustained support", "Steady 110 / facing -1 / 30Hz: walk has fewer than two supporting hooves", "Steady 340 / facing -1 / 30Hz: leg 3 never sustained support", "Steady 480 / facing -1 / 30Hz: leg 3 never sustained support", "Steady 110 / facing 1 / 60Hz: walk has fewer than two supporting hooves", "Steady 110 / facing -1 / 60Hz: walk has fewer than two supporting hooves", "Steady 110 / facing 1 / 120Hz: walk has fewer than two supporting hooves", "Steady 110 / facing -1 / 120Hz: walk has fewer than two supporting hooves"]

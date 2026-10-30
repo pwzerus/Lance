@@ -1,0 +1,2095 @@
+{
+	"failures": [
+		"[horse_e3] Hold/release / facing 1 / 120Hz: local knee/elbow articulation jumped",
+		"[horse_e3] Hold/release / facing -1 / 120Hz: local knee/elbow articulation jumped"
+	],
+	"horses": [
+		{
+			"expected_cruise": 247.8,
+			"expected_gallop": 566.4,
+			"id": "horse_e3",
+			"stats": {
+				"armor": 0.1,
+				"armor_tier": 0,
+				"durability": 100.0,
+				"helmet": 0.08,
+				"helmet_tier": 0,
+				"heraldry": "bend",
+				"horse_color": "66564c",
+				"horse_quality": 4.0,
+				"lance_handling": 1.0,
+				"power": 1.0,
+				"reach": 247.0,
+				"shield_capacity": 78.0,
+				"shield_handling": 1.0,
+				"speed": 1.18,
+				"stability": 0.94
+			}
+		}
+	],
+	"passed": false,
+	"scope": "Actual Catalogue stats and production Model hold/release drive world-translated RiderView, both directions at 30/60/120Hz. Reuses anatomy/support-lock, bone, hoof, toe and shape limits. Joint raw world peaks are preserved; only rigid body.x transport above the original 480 reference is subtracted for the same 2600 bound, while independent local articulation also retains a 2600 bound. Articulation is not divided by horse speed. Default covers every catalogue horse, fastest/most stable first; --horse-ids selects explicit subset. No repeated steady suite, render capture, OS events or human motion-quality claim.",
+	"selected_ids": [
+		"horse_e3"
+	],
+	"transitions": [
+		{
+			"expected_cruise": 247.8,
+			"expected_gallop": 566.4,
+			"facing": 1,
+			"horse_id": "horse_e3",
+			"hz": 30,
+			"metrics": {
+				"first_early_releases": [
+					{
+						"cycle": 0.21148661129285,
+						"duty": 0.22,
+						"joints": [
+							"(59.84352, -133.9323)",
+							"(44.40362, -95.31098)",
+							"(29.55211, -52.8206)",
+							"(14.23122, -14.7776)",
+							"(26.23122, 8.222404)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 10.0624371457201,
+						"reach_limited": true,
+						"requested_foot": "(24.78516, 12.0)",
+						"requested_reach": 131.631484985352,
+						"root_offset": "(-7.527264, 6.5)"
+					},
+					{
+						"cycle": 0.188017489247562,
+						"duty": 0.26,
+						"joints": [
+							"(68.38995, -137.825)",
+							"(59.58911, -97.17347)",
+							"(52.01273, -52.80458)",
+							"(43.23338, -12.74309)",
+							"(55.23338, 10.25691)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 11.1180122773262,
+						"reach_limited": true,
+						"requested_foot": "(54.88281, 12.0)",
+						"requested_reach": 129.364562988281,
+						"root_offset": "(-2.225781, 6.5)"
+					},
+					{
+						"cycle": 0.219486611292849,
+						"duty": 0.22,
+						"joints": [
+							"(59.15389, -134.2868)",
+							"(43.20564, -95.87262)",
+							"(27.79521, -53.58174)",
+							"(11.97406, -15.74404)",
+							"(23.97406, 7.255959)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 16.3958879353571,
+						"reach_limited": true,
+						"requested_foot": "(22.08595, 12.0)",
+						"requested_reach": 132.692535400391,
+						"root_offset": "(-8.121092, 6.5)"
+					},
+					{
+						"cycle": 0.191486611292849,
+						"duty": 0.26,
+						"joints": [
+							"(66.8065, -136.8045)",
+							"(55.20569, -96.86178)",
+							"(44.56824, -53.1257)",
+							"(33.02998, -13.77003)",
+							"(45.02998, 9.229965)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 17.0996046897612,
+						"reach_limited": true,
+						"requested_foot": "(44.26953, 12.0)",
+						"requested_reach": 130.459091186523,
+						"root_offset": "(-4.560703, 6.5)"
+					},
+					{
+						"cycle": 0.199486611292847,
+						"duty": 0.26,
+						"joints": [
+							"(66.06951, -137.0266)",
+							"(53.91316, -97.24947)",
+							"(42.66668, -53.66603)",
+							"(30.58057, -14.47514)",
+							"(42.58057, 8.524857)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 23.4330554793982,
+						"reach_limited": true,
+						"requested_foot": "(41.57422, 12.0)",
+						"requested_reach": 131.204498291016,
+						"root_offset": "(-5.153672, 6.5)"
+					},
+					{
+						"cycle": 0.207486611292845,
+						"duty": 0.26,
+						"joints": [
+							"(65.77469, -136.1192)",
+							"(53.84486, -96.27356)",
+							"(42.84653, -52.62683)",
+							"(30.9836, -13.36781)",
+							"(42.9836, 9.632187)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 29.7665062690352,
+						"reach_limited": true,
+						"requested_foot": "(42.3125, 12.0)",
+						"requested_reach": 130.047653198242,
+						"root_offset": "(-4.991251, 6.5)"
+					},
+					{
+						"cycle": 0.258385331463501,
+						"duty": 0.32,
+						"joints": [
+							"(64.44862, -133.2851)",
+							"(51.9202, -93.62353)",
+							"(40.26649, -50.1472)",
+							"(27.81428, -11.07109)",
+							"(39.81428, 11.92891)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 36.6836569323043,
+						"reach_limited": true,
+						"requested_foot": "(39.79297, 12.0)",
+						"requested_reach": 127.660789489746,
+						"root_offset": "(-5.545547, 6.5)"
+					},
+					{
+						"cycle": 0.191094302898156,
+						"duty": 0.22,
+						"joints": [
+							"(61.13119, -133.2949)",
+							"(45.92991, -94.57902)",
+							"(31.34248, -51.99725)",
+							"(16.25807, -13.85986)",
+							"(28.25807, 9.140137)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 47.6334203363126,
+						"reach_limited": true,
+						"requested_foot": "(27.18359, 12.0)",
+						"requested_reach": 130.641616821289,
+						"root_offset": "(-6.99961, 6.5)"
+					}
+				],
+				"fore_support_wrist_flex_max": 0.116597607731819,
+				"hind_femur_local_max": 1.8325958931852,
+				"hind_femur_local_min": 0.872664484722257,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 1.00439178943634,
+				"maximum_hoof_velocity": 2166.61491394043,
+				"maximum_joint_velocity": 2237.66120910645,
+				"maximum_local_joint_velocity": 1671.44828796387,
+				"maximum_reference_joint_velocity": 2151.28349304199,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_support_slide": 0.00390625,
+				"maximum_toe_velocity_rad_s": 9.90029218402034,
+				"reach_releases": 296,
+				"reference_transport_speed": 480.0,
+				"worst_hoof": {
+					"contact": false,
+					"cycle": 0.698017489247562,
+					"leg": 3,
+					"phase": 8.65500363691184,
+					"previous_contact": false,
+					"speed": 566.4,
+					"swing": 0.581731543001344
+				},
+				"worst_joint": {
+					"contact": false,
+					"current_joints": [
+						"(-49577.68, -128.7367)",
+						"(-49581.0, -87.27655)",
+						"(-49536.93, -78.15375)",
+						"(-49528.57, -38.00085)",
+						"(-49506.58, -24.24969)"
+					],
+					"cycle": 0.698017489247562,
+					"dt": 0.0333333333333333,
+					"joint": "ankle",
+					"leg": 3,
+					"maximum_reach": 127.586569519043,
+					"phase": 8.65500363691184,
+					"previous_contact": false,
+					"previous_cycle": 0.628017489247562,
+					"previous_joints": [
+						"(-49597.65, -130.3314)",
+						"(-49624.7, -98.73341)",
+						"(-49585.47, -76.66431)",
+						"(-49603.14, -39.65733)",
+						"(-49578.39, -31.87886)"
+					],
+					"previous_swing": 0.484776285834454,
+					"proximal_limited": false,
+					"requested_flex": 1.16164010453264,
+					"requested_reach": 103.170509338379,
+					"speed": 566.4,
+					"swing": 0.581731543001344,
+					"world_hoof_velocity": 2166.61491394043
+				},
+				"worst_local_joint": {
+					"contact": false,
+					"current_joints": [
+						"(-49577.68, -128.7367)",
+						"(-49581.0, -87.27655)",
+						"(-49536.93, -78.15375)",
+						"(-49528.57, -38.00085)",
+						"(-49506.58, -24.24969)"
+					],
+					"cycle": 0.698017489247562,
+					"dt": 0.0333333333333333,
+					"joint": "ankle",
+					"leg": 3,
+					"local_velocity": 1671.44828796387,
+					"maximum_reach": 127.586569519043,
+					"phase": 8.65500363691184,
+					"previous_contact": false,
+					"previous_cycle": 0.628017489247562,
+					"previous_joints": [
+						"(-49597.65, -130.3314)",
+						"(-49624.7, -98.73341)",
+						"(-49585.47, -76.66431)",
+						"(-49603.14, -39.65733)",
+						"(-49578.39, -31.87886)"
+					],
+					"previous_swing": 0.484776285834454,
+					"proximal_limited": false,
+					"reference_velocity": 2151.28349304199,
+					"requested_flex": 1.16164010453264,
+					"requested_reach": 103.170509338379,
+					"speed": 566.4,
+					"swing": 0.581731543001344,
+					"transport_velocity": 566.399999999921,
+					"world_velocity": 2237.66120910645
+				},
+				"worst_reference_joint": {
+					"cycle": 0.698017489247562,
+					"dt": 0.0333333333333333,
+					"joint": "ankle",
+					"leg": 3,
+					"local_velocity": 1671.44828796387,
+					"phase": 8.65500363691184,
+					"reference_velocity": 2151.28349304199,
+					"speed": 566.4,
+					"swing": 0.581731543001344,
+					"transport_velocity": 566.399999999921,
+					"world_velocity": 2237.66120910645
+				}
+			},
+			"reset_checked": true,
+			"samples": [
+				{
+					"body_y": -1.85809993743896,
+					"held": true,
+					"seconds": 0.0,
+					"speed": 250.022222222222
+				},
+				{
+					"body_y": -8.01666355133057,
+					"held": true,
+					"seconds": 1.0,
+					"speed": 566.4
+				},
+				{
+					"body_y": 0.849140882492065,
+					"held": true,
+					"seconds": 2.0,
+					"speed": 566.4
+				},
+				{
+					"body_y": 3.42438840866089,
+					"held": false,
+					"seconds": 3.0,
+					"speed": 457.733333333333
+				},
+				{
+					"body_y": 2.10976028442383,
+					"held": false,
+					"seconds": 4.0,
+					"speed": 247.8
+				},
+				{
+					"body_y": -0.0752084329724312,
+					"held": true,
+					"seconds": 5.0,
+					"speed": 566.4
+				},
+				{
+					"body_y": 2.82615375518799,
+					"held": false,
+					"seconds": 6.0,
+					"speed": 564.177777777778
+				},
+				{
+					"body_y": -5.05919313430786,
+					"held": false,
+					"seconds": 7.0,
+					"speed": 347.733333333334
+				},
+				{
+					"body_y": 0.0832329541444778,
+					"held": true,
+					"seconds": 8.0,
+					"speed": 459.133333333333
+				},
+				{
+					"body_y": 2.28949165344238,
+					"held": false,
+					"seconds": 9.0,
+					"speed": 461.066666666667
+				}
+			],
+			"seconds": 10,
+			"speed_max": 566.4,
+			"speed_min": 247.8,
+			"stats": {
+				"armor": 0.1,
+				"armor_tier": 0,
+				"durability": 100.0,
+				"helmet": 0.08,
+				"helmet_tier": 0,
+				"heraldry": "bend",
+				"horse_color": "66564c",
+				"horse_quality": 4.0,
+				"lance_handling": 1.0,
+				"power": 1.0,
+				"reach": 247.0,
+				"shield_capacity": 78.0,
+				"shield_handling": 1.0,
+				"speed": 1.18,
+				"stability": 0.94
+			}
+		},
+		{
+			"expected_cruise": 247.8,
+			"expected_gallop": 566.4,
+			"facing": -1,
+			"horse_id": "horse_e3",
+			"hz": 30,
+			"metrics": {
+				"first_early_releases": [
+					{
+						"cycle": 0.21148661129285,
+						"duty": 0.22,
+						"joints": [
+							"(59.84352, -133.9323)",
+							"(44.40362, -95.31098)",
+							"(29.55211, -52.8206)",
+							"(14.23122, -14.7776)",
+							"(26.23122, 8.222404)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 10.0624371457201,
+						"reach_limited": true,
+						"requested_foot": "(24.78516, 12.0)",
+						"requested_reach": 131.631484985352,
+						"root_offset": "(-7.527264, 6.5)"
+					},
+					{
+						"cycle": 0.188017489247562,
+						"duty": 0.26,
+						"joints": [
+							"(68.38995, -137.825)",
+							"(59.58911, -97.17347)",
+							"(52.01273, -52.80458)",
+							"(43.23338, -12.74309)",
+							"(55.23338, 10.25691)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 11.1180122773262,
+						"reach_limited": true,
+						"requested_foot": "(54.88281, 12.0)",
+						"requested_reach": 129.364562988281,
+						"root_offset": "(-2.225781, 6.5)"
+					},
+					{
+						"cycle": 0.219486611292849,
+						"duty": 0.22,
+						"joints": [
+							"(59.15389, -134.2868)",
+							"(43.20564, -95.87262)",
+							"(27.79521, -53.58174)",
+							"(11.97406, -15.74404)",
+							"(23.97406, 7.255959)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 16.3958879353571,
+						"reach_limited": true,
+						"requested_foot": "(22.08595, 12.0)",
+						"requested_reach": 132.692535400391,
+						"root_offset": "(-8.121092, 6.5)"
+					},
+					{
+						"cycle": 0.191486611292849,
+						"duty": 0.26,
+						"joints": [
+							"(66.8065, -136.8045)",
+							"(55.20569, -96.86178)",
+							"(44.56824, -53.1257)",
+							"(33.02998, -13.77003)",
+							"(45.02998, 9.229965)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 17.0996046897612,
+						"reach_limited": true,
+						"requested_foot": "(44.26953, 12.0)",
+						"requested_reach": 130.459091186523,
+						"root_offset": "(-4.560703, 6.5)"
+					},
+					{
+						"cycle": 0.199486611292847,
+						"duty": 0.26,
+						"joints": [
+							"(66.06951, -137.0266)",
+							"(53.91316, -97.24947)",
+							"(42.66668, -53.66603)",
+							"(30.58057, -14.47514)",
+							"(42.58057, 8.524857)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 23.4330554793982,
+						"reach_limited": true,
+						"requested_foot": "(41.57422, 12.0)",
+						"requested_reach": 131.204498291016,
+						"root_offset": "(-5.153672, 6.5)"
+					},
+					{
+						"cycle": 0.207486611292845,
+						"duty": 0.26,
+						"joints": [
+							"(65.77469, -136.1192)",
+							"(53.84486, -96.27356)",
+							"(42.84653, -52.62683)",
+							"(30.9836, -13.36781)",
+							"(42.9836, 9.632187)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 29.7665062690352,
+						"reach_limited": true,
+						"requested_foot": "(42.3125, 12.0)",
+						"requested_reach": 130.047653198242,
+						"root_offset": "(-4.991251, 6.5)"
+					},
+					{
+						"cycle": 0.258385331463501,
+						"duty": 0.32,
+						"joints": [
+							"(64.44862, -133.2851)",
+							"(51.9202, -93.62353)",
+							"(40.26649, -50.1472)",
+							"(27.81428, -11.07109)",
+							"(39.81428, 11.92891)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 36.6836569323043,
+						"reach_limited": true,
+						"requested_foot": "(39.79297, 12.0)",
+						"requested_reach": 127.660789489746,
+						"root_offset": "(-5.545547, 6.5)"
+					},
+					{
+						"cycle": 0.191094302898156,
+						"duty": 0.22,
+						"joints": [
+							"(61.13119, -133.2949)",
+							"(45.92991, -94.57902)",
+							"(31.34248, -51.99725)",
+							"(16.25807, -13.85986)",
+							"(28.25807, 9.140137)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 47.6334203363126,
+						"reach_limited": true,
+						"requested_foot": "(27.18359, 12.0)",
+						"requested_reach": 130.641616821289,
+						"root_offset": "(-6.99961, 6.5)"
+					}
+				],
+				"fore_support_wrist_flex_max": 0.116597607731819,
+				"hind_femur_local_max": 1.8325958931852,
+				"hind_femur_local_min": 0.872664484722257,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 1.00439178943634,
+				"maximum_hoof_velocity": 2166.61491394043,
+				"maximum_joint_velocity": 2237.66120910645,
+				"maximum_local_joint_velocity": 1671.44828796387,
+				"maximum_reference_joint_velocity": 2151.28349304199,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_support_slide": 0.00390625,
+				"maximum_toe_velocity_rad_s": 9.90029218402034,
+				"reach_releases": 296,
+				"reference_transport_speed": 480.0,
+				"worst_hoof": {
+					"contact": false,
+					"cycle": 0.698017489247562,
+					"leg": 3,
+					"phase": 8.65500363691184,
+					"previous_contact": false,
+					"speed": 566.4,
+					"swing": 0.581731543001344
+				},
+				"worst_joint": {
+					"contact": false,
+					"current_joints": [
+						"(49577.68, -128.7367)",
+						"(49581.0, -87.27655)",
+						"(49536.93, -78.15375)",
+						"(49528.57, -38.00085)",
+						"(49506.58, -24.24969)"
+					],
+					"cycle": 0.698017489247562,
+					"dt": 0.0333333333333333,
+					"joint": "ankle",
+					"leg": 3,
+					"maximum_reach": 127.586569519043,
+					"phase": 8.65500363691184,
+					"previous_contact": false,
+					"previous_cycle": 0.628017489247562,
+					"previous_joints": [
+						"(49597.65, -130.3314)",
+						"(49624.7, -98.73341)",
+						"(49585.47, -76.66431)",
+						"(49603.14, -39.65733)",
+						"(49578.39, -31.87886)"
+					],
+					"previous_swing": 0.484776285834454,
+					"proximal_limited": false,
+					"requested_flex": 1.16164010453264,
+					"requested_reach": 103.170509338379,
+					"speed": 566.4,
+					"swing": 0.581731543001344,
+					"world_hoof_velocity": 2166.61491394043
+				},
+				"worst_local_joint": {
+					"contact": false,
+					"current_joints": [
+						"(49577.68, -128.7367)",
+						"(49581.0, -87.27655)",
+						"(49536.93, -78.15375)",
+						"(49528.57, -38.00085)",
+						"(49506.58, -24.24969)"
+					],
+					"cycle": 0.698017489247562,
+					"dt": 0.0333333333333333,
+					"joint": "ankle",
+					"leg": 3,
+					"local_velocity": 1671.44828796387,
+					"maximum_reach": 127.586569519043,
+					"phase": 8.65500363691184,
+					"previous_contact": false,
+					"previous_cycle": 0.628017489247562,
+					"previous_joints": [
+						"(49597.65, -130.3314)",
+						"(49624.7, -98.73341)",
+						"(49585.47, -76.66431)",
+						"(49603.14, -39.65733)",
+						"(49578.39, -31.87886)"
+					],
+					"previous_swing": 0.484776285834454,
+					"proximal_limited": false,
+					"reference_velocity": 2151.28349304199,
+					"requested_flex": 1.16164010453264,
+					"requested_reach": 103.170509338379,
+					"speed": 566.4,
+					"swing": 0.581731543001344,
+					"transport_velocity": -566.399999999921,
+					"world_velocity": 2237.66120910645
+				},
+				"worst_reference_joint": {
+					"cycle": 0.698017489247562,
+					"dt": 0.0333333333333333,
+					"joint": "ankle",
+					"leg": 3,
+					"local_velocity": 1671.44828796387,
+					"phase": 8.65500363691184,
+					"reference_velocity": 2151.28349304199,
+					"speed": 566.4,
+					"swing": 0.581731543001344,
+					"transport_velocity": -566.399999999921,
+					"world_velocity": 2237.66120910645
+				}
+			},
+			"reset_checked": true,
+			"samples": [
+				{
+					"body_y": -1.85809993743896,
+					"held": true,
+					"seconds": 0.0,
+					"speed": 250.022222222222
+				},
+				{
+					"body_y": -8.01666355133057,
+					"held": true,
+					"seconds": 1.0,
+					"speed": 566.4
+				},
+				{
+					"body_y": 0.849140882492065,
+					"held": true,
+					"seconds": 2.0,
+					"speed": 566.4
+				},
+				{
+					"body_y": 3.42438840866089,
+					"held": false,
+					"seconds": 3.0,
+					"speed": 457.733333333333
+				},
+				{
+					"body_y": 2.10976028442383,
+					"held": false,
+					"seconds": 4.0,
+					"speed": 247.8
+				},
+				{
+					"body_y": -0.0752084329724312,
+					"held": true,
+					"seconds": 5.0,
+					"speed": 566.4
+				},
+				{
+					"body_y": 2.82615375518799,
+					"held": false,
+					"seconds": 6.0,
+					"speed": 564.177777777778
+				},
+				{
+					"body_y": -5.05919313430786,
+					"held": false,
+					"seconds": 7.0,
+					"speed": 347.733333333334
+				},
+				{
+					"body_y": 0.0832329541444778,
+					"held": true,
+					"seconds": 8.0,
+					"speed": 459.133333333333
+				},
+				{
+					"body_y": 2.28949165344238,
+					"held": false,
+					"seconds": 9.0,
+					"speed": 461.066666666667
+				}
+			],
+			"seconds": 10,
+			"speed_max": 566.4,
+			"speed_min": 247.8,
+			"stats": {
+				"armor": 0.1,
+				"armor_tier": 0,
+				"durability": 100.0,
+				"helmet": 0.08,
+				"helmet_tier": 0,
+				"heraldry": "bend",
+				"horse_color": "66564c",
+				"horse_quality": 4.0,
+				"lance_handling": 1.0,
+				"power": 1.0,
+				"reach": 247.0,
+				"shield_capacity": 78.0,
+				"shield_handling": 1.0,
+				"speed": 1.18,
+				"stability": 0.94
+			}
+		},
+		{
+			"expected_cruise": 247.8,
+			"expected_gallop": 566.4,
+			"facing": 1,
+			"horse_id": "horse_e3",
+			"hz": 60,
+			"metrics": {
+				"first_early_releases": [
+					{
+						"cycle": 0.247490208367839,
+						"duty": 0.275929495245218,
+						"joints": [
+							"(63.77584, -134.2238)",
+							"(50.57725, -94.78024)",
+							"(41.39331, -50.71601)",
+							"(31.16406, -11.0)",
+							"(43.16406, 12.0)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 3.92273430390167,
+						"reach_limited": false,
+						"requested_foot": "(43.16406, 12.0)",
+						"requested_reach": 127.466232299805,
+						"root_offset": "(-3.483907, 6.5)"
+					},
+					{
+						"cycle": 0.183138698352403,
+						"duty": 0.22,
+						"joints": [
+							"(62.09554, -132.4449)",
+							"(48.57455, -93.11067)",
+							"(35.83214, -49.94088)",
+							"(22.40204, -11.18998)",
+							"(34.40204, 11.81002)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 9.88432195564344,
+						"reach_limited": true,
+						"requested_foot": "(34.33985, 12.0)",
+						"requested_reach": 127.786468505859,
+						"root_offset": "(-5.425233, 6.5)"
+					},
+					{
+						"cycle": 0.148922773714182,
+						"duty": 0.26,
+						"joints": [
+							"(71.70067, -137.3323)",
+							"(62.57331, -96.75289)",
+							"(60.16151, -51.80644)",
+							"(56.05859, -11.0)",
+							"(68.05859, 12.0)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 10.9398970872496,
+						"reach_limited": false,
+						"requested_foot": "(68.05859, 12.0)",
+						"requested_reach": 127.297027587891,
+						"root_offset": "(0.672891, 6.5)"
+					},
+					{
+						"cycle": 0.191138698352402,
+						"duty": 0.22,
+						"joints": [
+							"(61.49393, -132.9202)",
+							"(47.41227, -93.7832)",
+							"(34.05429, -50.7999)",
+							"(20.07184, -12.24487)",
+							"(32.07184, 10.75513)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 16.2177727452805,
+						"reach_limited": true,
+						"requested_foot": "(31.64454, 12.0)",
+						"requested_reach": 128.902725219727,
+						"root_offset": "(-6.018201, 6.5)"
+					},
+					{
+						"cycle": 0.163138698352402,
+						"duty": 0.26,
+						"joints": [
+							"(69.44608, -135.9129)",
+							"(59.86947, -95.43707)",
+							"(51.44601, -51.22118)",
+							"(41.90217, -11.3349)",
+							"(53.90217, 11.6651)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 16.9214894996846,
+						"reach_limited": true,
+						"requested_foot": "(53.82813, 12.0)",
+						"requested_reach": 127.929557800293,
+						"root_offset": "(-2.457813, 6.5)"
+					},
+					{
+						"cycle": 0.1991386983524,
+						"duty": 0.22,
+						"joints": [
+							"(60.86455, -133.3405)",
+							"(46.23558, -94.40479)",
+							"(32.27684, -51.6128)",
+							"(17.75571, -13.25741)",
+							"(29.75571, 9.742592)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 22.5512235349175,
+						"reach_limited": true,
+						"requested_foot": "(28.94532, 12.0)",
+						"requested_reach": 129.98503112793,
+						"root_offset": "(-6.61203, 6.5)"
+					},
+					{
+						"cycle": 0.1711386983524,
+						"duty": 0.26,
+						"joints": [
+							"(68.70095, -136.1763)",
+							"(58.54366, -95.8423)",
+							"(49.48603, -51.75195)",
+							"(39.37062, -12.00677)",
+							"(51.37062, 10.99323)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 23.2549402893216,
+						"reach_limited": true,
+						"requested_foot": "(51.13281, 12.0)",
+						"requested_reach": 128.621047973633,
+						"root_offset": "(-3.050781, 6.5)"
+					},
+					{
+						"cycle": 0.207138698352399,
+						"duty": 0.22,
+						"joints": [
+							"(60.54734, -132.6935)",
+							"(45.97525, -93.73647)",
+							"(32.07795, -50.92449)",
+							"(17.6119, -12.54829)",
+							"(29.6119, 10.45171)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 28.8846743245545,
+						"reach_limited": true,
+						"requested_foot": "(29.0586, 12.0)",
+						"requested_reach": 129.230758666992,
+						"root_offset": "(-6.587108, 6.5)"
+					}
+				],
+				"fore_support_wrist_flex_max": 0.116594463586807,
+				"hind_femur_local_max": 1.83259589315353,
+				"hind_femur_local_min": 0.872664483138768,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.736639499664307,
+				"maximum_hoof_velocity": 2169.69200134277,
+				"maximum_joint_velocity": 2256.83876037598,
+				"maximum_local_joint_velocity": 1841.55944824219,
+				"maximum_reference_joint_velocity": 2186.47155761719,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_support_slide": 0.00390625,
+				"maximum_toe_velocity_rad_s": 10.4605598915033,
+				"reach_releases": 551,
+				"reference_transport_speed": 480.0,
+				"worst_hoof": {
+					"contact": false,
+					"cycle": 0.693922773714183,
+					"leg": 3,
+					"phase": 8.65281763543624,
+					"previous_contact": false,
+					"speed": 566.4,
+					"swing": 0.578450865548383
+				},
+				"worst_joint": {
+					"contact": false,
+					"current_joints": [
+						"(-49582.72, -128.803)",
+						"(-49586.34, -87.36736)",
+						"(-49542.24, -78.34521)",
+						"(-49534.43, -38.08388)",
+						"(-49512.29, -24.56085)"
+					],
+					"cycle": 0.693922773714183,
+					"dt": 0.0166666666666667,
+					"joint": "ankle",
+					"leg": 3,
+					"maximum_reach": 127.586569519043,
+					"phase": 8.65281763543624,
+					"previous_contact": false,
+					"previous_cycle": 0.658922773714183,
+					"previous_joints": [
+						"(-49592.18, -129.4032)",
+						"(-49611.41, -92.52209)",
+						"(-49568.21, -79.88403)",
+						"(-49572.03, -39.05031)",
+						"(-49548.2, -28.78421)"
+					],
+					"previous_swing": 0.530246626752684,
+					"proximal_limited": false,
+					"requested_flex": 1.17734026380365,
+					"requested_reach": 102.771591186523,
+					"speed": 566.4,
+					"swing": 0.578450865548383,
+					"world_hoof_velocity": 2169.69200134277
+				},
+				"worst_local_joint": {
+					"contact": false,
+					"current_joints": [
+						"(-48589.6, -124.6618)",
+						"(-48599.4, -84.23967)",
+						"(-48572.51, -48.14551)",
+						"(-48549.56, -14.1523)",
+						"(-48537.56, 8.847703)"
+					],
+					"cycle": 0.955138698352398,
+					"dt": 0.0166666666666667,
+					"joint": "proximal",
+					"leg": 2,
+					"local_velocity": 1841.55944824219,
+					"maximum_reach": 127.586569519043,
+					"phase": 27.3013116271452,
+					"previous_contact": false,
+					"previous_cycle": 0.927138698352399,
+					"previous_joints": [
+						"(-48598.57, -127.3771)",
+						"(-48578.67, -90.85112)",
+						"(-48555.11, -52.50417)",
+						"(-48534.71, -16.92477)",
+						"(-48522.71, 6.075233)"
+					],
+					"previous_swing": 0.909021323045945,
+					"proximal_limited": false,
+					"reference_velocity": 1376.71600341797,
+					"requested_flex": 0.0466039739549162,
+					"requested_reach": 117.538475036621,
+					"speed": 554.733333333333,
+					"swing": 0.943983681624635,
+					"transport_velocity": 554.733333333425,
+					"world_velocity": 1305.32981872559
+				},
+				"worst_reference_joint": {
+					"cycle": 0.723483062998523,
+					"dt": 0.0166666666666667,
+					"joint": "ankle",
+					"leg": 3,
+					"local_velocity": 1707.70877838135,
+					"phase": 83.9799221796927,
+					"reference_velocity": 2186.47155761719,
+					"speed": 479.022222222222,
+					"swing": 0.580111898401652,
+					"transport_velocity": 479.022222222411,
+					"world_velocity": 2186.47155761719
+				}
+			},
+			"reset_checked": true,
+			"samples": [
+				{
+					"body_y": -2.82636260986328,
+					"held": true,
+					"seconds": 0.0,
+					"speed": 248.355555555556
+				},
+				{
+					"body_y": -6.165687084198,
+					"held": true,
+					"seconds": 1.0,
+					"speed": 566.4
+				},
+				{
+					"body_y": -0.073765866458416,
+					"held": true,
+					"seconds": 2.0,
+					"speed": 566.4
+				},
+				{
+					"body_y": 3.1336452960968,
+					"held": false,
+					"seconds": 3.0,
+					"speed": 463.066666666667
+				},
+				{
+					"body_y": 2.01859593391418,
+					"held": false,
+					"seconds": 4.0,
+					"speed": 247.8
+				},
+				{
+					"body_y": -0.896909236907959,
+					"held": true,
+					"seconds": 5.0,
+					"speed": 566.4
+				},
+				{
+					"body_y": 1.94866645336151,
+					"held": false,
+					"seconds": 6.0,
+					"speed": 565.844444444444
+				},
+				{
+					"body_y": -4.04800939559937,
+					"held": false,
+					"seconds": 7.0,
+					"speed": 353.066666666666
+				},
+				{
+					"body_y": -0.638821005821228,
+					"held": true,
+					"seconds": 8.0,
+					"speed": 462.355555555555
+				},
+				{
+					"body_y": 0.725459456443787,
+					"held": false,
+					"seconds": 9.0,
+					"speed": 463.066666666667
+				}
+			],
+			"seconds": 10,
+			"speed_max": 566.4,
+			"speed_min": 247.8,
+			"stats": {
+				"armor": 0.1,
+				"armor_tier": 0,
+				"durability": 100.0,
+				"helmet": 0.08,
+				"helmet_tier": 0,
+				"heraldry": "bend",
+				"horse_color": "66564c",
+				"horse_quality": 4.0,
+				"lance_handling": 1.0,
+				"power": 1.0,
+				"reach": 247.0,
+				"shield_capacity": 78.0,
+				"shield_handling": 1.0,
+				"speed": 1.18,
+				"stability": 0.94
+			}
+		},
+		{
+			"expected_cruise": 247.8,
+			"expected_gallop": 566.4,
+			"facing": -1,
+			"horse_id": "horse_e3",
+			"hz": 60,
+			"metrics": {
+				"first_early_releases": [
+					{
+						"cycle": 0.247490208367839,
+						"duty": 0.275929495245218,
+						"joints": [
+							"(63.77584, -134.2238)",
+							"(50.57725, -94.78024)",
+							"(41.39331, -50.71601)",
+							"(31.16406, -11.0)",
+							"(43.16406, 12.0)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 3.92273430390167,
+						"reach_limited": false,
+						"requested_foot": "(43.16406, 12.0)",
+						"requested_reach": 127.466232299805,
+						"root_offset": "(-3.483907, 6.5)"
+					},
+					{
+						"cycle": 0.183138698352403,
+						"duty": 0.22,
+						"joints": [
+							"(62.09554, -132.4449)",
+							"(48.57455, -93.11067)",
+							"(35.83214, -49.94088)",
+							"(22.40204, -11.18998)",
+							"(34.40204, 11.81002)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 9.88432195564344,
+						"reach_limited": true,
+						"requested_foot": "(34.33985, 12.0)",
+						"requested_reach": 127.786468505859,
+						"root_offset": "(-5.425233, 6.5)"
+					},
+					{
+						"cycle": 0.148922773714182,
+						"duty": 0.26,
+						"joints": [
+							"(71.70067, -137.3323)",
+							"(62.57331, -96.75289)",
+							"(60.16151, -51.80644)",
+							"(56.05859, -11.0)",
+							"(68.05859, 12.0)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 10.9398970872496,
+						"reach_limited": false,
+						"requested_foot": "(68.05859, 12.0)",
+						"requested_reach": 127.297027587891,
+						"root_offset": "(0.672891, 6.5)"
+					},
+					{
+						"cycle": 0.191138698352402,
+						"duty": 0.22,
+						"joints": [
+							"(61.49393, -132.9202)",
+							"(47.41227, -93.7832)",
+							"(34.05429, -50.7999)",
+							"(20.07184, -12.24487)",
+							"(32.07184, 10.75513)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 16.2177727452805,
+						"reach_limited": true,
+						"requested_foot": "(31.64454, 12.0)",
+						"requested_reach": 128.902725219727,
+						"root_offset": "(-6.018201, 6.5)"
+					},
+					{
+						"cycle": 0.163138698352402,
+						"duty": 0.26,
+						"joints": [
+							"(69.44608, -135.9129)",
+							"(59.86947, -95.43707)",
+							"(51.44601, -51.22118)",
+							"(41.90217, -11.3349)",
+							"(53.90217, 11.6651)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 16.9214894996846,
+						"reach_limited": true,
+						"requested_foot": "(53.82813, 12.0)",
+						"requested_reach": 127.929557800293,
+						"root_offset": "(-2.457813, 6.5)"
+					},
+					{
+						"cycle": 0.1991386983524,
+						"duty": 0.22,
+						"joints": [
+							"(60.86455, -133.3405)",
+							"(46.23558, -94.40479)",
+							"(32.27684, -51.6128)",
+							"(17.75571, -13.25741)",
+							"(29.75571, 9.742592)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 22.5512235349175,
+						"reach_limited": true,
+						"requested_foot": "(28.94532, 12.0)",
+						"requested_reach": 129.98503112793,
+						"root_offset": "(-6.61203, 6.5)"
+					},
+					{
+						"cycle": 0.1711386983524,
+						"duty": 0.26,
+						"joints": [
+							"(68.70095, -136.1763)",
+							"(58.54366, -95.8423)",
+							"(49.48603, -51.75195)",
+							"(39.37062, -12.00677)",
+							"(51.37062, 10.99323)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 23.2549402893216,
+						"reach_limited": true,
+						"requested_foot": "(51.13281, 12.0)",
+						"requested_reach": 128.621047973633,
+						"root_offset": "(-3.050781, 6.5)"
+					},
+					{
+						"cycle": 0.207138698352399,
+						"duty": 0.22,
+						"joints": [
+							"(60.54734, -132.6935)",
+							"(45.97525, -93.73647)",
+							"(32.07795, -50.92449)",
+							"(17.6119, -12.54829)",
+							"(29.6119, 10.45171)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 28.8846743245545,
+						"reach_limited": true,
+						"requested_foot": "(29.0586, 12.0)",
+						"requested_reach": 129.230758666992,
+						"root_offset": "(-6.587108, 6.5)"
+					}
+				],
+				"fore_support_wrist_flex_max": 0.116594463586807,
+				"hind_femur_local_max": 1.83259589315353,
+				"hind_femur_local_min": 0.872664483138768,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.736639499664307,
+				"maximum_hoof_velocity": 2169.69200134277,
+				"maximum_joint_velocity": 2256.83876037598,
+				"maximum_local_joint_velocity": 1841.55944824219,
+				"maximum_reference_joint_velocity": 2186.47155761719,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_support_slide": 0.00390625,
+				"maximum_toe_velocity_rad_s": 10.4605598915033,
+				"reach_releases": 551,
+				"reference_transport_speed": 480.0,
+				"worst_hoof": {
+					"contact": false,
+					"cycle": 0.693922773714183,
+					"leg": 3,
+					"phase": 8.65281763543624,
+					"previous_contact": false,
+					"speed": 566.4,
+					"swing": 0.578450865548383
+				},
+				"worst_joint": {
+					"contact": false,
+					"current_joints": [
+						"(49582.72, -128.803)",
+						"(49586.34, -87.36736)",
+						"(49542.24, -78.34521)",
+						"(49534.43, -38.08388)",
+						"(49512.29, -24.56085)"
+					],
+					"cycle": 0.693922773714183,
+					"dt": 0.0166666666666667,
+					"joint": "ankle",
+					"leg": 3,
+					"maximum_reach": 127.586569519043,
+					"phase": 8.65281763543624,
+					"previous_contact": false,
+					"previous_cycle": 0.658922773714183,
+					"previous_joints": [
+						"(49592.18, -129.4032)",
+						"(49611.41, -92.52209)",
+						"(49568.21, -79.88403)",
+						"(49572.03, -39.05031)",
+						"(49548.2, -28.78421)"
+					],
+					"previous_swing": 0.530246626752684,
+					"proximal_limited": false,
+					"requested_flex": 1.17734026380365,
+					"requested_reach": 102.771591186523,
+					"speed": 566.4,
+					"swing": 0.578450865548383,
+					"world_hoof_velocity": 2169.69200134277
+				},
+				"worst_local_joint": {
+					"contact": false,
+					"current_joints": [
+						"(48589.6, -124.6618)",
+						"(48599.4, -84.23967)",
+						"(48572.51, -48.14551)",
+						"(48549.56, -14.1523)",
+						"(48537.56, 8.847703)"
+					],
+					"cycle": 0.955138698352398,
+					"dt": 0.0166666666666667,
+					"joint": "proximal",
+					"leg": 2,
+					"local_velocity": 1841.55944824219,
+					"maximum_reach": 127.586569519043,
+					"phase": 27.3013116271452,
+					"previous_contact": false,
+					"previous_cycle": 0.927138698352399,
+					"previous_joints": [
+						"(48598.57, -127.3771)",
+						"(48578.67, -90.85112)",
+						"(48555.11, -52.50417)",
+						"(48534.71, -16.92477)",
+						"(48522.71, 6.075233)"
+					],
+					"previous_swing": 0.909021323045945,
+					"proximal_limited": false,
+					"reference_velocity": 1376.71600341797,
+					"requested_flex": 0.0466039739549162,
+					"requested_reach": 117.538475036621,
+					"speed": 554.733333333333,
+					"swing": 0.943983681624635,
+					"transport_velocity": -554.733333333425,
+					"world_velocity": 1305.32981872559
+				},
+				"worst_reference_joint": {
+					"cycle": 0.723483062998523,
+					"dt": 0.0166666666666667,
+					"joint": "ankle",
+					"leg": 3,
+					"local_velocity": 1707.70877838135,
+					"phase": 83.9799221796927,
+					"reference_velocity": 2186.47155761719,
+					"speed": 479.022222222222,
+					"swing": 0.580111898401652,
+					"transport_velocity": -479.022222222411,
+					"world_velocity": 2186.47155761719
+				}
+			},
+			"reset_checked": true,
+			"samples": [
+				{
+					"body_y": -2.82636260986328,
+					"held": true,
+					"seconds": 0.0,
+					"speed": 248.355555555556
+				},
+				{
+					"body_y": -6.165687084198,
+					"held": true,
+					"seconds": 1.0,
+					"speed": 566.4
+				},
+				{
+					"body_y": -0.073765866458416,
+					"held": true,
+					"seconds": 2.0,
+					"speed": 566.4
+				},
+				{
+					"body_y": 3.1336452960968,
+					"held": false,
+					"seconds": 3.0,
+					"speed": 463.066666666667
+				},
+				{
+					"body_y": 2.01859593391418,
+					"held": false,
+					"seconds": 4.0,
+					"speed": 247.8
+				},
+				{
+					"body_y": -0.896909236907959,
+					"held": true,
+					"seconds": 5.0,
+					"speed": 566.4
+				},
+				{
+					"body_y": 1.94866645336151,
+					"held": false,
+					"seconds": 6.0,
+					"speed": 565.844444444444
+				},
+				{
+					"body_y": -4.04800939559937,
+					"held": false,
+					"seconds": 7.0,
+					"speed": 353.066666666666
+				},
+				{
+					"body_y": -0.638821005821228,
+					"held": true,
+					"seconds": 8.0,
+					"speed": 462.355555555555
+				},
+				{
+					"body_y": 0.725459456443787,
+					"held": false,
+					"seconds": 9.0,
+					"speed": 463.066666666667
+				}
+			],
+			"seconds": 10,
+			"speed_max": 566.4,
+			"speed_min": 247.8,
+			"stats": {
+				"armor": 0.1,
+				"armor_tier": 0,
+				"durability": 100.0,
+				"helmet": 0.08,
+				"helmet_tier": 0,
+				"heraldry": "bend",
+				"horse_color": "66564c",
+				"horse_quality": 4.0,
+				"lance_handling": 1.0,
+				"power": 1.0,
+				"reach": 247.0,
+				"shield_capacity": 78.0,
+				"shield_handling": 1.0,
+				"speed": 1.18,
+				"stability": 0.94
+			}
+		},
+		{
+			"expected_cruise": 247.8,
+			"expected_gallop": 566.4,
+			"facing": 1,
+			"horse_id": "horse_e3",
+			"hz": 120,
+			"metrics": {
+				"first_early_releases": [
+					{
+						"cycle": 0.229568441033885,
+						"duty": 0.279164732526988,
+						"joints": [
+							"(64.75432, -133.652)",
+							"(46.62843, -96.21606)",
+							"(41.55709, -51.49155)",
+							"(35.04297, -11.0)",
+							"(47.04297, 12.0)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 3.84122297095364,
+						"reach_limited": false,
+						"requested_foot": "(47.04297, 12.0)",
+						"requested_reach": 126.19938659668,
+						"root_offset": "(-2.630546, 6.5)"
+					},
+					{
+						"cycle": 0.182944516191282,
+						"duty": 0.22,
+						"joints": [
+							"(62.11362, -132.4352)",
+							"(48.60584, -93.0964)",
+							"(35.87792, -49.92233)",
+							"(22.46084, -11.16692)",
+							"(34.46084, 11.83308)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 9.88310187314176,
+						"reach_limited": true,
+						"requested_foot": "(34.40626, 12.0)",
+						"requested_reach": 127.762191772461,
+						"root_offset": "(-5.410624, 6.5)"
+					},
+					{
+						"cycle": 0.147199966241151,
+						"duty": 0.26,
+						"joints": [
+							"(71.83266, -137.3287)",
+							"(62.47238, -96.80231)",
+							"(60.42056, -51.83799)",
+							"(56.64453, -11.0)",
+							"(68.64453, 12.0)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 10.9386770047479,
+						"reach_limited": false,
+						"requested_foot": "(68.64453, 12.0)",
+						"requested_reach": 127.238395690918,
+						"root_offset": "(0.801797, 6.5)"
+					},
+					{
+						"cycle": 0.190944516191281,
+						"duty": 0.22,
+						"joints": [
+							"(61.50906, -132.9094)",
+							"(47.44106, -93.7675)",
+							"(34.09809, -50.77954)",
+							"(20.1291, -12.21962)",
+							"(32.1291, 10.78038)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 16.2165526627788,
+						"reach_limited": true,
+						"requested_foot": "(31.71095, 12.0)",
+						"requested_reach": 128.875885009766,
+						"root_offset": "(-6.003592, 6.5)"
+					},
+					{
+						"cycle": 0.162944516191283,
+						"duty": 0.26,
+						"joints": [
+							"(69.46349, -135.9064)",
+							"(59.90003, -95.42749)",
+							"(51.49116, -51.20882)",
+							"(41.9611, -11.31925)",
+							"(53.9611, 11.68075)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 16.9202694171829,
+						"reach_limited": true,
+						"requested_foot": "(53.89063, 12.0)",
+						"requested_reach": 127.913505554199,
+						"root_offset": "(-2.444062, 6.5)"
+					},
+					{
+						"cycle": 0.184944516191299,
+						"duty": 0.22,
+						"joints": [
+							"(61.96258, -132.5573)",
+							"(48.31412, -93.26714)",
+							"(35.43234, -50.13873)",
+							"(21.87715, -11.4314)",
+							"(33.87715, 11.5686)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 22.4620388581154,
+						"reach_limited": true,
+						"requested_foot": "(33.73438, 12.0)",
+						"requested_reach": 128.040985107422,
+						"root_offset": "(-5.558436, 6.5)"
+					},
+					{
+						"cycle": 0.170944516191302,
+						"duty": 0.26,
+						"joints": [
+							"(68.71841, -136.17)",
+							"(58.57441, -95.83263)",
+							"(49.53131, -51.7393)",
+							"(39.42901, -11.9908)",
+							"(51.42901, 11.0092)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 23.25372020682,
+						"reach_limited": true,
+						"requested_foot": "(51.19531, 12.0)",
+						"requested_reach": 128.604553222656,
+						"root_offset": "(-3.037031, 6.5)"
+					},
+					{
+						"cycle": 0.206944516191318,
+						"duty": 0.22,
+						"joints": [
+							"(60.5294, -132.683)",
+							"(45.93517, -93.73419)",
+							"(32.01461, -50.92978)",
+							"(17.52771, -12.56143)",
+							"(29.52771, 10.43857)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 28.8834542420531,
+						"reach_limited": true,
+						"requested_foot": "(28.96874, 12.0)",
+						"requested_reach": 129.245040893555,
+						"root_offset": "(-6.606877, 6.5)"
+					}
+				],
+				"fore_support_wrist_flex_max": 0.11660373210907,
+				"hind_femur_local_max": 1.83259589339399,
+				"hind_femur_local_min": 0.872664435186893,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.512006640434265,
+				"maximum_hoof_velocity": 2040.95169067383,
+				"maximum_joint_velocity": 2652.14904785156,
+				"maximum_local_joint_velocity": 2613.03245544434,
+				"maximum_reference_joint_velocity": 2567.783203125,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_support_slide": 0.00390625,
+				"maximum_toe_velocity_rad_s": 10.1882138295488,
+				"reach_releases": 1021,
+				"reference_transport_speed": 480.0,
+				"worst_hoof": {
+					"contact": false,
+					"cycle": 0.701956880647404,
+					"leg": 3,
+					"phase": 83.8072565195668,
+					"previous_contact": false,
+					"speed": 476.383333333334,
+					"swing": 0.561256980068424
+				},
+				"worst_joint": {
+					"contact": false,
+					"current_joints": [
+						"(-47071.02, -144.4058)",
+						"(-47102.49, -117.2133)",
+						"(-47104.15, -72.23296)",
+						"(-47129.36, -39.88694)",
+						"(-47104.26, -33.34931)"
+					],
+					"cycle": 0.501641829125441,
+					"dt": 0.00833333333333333,
+					"joint": "knee",
+					"leg": 2,
+					"maximum_reach": 127.586569519043,
+					"phase": 62.151018604644,
+					"previous_contact": false,
+					"previous_cycle": 0.48764182912544,
+					"previous_joints": [
+						"(-47076.64, -145.1203)",
+						"(-47108.65, -118.5604)",
+						"(-47125.75, -76.92403)",
+						"(-47142.48, -39.48001)",
+						"(-47117.51, -32.45715)"
+					],
+					"previous_swing": 0.364602245775146,
+					"proximal_limited": false,
+					"requested_flex": 1.47557105049736,
+					"requested_reach": 119.703521728516,
+					"speed": 566.4,
+					"swing": 0.381964257478726,
+					"world_hoof_velocity": 1593.6003112793
+				},
+				"worst_local_joint": {
+					"contact": false,
+					"current_joints": [
+						"(-48309.27, -127.4873)",
+						"(-48310.07, -85.9017)",
+						"(-48282.53, -50.2984)",
+						"(-48258.97, -16.72432)",
+						"(-48246.97, 6.275677)"
+					],
+					"cycle": 0.928012831297134,
+					"dt": 0.00833333333333333,
+					"joint": "proximal",
+					"leg": 2,
+					"local_velocity": 2613.03245544434,
+					"maximum_reach": 127.586569519043,
+					"phase": 33.3689609711884,
+					"previous_contact": false,
+					"previous_cycle": 0.911941798613285,
+					"previous_joints": [
+						"(-48312.64, -129.3493)",
+						"(-48292.96, -92.70512)",
+						"(-48269.62, -54.21803)",
+						"(-48249.43, -18.51738)",
+						"(-48237.43, 4.48262)"
+					],
+					"previous_swing": 0.888963378748972,
+					"proximal_limited": false,
+					"reference_velocity": 2209.49043273926,
+					"requested_flex": 0.0466039739549162,
+					"requested_reach": 121.646751403809,
+					"speed": 429.094444444444,
+					"swing": 0.909228080288728,
+					"transport_velocity": 429.094444444345,
+					"world_velocity": 2209.49043273926
+				},
+				"worst_reference_joint": {
+					"cycle": 0.501641829125441,
+					"dt": 0.00833333333333333,
+					"joint": "knee",
+					"leg": 2,
+					"local_velocity": 2102.09541320801,
+					"phase": 62.151018604644,
+					"reference_velocity": 2567.783203125,
+					"speed": 566.4,
+					"swing": 0.381964257478726,
+					"transport_velocity": 566.40000000014,
+					"world_velocity": 2652.14904785156
+				}
+			},
+			"reset_checked": true,
+			"samples": [
+				{
+					"body_y": -3.32139730453491,
+					"held": true,
+					"seconds": 0.0,
+					"speed": 247.938888888889
+				},
+				{
+					"body_y": -5.26042079925537,
+					"held": true,
+					"seconds": 1.0,
+					"speed": 566.4
+				},
+				{
+					"body_y": -0.519777059555054,
+					"held": true,
+					"seconds": 2.0,
+					"speed": 566.4
+				},
+				{
+					"body_y": 2.79631757736206,
+					"held": false,
+					"seconds": 3.0,
+					"speed": 465.761111111111
+				},
+				{
+					"body_y": 1.863765001297,
+					"held": false,
+					"seconds": 4.0,
+					"speed": 247.8
+				},
+				{
+					"body_y": -1.24973809719086,
+					"held": true,
+					"seconds": 5.0,
+					"speed": 566.4
+				},
+				{
+					"body_y": 1.24428713321686,
+					"held": false,
+					"seconds": 6.0,
+					"speed": 566.261111111111
+				},
+				{
+					"body_y": -3.52203297615051,
+					"held": false,
+					"seconds": 7.0,
+					"speed": 355.761111111112
+				},
+				{
+					"body_y": -1.00849747657776,
+					"held": true,
+					"seconds": 8.0,
+					"speed": 463.883333333334
+				},
+				{
+					"body_y": -0.48127207159996,
+					"held": false,
+					"seconds": 9.0,
+					"speed": 465.761111111111
+				}
+			],
+			"seconds": 10,
+			"speed_max": 566.4,
+			"speed_min": 247.8,
+			"stats": {
+				"armor": 0.1,
+				"armor_tier": 0,
+				"durability": 100.0,
+				"helmet": 0.08,
+				"helmet_tier": 0,
+				"heraldry": "bend",
+				"horse_color": "66564c",
+				"horse_quality": 4.0,
+				"lance_handling": 1.0,
+				"power": 1.0,
+				"reach": 247.0,
+				"shield_capacity": 78.0,
+				"shield_handling": 1.0,
+				"speed": 1.18,
+				"stability": 0.94
+			}
+		},
+		{
+			"expected_cruise": 247.8,
+			"expected_gallop": 566.4,
+			"facing": -1,
+			"horse_id": "horse_e3",
+			"hz": 120,
+			"metrics": {
+				"first_early_releases": [
+					{
+						"cycle": 0.229568441033885,
+						"duty": 0.279164732526988,
+						"joints": [
+							"(64.75432, -133.652)",
+							"(46.62843, -96.21606)",
+							"(41.55709, -51.49155)",
+							"(35.04297, -11.0)",
+							"(47.04297, 12.0)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 3.84122297095364,
+						"reach_limited": false,
+						"requested_foot": "(47.04297, 12.0)",
+						"requested_reach": 126.19938659668,
+						"root_offset": "(-2.630546, 6.5)"
+					},
+					{
+						"cycle": 0.182944516191282,
+						"duty": 0.22,
+						"joints": [
+							"(62.11362, -132.4352)",
+							"(48.60584, -93.0964)",
+							"(35.87792, -49.92233)",
+							"(22.46084, -11.16692)",
+							"(34.46084, 11.83308)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 9.88310187314176,
+						"reach_limited": true,
+						"requested_foot": "(34.40626, 12.0)",
+						"requested_reach": 127.762191772461,
+						"root_offset": "(-5.410624, 6.5)"
+					},
+					{
+						"cycle": 0.147199966241151,
+						"duty": 0.26,
+						"joints": [
+							"(71.83266, -137.3287)",
+							"(62.47238, -96.80231)",
+							"(60.42056, -51.83799)",
+							"(56.64453, -11.0)",
+							"(68.64453, 12.0)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 10.9386770047479,
+						"reach_limited": false,
+						"requested_foot": "(68.64453, 12.0)",
+						"requested_reach": 127.238395690918,
+						"root_offset": "(0.801797, 6.5)"
+					},
+					{
+						"cycle": 0.190944516191281,
+						"duty": 0.22,
+						"joints": [
+							"(61.50906, -132.9094)",
+							"(47.44106, -93.7675)",
+							"(34.09809, -50.77954)",
+							"(20.1291, -12.21962)",
+							"(32.1291, 10.78038)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 16.2165526627788,
+						"reach_limited": true,
+						"requested_foot": "(31.71095, 12.0)",
+						"requested_reach": 128.875885009766,
+						"root_offset": "(-6.003592, 6.5)"
+					},
+					{
+						"cycle": 0.162944516191283,
+						"duty": 0.26,
+						"joints": [
+							"(69.46349, -135.9064)",
+							"(59.90003, -95.42749)",
+							"(51.49116, -51.20882)",
+							"(41.9611, -11.31925)",
+							"(53.9611, 11.68075)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 16.9202694171829,
+						"reach_limited": true,
+						"requested_foot": "(53.89063, 12.0)",
+						"requested_reach": 127.913505554199,
+						"root_offset": "(-2.444062, 6.5)"
+					},
+					{
+						"cycle": 0.184944516191299,
+						"duty": 0.22,
+						"joints": [
+							"(61.96258, -132.5573)",
+							"(48.31412, -93.26714)",
+							"(35.43234, -50.13873)",
+							"(21.87715, -11.4314)",
+							"(33.87715, 11.5686)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 22.4620388581154,
+						"reach_limited": true,
+						"requested_foot": "(33.73438, 12.0)",
+						"requested_reach": 128.040985107422,
+						"root_offset": "(-5.558436, 6.5)"
+					},
+					{
+						"cycle": 0.170944516191302,
+						"duty": 0.26,
+						"joints": [
+							"(68.71841, -136.17)",
+							"(58.57441, -95.83263)",
+							"(49.53131, -51.7393)",
+							"(39.42901, -11.9908)",
+							"(51.42901, 11.0092)"
+						],
+						"leg": 3,
+						"maximum_reach": 127.586569519043,
+						"phase": 23.25372020682,
+						"reach_limited": true,
+						"requested_foot": "(51.19531, 12.0)",
+						"requested_reach": 128.604553222656,
+						"root_offset": "(-3.037031, 6.5)"
+					},
+					{
+						"cycle": 0.206944516191318,
+						"duty": 0.22,
+						"joints": [
+							"(60.5294, -132.683)",
+							"(45.93517, -93.73419)",
+							"(32.01461, -50.92978)",
+							"(17.52771, -12.56143)",
+							"(29.52771, 10.43857)"
+						],
+						"leg": 2,
+						"maximum_reach": 127.586569519043,
+						"phase": 28.8834542420531,
+						"reach_limited": true,
+						"requested_foot": "(28.96874, 12.0)",
+						"requested_reach": 129.245040893555,
+						"root_offset": "(-6.606877, 6.5)"
+					}
+				],
+				"fore_support_wrist_flex_max": 0.11660373210907,
+				"hind_femur_local_max": 1.83259589339399,
+				"hind_femur_local_min": 0.872664435186893,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.512006640434265,
+				"maximum_hoof_velocity": 2040.95169067383,
+				"maximum_joint_velocity": 2652.14904785156,
+				"maximum_local_joint_velocity": 2613.03245544434,
+				"maximum_reference_joint_velocity": 2567.783203125,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_support_slide": 0.00390625,
+				"maximum_toe_velocity_rad_s": 10.1882138295488,
+				"reach_releases": 1021,
+				"reference_transport_speed": 480.0,
+				"worst_hoof": {
+					"contact": false,
+					"cycle": 0.701956880647404,
+					"leg": 3,
+					"phase": 83.8072565195668,
+					"previous_contact": false,
+					"speed": 476.383333333334,
+					"swing": 0.561256980068424
+				},
+				"worst_joint": {
+					"contact": false,
+					"current_joints": [
+						"(47071.02, -144.4058)",
+						"(47102.49, -117.2133)",
+						"(47104.15, -72.23296)",
+						"(47129.36, -39.88694)",
+						"(47104.26, -33.34931)"
+					],
+					"cycle": 0.501641829125441,
+					"dt": 0.00833333333333333,
+					"joint": "knee",
+					"leg": 2,
+					"maximum_reach": 127.586569519043,
+					"phase": 62.151018604644,
+					"previous_contact": false,
+					"previous_cycle": 0.48764182912544,
+					"previous_joints": [
+						"(47076.64, -145.1203)",
+						"(47108.65, -118.5604)",
+						"(47125.75, -76.92403)",
+						"(47142.48, -39.48001)",
+						"(47117.51, -32.45715)"
+					],
+					"previous_swing": 0.364602245775146,
+					"proximal_limited": false,
+					"requested_flex": 1.47557105049736,
+					"requested_reach": 119.703521728516,
+					"speed": 566.4,
+					"swing": 0.381964257478726,
+					"world_hoof_velocity": 1593.6003112793
+				},
+				"worst_local_joint": {
+					"contact": false,
+					"current_joints": [
+						"(48309.27, -127.4873)",
+						"(48310.07, -85.9017)",
+						"(48282.53, -50.2984)",
+						"(48258.97, -16.72432)",
+						"(48246.97, 6.275677)"
+					],
+					"cycle": 0.928012831297134,
+					"dt": 0.00833333333333333,
+					"joint": "proximal",
+					"leg": 2,
+					"local_velocity": 2613.03245544434,
+					"maximum_reach": 127.586569519043,
+					"phase": 33.3689609711884,
+					"previous_contact": false,
+					"previous_cycle": 0.911941798613285,
+					"previous_joints": [
+						"(48312.64, -129.3493)",
+						"(48292.96, -92.70512)",
+						"(48269.62, -54.21803)",
+						"(48249.43, -18.51738)",
+						"(48237.43, 4.48262)"
+					],
+					"previous_swing": 0.888963378748972,
+					"proximal_limited": false,
+					"reference_velocity": 2209.49043273926,
+					"requested_flex": 0.0466039739549162,
+					"requested_reach": 121.646751403809,
+					"speed": 429.094444444444,
+					"swing": 0.909228080288728,
+					"transport_velocity": -429.094444444345,
+					"world_velocity": 2209.49043273926
+				},
+				"worst_reference_joint": {
+					"cycle": 0.501641829125441,
+					"dt": 0.00833333333333333,
+					"joint": "knee",
+					"leg": 2,
+					"local_velocity": 2102.09541320801,
+					"phase": 62.151018604644,
+					"reference_velocity": 2567.783203125,
+					"speed": 566.4,
+					"swing": 0.381964257478726,
+					"transport_velocity": -566.40000000014,
+					"world_velocity": 2652.14904785156
+				}
+			},
+			"reset_checked": true,
+			"samples": [
+				{
+					"body_y": -3.32139730453491,
+					"held": true,
+					"seconds": 0.0,
+					"speed": 247.938888888889
+				},
+				{
+					"body_y": -5.26042079925537,
+					"held": true,
+					"seconds": 1.0,
+					"speed": 566.4
+				},
+				{
+					"body_y": -0.519777059555054,
+					"held": true,
+					"seconds": 2.0,
+					"speed": 566.4
+				},
+				{
+					"body_y": 2.79631757736206,
+					"held": false,
+					"seconds": 3.0,
+					"speed": 465.761111111111
+				},
+				{
+					"body_y": 1.863765001297,
+					"held": false,
+					"seconds": 4.0,
+					"speed": 247.8
+				},
+				{
+					"body_y": -1.24973809719086,
+					"held": true,
+					"seconds": 5.0,
+					"speed": 566.4
+				},
+				{
+					"body_y": 1.24428713321686,
+					"held": false,
+					"seconds": 6.0,
+					"speed": 566.261111111111
+				},
+				{
+					"body_y": -3.52203297615051,
+					"held": false,
+					"seconds": 7.0,
+					"speed": 355.761111111112
+				},
+				{
+					"body_y": -1.00849747657776,
+					"held": true,
+					"seconds": 8.0,
+					"speed": 463.883333333334
+				},
+				{
+					"body_y": -0.48127207159996,
+					"held": false,
+					"seconds": 9.0,
+					"speed": 465.761111111111
+				}
+			],
+			"seconds": 10,
+			"speed_max": 566.4,
+			"speed_min": 247.8,
+			"stats": {
+				"armor": 0.1,
+				"armor_tier": 0,
+				"durability": 100.0,
+				"helmet": 0.08,
+				"helmet_tier": 0,
+				"heraldry": "bend",
+				"horse_color": "66564c",
+				"horse_quality": 4.0,
+				"lance_handling": 1.0,
+				"power": 1.0,
+				"reach": 247.0,
+				"shield_capacity": 78.0,
+				"shield_handling": 1.0,
+				"speed": 1.18,
+				"stability": 0.94
+			}
+		}
+	]
+}

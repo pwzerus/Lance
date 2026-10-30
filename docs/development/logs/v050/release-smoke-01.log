@@ -1,0 +1,48 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+GALUMU_BUILD v0.4.10
+SMOKE_PROGRESS elapsed=507 step=0 busy=false phase=home pass=0 scale=1.0 fps=1.0
+ERROR: Can't save PNG at path: 'E:/GALUMU/docs/development/screenshots/v050/release-smoke01/01_home.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v050/release-smoke01/01_home.png 7
+ERROR: Can't save PNG at path: 'E:/GALUMU/docs/development/screenshots/v050/release-smoke01/02_armory.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v050/release-smoke01/02_armory.png 7
+ERROR: Can't save PNG at path: 'E:/GALUMU/docs/development/screenshots/v050/release-smoke01/03_history.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v050/release-smoke01/03_history.png 7
+SMOKE_PROGRESS elapsed=5523 step=4 busy=false phase=ready pass=1 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=10525 step=4 busy=false phase=charge pass=1 scale=1.0 fps=60.0
+ERROR: Can't save PNG at path: 'E:/GALUMU/docs/development/screenshots/v050/release-smoke01/04_arena.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v050/release-smoke01/04_arena.png 7
+ERROR: Can't save PNG at path: 'E:/GALUMU/docs/development/screenshots/v050/release-smoke01/08_arena_impact.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v050/release-smoke01/08_arena_impact.png 7
+SMOKE_PROGRESS elapsed=15541 step=5 busy=false phase=turn pass=2 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=20542 step=5 busy=false phase=charge pass=2 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=25558 step=5 busy=false phase=charge pass=2 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=30573 step=5 busy=false phase=ready pass=3 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=35575 step=5 busy=false phase=charge pass=3 scale=1.0 fps=60.0
+ERROR: Can't save PNG at path: 'E:/GALUMU/docs/development/screenshots/v050/release-smoke01/05_result.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v050/release-smoke01/05_result.png 7
+SMOKE_PROGRESS elapsed=40589 step=6 busy=false phase=ended pass=3 scale=1.0 fps=47.0
+SMOKE_PROGRESS elapsed=45592 step=6 busy=false phase=charge pass=1 scale=1.0 fps=60.0
+ERROR: Can't save PNG at path: 'E:/GALUMU/docs/development/screenshots/v050/release-smoke01/06_war.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v050/release-smoke01/06_war.png 7
+ERROR: Can't save PNG at path: 'E:/GALUMU/docs/development/screenshots/v050/release-smoke01/09_war_impact.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v050/release-smoke01/09_war_impact.png 7
+SMOKE_PROGRESS elapsed=50608 step=7 busy=false phase=charge pass=1 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=55625 step=7 busy=false phase=charge pass=2 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=60641 step=7 busy=false phase=charge pass=2 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=65657 step=7 busy=false phase=turn pass=3 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=70658 step=7 busy=false phase=charge pass=3 scale=1.0 fps=60.0
+SMOKE_PROGRESS elapsed=75673 step=7 busy=false phase=ended pass=3 scale=1.0 fps=60.0
+ERROR: Can't save PNG at path: 'E:/GALUMU/docs/development/screenshots/v050/release-smoke01/07_war_result.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+SCREENSHOT: E:/GALUMU/docs/development/screenshots/v050/release-smoke01/07_war_result.png 7
+SMOKE_TEST_COMPLETE: ["01_home", "02_armory", "03_history", "04_arena", "08_arena_impact", "05_result", "06_war", "09_war_impact", "07_war_result"]

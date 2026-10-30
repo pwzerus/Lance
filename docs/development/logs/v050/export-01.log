@@ -1,0 +1,211 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+[   0% ] first_scan_filesystem | Started Project initialization (5 steps)
+[   0% ] first_scan_filesystem | Scanning file structure...
+[  16% ] first_scan_filesystem | Loading global class names...
+[  33% ] first_scan_filesystem | Verifying GDExtensions...
+[  50% ] first_scan_filesystem | Creating autoload scripts...
+[  66% ] first_scan_filesystem | Initializing plugins...
+[  83% ] first_scan_filesystem | Starting file scan...
+[ DONE ] first_scan_filesystem
+
+[   0% ] update_scripts_classes | Started Registering global classes... (13 steps)
+[   0% ] update_scripts_classes | FallenRider
+[   7% ] update_scripts_classes | 
+[  14% ] update_scripts_classes | RiderView
+[  21% ] update_scripts_classes | SoundBank
+[  28% ] update_scripts_classes | BattleScene
+[  35% ] update_scripts_classes | 
+[  42% ] update_scripts_classes | 
+[  50% ] update_scripts_classes | 
+[  57% ] update_scripts_classes | 
+[  64% ] update_scripts_classes | 
+[  71% ] update_scripts_classes | 
+[  78% ] update_scripts_classes | 
+[  85% ] update_scripts_classes | 
+[ DONE ] update_scripts_classes
+
+[   0% ] savepack | Started Packing (102 steps)
+[   1% ] savepack | Storing File: res://scripts/visual/sound_bank.gdc
+[   2% ] savepack | Storing File: res://scripts/battle.gdc
+[   3% ] savepack | Storing File: res://scripts/main.gdc
+[   4% ] savepack | Storing File: res://assets/fonts/OFL.txt
+[   5% ] savepack | Storing File: res://scripts/visual/rider_arm_art.gdc
+[   6% ] savepack | Storing File: res://scripts/visual/rider_view.gdc
+[   7% ] savepack | Storing File: res://.godot/imported/campaign_field.png-b2da995b2b3ddbb3ded74207996ae484.ctex
+[   7% ] savepack | Storing File: res://assets/art/pixel_v03/campaign_field.png.import
+[   8% ] savepack | Storing File: res://.godot/imported/equipment_eras.png-fe8a33eaf4cd6197185084842dff235d.ctex
+[   8% ] savepack | Storing File: res://assets/art/pixel_v03/equipment_eras.png.import
+[   9% ] savepack | Storing File: res://.godot/imported/nasal_head.png-d632bf2a8871d61bf23f982613cca55b.ctex
+[   9% ] savepack | Storing File: res://assets/art/pixel_v03/nasal_head.png.import
+[  10% ] savepack | Storing File: res://.godot/imported/rider_atlas.png-439e563c7f1f55afa1aa25301c0f7185.ctex
+[  10% ] savepack | Storing File: res://assets/art/pixel_v03/rider_atlas.png.import
+[  11% ] savepack | Storing File: res://.godot/imported/shield_fields.png-942f2a4b79124c61165da4395986f59d.ctex
+[  11% ] savepack | Storing File: res://assets/art/pixel_v03/shield_fields.png.import
+[  12% ] savepack | Storing File: res://.godot/imported/tournament_field.png-ac883e8f1c4e6006ce47a228cfacb4cc.ctex
+[  12% ] savepack | Storing File: res://assets/art/pixel_v03/tournament_field.png.import
+[  14% ] savepack | Storing File: res://.godot/imported/horse_atlas.png-f72fdc383c6e8d8d23647321028e149c.ctex
+[  14% ] savepack | Storing File: res://assets/art/pixel_v041/horse_atlas.png.import
+[  15% ] savepack | Storing File: res://.godot/imported/nasal_head.png-3ee0afffd4c1fa70296672f5b31d76e3.ctex
+[  15% ] savepack | Storing File: res://assets/art/pixel_v041/nasal_head.png.import
+[  16% ] savepack | Storing File: res://.godot/imported/arms_atlas.png-30e525fc41b1234312a0fb48b408ee31.ctex
+[  16% ] savepack | Storing File: res://assets/art/pixel_v047/arms_atlas.png.import
+[  17% ] savepack | Storing File: res://assets/art/pixel_v049/horse_continuous_skin_v049.json
+[  18% ] savepack | Storing File: res://.godot/imported/horse_continuous_skin_v049.png-c4b9b8cccefd92d031d79bf70c088ca3.ctex
+[  18% ] savepack | Storing File: res://assets/art/pixel_v049/horse_continuous_skin_v049.png.import
+[  19% ] savepack | Storing File: res://assets/art/pixel_v049/horse_continuous_skin_v049_02.json
+[  20% ] savepack | Storing File: res://.godot/imported/horse_continuous_skin_v049_02.png-c096da54bb9493803a6ce98b99a439f9.ctex
+[  20% ] savepack | Storing File: res://assets/art/pixel_v049/horse_continuous_skin_v049_02.png.import
+[  21% ] savepack | Storing File: res://assets/art/pixel_v050/horse_complete_skin_v050_01.json
+[  22% ] savepack | Storing File: res://.godot/imported/horse_complete_skin_v050_01.png-2259e9fa78a8bdfdb9ade314bd92e6c4.ctex
+[  22% ] savepack | Storing File: res://assets/art/pixel_v050/horse_complete_skin_v050_01.png.import
+[  23% ] savepack | Storing File: res://.godot/imported/campaign_field.png-446eefbb0b92054c988363bf2cb7d1e8.ctex
+[  23% ] savepack | Storing File: res://assets/art/campaign_field.png.import
+[  24% ] savepack | Storing File: res://.godot/imported/equipment_eras.png-eab3af739dfdf3d64b8321cc26c82d30.ctex
+[  24% ] savepack | Storing File: res://assets/art/equipment_eras.png.import
+[  26% ] savepack | Storing File: res://.godot/imported/nasal_head.png-21201868bcc594051d3b9cdfde42d49e.ctex
+[  26% ] savepack | Storing File: res://assets/art/nasal_head.png.import
+[  27% ] savepack | Storing File: res://.godot/imported/rider_atlas.png-cd6835441d3c93c019557989fd0f90a8.ctex
+[  27% ] savepack | Storing File: res://assets/art/rider_atlas.png.import
+[  28% ] savepack | Storing File: res://.godot/imported/shield_fields.png-6d541ce7676e619818d647566bf03b0c.ctex
+[  28% ] savepack | Storing File: res://assets/art/shield_fields.png.import
+[  29% ] savepack | Storing File: res://.godot/imported/tournament_field.png-2474f4dc6b593e7b2fb83ba6b3771422.ctex
+[  29% ] savepack | Storing File: res://assets/art/tournament_field.png.import
+[  30% ] savepack | Storing File: res://.godot/imported/contact_brigandine_glance_0.wav-520dff4050b7676908f684ac6c749edd.sample
+[  30% ] savepack | Storing File: res://assets/audio/impact_v050/contact_brigandine_glance_0.wav.import
+[  31% ] savepack | Storing File: res://.godot/imported/contact_brigandine_glance_1.wav-c06ed377882f4d127308056526209795.sample
+[  31% ] savepack | Storing File: res://assets/audio/impact_v050/contact_brigandine_glance_1.wav.import
+[  32% ] savepack | Storing File: res://.godot/imported/contact_brigandine_glance_2.wav-46e876a0f5cfddf5332ad70504e5c326.sample
+[  32% ] savepack | Storing File: res://assets/audio/impact_v050/contact_brigandine_glance_2.wav.import
+[  33% ] savepack | Storing File: res://.godot/imported/contact_brigandine_solid_0.wav-06fbee708dd8df2b2893501241a7a2ed.sample
+[  33% ] savepack | Storing File: res://assets/audio/impact_v050/contact_brigandine_solid_0.wav.import
+[  33% ] savepack | Storing File: res://.godot/imported/contact_brigandine_solid_1.wav-a65a7f4947963b39ab09e4f48dfc41a4.sample
+[  33% ] savepack | Storing File: res://assets/audio/impact_v050/contact_brigandine_solid_1.wav.import
+[  34% ] savepack | Storing File: res://.godot/imported/contact_brigandine_solid_2.wav-c59177fe68c45135ecdc7dc72f998455.sample
+[  34% ] savepack | Storing File: res://assets/audio/impact_v050/contact_brigandine_solid_2.wav.import
+[  35% ] savepack | Storing File: res://.godot/imported/contact_helmet_glance_0.wav-ee082e68f309d37be53ced9223bec1c1.sample
+[  35% ] savepack | Storing File: res://assets/audio/impact_v050/contact_helmet_glance_0.wav.import
+[  36% ] savepack | Storing File: res://.godot/imported/contact_helmet_glance_1.wav-23825be158f2bcdee24862fe6b90e0b2.sample
+[  36% ] savepack | Storing File: res://assets/audio/impact_v050/contact_helmet_glance_1.wav.import
+[  38% ] savepack | Storing File: res://.godot/imported/contact_helmet_glance_2.wav-eb610826773808af5eb1023ca5c02291.sample
+[  38% ] savepack | Storing File: res://assets/audio/impact_v050/contact_helmet_glance_2.wav.import
+[  39% ] savepack | Storing File: res://.godot/imported/contact_helmet_solid_0.wav-17b338a8eff7920253c80725f468e5c6.sample
+[  39% ] savepack | Storing File: res://assets/audio/impact_v050/contact_helmet_solid_0.wav.import
+[  40% ] savepack | Storing File: res://.godot/imported/contact_helmet_solid_1.wav-cfcc5232f39071989b31dee901d950f4.sample
+[  40% ] savepack | Storing File: res://assets/audio/impact_v050/contact_helmet_solid_1.wav.import
+[  41% ] savepack | Storing File: res://.godot/imported/contact_helmet_solid_2.wav-e23e8b888cfed4e8cc5ae171581c3c13.sample
+[  41% ] savepack | Storing File: res://assets/audio/impact_v050/contact_helmet_solid_2.wav.import
+[  42% ] savepack | Storing File: res://.godot/imported/contact_mail_glance_0.wav-7b82a45520100d08958f3619bdb77970.sample
+[  42% ] savepack | Storing File: res://assets/audio/impact_v050/contact_mail_glance_0.wav.import
+[  43% ] savepack | Storing File: res://.godot/imported/contact_mail_glance_1.wav-6bbf4876e5a12ee1db1c9db82ebe0a8f.sample
+[  43% ] savepack | Storing File: res://assets/audio/impact_v050/contact_mail_glance_1.wav.import
+[  44% ] savepack | Storing File: res://.godot/imported/contact_mail_glance_2.wav-00ed76af1f60ea38b95a563b9755b309.sample
+[  44% ] savepack | Storing File: res://assets/audio/impact_v050/contact_mail_glance_2.wav.import
+[  45% ] savepack | Storing File: res://.godot/imported/contact_mail_solid_0.wav-61fdcc536aa0240edf54d3924033b235.sample
+[  45% ] savepack | Storing File: res://assets/audio/impact_v050/contact_mail_solid_0.wav.import
+[  46% ] savepack | Storing File: res://.godot/imported/contact_mail_solid_1.wav-76986ba4f24babaf3033424b093877f3.sample
+[  46% ] savepack | Storing File: res://assets/audio/impact_v050/contact_mail_solid_1.wav.import
+[  47% ] savepack | Storing File: res://.godot/imported/contact_mail_solid_2.wav-875adde552ada04fdaec4f763d28cb2a.sample
+[  47% ] savepack | Storing File: res://assets/audio/impact_v050/contact_mail_solid_2.wav.import
+[  48% ] savepack | Storing File: res://.godot/imported/contact_padded_glance_0.wav-c68b3572bd74c52154f9f28e710aecd5.sample
+[  48% ] savepack | Storing File: res://assets/audio/impact_v050/contact_padded_glance_0.wav.import
+[  50% ] savepack | Storing File: res://.godot/imported/contact_padded_glance_1.wav-b63cb21c3b34e4e4254fbc5a9ffb4179.sample
+[  50% ] savepack | Storing File: res://assets/audio/impact_v050/contact_padded_glance_1.wav.import
+[  51% ] savepack | Storing File: res://.godot/imported/contact_padded_glance_2.wav-00fd3b0b7d881bf4afe7ba9edb7b9321.sample
+[  51% ] savepack | Storing File: res://assets/audio/impact_v050/contact_padded_glance_2.wav.import
+[  52% ] savepack | Storing File: res://.godot/imported/contact_padded_solid_0.wav-57375319ea65761e07845f5ef181e2ef.sample
+[  52% ] savepack | Storing File: res://assets/audio/impact_v050/contact_padded_solid_0.wav.import
+[  53% ] savepack | Storing File: res://.godot/imported/contact_padded_solid_1.wav-071811e494d68624d1e7f31223227c06.sample
+[  53% ] savepack | Storing File: res://assets/audio/impact_v050/contact_padded_solid_1.wav.import
+[  54% ] savepack | Storing File: res://.godot/imported/contact_padded_solid_2.wav-8f78b3e6f4c81833f8e88bf8bf726237.sample
+[  54% ] savepack | Storing File: res://assets/audio/impact_v050/contact_padded_solid_2.wav.import
+[  55% ] savepack | Storing File: res://.godot/imported/contact_plate_glance_0.wav-822e3cbd9521df788673e47f48ca1dff.sample
+[  55% ] savepack | Storing File: res://assets/audio/impact_v050/contact_plate_glance_0.wav.import
+[  56% ] savepack | Storing File: res://.godot/imported/contact_plate_glance_1.wav-98acae7ffc89909d944059421cee3537.sample
+[  56% ] savepack | Storing File: res://assets/audio/impact_v050/contact_plate_glance_1.wav.import
+[  57% ] savepack | Storing File: res://.godot/imported/contact_plate_glance_2.wav-0047f00bfb83e88ecbd212ed5a3e35b7.sample
+[  57% ] savepack | Storing File: res://assets/audio/impact_v050/contact_plate_glance_2.wav.import
+[  58% ] savepack | Storing File: res://.godot/imported/contact_plate_solid_0.wav-760196ade95806e1443d7d4b47b7ab79.sample
+[  58% ] savepack | Storing File: res://assets/audio/impact_v050/contact_plate_solid_0.wav.import
+[  59% ] savepack | Storing File: res://.godot/imported/contact_plate_solid_1.wav-467bb51d9827617014dfcaf7677160aa.sample
+[  59% ] savepack | Storing File: res://assets/audio/impact_v050/contact_plate_solid_1.wav.import
+[  60% ] savepack | Storing File: res://.godot/imported/contact_plate_solid_2.wav-d8ed3bc0950997e8e8dbf4afccc1efbf.sample
+[  60% ] savepack | Storing File: res://assets/audio/impact_v050/contact_plate_solid_2.wav.import
+[  61% ] savepack | Storing File: res://.godot/imported/contact_shield_wood_glance_0.wav-2734d01f70fe7787b63f29e015762dc9.sample
+[  61% ] savepack | Storing File: res://assets/audio/impact_v050/contact_shield_wood_glance_0.wav.import
+[  63% ] savepack | Storing File: res://.godot/imported/contact_shield_wood_glance_1.wav-90b859e4f164da848babb7a8fddb203c.sample
+[  63% ] savepack | Storing File: res://assets/audio/impact_v050/contact_shield_wood_glance_1.wav.import
+[  64% ] savepack | Storing File: res://.godot/imported/contact_shield_wood_glance_2.wav-28e5d1139f061b1465e57bdfefc2a6e4.sample
+[  64% ] savepack | Storing File: res://assets/audio/impact_v050/contact_shield_wood_glance_2.wav.import
+[  65% ] savepack | Storing File: res://.godot/imported/contact_shield_wood_solid_0.wav-dbdccfd72f2c965f9e976f9c9955c24e.sample
+[  65% ] savepack | Storing File: res://assets/audio/impact_v050/contact_shield_wood_solid_0.wav.import
+[  66% ] savepack | Storing File: res://.godot/imported/contact_shield_wood_solid_1.wav-55f905bf0ec0d5c6869bafb8b01912b2.sample
+[  66% ] savepack | Storing File: res://assets/audio/impact_v050/contact_shield_wood_solid_1.wav.import
+[  66% ] savepack | Storing File: res://.godot/imported/contact_shield_wood_solid_2.wav-58ef227369c3a1395d11eae617f36812.sample
+[  66% ] savepack | Storing File: res://assets/audio/impact_v050/contact_shield_wood_solid_2.wav.import
+[  67% ] savepack | Storing File: res://.godot/imported/lance_break_0.wav-8db1efca7b69cc99d17af2eeac8eb016.sample
+[  67% ] savepack | Storing File: res://assets/audio/impact_v050/lance_break_0.wav.import
+[  68% ] savepack | Storing File: res://.godot/imported/lance_break_1.wav-d6b3f2eb6a34198b1f0612db747736d2.sample
+[  68% ] savepack | Storing File: res://assets/audio/impact_v050/lance_break_1.wav.import
+[  69% ] savepack | Storing File: res://.godot/imported/lance_break_2.wav-c69a844fbac21697aff8a1263318dc14.sample
+[  69% ] savepack | Storing File: res://assets/audio/impact_v050/lance_break_2.wav.import
+[  70% ] savepack | Storing File: res://.godot/imported/NotoSansSC.ttf-53e7d2951cb723449d16fcecb813db38.fontdata
+[  70% ] savepack | Storing File: res://assets/fonts/NotoSansSC.ttf.import
+[  71% ] savepack | Storing File: res://.godot/imported/icon.svg-56083ea2a1f1a4f1e49773bdc6d7826c.ctex
+[  71% ] savepack | Storing File: res://assets/icon.svg.import
+[  72% ] savepack | Storing File: res://data/equipment.json
+[  74% ] savepack | Storing File: res://data/equipment_expansion.json
+[  75% ] savepack | Storing File: res://.godot/exported/133200997/export-3ad5c15c4f3250da0cc7c1af1770d85f-main.scn
+[  76% ] savepack | Storing File: res://scripts/core/catalogue.gdc
+[  77% ] savepack | Storing File: res://scripts/core/character_appearance.gdc
+[  78% ] savepack | Storing File: res://scripts/core/desktop_input_audit.gdc
+[  79% ] savepack | Storing File: res://scripts/core/game_state.gdc
+[  80% ] savepack | Storing File: res://scripts/core/joust_match.gdc
+[  81% ] savepack | Storing File: res://scripts/core/opponent_ai.gdc
+[  82% ] savepack | Storing File: res://scripts/core/shield_geometry.gdc
+[  83% ] savepack | Storing File: res://scripts/ui/combat_report.gdc
+[  84% ] savepack | Storing File: res://scripts/ui/ui_factory.gdc
+[  85% ] savepack | Storing File: res://scripts/visual/character_face.gdc
+[  87% ] savepack | Storing File: res://scripts/visual/combat_cues.gdc
+[  88% ] savepack | Storing File: res://scripts/visual/equipment_art.gdc
+[  89% ] savepack | Storing File: res://scripts/visual/exchange_director.gdc
+[  90% ] savepack | Storing File: res://scripts/visual/fallen_rider.gdc
+[  91% ] savepack | Storing File: res://scripts/visual/hit_zone_overlay.gdc
+[  92% ] savepack | Storing File: res://scripts/visual/horse_art.gdc
+[  93% ] savepack | Storing File: res://scripts/visual/horse_gait.gdc
+[  94% ] savepack | Storing File: res://scripts/visual/horse_skin.gdc
+[  95% ] savepack | Storing File: res://scripts/visual/impact_fx.gdc
+[  96% ] savepack | Storing File: res://scripts/visual/lance_shard.gdc
+[  97% ] savepack | Storing File: res://scripts/visual/mounted_pixel.gdshader
+[  97% ] savepack | Storing File: res://scripts/visual/sound_bank.gd.remap
+[  97% ] savepack | Storing File: res://scripts/battle.gd.remap
+[  97% ] savepack | Storing File: res://scripts/main.gd.remap
+[  97% ] savepack | Storing File: res://scripts/visual/rider_arm_art.gd.remap
+[  97% ] savepack | Storing File: res://scripts/visual/rider_view.gd.remap
+[  97% ] savepack | Storing File: res://scenes/main.tscn.remap
+[  97% ] savepack | Storing File: res://scripts/core/catalogue.gd.remap
+[  97% ] savepack | Storing File: res://scripts/core/character_appearance.gd.remap
+[  97% ] savepack | Storing File: res://scripts/core/desktop_input_audit.gd.remap
+[  97% ] savepack | Storing File: res://scripts/core/game_state.gd.remap
+[  97% ] savepack | Storing File: res://scripts/core/joust_match.gd.remap
+[  97% ] savepack | Storing File: res://scripts/core/opponent_ai.gd.remap
+[  97% ] savepack | Storing File: res://scripts/core/shield_geometry.gd.remap
+[  97% ] savepack | Storing File: res://scripts/ui/combat_report.gd.remap
+[  97% ] savepack | Storing File: res://scripts/ui/ui_factory.gd.remap
+[  97% ] savepack | Storing File: res://scripts/visual/character_face.gd.remap
+[  97% ] savepack | Storing File: res://scripts/visual/combat_cues.gd.remap
+[  97% ] savepack | Storing File: res://scripts/visual/equipment_art.gd.remap
+[  97% ] savepack | Storing File: res://scripts/visual/exchange_director.gd.remap
+[  97% ] savepack | Storing File: res://scripts/visual/fallen_rider.gd.remap
+[  97% ] savepack | Storing File: res://scripts/visual/hit_zone_overlay.gd.remap
+[  97% ] savepack | Storing File: res://scripts/visual/horse_art.gd.remap
+[  97% ] savepack | Storing File: res://scripts/visual/horse_gait.gd.remap
+[  97% ] savepack | Storing File: res://scripts/visual/horse_skin.gd.remap
+[  97% ] savepack | Storing File: res://scripts/visual/impact_fx.gd.remap
+[  97% ] savepack | Storing File: res://scripts/visual/lance_shard.gd.remap
+[  97% ] savepack | Storing File: res://.godot/global_script_class_cache.cfg
+[  97% ] savepack | Storing File: res://assets/icon.svg
+[  97% ] savepack | Storing File: res://.godot/uid_cache.bin
+[  97% ] savepack | Storing File: res://project.binary
+[ DONE ] savepack
+

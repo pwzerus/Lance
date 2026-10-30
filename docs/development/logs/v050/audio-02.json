@@ -1,0 +1,1423 @@
+{
+	"audio_dir": "E:/GALUMU/docs/development/audio/v050/audio02",
+	"audio_driver": "Dummy",
+	"failures": [
+		"Contact streams use inspectable 44.1kHz mono PCM",
+		"Contact PCM is non-silent and has unclipped headroom",
+		"Audition WAV exports",
+		"Wood crack stays non-silent and unclipped",
+		"Break audition WAV exports"
+	],
+	"initial_generation_ms": 691.417,
+	"passed": false,
+	"rows": [
+		{
+			"context": {
+				"cue": "contact_helmet_solid_0"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_helmet_solid_0",
+				"metrics": {
+					"clipped_samples": 21,
+					"duration": 0.113469387755102,
+					"peak": 1.0,
+					"rms": 0.550307291399306,
+					"sha256": "c7f2dc58fea2a66e8aa28b8b4caf1652a65fff9f2073652a698446ed6a2ea016"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_helmet_solid_0",
+			"metrics": {
+				"clipped_samples": 21,
+				"duration": 0.113469387755102,
+				"peak": 1.0,
+				"rms": 0.550307291399306,
+				"sha256": "c7f2dc58fea2a66e8aa28b8b4caf1652a65fff9f2073652a698446ed6a2ea016"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_helmet_solid_0"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_helmet_solid_1"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_helmet_solid_1",
+				"metrics": {
+					"clipped_samples": 24,
+					"duration": 0.113469387755102,
+					"peak": 1.0,
+					"rms": 0.550741818595733,
+					"sha256": "45a4ca34c4c0fa483f6c4f169929fb13c32e94bd6159f13535658a183761154b"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_helmet_solid_1",
+			"metrics": {
+				"clipped_samples": 24,
+				"duration": 0.113469387755102,
+				"peak": 1.0,
+				"rms": 0.550741818595733,
+				"sha256": "45a4ca34c4c0fa483f6c4f169929fb13c32e94bd6159f13535658a183761154b"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_helmet_solid_1"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_helmet_solid_2"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_helmet_solid_2",
+				"metrics": {
+					"clipped_samples": 38,
+					"duration": 0.113469387755102,
+					"peak": 1.0,
+					"rms": 0.559013688032758,
+					"sha256": "0d38f64682280fd50a3e38a592433c39e4171a49c46046c5485f44c1073afa8d"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_helmet_solid_2",
+			"metrics": {
+				"clipped_samples": 38,
+				"duration": 0.113469387755102,
+				"peak": 1.0,
+				"rms": 0.559013688032758,
+				"sha256": "0d38f64682280fd50a3e38a592433c39e4171a49c46046c5485f44c1073afa8d"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_helmet_solid_2"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_helmet_glance_0"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_helmet_glance_0",
+				"metrics": {
+					"clipped_samples": 5,
+					"duration": 0.0731972789115646,
+					"peak": 1.0,
+					"rms": 0.557197591986405,
+					"sha256": "29b3ac3f9153866e32751ce1ca11cefce90e3188c2bad1186774e40a1e8974bf"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_helmet_glance_0",
+			"metrics": {
+				"clipped_samples": 5,
+				"duration": 0.0731972789115646,
+				"peak": 1.0,
+				"rms": 0.557197591986405,
+				"sha256": "29b3ac3f9153866e32751ce1ca11cefce90e3188c2bad1186774e40a1e8974bf"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_helmet_glance_0"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_helmet_glance_1"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_helmet_glance_1",
+				"metrics": {
+					"clipped_samples": 6,
+					"duration": 0.0731972789115646,
+					"peak": 1.0,
+					"rms": 0.564238998326251,
+					"sha256": "a599fffdbe01cd205310aef6e02e152e0afac71ef9312369f50c008138e71a56"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_helmet_glance_1",
+			"metrics": {
+				"clipped_samples": 6,
+				"duration": 0.0731972789115646,
+				"peak": 1.0,
+				"rms": 0.564238998326251,
+				"sha256": "a599fffdbe01cd205310aef6e02e152e0afac71ef9312369f50c008138e71a56"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_helmet_glance_1"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_helmet_glance_2"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_helmet_glance_2",
+				"metrics": {
+					"clipped_samples": 4,
+					"duration": 0.0731972789115646,
+					"peak": 1.0,
+					"rms": 0.564185073068619,
+					"sha256": "8d3cc028a696bf4cf014615eff89f390725bb253ae6341d2474815e2088ae90e"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_helmet_glance_2",
+			"metrics": {
+				"clipped_samples": 4,
+				"duration": 0.0731972789115646,
+				"peak": 1.0,
+				"rms": 0.564185073068619,
+				"sha256": "8d3cc028a696bf4cf014615eff89f390725bb253ae6341d2474815e2088ae90e"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_helmet_glance_2"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_plate_solid_0"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_plate_solid_0",
+				"metrics": {
+					"clipped_samples": 27,
+					"duration": 0.113469387755102,
+					"peak": 1.0,
+					"rms": 0.552715233471605,
+					"sha256": "8096488a5bf62afcaea89aa159b2b74e316e5880cd8b400602acd01f9aad5c61"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_plate_solid_0",
+			"metrics": {
+				"clipped_samples": 27,
+				"duration": 0.113469387755102,
+				"peak": 1.0,
+				"rms": 0.552715233471605,
+				"sha256": "8096488a5bf62afcaea89aa159b2b74e316e5880cd8b400602acd01f9aad5c61"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_plate_solid_0"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_plate_solid_1"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_plate_solid_1",
+				"metrics": {
+					"clipped_samples": 23,
+					"duration": 0.113469387755102,
+					"peak": 1.0,
+					"rms": 0.55342988979027,
+					"sha256": "409a3834cabbca62f2160edc986d390f884eb0f80aab5c3e73fe37d9e5498d7e"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_plate_solid_1",
+			"metrics": {
+				"clipped_samples": 23,
+				"duration": 0.113469387755102,
+				"peak": 1.0,
+				"rms": 0.55342988979027,
+				"sha256": "409a3834cabbca62f2160edc986d390f884eb0f80aab5c3e73fe37d9e5498d7e"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_plate_solid_1"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_plate_solid_2"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_plate_solid_2",
+				"metrics": {
+					"clipped_samples": 30,
+					"duration": 0.113469387755102,
+					"peak": 1.0,
+					"rms": 0.560786109896476,
+					"sha256": "48ca5be25f92fa54afc435a3c07d39c404a710addbf6788409ae08983bece33c"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_plate_solid_2",
+			"metrics": {
+				"clipped_samples": 30,
+				"duration": 0.113469387755102,
+				"peak": 1.0,
+				"rms": 0.560786109896476,
+				"sha256": "48ca5be25f92fa54afc435a3c07d39c404a710addbf6788409ae08983bece33c"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_plate_solid_2"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_plate_glance_0"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_plate_glance_0",
+				"metrics": {
+					"clipped_samples": 3,
+					"duration": 0.0731972789115646,
+					"peak": 1.0,
+					"rms": 0.565657834157663,
+					"sha256": "56f8c33744228f9a3e48ad85f46fa028442ffaf156619fa5606125b4b66bc2a7"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_plate_glance_0",
+			"metrics": {
+				"clipped_samples": 3,
+				"duration": 0.0731972789115646,
+				"peak": 1.0,
+				"rms": 0.565657834157663,
+				"sha256": "56f8c33744228f9a3e48ad85f46fa028442ffaf156619fa5606125b4b66bc2a7"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_plate_glance_0"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_plate_glance_1"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_plate_glance_1",
+				"metrics": {
+					"clipped_samples": 4,
+					"duration": 0.0731972789115646,
+					"peak": 1.0,
+					"rms": 0.561358942737907,
+					"sha256": "b7a5f2d56b30fa3939a7bfbcd6abfbf3d759f256311f9e663135c2c4d023438d"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_plate_glance_1",
+			"metrics": {
+				"clipped_samples": 4,
+				"duration": 0.0731972789115646,
+				"peak": 1.0,
+				"rms": 0.561358942737907,
+				"sha256": "b7a5f2d56b30fa3939a7bfbcd6abfbf3d759f256311f9e663135c2c4d023438d"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_plate_glance_1"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_plate_glance_2"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_plate_glance_2",
+				"metrics": {
+					"clipped_samples": 3,
+					"duration": 0.0731972789115646,
+					"peak": 1.0,
+					"rms": 0.568300160679239,
+					"sha256": "1d40527f186dafa21884c6cf738b135640b4e0d23dcadd44136bac5888bd659d"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_plate_glance_2",
+			"metrics": {
+				"clipped_samples": 3,
+				"duration": 0.0731972789115646,
+				"peak": 1.0,
+				"rms": 0.568300160679239,
+				"sha256": "1d40527f186dafa21884c6cf738b135640b4e0d23dcadd44136bac5888bd659d"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_plate_glance_2"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_mail_solid_0"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_mail_solid_0",
+				"metrics": {
+					"clipped_samples": 37,
+					"duration": 0.113469387755102,
+					"peak": 1.0,
+					"rms": 0.527678050539802,
+					"sha256": "7747c28cf6878a2d49384a27e99e30e0d061c59feaa1645a2af0d3fe9b87d2d8"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_mail_solid_0",
+			"metrics": {
+				"clipped_samples": 37,
+				"duration": 0.113469387755102,
+				"peak": 1.0,
+				"rms": 0.527678050539802,
+				"sha256": "7747c28cf6878a2d49384a27e99e30e0d061c59feaa1645a2af0d3fe9b87d2d8"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_mail_solid_0"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_mail_solid_1"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_mail_solid_1",
+				"metrics": {
+					"clipped_samples": 19,
+					"duration": 0.113469387755102,
+					"peak": 1.0,
+					"rms": 0.5359157494597,
+					"sha256": "d969b12eff2babd84c1c6f0e414a80145002982a5f71e34c213c2679bedd9549"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_mail_solid_1",
+			"metrics": {
+				"clipped_samples": 19,
+				"duration": 0.113469387755102,
+				"peak": 1.0,
+				"rms": 0.5359157494597,
+				"sha256": "d969b12eff2babd84c1c6f0e414a80145002982a5f71e34c213c2679bedd9549"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_mail_solid_1"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_mail_solid_2"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_mail_solid_2",
+				"metrics": {
+					"clipped_samples": 35,
+					"duration": 0.113469387755102,
+					"peak": 1.0,
+					"rms": 0.53969916461271,
+					"sha256": "9b5dbf454ce9c1a5aaa9d0538967c9707b05b6892fee76625526a734e36ece6c"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_mail_solid_2",
+			"metrics": {
+				"clipped_samples": 35,
+				"duration": 0.113469387755102,
+				"peak": 1.0,
+				"rms": 0.53969916461271,
+				"sha256": "9b5dbf454ce9c1a5aaa9d0538967c9707b05b6892fee76625526a734e36ece6c"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_mail_solid_2"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_mail_glance_0"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_mail_glance_0",
+				"metrics": {
+					"clipped_samples": 3,
+					"duration": 0.0731972789115646,
+					"peak": 1.0,
+					"rms": 0.569579678241169,
+					"sha256": "2baa43842697b8982f6127e93a3312aa0ea7fdd24e8744a355e1c1deb4c9bf6f"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_mail_glance_0",
+			"metrics": {
+				"clipped_samples": 3,
+				"duration": 0.0731972789115646,
+				"peak": 1.0,
+				"rms": 0.569579678241169,
+				"sha256": "2baa43842697b8982f6127e93a3312aa0ea7fdd24e8744a355e1c1deb4c9bf6f"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_mail_glance_0"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_mail_glance_1"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_mail_glance_1",
+				"metrics": {
+					"clipped_samples": 1,
+					"duration": 0.0731972789115646,
+					"peak": 0.999969482421875,
+					"rms": 0.565879571568481,
+					"sha256": "a9f9a0441b032ead0122d937250cc1a004affe27e2fa88b2d075f606095f83dc"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_mail_glance_1",
+			"metrics": {
+				"clipped_samples": 1,
+				"duration": 0.0731972789115646,
+				"peak": 0.999969482421875,
+				"rms": 0.565879571568481,
+				"sha256": "a9f9a0441b032ead0122d937250cc1a004affe27e2fa88b2d075f606095f83dc"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_mail_glance_1"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_mail_glance_2"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_mail_glance_2",
+				"metrics": {
+					"clipped_samples": 5,
+					"duration": 0.0731972789115646,
+					"peak": 1.0,
+					"rms": 0.566387621739011,
+					"sha256": "d522cc1f3bc6672ebb505394a9da5e4936240e5e42e26447c5e2c2fe6782476d"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_mail_glance_2",
+			"metrics": {
+				"clipped_samples": 5,
+				"duration": 0.0731972789115646,
+				"peak": 1.0,
+				"rms": 0.566387621739011,
+				"sha256": "d522cc1f3bc6672ebb505394a9da5e4936240e5e42e26447c5e2c2fe6782476d"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_mail_glance_2"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_padded_solid_0"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_padded_solid_0",
+				"metrics": {
+					"clipped_samples": 32,
+					"duration": 0.113469387755102,
+					"peak": 1.0,
+					"rms": 0.553535638979483,
+					"sha256": "446322735eabfb2fda653fca020777e5760c0286d34fc637eda589754d73dabb"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_padded_solid_0",
+			"metrics": {
+				"clipped_samples": 32,
+				"duration": 0.113469387755102,
+				"peak": 1.0,
+				"rms": 0.553535638979483,
+				"sha256": "446322735eabfb2fda653fca020777e5760c0286d34fc637eda589754d73dabb"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_padded_solid_0"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_padded_solid_1"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_padded_solid_1",
+				"metrics": {
+					"clipped_samples": 28,
+					"duration": 0.113469387755102,
+					"peak": 1.0,
+					"rms": 0.558616398322808,
+					"sha256": "8404b2d88892350fedfe9ddbc6bd651b0133f72eee3c333643be311af5fc64b0"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_padded_solid_1",
+			"metrics": {
+				"clipped_samples": 28,
+				"duration": 0.113469387755102,
+				"peak": 1.0,
+				"rms": 0.558616398322808,
+				"sha256": "8404b2d88892350fedfe9ddbc6bd651b0133f72eee3c333643be311af5fc64b0"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_padded_solid_1"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_padded_solid_2"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_padded_solid_2",
+				"metrics": {
+					"clipped_samples": 25,
+					"duration": 0.113469387755102,
+					"peak": 1.0,
+					"rms": 0.551810707268671,
+					"sha256": "8be36a65a4d18a1df990bb999af18f50918515ef74493f2ffcf35ad89745cd98"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_padded_solid_2",
+			"metrics": {
+				"clipped_samples": 25,
+				"duration": 0.113469387755102,
+				"peak": 1.0,
+				"rms": 0.551810707268671,
+				"sha256": "8be36a65a4d18a1df990bb999af18f50918515ef74493f2ffcf35ad89745cd98"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_padded_solid_2"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_padded_glance_0"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_padded_glance_0",
+				"metrics": {
+					"clipped_samples": 5,
+					"duration": 0.0731972789115646,
+					"peak": 1.0,
+					"rms": 0.559333200268604,
+					"sha256": "c4df87f825466e01ced8c9b7d3c97c6af882e4c1aad155072b3fc60512669607"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_padded_glance_0",
+			"metrics": {
+				"clipped_samples": 5,
+				"duration": 0.0731972789115646,
+				"peak": 1.0,
+				"rms": 0.559333200268604,
+				"sha256": "c4df87f825466e01ced8c9b7d3c97c6af882e4c1aad155072b3fc60512669607"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_padded_glance_0"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_padded_glance_1"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_padded_glance_1",
+				"metrics": {
+					"clipped_samples": 5,
+					"duration": 0.0731972789115646,
+					"peak": 1.0,
+					"rms": 0.568230618760818,
+					"sha256": "654bea9283ae098d547b489a1819d031d198093aac0d0e9d1862450457b1618d"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_padded_glance_1",
+			"metrics": {
+				"clipped_samples": 5,
+				"duration": 0.0731972789115646,
+				"peak": 1.0,
+				"rms": 0.568230618760818,
+				"sha256": "654bea9283ae098d547b489a1819d031d198093aac0d0e9d1862450457b1618d"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_padded_glance_1"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_padded_glance_2"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_padded_glance_2",
+				"metrics": {
+					"clipped_samples": 8,
+					"duration": 0.0731972789115646,
+					"peak": 1.0,
+					"rms": 0.565489143239515,
+					"sha256": "d41591d9aea905be7982abfcc5ed7c49fcd8f040f92e3cb1f85a8766ed7e5723"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_padded_glance_2",
+			"metrics": {
+				"clipped_samples": 8,
+				"duration": 0.0731972789115646,
+				"peak": 1.0,
+				"rms": 0.565489143239515,
+				"sha256": "d41591d9aea905be7982abfcc5ed7c49fcd8f040f92e3cb1f85a8766ed7e5723"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_padded_glance_2"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_shield_wood_solid_0"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_shield_wood_solid_0",
+				"metrics": {
+					"clipped_samples": 23,
+					"duration": 0.113469387755102,
+					"peak": 1.0,
+					"rms": 0.539507376431935,
+					"sha256": "4ba9cc7b61aeababa5e5a644ced60761ca6cf1d3e076d3ee9c8e788c4df375a6"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_shield_wood_solid_0",
+			"metrics": {
+				"clipped_samples": 23,
+				"duration": 0.113469387755102,
+				"peak": 1.0,
+				"rms": 0.539507376431935,
+				"sha256": "4ba9cc7b61aeababa5e5a644ced60761ca6cf1d3e076d3ee9c8e788c4df375a6"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_shield_wood_solid_0"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_shield_wood_solid_1"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_shield_wood_solid_1",
+				"metrics": {
+					"clipped_samples": 21,
+					"duration": 0.113469387755102,
+					"peak": 1.0,
+					"rms": 0.546253272887688,
+					"sha256": "787fb16cc3251ec964afe16d9c122c895f136d7356c8905e3f82d9f089c4e96f"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_shield_wood_solid_1",
+			"metrics": {
+				"clipped_samples": 21,
+				"duration": 0.113469387755102,
+				"peak": 1.0,
+				"rms": 0.546253272887688,
+				"sha256": "787fb16cc3251ec964afe16d9c122c895f136d7356c8905e3f82d9f089c4e96f"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_shield_wood_solid_1"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_shield_wood_solid_2"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_shield_wood_solid_2",
+				"metrics": {
+					"clipped_samples": 14,
+					"duration": 0.113469387755102,
+					"peak": 1.0,
+					"rms": 0.543572721546097,
+					"sha256": "114a00a3fb2b8587b501967140d1eebf7c6dfe7ee79ab51de4f9fe3f20bc968c"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_shield_wood_solid_2",
+			"metrics": {
+				"clipped_samples": 14,
+				"duration": 0.113469387755102,
+				"peak": 1.0,
+				"rms": 0.543572721546097,
+				"sha256": "114a00a3fb2b8587b501967140d1eebf7c6dfe7ee79ab51de4f9fe3f20bc968c"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_shield_wood_solid_2"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_shield_wood_glance_0"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_shield_wood_glance_0",
+				"metrics": {
+					"clipped_samples": 3,
+					"duration": 0.0731972789115646,
+					"peak": 1.0,
+					"rms": 0.567646100787074,
+					"sha256": "2730f99f4b86710f67e9644cb8145b8f8ba5a55e45039c1709d379a7dc784ba8"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_shield_wood_glance_0",
+			"metrics": {
+				"clipped_samples": 3,
+				"duration": 0.0731972789115646,
+				"peak": 1.0,
+				"rms": 0.567646100787074,
+				"sha256": "2730f99f4b86710f67e9644cb8145b8f8ba5a55e45039c1709d379a7dc784ba8"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_shield_wood_glance_0"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_shield_wood_glance_1"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_shield_wood_glance_1",
+				"metrics": {
+					"clipped_samples": 0,
+					"duration": 0.0731972789115646,
+					"peak": 0.99981689453125,
+					"rms": 0.566309637540363,
+					"sha256": "883f4e1a109493b02b2df284cde43820936d4808c11850d2bf3c7a1677c50667"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_shield_wood_glance_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.0731972789115646,
+				"peak": 0.99981689453125,
+				"rms": 0.566309637540363,
+				"sha256": "883f4e1a109493b02b2df284cde43820936d4808c11850d2bf3c7a1677c50667"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_shield_wood_glance_1"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_shield_wood_glance_2"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_shield_wood_glance_2",
+				"metrics": {
+					"clipped_samples": 5,
+					"duration": 0.0731972789115646,
+					"peak": 1.0,
+					"rms": 0.563833180357572,
+					"sha256": "47ed2c014f67fdf8211d9e01cc08296c931e648fbaa14ba6443d336bffbe652d"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_shield_wood_glance_2",
+			"metrics": {
+				"clipped_samples": 5,
+				"duration": 0.0731972789115646,
+				"peak": 1.0,
+				"rms": 0.563833180357572,
+				"sha256": "47ed2c014f67fdf8211d9e01cc08296c931e648fbaa14ba6443d336bffbe652d"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_shield_wood_glance_2"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_brigandine_solid_0"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_brigandine_solid_0",
+				"metrics": {
+					"clipped_samples": 20,
+					"duration": 0.113469387755102,
+					"peak": 1.0,
+					"rms": 0.550980200304585,
+					"sha256": "1ae32314093b211d9deaf17945fcf24437bc2cf3fd89278494b3833d576c93de"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_brigandine_solid_0",
+			"metrics": {
+				"clipped_samples": 20,
+				"duration": 0.113469387755102,
+				"peak": 1.0,
+				"rms": 0.550980200304585,
+				"sha256": "1ae32314093b211d9deaf17945fcf24437bc2cf3fd89278494b3833d576c93de"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_brigandine_solid_0"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_brigandine_solid_1"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_brigandine_solid_1",
+				"metrics": {
+					"clipped_samples": 26,
+					"duration": 0.113469387755102,
+					"peak": 1.0,
+					"rms": 0.546729085899394,
+					"sha256": "684fd6817134eca8c799d055c673f7bad7751d4da591ad05e2955994a1b71349"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_brigandine_solid_1",
+			"metrics": {
+				"clipped_samples": 26,
+				"duration": 0.113469387755102,
+				"peak": 1.0,
+				"rms": 0.546729085899394,
+				"sha256": "684fd6817134eca8c799d055c673f7bad7751d4da591ad05e2955994a1b71349"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_brigandine_solid_1"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_brigandine_solid_2"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_brigandine_solid_2",
+				"metrics": {
+					"clipped_samples": 20,
+					"duration": 0.113469387755102,
+					"peak": 1.0,
+					"rms": 0.54766764639232,
+					"sha256": "4587b5f15695878a6bac454eaf16ac5840bbbd1572521c833188e1f315f55fb0"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_brigandine_solid_2",
+			"metrics": {
+				"clipped_samples": 20,
+				"duration": 0.113469387755102,
+				"peak": 1.0,
+				"rms": 0.54766764639232,
+				"sha256": "4587b5f15695878a6bac454eaf16ac5840bbbd1572521c833188e1f315f55fb0"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_brigandine_solid_2"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_brigandine_glance_0"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_brigandine_glance_0",
+				"metrics": {
+					"clipped_samples": 2,
+					"duration": 0.0731972789115646,
+					"peak": 0.999969482421875,
+					"rms": 0.558252305153266,
+					"sha256": "f74fa509dfb602487331f87c7d1dd1450dfba0341e6783800b84070448a99463"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_brigandine_glance_0",
+			"metrics": {
+				"clipped_samples": 2,
+				"duration": 0.0731972789115646,
+				"peak": 0.999969482421875,
+				"rms": 0.558252305153266,
+				"sha256": "f74fa509dfb602487331f87c7d1dd1450dfba0341e6783800b84070448a99463"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_brigandine_glance_0"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_brigandine_glance_1"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_brigandine_glance_1",
+				"metrics": {
+					"clipped_samples": 5,
+					"duration": 0.0731972789115646,
+					"peak": 1.0,
+					"rms": 0.569566200880286,
+					"sha256": "392f24d4ddfde70013f1f52eb3c0031eaaf002634fe99eb0a6e0ac8ca7d86c70"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_brigandine_glance_1",
+			"metrics": {
+				"clipped_samples": 5,
+				"duration": 0.0731972789115646,
+				"peak": 1.0,
+				"rms": 0.569566200880286,
+				"sha256": "392f24d4ddfde70013f1f52eb3c0031eaaf002634fe99eb0a6e0ac8ca7d86c70"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_brigandine_glance_1"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "contact_brigandine_glance_2"
+			},
+			"failure": "Contact streams use inspectable 44.1kHz mono PCM"
+		},
+		{
+			"context": {
+				"cue": "contact_brigandine_glance_2",
+				"metrics": {
+					"clipped_samples": 3,
+					"duration": 0.0731972789115646,
+					"peak": 1.0,
+					"rms": 0.558985936010391,
+					"sha256": "9577428b66a08594ab51ceb5bd84e82fed7e1ca4ae5a978d2070b49149b91ab5"
+				}
+			},
+			"failure": "Contact PCM is non-silent and has unclipped headroom"
+		},
+		{
+			"cue": "contact_brigandine_glance_2",
+			"metrics": {
+				"clipped_samples": 3,
+				"duration": 0.0731972789115646,
+				"peak": 1.0,
+				"rms": 0.558985936010391,
+				"sha256": "9577428b66a08594ab51ceb5bd84e82fed7e1ca4ae5a978d2070b49149b91ab5"
+			}
+		},
+		{
+			"context": {
+				"cue": "contact_brigandine_glance_2"
+			},
+			"failure": "Audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "lance_break_0",
+				"metrics": {
+					"clipped_samples": 10,
+					"duration": 0.0892517006802721,
+					"peak": 1.0,
+					"rms": 0.503284146267911,
+					"sha256": "c0fe22d6a4aad08f6f684389a915ffeb10c9d4219c6fb479c9f4acbc9a0e1d1d"
+				}
+			},
+			"failure": "Wood crack stays non-silent and unclipped"
+		},
+		{
+			"cue": "lance_break_0",
+			"metrics": {
+				"clipped_samples": 10,
+				"duration": 0.0892517006802721,
+				"peak": 1.0,
+				"rms": 0.503284146267911,
+				"sha256": "c0fe22d6a4aad08f6f684389a915ffeb10c9d4219c6fb479c9f4acbc9a0e1d1d"
+			}
+		},
+		{
+			"context": {
+
+			},
+			"failure": "Break audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "lance_break_1",
+				"metrics": {
+					"clipped_samples": 9,
+					"duration": 0.0892517006802721,
+					"peak": 1.0,
+					"rms": 0.514153313253778,
+					"sha256": "23cb50a71ae5023763b5325abf8793c611645cee6524226b3c5634f545bea637"
+				}
+			},
+			"failure": "Wood crack stays non-silent and unclipped"
+		},
+		{
+			"cue": "lance_break_1",
+			"metrics": {
+				"clipped_samples": 9,
+				"duration": 0.0892517006802721,
+				"peak": 1.0,
+				"rms": 0.514153313253778,
+				"sha256": "23cb50a71ae5023763b5325abf8793c611645cee6524226b3c5634f545bea637"
+			}
+		},
+		{
+			"context": {
+
+			},
+			"failure": "Break audition WAV exports"
+		},
+		{
+			"context": {
+				"cue": "lance_break_2",
+				"metrics": {
+					"clipped_samples": 10,
+					"duration": 0.0892517006802721,
+					"peak": 1.0,
+					"rms": 0.510245656232243,
+					"sha256": "38bc3519c312208d8dd44dc78a237b226e5793cd6e9f8b3b10227366b6d6e30e"
+				}
+			},
+			"failure": "Wood crack stays non-silent and unclipped"
+		},
+		{
+			"cue": "lance_break_2",
+			"metrics": {
+				"clipped_samples": 10,
+				"duration": 0.0892517006802721,
+				"peak": 1.0,
+				"rms": 0.510245656232243,
+				"sha256": "38bc3519c312208d8dd44dc78a237b226e5793cd6e9f8b3b10227366b6d6e30e"
+			}
+		},
+		{
+			"context": {
+
+			},
+			"failure": "Break audition WAV exports"
+		},
+		{
+			"comparison_note": "Raw streams at equal fixed gain, 280ms silence between materials; not the final gameplay mix or a listening verdict.",
+			"comparison_order": [
+				"helmet",
+				"plate",
+				"mail",
+				"padded",
+				"shield_wood",
+				"brigandine"
+			]
+		},
+		{
+			"audio_driver": "Dummy",
+			"dummy_block_seconds": 0.0928798185941043,
+			"kind": "playback_pause_resume",
+			"mix_rate": 44100.0,
+			"observations": [
+				{
+					"active": true,
+					"paused": false,
+					"position": 0.191564619541168,
+					"stage": "before_pause",
+					"ticks_usec": 1133929
+				},
+				{
+					"active": true,
+					"paused": true,
+					"position": 0.191564619541168,
+					"stage": "immediate_pause",
+					"ticks_usec": 1133973
+				},
+				{
+					"active": true,
+					"paused": true,
+					"position": 0.203174605965614,
+					"stage": "after_pause_wait",
+					"ticks_usec": 1278843
+				},
+				{
+					"active": true,
+					"paused": false,
+					"position": 0.203174605965614,
+					"stage": "immediate_resume",
+					"ticks_usec": 1278906
+				},
+				{
+					"active": true,
+					"paused": false,
+					"position": 0.388934254646301,
+					"stage": "after_resume_wait",
+					"ticks_usec": 1492715
+				}
+			],
+			"requested_resume_seconds": 0.210759637188209
+		},
+		{
+			"generated_samples": 1,
+			"kind": "missing_asset_fixture",
+			"note": "Intentional nonexistent QA path; not part of the shipped cue bank or impact playback."
+		}
+	],
+	"scope": "Real catalogue material fallback and explicit material fixtures, pure cue selection, bounded variants, original-event immutability, actual PCM/headroom, optional fixed-gain audition WAVs, live long-voice pause/resume, mute and bounded pool. No claim of human listening, hardware loudness, real recorded material or player impact satisfaction."
+}

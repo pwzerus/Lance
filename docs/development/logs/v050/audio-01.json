@@ -1,0 +1,418 @@
+{
+	"audio_dir": "E:/GALUMU/docs/development/audio/v050/audio01",
+	"failures": [
+		"Resume continues the retained long voice"
+	],
+	"initial_generation_ms": 2604.095,
+	"passed": false,
+	"rows": [
+		{
+			"cue": "contact_helmet_solid_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.56,
+				"peak": 0.44940185546875,
+				"rms": 0.0739890211566624,
+				"sha256": "4483ad2d07d42465fd6ca0cb8f4cd2a3fa349c4556bbddfdf48070ecbaa83823"
+			}
+		},
+		{
+			"cue": "contact_helmet_solid_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.56,
+				"peak": 0.445098876953125,
+				"rms": 0.0735635014977454,
+				"sha256": "db4f6f5b23b61f1d7f21decc61bf570ebdb0102ab0319c2a5f185aca47f50f5f"
+			}
+		},
+		{
+			"cue": "contact_helmet_solid_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.56,
+				"peak": 0.44287109375,
+				"rms": 0.0733764274268515,
+				"sha256": "03e3a991287d5ccc1589fb1836322c84cc22bd29918f0be60f18d81cfc6ad559"
+			}
+		},
+		{
+			"cue": "contact_helmet_glance_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.36,
+				"peak": 0.179412841796875,
+				"rms": 0.0304264227270839,
+				"sha256": "a726d3f605e272dfa641d9e91f19f7d1e9ce14622f212022052c919aab555121"
+			}
+		},
+		{
+			"cue": "contact_helmet_glance_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.36,
+				"peak": 0.188323974609375,
+				"rms": 0.0307454675183861,
+				"sha256": "da82192db387cf62611a129fb6c2fa92c8adfff39612b3cbb57e5a6768a9184c"
+			}
+		},
+		{
+			"cue": "contact_helmet_glance_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.36,
+				"peak": 0.174102783203125,
+				"rms": 0.0299527921928093,
+				"sha256": "6209adcd35faabdcba537f9a9a44cba5475a43cbdb6373ee6851d7158b360f10"
+			}
+		},
+		{
+			"cue": "contact_plate_solid_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.56,
+				"peak": 0.4454345703125,
+				"rms": 0.0846125913358945,
+				"sha256": "e45b7b04d3803eee75d3a41c3075c86224930182a09c7580af4740dbd946c20c"
+			}
+		},
+		{
+			"cue": "contact_plate_solid_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.56,
+				"peak": 0.4283447265625,
+				"rms": 0.0834534504841919,
+				"sha256": "d7c7f44272a6f80eadfd55b34110f8da523d83b18f42b0dfa47e462393a14e04"
+			}
+		},
+		{
+			"cue": "contact_plate_solid_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.56,
+				"peak": 0.44049072265625,
+				"rms": 0.0842074416055874,
+				"sha256": "ab2fe63d83dacbdda6b280bcec3766ad7d03f7c7f5bdf4520e2c1c7ebdd321f4"
+			}
+		},
+		{
+			"cue": "contact_plate_glance_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.36,
+				"peak": 0.187408447265625,
+				"rms": 0.0341578328051346,
+				"sha256": "e81416c762b44a72e0c636d5c7defae4cf670d846739bd966caed142aab71ee1"
+			}
+		},
+		{
+			"cue": "contact_plate_glance_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.36,
+				"peak": 0.189178466796875,
+				"rms": 0.0340609641752937,
+				"sha256": "317f1f8518d76de5cfa2fb1244e60ff524aba32e646c56e0e8760e976563f7c9"
+			}
+		},
+		{
+			"cue": "contact_plate_glance_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.36,
+				"peak": 0.189605712890625,
+				"rms": 0.0335271391779114,
+				"sha256": "c4cdee11adfb9a482d60fd81f2bfbe76ebb9d9d1031afefa692f60478c4d553f"
+			}
+		},
+		{
+			"cue": "contact_mail_solid_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.56,
+				"peak": 0.340972900390625,
+				"rms": 0.0579086803701615,
+				"sha256": "ad0c810720d20323de3cc309fabb4cb58dcc2caa091cbc4040f67edbaabbe394"
+			}
+		},
+		{
+			"cue": "contact_mail_solid_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.56,
+				"peak": 0.343902587890625,
+				"rms": 0.0590071181030727,
+				"sha256": "f4d5303435279ab10d3f6c152169fa8eb3119ab2d89df67e981dc48c2d7fb8dc"
+			}
+		},
+		{
+			"cue": "contact_mail_solid_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.56,
+				"peak": 0.339447021484375,
+				"rms": 0.0583908253941651,
+				"sha256": "e64794fd655c5c5fa2bccafb79cb3702eed37ada6c96d4606d7d6f8f18b4ad37"
+			}
+		},
+		{
+			"cue": "contact_mail_glance_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.36,
+				"peak": 0.179229736328125,
+				"rms": 0.0279339563704385,
+				"sha256": "709a8e0dc9debf2e4517b33a5f672961dab7ccaad51196c7522fe50c7cc817d4"
+			}
+		},
+		{
+			"cue": "contact_mail_glance_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.36,
+				"peak": 0.1947021484375,
+				"rms": 0.0282838294670245,
+				"sha256": "356f4f86a18384451c85ebf7e0a210ae7a3d33ce6f11867e345fdf4d7fc3e694"
+			}
+		},
+		{
+			"cue": "contact_mail_glance_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.36,
+				"peak": 0.191192626953125,
+				"rms": 0.0278563010059067,
+				"sha256": "811b79822fd5633a3d45405d562bf1cc8047268941f1b20f063a9900f1f60969"
+			}
+		},
+		{
+			"cue": "contact_padded_solid_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.56,
+				"peak": 0.434051513671875,
+				"rms": 0.077671222630268,
+				"sha256": "ec179289e5c88d4c86fb81e22017b01b45b006fbd55818d856b7bf930c11a5f6"
+			}
+		},
+		{
+			"cue": "contact_padded_solid_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.56,
+				"peak": 0.46881103515625,
+				"rms": 0.079095313862767,
+				"sha256": "fb8b339dc9b8ffe6caf2417b0ac940aa61e209dd82564448f3cb4d55332b6452"
+			}
+		},
+		{
+			"cue": "contact_padded_solid_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.56,
+				"peak": 0.484130859375,
+				"rms": 0.0775637411113643,
+				"sha256": "f1b459519ec358036224a61f34ded45cfbebd5ff02de2ddb9515ef998b59679a"
+			}
+		},
+		{
+			"cue": "contact_padded_glance_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.36,
+				"peak": 0.20330810546875,
+				"rms": 0.0318498331177792,
+				"sha256": "f4bdca61cfe5cf89545427175dbaee36c4d663186da39df74062d7667b4906f8"
+			}
+		},
+		{
+			"cue": "contact_padded_glance_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.36,
+				"peak": 0.19573974609375,
+				"rms": 0.0324336504401559,
+				"sha256": "f334eb44ab7cbf725cfe7bd96f08e5468880045cf2142fbfbfd4e9fbb692dc30"
+			}
+		},
+		{
+			"cue": "contact_padded_glance_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.36,
+				"peak": 0.203948974609375,
+				"rms": 0.0324814578786769,
+				"sha256": "ec99a915fbc5e7a2e3b60c9deedc0763b4bda23ec2d55f40db0a19a2a2a88ff9"
+			}
+		},
+		{
+			"cue": "contact_shield_wood_solid_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.56,
+				"peak": 0.4102783203125,
+				"rms": 0.0631278901069439,
+				"sha256": "7973f4d154b607c92e9d2e0501766ccc0e6fd7a8d9b28565450c89338dca4124"
+			}
+		},
+		{
+			"cue": "contact_shield_wood_solid_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.56,
+				"peak": 0.4388427734375,
+				"rms": 0.0634483758802549,
+				"sha256": "2e00643d9c47f1b9669583d910222ac881e7b1d84431bd760e86dd1671499dd7"
+			}
+		},
+		{
+			"cue": "contact_shield_wood_solid_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.56,
+				"peak": 0.44049072265625,
+				"rms": 0.0634947154197179,
+				"sha256": "92f80a7acbce167644ddb939ebe4985b29b83cb87f58f1db769cf9584e8a8103"
+			}
+		},
+		{
+			"cue": "contact_shield_wood_glance_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.36,
+				"peak": 0.16845703125,
+				"rms": 0.0271060973606528,
+				"sha256": "42c399f4b43aaaa4fac7ff2d04ea8ff1c5a344f1335f5b00ca359561b2e7e198"
+			}
+		},
+		{
+			"cue": "contact_shield_wood_glance_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.36,
+				"peak": 0.181488037109375,
+				"rms": 0.0266853684884331,
+				"sha256": "d3aeedc0ee0eb2476fe1cb46e9e842d2918d7ab6e04b253622e2fea4d0cbf587"
+			}
+		},
+		{
+			"cue": "contact_shield_wood_glance_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.36,
+				"peak": 0.170745849609375,
+				"rms": 0.0271451158700361,
+				"sha256": "c0e883fb2ea60efd00fff1a9aaa7c5fb0563587e0a101b78fd10c1f9d31e3f4c"
+			}
+		},
+		{
+			"cue": "contact_brigandine_solid_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.56,
+				"peak": 0.426055908203125,
+				"rms": 0.0661607988268938,
+				"sha256": "fbafea0342600e8ac2d2b22436e6afa22c23c45187b2f60a69ede93acaa4b2a4"
+			}
+		},
+		{
+			"cue": "contact_brigandine_solid_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.56,
+				"peak": 0.43927001953125,
+				"rms": 0.0659577571152091,
+				"sha256": "cc37cdc6af26a94b3ad567b9cc93d061f30276647056476d70c33de56dddf677"
+			}
+		},
+		{
+			"cue": "contact_brigandine_solid_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.56,
+				"peak": 0.415313720703125,
+				"rms": 0.065776634086858,
+				"sha256": "6902d8c34ed1d0bddf7c998ccafaa66e6b3678b75e30fc895bbe9256d9f998b8"
+			}
+		},
+		{
+			"cue": "contact_brigandine_glance_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.36,
+				"peak": 0.198272705078125,
+				"rms": 0.029357116030103,
+				"sha256": "bf845a5cc543972931667c17d8aab9b5972604776324448797366e3314805f1b"
+			}
+		},
+		{
+			"cue": "contact_brigandine_glance_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.36,
+				"peak": 0.201171875,
+				"rms": 0.029168156543847,
+				"sha256": "7a9c5404b3f973389233c3246848c1f44505fdb9d140b81d9f5a89ad295b9b03"
+			}
+		},
+		{
+			"cue": "contact_brigandine_glance_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.36,
+				"peak": 0.19049072265625,
+				"rms": 0.0292038126849883,
+				"sha256": "b5dd27ecbdd30c70e5dd9a049823d355a3ef34726ee8e79e05fe4c39a21b4502"
+			}
+		},
+		{
+			"cue": "lance_break_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.44,
+				"peak": 0.35174560546875,
+				"rms": 0.0386354632716942,
+				"sha256": "06b676a85b4f61db8b16f139ed4e1cc039305eca229fd128d1b31e45d7e96426"
+			}
+		},
+		{
+			"cue": "lance_break_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.44,
+				"peak": 0.346435546875,
+				"rms": 0.0385927685986189,
+				"sha256": "13b0b805aed548b6480452cbb8234c7ccd7452f0cede31ee3a357da6f383e9e6"
+			}
+		},
+		{
+			"cue": "lance_break_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.44,
+				"peak": 0.341796875,
+				"rms": 0.0375779858848924,
+				"sha256": "3dc4f03701ec2c6c11cd609e692117b66daf235ef7cb3dba7f9b6f488cafc492"
+			}
+		},
+		{
+			"comparison_note": "Raw streams at equal fixed gain, 280ms silence between materials; not the final gameplay mix or a listening verdict.",
+			"comparison_order": [
+				"helmet",
+				"plate",
+				"mail",
+				"padded",
+				"shield_wood",
+				"brigandine"
+			]
+		},
+		{
+			"context": {
+
+			},
+			"failure": "Resume continues the retained long voice"
+		}
+	],
+	"scope": "Real catalogue material fallback and explicit material fixtures, pure cue selection, bounded variants, original-event immutability, actual PCM/headroom, optional fixed-gain audition WAVs, live long-voice pause/resume, mute and bounded pool. No claim of human listening, hardware loudness, real recorded material or player impact satisfaction."
+}

@@ -1,0 +1,31 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+GALUMU_BUILD v0.4.11
+EQUIPMENT_BATTLE_V051 case=eng_0_arena_attack0_catalogue hit=body broke=true ko=false
+EQUIPMENT_BATTLE_V051 case=eng_1_war_attack1_catalogue hit=body broke=false ko=false
+EQUIPMENT_BATTLE_V051 case=eng_2_arena_attack0_catalogue hit=body broke=false ko=false
+EQUIPMENT_BATTLE_V051 case=eng_3_war_attack1_catalogue hit=body broke=false ko=false
+EQUIPMENT_BATTLE_V051 case=eng_4_arena_attack0_catalogue hit=body broke=false ko=false
+EQUIPMENT_BATTLE_V051 case=eng_5_war_attack1_catalogue hit=body broke=false ko=false
+EQUIPMENT_BATTLE_V051 case=fr_0_war_attack0_catalogue hit=body broke=false ko=false
+EQUIPMENT_BATTLE_V051 case=fr_1_arena_attack1_catalogue hit=body broke=true ko=false
+EQUIPMENT_BATTLE_V051 case=fr_2_war_attack0_catalogue hit=body broke=false ko=false
+EQUIPMENT_BATTLE_V051 case=fr_3_arena_attack1_catalogue hit=body broke=false ko=false
+EQUIPMENT_BATTLE_V051 case=fr_4_war_attack0_catalogue hit=body broke=false ko=false
+EQUIPMENT_BATTLE_V051 case=fr_5_arena_attack1_catalogue hit=body broke=false ko=false
+EQUIPMENT_BATTLE_V051 case=de_0_arena_attack0_catalogue hit=body broke=true ko=false
+EQUIPMENT_BATTLE_V051 case=de_1_war_attack1_catalogue hit=body broke=false ko=false
+EQUIPMENT_BATTLE_V051 case=de_2_arena_attack0_catalogue hit=body broke=false ko=false
+EQUIPMENT_BATTLE_V051 case=de_3_war_attack1_catalogue hit=body broke=false ko=false
+EQUIPMENT_BATTLE_V051 case=de_4_arena_attack0_catalogue hit=body broke=false ko=false
+EQUIPMENT_BATTLE_V051 case=de_5_war_attack1_catalogue hit=body broke=false ko=false
+EQUIPMENT_BATTLE_V051 case=it_0_war_attack0_catalogue hit=body broke=false ko=false
+EQUIPMENT_BATTLE_V051 case=it_1_arena_attack1_catalogue hit=body broke=true ko=false
+EQUIPMENT_BATTLE_V051 case=it_2_war_attack0_catalogue hit=body broke=false ko=false
+EQUIPMENT_BATTLE_V051 case=it_3_arena_attack1_catalogue hit=body broke=false ko=false
+EQUIPMENT_BATTLE_V051 case=it_4_war_attack0_catalogue hit=body broke=false ko=false
+EQUIPMENT_BATTLE_V051 case=it_5_arena_attack1_catalogue hit=body broke=false ko=false
+EQUIPMENT_BATTLE_V051 case=de_5_arena_attack0_break hit=body broke=true ko=false
+EQUIPMENT_BATTLE_V051 case=it_5_war_attack1_fall hit=head broke=false ko=true
+EQUIPMENT_BATTLE_V051 passed=true cases=26 wall_msec=10929

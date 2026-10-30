@@ -1,6 +1,18 @@
 # 当前实现与接手地图
 
-## 最新交付：DEV-050 / v0.4.10（2026-10-29 EDT）
+## 最新装备阶段：DEV-051 / v0.4.11（2026-10-30 EDT）
+
+基线`7c727b2`，历史资料提交`5ab563b`，运行实现`22c8104c2b62f50554a610013d399943cd81c41f`已推送codex/v0.4。独立发布目录`builds/LanceAndLaurel-v0.4.11`，旧包保留。四个地区各6头盔/6胸甲共48张独立素材已接入收藏、购装、存档、骑乘与装备详情；胸防护、头防护仍分别使用原数值。腿部4种花纹只绘制，不增加防护或腿伤目标。
+
+来源在`docs/research/V051_{EN_FR,DE_IT,LANCES}.md`、`game/data/history_v051_*.json`。每件列日期、制造地/归属、用途、馆藏及游戏改编；早期软甲不冒称整块钢胸板。`progression_era`保留旧购买门槛，历史筛选日期另行修正。素材原图/提示与JSON在`game/art_sources/v051`、`game/assets/art/pixel_v051`；`equipment_art_v051.json`注册独立图、裁切和开放脸孔。
+
+`visual/lance_art.gd`按三枪型/品质/年代绘制杆锥度、粗枪槽、包柄、涂装、护手与竞技场冠头/实战尖头；碎片复用原轴坐标保持粗细和条纹。沿用枪盾有限速、命中扫掠、两模式规则、完整落马与原材质碰撞音。没有开启第四阶段运动甲片声。
+
+源项目与实际EXE的48件导入/购装/自动手动读档/门槛/腿饰对照已通过，所有套装双向前后极值和12开放盔四脸型有实际渲染。修正缺下脸、T口漏发/黑色封口、德式护颏和碎片缩细。桌面仅完成实际包菜单观察，随后物理Esc停止；本轮OS点击/持续长按及真人评价未验收。最终动态、ZIP、远程回执见[V051验证](../development/V051_VALIDATION.md)和[DEV-051交接](handoffs/2026-10-30-DEV-051-Codex.md)。
+
+保留问题：极限后仰枪尾可压过面部；小卡片枪图细、选中标记可改进。不是完整全身甲换装；共用肩臂/基础腿甲保留。不要把同品质跨年代搭配宣传为同年原配整套。发布PCK SHA256：`4900B0FBDA8EA296E058424A765096FA3D7AC22ABB86763511CBB96CE6FDDABC`。
+
+## 沿用基线：DEV-050 / v0.4.10（2026-10-29 EDT）
 
 当前发布v0.4.10，运行代码`75153c47c93ed1983b465b9f78720a77c995cea3`已推送核对，仍在codex/v0.4。基线a4398d5；Play-Latest指向独立v0.4.10，旧包保留。完整人物落马/脱手武器、按部位材质碰撞音、整马母片和前后肢不同骨链已接入。默认与全部十马变速、24例正式落马、生产镜头/血腥切换、30局连续渲染比赛、发布EXE音频/镜头与ZIP解压双模式9图已通过。主体02:43:17 UTC完成，后置QA窗口至03:13:17；最终收尾见[DEV-050交接](handoffs/2026-10-29-DEV-050-Codex.md)、[验证](../development/V050_VALIDATION.md)、[审查](../development/V050_REVIEW.md)。
 
@@ -52,11 +64,11 @@ OS已操作源码与最终解压包的菜单/练习/换盾/暂停/退出；没�
 
 ## 启动与工具
 
-- [Play-Latest.cmd](../../Play-Latest.cmd)指向独立[Windows目录](../../builds/LanceAndLaurel-v0.4.10/)，EXE和PCK同目录；旧包与失败候选不覆盖。
+- [Play-Latest.cmd](../../Play-Latest.cmd)指向独立[Windows目录](../../builds/LanceAndLaurel-v0.4.11/)，EXE和PCK同目录；旧包与失败候选不覆盖。
 - 主项目[game/project.godot](../../game/project.godot)，Godot4.5.1/GDScript/Compatibility，Windows x86_64。
 - 本机引擎tools/godot-4.5.1/Godot_v4.5.1-stable_win64_console.exe；导出模板tools/templates/windows_release_x86_64.exe。
-- PCK SHA256：1852DF48A4D81734A9F75E5D8C634C1475E06C65B4FC3EB736AC62D3FC037B47。
-- 完整文档、ZIP身份、远程SHA及当前测试结果以DEV-050最终回执为准。根HANDOFF仍是旧入口且包含对方未提交内容，不能将其v0.4早期状态覆盖本文。
+- PCK SHA256：4900B0FBDA8EA296E058424A765096FA3D7AC22ABB86763511CBB96CE6FDDABC。
+- 完整文档、ZIP身份、远程SHA及当前测试结果以DEV-051最终回执为准。根HANDOFF仍是旧入口且包含对方未提交内容，不能将其v0.4早期状态覆盖本文。
 
 ## 玩家控制与规则
 

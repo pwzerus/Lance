@@ -1,0 +1,1299 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_0.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Engine imported actual asset; no fallback { "id": "it_helmet_0" }
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_equipment_v051.gd:23)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:50)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_1.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Engine imported actual asset; no fallback { "id": "it_helmet_1" }
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_equipment_v051.gd:23)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:50)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_2.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Engine imported actual asset; no fallback { "id": "it_helmet_2" }
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_equipment_v051.gd:23)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:50)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_3.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Engine imported actual asset; no fallback { "id": "it_helmet_3" }
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_equipment_v051.gd:23)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:50)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_4.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Engine imported actual asset; no fallback { "id": "it_helmet_4" }
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_equipment_v051.gd:23)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:50)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_5.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Engine imported actual asset; no fallback { "id": "it_helmet_5" }
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_equipment_v051.gd:23)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:50)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_0.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Engine imported actual asset; no fallback { "id": "it_armor_0" }
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_equipment_v051.gd:23)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:50)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_1.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Engine imported actual asset; no fallback { "id": "it_armor_1" }
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_equipment_v051.gd:23)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:50)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_2.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Engine imported actual asset; no fallback { "id": "it_armor_2" }
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_equipment_v051.gd:23)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:50)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_3.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Engine imported actual asset; no fallback { "id": "it_armor_3" }
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_equipment_v051.gd:23)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:50)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_4.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Engine imported actual asset; no fallback { "id": "it_armor_4" }
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_equipment_v051.gd:23)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:50)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_5.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:49)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Engine imported actual asset; no fallback { "id": "it_armor_5" }
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_equipment_v051.gd:23)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:50)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: All 48 independent assets loaded { "loaded": 36 }
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_equipment_v051.gd:23)
+       [1] asset_checks (res://tests/test_equipment_v051.gd:60)
+       [2] run (res://tests/test_equipment_v051.gd:179)
+ERROR: Cosmetic comparison contains actual hits and completed matches { "mode": "arena", "contacts": 0 }
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_equipment_v051.gd:23)
+       [1] simulation_checks (res://tests/test_equipment_v051.gd:120)
+       [2] run (res://tests/test_equipment_v051.gd:181)
+ERROR: Cosmetic comparison contains actual hits and completed matches { "mode": "war", "contacts": 0 }
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_equipment_v051.gd:23)
+       [1] simulation_checks (res://tests/test_equipment_v051.gd:120)
+       [2] run (res://tests/test_equipment_v051.gd:181)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_0.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:73)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:73)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_0.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:72)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:72)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_1.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:73)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:73)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_1.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:72)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:72)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_2.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:73)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:73)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_2.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:72)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:72)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_3.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:73)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:73)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_3.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:72)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:72)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_4.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:73)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:73)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_4.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:72)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:72)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_5.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:73)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:73)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_5.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:72)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] item_icon (res://scripts/visual/equipment_art.gd:72)
+       [3] render_region (res://tests/test_equipment_v051.gd:160)
+       [4] run (res://tests/test_equipment_v051.gd:185)
+       [5] render_region (res://tests/test_equipment_v051.gd:168)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_0.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] _draw (res://scripts/visual/rider_view.gd:194)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] _draw (res://scripts/visual/rider_view.gd:194)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_0.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] _draw (res://scripts/visual/rider_view.gd:195)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] _draw (res://scripts/visual/rider_view.gd:195)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_0.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_0.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_1.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] _draw (res://scripts/visual/rider_view.gd:194)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] _draw (res://scripts/visual/rider_view.gd:194)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_1.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] _draw (res://scripts/visual/rider_view.gd:195)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] _draw (res://scripts/visual/rider_view.gd:195)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_1.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_1.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_2.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] _draw (res://scripts/visual/rider_view.gd:194)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] _draw (res://scripts/visual/rider_view.gd:194)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_2.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] _draw (res://scripts/visual/rider_view.gd:195)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] _draw (res://scripts/visual/rider_view.gd:195)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_2.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_2.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_3.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] _draw (res://scripts/visual/rider_view.gd:194)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] _draw (res://scripts/visual/rider_view.gd:194)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_3.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] _draw (res://scripts/visual/rider_view.gd:195)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] _draw (res://scripts/visual/rider_view.gd:195)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_3.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_3.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_4.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] _draw (res://scripts/visual/rider_view.gd:194)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] _draw (res://scripts/visual/rider_view.gd:194)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_4.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] _draw (res://scripts/visual/rider_view.gd:195)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] _draw (res://scripts/visual/rider_view.gd:195)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_4.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_4.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_5.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] _draw (res://scripts/visual/rider_view.gd:194)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] _draw (res://scripts/visual/rider_view.gd:194)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_5.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] _draw (res://scripts/visual/rider_view.gd:195)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] _draw (res://scripts/visual/rider_view.gd:195)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_5.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_5.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_0.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_0.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_1.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_1.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_2.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_2.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_3.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_3.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_4.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_4.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_5.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_5.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_0.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_0.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_1.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_1.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_2.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_2.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_3.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_3.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_4.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_4.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_5.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_5.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_0.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_0.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_1.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_1.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_2.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_2.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_3.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_3.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_4.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_4.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_5.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_5.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+GALUMU_BUILD v0.4.10
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_5.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] _draw (res://scripts/visual/rider_view.gd:194)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] torso_for (res://scripts/visual/equipment_art.gd:41)
+       [2] _draw (res://scripts/visual/rider_view.gd:194)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_5.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] _draw (res://scripts/visual/rider_view.gd:195)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] helmet_for (res://scripts/visual/equipment_art.gd:45)
+       [2] _draw (res://scripts/visual/rider_view.gd:195)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_5.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_5.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_armor_5.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_armor_detail (res://scripts/visual/rider_view.gd:610)
+       [2] _draw_rider (res://scripts/visual/rider_view.gd:252)
+       [3] _draw (res://scripts/visual/rider_view.gd:233)
+ERROR: Failed loading resource: res://assets/art/pixel_v051/it_helmet_5.png.
+   at: _load (core/io/resource_loader.cpp:343)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:35)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+SCRIPT ERROR: Attempt to call function 'get_width' in base 'null instance' on a null instance.
+   at: equipment_texture (res://scripts/visual/equipment_art.gd:36)
+   GDScript backtrace (most recent call first):
+       [0] equipment_texture (res://scripts/visual/equipment_art.gd:36)
+       [1] _draw_rider (res://scripts/visual/rider_view.gd:265)
+       [2] _draw (res://scripts/visual/rider_view.gd:233)
+EQUIPMENT_V051 false failures=15

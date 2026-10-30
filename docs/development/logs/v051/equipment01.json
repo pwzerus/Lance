@@ -1,0 +1,115 @@
+{
+	"failures": [
+		"Engine imported actual asset; no fallback",
+		"Engine imported actual asset; no fallback",
+		"Engine imported actual asset; no fallback",
+		"Engine imported actual asset; no fallback",
+		"Engine imported actual asset; no fallback",
+		"Engine imported actual asset; no fallback",
+		"Engine imported actual asset; no fallback",
+		"Engine imported actual asset; no fallback",
+		"Engine imported actual asset; no fallback",
+		"Engine imported actual asset; no fallback",
+		"Engine imported actual asset; no fallback",
+		"Engine imported actual asset; no fallback",
+		"All 48 independent assets loaded",
+		"Cosmetic comparison contains actual hits and completed matches",
+		"Cosmetic comparison contains actual hits and completed matches"
+	],
+	"passed": false,
+	"rows": [
+		{
+			"detail": {
+				"id": "it_helmet_0"
+			},
+			"failure": "Engine imported actual asset; no fallback"
+		},
+		{
+			"detail": {
+				"id": "it_helmet_1"
+			},
+			"failure": "Engine imported actual asset; no fallback"
+		},
+		{
+			"detail": {
+				"id": "it_helmet_2"
+			},
+			"failure": "Engine imported actual asset; no fallback"
+		},
+		{
+			"detail": {
+				"id": "it_helmet_3"
+			},
+			"failure": "Engine imported actual asset; no fallback"
+		},
+		{
+			"detail": {
+				"id": "it_helmet_4"
+			},
+			"failure": "Engine imported actual asset; no fallback"
+		},
+		{
+			"detail": {
+				"id": "it_helmet_5"
+			},
+			"failure": "Engine imported actual asset; no fallback"
+		},
+		{
+			"detail": {
+				"id": "it_armor_0"
+			},
+			"failure": "Engine imported actual asset; no fallback"
+		},
+		{
+			"detail": {
+				"id": "it_armor_1"
+			},
+			"failure": "Engine imported actual asset; no fallback"
+		},
+		{
+			"detail": {
+				"id": "it_armor_2"
+			},
+			"failure": "Engine imported actual asset; no fallback"
+		},
+		{
+			"detail": {
+				"id": "it_armor_3"
+			},
+			"failure": "Engine imported actual asset; no fallback"
+		},
+		{
+			"detail": {
+				"id": "it_armor_4"
+			},
+			"failure": "Engine imported actual asset; no fallback"
+		},
+		{
+			"detail": {
+				"id": "it_armor_5"
+			},
+			"failure": "Engine imported actual asset; no fallback"
+		},
+		{
+			"detail": {
+				"loaded": 36
+			},
+			"failure": "All 48 independent assets loaded"
+		},
+		{
+			"detail": {
+				"contacts": 0,
+				"mode": "arena"
+			},
+			"failure": "Cosmetic comparison contains actual hits and completed matches"
+		},
+		{
+			"detail": {
+				"contacts": 0,
+				"mode": "war"
+			},
+			"failure": "Cosmetic comparison contains actual hits and completed matches"
+		}
+	],
+	"scope": "48 asset imports, real isolated purchases/auto/manual reload, legacy IDs, leg cosmetic simulation, engine-rendered regional sheets and shop; not OS input or human play"
+}

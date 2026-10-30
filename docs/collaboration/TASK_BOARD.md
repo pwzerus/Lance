@@ -1,16 +1,24 @@
 # 任务、审查建议与文件认领
 
-最后整理：2026-10-29 EDT。DEV-050两阶段已交付独立v0.4.10，运行代码75153c4；30局、实包和桌面验证见DEV-050交接。后置QA截止2026-10-30 03:13:17 UTC；第三四阶段只登记，尚未指派给Claude，不代表后台开工。
+最后整理：2026-10-30 EDT。DEV-051第三阶段已交付独立v0.4.11，运行代码22c8104；48件装备/考据、动态断枪和购装存档证据见DEV-051交接。第四阶段运动甲声仍未启动。旧阶段时间预算不沿用本轮。
 
 当前版本分支为 `codex/v0.4`。同版本的修复、同一／相近功能继续在该分支提交 commit；大的结构性改动形成新版本时再创建新的版本分支。不按每个小任务新建分支。
 
 ## 当前文件占用
+
+DEV-051完成：生产代码/素材/测试已释放。root仅收尾提交QA证据和交接文档；运行22c8104已推送，独立.11实际包/解压双模式/26例真实接触已验。OS仅菜单观察，物理Esc后停止；真人与完整OS流程未验。下面认领段落保留为本轮责任历史。
 
 DEV-051 / 第三阶段（2026-10-29 EDT，03:19:37 UTC开始）：基线7c727b2；root负责catalogue/equipment数据、equipment_art/rider_view/character_face及必要UI/存档挂点、版本/导出/启动器、专项测试和协作文档。motion_review仅负责新增docs/research/V051_EN_FR.md；motion_qa仅负责新增docs/research/V051_DE_IT.md；appearance048负责新pixel_v051/art_sources/v051素材与来源元数据（先诊断/等考据简报），不得改共享渲染器。引擎仅root串行QA。保留既有Claude脏文件；同版本codex/v0.4，拟独立v0.4.11。阶段四运动甲片声不在本轮。
 
 DEV-051范围细分补充：motion_review可写新game/data/history_v051_en_fr.json，motion_qa可写history_v051_de_it.json（仅考据/命名/材质/图ID，不改旧数值）；root额外认领新visual/lance_art.gd及lance_shard、impact_fx和Battle仅武器碎片外观传递，保持碰撞/伤害不变。
 
 DEV-051批量素材归属（首组已引擎验证）：appearance048负责pixel_v051/eng_*及fr_helmet_3的PNG/JSON，motion_review负责fr_*其余11件，motion_qa负责de_*12件，root负责it_*12件；各自同时持有art_sources/v051同ID的源图、提示与来源记录。总equipment_art_v051.json及game/tools/build_equipment_manifest_v051.py仅root合并，Godot仅root运行。EN/FR及DE/IT研究文档、24条覆盖JSON均已交回root。工具悬挂不算开发验证时长。
+
+DEV-051审查归属：全部48件首稿交回root。motion_qa已交回V051_CODE_REVIEW；motion_review持有V051_HISTORY_REVIEW并仅修de_helmet_3独立护颏素材/JSON/source02；appearance048仅写V051_EXPERIENCE_REVIEW。root修复代码审查问题、开放脸孔注册与动态验收，不覆盖审查者仍持有的文件。
+
+DEV-051验收补充：motion_qa仅持有新tests/test_equipment_battle_v051.gd；poses专项已交回root运行。appearance048只读新姿态图并更新体验审查。历史审查及de_helmet_3新稿已交回root；root负责最终导出、实际包专项与OS桌面验证。
+
+DEV-051最终接手：motion_qa状态pending_init后已中断，root接手其已保存的test_equipment_battle_v051.gd作静态审查、运行和必要夹具修复。48件实际包加载/购装/读档已通过；OS工具收到物理Esc，本轮不再桌面操作，未做的OS验证如实留空。
 
 DEV-050实施归属记录：root负责fallen_rider、生产镜头/血腥同步与导出；motion_review交回sound_bank、39 WAV/import、audio及camera测试；appearance048交回整马素材、fall-scene与血腥切换测试；motion_qa交回horse_gait、anatomy/catalogue、V050_HORSE_REVIEW及V050_VALIDATION。所有子任务已释放；root只做最终交接/提交收尾，不继续功能扩张。所有引擎由root串行运行，正式玩家档不使用。
 
@@ -49,7 +57,7 @@ DEV-042输入诊断补充：Codex负责`game/scripts/core/desktop_input_audit.gd
 
 | 阶段 | 目标 | 验收边界 | 状态 |
 | --- | --- | --- | --- |
-| 第三阶段：装备素材 | 德国、英国、意大利、法国各6种头盔/6种胸甲；有区别的素材、头/胸防护值和具体年代/用途/考据；骑枪外观更丰富 | 共24头盔+24胸甲，不能同图仅换属性；腿甲只外观/花纹，不另算护甲，不新增腿伤；保留已有收藏ID/存档 | 尚未实施、无文件占用 |
+| 第三阶段：装备素材 | 德国、英国、意大利、法国各6种头盔/6种胸甲；有区别的素材、头/胸防护值和具体年代/用途/考据；骑枪外观更丰富 | 共24头盔+24胸甲，不能同图仅换属性；腿甲只外观/花纹，不另算护甲，不新增腿伤；保留已有收藏ID/存档 | DEV-051完成，独立v0.4.11；文件释放，验证边界见交接 |
 | 第四阶段：运动甲声 | 由实际步态、起伏/冲击和材质驱动甲片碰撞声 | 停动安静、强弱随运动、有限叠音预算；区别于DEV-050的真实命中音 | 尚未实施、无文件占用 |
 
 当前玩家要求的AI难度、菜单存档与枪盾反馈由DEV-043实现；上一轮[REQ-042](../requirements/RIG_HORSE_EQUIPMENT_DRAFT.md)的人物、步态、双跑道与装备由DEV-042交付。下方列的是后续验收／维护，不覆盖用户新指示。

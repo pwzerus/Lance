@@ -44,6 +44,7 @@
 - 解压EXE的`-- --smoke-test`完成两模式三轮与九张实际截图；`unzip-smoke01.log`末尾`SMOKE_TEST_COMPLETE`。普通充能采样约60FPS，近身一次采样38FPS，不能据稀疏采样声称全程恒定60或跨机性能。
 - 旧v0.4.10 PCK仍为`1852DF48A4D81734A9F75E5D8C634C1475E06C65B4FC3EB736AC62D3FC037B47`。`Play-Latest.cmd`已指向独立`.11`。
 - `5ab563b`资料与`22c8104c2b62f50554a610013d399943cd81c41f`运行提交均已普通push，并用`ls-remote`核对。源码推送不等于发布GitHub Release；本轮Windows包在本地。
+- QA/启动器/交接提交`4b37a61ef4583a88ae9bf39859071b5ec831ceef`已push并用ls-remote核对；本回执仅文档更新，发布包未重导。未覆盖/提交Claude既有改动。
 
 ### 动态装备专项最终回执
 

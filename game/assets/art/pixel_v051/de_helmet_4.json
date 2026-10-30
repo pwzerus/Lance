@@ -1,0 +1,54 @@
+{
+  "id": "de_helmet_4",
+  "slot": "helmet",
+  "image_path": "res://assets/art/pixel_v051/de_helmet_4.png",
+  "source_region": [
+    185,
+    40,
+    925,
+    1198
+  ],
+  "draw_size": [
+    70,
+    80
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "a3743451b0b530c996e0b35966b553a2c21a778a8dabfcdfd3dddf33dc9f8c46",
+  "historical_reference": {
+    "title": "纽伦堡沟槽闭盔",
+    "object_number": "49.163.1a–s;27.183.15,.26,.31",
+    "date": "约1520年及后配件",
+    "manufacture": "德意志纽伦堡",
+    "url": "https://www.metmuseum.org/art/collection/search/35922",
+    "image_url": "https://images.metmuseum.org/CRDImages/aa/web-large/DP271145.jpg",
+    "image_observed": true
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "de_helmet_4_source01.png",
+    "reference_roles": [
+      "eng_helmet_5: pixel style only",
+      "Museum/manuscript original inspected separately; not supplied because image tool file decoder refused reference"
+    ],
+    "prompt_file": "de_helmet_4_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 782513,
+    "alpha1to254": 789378,
+    "alpha255": 625,
+    "notes": "Fluted rounded helmet with bellows face, distinct from bascinet. Original complete harness contains later pieces; this is head-only game adaptation. Native1254 square; no raster editing, resizing or alpha conversion.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

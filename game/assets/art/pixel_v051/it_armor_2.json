@@ -1,0 +1,54 @@
+{
+  "id": "it_armor_2",
+  "slot": "armor",
+  "image_path": "res://assets/art/pixel_v051/it_armor_2.png",
+  "source_region": [
+    154,
+    57,
+    918,
+    1188
+  ],
+  "source_size": [
+    1220,
+    1289
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    94,
+    104
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "dfcfe78281b8909ea9df8fbec2f5a2fada95e84414d5001b296e04651dac6b44",
+  "historical_reference": {
+    "title": "意式板片覆布甲",
+    "object_number": "Met29.150.105",
+    "date": "约1400年",
+    "manufacture": "意大利；具体作坊不详",
+    "url": "https://www.metmuseum.org/art/collection/search/34331",
+    "image_observed": true
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "it_armor_2_source01.png",
+    "prompt_file": "it_armor_2_source01.md",
+    "museum_image_supplied_to_tool": false,
+    "reference_roles": [
+      "Existing generated item as pixel style reference",
+      "Museum original actually observed; structural text brief supplied"
+    ]
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 725246,
+    "alpha1to254": 846339,
+    "alpha255": 995,
+    "notes": "Original inspected and imported without raster changes; historical restoration/usage limits in catalogue. Runtime pending.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

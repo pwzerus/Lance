@@ -1,0 +1,11 @@
+# DEV-051 regional equipment art
+
+48 independent generated PNG assets: 4 regional collections × (6 helmets + 6 body defenses). These are AI-assisted pixel-style game adaptations, not hand-cleaned pixel masters, exact archaeological reconstructions or photographs. Early mail and quilted defenses intentionally share European forms; regions describe the source/collection context, not exclusive national inventions.
+
+Each adjacent JSON contains the museum/manuscript reference, observed-image status, original-image SHA256, measured alpha crop, drawing size, face registration, generation provenance and inspection notes. The runtime manifest is `data/equipment_art_v051.json`; regenerate with `game/tools/build_equipment_manifest_v051.py --complete` from the repository root. It verifies source bytes, metadata and the complete 48 IDs. Godot uses AtlasTexture regions without rewriting the raster originals.
+
+Generated original candidates and prompts are in `game/art_sources/v051/` (excluded from exports). PNG bytes are copied with native file tools. Local Python binary writes caused a `%TSD-Header-###%` wrapper during development; failed evidence is preserved. Do not disable security software or use binary image rewriting as an import workaround. Museum reference images are research material, not shipped game sprites.
+
+Runtime registration: all 48 assets imported and rendered in catalogue and mirrored forward/backward, high/low guard poses. Twelve open-face helmets rendered with four face shapes and maximum beard. French sallet's lower-face opening was registered; Italian T-mouth black fill was edited to alpha transparency using imagegen source03 and re-rendered. German sallet/bevor source02 removes the incorrect attached face hinge. Evidence: `docs/development/logs/v051/poses02.json`, corresponding screenshots and V051 review documents.
+
+Existing skeletal joints, weapon anchors and finite movement rates remain unchanged. Leg motifs are decorative only. Lance variety is code-native geometry (`visual/lance_art.gd`), including crown/pointed heads, three shaft profiles, period guards, wraps and continuous break fragments; it is not advertised as 72 independently generated lance bitmaps.

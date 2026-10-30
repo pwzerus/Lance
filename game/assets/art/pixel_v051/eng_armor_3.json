@@ -1,0 +1,61 @@
+{
+  "id": "eng_armor_3",
+  "slot": "armor",
+  "image_path": "res://assets/art/pixel_v051/eng_armor_3.png",
+  "source_region": [
+    238,
+    111,
+    802,
+    1057
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    94,
+    104
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "b65bd937c2c81fd97f697b3b05b3c32c98dba561de27b1f0f8722021599c4dc7",
+  "historical_reference": {
+    "image_observed": true,
+    "image_observed_by": "appearance art agent; source photograph viewed before generation",
+    "id": "eng_armor_3",
+    "name": "英格兰 · 大陆式双片覆布甲",
+    "era": 2,
+    "historical_window": "约1400–1450；现陈列含后配",
+    "source": "Met 29.154.3",
+    "source_url": "https://www.metmuseum.org/art/collection/search/23205",
+    "description": "两块大胸片支撑合体躯干，中心三道横扣、金属包边与短下摆。",
+    "historical_note": "原物为意大利组合甲，20世纪重组且天鹅绒为现代；英格兰线进口式样为游戏改编。",
+    "manufacture": "意大利；Chalcis出土零件；1920年代组合",
+    "use_context": "展示早期大胸片与小铆片结合；不声称本件曾由英格兰人穿用",
+    "art_id": "eng_armor_3",
+    "stats": {
+      "armor_material": "brigandine"
+    },
+    "title": "英格兰 · 大陆式双片覆布甲"
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "native_path": "C:\\Users\\yifei\\.codex\\generated_images\\01a1858f-9c1e-75c2-8e55-c624311db411\\exec-497570d5-7922-42a6-8302-baed8b7c1ad6.png",
+    "source_file": "eng_armor_3_source01.png",
+    "prompt_file": "eng_armor_3_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 899991,
+    "alpha1to254": 671749,
+    "alpha255": 776,
+    "notes": "Reconstructed red textile exterior over paired upper plates and smaller lower plates, three horizontal straps, grouped rivets. Source museum velvet is modern and is not claimed as original cloth/color. No complete limbs.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

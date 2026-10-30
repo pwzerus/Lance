@@ -1,0 +1,54 @@
+{
+  "id": "it_helmet_0",
+  "slot": "helmet",
+  "image_path": "res://assets/art/pixel_v051/it_helmet_0.png",
+  "source_region": [
+    97,
+    65,
+    991,
+    1235
+  ],
+  "source_size": [
+    1180,
+    1333
+  ],
+  "open_face": true,
+  "face_rect": [
+    0.27547931382441976,
+    0.27125506072874495,
+    0.7971745711402624,
+    0.6882591093117408
+  ],
+  "draw_size": [
+    70,
+    80
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "870f05b63d94fdd60ea4d73c4143f4118cf05930589ca082fd481d34314377fb",
+  "historical_reference": {
+    "title": "南意鼻护盔",
+    "object_number": "BernCod.120.II, fol.133r",
+    "date": "约1195–1197年图像",
+    "manufacture": "图像制作于南意，可能萨莱诺；制盔作坊不详",
+    "url": "https://www.e-codices.unifr.ch/en/bbb/0120-2/133r",
+    "image_observed": true
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "it_helmet_0_source01.png",
+    "prompt_file": "it_helmet_0_source01.md",
+    "museum_image_supplied_to_tool": false,
+    "reference_roles": [
+      "Existing generated item as pixel style reference",
+      "Museum original actually observed; structural text brief supplied"
+    ]
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 862066,
+    "alpha1to254": 710041,
+    "alpha255": 833,
+    "notes": "Conical nasal and coif distinguish early form. Coif collar simplified to fit modular neck; face registration needs runtime check.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

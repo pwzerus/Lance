@@ -1,0 +1,54 @@
+{
+  "id": "de_armor_4",
+  "slot": "armor",
+  "image_path": "res://assets/art/pixel_v051/de_armor_4.png",
+  "source_region": [
+    232,
+    67,
+    825,
+    1129
+  ],
+  "draw_size": [
+    94,
+    104
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "08a436a57095469cb9b30c040f0f33ab0d3741f39a83b1ad88fb8bccabaa32a0",
+  "historical_reference": {
+    "title": "纽伦堡沟槽胸甲",
+    "object_number": "49.163.1a–s;27.183.15,.26,.31",
+    "date": "约1520年及后配件",
+    "manufacture": "德意志纽伦堡",
+    "url": "https://www.metmuseum.org/art/collection/search/35922",
+    "image_url": "https://images.metmuseum.org/CRDImages/aa/web-large/DP271145.jpg",
+    "image_observed": true
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "de_armor_4_source01.png",
+    "reference_roles": [
+      "eng_armor_5: pixel style only",
+      "Museum/manuscript original inspected separately; not supplied because image tool file decoder refused reference"
+    ],
+    "prompt_file": "de_armor_4_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 834471,
+    "alpha1to254": 737078,
+    "alpha255": 967,
+    "notes": "Dense vertical fluting, rounded breast and small lance support. Collar/waist framing simplified; not a claim all components of source suit are circa1520. Native1254 square; no raster editing, resizing or alpha conversion.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

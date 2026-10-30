@@ -1,0 +1,55 @@
+{
+  "id": "fr_armor_4",
+  "slot": "armor",
+  "image_path": "res://assets/art/pixel_v051/fr_armor_4.png",
+  "source_region": [
+    209,
+    38,
+    855,
+    1169
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    94,
+    104
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "cd4d98d38b59c34257ebc687cfd1b6833cb78f9cd1a9c4b8b3af974c5763f588",
+  "historical_reference": {
+    "title": "法兰西 · 王太子嵌银战甲",
+    "object_number": "G118",
+    "date": "约1540；制作约1536–1547",
+    "manufacture": "米兰；可能Filippo与Francesco Negroli",
+    "url": "https://www.musee-armee.fr/en/collections/museum-treasures/armour-of-the-dauphin.html",
+    "image_url": "https://www.musee-armee.fr/fileadmin/_processed_/4/3/csm_Armure_du_dauphin_en_entier_9cdb7a0799.jpg",
+    "image_observed": true,
+    "use_context": "未来亨利二世的军用护甲；游戏不复制整套甲和所有宫廷徽记"
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "fr_armor_4_source01.png",
+    "reference_roles": [
+      "eng_armor_5: pixel material and lighting only",
+      "Official source observed separately; historical form described in exact prompt"
+    ],
+    "prompt_file": "fr_armor_4_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 794146,
+    "alpha1to254": 778216,
+    "alpha255": 154,
+    "notes": "Dark steel with broad silver bands and simplified paired dolphin/crescent-like marks, long convex abdomen, narrow waist and short articulated fauld. More center rivets and idealized band geometry than source: decorative interpretation, not a Negroli facsimile. Milan manufacture distinguished from French owner.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

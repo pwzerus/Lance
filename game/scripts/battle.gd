@@ -362,7 +362,7 @@ func _handle_event(event: Dictionary) -> void:
 			riders[int(event.attacker)].receive_lance_contact(strength)
 			effects.hit(event.position,int(match_model.fighters[int(event.attacker)].direction),event.damage,event.zone=="shield",event.broke,event.zone,strength)
 			if event.broke:
-				effects.break_lance(event,mode)
+				effects.break_lance(event,mode,match_model.fighters[int(event.attacker)].stats)
 			shake = maxf(shake,lerpf(1.5,7.0,strength))
 			var kick_direction = int(match_model.fighters[int(event.attacker)].direction)
 			impact_kick += Vector2(kick_direction*lerpf(2.0,9.0,strength),-2.5*strength)

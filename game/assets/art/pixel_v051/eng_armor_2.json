@@ -1,0 +1,61 @@
+{
+  "id": "eng_armor_2",
+  "slot": "armor",
+  "image_path": "res://assets/art/pixel_v051/eng_armor_2.png",
+  "source_region": [
+    232,
+    80,
+    876,
+    1108
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    94,
+    104
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "9947b0d39d707d2c0f337c881935edd4c429355ceb234647ff8667a7e57a382a",
+  "historical_reference": {
+    "image_observed": true,
+    "image_observed_by": "appearance art agent; source photograph viewed before generation",
+    "id": "eng_armor_2",
+    "name": "英格兰 · 绗缝纹章短罩衣",
+    "era": 1,
+    "historical_window": "约1360–1376；1376前遗物",
+    "source": "Canterbury 01107 / SMG Fig.9",
+    "source_url": "https://journal.sciencemuseum.ac.uk/article/panstereomachia/",
+    "description": "合体短腰身、前襟系结与竖向绗缝；纹章分区按大色块整理。",
+    "historical_note": "黑太子原物是覆在金属甲外的绗缝罩衣；本件保留防护槽，内层和数值为游戏适配。",
+    "manufacture": "英格兰关联遗物；具体制作者未定",
+    "use_context": "Canterbury黑太子遗物；不是单独钢甲，展示图中的复制品须区别",
+    "art_id": "eng_armor_2",
+    "stats": {
+      "armor_material": "padded"
+    },
+    "title": "英格兰 · 绗缝纹章短罩衣"
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "native_path": "C:\\Users\\yifei\\.codex\\generated_images\\01a1858f-9c1e-75c2-8e55-c624311db411\\exec-4a3a0f02-7fb6-4c92-b853-b1e2076cf164.png",
+    "source_file": "eng_armor_2_source01.png",
+    "prompt_file": "eng_armor_2_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 823024,
+    "alpha1to254": 748506,
+    "alpha255": 986,
+    "notes": "Fitted vertical quilting, cloth ties and short riding slit; quartered heraldic blocks are a readable interpretation, not exact royal-armorial reconstruction. Padded textile exterior, not a standalone steel breastplate.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

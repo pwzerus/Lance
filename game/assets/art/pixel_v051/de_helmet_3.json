@@ -1,0 +1,54 @@
+{
+  "id": "de_helmet_3",
+  "slot": "helmet",
+  "image_path": "res://assets/art/pixel_v051/de_helmet_3.png",
+  "source_region": [
+    158,
+    79,
+    999,
+    1132
+  ],
+  "draw_size": [
+    70,
+    80
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "b05a9de2bc5fdbc700bcdf39496bf47d8a02e00843ca096712e0c14efa47e38d",
+  "historical_reference": {
+    "title": "哥特式盔与护颏",
+    "object_number": "29.158.6a,b",
+    "date": "1480年",
+    "manufacture": "德意志；具体作坊不详",
+    "url": "https://www.metmuseum.org/art/collection/search/34258",
+    "image_url": "https://images.metmuseum.org/CRDImages/aa/web-large/29.158.6a_005june2015.jpg",
+    "image_observed": true
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "de_helmet_3_source02.png",
+    "reference_roles": [
+      "de_helmet_3 source01: existing pixel style and layout, historical hinge corrected",
+      "Met29.158.6a,b official photo: separate sallet-and-bevor construction"
+    ],
+    "prompt_file": "de_helmet_3_source02.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 843532,
+    "alpha1to254": 727733,
+    "alpha255": 1251,
+    "notes": "Source02 removes the erroneous large temple pivot and connector joining the lower face to the upper helmet. Upper sallet and separate broad bevor now have independently bounded edges with a thin viewing gap. Some slit width, tail length and lower-flare scale remain pixel-readable game exaggerations; not a moving or exact historical replica. Native source copied unchanged; source01 retained for failure history.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

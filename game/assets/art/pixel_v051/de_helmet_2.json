@@ -1,0 +1,54 @@
+{
+  "id": "de_helmet_2",
+  "slot": "helmet",
+  "image_path": "res://assets/art/pixel_v051/de_helmet_2.png",
+  "source_region": [
+    211,
+    46,
+    980,
+    1165
+  ],
+  "draw_size": [
+    70,
+    80
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "52e48d73f67dd67f10c3de9887c144d38eda9bc5d5332467b9fcabca48fd3d92",
+  "historical_reference": {
+    "title": "德式长面罩盔",
+    "object_number": "29.156.65",
+    "date": "约1400年",
+    "manufacture": "德意志；具体作坊不详",
+    "url": "https://www.metmuseum.org/art/collection/search/34323",
+    "image_url": "https://images.metmuseum.org/CRDImages/aa/web-large/29.156.65_006june2015.jpg",
+    "image_observed": true
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "de_helmet_2_source02.png",
+    "reference_roles": [
+      "eng_helmet_5: pixel style only",
+      "Museum/manuscript original inspected separately; not supplied because image tool file decoder refused reference"
+    ],
+    "prompt_file": "de_helmet_2_source02.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 912244,
+    "alpha1to254": 659363,
+    "alpha255": 909,
+    "notes": "Revision02 removes anachronistic solid neck gorget, extends conical muzzle. No mail aventail drawn; attachment rim only. First rejected source retained. Native1254 square; no raster editing, resizing or alpha conversion.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

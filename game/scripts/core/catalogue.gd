@@ -6,7 +6,8 @@ const REGION_COLORS = [Color("416f8e"), Color("a75042"), Color("b39758"), Color(
 const ERAS = ["1100–1300", "1300–1400", "1400–1470", "1470–1530", "1530–1600"]
 const ERA_NAMES = ["锁甲与纹章", "板片的时代", "钢铁的轮廓", "比武的盛世", "宫廷与工坊"]
 const ERA_REQUIREMENTS = [0, 6, 16, 30, 48]
-const SLOT_NAMES = {"armor": "甲胄", "helmet": "头盔", "lance": "骑枪", "shield": "盾牌", "horse": "坐骑", "crest": "纹章"}
+const SLOT_NAMES = {"armor": "胸甲", "helmet": "头盔", "lance": "骑枪", "shield": "盾牌", "horse": "坐骑", "crest": "纹章"}
+const HISTORY_FILES = ["res://data/history_v051_en_fr.json","res://data/history_v051_de_it.json"]
 
 static func load_items() -> Array:
 	var raw = FileAccess.get_file_as_string("res://data/equipment.json")
@@ -21,10 +22,67 @@ static func load_items() -> Array:
 			else:
 				items.append(item)
 	items.append({"id":"shield_basic","name":"旧式绘饰盾","slot":"shield","era":0,"price":0,"region":"欧洲共通","stats":{"shield_capacity":78.0,"shield_handling":1.0,"shield_quality":0},"description":"已有骑手的基础盾牌。","source":"S33 · 游戏改编","historical_note":"沿用旧版基础防护，新增槽位不删除已有收藏。"})
+	_apply_history(items)
 	return items
 
+static func _apply_history(items: Array) -> void:
+	# Partial overrides preserve owned IDs, prices and existing numerical balance.
+	for path in HISTORY_FILES:
+		if not FileAccess.file_exists(path):
+			continue
+		var records = JSON.parse_string(FileAccess.get_file_as_string(path))
+		if not records is Array:
+			push_error("Invalid equipment history: "+path)
+			continue
+		for record in records:
+			var item = find(items,str(record.get("id","")))
+			if item.is_empty():
+				push_error("Unknown historical equipment ID: "+str(record.get("id","")))
+				continue
+			item["progression_era"] = int(item.get("progression_era",item.era))
+			for key in record:
+				if key=="stats":
+					item.stats.merge(record.stats,true)
+				elif key not in ["id","slot","price","renown","quality","quality_name"]:
+					item[key] = record[key]
+			item.stats["armor_art" if item.slot=="armor" else "helmet_art"] = str(record.get("art_id",item.id))
+	# Existing starter and old-era purchases remain usable with new matching art.
+	# Only shape/period-compatible legacy matches; unmatched old-era pieces
+	# retain their existing art instead of silently becoming later imports.
+	var aliases = {"mail_basic":"eng_armor_1","mail_eng":"eng_armor_1","mail_fr":"fr_armor_1","mail_de":"de_armor_0","mail_it":"it_armor_1","helm_nasal":"eng_helmet_0","helm_great":"eng_helmet_1","helm_gilt":"fr_helmet_1","armor_e1":"fr_armor_2","helm_e1":"fr_helmet_2","armor_e3":"de_armor_3","helm_e3":"de_helmet_3","armor_e4":"it_armor_5","helm_e4":"it_helmet_5"}
+	for item_id in aliases:
+		var old = find(items,item_id)
+		var reference = find(items,aliases[item_id])
+		if old.is_empty() or reference.is_empty():
+			continue
+		var art_key = "armor_art" if old.slot=="armor" else "helmet_art"
+		old.stats[art_key] = reference.stats.get(art_key,aliases[item_id])
+		old["name"] = str(reference.name).split(" · ")[-1]+"（旧藏）"
+		old["description"] = reference.description
+		old["historical_window"] = reference.get("historical_window",ERAS[int(old.era)])
+		old["source"] = reference.source
+		old["source_url"] = reference.get("source_url","")
+		old["manufacture"] = reference.get("manufacture","")
+		old["use_context"] = reference.get("use_context","")
+		old["historical_note"] = str(reference.historical_note)+" 旧藏沿用原数值，新外观为上述形制改编。"
+	for item in items:
+		if item.slot in ["armor","helmet"]:
+			item["legacy"] = not item.has("art_id")
+		if item.slot=="lance":
+			item.stats["lance_era"] = int(item.era)
+			item.stats["lance_region"] = str(item.region)
+			item.stats["lance_style"] = str(item.stats.get("lance_type","standard"))
+		elif item.slot=="armor":
+			# Cosmetic pattern only: no leg protection, hitbox or stat contribution.
+			item.stats["leg_decoration"] = REGIONS.find(str(item.region))+1
+
 static func required_renown(item: Dictionary) -> int:
-	return maxi(int(item.get("renown",0)),ERA_REQUIREMENTS[int(item.era)])
+	return maxi(int(item.get("renown",0)),ERA_REQUIREMENTS[unlock_era(item)])
+
+static func unlock_era(item: Dictionary) -> int:
+	# Historical display dates may be corrected without silently increasing
+	# the price/progression gate of an existing purchasable ID.
+	return int(item.get("progression_era",item.era))
 
 static func find(items: Array, item_id: String) -> Dictionary:
 	for item in items:

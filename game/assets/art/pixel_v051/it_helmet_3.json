@@ -1,0 +1,54 @@
+{
+  "id": "it_helmet_3",
+  "slot": "helmet",
+  "image_path": "res://assets/art/pixel_v051/it_helmet_3.png",
+  "source_region": [
+    217,
+    80,
+    810,
+    1178
+  ],
+  "source_size": [
+    1215,
+    1295
+  ],
+  "open_face": true,
+  "face_rect": [
+    0.29,
+    0.14,
+    0.77,
+    0.88
+  ],
+  "draw_size": [
+    70,
+    80
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "9909e15df85db8985bd2872248d8f97d36c14db3da408e6e27cd836dc3706aa5",
+  "historical_reference": {
+    "title": "米兰T面巴布特盔",
+    "object_number": "Met42.50.15",
+    "date": "约1460年",
+    "manufacture": "意大利米兰；工匠标识解释有争议",
+    "url": "https://www.metmuseum.org/art/collection/search/27960",
+    "image_observed": true
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "it_helmet_3_source03.png",
+    "prompt_file": "it_helmet_3_source03.md",
+    "museum_image_supplied_to_tool": false,
+    "reference_roles": [
+      "Existing generated item as pixel style reference",
+      "Museum original actually observed; structural text brief supplied"
+    ]
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 857016,
+    "alpha1to254": 715008,
+    "alpha255": 1401,
+    "notes": "Imagegen edited the existing T mouth aperture to transparent; rim and silhouette preserved. Prior opaque candidate retained. Pixel samples at 850,800 and 850,1000 now alpha0.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

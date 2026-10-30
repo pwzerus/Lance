@@ -1,0 +1,54 @@
+{
+  "id": "it_helmet_2",
+  "slot": "helmet",
+  "image_path": "res://assets/art/pixel_v051/it_helmet_2.png",
+  "source_region": [
+    205,
+    48,
+    857,
+    1218
+  ],
+  "source_size": [
+    1199,
+    1312
+  ],
+  "open_face": true,
+  "face_rect": [
+    0.3908984830805134,
+    0.29720853858784896,
+    0.7584597432905484,
+    0.8456486042692939
+  ],
+  "draw_size": [
+    70,
+    80
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "0dcb390fdc975139dc62b421176a350c1d5114a0b3adc9f257aff001a4e031ab",
+  "historical_reference": {
+    "title": "深颊尖顶盔",
+    "object_number": "Met29.158.43",
+    "date": "约1350–1400年，后有修复",
+    "manufacture": "意大利；具体作坊不详",
+    "url": "https://www.metmuseum.org/art/collection/search/23238",
+    "image_observed": true
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "it_helmet_2_source01.png",
+    "prompt_file": "it_helmet_2_source01.md",
+    "museum_image_supplied_to_tool": false,
+    "reference_roles": [
+      "Existing generated item as pixel style reference",
+      "Museum original actually observed; structural text brief supplied"
+    ]
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 943176,
+    "alpha1to254": 628626,
+    "alpha255": 1286,
+    "notes": "Smooth high bowl and deep cheeks, no visor; actual open aperture is transparent. Later restoration of reference documented in catalogue.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

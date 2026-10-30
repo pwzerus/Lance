@@ -1,0 +1,85 @@
+{
+  "id": "fr_helmet_5",
+  "slot": "helmet",
+  "image_path": "res://assets/art/pixel_v051/fr_helmet_5.png",
+  "source_region": [
+    86,
+    26,
+    1037,
+    1305
+  ],
+  "open_face": true,
+  "face_rect": [
+    0.43,
+    0.3,
+    0.62,
+    0.72
+  ],
+  "draw_size": [
+    70,
+    80
+  ],
+  "source_size": [
+    1173,
+    1341
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "7fb433fbc518a14e36c50cee5c4d66c2325364f7c73cd71eca71a2e3225a1e14",
+  "historical_reference": {
+    "title": "法兰西 · 浮雕梳冠勃艮第盔",
+    "object_number": "04.3.217",
+    "date": "约1550",
+    "manufacture": "法国；装饰与枫丹白露宫廷艺术关联",
+    "url": "https://www.metmuseum.org/art/collection/search/21979",
+    "image_url": "https://images.metmuseum.org/CRDImages/aa/web-large/DP273710.jpg",
+    "image_observed": true,
+    "use_context": "宫廷豪华头盔；可拆护面配件不与各时代头盔随意混装"
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "fr_helmet_5_source01.png",
+    "reference_roles": [
+      "eng_helmet_5: pixel material and lighting only",
+      "Official source observed separately; historical form described in exact prompt"
+    ],
+    "prompt_file": "fr_helmet_5_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 813271,
+    "alpha1to254": 758342,
+    "alpha255": 1380,
+    "notes": "High comb, turned peak, cheek guard and neck rim. True transparent opening in front; proposed full face canvas must be tested in engine both facings. Relief simplified to one circular cheek ornament and broad gold bands, not exact engraved reproduction.",
+    "transparent_face_probe": [
+      {
+        "pixel": [
+          800,
+          800
+        ],
+        "alpha": 1
+      },
+      {
+        "pixel": [
+          950,
+          750
+        ],
+        "alpha": 0
+      },
+      {
+        "pixel": [
+          1000,
+          850
+        ],
+        "alpha": 0
+      },
+      {
+        "pixel": [
+          800,
+          1100
+        ],
+        "alpha": 253
+      }
+    ],
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

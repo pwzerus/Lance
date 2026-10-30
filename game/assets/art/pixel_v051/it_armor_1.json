@@ -1,0 +1,54 @@
+{
+  "id": "it_armor_1",
+  "slot": "armor",
+  "image_path": "res://assets/art/pixel_v051/it_armor_1.png",
+  "source_region": [
+    168,
+    78,
+    885,
+    1171
+  ],
+  "source_size": [
+    1193,
+    1319
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    94,
+    104
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "db73675e6882ae77205d39f4604851fb7d81b5b8d6519aa4035c2cd35faa2853",
+  "historical_reference": {
+    "title": "南意覆布锁甲",
+    "object_number": "BernCod.120.II, fol.132r",
+    "date": "12世纪末形制改编",
+    "manufacture": "图像制作于南意；组合与配色为游戏改编",
+    "url": "https://www.e-codices.unifr.ch/en/bbb/0120-2/132r",
+    "image_observed": true
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "it_armor_1_source01.png",
+    "prompt_file": "it_armor_1_source01.md",
+    "museum_image_supplied_to_tool": false,
+    "reference_roles": [
+      "Existing generated item as pixel style reference",
+      "Museum original actually observed; structural text brief supplied"
+    ]
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 772104,
+    "alpha1to254": 800329,
+    "alpha255": 1134,
+    "notes": "Original inspected and imported without raster changes; historical restoration/usage limits in catalogue. Runtime pending.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

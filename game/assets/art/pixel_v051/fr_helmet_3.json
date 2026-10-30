@@ -1,0 +1,77 @@
+{
+  "id": "fr_helmet_3",
+  "slot": "helmet",
+  "image_path": "res://assets/art/pixel_v051/fr_helmet_3.png",
+  "source_region": [
+    218,
+    58,
+    822,
+    1136
+  ],
+  "open_face": true,
+  "face_rect": [
+    0.465,
+    0.257,
+    0.608,
+    0.722
+  ],
+  "draw_size": [
+    70,
+    80
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "28ae63a7cdf0b2e59fe951c52122c070ddd50077edabf5f205fbd7a460fbd072",
+  "historical_reference": {
+    "title": "法兰西 · 高尖开放巴西内盔",
+    "object_number": "04.3.241",
+    "date": "ca. 1375–1425; game collection window 1400–1425",
+    "manufacture": "possibly French",
+    "url": "https://www.metmuseum.org/art/collection/search/21988",
+    "image_url": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/21988/60448/main-image",
+    "image_observed": true,
+    "image_observed_by": "appearance art agent; source photograph viewed before generation"
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "fr_helmet_3_source01.png",
+    "reference_roles": [
+      "Met photo: shell silhouette and actual open aperture",
+      "eng_helmet_5: pixel cluster style only"
+    ],
+    "prompt_file": "fr_helmet_3_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 1004866,
+    "alpha1to254": 566346,
+    "alpha255": 1304,
+    "transparent_face_probe": [
+      {
+        "pixel": [
+          800,
+          700
+        ],
+        "alpha": 0
+      },
+      {
+        "pixel": [
+          850,
+          900
+        ],
+        "alpha": 0
+      }
+    ],
+    "face_layout_source_rect": [
+      600,
+      350,
+      500,
+      820
+    ],
+    "notes": "Tall open bascinet with no visor or person. Source includes real transparent face area. face_rect is a proposed full 32x40 Face.draw_face canvas extending beneath opaque brow/cheeks, not a tight aperture rectangle; parent must verify pixel face registration. Corroded museum steel rendered as clean serviceable steel; no Joan of Arc attribution.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

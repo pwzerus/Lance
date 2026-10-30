@@ -1,0 +1,54 @@
+{
+  "id": "it_helmet_4",
+  "slot": "helmet",
+  "image_path": "res://assets/art/pixel_v051/it_helmet_4.png",
+  "source_region": [
+    122,
+    169,
+    935,
+    1064
+  ],
+  "source_size": [
+    1156,
+    1361
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    70,
+    80
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "373c2f208e389d27724f430b377ffc9c14d89375cc0d048c58cfedd932c25037",
+  "historical_reference": {
+    "title": "米兰式双颊闭盔",
+    "object_number": "Met49.163.4",
+    "date": "约1490年",
+    "manufacture": "意大利，具体作坊不详",
+    "url": "https://www.metmuseum.org/art/collection/search/24810",
+    "image_observed": true
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "it_helmet_4_source01.png",
+    "prompt_file": "it_helmet_4_source01.md",
+    "museum_image_supplied_to_tool": false,
+    "reference_roles": [
+      "Existing generated item as pixel style reference",
+      "Museum original actually observed; structural text brief supplied"
+    ]
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 867941,
+    "alpha1to254": 704682,
+    "alpha255": 693,
+    "notes": "Second generation corrected historical outline/aperture; exact pixels remain a game adaptation. Runtime registration pending.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

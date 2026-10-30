@@ -156,7 +156,7 @@ func purchase(item_id: String) -> String:
 		return "物品不存在"
 	if item_id in profile.owned:
 		return "已经拥有"
-	if int(item.era) > Catalogue.era_for_renown(int(profile.renown)):
+	if Catalogue.unlock_era(item) > Catalogue.era_for_renown(int(profile.renown)):
 		return "尚未解锁这个时代"
 	if int(profile.renown)<Catalogue.required_renown(item):
 		return "需要 %d 声望" % Catalogue.required_renown(item)

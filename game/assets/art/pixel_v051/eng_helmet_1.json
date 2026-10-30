@@ -1,0 +1,61 @@
+{
+  "id": "eng_helmet_1",
+  "slot": "helmet",
+  "image_path": "res://assets/art/pixel_v051/eng_helmet_1.png",
+  "source_region": [
+    206,
+    151,
+    860,
+    1030
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    70,
+    80
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "1e013e6904093e492c50a02f0a268c0a0399da12e83175126979d1e3715cd204",
+  "historical_reference": {
+    "image_observed": true,
+    "image_observed_by": "appearance art agent; source photograph viewed before generation",
+    "id": "eng_helmet_1",
+    "name": "英格兰 · 平顶包面大盔",
+    "era": 0,
+    "historical_window": "约1250",
+    "source": "Met 17.190.231",
+    "source_url": "https://www.metmuseum.org/art/collection/search/464233",
+    "description": "平顶筒状包面盔，窄视缝与硬直前脸明显区别鼻铁盔。",
+    "historical_note": "原物是约1250年英国骑士棋子，不是实存钢盔；钢制结构与孔位为据图改编。",
+    "manufacture": "棋子可能伦敦制作；所示钢盔工坊不详",
+    "use_context": "同期英国骑士装备图证；不复制棋子的人脸与象牙材质",
+    "art_id": "eng_helmet_1",
+    "stats": {
+      "helmet_material": "steel"
+    },
+    "title": "英格兰 · 平顶包面大盔"
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "native_path": "C:\\Users\\yifei\\.codex\\generated_images\\01a1858f-9c1e-75c2-8e55-c624311db411\\exec-bda596b5-6f7f-4c05-ab6c-e164066303cf.png",
+    "source_file": "eng_helmet_1_source01.png",
+    "prompt_file": "eng_helmet_1_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 799735,
+    "alpha1to254": 771728,
+    "alpha255": 1053,
+    "notes": "Flat cylindrical shell, closed face, no person. Period chess depiction translated to steel; rivet layout and material are game adaptations.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

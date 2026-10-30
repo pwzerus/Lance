@@ -1,0 +1,55 @@
+{
+  "id": "fr_helmet_1",
+  "slot": "helmet",
+  "image_path": "res://assets/art/pixel_v051/fr_helmet_1.png",
+  "source_region": [
+    93,
+    94,
+    967,
+    1239
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    70,
+    80
+  ],
+  "source_size": [
+    1122,
+    1402
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "b298290ef41ca907dd9eba3faf00aeb16aa1054a2e0a96ebd42a0af34c1b4d4e",
+  "historical_reference": {
+    "title": "法兰西 · 平顶包面盔",
+    "object_number": "MS M.638 f.23v",
+    "date": "约1244–1254",
+    "manufacture": "图像绘于巴黎；所示钢盔工坊未定",
+    "url": "https://ica.themorgan.org/manuscript/page/46/158530",
+    "image_url": "https://ica.themorgan.org/icaimages/6/m638.023v.jpg",
+    "image_observed": true,
+    "use_context": "法国13世纪图证；绘画为结构来源，不是存世整盔的测绘"
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "fr_helmet_1_source01.png",
+    "reference_roles": [
+      "eng_helmet_5: pixel material and lighting only",
+      "Official source observed separately; historical form described in exact prompt"
+    ],
+    "prompt_file": "fr_helmet_1_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 544824,
+    "alpha1to254": 1026381,
+    "alpha255": 1839,
+    "notes": "Low flat-topped enclosed helm; prominent seams and breathing holes are enlarged for readability. No face inside eye slits. Rivet arrangement is game interpretation of manuscript structure, not a measured surviving helm.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "it_helmet_1",
+  "slot": "helmet",
+  "image_path": "res://assets/art/pixel_v051/it_helmet_1.png",
+  "source_region": [
+    182,
+    83,
+    858,
+    1213
+  ],
+  "source_size": [
+    1176,
+    1337
+  ],
+  "open_face": true,
+  "face_rect": [
+    0.3822843822843823,
+    0.3107996702390767,
+    0.7808857808857809,
+    0.7831821929101401
+  ],
+  "draw_size": [
+    70,
+    80
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "8ae7cf2f223de105ff75f1f72e13b5dc44418012646b1fd673bd66ccc40986d6",
+  "historical_reference": {
+    "title": "分面早期尖顶盔",
+    "object_number": "Met29.158.44",
+    "date": "约1325–1350年",
+    "manufacture": "可能意大利，归属不确定",
+    "url": "https://www.metmuseum.org/art/collection/search/23239",
+    "image_observed": true
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "it_helmet_1_source01.png",
+    "prompt_file": "it_helmet_1_source01.md",
+    "museum_image_supplied_to_tool": false,
+    "reference_roles": [
+      "Existing generated item as pixel style reference",
+      "Museum original actually observed; structural text brief supplied"
+    ]
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 1001223,
+    "alpha1to254": 569934,
+    "alpha255": 1155,
+    "notes": "Faceting and complete brow replace later cut eye notches; short aventail is game reconstruction, no preserved-original claim.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "it_armor_0",
+  "slot": "armor",
+  "image_path": "res://assets/art/pixel_v051/it_armor_0.png",
+  "source_region": [
+    154,
+    100,
+    886,
+    1146
+  ],
+  "source_size": [
+    1190,
+    1322
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    94,
+    104
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "ebab6927bb4e6520522bdf85dadd8e28df190626c766e6c84ed534e7c1bb5295",
+  "historical_reference": {
+    "title": "南意朴素锁甲",
+    "object_number": "BernCod.120.II, fol.132r/133r",
+    "date": "约1195–1197年图像",
+    "manufacture": "图像制作于南意；锁甲实际制造地不详",
+    "url": "https://www.e-codices.unifr.ch/en/bbb/0120-2/133r",
+    "image_observed": true
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "it_armor_0_source01.png",
+    "prompt_file": "it_armor_0_source01.md",
+    "museum_image_supplied_to_tool": false,
+    "reference_roles": [
+      "Existing generated item as pixel style reference",
+      "Museum original actually observed; structural text brief supplied"
+    ]
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 791075,
+    "alpha1to254": 781321,
+    "alpha255": 784,
+    "notes": "Original inspected and imported without raster changes; historical restoration/usage limits in catalogue. Runtime pending.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

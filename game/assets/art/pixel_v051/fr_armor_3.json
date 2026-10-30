@@ -1,0 +1,55 @@
+{
+  "id": "fr_armor_3",
+  "slot": "armor",
+  "image_path": "res://assets/art/pixel_v051/fr_armor_3.png",
+  "source_region": [
+    238,
+    71,
+    837,
+    1082
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    94,
+    104
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "3c2ea22d75c43a10934659fad2ba03b0dd2cc9146f532e6a1331689b2cb28dba",
+  "historical_reference": {
+    "title": "法兰西 · 意式细铆绒甲",
+    "object_number": "1921.1250",
+    "date": "约1500–1525",
+    "manufacture": "可能意大利；具体工坊未知",
+    "url": "https://www.clevelandart.org/art/1921.1250",
+    "image_url": "https://piction.clevelandart.org/cma/ump.di?e=B3F3533B1DAF9F1C9743856CE368183060D2AD3A9228DF87ED25FA6411F15C58&s=24247294&se=116628280&v=1&f=%5Cd9941%5Cu228099412%5C1921.1250_o5.jpg",
+    "image_observed": true,
+    "use_context": "骑士及步兵皆可用的brigandine形制；本例采用金绒豪华面层"
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "fr_armor_3_source01.png",
+    "reference_roles": [
+      "eng_armor_5: pixel material and lighting only",
+      "Official source observed separately; historical form described in exact prompt"
+    ],
+    "prompt_file": "fr_armor_3_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 867192,
+    "alpha1to254": 704486,
+    "alpha255": 838,
+    "notes": "Gold cloth brigandine with dense small rivet grid, side ties, scalloped arm/hem edges; no rigid metal chest. Pixel rivets enlarged and row count simplified. Possibly Italian manufacture assigned to French game collection as imported/common form, not proven original French use.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

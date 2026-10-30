@@ -1,0 +1,54 @@
+{
+  "id": "it_armor_3",
+  "slot": "armor",
+  "image_path": "res://assets/art/pixel_v051/it_armor_3.png",
+  "source_region": [
+    146,
+    82,
+    901,
+    1156
+  ],
+  "source_size": [
+    1193,
+    1319
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    94,
+    104
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "1063eb0f7fb43220f0a2b2314746a48f95daae5f5753a935086a6dd537a4bcb2",
+  "historical_reference": {
+    "title": "北意中脊胸甲",
+    "object_number": "Cleveland1919.63",
+    "date": "约1475–1500年",
+    "manufacture": "北意大利；具体作坊不详",
+    "url": "https://www.clevelandart.org/art/1919.63",
+    "image_observed": true
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "it_armor_3_source01.png",
+    "prompt_file": "it_armor_3_source01.md",
+    "museum_image_supplied_to_tool": false,
+    "reference_roles": [
+      "Existing generated item as pixel style reference",
+      "Museum original actually observed; structural text brief supplied"
+    ]
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 761587,
+    "alpha1to254": 811165,
+    "alpha255": 815,
+    "notes": "Original inspected and imported without raster changes; historical restoration/usage limits in catalogue. Runtime pending.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

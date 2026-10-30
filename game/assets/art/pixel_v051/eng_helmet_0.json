@@ -1,0 +1,74 @@
+{
+  "id": "eng_helmet_0",
+  "slot": "helmet",
+  "image_path": "res://assets/art/pixel_v051/eng_helmet_0.png",
+  "source_region": [
+    223,
+    109,
+    838,
+    1048
+  ],
+  "open_face": true,
+  "face_rect": [
+    0.2888,
+    0.3445,
+    0.8831,
+    0.6679
+  ],
+  "draw_size": [
+    70,
+    80
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "af8cfab4d79caebc393ad3d039806f9f00dd85f9782ae29f5ef777306b3b03f1",
+  "historical_reference": {
+    "image_observed": true,
+    "image_observed_by": "motion_review research agent; art agent read the current catalogue and structural brief",
+    "id": "eng_helmet_0",
+    "name": "英格兰 · 欧洲式鼻铁盔",
+    "era": 0,
+    "historical_window": "12世纪末–13世纪初",
+    "source": "Met L.2018.48.13",
+    "source_url": "https://www.metmuseum.org/art/collection/search/810947",
+    "description": "开放式盔碗与独立鼻铁保留清晰轮廓；未遮住两颊。",
+    "historical_note": "欧洲共通形制；馆方未定具体产地，英格兰收藏线为游戏编排，银线简化。",
+    "manufacture": "欧洲；具体工坊未定",
+    "use_context": "西欧鼻铁盔结构参考；不证明此原物曾在英格兰使用",
+    "art_id": "eng_helmet_0",
+    "stats": {
+      "helmet_material": "steel"
+    },
+    "title": "英格兰 · 欧洲式鼻铁盔"
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "native_path": "C:\\Users\\yifei\\.codex\\generated_images\\01a1858f-9c1e-75c2-8e55-c624311db411\\exec-36eaaa9d-f19f-4a48-95f6-7d7db68c0311.png",
+    "source_file": "eng_helmet_0_source01.png",
+    "prompt_file": "eng_helmet_0_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 1073873,
+    "alpha1to254": 497197,
+    "alpha255": 1446,
+    "transparent_face_probe": {
+      "pixel": [
+        752,
+        878
+      ],
+      "alpha": 0
+    },
+    "face_layout_source_rect": [
+      465,
+      470,
+      740,
+      700
+    ],
+    "notes": "Nasal/coif overlay, face is true transparency. Underlying mail coif is a wearable game addition, not part of the isolated original cap. Met text inspected here; restricted object thumbnail reviewed by history subtask only, not used as an imagegen input.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

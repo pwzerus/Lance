@@ -1,0 +1,55 @@
+{
+  "id": "eng_helmet_5",
+  "slot": "helmet",
+  "image_path": "res://assets/art/pixel_v051/eng_helmet_5.png",
+  "source_region": [
+    218,
+    48,
+    919,
+    1165
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    70,
+    80
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "f93315d6b3180148c1a2521756cb950ea965f0fc8e1cd7d15de9fb3e1a124d12",
+  "historical_reference": {
+    "title": "英格兰 · 伊丽莎白式尖喙闭盔",
+    "object_number": "32.130.6a–y; 36.98.1",
+    "date": "1586",
+    "manufacture": "Greenwich, England",
+    "url": "https://www.metmuseum.org/art/collection/search/851637",
+    "image_url": "https://images.metmuseum.org/CRDImages/aa/web-large/DT259974.jpg",
+    "image_observed": true,
+    "image_observed_by": "appearance art agent; source photograph viewed before generation"
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "eng_helmet_5_source01.png",
+    "reference_roles": [
+      "Met photo: historical silhouette",
+      "equipment_eras.png: pixel style only"
+    ],
+    "prompt_file": "eng_helmet_5_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 859348,
+    "alpha1to254": 712231,
+    "alpha255": 937,
+    "notes": "One closed helmet, no skin/eyes. Raised comb and broad gold ornament are stylized and more pronounced than the reference, not an exact reconstruction. Native canvas is 1254 square despite a 1024 prompt; source_region is measured. No raster editing, resizing or alpha conversion.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

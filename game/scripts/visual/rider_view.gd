@@ -11,6 +11,7 @@ const Shield = preload("res://scripts/core/shield_geometry.gd")
 const ArmArt = preload("res://scripts/visual/rider_arm_art.gd")
 const Face = preload("res://scripts/visual/character_face.gd")
 const HorseSkin = preload("res://scripts/visual/horse_skin.gd")
+const Lance = preload("res://scripts/visual/lance_art.gd")
 const PIXEL_SHADER = preload("res://scripts/visual/mounted_pixel.gdshader")
 const ARM_UPPER = 44.0
 const ARM_LOWER = 46.0
@@ -187,11 +188,11 @@ func _draw() -> void:
 	var head_tier = int(fighter.stats.get("helmet_tier",0))
 	var design = str(fighter.stats.get("heraldry","bend"))
 	var armor_red = bool(fighter.stats.get("armor_red",red))
-	var next_key = "%d/%d/%s/%s/%s" % [tier,head_tier,design,armor_red,fighter.stats.get("gilt",false)]
+	var next_key = "%d/%d/%s/%s/%s/%s/%s" % [tier,head_tier,design,armor_red,fighter.stats.get("gilt",false),fighter.stats.get("armor_art",""),fighter.stats.get("helmet_art","")]
 	if next_key != art_key:
 		art_key = next_key
-		torso_texture = Art.torso(tier,armor_red)
-		head_texture = Art.helmet(head_tier,bool(fighter.stats.get("gilt",false)))
+		torso_texture = Art.torso_for(fighter.stats,armor_red)
+		head_texture = Art.helmet_for(fighter.stats)
 		shield_texture = Art.shield(design)
 	var facing = int(fighter.direction)
 	if not detached_pose.is_empty():
@@ -260,7 +261,16 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 	head_transform.x *= facing
 	draw_set_transform_matrix(head_transform)
 	var head_width = 84.0 if head_tier==4 else 70.0
-	if head_tier==0:
+	var helmet_art = Art.descriptor(fighter.stats,"helmet")
+	if not helmet_art.is_empty() and Art.equipment_texture(fighter.stats,"helmet")!=null:
+		var draw_size: Array = helmet_art.get("draw_size",[70,80])
+		var head_box = Rect2(-float(draw_size[0])*.5,-151,float(draw_size[0]),float(draw_size[1]))
+		if bool(helmet_art.get("open_face",false)):
+			var face_region: Array = helmet_art.get("face_rect",[.2,.22,.6,.72])
+			var appearance: Dictionary = fighter.stats.get("appearance",Face.Appearance.variant(hash(str(fighter.stats.get("armor_color",""))+str(fighter.stats.get("shield_color","")))))
+			Face.draw_face(self,appearance,Rect2(head_box.position+Vector2(face_region[0],face_region[1])*head_box.size,Vector2(face_region[2],face_region[3])*head_box.size))
+		draw_texture_rect(head_texture,head_box,false)
+	elif head_tier==0:
 		var appearance: Dictionary = fighter.stats.get("appearance",Face.Appearance.variant(hash(str(fighter.stats.get("armor_color",""))+str(fighter.stats.get("shield_color","")))))
 		Face.draw_head(self,appearance,head_tier,Color(str(fighter.stats.get("helmet_color","8e999c"))),Rect2(-head_width*.5,-151,head_width,80))
 	else:
@@ -409,11 +419,33 @@ func _draw_seated_leg(pose: Dictionary, tint: Color, near: bool) -> void:
 	draw_line(strap_top+Vector2(1,0),stirrup+Vector2(1,0),Color("805b34")*stirrup_tint,2)
 	_draw_rider_leg_patch(Rect2(687,633,204,117),Vector2(749,663),Vector2(823,748),pose.hip,pose.knee,.30,tint)
 	_draw_rider_leg_patch(Rect2(744,736,148,197),Vector2(823,748),Vector2(804,862),pose.knee,pose.ankle,.29,tint)
+	_draw_leg_ornament(pose,tint)
 	var loop = PackedVector2Array([stirrup+Vector2(-9,-7),stirrup+Vector2(-12,9),stirrup+Vector2(14,9),stirrup+Vector2(10,-7)])
 	draw_polyline(loop,Color("242b2b")*stirrup_tint,4)
 	draw_line(stirrup+Vector2(-10,8),stirrup+Vector2(12,8),Color("9b9d8d")*stirrup_tint,2)
 	if near:
 		draw_line(pose.hip+Vector2(-9,0),pose.hip+Vector2(9,4),Color("b38e47"),3)
+
+func _draw_leg_ornament(pose: Dictionary, tint: Color) -> void:
+	var pattern = int(fighter.stats.get("leg_decoration",0))
+	if pattern==0:
+		return
+	var along: Vector2 = (pose.ankle-pose.knee).normalized()
+	var across = Vector2(-along.y,along.x)
+	var center: Vector2 = pose.knee+along*14.0
+	var trim = Color("c5a366")*tint
+	match pattern:
+		1:
+			for offset in [0.0,6.0]:
+				draw_polyline(PackedVector2Array([center+along*offset-across*5,center+along*(offset+3),center+along*offset+across*5]),trim,1.5,false)
+		2:
+			draw_polyline(PackedVector2Array([center-along*5,center+across*4,center+along*5,center-across*4,center-along*5]),trim,1.5,false)
+		3:
+			draw_line(center-along*5,center+along*5,trim,2,false)
+			draw_line(center-across*4,center+across*4,trim,2,false)
+		4:
+			for sign_value in [-1,1]:
+				draw_line(center+along*5,center-along*4+across*4*sign_value,trim,1.5,false)
 
 func _draw_rider_leg_patch(region: Rect2, source_a: Vector2, source_b: Vector2, a: Vector2, b: Vector2, thickness: float, tint: Color) -> void:
 	var source_axis = (source_b-source_a).normalized()
@@ -495,47 +527,10 @@ static func mirrored_transform(origin: Vector2, angle: float, facing: int) -> Tr
 	return Transform2D(Vector2.RIGHT.rotated(angle)*mirror,Vector2.DOWN.rotated(angle)*mirror,origin*mirror)
 
 func _draw_lance(hand: Vector2, angle: float, length: float, broken: bool) -> void:
-	var direction = Vector2(cos(angle),sin(angle))
-	var tip = hand+direction*length
-	var butt = hand-direction*67
-	var normal = Vector2(-direction.y,direction.x)
-	var shaft = PackedVector2Array([butt,hand])
-	for i in range(1,17):
-		var t = float(i)/16.0
-		shaft.append(_lance_surface_point(hand,angle,length,broken,length*t))
-	var type = str(fighter.stats.get("lance_type","standard"))
-	var width = 6.0 if type=="light" else (10.0 if type=="stout" else 8.0)
-	draw_polyline(shaft,Color("302318"),width,true)
-	draw_polyline(shaft,Color("bb8c50"),width-2.5,true)
-	var highlight = PackedVector2Array()
-	for point in shaft:
-		highlight.append(point+Vector2(0,-1.5))
-	draw_polyline(highlight,Color("dfbb76"),1.2,true)
-	var quality = int(fighter.stats.get("lance_quality",0))
-	if fighter.stats.has("lance_color"):
-		var paint = Color(str(fighter.stats.lance_color))
-		for band in range(quality+1):
-			var mark = _lance_surface_point(hand,angle,length,broken,25+band*14)
-			if 25+band*14<length-26:
-				draw_line(mark-normal*(width*.45),mark+normal*(width*.45),paint,5)
-		if quality>=3:
-			var guard = _lance_surface_point(hand,angle,length,broken,14)
-			draw_line(guard-normal*12,guard+normal*12,Color("383d3b"),7)
-			draw_line(guard-normal*10,guard+normal*10,Color("bea05d"),3)
-	if not broken:
-		var facing = int(fighter.direction)
-		draw_set_transform_matrix(mirrored_transform(tip,angle,facing))
-		draw_part("point" if mode=="war" else "coronel",Rect2(-24,-7,24,14))
-		# A small glint belongs to the weapon tip, not a floating aim cursor.
-		draw_line(Vector2(-5,-3),Vector2(0,0),Color("fff1c4"),2)
-		draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
-	else:
-		draw_line(tip+Vector2(-3,-4),tip+Vector2(3,3),Color("ebd5a0"),2)
+	Lance.draw(self,fighter.stats,hand,angle,length,broken,lance_recoil,mode)
 
 func _lance_surface_point(hand: Vector2, angle: float, length: float, broken: bool, distance: float) -> Vector2:
-	var direction = Vector2(cos(angle),sin(angle))
-	var t = clampf(distance/maxf(1,length),0,1)
-	return hand+direction*distance+Vector2(-direction.y,direction.x)*lance_recoil*14.0*sin(PI*t)*(0 if broken else 1)
+	return Lance.surface(hand,angle,distance,0,length,broken,lance_recoil)
 
 func _draw_heraldry(center: Vector2, design: String) -> void:
 	if design == "cross":
@@ -612,6 +607,10 @@ func _draw_impact_torso() -> void:
 		draw_polygon(points,PackedColorArray([Color.WHITE]),uv,torso_texture)
 
 func _draw_armor_detail() -> void:
+	if Art.equipment_texture(fighter.stats,"armor")!=null:
+		# New plates/mail have their own structure; do not paint the old shared
+		# coloured bib over every breastplate.
+		return
 	if not fighter.stats.has("armor_color"):
 		return
 	var color = Color(str(fighter.stats.armor_color))

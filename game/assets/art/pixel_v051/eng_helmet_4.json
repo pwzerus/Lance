@@ -1,0 +1,61 @@
+{
+  "id": "eng_helmet_4",
+  "slot": "helmet",
+  "image_path": "res://assets/art/pixel_v051/eng_helmet_4.png",
+  "source_region": [
+    195,
+    109,
+    852,
+    1144
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    70,
+    80
+  ],
+  "source_size": [
+    1173,
+    1341
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "56b142bfd6fce939b31851f67146e08e212bf9af0eea138cf446ce4546bcc618",
+  "historical_reference": {
+    "image_observed": true,
+    "image_observed_by": "appearance art agent; source photograph viewed before generation",
+    "id": "eng_helmet_4",
+    "name": "英格兰 · 格林尼治圆喙闭盔",
+    "era": 3,
+    "historical_window": "铭年1527",
+    "source": "Met 19.131.1a–r,t–w,.2a–f,l",
+    "source_url": "https://www.metmuseum.org/art/collection/search/22741",
+    "description": "圆凸盔碗、较钝的封闭面甲与成组呼吸孔；颈缘封合。",
+    "historical_note": "现归属为可能为亨利八世制作；旧称热努亚克甲不能当法国制造证据。",
+    "manufacture": "英格兰格林尼治王家工坊",
+    "use_context": "有战场及比武换装件的组合甲；可能曾作为赠予法国使节的礼物",
+    "art_id": "eng_helmet_4",
+    "stats": {
+      "helmet_material": "steel"
+    },
+    "title": "英格兰 · 格林尼治圆喙闭盔"
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "native_path": "C:\\Users\\yifei\\.codex\\generated_images\\01a1858f-9c1e-75c2-8e55-c624311db411\\exec-bb1cb78c-103b-4fd6-96ba-a935a88a7ad6.png",
+    "source_file": "eng_helmet_4_source01.png",
+    "prompt_file": "eng_helmet_4_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 882804,
+    "alpha1to254": 689432,
+    "alpha255": 757,
+    "notes": "Rounded close helmet with modest comb, blunt face and grouped breathing holes; no person or open face. Warm gilded surfaces simplified; check pixel density at final size.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

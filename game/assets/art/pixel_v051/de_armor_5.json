@@ -1,0 +1,54 @@
+{
+  "id": "de_armor_5",
+  "slot": "armor",
+  "image_path": "res://assets/art/pixel_v051/de_armor_5.png",
+  "source_region": [
+    192,
+    77,
+    875,
+    1135
+  ],
+  "draw_size": [
+    94,
+    104
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "50dabec65d4455ce1ac0aeb4346fe9ad3089d00b214ab2856d589d8cc869f561",
+  "historical_reference": {
+    "title": "洛赫纳雕饰胸甲",
+    "object_number": "14.25.866",
+    "date": "约1550–1555年",
+    "manufacture": "德意志纽伦堡，Kunz Lochner",
+    "url": "https://www.metmuseum.org/art/collection/search/22317",
+    "image_url": "https://images.metmuseum.org/CRDImages/aa/web-large/LC-14_25_866-007.jpg",
+    "image_observed": true
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "de_armor_5_source01.png",
+    "reference_roles": [
+      "eng_armor_5: pixel style only",
+      "Museum/manuscript original inspected separately; not supplied because image tool file decoder refused reference"
+    ],
+    "prompt_file": "de_armor_5_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 786827,
+    "alpha1to254": 784924,
+    "alpha255": 765,
+    "notes": "Lochner-inspired silver scroll bands and narrow gold rim, majority steel. Ornament enlarged and simplified; not original etched motifs or exact reproduction. Native1254 square; no raster editing, resizing or alpha conversion.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": "eng_armor_0",
+  "slot": "armor",
+  "image_path": "res://assets/art/pixel_v051/eng_armor_0.png",
+  "source_region": [
+    136,
+    91,
+    987,
+    1129
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    94,
+    104
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "e48d2269b062b98d22edd0700a71867205bcd6c784129cfef24906a25e68c2e9",
+  "historical_reference": {
+    "image_observed": true,
+    "image_observed_by": "appearance art agent; source photograph viewed before generation",
+    "id": "eng_armor_0",
+    "name": "英格兰 · 共通式锁甲衫",
+    "era": 0,
+    "historical_window": "约1244–1254图证；1100–1300主题",
+    "source": "Morgan MS M.638 f.23v",
+    "source_url": "https://ica.themorgan.org/manuscript/page/46/158530",
+    "description": "露出整片链环胸身与柔软腰部，领缘承接锁甲兜，不画钢胸板。",
+    "historical_note": "图证绘于巴黎；此处采用西欧共通锁甲结构，英格兰配装和轮廓整理为游戏改编。",
+    "manufacture": "图像：巴黎；实际锁甲产地未定",
+    "use_context": "圣经故事中的13世纪装备图证，不是早期圣经时代军服",
+    "art_id": "eng_armor_0",
+    "stats": {
+      "armor_material": "mail"
+    },
+    "title": "英格兰 · 共通式锁甲衫"
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "native_path": "C:\\Users\\yifei\\.codex\\generated_images\\01a1858f-9c1e-75c2-8e55-c624311db411\\exec-00321c6e-3c4e-4ffa-a0f1-aa071d9e5446.png",
+    "source_file": "eng_armor_0_source01.png",
+    "prompt_file": "eng_armor_0_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 720083,
+    "alpha1to254": 851613,
+    "alpha255": 820,
+    "notes": "Exposed iron mail, soft hem and plain belt; no breastplate or fixed limbs. Dense ring clusters need actual-size visibility review.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "it_helmet_5",
+  "slot": "helmet",
+  "image_path": "res://assets/art/pixel_v051/it_helmet_5.png",
+  "source_region": [
+    227,
+    16,
+    779,
+    1280
+  ],
+  "source_size": [
+    1199,
+    1312
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    70,
+    80
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "4933a078ef09aa459c85ae0a15bd085fc5ec0bb0d1bda4bcabd9a2129faecaf0",
+  "historical_reference": {
+    "title": "蓝钢金饰闭盔",
+    "object_number": "Met42.50.27a–n",
+    "date": "约1575–1580年",
+    "manufacture": "意大利，可能米兰",
+    "url": "https://www.metmuseum.org/art/collection/search/24696",
+    "image_observed": true
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "it_helmet_5_source01.png",
+    "prompt_file": "it_helmet_5_source01.md",
+    "museum_image_supplied_to_tool": false,
+    "reference_roles": [
+      "Existing generated item as pixel style reference",
+      "Museum original actually observed; structural text brief supplied"
+    ]
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 881309,
+    "alpha1to254": 691346,
+    "alpha255": 433,
+    "notes": "Original inspected and imported without raster changes; historical restoration/usage limits in catalogue. Runtime pending.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

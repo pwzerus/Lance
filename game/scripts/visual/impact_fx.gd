@@ -44,7 +44,7 @@ func hit(point: Vector2, direction: int, damage: float, shield: bool, broke: boo
 		stains.append({"p": Vector2(point.x, rng.randf_range(-2,8)), "radius": rng.randf_range(10,19)})
 	queue_redraw()
 
-func break_lance(event: Dictionary, mode: String) -> void:
+func break_lance(event: Dictionary, mode: String, equipment: Dictionary = {}) -> void:
 	var ray = Vector2(cos(float(event.break_angle))*int(event.break_direction),sin(float(event.break_angle)))
 	var start = Vector2(event.break_hand)+ray*66
 	var remaining = maxf(10,float(event.break_reach)-66)
@@ -70,6 +70,9 @@ func break_lance(event: Dictionary, mode: String) -> void:
 		sprite.length = length
 		sprite.pointed = i==1
 		sprite.war_tip = mode=="war"
+		sprite.equipment = equipment.duplicate(true)
+		sprite.source_start = 66.0+cursor
+		sprite.full_length = float(event.break_reach)
 		body.add_child(sprite)
 		add_child(body)
 		debris.append(body)

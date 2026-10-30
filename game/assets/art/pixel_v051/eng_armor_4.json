@@ -1,0 +1,61 @@
+{
+  "id": "eng_armor_4",
+  "slot": "armor",
+  "image_path": "res://assets/art/pixel_v051/eng_armor_4.png",
+  "source_region": [
+    200,
+    87,
+    885,
+    1098
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    94,
+    104
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "975e83586730c4cb1f53ab0fef01090717621e517a368ad89ef82b6467b65ec1",
+  "historical_reference": {
+    "image_observed": true,
+    "image_observed_by": "appearance art agent; source photograph viewed before generation",
+    "id": "eng_armor_4",
+    "name": "英格兰 · 格林尼治圆腹胸甲",
+    "era": 3,
+    "historical_window": "铭年1527",
+    "source": "Met 19.131.1a–r,t–w,.2a–f,l",
+    "source_url": "https://www.metmuseum.org/art/collection/search/22741",
+    "description": "圆凸胸腹、紧腰、卷起颈臂缘和横叠腰甲；保留右侧枪托接口。",
+    "historical_note": "原组合甲有不同战斗与比武附件；不把所有加固件合成同一实战套装，数值仍为游戏值。",
+    "manufacture": "英格兰格林尼治王家工坊",
+    "use_context": "可能亨利八世的战场／比武组合甲；原始所有人仍保留可能性",
+    "art_id": "eng_armor_4",
+    "stats": {
+      "armor_material": "plate"
+    },
+    "title": "英格兰 · 格林尼治圆腹胸甲"
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "native_path": "C:\\Users\\yifei\\.codex\\generated_images\\01a1858f-9c1e-75c2-8e55-c624311db411\\exec-126217b8-7f23-4161-85a2-9a3a3bbf6443.png",
+    "source_file": "eng_armor_4_source01.png",
+    "prompt_file": "eng_armor_4_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 790072,
+    "alpha1to254": 781613,
+    "alpha255": 831,
+    "notes": "Globular round breastplate, separate abdominal/waist seam, horizontal fauld bands and small visual lance rest. No torso spear-rest rules added. Gilding and isolated component bounds are simplified adaptations.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

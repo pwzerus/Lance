@@ -1,0 +1,54 @@
+{
+  "id": "de_helmet_5",
+  "slot": "helmet",
+  "image_path": "res://assets/art/pixel_v051/de_helmet_5.png",
+  "source_region": [
+    210,
+    48,
+    972,
+    1190
+  ],
+  "draw_size": [
+    70,
+    80
+  ],
+  "open_face": true,
+  "face_rect": [
+    0.45,
+    0.47,
+    0.4,
+    0.36
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "a3cef379f3fbc1ff249fa34d1d9057088f94b5ef790383bd24f253f2c3854c98",
+  "historical_reference": {
+    "title": "三脊骑兵敞面盔",
+    "object_number": "1916.1804.a",
+    "date": "约1560–1570年",
+    "manufacture": "德国，可能奥格斯堡",
+    "url": "https://www.clevelandart.org/art/1916.1804.a",
+    "image_url": "https://www.clevelandart.org/art/1916.1804.a",
+    "image_observed": true
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "de_helmet_5_source01.png",
+    "reference_roles": [
+      "eng_helmet_5: pixel style only",
+      "Museum/manuscript original inspected separately; not supplied because image tool file decoder refused reference"
+    ],
+    "prompt_file": "de_helmet_5_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 875207,
+    "alpha1to254": 696283,
+    "alpha255": 1026,
+    "notes": "Three serrated crests, peak, cheeks and transparent open face. Generated short lower rim is stylized; face rectangle manually measured from aperture and still needs rider render check. Native1254 square; no raster editing, resizing or alpha conversion.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

@@ -1,0 +1,14 @@
+# eng_armor_4 — source 01
+
+Built-in imagegen transparent output copied byte-for-byte to source and runtime PNG. Native: `C:\Users\yifei\.codex\generated_images\01a1858f-9c1e-75c2-8e55-c624311db411\exec-126217b8-7f23-4161-85a2-9a3a3bbf6443.png`. No CLI or raster edits. Canvas1254×1254; alpha≥128bbox `[200,87,885,1098]`.
+
+Historical source: [Met 19.131.1a–r,t–w,.2a–f,l](https://www.metmuseum.org/art/collection/search/22741). 原组合甲有不同战斗与比武附件；不把所有加固件合成同一实战套装，数值仍为游戏值。 Official photo https://collectionapi.metmuseum.org/api/collection/v1/iiif/22741/60375/main-image was actually viewed before generation. Round breast, narrow waist and horizontal bands distinguish this from the later pointed1586armor. Texture/color simplification and cropped short waist are game adaptations. Runtime validation pending.
+
+## Exact prompt
+
+```text
+Use case: historical-scene
+True transparent PNG, ONE isolated empty equipment component, square canvas. Clean deliberate PIXEL ART for the GALUMU game, shallow3/4 front toward RIGHT, upper-left light. Main image is a HISTORICAL CONSTRUCTION reference; the blue-gold game sprite is style/framing ONLY, not a shape template. Coarse readable pixel clusters at final70x80 helmet or94x104 torso size. Restrained 3-4 broad metal tones, very sparse grouped engraving, stepped contour. No photoreal texture, smooth airbrush, tiny gold filigree noise, text, sheet, stand, background, cast shadow or person.
+Item eng_armor_4. A torso component based on the Greenwich1527 Met19.131.1 garniture, NOT the later pointed peascod in style reference2. Smooth broad ROUND GLOBULAR breastplate, short fitted waist, a visible horizontal seam separating the breastplate from the rounded lower abdominal/waist plate, and THREE horizontal articulated fauld bands below. Lower edge gently arched, NOT a deep central point or five scalloped petals. Rolled upper neckline and subtly raised armhole edges. Add a compact angular lance-rest fitting on the wearer's right upper chest (camera-left side), a small gold-bronze riveted rectangular base and short outward hook, structurally attached to the breastplate. No giant detached rod. Entire torso in muted warm gilded steel with large ochre/lightgold/darkbronze planes; sparse small symmetrical engraving accents and narrow edge bands only, NOT a texture carpet. No blue-and-gold longitudinal floral stripes from reference2. Keep shoulders empty for separately animated arms: do NOT include the museum suit's large shoulder pauldrons, arms, gauntlets, head, neck flesh, legs or long thigh defenses. Short dark lining underlap at neck and armholes, no complete sleeves. Chest front/waist/short lower bands only, mounted-game94x104proportions, roughly as wide as tall. Match reference2's component framing/short waist extent, but make the round belly and horizontal layered construction unmistakably different.
+```
+

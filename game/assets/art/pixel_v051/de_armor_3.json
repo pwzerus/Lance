@@ -1,0 +1,54 @@
+{
+  "id": "de_armor_3",
+  "slot": "armor",
+  "image_path": "res://assets/art/pixel_v051/de_armor_3.png",
+  "source_region": [
+    195,
+    75,
+    914,
+    1147
+  ],
+  "draw_size": [
+    94,
+    104
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "bcabaeca165fc0e92ca2c07e01153c35ccd15f2025f045bfe0489b5dd4ae3db2",
+  "historical_reference": {
+    "title": "哥特式叠腰胸甲",
+    "object_number": "29.150.77",
+    "date": "约1475–1485年",
+    "manufacture": "德意志或奥地利，归属未定",
+    "url": "https://www.metmuseum.org/art/collection/search/23143",
+    "image_url": "https://images.metmuseum.org/CRDImages/aa/web-large/DP-12882-025.jpg",
+    "image_observed": true
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "de_armor_3_source01.png",
+    "reference_roles": [
+      "eng_armor_5: pixel style only",
+      "Museum/manuscript original inspected separately; not supplied because image tool file decoder refused reference"
+    ],
+    "prompt_file": "de_armor_3_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 800942,
+    "alpha1to254": 770764,
+    "alpha255": 810,
+    "notes": "Curved fan channels and overlapping waist distinguish from dense Maximilian fluting. Raised collar edge and plate lines simplified; not exact 29.150.77 tracing. Native1254 square; no raster editing, resizing or alpha conversion.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

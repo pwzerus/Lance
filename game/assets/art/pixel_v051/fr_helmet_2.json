@@ -1,0 +1,55 @@
+{
+  "id": "fr_helmet_2",
+  "slot": "helmet",
+  "image_path": "res://assets/art/pixel_v051/fr_helmet_2.png",
+  "source_region": [
+    159,
+    40,
+    1020,
+    1236
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    70,
+    80
+  ],
+  "source_size": [
+    1216,
+    1293
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "bce90bbbf301c69d3d1e6254d24fcedb7779ece220455ff92227f075dddc5596",
+  "historical_reference": {
+    "title": "法兰西 · 尖吻巴西内盔",
+    "object_number": "H21",
+    "date": "约1350–1380（具体馆签）",
+    "manufacture": "西欧；工坊未知；锻铁",
+    "url": "https://www.musee-armee.fr/en/collections/museum-treasures/hounskull-bascinet.html",
+    "image_url": "https://www.musee-armee.fr/fileadmin/_processed_/c/7/csm_Bacinet_a_bec_de_passereau_e80b0ac0d6.jpg",
+    "image_observed": true,
+    "use_context": "晚14世纪头部防护结构；无已知具体法国佩戴者归属"
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "fr_helmet_2_source01.png",
+    "reference_roles": [
+      "eng_helmet_5: pixel material and lighting only",
+      "Official source observed separately; historical form described in exact prompt"
+    ],
+    "prompt_file": "fr_helmet_2_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 791400,
+    "alpha1to254": 780073,
+    "alpha255": 815,
+    "notes": "Tall rearward skull, projecting pointed visor, temple hinge and large breaths distinct from flat great helm. Neck attachment is shortened and simplified; it is not a complete historically reconstructed aventail. Western European object, not proven French manufacture.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

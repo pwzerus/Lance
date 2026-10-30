@@ -1,0 +1,56 @@
+{
+  "id": "eng_armor_5",
+  "slot": "armor",
+  "image_path": "res://assets/art/pixel_v051/eng_armor_5.png",
+  "source_region": [
+    240,
+    62,
+    803,
+    1121
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    94,
+    104
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "6ef8f372a242ee0e68d34afd17496386c2170e49eb41cfd5a01a58e9beed46f4",
+  "historical_reference": {
+    "title": "英格兰 · 克利福德尖腹组合甲",
+    "object_number": "32.130.6a–y; 36.98.1",
+    "date": "1586",
+    "manufacture": "Greenwich, England",
+    "url": "https://www.metmuseum.org/art/collection/search/851637",
+    "image_url": "https://images.metmuseum.org/CRDImages/aa/web-large/DT259974.jpg",
+    "image_observed": true,
+    "image_observed_by": "appearance art agent; source photograph viewed before generation"
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "eng_armor_5_source01.png",
+    "reference_roles": [
+      "Met photo: breastplate structure",
+      "eng_helmet_5: color clusters",
+      "equipment_eras: component framing only"
+    ],
+    "prompt_file": "eng_armor_5_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 866334,
+    "alpha1to254": 705560,
+    "alpha255": 622,
+    "notes": "One torso without head or attached arms/legs, clear peascod taper and curved waist segments. Decorative curves/rosettes deliberately simplified and not exact engraved emblems. Source is more slender than 94x104 target; verify intended display proportions and shoulder overlap during first sample integration. Native canvas 1254 square; no raster editing.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

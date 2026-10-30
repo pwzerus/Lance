@@ -1,0 +1,55 @@
+{
+  "id": "fr_armor_1",
+  "slot": "armor",
+  "image_path": "res://assets/art/pixel_v051/fr_armor_1.png",
+  "source_region": [
+    246,
+    62,
+    808,
+    1148
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    94,
+    104
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "647fc9cdf6b92e90c230e9ebb72fd4413a6ed9dbf4fd1dccbef28689c881ae9a",
+  "historical_reference": {
+    "title": "法兰西 · 垂褶罩袍锁甲",
+    "object_number": "25.120.201",
+    "date": "1248之后–1267之前",
+    "manufacture": "法国卢瓦尔河谷石雕；所示防具工坊不明",
+    "url": "https://www.metmuseum.org/art/collection/search/470599",
+    "image_url": "https://images.metmuseum.org/CRDImages/cl/web-large/DP365741.jpg",
+    "image_observed": true,
+    "use_context": "d’Aluye家族骑士纪念像；身份具体归属亦有讨论"
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "fr_armor_1_source01.png",
+    "reference_roles": [
+      "eng_armor_5: pixel material and lighting only",
+      "Official source observed separately; historical form described in exact prompt"
+    ],
+    "prompt_file": "fr_armor_1_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 852890,
+    "alpha1to254": 718434,
+    "alpha255": 1192,
+    "notes": "Loose sleeveless draped surcoat with deep vertical folds, cord waist, short split hem and mail at collar/armholes. Warm red is invented game color; surviving stone does not establish original fabric color. Full-length garment shortened for modular riding torso, no sword or limbs.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

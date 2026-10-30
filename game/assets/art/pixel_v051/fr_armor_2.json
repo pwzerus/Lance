@@ -1,0 +1,55 @@
+{
+  "id": "fr_armor_2",
+  "slot": "armor",
+  "image_path": "res://assets/art/pixel_v051/fr_armor_2.png",
+  "source_region": [
+    227,
+    64,
+    838,
+    1146
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    94,
+    104
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "47e1c9b0fe5f1317163f5cb0f2467e65071466e38ee63347ffe8c048447c85fe",
+  "historical_reference": {
+    "title": "法兰西 · 层叠大铆片衣甲",
+    "object_number": "29.150.105",
+    "date": "约1400（解锁段边界）",
+    "manufacture": "意大利；在Chalcis堡垒遗存中发现",
+    "url": "https://www.metmuseum.org/art/collection/search/34331",
+    "image_url": "https://images.metmuseum.org/CRDImages/aa/web-large/DP-12882-018.jpg",
+    "image_observed": true,
+    "use_context": "躯干铆片防护；不把外露考古残片当成原始外表面"
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "fr_armor_2_source01.png",
+    "reference_roles": [
+      "eng_armor_5: pixel material and lighting only",
+      "Official source observed separately; historical form described in exact prompt"
+    ],
+    "prompt_file": "fr_armor_2_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 813716,
+    "alpha1to254": 757908,
+    "alpha255": 892,
+    "notes": "Large-plate coat reconstructed under plain brown fabric with sparse rivet columns and three closures. Outer fabric and closure layout are game completion; archaeological photo shows internal plates. This is Italian-made and found at Chalcis, not a proven French object. Short riding skirt adapted to component.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

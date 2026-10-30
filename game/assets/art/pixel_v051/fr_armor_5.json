@@ -1,0 +1,55 @@
+{
+  "id": "fr_armor_5",
+  "slot": "armor",
+  "image_path": "res://assets/art/pixel_v051/fr_armor_5.png",
+  "source_region": [
+    82,
+    42,
+    1037,
+    1239
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    94,
+    104
+  ],
+  "source_size": [
+    1193,
+    1319
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "c8c800706a94b2bc9b184aba69949c8a2853f282a48c8c7d320dd524b6d39119",
+  "historical_reference": {
+    "title": "法兰西 · 王室浮雕仪仗甲",
+    "object_number": "39.121a–n",
+    "date": "约1555",
+    "manufacture": "法国，可能巴黎；多位设计者参与",
+    "url": "https://www.metmuseum.org/art/collection/search/24671",
+    "image_url": "https://images.metmuseum.org/CRDImages/aa/web-large/DP256970.jpg",
+    "image_observed": true,
+    "use_context": "亨利二世仪仗甲的装饰主题，不宣传为已经复原的实战骑枪专用甲"
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "fr_armor_5_source01.png",
+    "reference_roles": [
+      "eng_armor_5: pixel material and lighting only",
+      "Official source observed separately; historical form described in exact prompt"
+    ],
+    "prompt_file": "fr_armor_5_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 596784,
+    "alpha1to254": 975601,
+    "alpha255": 1182,
+    "notes": "Sculptural convex plate torso with central mounted-figure medallion, organized broad leaf groups and short rectangular fauld. Relief and rider silhouette are game simplifications. Source is parade armor; combat rating is adaptation, not a claim of practical jousting reconstruction. No fixed limbs or head.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

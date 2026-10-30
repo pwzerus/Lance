@@ -1,0 +1,5 @@
+# de_helmet_2 built-in imagegen targeted correction
+
+Precise object edit to this pixel-art hounskull bascinet. Keep its existing tall pointed skull, steel palette, face orientation, chunky pixel-art scale and transparent background. Correct the lower construction: REMOVE the separate flared solid PLATE NECK COLLAR/GORGET at the very bottom entirely. A c1400 bascinet does not have a16thC articulated plate gorget. Terminate skull and visor at a simple narrow helmet rim around jaw; a few small metal attachment studs can line it for an aventail, but no full neck or shoulders. Make the visor muzzle more elongated and conically tapered forward from eye slit to projecting nose/chin point (actual German Met29.156.65), maintaining circular breathing holes. Reduce raised long skull crest to simple central pointed keel, no ornament. This is one helmet only, no person or black neck fill. True transparent alpha around newly removed collar. Preserve all other style and composition.
+
+Input: de_helmet_2_source01.png. Historical reference inspected separately as recorded in source01 prompt and docs/research/V051_DE_IT.md. No raster editing or manual alpha conversion used.

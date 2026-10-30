@@ -1,0 +1,61 @@
+{
+  "id": "eng_helmet_2",
+  "slot": "helmet",
+  "image_path": "res://assets/art/pixel_v051/eng_helmet_2.png",
+  "source_region": [
+    249,
+    25,
+    760,
+    1197
+  ],
+  "open_face": false,
+  "face_rect": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "draw_size": [
+    70,
+    80
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "4d71a4a32144e9996e13548b67948cfd11442eadf1ce3bf080965ed294fd0a3f",
+  "historical_reference": {
+    "image_observed": true,
+    "image_observed_by": "appearance art agent; source photograph viewed before generation",
+    "id": "eng_helmet_2",
+    "name": "英格兰 · 尖顶铆接大盔",
+    "era": 1,
+    "historical_window": "14世纪中叶",
+    "source": "Royal Armouries IV.600",
+    "source_url": "https://royalarmouries.org/objects-and-stories/stories/the-hundred-years-war-1337-1453",
+    "description": "高尖盔顶、中央脊与分段铆缝；单侧呼吸孔形成不对称前脸。",
+    "historical_note": "馆方称英格兰／欧洲；不把大盔所有时期都称比武专用，也不虚构原佩戴者。",
+    "manufacture": "英格兰／欧洲；工坊未定",
+    "use_context": "百年战争早期骑兵防护结构参考；后期大盔与比武的联系增强",
+    "art_id": "eng_helmet_2",
+    "stats": {
+      "helmet_material": "steel"
+    },
+    "title": "英格兰 · 尖顶铆接大盔"
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "native_path": "C:\\Users\\yifei\\.codex\\generated_images\\01a1858f-9c1e-75c2-8e55-c624311db411\\exec-d23bc423-eae6-4d05-b5b9-09d48fba0f73.png",
+    "source_file": "eng_helmet_2_source01.png",
+    "prompt_file": "eng_helmet_2_source01.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 896851,
+    "alpha1to254": 674671,
+    "alpha255": 994,
+    "notes": "Rounded conical crown, center ridge, lower central point and asymmetric breathing holes preserved. Surface restored to stylized serviceable steel. Shallow near-frontal view, verify facing readability in engine.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

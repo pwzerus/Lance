@@ -1,0 +1,55 @@
+{
+  "id": "fr_helmet_4",
+  "slot": "helmet",
+  "image_path": "res://assets/art/pixel_v051/fr_helmet_4.png",
+  "source_region": [
+    63,
+    97,
+    1316,
+    910
+  ],
+  "open_face": true,
+  "face_rect": [
+    0.38,
+    0.27,
+    0.64,
+    1.05
+  ],
+  "draw_size": [
+    84,
+    62
+  ],
+  "source_size": [
+    1426,
+    1103
+  ],
+  "source_alpha_threshold": 128,
+  "source_sha256": "145296df799094dc4660fe47588db8834ec60fe56111b34d10d8b541b65510d8",
+  "historical_reference": {
+    "title": "法兰西 · 短尾覆面萨莱特",
+    "object_number": "04.3.227",
+    "date": "约1475",
+    "manufacture": "可能法国或佛兰德；工坊未定",
+    "url": "https://www.metmuseum.org/art/collection/search/21982",
+    "image_url": "https://images.metmuseum.org/CRDImages/aa/web-large/DP101947.jpg",
+    "image_observed": true,
+    "use_context": "15世纪头盔；不混成德式超长尾或后世莫里昂盔"
+  },
+  "generation": {
+    "tool": "built-in imagegen",
+    "source_file": "fr_helmet_4_source02.png",
+    "reference_roles": [
+      "Met photograph: historical shape",
+      "eng_helmet_5: pixel material and lighting only"
+    ],
+    "prompt_file": "fr_helmet_4_source02.md"
+  },
+  "inspection": {
+    "status": "Imported and rendered in production RiderView; automated fixture images reviewed",
+    "alpha0": 802637,
+    "alpha1to254": 767959,
+    "alpha255": 2282,
+    "notes": "Selected source02 follows actually inspected Met photo: rounded low bowl, straight low slit, short tail, rolled horizontal lower lip. Source01 rejected for pointed projecting visor/comb inconsistent with this object and preserved only in art_sources. Rust and corrosion omitted. No face/person. Native wide canvas retained.",
+    "runtime_evidence": "Godot 4.5.1 catalogue03 and poses02; purchase/save and mirrored extreme fixtures. See V051_VALIDATION for final EXE and human/OS evidence limits."
+  }
+}

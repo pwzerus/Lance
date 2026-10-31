@@ -47,6 +47,7 @@ var currency_label: Label
 var result_visible = false
 var screenshot_dir = ""
 var smoke_mode = false
+var shutting_down = false
 var smoke_started = 0
 var smoke_step = 0
 var smoke_busy = false
@@ -296,8 +297,10 @@ func show_saves(notice: String = "") -> void:
 	queue_redraw()
 
 func _save_and_exit() -> void:
+	if shutting_down:
+		return
 	if GameState.save_profile():
-		get_tree().quit()
+		_shutdown_and_quit()
 		return
 	var dialog = AcceptDialog.new()
 	dialog.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -307,6 +310,22 @@ func _save_and_exit() -> void:
 	dialog.confirmed.connect(dialog.queue_free)
 	dialog.canceled.connect(dialog.queue_free)
 	dialog.popup_centered(Vector2i(610,180))
+
+func _shutdown_and_quit() -> void:
+	if shutting_down:
+		return
+	shutting_down = true
+	set_process(false)
+	set_process_unhandled_input(false)
+	get_viewport().gui_disable_input = true
+	# stop() queues mixer cleanup. Keep the tree alive briefly so looped WAV
+	# playbacks are released before AudioServer teardown (also after battle).
+	if sounds:
+		sounds.set_enabled(false)
+		sounds.stop_all()
+	_close_battle()
+	await get_tree().create_timer(.12,true,false,true).timeout
+	get_tree().quit()
 
 func _notification(what: int) -> void:
 	if what==NOTIFICATION_WM_CLOSE_REQUEST and is_inside_tree():
@@ -703,7 +722,7 @@ func _run_smoke() -> void:
 		GameState.profile = smoke_original_profile
 		GameState.save_profile()
 		print("SMOKE_TEST_COMPLETE: " + str(smoke_screens))
-		get_tree().create_timer(1.0).timeout.connect(func():get_tree().quit())
+		get_tree().create_timer(1.0).timeout.connect(_shutdown_and_quit)
 	if elapsed > 180000:
 		GameState.profile = smoke_original_profile
 		GameState.save_profile()

@@ -252,9 +252,10 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 	var head_transform = torso_transform
 	head_transform.x *= facing
 	var head_fit = HeadFit.layout(fighter.stats)
-	draw_set_transform_matrix(head_transform)
-	HeadFit.draw_neck(self,head_fit)
+	head_transform.origin += torso_transform.x*float(head_fit.head_offset)
+	var appearance: Dictionary = fighter.stats.get("appearance",Face.Appearance.variant(hash(str(fighter.stats.get("armor_color",""))+str(fighter.stats.get("shield_color","")))))
 	draw_set_transform_matrix(torso_transform)
+	HeadFit.draw_neck(self,head_fit,appearance,facing)
 	_draw_impact_torso()
 	_draw_armor_detail()
 	_draw_anatomical_arm(near_side,near_arm,Color.WHITE,true,true)
@@ -264,17 +265,17 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 	# The distant forearm can cross in front of the chest to reach its grip;
 	# its upper arm remains behind the torso instead of painting over it.
 	_draw_anatomical_arm(far_side,far_arm,Color(.78,.81,.84),false,true)
+	draw_set_transform_matrix(torso_transform)
+	HeadFit.draw_neck(self,head_fit,appearance,facing)
+	HeadFit.draw_collar_lip(self,head_fit,torso_texture,_torso_surface_point)
 	draw_set_transform_matrix(head_transform)
-	HeadFit.draw_neck(self,head_fit,true)
 	var helmet_art = Art.descriptor(fighter.stats,"helmet")
 	var head_box: Rect2 = head_fit.helmet
 	if not helmet_art.is_empty() and Art.equipment_texture(fighter.stats,"helmet")!=null:
 		if bool(helmet_art.get("open_face",false)):
-			var appearance: Dictionary = fighter.stats.get("appearance",Face.Appearance.variant(hash(str(fighter.stats.get("armor_color",""))+str(fighter.stats.get("shield_color","")))))
 			Face.draw_face(self,appearance,head_fit.face,head_fit.face_clip,false)
 		draw_texture_rect(head_texture,head_box,false)
 	elif head_tier==0:
-		var appearance: Dictionary = fighter.stats.get("appearance",Face.Appearance.variant(hash(str(fighter.stats.get("armor_color",""))+str(fighter.stats.get("shield_color","")))))
 		Face.draw_head(self,appearance,head_tier,Color(str(fighter.stats.get("helmet_color","8e999c"))),head_box)
 	else:
 		# Keep enclosed/gilt equipment intact; it naturally hides facial detail.

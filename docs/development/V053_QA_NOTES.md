@@ -1,0 +1,11 @@
+# DEV-053 佩戴观感夹具说明
+
+2026-10-30 EDT，head_qa053子代理。仅新增`game/tests/test_head_wear_v053.gd`，由root串行运行真实Godot；本代理未启动引擎、未运行实际游戏、未访问或改变正式玩家存档。
+
+用户截图的两种头盔按素材轮廓映射为`fr_helmet_0`与`eng_helmet_0`；胸甲仅凭截图无法唯一确定。默认以黑色领口的`eng_armor_0`为主复现，另以`fr_armor_0`生成替代首页。不是读取正式存档来声称精确还原玩家装备。
+
+夹具直接实例化生产`main.tscn`，在隔离QA默认档内存中换两套胸甲和两头盔，输出四张1440×810首页。固定菜单RiderView的clock/stride，另以相同fighter绘制2.84倍特写，恰为菜单1.42倍的二倍，不编辑截图。附两种头盔各四脸型×三种胡须及双向中立/前倾/后仰图。最初baseline/candidate01–03共11图；后补`dark_skin_high_collars`覆盖最深肤色无须、铁帽与三种高领胸甲混搭和三种地区头胸套装，均双向，更新后默认12图。`--armor=<id>`可限制首页和脸型页为指定胸甲；专项高领页仍检查自己的六组搭配。
+
+运行例：`Godot --path E:/GALUMU/game --minimized --script res://tests/test_head_wear_v053.gd --log-file <新日志> -- --test-profile --captures=<新目录> --report=<新JSON>`。实际发布包测试使用外部脚本绝对路径且不传`--path`，让`res://`来自PCK。路径必须每轮新建；脚本拒绝覆盖已有report。
+
+`passed`仅确认合法夹具与PNG保存成功。它不判断头盔是否贴合、不以alpha连通或断言数量证明比例自然。必须由root和独立美术审查者检查实际首页、头肩特写与姿态图，分别记录本轮修改前后结论。所有步骤是固定引擎夹具，不是OS输入或真人试玩。脚本只替换并恢复QA内存profile，不主动写任何存档。

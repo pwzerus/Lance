@@ -6,6 +6,10 @@
 
 ## 当前文件占用
 
+DEV-053 / 2026-10-30 22:06:54–22:51:54 EDT：用户否定v0.4.12头颈佩戴观感，45分钟专项返工。基线25a2a04。root认领head_fit.gd、character_face.gd、rider_view.gd、equipment_fit_v052.json、必要装备佩戴元数据/素材、版本导出启动器、设计与交接文档；head_art_review053只读审查并写V053_ART_REVIEW.md；head_qa053仅写test_head_wear_v053.gd及.uid、V053_QA_NOTES.md。引擎由root串行。以用户两图实际尺寸/特写比例与自然接缝为验收，alpha连通不作为美术通过。保护既有Claude文档/正式档/旧包；拟独立v0.4.13，同分支。加速/音效不在本轮。
+
+DEV-053范围补充：root同步fallen_rider.gd的视觉头框到领口水平偏移，并修受击时领口覆绘顶点；head_qa053新增独立V053_CODE_REVIEW.md、无须深肤色高领夹具，现脚本及审查已交回root。生产与引擎仍只有root操作。
+
 DEV-052完成：生产与QA修改已完成，所有文件释放。运行3a0487f、QA08e7f5b、日志ac1ab98已push且远程SHA核对；24头盔及脸/颈/领口注册、落马头框同步，最终源码与实际PCK渲染一致，ZIP解压双模式三轮及9张截图完成。正式档与.11旧包不变；本轮无OS输入或真人听音。下次两小时必须等用户启动，不因今晚提前完成而自动用掉。以下认领段保留为责任历史。
 
 DEV-052 / 2026-10-30 21:10:40 EDT至22:40:40 EDT：Codex负责今晚90分钟头盔/头颈/胸甲适配。基线b8adf017；认领game/scripts/visual/{rider_view,equipment_art,character_face}.gd、必要新head_fit.gd及data/equipment_fit_v052.json、tests/*v052*、版本/导出/启动器和DEV-052设计/验证/交接文档。先定位固定头框与实际素材挂点差异，在原渲染链改进；仅在确有需要时扩展位图资源。保留Claude既有未提交文档与旧QA结果。加速颠簸/撞击声音和镜头留待下次用户启动两小时，本轮不改。所有引擎验证由Codex串行，隔离QA，拟独立v0.4.12，同分支codex/v0.4。

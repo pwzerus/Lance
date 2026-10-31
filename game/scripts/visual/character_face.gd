@@ -25,17 +25,36 @@ static func block(canvas: Object, rect: Rect2, x: float, y: float, w: float, h: 
 	canvas.draw_rect(Rect2(rect.position+Vector2(x,y)*unit,Vector2(w,h)*unit),color)
 
 static func face_span(shape: int, row: int) -> Vector2i:
+	# Skull, cheek plane and jaw are separate steps, not a rectangular mask.
+	# Exclusive right edge. All shapes retain the existing neck/helmet aperture.
 	match shape:
-		1: # broad cheek and squared chin
-			return Vector2i(7 if row<10 else (6 if row<26 else 8),24 if row<27 else 23)
-		2: # longer narrow face
-			return Vector2i(9 if row<10 else (8 if row<27 else 10),23 if row<28 else 21)
-		3: # high cheekbones, tapered jaw
-			var taper = maxi(0,(row-21)/2)
-			return Vector2i(6+taper,25-taper/2)
+		1: # wider masseter and a short, square chin
+			if row<11: return Vector2i(8,24)
+			if row<22: return Vector2i(6,25)
+			if row<26: return Vector2i(7,25)
+			if row<28: return Vector2i(8,24)
+			return Vector2i(10,23)
+		2: # longer oval, narrower temples; no pinched triangular chin
+			if row<11: return Vector2i(9,23)
+			if row<22: return Vector2i(8,24)
+			if row<27: return Vector2i(9,24)
+			if row<30: return Vector2i(10,23)
+			return Vector2i(12,22)
+		3: # higher cheekbone and a more defined jaw angle
+			if row<12: return Vector2i(8,24)
+			if row<18: return Vector2i(7,25)
+			if row<22: return Vector2i(6,25)
+			if row<25: return Vector2i(8,24)
+			if row<28: return Vector2i(9,24)
+			return Vector2i(11,22)
 		_:
-			var taper = maxi(0,(row-23)/2)
-			return Vector2i((8 if row<10 else 6)+taper,24-taper)
+			if row<11: return Vector2i(8,24)
+			if row<17: return Vector2i(7,25)
+			if row<22: return Vector2i(6,25)
+			if row<25: return Vector2i(7,25)
+			if row<27: return Vector2i(8,24)
+			if row<29: return Vector2i(10,23)
+			return Vector2i(12,22)
 
 static func draw_face(source_canvas: CanvasItem, appearance: Dictionary, rect: Rect2, clip: Rect2 = Rect2(), include_neck: bool = true) -> void:
 	# Mounted faces are clipped to their aperture/jaw. Their collar is drawn
@@ -43,78 +62,145 @@ static func draw_face(source_canvas: CanvasItem, appearance: Dictionary, rect: R
 	var canvas = FaceSurface.new(source_canvas,clip)
 	var a = Appearance.sanitize(appearance)
 	var skin: Color = SKIN[a.skin]
-	var shade = skin.darkened(.23)
-	var light = skin.lightened(.16)
+	var shade = skin.darkened(.21)
+	var soft_shade = skin.darkened(.10)
+	var light = skin.lightened(.09)
+	var contour = skin.darkened(.48)
 	var hair: Color = HAIR[a.hair]
 	var iris: Color = EYES[a.eyes]
-	var chin_row = 31 if a.face_shape==2 else 29
-	# Neck, hair silhouette and a stepped face contour.
+	var shape = int(a.face_shape)
+	var chin_row = 31 if shape==2 else 29
+	# Short neck behind the jaw. Mounted callers provide their own fitted neck.
 	if include_neck:
-		block(canvas,rect,11,28,11,11,INK)
+		block(canvas,rect,11,28,11,11,contour)
 		block(canvas,rect,12,28,9,11,shade)
-		block(canvas,rect,16,29,5,8,skin)
-	block(canvas,rect,8,3,15,2,INK)
-	block(canvas,rect,5,5,21,11,INK)
-	block(canvas,rect,6,5,18,10,hair)
-	block(canvas,rect,9,4,12,3,hair.lightened(.12))
+		block(canvas,rect,16,30,5,8,soft_shade)
+	block(canvas,rect,10,3,10,1,INK)
+	block(canvas,rect,7,4,16,2,INK)
+	block(canvas,rect,5,6,21,9,INK)
+	block(canvas,rect,6,6,19,8,hair)
+	block(canvas,rect,8,5,14,4,hair)
+	block(canvas,rect,11,4,9,2,hair)
+	block(canvas,rect,9,6,7,2,hair.lightened(.12))
+	block(canvas,rect,17,7,5,2,hair.lightened(.07))
 	for row in range(8,chin_row+1):
-		var span = face_span(int(a.face_shape),row)
-		block(canvas,rect,span.x-1,row,span.y-span.x+2,1,INK)
+		var span = face_span(shape,row)
+		block(canvas,rect,span.x-1,row,span.y-span.x+2,1,contour)
 		block(canvas,rect,span.x,row,span.y-span.x,1,skin)
-		block(canvas,rect,span.x,row,2,1,shade)
-		if row<23:
-			block(canvas,rect,span.y-3,row,2,1,light)
-	# The visible ear stays on the shadowed side of the three-quarter face.
-	block(canvas,rect,4,15,4,7,INK)
-	block(canvas,rect,5,16,3,5,shade)
-	block(canvas,rect,6,17,1,3,skin)
-	block(canvas,rect,7,8,3,6,hair)
-	block(canvas,rect,10,7,14,4,hair)
-	block(canvas,rect,20,10,4,2,hair)
-	# Whites, irises and pupils are real independent pixel clusters.
-	block(canvas,rect,10,16,5,3,INK)
-	block(canvas,rect,11,16,4,2,Color("e5ded0"))
-	block(canvas,rect,13,16,2,2,iris)
-	block(canvas,rect,14,17,1,1,INK)
-	block(canvas,rect,19,16,5,3,INK)
-	block(canvas,rect,20,16,4,2,Color("eee4d3"))
-	block(canvas,rect,21,16,2,2,iris)
-	block(canvas,rect,22,17,1,1,INK)
-	var brow_color = hair.lightened(.25) if a.brows==3 else hair
-	var brow_height = 2 if a.brows==1 else 1
-	block(canvas,rect,10,14,5,brow_height,brow_color)
-	block(canvas,rect,19,14,5,brow_height,brow_color)
-	if a.brows==2:
-		block(canvas,rect,11,13,3,1,brow_color)
-		block(canvas,rect,20,13,3,1,brow_color)
-	# Nose points toward the opponent; the mouth is below, never part of beard texture.
-	block(canvas,rect,18,18,2,5,shade)
-	block(canvas,rect,20,20,4,2,light)
-	block(canvas,rect,19,23,4,1,shade)
-	block(canvas,rect,13,26,9,1,skin.darkened(.45))
-	block(canvas,rect,16,27,5,1,skin.lightened(.08))
+		var rear_width = 3 if row>=16 and row<25 else 2
+		block(canvas,rect,span.x,row,rear_width,1,shade)
+		block(canvas,rect,span.x+rear_width,row,1,1,soft_shade)
+		if row>=27:
+			block(canvas,rect,span.x,row,span.y-span.x,1,soft_shade)
+	# Cheek and brow ridge use coherent planes, not noise or a bright face border.
+	var near_x = 12 if shape==2 else 11
+	var eye_y = 17 if shape==2 else 16
+	block(canvas,rect,near_x,12,6,2,light)
+	block(canvas,rect,near_x,20,5,2,light)
+	block(canvas,rect,near_x+1,22,4,1,light)
+	if shape==3:
+		block(canvas,rect,9,22,3,2,shade)
+		block(canvas,rect,11,24,3,1,soft_shade)
+	block(canvas,rect,16,28 if shape!=2 else 30,5,1,skin)
+	# Near ear and cropped hairline, both behind the eye plane.
+	block(canvas,rect,5 if shape!=2 else 7,16,3,6,contour)
+	block(canvas,rect,6 if shape!=2 else 8,16,2,5,shade)
+	block(canvas,rect,6 if shape!=2 else 8,17,1,2,skin)
+	block(canvas,rect,7 if shape!=2 else 8,9,2,7,hair)
+	block(canvas,rect,9,8,5,2,hair)
+	block(canvas,rect,14,9,5,2,hair)
+	block(canvas,rect,19,10,4,1,hair)
+	# Upper lids and a single row of sclera: no black rectangles around the eyes.
+	# The far eye is narrower. Both pupils look toward the opponent.
+	var lid = hair.lerp(INK,.45)
+	block(canvas,rect,near_x,eye_y,5,1,lid)
+	block(canvas,rect,near_x+1,eye_y+1,4,1,Color("e0d4bd"))
+	block(canvas,rect,near_x+2,eye_y+1,1,1,iris)
+	block(canvas,rect,near_x+3,eye_y+1,1,1,INK)
+	block(canvas,rect,near_x+1,eye_y+2,1,1,light)
+	block(canvas,rect,near_x+2,eye_y+2,1,1,iris.darkened(.10))
+	block(canvas,rect,near_x+3,eye_y+2,1,1,lid)
+	block(canvas,rect,21,eye_y,3,1,lid)
+	block(canvas,rect,21,eye_y+1,3,1,Color("d4c5ab"))
+	block(canvas,rect,22,eye_y+1,1,1,iris.darkened(.35))
+	var brow_color = hair.lerp(skin,.38) if a.brows==3 else hair
+	var brow_y = eye_y-2
+	block(canvas,rect,near_x,brow_y,5,1,brow_color)
+	block(canvas,rect,20,brow_y,3,1,brow_color)
+	block(canvas,rect,near_x-1,brow_y+1,1,1,brow_color)
+	if a.brows==1:
+		block(canvas,rect,near_x+1,brow_y-1,4,1,brow_color)
+		block(canvas,rect,21,brow_y-1,2,1,brow_color)
+	elif a.brows==2:
+		block(canvas,rect,near_x+1,brow_y-1,3,1,brow_color)
+		block(canvas,rect,near_x,brow_y,1,1,skin)
+		block(canvas,rect,20,brow_y,1,1,skin)
+	# Small nose planes with a broken base shadow, not a bright L-shaped block.
+	block(canvas,rect,19,eye_y+2,1,4,soft_shade)
+	block(canvas,rect,20,eye_y+2,1,3,light)
+	block(canvas,rect,20,22 if shape!=2 else 23,3,1,skin)
+	block(canvas,rect,20,23 if shape!=2 else 24,2,1,shade)
+	var mouth_y = 27 if shape==2 else 26
+	block(canvas,rect,16,mouth_y-1,1,1,soft_shade)
+	block(canvas,rect,17,mouth_y,5,1,skin.darkened(.34))
+	block(canvas,rect,22,mouth_y-1,1,1,shade)
+	block(canvas,rect,18,mouth_y+1,3,1,skin.lightened(.05))
+	# Facial hair follows the jaw and keeps the mouth readable.
 	match int(a.beard):
 		1:
-			block(canvas,rect,12,24,10,2,hair)
-			block(canvas,rect,11,25,2,2,hair)
-			block(canvas,rect,21,25,2,2,hair)
+			block(canvas,rect,15,mouth_y-2,4,1,hair)
+			block(canvas,rect,20,mouth_y-2,3,1,hair)
+			block(canvas,rect,14,mouth_y-1,3,1,hair)
+			block(canvas,rect,22,mouth_y-1,2,1,hair)
 		2:
-			block(canvas,rect,7,21,3,7,hair)
-			block(canvas,rect,10,27,13,3,hair)
-			block(canvas,rect,13,30,8,2,hair)
-			block(canvas,rect,12,24,10,2,hair)
-			block(canvas,rect,13,28,7,1,hair.lightened(.18))
+			for row in range(21,chin_row+2):
+				var span = face_span(shape,mini(row,chin_row))
+				block(canvas,rect,span.x,row,3,1,hair)
+				if row>=mouth_y+2:
+					block(canvas,rect,span.x+2,row,span.y-span.x-2,1,hair)
+			block(canvas,rect,15,mouth_y-2,4,1,hair)
+			block(canvas,rect,20,mouth_y-2,3,1,hair)
+			block(canvas,rect,22,mouth_y-1,2,3,hair)
+			block(canvas,rect,13,chin_row,4,1,hair.lightened(.16))
 		3:
-			block(canvas,rect,13,24,9,2,hair)
-			block(canvas,rect,15,28,7,4,hair)
-			block(canvas,rect,17,32,3,2,hair)
+			block(canvas,rect,15,mouth_y-2,4,1,hair)
+			block(canvas,rect,20,mouth_y-2,3,1,hair)
+			block(canvas,rect,17,mouth_y+2,5,3,hair)
+			block(canvas,rect,18,mouth_y+5,3,1,hair)
+			block(canvas,rect,17,mouth_y+3,1,1,hair.lightened(.16))
 		4:
-			block(canvas,rect,7,22,3,7,hair)
-			block(canvas,rect,11,24,12,2,hair)
-			block(canvas,rect,10,28,14,4,hair)
-			block(canvas,rect,12,32,10,3,hair)
-			block(canvas,rect,15,35,5,2,hair)
-			block(canvas,rect,13,29,2,4,hair.lightened(.2))
+			for row in range(21,28):
+				var span = face_span(shape,row)
+				block(canvas,rect,span.x,row,3,1,hair)
+			block(canvas,rect,15,mouth_y-2,4,1,hair)
+			block(canvas,rect,20,mouth_y-2,3,1,hair)
+			block(canvas,rect,22,mouth_y-1,2,3,hair)
+			for row in range(mouth_y+2,37):
+				var taper = maxi(0,row-30)/2
+				block(canvas,rect,10+taper,row,14-taper*2,1,hair)
+			block(canvas,rect,13,29,2,3,hair.lightened(.14))
+			block(canvas,rect,15,32,1,3,hair.lightened(.10))
+
+static func draw_portrait(canvas: CanvasItem, appearance: Dictionary, rect: Rect2) -> void:
+	# Only the character editor owns this shoulder crop. Mounted/legacy helmet
+	# callers still use draw_face, so no tunic can leak into a helmet aperture.
+	var skin: Color = SKIN[Appearance.sanitize(appearance).skin]
+	block(canvas,rect,11,28,11,8,skin.darkened(.48))
+	block(canvas,rect,12,28,9,7,skin.darkened(.21))
+	block(canvas,rect,16,30,5,5,skin.darkened(.10))
+	var cloth = Color("59605a")
+	for row in range(34,40):
+		var inset = maxi(3,10-(row-34)*2)
+		block(canvas,rect,inset-1,row,34-inset*2,1,Color("2b3432"))
+		block(canvas,rect,inset,row,32-inset*2,1,cloth)
+		block(canvas,rect,inset,row,3,1,cloth.darkened(.19))
+	block(canvas,rect,11,34,11,1,Color("3c4541"))
+	block(canvas,rect,12,35,9,1,Color("3c4541"))
+	block(canvas,rect,14,34,6,1,skin.darkened(.17))
+	block(canvas,rect,15,36,2,4,cloth.darkened(.17))
+	block(canvas,rect,20,37,5,1,cloth.lightened(.07))
+	# Beard tips belong in front of the collar, including the long-face goatee.
+	draw_face(canvas,appearance,rect,Rect2(),false)
 
 static func draw_head(canvas: CanvasItem, appearance: Dictionary, helmet_tier: int, helmet_color: Color, head_rect: Rect2) -> void:
 	if helmet_tier>0:

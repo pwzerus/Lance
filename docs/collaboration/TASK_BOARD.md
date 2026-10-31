@@ -6,6 +6,10 @@
 
 ## 当前文件占用
 
+DEV-054 / 2026-10-30 22:40 EDT：用户否定自建像素脸五官与表情，基线aa753bc。root认领game/scripts/visual/character_face.gd、必要head_fit.gd适配、版本/导出/启动器与本任务设计/交接记录；face_art054只读美术并写V054_ART_REVIEW.md，face_qa054仅写test_face_design_v054.gd/.uid及V054_QA_REVIEW.md。现有脸型/肤色/眉毛/胡须/瞳色索引保持，改五官簇、三分之四比例和颌面层次，以实际自建UI、无须骑手双向戴盔和正常显示尺寸审图。root独占引擎串行隔离QA；旧包/正式档/既有Claude改动保留。此轮不开展后续加速或声音。
+
+DEV-054补充：root认领main.gd的CharacterFaceCanvas调用，独立draw_portrait只在自建头像补短颈与胸肩，骑乘/旧备用头部不接入。QA脚本已由face_qa054交回，root改其sheet直接复用生产CharacterFaceCanvas，避免复制绘制调用或遗漏头像衣领。
+
 DEV-053完成：所有生产/QA/审查文件已交回并释放，root仅作最终提交推送。独立v0.4.13源码dfde0ec；两反馈组合无须前后对照、全套/高领/深肤色、实际包头部命中与落马、ZIP双模式已验。旧.12与正式档保留；玩家对新版满意度未验收。下次加速/音效两小时没有启动。下方为认领历史。
 
 DEV-053 / 2026-10-30 22:06:54–22:51:54 EDT：用户否定v0.4.12头颈佩戴观感，45分钟专项返工。基线25a2a04。root认领head_fit.gd、character_face.gd、rider_view.gd、equipment_fit_v052.json、必要装备佩戴元数据/素材、版本导出启动器、设计与交接文档；head_art_review053只读审查并写V053_ART_REVIEW.md；head_qa053仅写test_head_wear_v053.gd及.uid、V053_QA_NOTES.md。引擎由root串行。以用户两图实际尺寸/特写比例与自然接缝为验收，alpha连通不作为美术通过。保护既有Claude文档/正式档/旧包；拟独立v0.4.13，同分支。加速/音效不在本轮。

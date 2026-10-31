@@ -7,6 +7,7 @@ const WOOD = Color("aa7845")
 const LIGHT_WOOD = Color("d4ab6c")
 const STEEL = Color("9da9ad")
 const DARK_STEEL = Color("4b5963")
+enum Layer { WHOLE, REAR, FRONT }
 
 static func surface(hand: Vector2, angle: float, distance: float, offset: float, length: float, broken: bool, recoil: float) -> Vector2:
 	var axis = Vector2(cos(angle),sin(angle))
@@ -34,17 +35,21 @@ static func _mapped(points: Array, hand: Vector2, angle: float, length: float, b
 		result.append(surface(hand,angle,point.x,point.y,length,broken,recoil))
 	return result
 
-static func draw(canvas: CanvasItem, stats: Dictionary, hand: Vector2, angle: float, length: float, broken: bool, recoil: float, mode: String) -> void:
+static func draw(canvas: CanvasItem, stats: Dictionary, hand: Vector2, angle: float, length: float, broken: bool, recoil: float, mode: String, layer: int = Layer.WHOLE) -> void:
 	var quality = clampi(int(stats.get("lance_quality",0)),0,5)
 	var era = int(stats.get("lance_era",0))
 	var full_length = maxf(120.0,float(stats.get("reach",247.0)))
 	var kind = str(stats.get("lance_type","standard"))
 	var shaft_end = length if broken else length-16.0
+	# Mounted riders occlude the butt with their neck/head. Detached lances
+	# retain the whole draw path. Both sections use the same hand/axis/bend.
+	var section_start = 0.0 if layer==Layer.FRONT else -67.0
+	var section_end = 0.0 if layer==Layer.REAR else shaft_end
 	var upper: Array = []
 	var lower: Array = []
 	var highlight = PackedVector2Array()
 	for i in range(25):
-		var d = lerpf(-67.0,shaft_end,float(i)/24.0)
+		var d = lerpf(section_start,section_end,float(i)/24.0)
 		var r = radius(stats,d,full_length)
 		upper.append(Vector2(d,-r))
 		lower.push_front(Vector2(d,r))
@@ -52,13 +57,24 @@ static func draw(canvas: CanvasItem, stats: Dictionary, hand: Vector2, angle: fl
 	var silhouette = upper+lower
 	var mapped = _mapped(silhouette,hand,angle,length,broken,recoil)
 	canvas.draw_colored_polygon(mapped,WOOD)
-	var closed = mapped.duplicate()
-	closed.append(closed[0])
-	canvas.draw_polyline(closed,INK,1.7,false)
+	# Do not draw an artificial end cap at the split inside the hand.
+	canvas.draw_polyline(_mapped(upper,hand,angle,length,broken,recoil),INK,1.7,false)
+	canvas.draw_polyline(_mapped(lower,hand,angle,length,broken,recoil),INK,1.7,false)
+	if layer!=Layer.FRONT:
+		canvas.draw_line(mapped[0],mapped[-1],INK,1.7,false)
+	if layer!=Layer.REAR:
+		canvas.draw_line(mapped[24],mapped[25],INK,1.7,false)
 	canvas.draw_polyline(highlight,LIGHT_WOOD,1.5,false)
 	# Grip wrapping is different from a painted shaft; it remains on a stump.
 	for d in range(-13,9,4):
-		canvas.draw_line(surface(hand,angle,d,-3.4,length,broken,recoil),surface(hand,angle,d+2,3.4,length,broken,recoil),Color("5c3b2c"),2.0,false)
+		var start = maxf(d,section_start)
+		var end = minf(d+2,section_end)
+		if end<=start: continue
+		var start_y = lerpf(-3.4,3.4,(start-d)/2.0)
+		var end_y = lerpf(-3.4,3.4,(end-d)/2.0)
+		canvas.draw_line(surface(hand,angle,start,start_y,length,broken,recoil),surface(hand,angle,end,end_y,length,broken,recoil),Color("5c3b2c"),2.0,false)
+	if layer==Layer.REAR:
+		return
 	var paint = Color(str(stats.get("lance_color","d2b179")))
 	if quality>0:
 		var region = str(stats.get("lance_region",""))

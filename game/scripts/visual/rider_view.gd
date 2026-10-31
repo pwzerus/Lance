@@ -265,6 +265,12 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 	# The distant forearm can cross in front of the chest to reach its grip;
 	# its upper arm remains behind the torso instead of painting over it.
 	_draw_anatomical_arm(far_side,far_arm,Color(.78,.81,.84),false,true)
+	# The rear handle runs across the chest but behind the head/neck. Drawing
+	# the whole lance after the face made it pass through both faces on lean.
+	var hand_local: Vector2 = (pose.right.hand-origin)*Vector2(facing,1)
+	if detached_lance_visible:
+		draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
+		_draw_lance(hand_local,float(fighter.aim),Model.lance_length(fighter),bool(fighter.broken),Lance.Layer.REAR)
 	draw_set_transform_matrix(torso_transform)
 	HeadFit.draw_neck(self,head_fit,appearance,facing)
 	HeadFit.draw_collar_lip(self,head_fit,torso_texture,_torso_surface_point)
@@ -284,9 +290,8 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 			draw_line(Vector2(-20,-109),Vector2(20,-109),Color(str(fighter.stats.helmet_color)),3)
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 	_draw_seated_leg(seated.near,Color.WHITE,true)
-	var hand_local: Vector2 = (pose.right.hand-origin)*Vector2(facing,1)
 	if detached_lance_visible:
-		_draw_lance(hand_local,float(fighter.aim),Model.lance_length(fighter),bool(fighter.broken))
+		_draw_lance(hand_local,float(fighter.aim),Model.lance_length(fighter),bool(fighter.broken),Lance.Layer.FRONT)
 	draw_set_transform_matrix(torso_transform)
 	_draw_grip("right",right_arm,Color.WHITE if facing==1 else Color(.83,.85,.88))
 	# Left hand grips the rear handle. The shield face then occludes fingers
@@ -530,8 +535,8 @@ static func mirrored_transform(origin: Vector2, angle: float, facing: int) -> Tr
 	var mirror = Vector2(facing,1)
 	return Transform2D(Vector2.RIGHT.rotated(angle)*mirror,Vector2.DOWN.rotated(angle)*mirror,origin*mirror)
 
-func _draw_lance(hand: Vector2, angle: float, length: float, broken: bool) -> void:
-	Lance.draw(self,fighter.stats,hand,angle,length,broken,lance_recoil,mode)
+func _draw_lance(hand: Vector2, angle: float, length: float, broken: bool, layer: int = Lance.Layer.WHOLE) -> void:
+	Lance.draw(self,fighter.stats,hand,angle,length,broken,lance_recoil,mode,layer)
 
 func _lance_surface_point(hand: Vector2, angle: float, length: float, broken: bool, distance: float) -> Vector2:
 	return Lance.surface(hand,angle,distance,0,length,broken,lance_recoil)

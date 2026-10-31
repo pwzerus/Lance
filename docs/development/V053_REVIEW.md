@@ -28,7 +28,7 @@
 - Godot4.5.1实际GPU、Compatibility；全部使用QA路径，窗口最小化，无前台编辑器或鼠标键盘占用。
 - 新test_head_wear_v053：同一生产main菜单的正常显示尺寸、同fighter 2×特写，四脸型×无须/络腮/长须、双向三姿态、最深肤色无须高领，共12图。保存成功不等于审美通过，需看图片。
 - 原全量头肩夹具190组合用于发现断开风险；原开放盔/极值20页用于回归，不能替代无须主夹具。
-- 最终headless导入正常。发布EXE/PCK、落马、实际接触和ZIP回执在完成后追加。
+- 最终headless导入正常。发布EXE/PCK、落马、实际接触和ZIP已完成复验，详见下节。
 
 ## 实际发布与最终复验
 
@@ -54,6 +54,8 @@ PCK SHA256：`077B8D151D2799834ED9A51E7F7185B99B33565E14AB1641C13FAEFA846FEF62`�
 | ![旧鼻盔比例](screenshots/v053/baseline01/home_2x_eng_helmet_0_eng_armor_0.png) | ![新鼻盔比例](screenshots/v053/export-wear01/home_2x_eng_helmet_0_eng_armor_0.png) |
 
 对照图是同一生产角色2×显示比例的GPU输出，非修图效果图；实际菜单大小另保留home_*图。本轮素材修改为现有渲染代码和佩戴数据，无ImageGen位图修改。
+
+运行实现dfde0ec、QA/交接91e94ee已推送codex/v0.4；2026-10-30 22:34 EDT核对本地HEAD和远程分支均为`91e94eefd004d906ee94509bc54162cebdc35f3c`。随后纯文档回执不改变发布包。
 
 ## 保留限制
 

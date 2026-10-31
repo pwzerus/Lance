@@ -1,0 +1,492 @@
+{
+	"captures": [
+		{
+			"camera_qa_settle": true,
+			"name": "eng_0_war_attack0_fall_contact",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/export-head-contact01/eng_0_war_attack0_fall_contact.png",
+			"phase": "ended",
+			"saved": true,
+			"scale": 0.001
+		},
+		{
+			"camera_qa_fit": true,
+			"name": "eng_0_war_attack0_fall_released",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/export-head-contact01/eng_0_war_attack0_fall_released.png",
+			"saved": true
+		},
+		{
+			"camera_qa_settle": true,
+			"name": "eng_0_war_attack1_fall_contact",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/export-head-contact01/eng_0_war_attack1_fall_contact.png",
+			"phase": "ended",
+			"saved": true,
+			"scale": 0.001
+		},
+		{
+			"camera_qa_fit": true,
+			"name": "eng_0_war_attack1_fall_released",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/export-head-contact01/eng_0_war_attack1_fall_released.png",
+			"saved": true
+		},
+		{
+			"camera_qa_settle": true,
+			"name": "fr_0_war_attack0_fall_contact",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/export-head-contact01/fr_0_war_attack0_fall_contact.png",
+			"phase": "ended",
+			"saved": true,
+			"scale": 0.001
+		},
+		{
+			"camera_qa_fit": true,
+			"name": "fr_0_war_attack0_fall_released",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/export-head-contact01/fr_0_war_attack0_fall_released.png",
+			"saved": true
+		},
+		{
+			"camera_qa_settle": true,
+			"name": "fr_0_war_attack1_fall_contact",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/export-head-contact01/fr_0_war_attack1_fall_contact.png",
+			"phase": "ended",
+			"saved": true,
+			"scale": 0.001
+		},
+		{
+			"camera_qa_fit": true,
+			"name": "fr_0_war_attack1_fall_released",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/export-head-contact01/fr_0_war_attack1_fall_released.png",
+			"saved": true
+		},
+		{
+			"camera_qa_settle": true,
+			"name": "de_0_war_attack0_fall_contact",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/export-head-contact01/de_0_war_attack0_fall_contact.png",
+			"phase": "ended",
+			"saved": true,
+			"scale": 0.001
+		},
+		{
+			"camera_qa_fit": true,
+			"name": "de_0_war_attack0_fall_released",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/export-head-contact01/de_0_war_attack0_fall_released.png",
+			"saved": true
+		},
+		{
+			"camera_qa_settle": true,
+			"name": "de_0_war_attack1_fall_contact",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/export-head-contact01/de_0_war_attack1_fall_contact.png",
+			"phase": "ended",
+			"saved": true,
+			"scale": 0.001
+		},
+		{
+			"camera_qa_fit": true,
+			"name": "de_0_war_attack1_fall_released",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/export-head-contact01/de_0_war_attack1_fall_released.png",
+			"saved": true
+		}
+	],
+	"examples": [],
+	"failures": [],
+	"fixture_limits": "Reuses test_equipment_battle_v051 run_case. Both riders receive identical catalogue stats; shield=0, other rider already acted, defender HP=1, speed480 and x±720.120Hz Model steps; camera manually settled, presentation director advanced after first contact only for release observation. QA profile is in memory and restored; no save is written.",
+	"passed": true,
+	"rows": [
+		{
+			"actual_hit": {
+				"attacker": 0,
+				"balance_left": 85.6557693784521,
+				"break_angle": -0.560795585981926,
+				"break_direction": 1,
+				"break_hand": "(-87.82442, -187.2536)",
+				"break_reach": 237.0,
+				"break_tip": "(112.8748, -313.3044)",
+				"broke": false,
+				"damage": 21.3963744291082,
+				"dead": true,
+				"defender": 1,
+				"glanced": false,
+				"impulse": 28.6884612430959,
+				"ko": true,
+				"ko_reason": "fatal",
+				"position": "(110.9536, -313.1828)",
+				"shield_broke": false,
+				"speed": 859.732177734375,
+				"support": 0.573457793568914,
+				"type": "hit",
+				"zone": "head"
+			},
+			"armor_art": "eng_armor_0",
+			"attacker": 0,
+			"case": "eng_0_war_attack0_fall",
+			"country": "eng",
+			"direction": 1,
+			"fallen_ids": {
+				"armor": "eng_armor_0",
+				"helmet": "eng_helmet_0"
+			},
+			"fixture": {
+				"armor_values_are_original_catalogue": true,
+				"initial_attacker_durability": 90.0,
+				"initial_defender_hp": 1,
+				"initial_speed": 480,
+				"initial_x": [
+					-720,
+					720
+				],
+				"opponent_already_acted": true,
+				"shields_disabled": true
+			},
+			"helmet_art": "eng_helmet_0",
+			"kind": "fall",
+			"lance_id": "eng_lance_light_0",
+			"max_aim_step": 0.022,
+			"max_guard_step": 0.0233333333333333,
+			"mode": "war",
+			"mounted_source_rendered": true,
+			"presentation_scale_at_contact": 0.001,
+			"release_observation": {
+				"camera_qa_fit": true,
+				"fall_age": 0.294056666666667,
+				"physics_ticks": 37,
+				"presentation_director_fast_forwarded": true,
+				"wall_msec": 249,
+				"weapon_released": true
+			},
+			"same_events_without_leg_trim": true,
+			"simulation_seconds": 1.25833333333333,
+			"steps": 151,
+			"tier": 0
+		},
+		{
+			"actual_hit": {
+				"attacker": 1,
+				"balance_left": 80.0795116931142,
+				"break_angle": 0.0370737003411965,
+				"break_direction": -1,
+				"break_hand": "(102.6428, -254.2589)",
+				"break_reach": 237.0,
+				"break_tip": "(-134.1944, -245.4745)",
+				"broke": false,
+				"damage": 30.4976632300831,
+				"dead": true,
+				"defender": 0,
+				"glanced": false,
+				"impulse": 39.8409766137716,
+				"ko": true,
+				"ko_reason": "fatal",
+				"position": "(-131.062, -246.018)",
+				"shield_broke": false,
+				"speed": 954.064636230469,
+				"support": 0.608142668051043,
+				"type": "hit",
+				"zone": "head"
+			},
+			"armor_art": "eng_armor_0",
+			"attacker": 1,
+			"case": "eng_0_war_attack1_fall",
+			"country": "eng",
+			"direction": -1,
+			"fallen_ids": {
+				"armor": "eng_armor_0",
+				"helmet": "eng_helmet_0"
+			},
+			"fixture": {
+				"armor_values_are_original_catalogue": true,
+				"initial_attacker_durability": 90.0,
+				"initial_defender_hp": 1,
+				"initial_speed": 480,
+				"initial_x": [
+					-720,
+					720
+				],
+				"opponent_already_acted": true,
+				"shields_disabled": true
+			},
+			"helmet_art": "eng_helmet_0",
+			"kind": "fall",
+			"lance_id": "eng_lance_light_0",
+			"max_aim_step": 0.022,
+			"max_guard_step": 0.0233333333333333,
+			"mode": "war",
+			"mounted_source_rendered": true,
+			"presentation_scale_at_contact": 0.001,
+			"release_observation": {
+				"camera_qa_fit": true,
+				"fall_age": 0.291944,
+				"physics_ticks": 36,
+				"presentation_director_fast_forwarded": true,
+				"wall_msec": 231,
+				"weapon_released": true
+			},
+			"same_events_without_leg_trim": true,
+			"simulation_seconds": 1.225,
+			"steps": 147,
+			"tier": 0
+		},
+		{
+			"actual_hit": {
+				"attacker": 0,
+				"balance_left": 85.6557693784521,
+				"break_angle": -0.560795585981926,
+				"break_direction": 1,
+				"break_hand": "(-87.82442, -187.2536)",
+				"break_reach": 237.0,
+				"break_tip": "(112.8748, -313.3044)",
+				"broke": false,
+				"damage": 21.3963744291082,
+				"dead": true,
+				"defender": 1,
+				"glanced": false,
+				"impulse": 28.6884612430959,
+				"ko": true,
+				"ko_reason": "fatal",
+				"position": "(110.9536, -313.1828)",
+				"shield_broke": false,
+				"speed": 859.732177734375,
+				"support": 0.573457793568914,
+				"type": "hit",
+				"zone": "head"
+			},
+			"armor_art": "fr_armor_0",
+			"attacker": 0,
+			"case": "fr_0_war_attack0_fall",
+			"country": "fr",
+			"direction": 1,
+			"fallen_ids": {
+				"armor": "fr_armor_0",
+				"helmet": "fr_helmet_0"
+			},
+			"fixture": {
+				"armor_values_are_original_catalogue": true,
+				"initial_attacker_durability": 90.0,
+				"initial_defender_hp": 1,
+				"initial_speed": 480,
+				"initial_x": [
+					-720,
+					720
+				],
+				"opponent_already_acted": true,
+				"shields_disabled": true
+			},
+			"helmet_art": "fr_helmet_0",
+			"kind": "fall",
+			"lance_id": "fr_lance_light_0",
+			"max_aim_step": 0.022,
+			"max_guard_step": 0.0233333333333333,
+			"mode": "war",
+			"mounted_source_rendered": true,
+			"presentation_scale_at_contact": 0.001,
+			"release_observation": {
+				"camera_qa_fit": true,
+				"fall_age": 0.280916666666667,
+				"physics_ticks": 35,
+				"presentation_director_fast_forwarded": true,
+				"wall_msec": 224,
+				"weapon_released": true
+			},
+			"same_events_without_leg_trim": true,
+			"simulation_seconds": 1.25833333333333,
+			"steps": 151,
+			"tier": 0
+		},
+		{
+			"actual_hit": {
+				"attacker": 1,
+				"balance_left": 80.0795116931142,
+				"break_angle": 0.0370737003411965,
+				"break_direction": -1,
+				"break_hand": "(102.6428, -254.2589)",
+				"break_reach": 237.0,
+				"break_tip": "(-134.1944, -245.4745)",
+				"broke": false,
+				"damage": 30.4976632300831,
+				"dead": true,
+				"defender": 0,
+				"glanced": false,
+				"impulse": 39.8409766137716,
+				"ko": true,
+				"ko_reason": "fatal",
+				"position": "(-131.062, -246.018)",
+				"shield_broke": false,
+				"speed": 954.064636230469,
+				"support": 0.608142668051043,
+				"type": "hit",
+				"zone": "head"
+			},
+			"armor_art": "fr_armor_0",
+			"attacker": 1,
+			"case": "fr_0_war_attack1_fall",
+			"country": "fr",
+			"direction": -1,
+			"fallen_ids": {
+				"armor": "fr_armor_0",
+				"helmet": "fr_helmet_0"
+			},
+			"fixture": {
+				"armor_values_are_original_catalogue": true,
+				"initial_attacker_durability": 90.0,
+				"initial_defender_hp": 1,
+				"initial_speed": 480,
+				"initial_x": [
+					-720,
+					720
+				],
+				"opponent_already_acted": true,
+				"shields_disabled": true
+			},
+			"helmet_art": "fr_helmet_0",
+			"kind": "fall",
+			"lance_id": "fr_lance_light_0",
+			"max_aim_step": 0.022,
+			"max_guard_step": 0.0233333333333333,
+			"mode": "war",
+			"mounted_source_rendered": true,
+			"presentation_scale_at_contact": 0.001,
+			"release_observation": {
+				"camera_qa_fit": true,
+				"fall_age": 0.291919666666667,
+				"physics_ticks": 36,
+				"presentation_director_fast_forwarded": true,
+				"wall_msec": 231,
+				"weapon_released": true
+			},
+			"same_events_without_leg_trim": true,
+			"simulation_seconds": 1.225,
+			"steps": 147,
+			"tier": 0
+		},
+		{
+			"actual_hit": {
+				"attacker": 0,
+				"balance_left": 85.6557693784521,
+				"break_angle": -0.560795585981926,
+				"break_direction": 1,
+				"break_hand": "(-87.82442, -187.2536)",
+				"break_reach": 237.0,
+				"break_tip": "(112.8748, -313.3044)",
+				"broke": false,
+				"damage": 21.3963744291082,
+				"dead": true,
+				"defender": 1,
+				"glanced": false,
+				"impulse": 28.6884612430959,
+				"ko": true,
+				"ko_reason": "fatal",
+				"position": "(110.9536, -313.1828)",
+				"shield_broke": false,
+				"speed": 859.732177734375,
+				"support": 0.573457793568914,
+				"type": "hit",
+				"zone": "head"
+			},
+			"armor_art": "de_armor_0",
+			"attacker": 0,
+			"case": "de_0_war_attack0_fall",
+			"country": "de",
+			"direction": 1,
+			"fallen_ids": {
+				"armor": "de_armor_0",
+				"helmet": "de_helmet_0"
+			},
+			"fixture": {
+				"armor_values_are_original_catalogue": true,
+				"initial_attacker_durability": 90.0,
+				"initial_defender_hp": 1,
+				"initial_speed": 480,
+				"initial_x": [
+					-720,
+					720
+				],
+				"opponent_already_acted": true,
+				"shields_disabled": true
+			},
+			"helmet_art": "de_helmet_0",
+			"kind": "fall",
+			"lance_id": "de_lance_light_0",
+			"max_aim_step": 0.022,
+			"max_guard_step": 0.0233333333333333,
+			"mode": "war",
+			"mounted_source_rendered": true,
+			"presentation_scale_at_contact": 0.001,
+			"release_observation": {
+				"camera_qa_fit": true,
+				"fall_age": 0.283333333333333,
+				"physics_ticks": 35,
+				"presentation_director_fast_forwarded": true,
+				"wall_msec": 224,
+				"weapon_released": true
+			},
+			"same_events_without_leg_trim": true,
+			"simulation_seconds": 1.25833333333333,
+			"steps": 151,
+			"tier": 0
+		},
+		{
+			"actual_hit": {
+				"attacker": 1,
+				"balance_left": 80.0795116931142,
+				"break_angle": 0.0370737003411965,
+				"break_direction": -1,
+				"break_hand": "(102.6428, -254.2589)",
+				"break_reach": 237.0,
+				"break_tip": "(-134.1944, -245.4745)",
+				"broke": false,
+				"damage": 30.4976632300831,
+				"dead": true,
+				"defender": 0,
+				"glanced": false,
+				"impulse": 39.8409766137716,
+				"ko": true,
+				"ko_reason": "fatal",
+				"position": "(-131.062, -246.018)",
+				"shield_broke": false,
+				"speed": 954.064636230469,
+				"support": 0.608142668051043,
+				"type": "hit",
+				"zone": "head"
+			},
+			"armor_art": "de_armor_0",
+			"attacker": 1,
+			"case": "de_0_war_attack1_fall",
+			"country": "de",
+			"direction": -1,
+			"fallen_ids": {
+				"armor": "de_armor_0",
+				"helmet": "de_helmet_0"
+			},
+			"fixture": {
+				"armor_values_are_original_catalogue": true,
+				"initial_attacker_durability": 90.0,
+				"initial_defender_hp": 1,
+				"initial_speed": 480,
+				"initial_x": [
+					-720,
+					720
+				],
+				"opponent_already_acted": true,
+				"shields_disabled": true
+			},
+			"helmet_art": "de_helmet_0",
+			"kind": "fall",
+			"lance_id": "de_lance_light_0",
+			"max_aim_step": 0.022,
+			"max_guard_step": 0.0233333333333333,
+			"mode": "war",
+			"mounted_source_rendered": true,
+			"presentation_scale_at_contact": 0.001,
+			"release_observation": {
+				"camera_qa_fit": true,
+				"fall_age": 0.291995333333333,
+				"physics_ticks": 36,
+				"presentation_director_fast_forwarded": true,
+				"wall_msec": 229,
+				"weapon_released": true
+			},
+			"same_events_without_leg_trim": true,
+			"simulation_seconds": 1.225,
+			"steps": 147,
+			"tier": 0
+		}
+	],
+	"scope": "Six production head contacts: eng/fr/de tier0 in war, each attacked from both directions. Genuine finite-control swept contact, exact equipment retained through actual fatal KO and fallen weapon release; contact/release PNGs require visual comparison with the helmet and face. No automated pixel-fit claim, OS input, human play, balance claim or timing assessment.",
+	"wall_msec": 7585
+}

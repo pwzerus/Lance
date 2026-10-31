@@ -1,0 +1,48 @@
+{
+	"failures": [],
+	"passed": true,
+	"qa_save": "user://qa_face_v054_4591243.json",
+	"rows": [
+		{
+			"capture": "character_default",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/face04/character_default.png"
+		},
+		{
+			"capture": "character_draft",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/face04/character_draft.png"
+		},
+		{
+			"capture": "character_saved_reopened",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/face04/character_saved_reopened.png"
+		},
+		{
+			"capture": "shapes_editor_size",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/face04/shapes_editor_size.png"
+		},
+		{
+			"capture": "shapes_large",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/face04/shapes_large.png"
+		},
+		{
+			"capture": "choices_skin",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/face04/choices_skin.png"
+		},
+		{
+			"capture": "choices_beard",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/face04/choices_beard.png"
+		},
+		{
+			"capture": "choices_eyes",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/face04/choices_eyes.png"
+		},
+		{
+			"capture": "choices_brows",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/face04/choices_brows.png"
+		},
+		{
+			"capture": "choices_hair",
+			"path": "E:/GALUMU/docs/development/screenshots/v054/face04/choices_hair.png"
+		}
+	],
+	"scope": "Production face drawing in four shapes/both facings at editor size and 8x grid; all six skin/five beard/five eye/four brow/four hair options, and production character UI draft/cancel/save/reload via signals. GPU screenshots and dedicated QA persistence only; no OS input, human art approval or aesthetic score. Mounted/helmet and dynamic coverage are separate tests."
+}

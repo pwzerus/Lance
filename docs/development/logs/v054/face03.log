@@ -1,0 +1,301 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+SCRIPT ERROR: Compile Error: Identifier not found: GameState
+   at: GDScript::reload (res://scripts/main.gd:70)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://tests/test_face_design_v054.gd:0)
+ERROR: Failed to load script "res://tests/test_face_design_v054.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript.cpp:3041)
+SCRIPT ERROR: Invalid call. Nonexistent function 'show_character' in base 'Node2D'.
+   at: character_ui (res://tests/test_face_design_v054.gd:59)
+   GDScript backtrace (most recent call first):
+       [0] character_ui (res://tests/test_face_design_v054.gd:59)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] shape_sheet (res://tests/test_face_design_v054.gd:30)
+       [2] run (res://tests/test_face_design_v054.gd:136)
+       [3] character_ui (res://tests/test_face_design_v054.gd:59)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] shape_sheet (res://tests/test_face_design_v054.gd:30)
+       [2] run (res://tests/test_face_design_v054.gd:136)
+       [3] character_ui (res://tests/test_face_design_v054.gd:59)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] shape_sheet (res://tests/test_face_design_v054.gd:30)
+       [2] run (res://tests/test_face_design_v054.gd:136)
+       [3] character_ui (res://tests/test_face_design_v054.gd:59)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] shape_sheet (res://tests/test_face_design_v054.gd:30)
+       [2] run (res://tests/test_face_design_v054.gd:136)
+       [3] character_ui (res://tests/test_face_design_v054.gd:59)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] shape_sheet (res://tests/test_face_design_v054.gd:30)
+       [2] run (res://tests/test_face_design_v054.gd:136)
+       [3] character_ui (res://tests/test_face_design_v054.gd:59)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] shape_sheet (res://tests/test_face_design_v054.gd:30)
+       [2] run (res://tests/test_face_design_v054.gd:136)
+       [3] character_ui (res://tests/test_face_design_v054.gd:59)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] shape_sheet (res://tests/test_face_design_v054.gd:30)
+       [2] run (res://tests/test_face_design_v054.gd:136)
+       [3] character_ui (res://tests/test_face_design_v054.gd:59)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] shape_sheet (res://tests/test_face_design_v054.gd:30)
+       [2] run (res://tests/test_face_design_v054.gd:136)
+       [3] character_ui (res://tests/test_face_design_v054.gd:59)
+FACE_DESIGN_V054 capture=shapes_editor_size
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] shape_sheet (res://tests/test_face_design_v054.gd:30)
+       [2] run (res://tests/test_face_design_v054.gd:137)
+       [3] shape_sheet (res://tests/test_face_design_v054.gd:33)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] shape_sheet (res://tests/test_face_design_v054.gd:30)
+       [2] run (res://tests/test_face_design_v054.gd:137)
+       [3] shape_sheet (res://tests/test_face_design_v054.gd:33)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] shape_sheet (res://tests/test_face_design_v054.gd:30)
+       [2] run (res://tests/test_face_design_v054.gd:137)
+       [3] shape_sheet (res://tests/test_face_design_v054.gd:33)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] shape_sheet (res://tests/test_face_design_v054.gd:30)
+       [2] run (res://tests/test_face_design_v054.gd:137)
+       [3] shape_sheet (res://tests/test_face_design_v054.gd:33)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] shape_sheet (res://tests/test_face_design_v054.gd:30)
+       [2] run (res://tests/test_face_design_v054.gd:137)
+       [3] shape_sheet (res://tests/test_face_design_v054.gd:33)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] shape_sheet (res://tests/test_face_design_v054.gd:30)
+       [2] run (res://tests/test_face_design_v054.gd:137)
+       [3] shape_sheet (res://tests/test_face_design_v054.gd:33)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] shape_sheet (res://tests/test_face_design_v054.gd:30)
+       [2] run (res://tests/test_face_design_v054.gd:137)
+       [3] shape_sheet (res://tests/test_face_design_v054.gd:33)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] shape_sheet (res://tests/test_face_design_v054.gd:30)
+       [2] run (res://tests/test_face_design_v054.gd:137)
+       [3] shape_sheet (res://tests/test_face_design_v054.gd:33)
+FACE_DESIGN_V054 capture=shapes_large
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] shape_sheet (res://tests/test_face_design_v054.gd:33)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] shape_sheet (res://tests/test_face_design_v054.gd:33)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] shape_sheet (res://tests/test_face_design_v054.gd:33)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] shape_sheet (res://tests/test_face_design_v054.gd:33)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] shape_sheet (res://tests/test_face_design_v054.gd:33)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] shape_sheet (res://tests/test_face_design_v054.gd:33)
+FACE_DESIGN_V054 capture=choices_skin
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] trait_sheet (res://tests/test_face_design_v054.gd:43)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] trait_sheet (res://tests/test_face_design_v054.gd:43)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] trait_sheet (res://tests/test_face_design_v054.gd:43)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] trait_sheet (res://tests/test_face_design_v054.gd:43)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] trait_sheet (res://tests/test_face_design_v054.gd:43)
+FACE_DESIGN_V054 capture=choices_beard
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] trait_sheet (res://tests/test_face_design_v054.gd:43)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] trait_sheet (res://tests/test_face_design_v054.gd:43)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] trait_sheet (res://tests/test_face_design_v054.gd:43)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] trait_sheet (res://tests/test_face_design_v054.gd:43)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] trait_sheet (res://tests/test_face_design_v054.gd:43)
+FACE_DESIGN_V054 capture=choices_eyes
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] trait_sheet (res://tests/test_face_design_v054.gd:43)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] trait_sheet (res://tests/test_face_design_v054.gd:43)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] trait_sheet (res://tests/test_face_design_v054.gd:43)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] trait_sheet (res://tests/test_face_design_v054.gd:43)
+FACE_DESIGN_V054 capture=choices_brows
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] trait_sheet (res://tests/test_face_design_v054.gd:43)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] trait_sheet (res://tests/test_face_design_v054.gd:43)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] trait_sheet (res://tests/test_face_design_v054.gd:43)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: add_face (res://tests/test_face_design_v054.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] add_face (res://tests/test_face_design_v054.gd:15)
+       [1] trait_sheet (res://tests/test_face_design_v054.gd:40)
+       [2] run (res://tests/test_face_design_v054.gd:139)
+       [3] trait_sheet (res://tests/test_face_design_v054.gd:43)
+FACE_DESIGN_V054 capture=choices_hair
+FACE_DESIGN_V054 completed=true captures=7 visual_acceptance=pending

@@ -1,5 +1,11 @@
 # 当前实现与接手地图
 
+## 最新自建脸返工：DEV-054 / v0.4.14（2026-10-30 EDT）
+
+用户在头盔/颈领修复后仍否定脸部表情和五官。DEV-054保留既有32×40代码像素接口和选项索引，改善四脸型颅颌轮廓、近远眼/瞳孔、鼻口、颌面层次和胡须。自建UI新增短颈肩衣头像，骑乘/备用盔保持原draw_face，不把肩衣画进头盔。运行源码`98e383ac06cf9c02c4d304fb6711f8c00fe7cd17`，同一codex/v0.4分支，独立.14保留.13。
+
+源码实际UI/全部外观选项、24套极值/12开放盔通过；实际EXE/PCK自建10图与源码逐一SHA相同，佩戴12图及6例真实头接触/落马完成。独立审查修复衣领截长须，QA加载失败和漏建截图目录的失败日志均保留。无本轮OS鼠标或真人接受结论。详见[DEV-054交接](handoffs/2026-10-30-DEV-054-Codex.md)、[V054审查](../development/V054_REVIEW.md)。后续加速/音效阶段仍未启动。
+
 ## 最新玩家反馈返工：DEV-053 / v0.4.13（2026-10-30 EDT）
 
 用户明确否定v0.4.12的头颈佩戴观感；DEV-052的引擎/流程检查不等于美术验收。DEV-053在45分钟专项内以无胡须实际菜单对照返工，基线25a2a04，运行提交`dfde0ecfeed951295e92e42bdfe6a9b464278c05`。独立v0.4.13沿用codex/v0.4，旧.12保留；当前最终发布回执见[DEV-053交接](handoffs/2026-10-30-DEV-053-Codex.md)。
@@ -88,11 +94,11 @@ OS已操作源码与最终解压包的菜单/练习/换盾/暂停/退出；没�
 
 ## 启动与工具
 
-- [Play-Latest.cmd](../../Play-Latest.cmd)指向独立[Windows目录](../../builds/LanceAndLaurel-v0.4.13/)，EXE和PCK同目录；旧包与失败候选不覆盖。
+- [Play-Latest.cmd](../../Play-Latest.cmd)指向独立[Windows目录](../../builds/LanceAndLaurel-v0.4.14/)，EXE和PCK同目录；旧包与失败候选不覆盖。
 - 主项目[game/project.godot](../../game/project.godot)，Godot4.5.1/GDScript/Compatibility，Windows x86_64。
 - 本机引擎tools/godot-4.5.1/Godot_v4.5.1-stable_win64_console.exe；导出模板tools/templates/windows_release_x86_64.exe。
-- PCK SHA256：077B8D151D2799834ED9A51E7F7185B99B33565E14AB1641C13FAEFA846FEF62。
-- 完整文档、ZIP身份、远程SHA及当前测试结果以DEV-053最终回执为准。根HANDOFF仍是旧入口且包含对方未提交内容，不能将其v0.4早期状态覆盖本文。
+- PCK SHA256：E29BFA58EBE956F2D24D30F73BA487B9F96CE55E04EE58EE3E062F1A29CFBADE。
+- 完整文档、ZIP身份、远程SHA及当前测试结果以DEV-054最终回执为准。根HANDOFF仍是旧入口且包含对方未提交内容，不能将其v0.4早期状态覆盖本文。
 
 ## 玩家控制与规则
 

@@ -10,6 +10,7 @@ const Gait = preload("res://scripts/visual/horse_gait.gd")
 const Shield = preload("res://scripts/core/shield_geometry.gd")
 const ArmArt = preload("res://scripts/visual/rider_arm_art.gd")
 const Face = preload("res://scripts/visual/character_face.gd")
+const HeadFit = preload("res://scripts/visual/head_fit.gd")
 const HorseSkin = preload("res://scripts/visual/horse_skin.gd")
 const Lance = preload("res://scripts/visual/lance_art.gd")
 const PIXEL_SHADER = preload("res://scripts/visual/mounted_pixel.gdshader")
@@ -248,6 +249,12 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 	var near_side = "right" if facing==1 else "left"
 	draw_set_transform_matrix(torso_transform)
 	_draw_anatomical_arm(far_side,far_arm,Color(.70,.73,.76),true,true)
+	var head_transform = torso_transform
+	head_transform.x *= facing
+	var head_fit = HeadFit.layout(fighter.stats)
+	draw_set_transform_matrix(head_transform)
+	HeadFit.draw_neck(self,head_fit)
+	draw_set_transform_matrix(torso_transform)
 	_draw_impact_torso()
 	_draw_armor_detail()
 	_draw_anatomical_arm(near_side,near_arm,Color.WHITE,true,true)
@@ -257,25 +264,21 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 	# The distant forearm can cross in front of the chest to reach its grip;
 	# its upper arm remains behind the torso instead of painting over it.
 	_draw_anatomical_arm(far_side,far_arm,Color(.78,.81,.84),false,true)
-	var head_transform = torso_transform
-	head_transform.x *= facing
 	draw_set_transform_matrix(head_transform)
-	var head_width = 84.0 if head_tier==4 else 70.0
+	HeadFit.draw_neck(self,head_fit,true)
 	var helmet_art = Art.descriptor(fighter.stats,"helmet")
+	var head_box: Rect2 = head_fit.helmet
 	if not helmet_art.is_empty() and Art.equipment_texture(fighter.stats,"helmet")!=null:
-		var draw_size: Array = helmet_art.get("draw_size",[70,80])
-		var head_box = Rect2(-float(draw_size[0])*.5,-151,float(draw_size[0]),float(draw_size[1]))
 		if bool(helmet_art.get("open_face",false)):
-			var face_region: Array = helmet_art.get("face_rect",[.2,.22,.6,.72])
 			var appearance: Dictionary = fighter.stats.get("appearance",Face.Appearance.variant(hash(str(fighter.stats.get("armor_color",""))+str(fighter.stats.get("shield_color","")))))
-			Face.draw_face(self,appearance,Rect2(head_box.position+Vector2(face_region[0],face_region[1])*head_box.size,Vector2(face_region[2],face_region[3])*head_box.size))
+			Face.draw_face(self,appearance,head_fit.face,head_fit.face_clip,false)
 		draw_texture_rect(head_texture,head_box,false)
 	elif head_tier==0:
 		var appearance: Dictionary = fighter.stats.get("appearance",Face.Appearance.variant(hash(str(fighter.stats.get("armor_color",""))+str(fighter.stats.get("shield_color","")))))
-		Face.draw_head(self,appearance,head_tier,Color(str(fighter.stats.get("helmet_color","8e999c"))),Rect2(-head_width*.5,-151,head_width,80))
+		Face.draw_head(self,appearance,head_tier,Color(str(fighter.stats.get("helmet_color","8e999c"))),head_box)
 	else:
 		# Keep enclosed/gilt equipment intact; it naturally hides facial detail.
-		draw_texture_rect(head_texture,Rect2(-head_width*.5,-151,head_width,80),false)
+		draw_texture_rect(head_texture,head_box,false)
 		if fighter.stats.has("helmet_color"):
 			draw_line(Vector2(-20,-109),Vector2(20,-109),Color(str(fighter.stats.helmet_color)),3)
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))

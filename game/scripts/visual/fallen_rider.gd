@@ -153,7 +153,11 @@ func body_points() -> PackedVector2Array:
 	var points = PackedVector2Array()
 	var pose: Dictionary = visual.detached_pose
 	var torso: Transform2D = pose.torso_transform
-	for p in [Vector2(-34,-151),Vector2(34,-151),Vector2(-38,-80),Vector2(38,-80),Vector2(-34,8),Vector2(34,8)]:
+	var head: Rect2 = Rider.HeadFit.layout(fighter.stats).helmet
+	var facing = Vector2(int(fighter.direction),1)
+	for p in [head.position,Vector2(head.end.x,head.position.y),head.end,Vector2(head.position.x,head.end.y)]:
+		points.append(torso*(p*facing))
+	for p in [Vector2(-38,-80),Vector2(38,-80),Vector2(-34,8),Vector2(34,8)]:
 		points.append(torso*p)
 	for side in ["left","right"]:
 		for joint in ["shoulder","elbow","hand"]:

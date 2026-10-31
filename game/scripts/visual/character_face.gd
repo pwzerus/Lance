@@ -8,7 +8,19 @@ const HAIR = [Color("543726"),Color("282a27"),Color("914b2d"),Color("ba985b")]
 const EYES = [Color("744625"),Color("508db2"),Color("5d8b4e"),Color("929c9c"),Color("c49837")]
 const INK = Color("2b2926")
 
-static func block(canvas: CanvasItem, rect: Rect2, x: float, y: float, w: float, h: float, color: Color) -> void:
+class FaceSurface:
+	extends RefCounted
+	var target: CanvasItem
+	var bounds: Rect2
+	func _init(canvas: CanvasItem, clip: Rect2) -> void:
+		target = canvas
+		bounds = clip
+	func draw_rect(rectangle: Rect2, color: Color) -> void:
+		var visible = rectangle.intersection(bounds) if bounds.has_area() else rectangle
+		if visible.has_area():
+			target.draw_rect(visible,color)
+
+static func block(canvas: Object, rect: Rect2, x: float, y: float, w: float, h: float, color: Color) -> void:
 	var unit = rect.size/Vector2(32,40)
 	canvas.draw_rect(Rect2(rect.position+Vector2(x,y)*unit,Vector2(w,h)*unit),color)
 
@@ -25,7 +37,10 @@ static func face_span(shape: int, row: int) -> Vector2i:
 			var taper = maxi(0,(row-23)/2)
 			return Vector2i((8 if row<10 else 6)+taper,24-taper)
 
-static func draw_face(canvas: CanvasItem, appearance: Dictionary, rect: Rect2) -> void:
+static func draw_face(source_canvas: CanvasItem, appearance: Dictionary, rect: Rect2, clip: Rect2 = Rect2(), include_neck: bool = true) -> void:
+	# Mounted faces are clipped to their aperture/jaw. Their collar is drawn
+	# behind the cuirass, rather than painting a second neck over the armour.
+	var canvas = FaceSurface.new(source_canvas,clip)
 	var a = Appearance.sanitize(appearance)
 	var skin: Color = SKIN[a.skin]
 	var shade = skin.darkened(.23)
@@ -34,9 +49,10 @@ static func draw_face(canvas: CanvasItem, appearance: Dictionary, rect: Rect2) -
 	var iris: Color = EYES[a.eyes]
 	var chin_row = 31 if a.face_shape==2 else 29
 	# Neck, hair silhouette and a stepped face contour.
-	block(canvas,rect,11,28,11,11,INK)
-	block(canvas,rect,12,28,9,11,shade)
-	block(canvas,rect,16,29,5,8,skin)
+	if include_neck:
+		block(canvas,rect,11,28,11,11,INK)
+		block(canvas,rect,12,28,9,11,shade)
+		block(canvas,rect,16,29,5,8,skin)
 	block(canvas,rect,8,3,15,2,INK)
 	block(canvas,rect,5,5,21,11,INK)
 	block(canvas,rect,6,5,18,10,hair)

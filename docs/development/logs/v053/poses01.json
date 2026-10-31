@@ -1,0 +1,10632 @@
+{
+	"capture_pixels_are_actual_godot_render_readback": true,
+	"captures": [
+		{
+			"height": 1368,
+			"page": "eng_forward_high",
+			"path": "E:/GALUMU/docs/development/screenshots/v053/poses01/eng_forward_high.png",
+			"saved": true,
+			"width": 1920
+		},
+		{
+			"height": 1368,
+			"page": "eng_back_low",
+			"path": "E:/GALUMU/docs/development/screenshots/v053/poses01/eng_back_low.png",
+			"saved": true,
+			"width": 1920
+		},
+		{
+			"height": 1368,
+			"page": "fr_forward_high",
+			"path": "E:/GALUMU/docs/development/screenshots/v053/poses01/fr_forward_high.png",
+			"saved": true,
+			"width": 1920
+		},
+		{
+			"height": 1368,
+			"page": "fr_back_low",
+			"path": "E:/GALUMU/docs/development/screenshots/v053/poses01/fr_back_low.png",
+			"saved": true,
+			"width": 1920
+		},
+		{
+			"height": 1368,
+			"page": "de_forward_high",
+			"path": "E:/GALUMU/docs/development/screenshots/v053/poses01/de_forward_high.png",
+			"saved": true,
+			"width": 1920
+		},
+		{
+			"height": 1368,
+			"page": "de_back_low",
+			"path": "E:/GALUMU/docs/development/screenshots/v053/poses01/de_back_low.png",
+			"saved": true,
+			"width": 1920
+		},
+		{
+			"height": 1368,
+			"page": "it_forward_high",
+			"path": "E:/GALUMU/docs/development/screenshots/v053/poses01/it_forward_high.png",
+			"saved": true,
+			"width": 1920
+		},
+		{
+			"height": 1368,
+			"page": "it_back_low",
+			"path": "E:/GALUMU/docs/development/screenshots/v053/poses01/it_back_low.png",
+			"saved": true,
+			"width": 1920
+		},
+		{
+			"height": 832,
+			"page": "faces_eng_helmet_0",
+			"path": "E:/GALUMU/docs/development/screenshots/v053/poses01/faces_eng_helmet_0.png",
+			"saved": true,
+			"width": 1600
+		},
+		{
+			"height": 832,
+			"page": "faces_eng_helmet_3",
+			"path": "E:/GALUMU/docs/development/screenshots/v053/poses01/faces_eng_helmet_3.png",
+			"saved": true,
+			"width": 1600
+		},
+		{
+			"height": 832,
+			"page": "faces_fr_helmet_0",
+			"path": "E:/GALUMU/docs/development/screenshots/v053/poses01/faces_fr_helmet_0.png",
+			"saved": true,
+			"width": 1600
+		},
+		{
+			"height": 832,
+			"page": "faces_fr_helmet_3",
+			"path": "E:/GALUMU/docs/development/screenshots/v053/poses01/faces_fr_helmet_3.png",
+			"saved": true,
+			"width": 1600
+		},
+		{
+			"height": 832,
+			"page": "faces_fr_helmet_4",
+			"path": "E:/GALUMU/docs/development/screenshots/v053/poses01/faces_fr_helmet_4.png",
+			"saved": true,
+			"width": 1600
+		},
+		{
+			"height": 832,
+			"page": "faces_fr_helmet_5",
+			"path": "E:/GALUMU/docs/development/screenshots/v053/poses01/faces_fr_helmet_5.png",
+			"saved": true,
+			"width": 1600
+		},
+		{
+			"height": 832,
+			"page": "faces_de_helmet_0",
+			"path": "E:/GALUMU/docs/development/screenshots/v053/poses01/faces_de_helmet_0.png",
+			"saved": true,
+			"width": 1600
+		},
+		{
+			"height": 832,
+			"page": "faces_de_helmet_5",
+			"path": "E:/GALUMU/docs/development/screenshots/v053/poses01/faces_de_helmet_5.png",
+			"saved": true,
+			"width": 1600
+		},
+		{
+			"height": 832,
+			"page": "faces_it_helmet_0",
+			"path": "E:/GALUMU/docs/development/screenshots/v053/poses01/faces_it_helmet_0.png",
+			"saved": true,
+			"width": 1600
+		},
+		{
+			"height": 832,
+			"page": "faces_it_helmet_1",
+			"path": "E:/GALUMU/docs/development/screenshots/v053/poses01/faces_it_helmet_1.png",
+			"saved": true,
+			"width": 1600
+		},
+		{
+			"height": 832,
+			"page": "faces_it_helmet_2",
+			"path": "E:/GALUMU/docs/development/screenshots/v053/poses01/faces_it_helmet_2.png",
+			"saved": true,
+			"width": 1600
+		},
+		{
+			"height": 832,
+			"page": "faces_it_helmet_3",
+			"path": "E:/GALUMU/docs/development/screenshots/v053/poses01/faces_it_helmet_3.png",
+			"saved": true,
+			"width": 1600
+		}
+	],
+	"face_rows": [
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "eng_armor_0",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "eng",
+			"direction": 1,
+			"face_rect": [
+				0.2888,
+				0.3445,
+				0.8831,
+				0.6679
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.2888,
+				0.3445,
+				0.8831,
+				0.6679
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_eng_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "eng_armor_0",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "eng",
+			"direction": -1,
+			"face_rect": [
+				0.2888,
+				0.3445,
+				0.8831,
+				0.6679
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.2888,
+				0.3445,
+				0.8831,
+				0.6679
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_eng_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "eng_armor_0",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "eng",
+			"direction": 1,
+			"face_rect": [
+				0.2888,
+				0.3445,
+				0.8831,
+				0.6679
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.2888,
+				0.3445,
+				0.8831,
+				0.6679
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_eng_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "eng_armor_0",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "eng",
+			"direction": -1,
+			"face_rect": [
+				0.2888,
+				0.3445,
+				0.8831,
+				0.6679
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.2888,
+				0.3445,
+				0.8831,
+				0.6679
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_eng_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "eng_armor_0",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "eng",
+			"direction": 1,
+			"face_rect": [
+				0.2888,
+				0.3445,
+				0.8831,
+				0.6679
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.2888,
+				0.3445,
+				0.8831,
+				0.6679
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_eng_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "eng_armor_0",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "eng",
+			"direction": -1,
+			"face_rect": [
+				0.2888,
+				0.3445,
+				0.8831,
+				0.6679
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.2888,
+				0.3445,
+				0.8831,
+				0.6679
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_eng_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "eng_armor_0",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "eng",
+			"direction": 1,
+			"face_rect": [
+				0.2888,
+				0.3445,
+				0.8831,
+				0.6679
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.2888,
+				0.3445,
+				0.8831,
+				0.6679
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_eng_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "eng_armor_0",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "eng",
+			"direction": -1,
+			"face_rect": [
+				0.2888,
+				0.3445,
+				0.8831,
+				0.6679
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.2888,
+				0.3445,
+				0.8831,
+				0.6679
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_eng_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "eng_armor_3",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "eng",
+			"direction": 1,
+			"face_rect": [
+				0.3231,
+				0.3342,
+				0.773,
+				0.6633
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.3231,
+				0.3342,
+				0.773,
+				0.6633
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_eng_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "eng_armor_3",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "eng",
+			"direction": -1,
+			"face_rect": [
+				0.3231,
+				0.3342,
+				0.773,
+				0.6633
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.3231,
+				0.3342,
+				0.773,
+				0.6633
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_eng_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "eng_armor_3",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "eng",
+			"direction": 1,
+			"face_rect": [
+				0.3231,
+				0.3342,
+				0.773,
+				0.6633
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.3231,
+				0.3342,
+				0.773,
+				0.6633
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_eng_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "eng_armor_3",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "eng",
+			"direction": -1,
+			"face_rect": [
+				0.3231,
+				0.3342,
+				0.773,
+				0.6633
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.3231,
+				0.3342,
+				0.773,
+				0.6633
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_eng_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "eng_armor_3",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "eng",
+			"direction": 1,
+			"face_rect": [
+				0.3231,
+				0.3342,
+				0.773,
+				0.6633
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.3231,
+				0.3342,
+				0.773,
+				0.6633
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_eng_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "eng_armor_3",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "eng",
+			"direction": -1,
+			"face_rect": [
+				0.3231,
+				0.3342,
+				0.773,
+				0.6633
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.3231,
+				0.3342,
+				0.773,
+				0.6633
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_eng_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "eng_armor_3",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "eng",
+			"direction": 1,
+			"face_rect": [
+				0.3231,
+				0.3342,
+				0.773,
+				0.6633
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.3231,
+				0.3342,
+				0.773,
+				0.6633
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_eng_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "eng_armor_3",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "eng",
+			"direction": -1,
+			"face_rect": [
+				0.3231,
+				0.3342,
+				0.773,
+				0.6633
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.3231,
+				0.3342,
+				0.773,
+				0.6633
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_eng_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "fr_armor_0",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.3,
+				0.64,
+				0.6,
+				1.5
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				84.0,
+				40.0
+			],
+			"helmet_id": "fr_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				84.0,
+				40.0
+			],
+			"latest_manifest_face_rect": [
+				0.3,
+				0.64,
+				0.6,
+				1.5
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "fr_armor_0",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.3,
+				0.64,
+				0.6,
+				1.5
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				84.0,
+				40.0
+			],
+			"helmet_id": "fr_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				84.0,
+				40.0
+			],
+			"latest_manifest_face_rect": [
+				0.3,
+				0.64,
+				0.6,
+				1.5
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "fr_armor_0",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.3,
+				0.64,
+				0.6,
+				1.5
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				84.0,
+				40.0
+			],
+			"helmet_id": "fr_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				84.0,
+				40.0
+			],
+			"latest_manifest_face_rect": [
+				0.3,
+				0.64,
+				0.6,
+				1.5
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "fr_armor_0",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.3,
+				0.64,
+				0.6,
+				1.5
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				84.0,
+				40.0
+			],
+			"helmet_id": "fr_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				84.0,
+				40.0
+			],
+			"latest_manifest_face_rect": [
+				0.3,
+				0.64,
+				0.6,
+				1.5
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "fr_armor_0",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.3,
+				0.64,
+				0.6,
+				1.5
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				84.0,
+				40.0
+			],
+			"helmet_id": "fr_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				84.0,
+				40.0
+			],
+			"latest_manifest_face_rect": [
+				0.3,
+				0.64,
+				0.6,
+				1.5
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "fr_armor_0",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.3,
+				0.64,
+				0.6,
+				1.5
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				84.0,
+				40.0
+			],
+			"helmet_id": "fr_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				84.0,
+				40.0
+			],
+			"latest_manifest_face_rect": [
+				0.3,
+				0.64,
+				0.6,
+				1.5
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "fr_armor_0",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.3,
+				0.64,
+				0.6,
+				1.5
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				84.0,
+				40.0
+			],
+			"helmet_id": "fr_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				84.0,
+				40.0
+			],
+			"latest_manifest_face_rect": [
+				0.3,
+				0.64,
+				0.6,
+				1.5
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "fr_armor_0",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.3,
+				0.64,
+				0.6,
+				1.5
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				84.0,
+				40.0
+			],
+			"helmet_id": "fr_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				84.0,
+				40.0
+			],
+			"latest_manifest_face_rect": [
+				0.3,
+				0.64,
+				0.6,
+				1.5
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "fr_armor_3",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.465,
+				0.257,
+				0.608,
+				0.722
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.465,
+				0.257,
+				0.608,
+				0.722
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "fr_armor_3",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.465,
+				0.257,
+				0.608,
+				0.722
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.465,
+				0.257,
+				0.608,
+				0.722
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "fr_armor_3",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.465,
+				0.257,
+				0.608,
+				0.722
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.465,
+				0.257,
+				0.608,
+				0.722
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "fr_armor_3",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.465,
+				0.257,
+				0.608,
+				0.722
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.465,
+				0.257,
+				0.608,
+				0.722
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "fr_armor_3",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.465,
+				0.257,
+				0.608,
+				0.722
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.465,
+				0.257,
+				0.608,
+				0.722
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "fr_armor_3",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.465,
+				0.257,
+				0.608,
+				0.722
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.465,
+				0.257,
+				0.608,
+				0.722
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "fr_armor_3",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.465,
+				0.257,
+				0.608,
+				0.722
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.465,
+				0.257,
+				0.608,
+				0.722
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "fr_armor_3",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.465,
+				0.257,
+				0.608,
+				0.722
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.465,
+				0.257,
+				0.608,
+				0.722
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "fr_armor_4",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.38,
+				0.27,
+				0.64,
+				1.05
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				84.0,
+				62.0
+			],
+			"helmet_id": "fr_helmet_4",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				84.0,
+				62.0
+			],
+			"latest_manifest_face_rect": [
+				0.38,
+				0.27,
+				0.64,
+				1.05
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_4",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 4,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "fr_armor_4",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.38,
+				0.27,
+				0.64,
+				1.05
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				84.0,
+				62.0
+			],
+			"helmet_id": "fr_helmet_4",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				84.0,
+				62.0
+			],
+			"latest_manifest_face_rect": [
+				0.38,
+				0.27,
+				0.64,
+				1.05
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_4",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 4,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "fr_armor_4",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.38,
+				0.27,
+				0.64,
+				1.05
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				84.0,
+				62.0
+			],
+			"helmet_id": "fr_helmet_4",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				84.0,
+				62.0
+			],
+			"latest_manifest_face_rect": [
+				0.38,
+				0.27,
+				0.64,
+				1.05
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_4",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 4,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "fr_armor_4",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.38,
+				0.27,
+				0.64,
+				1.05
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				84.0,
+				62.0
+			],
+			"helmet_id": "fr_helmet_4",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				84.0,
+				62.0
+			],
+			"latest_manifest_face_rect": [
+				0.38,
+				0.27,
+				0.64,
+				1.05
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_4",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 4,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "fr_armor_4",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.38,
+				0.27,
+				0.64,
+				1.05
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				84.0,
+				62.0
+			],
+			"helmet_id": "fr_helmet_4",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				84.0,
+				62.0
+			],
+			"latest_manifest_face_rect": [
+				0.38,
+				0.27,
+				0.64,
+				1.05
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_4",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 4,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "fr_armor_4",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.38,
+				0.27,
+				0.64,
+				1.05
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				84.0,
+				62.0
+			],
+			"helmet_id": "fr_helmet_4",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				84.0,
+				62.0
+			],
+			"latest_manifest_face_rect": [
+				0.38,
+				0.27,
+				0.64,
+				1.05
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_4",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 4,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "fr_armor_4",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.38,
+				0.27,
+				0.64,
+				1.05
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				84.0,
+				62.0
+			],
+			"helmet_id": "fr_helmet_4",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				84.0,
+				62.0
+			],
+			"latest_manifest_face_rect": [
+				0.38,
+				0.27,
+				0.64,
+				1.05
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_4",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 4,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "fr_armor_4",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.38,
+				0.27,
+				0.64,
+				1.05
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				84.0,
+				62.0
+			],
+			"helmet_id": "fr_helmet_4",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				84.0,
+				62.0
+			],
+			"latest_manifest_face_rect": [
+				0.38,
+				0.27,
+				0.64,
+				1.05
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_4",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 4,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "fr_armor_5",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.43,
+				0.3,
+				0.62,
+				0.72
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.43,
+				0.3,
+				0.62,
+				0.72
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_5",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 5,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "fr_armor_5",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.43,
+				0.3,
+				0.62,
+				0.72
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.43,
+				0.3,
+				0.62,
+				0.72
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_5",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 5,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "fr_armor_5",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.43,
+				0.3,
+				0.62,
+				0.72
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.43,
+				0.3,
+				0.62,
+				0.72
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_5",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 5,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "fr_armor_5",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.43,
+				0.3,
+				0.62,
+				0.72
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.43,
+				0.3,
+				0.62,
+				0.72
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_5",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 5,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "fr_armor_5",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.43,
+				0.3,
+				0.62,
+				0.72
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.43,
+				0.3,
+				0.62,
+				0.72
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_5",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 5,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "fr_armor_5",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.43,
+				0.3,
+				0.62,
+				0.72
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.43,
+				0.3,
+				0.62,
+				0.72
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_5",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 5,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "fr_armor_5",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.43,
+				0.3,
+				0.62,
+				0.72
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.43,
+				0.3,
+				0.62,
+				0.72
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_5",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 5,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "fr_armor_5",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.43,
+				0.3,
+				0.62,
+				0.72
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.43,
+				0.3,
+				0.62,
+				0.72
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_fr_helmet_5",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 5,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "de_armor_0",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "de",
+			"direction": 1,
+			"face_rect": [
+				0.36,
+				0.57,
+				0.58,
+				0.4
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.36,
+				0.57,
+				0.58,
+				0.4
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_de_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "de_armor_0",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "de",
+			"direction": -1,
+			"face_rect": [
+				0.36,
+				0.57,
+				0.58,
+				0.4
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.36,
+				0.57,
+				0.58,
+				0.4
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_de_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "de_armor_0",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "de",
+			"direction": 1,
+			"face_rect": [
+				0.36,
+				0.57,
+				0.58,
+				0.4
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.36,
+				0.57,
+				0.58,
+				0.4
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_de_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "de_armor_0",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "de",
+			"direction": -1,
+			"face_rect": [
+				0.36,
+				0.57,
+				0.58,
+				0.4
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.36,
+				0.57,
+				0.58,
+				0.4
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_de_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "de_armor_0",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "de",
+			"direction": 1,
+			"face_rect": [
+				0.36,
+				0.57,
+				0.58,
+				0.4
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.36,
+				0.57,
+				0.58,
+				0.4
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_de_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "de_armor_0",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "de",
+			"direction": -1,
+			"face_rect": [
+				0.36,
+				0.57,
+				0.58,
+				0.4
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.36,
+				0.57,
+				0.58,
+				0.4
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_de_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "de_armor_0",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "de",
+			"direction": 1,
+			"face_rect": [
+				0.36,
+				0.57,
+				0.58,
+				0.4
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.36,
+				0.57,
+				0.58,
+				0.4
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_de_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "de_armor_0",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "de",
+			"direction": -1,
+			"face_rect": [
+				0.36,
+				0.57,
+				0.58,
+				0.4
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.36,
+				0.57,
+				0.58,
+				0.4
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_de_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "de_armor_5",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "de",
+			"direction": 1,
+			"face_rect": [
+				0.45,
+				0.47,
+				0.4,
+				0.36
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.45,
+				0.47,
+				0.4,
+				0.36
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_de_helmet_5",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 5,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "de_armor_5",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "de",
+			"direction": -1,
+			"face_rect": [
+				0.45,
+				0.47,
+				0.4,
+				0.36
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.45,
+				0.47,
+				0.4,
+				0.36
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_de_helmet_5",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 5,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "de_armor_5",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "de",
+			"direction": 1,
+			"face_rect": [
+				0.45,
+				0.47,
+				0.4,
+				0.36
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.45,
+				0.47,
+				0.4,
+				0.36
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_de_helmet_5",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 5,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "de_armor_5",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "de",
+			"direction": -1,
+			"face_rect": [
+				0.45,
+				0.47,
+				0.4,
+				0.36
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.45,
+				0.47,
+				0.4,
+				0.36
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_de_helmet_5",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 5,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "de_armor_5",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "de",
+			"direction": 1,
+			"face_rect": [
+				0.45,
+				0.47,
+				0.4,
+				0.36
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.45,
+				0.47,
+				0.4,
+				0.36
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_de_helmet_5",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 5,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "de_armor_5",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "de",
+			"direction": -1,
+			"face_rect": [
+				0.45,
+				0.47,
+				0.4,
+				0.36
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.45,
+				0.47,
+				0.4,
+				0.36
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_de_helmet_5",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 5,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "de_armor_5",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "de",
+			"direction": 1,
+			"face_rect": [
+				0.45,
+				0.47,
+				0.4,
+				0.36
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.45,
+				0.47,
+				0.4,
+				0.36
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_de_helmet_5",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 5,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "de_armor_5",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "de",
+			"direction": -1,
+			"face_rect": [
+				0.45,
+				0.47,
+				0.4,
+				0.36
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.45,
+				0.47,
+				0.4,
+				0.36
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_de_helmet_5",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 5,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "it_armor_0",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.27547931382442,
+				0.271255060728745,
+				0.797174571140262,
+				0.688259109311741
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.27547931382442,
+				0.271255060728745,
+				0.797174571140262,
+				0.688259109311741
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "it_armor_0",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.27547931382442,
+				0.271255060728745,
+				0.797174571140262,
+				0.688259109311741
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.27547931382442,
+				0.271255060728745,
+				0.797174571140262,
+				0.688259109311741
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "it_armor_0",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.27547931382442,
+				0.271255060728745,
+				0.797174571140262,
+				0.688259109311741
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.27547931382442,
+				0.271255060728745,
+				0.797174571140262,
+				0.688259109311741
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "it_armor_0",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.27547931382442,
+				0.271255060728745,
+				0.797174571140262,
+				0.688259109311741
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.27547931382442,
+				0.271255060728745,
+				0.797174571140262,
+				0.688259109311741
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "it_armor_0",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.27547931382442,
+				0.271255060728745,
+				0.797174571140262,
+				0.688259109311741
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.27547931382442,
+				0.271255060728745,
+				0.797174571140262,
+				0.688259109311741
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "it_armor_0",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.27547931382442,
+				0.271255060728745,
+				0.797174571140262,
+				0.688259109311741
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.27547931382442,
+				0.271255060728745,
+				0.797174571140262,
+				0.688259109311741
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "it_armor_0",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.27547931382442,
+				0.271255060728745,
+				0.797174571140262,
+				0.688259109311741
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.27547931382442,
+				0.271255060728745,
+				0.797174571140262,
+				0.688259109311741
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "it_armor_0",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.27547931382442,
+				0.271255060728745,
+				0.797174571140262,
+				0.688259109311741
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.27547931382442,
+				0.271255060728745,
+				0.797174571140262,
+				0.688259109311741
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_0",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 0,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "it_armor_1",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.382284382284382,
+				0.310799670239077,
+				0.780885780885781,
+				0.78318219291014
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_1",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.382284382284382,
+				0.310799670239077,
+				0.780885780885781,
+				0.78318219291014
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_1",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 1,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "it_armor_1",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.382284382284382,
+				0.310799670239077,
+				0.780885780885781,
+				0.78318219291014
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_1",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.382284382284382,
+				0.310799670239077,
+				0.780885780885781,
+				0.78318219291014
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_1",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 1,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "it_armor_1",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.382284382284382,
+				0.310799670239077,
+				0.780885780885781,
+				0.78318219291014
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_1",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.382284382284382,
+				0.310799670239077,
+				0.780885780885781,
+				0.78318219291014
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_1",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 1,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "it_armor_1",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.382284382284382,
+				0.310799670239077,
+				0.780885780885781,
+				0.78318219291014
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_1",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.382284382284382,
+				0.310799670239077,
+				0.780885780885781,
+				0.78318219291014
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_1",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 1,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "it_armor_1",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.382284382284382,
+				0.310799670239077,
+				0.780885780885781,
+				0.78318219291014
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_1",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.382284382284382,
+				0.310799670239077,
+				0.780885780885781,
+				0.78318219291014
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_1",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 1,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "it_armor_1",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.382284382284382,
+				0.310799670239077,
+				0.780885780885781,
+				0.78318219291014
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_1",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.382284382284382,
+				0.310799670239077,
+				0.780885780885781,
+				0.78318219291014
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_1",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 1,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "it_armor_1",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.382284382284382,
+				0.310799670239077,
+				0.780885780885781,
+				0.78318219291014
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_1",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.382284382284382,
+				0.310799670239077,
+				0.780885780885781,
+				0.78318219291014
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_1",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 1,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "it_armor_1",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.382284382284382,
+				0.310799670239077,
+				0.780885780885781,
+				0.78318219291014
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_1",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.382284382284382,
+				0.310799670239077,
+				0.780885780885781,
+				0.78318219291014
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_1",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 1,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "it_armor_2",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.390898483080513,
+				0.297208538587849,
+				0.758459743290548,
+				0.845648604269294
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_2",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.390898483080513,
+				0.297208538587849,
+				0.758459743290548,
+				0.845648604269294
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_2",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 2,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "it_armor_2",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.390898483080513,
+				0.297208538587849,
+				0.758459743290548,
+				0.845648604269294
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_2",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.390898483080513,
+				0.297208538587849,
+				0.758459743290548,
+				0.845648604269294
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_2",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 2,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "it_armor_2",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.390898483080513,
+				0.297208538587849,
+				0.758459743290548,
+				0.845648604269294
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_2",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.390898483080513,
+				0.297208538587849,
+				0.758459743290548,
+				0.845648604269294
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_2",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 2,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "it_armor_2",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.390898483080513,
+				0.297208538587849,
+				0.758459743290548,
+				0.845648604269294
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_2",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.390898483080513,
+				0.297208538587849,
+				0.758459743290548,
+				0.845648604269294
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_2",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 2,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "it_armor_2",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.390898483080513,
+				0.297208538587849,
+				0.758459743290548,
+				0.845648604269294
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_2",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.390898483080513,
+				0.297208538587849,
+				0.758459743290548,
+				0.845648604269294
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_2",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 2,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "it_armor_2",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.390898483080513,
+				0.297208538587849,
+				0.758459743290548,
+				0.845648604269294
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_2",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.390898483080513,
+				0.297208538587849,
+				0.758459743290548,
+				0.845648604269294
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_2",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 2,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "it_armor_2",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.390898483080513,
+				0.297208538587849,
+				0.758459743290548,
+				0.845648604269294
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_2",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.390898483080513,
+				0.297208538587849,
+				0.758459743290548,
+				0.845648604269294
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_2",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 2,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "it_armor_2",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.390898483080513,
+				0.297208538587849,
+				0.758459743290548,
+				0.845648604269294
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_2",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.390898483080513,
+				0.297208538587849,
+				0.758459743290548,
+				0.845648604269294
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_2",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 2,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "it_armor_3",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.29,
+				0.14,
+				0.77,
+				0.88
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.29,
+				0.14,
+				0.77,
+				0.88
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 0,
+				"face_shape": 0,
+				"hair": 0,
+				"skin": 1
+			},
+			"armor_id": "it_armor_3",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.29,
+				0.14,
+				0.77,
+				0.88
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.29,
+				0.14,
+				0.77,
+				0.88
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "it_armor_3",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.29,
+				0.14,
+				0.77,
+				0.88
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.29,
+				0.14,
+				0.77,
+				0.88
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 1,
+				"face_shape": 1,
+				"hair": 1,
+				"skin": 2
+			},
+			"armor_id": "it_armor_3",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.29,
+				0.14,
+				0.77,
+				0.88
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.29,
+				0.14,
+				0.77,
+				0.88
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "it_armor_3",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.29,
+				0.14,
+				0.77,
+				0.88
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.29,
+				0.14,
+				0.77,
+				0.88
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 2,
+				"face_shape": 2,
+				"hair": 2,
+				"skin": 3
+			},
+			"armor_id": "it_armor_3",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.29,
+				0.14,
+				0.77,
+				0.88
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.29,
+				0.14,
+				0.77,
+				0.88
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "it_armor_3",
+			"body_anchor": [
+				-18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.29,
+				0.14,
+				0.77,
+				0.88
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.29,
+				0.14,
+				0.77,
+				0.88
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				243.0,
+				822.5
+			],
+			"zoom": 2.5
+		},
+		{
+			"appearance": {
+				"beard": 4,
+				"brows": 1,
+				"eyes": 3,
+				"face_shape": 3,
+				"hair": 3,
+				"skin": 4
+			},
+			"armor_id": "it_armor_3",
+			"body_anchor": [
+				18.0,
+				-212.0
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.29,
+				0.14,
+				0.77,
+				0.88
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				18.0,
+				-279.0
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-30.0,
+				-221.0
+			],
+			"lance_hidden_for_head_inspection": true,
+			"latest_manifest_draw_size": [
+				70.0,
+				80.0
+			],
+			"latest_manifest_face_rect": [
+				0.29,
+				0.14,
+				0.77,
+				0.88
+			],
+			"lean": 0.0,
+			"mode": "arena",
+			"page": "faces_it_helmet_3",
+			"pose": "head_close",
+			"shield_center": [
+				-26.0,
+				-172.0
+			],
+			"tier": 3,
+			"view_position": [
+				153.0,
+				822.5
+			],
+			"zoom": 2.5
+		}
+	],
+	"failures": [],
+	"mode": "arena",
+	"open_helmet_ids": [
+		"eng_helmet_0",
+		"eng_helmet_3",
+		"fr_helmet_0",
+		"fr_helmet_3",
+		"fr_helmet_4",
+		"fr_helmet_5",
+		"de_helmet_0",
+		"de_helmet_5",
+		"it_helmet_0",
+		"it_helmet_1",
+		"it_helmet_2",
+		"it_helmet_3"
+	],
+	"passed": true,
+	"pose_rows": [
+		{
+			"armor_id": "eng_armor_0",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "eng",
+			"direction": 1,
+			"face_rect": [
+				0.2888,
+				0.3445,
+				0.8831,
+				0.6679
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "eng_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 0,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_0",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "eng",
+			"direction": -1,
+			"face_rect": [
+				0.2888,
+				0.3445,
+				0.8831,
+				0.6679
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "eng_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 0,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_1",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "eng",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_1",
+			"helmet_open_face": false,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "eng_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 1,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_1",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "eng",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_1",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "eng_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 1,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_2",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "eng",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_2",
+			"helmet_open_face": false,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "eng_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 2,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_2",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "eng",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_2",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "eng_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 2,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_3",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "eng",
+			"direction": 1,
+			"face_rect": [
+				0.3231,
+				0.3342,
+				0.773,
+				0.6633
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "eng_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 3,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_3",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "eng",
+			"direction": -1,
+			"face_rect": [
+				0.3231,
+				0.3342,
+				0.773,
+				0.6633
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "eng_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 3,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_4",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "eng",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_4",
+			"helmet_open_face": false,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "eng_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 4,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_4",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "eng",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_4",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "eng_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 4,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_5",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "eng",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_5",
+			"helmet_open_face": false,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "eng_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 5,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_5",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "eng",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_5",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "eng_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 5,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_0",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "eng",
+			"direction": 1,
+			"face_rect": [
+				0.2888,
+				0.3445,
+				0.8831,
+				0.6679
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "eng_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 0,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_0",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "eng",
+			"direction": -1,
+			"face_rect": [
+				0.2888,
+				0.3445,
+				0.8831,
+				0.6679
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "eng_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 0,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_1",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "eng",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_1",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "eng_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 1,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_1",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "eng",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_1",
+			"helmet_open_face": false,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "eng_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 1,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_2",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "eng",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_2",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "eng_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 2,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_2",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "eng",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_2",
+			"helmet_open_face": false,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "eng_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 2,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_3",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "eng",
+			"direction": 1,
+			"face_rect": [
+				0.3231,
+				0.3342,
+				0.773,
+				0.6633
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "eng_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 3,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_3",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "eng",
+			"direction": -1,
+			"face_rect": [
+				0.3231,
+				0.3342,
+				0.773,
+				0.6633
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "eng_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 3,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_4",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "eng",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_4",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "eng_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 4,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_4",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "eng",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_4",
+			"helmet_open_face": false,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "eng_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 4,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_5",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "eng",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_5",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "eng_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 5,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "eng_armor_5",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "eng",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "eng_helmet_5",
+			"helmet_open_face": false,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "eng_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 5,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_0",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.3,
+				0.64,
+				0.6,
+				1.5
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				84.0,
+				40.0
+			],
+			"helmet_id": "fr_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "fr_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 0,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_0",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.3,
+				0.64,
+				0.6,
+				1.5
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				84.0,
+				40.0
+			],
+			"helmet_id": "fr_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "fr_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 0,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_1",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_1",
+			"helmet_open_face": false,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "fr_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 1,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_1",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_1",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "fr_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 1,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_2",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_2",
+			"helmet_open_face": false,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "fr_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 2,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_2",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_2",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "fr_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 2,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_3",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.465,
+				0.257,
+				0.608,
+				0.722
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "fr_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 3,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_3",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.465,
+				0.257,
+				0.608,
+				0.722
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "fr_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 3,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_4",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.38,
+				0.27,
+				0.64,
+				1.05
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				84.0,
+				62.0
+			],
+			"helmet_id": "fr_helmet_4",
+			"helmet_open_face": true,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "fr_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 4,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_4",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.38,
+				0.27,
+				0.64,
+				1.05
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				84.0,
+				62.0
+			],
+			"helmet_id": "fr_helmet_4",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "fr_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 4,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_5",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.43,
+				0.3,
+				0.62,
+				0.72
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "fr_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 5,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_5",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.43,
+				0.3,
+				0.62,
+				0.72
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "fr_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 5,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_0",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.3,
+				0.64,
+				0.6,
+				1.5
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				84.0,
+				40.0
+			],
+			"helmet_id": "fr_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "fr_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 0,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_0",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.3,
+				0.64,
+				0.6,
+				1.5
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				84.0,
+				40.0
+			],
+			"helmet_id": "fr_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "fr_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 0,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_1",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_1",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "fr_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 1,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_1",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_1",
+			"helmet_open_face": false,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "fr_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 1,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_2",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_2",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "fr_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 2,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_2",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_2",
+			"helmet_open_face": false,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "fr_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 2,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_3",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.465,
+				0.257,
+				0.608,
+				0.722
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "fr_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 3,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_3",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.465,
+				0.257,
+				0.608,
+				0.722
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "fr_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 3,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_4",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.38,
+				0.27,
+				0.64,
+				1.05
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				84.0,
+				62.0
+			],
+			"helmet_id": "fr_helmet_4",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "fr_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 4,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_4",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.38,
+				0.27,
+				0.64,
+				1.05
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				84.0,
+				62.0
+			],
+			"helmet_id": "fr_helmet_4",
+			"helmet_open_face": true,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "fr_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 4,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_5",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "fr",
+			"direction": 1,
+			"face_rect": [
+				0.43,
+				0.3,
+				0.62,
+				0.72
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "fr_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 5,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "fr_armor_5",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "fr",
+			"direction": -1,
+			"face_rect": [
+				0.43,
+				0.3,
+				0.62,
+				0.72
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "fr_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "fr_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 5,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_0",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "de",
+			"direction": 1,
+			"face_rect": [
+				0.36,
+				0.57,
+				0.58,
+				0.4
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "de_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 0,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_0",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "de",
+			"direction": -1,
+			"face_rect": [
+				0.36,
+				0.57,
+				0.58,
+				0.4
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "de_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 0,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_1",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "de",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_1",
+			"helmet_open_face": false,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "de_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 1,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_1",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "de",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_1",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "de_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 1,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_2",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "de",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_2",
+			"helmet_open_face": false,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "de_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 2,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_2",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "de",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_2",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "de_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 2,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_3",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "de",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_3",
+			"helmet_open_face": false,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "de_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 3,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_3",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "de",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_3",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "de_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 3,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_4",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "de",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_4",
+			"helmet_open_face": false,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "de_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 4,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_4",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "de",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_4",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "de_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 4,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_5",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "de",
+			"direction": 1,
+			"face_rect": [
+				0.45,
+				0.47,
+				0.4,
+				0.36
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "de_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 5,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_5",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "de",
+			"direction": -1,
+			"face_rect": [
+				0.45,
+				0.47,
+				0.4,
+				0.36
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "de_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 5,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_0",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "de",
+			"direction": 1,
+			"face_rect": [
+				0.36,
+				0.57,
+				0.58,
+				0.4
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "de_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 0,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_0",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "de",
+			"direction": -1,
+			"face_rect": [
+				0.36,
+				0.57,
+				0.58,
+				0.4
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "de_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 0,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_1",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "de",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_1",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "de_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 1,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_1",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "de",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_1",
+			"helmet_open_face": false,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "de_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 1,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_2",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "de",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_2",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "de_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 2,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_2",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "de",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_2",
+			"helmet_open_face": false,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "de_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 2,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_3",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "de",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_3",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "de_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 3,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_3",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "de",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_3",
+			"helmet_open_face": false,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "de_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 3,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_4",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "de",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_4",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "de_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 4,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_4",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "de",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_4",
+			"helmet_open_face": false,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "de_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 4,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_5",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "de",
+			"direction": 1,
+			"face_rect": [
+				0.45,
+				0.47,
+				0.4,
+				0.36
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "de_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 5,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "de_armor_5",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "de",
+			"direction": -1,
+			"face_rect": [
+				0.45,
+				0.47,
+				0.4,
+				0.36
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "de_helmet_5",
+			"helmet_open_face": true,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "de_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 5,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_0",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.27547931382442,
+				0.271255060728745,
+				0.797174571140262,
+				0.688259109311741
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "it_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 0,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_0",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.27547931382442,
+				0.271255060728745,
+				0.797174571140262,
+				0.688259109311741
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "it_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 0,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_1",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.382284382284382,
+				0.310799670239077,
+				0.780885780885781,
+				0.78318219291014
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_1",
+			"helmet_open_face": true,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "it_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 1,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_1",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.382284382284382,
+				0.310799670239077,
+				0.780885780885781,
+				0.78318219291014
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_1",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "it_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 1,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_2",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.390898483080513,
+				0.297208538587849,
+				0.758459743290548,
+				0.845648604269294
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_2",
+			"helmet_open_face": true,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "it_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 2,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_2",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.390898483080513,
+				0.297208538587849,
+				0.758459743290548,
+				0.845648604269294
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_2",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "it_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 2,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_3",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.29,
+				0.14,
+				0.77,
+				0.88
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "it_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 3,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_3",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.29,
+				0.14,
+				0.77,
+				0.88
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "it_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 3,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_4",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_4",
+			"helmet_open_face": false,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "it_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 4,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_4",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_4",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "it_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 4,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_5",
+			"body_anchor": [
+				0.595203518867493,
+				-207.877548217773
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_5",
+			"helmet_open_face": false,
+			"lance_hand": [
+				47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "it_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 5,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_5",
+			"body_anchor": [
+				-0.595203518867493,
+				-207.877548217773
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 1.0,
+			"head_anchor": [
+				-28.9106273651123,
+				-268.600158691406
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_5",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-47.9015426635742,
+				-195.748626708984
+			],
+			"lean": 1.0,
+			"mode": "arena",
+			"page": "it_forward_high",
+			"pose": "forward_high",
+			"shield_center": [
+				-77.9123229980469,
+				-243.543548583984
+			],
+			"tier": 5,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_0",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.27547931382442,
+				0.271255060728745,
+				0.797174571140262,
+				0.688259109311741
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "it_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 0,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_0",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.27547931382442,
+				0.271255060728745,
+				0.797174571140262,
+				0.688259109311741
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_0",
+			"helmet_open_face": true,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "it_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 0,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_1",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.382284382284382,
+				0.310799670239077,
+				0.780885780885781,
+				0.78318219291014
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_1",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "it_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 1,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_1",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.382284382284382,
+				0.310799670239077,
+				0.780885780885781,
+				0.78318219291014
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_1",
+			"helmet_open_face": true,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "it_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 1,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_2",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.390898483080513,
+				0.297208538587849,
+				0.758459743290548,
+				0.845648604269294
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_2",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "it_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 2,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_2",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.390898483080513,
+				0.297208538587849,
+				0.758459743290548,
+				0.845648604269294
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_2",
+			"helmet_open_face": true,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "it_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 2,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_3",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.29,
+				0.14,
+				0.77,
+				0.88
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "it_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 3,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_3",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.29,
+				0.14,
+				0.77,
+				0.88
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_3",
+			"helmet_open_face": true,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "it_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 3,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_4",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_4",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "it_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 4,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_4",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_4",
+			"helmet_open_face": false,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "it_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 4,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_5",
+			"body_anchor": [
+				-49.1126976013184,
+				-199.112701416016
+			],
+			"country": "it",
+			"direction": 1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				-96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_5",
+			"helmet_open_face": false,
+			"lance_hand": [
+				-21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "it_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 5,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		},
+		{
+			"armor_id": "it_armor_5",
+			"body_anchor": [
+				49.1126976013184,
+				-199.112701416016
+			],
+			"country": "it",
+			"direction": -1,
+			"face_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"fixture": "frozen production RiderView at explicitly assigned pose; visual judgment pending",
+			"guard": 0.0,
+			"head_anchor": [
+				96.4888534545898,
+				-246.488845825195
+			],
+			"helmet_draw_size": [
+				70.0,
+				80.0
+			],
+			"helmet_id": "it_helmet_5",
+			"helmet_open_face": false,
+			"lance_hand": [
+				21.5355339050293,
+				-239.417785644531
+			],
+			"lean": -1.0,
+			"mode": "arena",
+			"page": "it_back_low",
+			"pose": "back_low",
+			"shield_center": [
+				-10.2842712402344,
+				-201.941131591797
+			],
+			"tier": 5,
+			"view_position": [
+				238.0,
+				370.0
+			],
+			"zoom": 0.879999995231628
+		}
+	],
+	"scope": "Production RiderView rendered in nested SubViewports: 24 regional helmet/torso pairs, both facings, full forward/high-shield and full backward/low-shield; every authored open helmet has four face shapes with maximum beard in both facings. Programmatically assigned frozen fixtures, not OS input, control-rate validation, moving combat or human play. Saved images require visual review for overlap and connection quality.",
+	"visual_acceptance": "not asserted by fixture-count checks; inspect PNGs"
+}

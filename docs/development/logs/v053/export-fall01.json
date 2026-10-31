@@ -1,0 +1,55 @@
+{
+	"captures": "E:/GALUMU/docs/development/screenshots/v053/export-fall01",
+	"cases": [
+		{
+			"age": 1.35,
+			"direction": 1,
+			"position": "(-133.6841, -42.67903)",
+			"rotation": -1.50732386112213,
+			"settled": true,
+			"zone": "head"
+		},
+		{
+			"age": 1.35,
+			"direction": 1,
+			"position": "(-134.8098, -27.91667)",
+			"rotation": -1.38176774978638,
+			"settled": true,
+			"zone": "body"
+		},
+		{
+			"age": 1.31666666666666,
+			"direction": 1,
+			"position": "(-129.1184, -47.68197)",
+			"rotation": 1.38161015510559,
+			"settled": true,
+			"zone": "flank"
+		},
+		{
+			"age": 1.35,
+			"direction": -1,
+			"position": "(133.6841, -49.86203)",
+			"rotation": 1.50732386112213,
+			"settled": true,
+			"zone": "head"
+		},
+		{
+			"age": 1.35,
+			"direction": -1,
+			"position": "(134.8098, -27.91667)",
+			"rotation": 1.38176774978638,
+			"settled": true,
+			"zone": "body"
+		},
+		{
+			"age": 1.31666666666666,
+			"direction": -1,
+			"position": "(129.1184, -46.55955)",
+			"rotation": -1.38161015510559,
+			"settled": true,
+			"zone": "flank"
+		}
+	],
+	"evidence": "scripted articulated fall + rendered frames",
+	"failures": []
+}

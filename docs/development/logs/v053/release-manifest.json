@@ -1,0 +1,81 @@
+{
+  "version": "0.4.13",
+  "source_commit": "dfde0ecfeed951295e92e42bdfe6a9b464278c05",
+  "created_utc": "2026-10-31T02:28:00.9091371Z",
+  "formal_profile_sha256": "C013C4F3FCC7C099DC8AB313C60A70C2AFCF07323CED9A949C718A6304180309",
+  "files": [
+    {
+      "bytes": 96725504,
+      "sha256": "78CCC576E8F8BFFD7EF6AD6F36EBD72A41E609A1052225A55B3407C96EA84065",
+      "path": "builds/LanceAndLaurel-v0.4.13/LanceAndLaurel.exe"
+    },
+    {
+      "bytes": 72220304,
+      "sha256": "077B8D151D2799834ED9A51E7F7185B99B33565E14AB1641C13FAEFA846FEF62",
+      "path": "builds/LanceAndLaurel-v0.4.13/LanceAndLaurel.pck"
+    },
+    {
+      "bytes": 105609390,
+      "sha256": "90D37E7B50ECFDEF76089EE71829B865B0B624004AAC8BDE4F5BCFE46DDBB5E2",
+      "path": "builds/LanceAndLaurel-v0.4.13-Windows.zip"
+    },
+    {
+      "bytes": 96725504,
+      "sha256": "78CCC576E8F8BFFD7EF6AD6F36EBD72A41E609A1052225A55B3407C96EA84065",
+      "path": "builds/v0.4.13-unzip-check/LanceAndLaurel-v0.4.13/LanceAndLaurel.exe"
+    },
+    {
+      "bytes": 72220304,
+      "sha256": "077B8D151D2799834ED9A51E7F7185B99B33565E14AB1641C13FAEFA846FEF62",
+      "path": "builds/v0.4.13-unzip-check/LanceAndLaurel-v0.4.13/LanceAndLaurel.pck"
+    },
+    {
+      "bytes": 72219088,
+      "sha256": "BD09369DEEA7E36A1A80DC1D445EBA9EEB7DF5260638806D3FF88EBA06204EF3",
+      "path": "builds/LanceAndLaurel-v0.4.12/LanceAndLaurel.pck"
+    }
+  ],
+  "source_export_images": [
+    {
+      "export_sha256": "90517F570CA3AEA013F1A4B7F0967BB45D3AA022157169882B175954BA618FC7",
+      "source_sha256": "90517F570CA3AEA013F1A4B7F0967BB45D3AA022157169882B175954BA618FC7",
+      "name": "dark_skin_high_collars.png"
+    },
+    {
+      "export_sha256": "E706ACA7D53872646324095A31E0A98727777EAF4D7ACAD80B60EAC26D586CB0",
+      "source_sha256": "E706ACA7D53872646324095A31E0A98727777EAF4D7ACAD80B60EAC26D586CB0",
+      "name": "faces_eng_helmet_0.png"
+    },
+    {
+      "export_sha256": "BAE6CB0AEDA2B87A87AA44843E3DE3474CACB5B1919EC5253FB281A59056FCE2",
+      "source_sha256": "BAE6CB0AEDA2B87A87AA44843E3DE3474CACB5B1919EC5253FB281A59056FCE2",
+      "name": "faces_fr_helmet_0.png"
+    },
+    {
+      "export_sha256": "2FB0566959FC093CDADFC69F88E8067C79DFF7D267FCE613227A9B7144DA908B",
+      "source_sha256": "2FB0566959FC093CDADFC69F88E8067C79DFF7D267FCE613227A9B7144DA908B",
+      "name": "home_2x_eng_helmet_0_eng_armor_0.png"
+    },
+    {
+      "export_sha256": "20E97C9BE3DF88772A69BC3DE995F744D1C68B024DC4D73EE432DC59DEB17FD6",
+      "source_sha256": "20E97C9BE3DF88772A69BC3DE995F744D1C68B024DC4D73EE432DC59DEB17FD6",
+      "name": "home_2x_eng_helmet_0_fr_armor_0.png"
+    },
+    {
+      "export_sha256": "515133E23631E16BAB9DC1ED4876674AB1FA39CE57978BDD2AD2630F2751F78C",
+      "source_sha256": "515133E23631E16BAB9DC1ED4876674AB1FA39CE57978BDD2AD2630F2751F78C",
+      "name": "home_2x_fr_helmet_0_eng_armor_0.png"
+    },
+    {
+      "export_sha256": "7D03E627E6CEB7E2F5F0B6AE1C7B488351C52F06EC74F72777F6EDA51FDCCEE3",
+      "source_sha256": "7D03E627E6CEB7E2F5F0B6AE1C7B488351C52F06EC74F72777F6EDA51FDCCEE3",
+      "name": "home_2x_fr_helmet_0_fr_armor_0.png"
+    },
+    {
+      "export_sha256": "544B54156EFC06E57D799CDED0ADAF3362902EDF199EF22F6AF670374E93493E",
+      "source_sha256": "544B54156EFC06E57D799CDED0ADAF3362902EDF199EF22F6AF670374E93493E",
+      "name": "poses_both_feedback_helmets.png"
+    }
+  ],
+  "scope": "Actual GPU render and PCK, isolated QA; independent art/code review; no OS/human acceptance"
+}

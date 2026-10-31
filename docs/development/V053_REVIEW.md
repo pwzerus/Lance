@@ -30,6 +30,31 @@
 - 原全量头肩夹具190组合用于发现断开风险；原开放盔/极值20页用于回归，不能替代无须主夹具。
 - 最终headless导入正常。发布EXE/PCK、落马、实际接触和ZIP回执在完成后追加。
 
+## 实际发布与最终复验
+
+运行源码`dfde0ecfeed951295e92e42bdfe6a9b464278c05`。实际v0.4.13 EXE不传`--path`，从PCK加载生产资源，测试脚本从外部QA目录启动。
+
+| 证据 | 结果 | 范围 |
+| --- | --- | --- |
+| export-wear01 | 12张图完成；8张特写/脸型/俯仰/深肤高领与candidate04逐一SHA相同，4张首页版本页脚不同 | 实际菜单角色；无须优先，不用图像连接断言代表观感 |
+| export-battle01 | 26例实际扫掠接触、断枪、实战头部KO与落马，11015ms，空failures | 保留原数值、有限控制；自动初态，非真人比赛 |
+| export-fall01 | 六种部位/朝向完整落马，全部停稳，空failures | 新头框偏移与原肢体/落地轮廓配合 |
+| export-head-contact01 | 英/法/德0号盔×双向共6例真实head接触/完整落马脱手，8185ms，空failures；已目视三款命中图，接触落在可见头盔/额部附近 | 初始HP=1、盾关闭的专项夹具，不表示正常血量必秒杀，不宣称轮廓精确碰撞 |
+| unzip-smoke01 | ZIP独立解压后菜单/军械库/历史、竞技场与实战各三轮及结算，9图，约76秒完成后退出 | 生产主场景自动驱动，没有OS键鼠或真人手感结论 |
+
+上述最终发布日志及allfit02/poses01/candidate04没有ERROR/WARNING/SCRIPT ERROR/triangulation记录；allfit01失败日志保留。代码审查者另读取发布动态证据复核，未把阅读日志冒充亲自运行。
+
+PCK SHA256：`077B8D151D2799834ED9A51E7F7185B99B33565E14AB1641C13FAEFA846FEF62`；EXE：`78CCC576E8F8BFFD7EF6AD6F36EBD72A41E609A1052225A55B3407C96EA84065`；Windows ZIP：`90D37E7B50ECFDEF76089EE71829B865B0B624004AAC8BDE4F5BCFE46DDBB5E2`。解压后EXE/PCK散列一致，旧.12 PCK保持`BD09369DEEA7E36A1A80DC1D445EBA9EEB7DF5260638806D3FF88EBA06204EF3`。正式档与先前归档一致，散列记录在logs/v053/release-manifest.json。Play-Latest在验包后指向.13。
+
+### 同尺寸实际引擎对照
+
+| v0.4.12基线 | v0.4.13实际包 |
+| --- | --- |
+| ![旧铁帽领口](screenshots/v053/baseline01/home_2x_fr_helmet_0_eng_armor_0.png) | ![新铁帽领口](screenshots/v053/export-wear01/home_2x_fr_helmet_0_eng_armor_0.png) |
+| ![旧鼻盔比例](screenshots/v053/baseline01/home_2x_eng_helmet_0_eng_armor_0.png) | ![新鼻盔比例](screenshots/v053/export-wear01/home_2x_eng_helmet_0_eng_armor_0.png) |
+
+对照图是同一生产角色2×显示比例的GPU输出，非修图效果图；实际菜单大小另保留home_*图。本轮素材修改为现有渲染代码和佩戴数据，无ImageGen位图修改。
+
 ## 保留限制
 
 没有穷举24×24所有头胸混搭，也没有把玩家体验判定交给断言数。部分夸张头盔造型、粗方肩护片与细密胸甲的风格密度差异仍在；本轮没有整套肩臂重画。头部玩法仍用原圆形近似，新增约3–5单位视觉对中须看真实命中图，不宣称轮廓级盔甲物理。OS原生输入与用户最终满意度未验收。

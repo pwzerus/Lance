@@ -1,6 +1,16 @@
 # 当前实现与接手地图
 
-## 最新适配修复：DEV-052 / v0.4.12（2026-10-30 EDT）
+## 最新玩家反馈返工：DEV-053 / v0.4.13（2026-10-30 EDT）
+
+用户明确否定v0.4.12的头颈佩戴观感；DEV-052的引擎/流程检查不等于美术验收。DEV-053在45分钟专项内以无胡须实际菜单对照返工，基线25a2a04，运行提交`dfde0ecfeed951295e92e42bdfe6a9b464278c05`。独立v0.4.13沿用codex/v0.4，旧.12保留；当前最终发布回执见[DEV-053交接](handoffs/2026-10-30-DEV-053-Codex.md)。
+
+铁帽79→70宽、英鼻盔64→54、德鼻盔64→56，脸孔独立配比；肤色短颈从下颌后半部进入固定胸甲领口，原前领盖住颈根。头组件对中胸领，向左转身不再同时镜像胸甲socket。领口覆绘复用受击顶点变形，落马包络同步；规则head圆、枪盾有限速、输入、装备/存档格式不变。未重画所有源PNG，也未统一整套肩臂素材。
+
+独立美术审查明确拒绝candidate01的左向空领口，candidate02再收颈根；candidate03/04已观察主组合与高领混搭无新阻断。代码审查发现受击领口错缝，全量运行发现阴影三角化错误，均修复并保留失败日志。实际EXE已验同款菜单、脸型/胡须、深肤色高领、26例实际接触及6种落马；本轮无OS输入或真人满意度验收。详见[V053审查](../development/V053_REVIEW.md)。加速/颠簸/音效的后续两小时尚未启动。
+
+v0.4.13 PCK SHA256：`077B8D151D2799834ED9A51E7F7185B99B33565E14AB1641C13FAEFA846FEF62`。另已补英/法/德0号盔双向真实头接触与落马6例；ZIP解压后两模式各三轮与结算完成。Play-Latest指向.13，全部文件已释放，最终push回执见DEV-053交接。
+
+## 沿用适配修复：DEV-052 / v0.4.12（2026-10-30 EDT，观感已被玩家否定）
 
 今晚90分钟范围是头、头盔、颈部与胸甲领口适配；下一次两小时的加速、非弹跳颠簸、镜头和重击音尚未启动。基线b8adf017，运行提交`3a0487f0e9d530d2210c446b52def41e7a5304d6`，仍在codex/v0.4。独立发布目录`builds/LanceAndLaurel-v0.4.12`，不覆盖.11。完整结果见[DEV-052交接](handoffs/2026-10-30-DEV-052-Codex.md)及[V052审查](../development/V052_REVIEW.md)。
 
@@ -78,11 +88,11 @@ OS已操作源码与最终解压包的菜单/练习/换盾/暂停/退出；没�
 
 ## 启动与工具
 
-- [Play-Latest.cmd](../../Play-Latest.cmd)指向独立[Windows目录](../../builds/LanceAndLaurel-v0.4.12/)，EXE和PCK同目录；旧包与失败候选不覆盖。
+- [Play-Latest.cmd](../../Play-Latest.cmd)指向独立[Windows目录](../../builds/LanceAndLaurel-v0.4.13/)，EXE和PCK同目录；旧包与失败候选不覆盖。
 - 主项目[game/project.godot](../../game/project.godot)，Godot4.5.1/GDScript/Compatibility，Windows x86_64。
 - 本机引擎tools/godot-4.5.1/Godot_v4.5.1-stable_win64_console.exe；导出模板tools/templates/windows_release_x86_64.exe。
-- PCK SHA256：BD09369DEEA7E36A1A80DC1D445EBA9EEB7DF5260638806D3FF88EBA06204EF3。
-- 完整文档、ZIP身份、远程SHA及当前测试结果以DEV-052最终回执为准。根HANDOFF仍是旧入口且包含对方未提交内容，不能将其v0.4早期状态覆盖本文。
+- PCK SHA256：077B8D151D2799834ED9A51E7F7185B99B33565E14AB1641C13FAEFA846FEF62。
+- 完整文档、ZIP身份、远程SHA及当前测试结果以DEV-053最终回执为准。根HANDOFF仍是旧入口且包含对方未提交内容，不能将其v0.4早期状态覆盖本文。
 
 ## 玩家控制与规则
 

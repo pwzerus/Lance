@@ -22,3 +22,11 @@
 ## 复验状态
 
 root已运行baseline及candidate01/02/03各11图；此为root提供及本地实际输出可查，不是本代理运行。补充的`dark_skin_high_collars`把更新夹具增加到12图，覆盖最深肤色/无须、铁帽与高领混搭及封闭/近面盔双向。修复后三角化日志、受击领口连续性和最终包结果待root追加到总验证记录。
+
+## dfde0ec / v0.4.13 发布后证据复核
+
+只读查看root运行的`export-wear01`、`export-battle01`、`export-fall01`、`allfit02`与`poses01`日志/JSON。上述五份.log均未检出`ERROR`、`WARNING`、`SCRIPT`或三角化错误；并非只根据JSON的passed下结论。`export-wear01`明确记录v0.4.13及12图保存；`export-battle01`记录26例实际接触、断枪与头部KO且failures为空；`export-fall01`六种落马全部settled、failures为空。allfit02记录190姿态，poses01记录20页/12开放盔；本代理只是审计已有证据，没有亲自运行这些测试。
+
+实际查看`export-battle01/it_5_war_attack1_fall_contact.png`及`fr_5_arena_attack1_catalogue_contact.png`：所查看命中静帧未见明显领口贴片错位、双边或头颈脱离。补看`allfit02/fr_neutral.png`（其中含受击压缩夹具）与`export-wear01/dark_skin_high_collars.png`，未见阴影缺片或黑色三角形缺口。领口肌肤颜色和朝向可见，闭面盔正常遮脸。由此支持上述两项代码缺陷已修复；不能据几张静帧宣称覆盖所有运动时刻、全部装备组合或玩家认可。
+
+此次独立代码复核没有剩余明确阻断。整套美术贴合程度由美术审查与用户评价继续判断；ZIP解压smoke由root串行执行，本代理未将正在运行的任务提前记为通过。

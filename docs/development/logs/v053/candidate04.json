@@ -1,0 +1,85 @@
+{
+	"armor": "eng_armor_0",
+	"failures": [],
+	"helmets": [
+		"fr_helmet_0",
+		"eng_helmet_0"
+	],
+	"passed": true,
+	"rows": [
+		{
+			"capture": "home_fr_helmet_0_eng_armor_0",
+			"height": 810,
+			"saved": true,
+			"width": 1440
+		},
+		{
+			"capture": "home_2x_fr_helmet_0_eng_armor_0",
+			"height": 510,
+			"saved": true,
+			"width": 700
+		},
+		{
+			"capture": "home_eng_helmet_0_eng_armor_0",
+			"height": 810,
+			"saved": true,
+			"width": 1440
+		},
+		{
+			"capture": "home_2x_eng_helmet_0_eng_armor_0",
+			"height": 510,
+			"saved": true,
+			"width": 700
+		},
+		{
+			"capture": "home_fr_helmet_0_fr_armor_0",
+			"height": 810,
+			"saved": true,
+			"width": 1440
+		},
+		{
+			"capture": "home_2x_fr_helmet_0_fr_armor_0",
+			"height": 510,
+			"saved": true,
+			"width": 700
+		},
+		{
+			"capture": "home_eng_helmet_0_fr_armor_0",
+			"height": 810,
+			"saved": true,
+			"width": 1440
+		},
+		{
+			"capture": "home_2x_eng_helmet_0_fr_armor_0",
+			"height": 510,
+			"saved": true,
+			"width": 700
+		},
+		{
+			"capture": "faces_fr_helmet_0",
+			"height": 1090,
+			"saved": true,
+			"width": 1640
+		},
+		{
+			"capture": "faces_eng_helmet_0",
+			"height": 1090,
+			"saved": true,
+			"width": 1640
+		},
+		{
+			"capture": "poses_both_feedback_helmets",
+			"height": 1090,
+			"saved": true,
+			"width": 1640
+		},
+		{
+			"capture": "dark_skin_high_collars",
+			"height": 1090,
+			"saved": true,
+			"width": 1640
+		}
+	],
+	"scope": "Production home at 1440x810 and twice its 1.42 rider scale, 4 face shapes x 3 beards per feedback helmet, both facings and lean extremes; darkest skin/no beard with 3 kettle-hat/high-collar mixes and 3 sallet/closed/close-fitting regional sets in both directions. GPU frozen poses, no OS or human play. Armor identity inferred from screenshot; --armor may override. QA profile changes are in-memory and restored; no saves are written.",
+	"visual_acceptance": "Requires visual review; no automated aesthetic score"
+}

@@ -1,0 +1,104 @@
+{"build":"0.4.14","executable":"E:/GALUMU/builds/LanceAndLaurel-v0.4.14/LanceAndLaurel.exe","injected_inputs":false,"kind":"session_begin","qa_guard":"user://qa_profile_v1.json","scope":"Interactive diagnostic controls over production rendering; not a playable match or OS timing test","ticks_ms":4198}
+{"kind":"pose_change","pose":{"aim":-0.16,"armor":"eng_armor_0","beard":0,"face_shape":0,"guard":0.0,"helmet":"fr_helmet_0","impact_recoil":0.0,"lean":0.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"zoom":2.5},"reason":"initial_fixture","ticks_ms":4199}
+{"button":1,"kind":"os_mouse","position":"(172.125, 193.5)","pressed":true,"ticks_ms":75222}
+{"buttons":1,"kind":"os_drag","position":"(172.125, 193.5)","ticks_ms":75240}
+{"button":1,"kind":"os_mouse","position":"(172.125, 193.5)","pressed":false,"ticks_ms":75240}
+{"kind":"pose_change","pose":{"aim":-0.16,"armor":"eng_armor_0","beard":0,"face_shape":0,"guard":0.0,"helmet":"fr_helmet_0","impact_recoil":0.0,"lean":1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"zoom":2.5},"reason":"slider_lean","ticks_ms":75240}
+{"kind":"pose_change","pose":{"aim":-0.16,"armor":"eng_armor_0","beard":0,"face_shape":0,"guard":0.0,"helmet":"fr_helmet_0","impact_recoil":0.0,"lean":1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"zoom":2.5},"reason":"preset_lean","ticks_ms":75241}
+{"button":1,"kind":"os_mouse","position":"(1204.875, 157.5)","pressed":true,"ticks_ms":79420}
+{"buttons":1,"kind":"os_drag","position":"(1204.875, 157.5)","ticks_ms":79439}
+{"button":1,"kind":"os_mouse","position":"(1204.875, 157.5)","pressed":false,"ticks_ms":79439}
+{"image":"E:/GALUMU/docs/development/screenshots/v055/manual01/pose_001.png","kind":"capture","pose":{"aim":-0.16,"armor":"eng_armor_0","beard":0,"build":"0.4.14","face_shape":0,"guard":0.0,"helmet":"fr_helmet_0","image":"E:/GALUMU/docs/development/screenshots/v055/manual01/pose_001.png","image_saved":true,"impact_recoil":0.0,"lean":1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"ticks_ms":79547,"zoom":2.5},"saved":true,"sidecar_saved":true,"ticks_ms":79548}
+{"button":1,"kind":"os_mouse","position":"(281.25, 194.625)","pressed":true,"ticks_ms":84424}
+{"buttons":1,"kind":"os_drag","position":"(281.25, 194.625)","ticks_ms":84434}
+{"button":1,"kind":"os_mouse","position":"(281.25, 194.625)","pressed":false,"ticks_ms":84457}
+{"kind":"pose_change","pose":{"aim":-0.16,"armor":"eng_armor_0","beard":0,"face_shape":0,"guard":0.0,"helmet":"fr_helmet_0","impact_recoil":0.0,"lean":-1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"zoom":2.5},"reason":"slider_lean","ticks_ms":84458}
+{"kind":"pose_change","pose":{"aim":-0.16,"armor":"eng_armor_0","beard":0,"face_shape":0,"guard":0.0,"helmet":"fr_helmet_0","impact_recoil":0.0,"lean":-1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"zoom":2.5},"reason":"preset_lean","ticks_ms":84459}
+{"button":1,"kind":"os_mouse","position":"(693.0, 160.875)","pressed":true,"ticks_ms":101402}
+{"kind":"pose_change","pose":{"aim":0.12,"armor":"eng_armor_0","beard":0,"face_shape":0,"guard":0.0,"helmet":"fr_helmet_0","impact_recoil":0.0,"lean":-1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"zoom":2.5},"reason":"slider_aim","ticks_ms":101403}
+{"buttons":1,"kind":"os_drag","position":"(693.0, 160.875)","ticks_ms":101421}
+{"button":1,"kind":"os_mouse","position":"(693.0, 160.875)","pressed":false,"ticks_ms":101421}
+{"button":1,"kind":"os_mouse","position":"(1201.5, 155.25)","pressed":true,"ticks_ms":111769}
+{"buttons":1,"kind":"os_drag","position":"(1201.5, 155.25)","ticks_ms":111789}
+{"button":1,"kind":"os_mouse","position":"(1201.5, 155.25)","pressed":false,"ticks_ms":111789}
+{"image":"E:/GALUMU/docs/development/screenshots/v055/manual01/pose_002.png","kind":"capture","pose":{"aim":0.12,"armor":"eng_armor_0","beard":0,"build":"0.4.14","face_shape":0,"guard":0.0,"helmet":"fr_helmet_0","image":"E:/GALUMU/docs/development/screenshots/v055/manual01/pose_002.png","image_saved":true,"impact_recoil":0.0,"lean":-1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"ticks_ms":111898,"zoom":2.5},"saved":true,"sidecar_saved":true,"ticks_ms":111899}
+{"button":1,"kind":"os_mouse","position":"(221.625, 93.375)","pressed":true,"ticks_ms":129220}
+{"kind":"pose_change","pose":{"aim":0.12,"armor":"eng_armor_0","beard":0,"face_shape":0,"guard":0.0,"helmet":"eng_helmet_0","impact_recoil":0.0,"lean":-1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"zoom":2.5},"reason":"select_helmet","ticks_ms":146757}
+{"button":1,"kind":"os_mouse","position":"(1206.0, 155.25)","pressed":true,"ticks_ms":153436}
+{"buttons":1,"kind":"os_drag","position":"(1206.0, 155.25)","ticks_ms":153454}
+{"button":1,"kind":"os_mouse","position":"(1206.0, 155.25)","pressed":false,"ticks_ms":153454}
+{"image":"E:/GALUMU/docs/development/screenshots/v055/manual01/pose_003.png","kind":"capture","pose":{"aim":0.12,"armor":"eng_armor_0","beard":0,"build":"0.4.14","face_shape":0,"guard":0.0,"helmet":"eng_helmet_0","image":"E:/GALUMU/docs/development/screenshots/v055/manual01/pose_003.png","image_saved":true,"impact_recoil":0.0,"lean":-1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"ticks_ms":153563,"zoom":2.5},"saved":true,"sidecar_saved":true,"ticks_ms":153563}
+{"button":1,"kind":"os_mouse","position":"(172.125, 194.625)","pressed":true,"ticks_ms":292450}
+{"buttons":1,"kind":"os_drag","position":"(172.125, 194.625)","ticks_ms":292469}
+{"button":1,"kind":"os_mouse","position":"(172.125, 194.625)","pressed":false,"ticks_ms":292469}
+{"kind":"pose_change","pose":{"aim":0.12,"armor":"eng_armor_0","beard":0,"face_shape":0,"guard":0.0,"helmet":"eng_helmet_0","impact_recoil":0.0,"lean":1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"zoom":2.5},"reason":"slider_lean","ticks_ms":292469}
+{"kind":"pose_change","pose":{"aim":0.12,"armor":"eng_armor_0","beard":0,"face_shape":0,"guard":0.0,"helmet":"eng_helmet_0","impact_recoil":0.0,"lean":1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"zoom":2.5},"reason":"preset_lean","ticks_ms":292470}
+{"button":1,"kind":"os_mouse","position":"(1204.875, 155.25)","pressed":true,"ticks_ms":312650}
+{"buttons":1,"kind":"os_drag","position":"(1204.875, 155.25)","ticks_ms":312672}
+{"button":1,"kind":"os_mouse","position":"(1204.875, 155.25)","pressed":false,"ticks_ms":312672}
+{"image":"E:/GALUMU/docs/development/screenshots/v055/manual01/pose_004.png","kind":"capture","pose":{"aim":0.12,"armor":"eng_armor_0","beard":0,"build":"0.4.14","face_shape":0,"guard":0.0,"helmet":"eng_helmet_0","image":"E:/GALUMU/docs/development/screenshots/v055/manual01/pose_004.png","image_saved":true,"impact_recoil":0.0,"lean":1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"ticks_ms":312778,"zoom":2.5},"saved":true,"sidecar_saved":true,"ticks_ms":312778}
+{"button":1,"kind":"os_mouse","position":"(222.75, 93.375)","pressed":true,"ticks_ms":321785}
+{"kind":"pose_change","pose":{"aim":0.12,"armor":"eng_armor_0","beard":0,"face_shape":0,"guard":0.0,"helmet":"it_helmet_3","impact_recoil":0.0,"lean":1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"zoom":2.5},"reason":"select_helmet","ticks_ms":327487}
+{"button":1,"kind":"os_mouse","position":"(663.75, 93.375)","pressed":true,"ticks_ms":331983}
+{"kind":"pose_change","pose":{"aim":0.12,"armor":"it_armor_3","beard":0,"face_shape":0,"guard":0.0,"helmet":"it_helmet_3","impact_recoil":0.0,"lean":1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"zoom":2.5},"reason":"select_armor","ticks_ms":337486}
+{"button":1,"kind":"os_mouse","position":"(974.25, 93.375)","pressed":true,"ticks_ms":342152}
+{"kind":"pose_change","pose":{"aim":0.12,"armor":"it_armor_3","beard":0,"face_shape":2,"guard":0.0,"helmet":"it_helmet_3","impact_recoil":0.0,"lean":1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"zoom":2.5},"reason":"select_face_shape","ticks_ms":348453}
+{"button":1,"kind":"os_mouse","position":"(1204.875, 155.25)","pressed":true,"ticks_ms":351750}
+{"buttons":1,"kind":"os_drag","position":"(1204.875, 155.25)","ticks_ms":351770}
+{"button":1,"kind":"os_mouse","position":"(1204.875, 155.25)","pressed":false,"ticks_ms":351770}
+{"image":"E:/GALUMU/docs/development/screenshots/v055/manual01/pose_005.png","kind":"capture","pose":{"aim":0.12,"armor":"it_armor_3","beard":0,"build":"0.4.14","face_shape":2,"guard":0.0,"helmet":"it_helmet_3","image":"E:/GALUMU/docs/development/screenshots/v055/manual01/pose_005.png","image_saved":true,"impact_recoil":0.0,"lean":1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"ticks_ms":351883,"zoom":2.5},"saved":true,"sidecar_saved":true,"ticks_ms":351883}
+{"button":1,"kind":"os_mouse","position":"(281.25, 194.625)","pressed":true,"ticks_ms":358721}
+{"buttons":1,"kind":"os_drag","position":"(281.25, 194.625)","ticks_ms":358739}
+{"button":1,"kind":"os_mouse","position":"(281.25, 194.625)","pressed":false,"ticks_ms":358739}
+{"kind":"pose_change","pose":{"aim":0.12,"armor":"it_armor_3","beard":0,"face_shape":2,"guard":0.0,"helmet":"it_helmet_3","impact_recoil":0.0,"lean":-1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"zoom":2.5},"reason":"slider_lean","ticks_ms":358740}
+{"kind":"pose_change","pose":{"aim":0.12,"armor":"it_armor_3","beard":0,"face_shape":2,"guard":0.0,"helmet":"it_helmet_3","impact_recoil":0.0,"lean":-1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"zoom":2.5},"reason":"preset_lean","ticks_ms":358740}
+{"button":1,"kind":"os_mouse","position":"(1204.875, 155.25)","pressed":true,"ticks_ms":364132}
+{"buttons":1,"kind":"os_drag","position":"(1204.875, 155.25)","ticks_ms":364151}
+{"button":1,"kind":"os_mouse","position":"(1204.875, 155.25)","pressed":false,"ticks_ms":364151}
+{"image":"E:/GALUMU/docs/development/screenshots/v055/manual01/pose_006.png","kind":"capture","pose":{"aim":0.12,"armor":"it_armor_3","beard":0,"build":"0.4.14","face_shape":2,"guard":0.0,"helmet":"it_helmet_3","image":"E:/GALUMU/docs/development/screenshots/v055/manual01/pose_006.png","image_saved":true,"impact_recoil":0.0,"lean":-1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"ticks_ms":364267,"zoom":2.5},"saved":true,"sidecar_saved":true,"ticks_ms":364267}
+{"button":1,"kind":"os_mouse","position":"(222.75, 93.375)","pressed":true,"ticks_ms":369283}
+{"kind":"pose_change","pose":{"aim":0.12,"armor":"it_armor_3","beard":0,"face_shape":2,"guard":0.0,"helmet":"de_helmet_5","impact_recoil":0.0,"lean":-1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"zoom":2.5},"reason":"select_helmet","ticks_ms":373854}
+{"button":1,"kind":"os_mouse","position":"(663.75, 93.375)","pressed":true,"ticks_ms":377199}
+{"kind":"pose_change","pose":{"aim":0.12,"armor":"de_armor_5","beard":0,"face_shape":2,"guard":0.0,"helmet":"de_helmet_5","impact_recoil":0.0,"lean":-1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"zoom":2.5},"reason":"select_armor","ticks_ms":393272}
+{"button":1,"kind":"os_mouse","position":"(1204.875, 155.25)","pressed":true,"ticks_ms":399583}
+{"buttons":1,"kind":"os_drag","position":"(1204.875, 155.25)","ticks_ms":399603}
+{"button":1,"kind":"os_mouse","position":"(1204.875, 155.25)","pressed":false,"ticks_ms":399603}
+{"image":"E:/GALUMU/docs/development/screenshots/v055/manual01/pose_007.png","kind":"capture","pose":{"aim":0.12,"armor":"de_armor_5","beard":0,"build":"0.4.14","face_shape":2,"guard":0.0,"helmet":"de_helmet_5","image":"E:/GALUMU/docs/development/screenshots/v055/manual01/pose_007.png","image_saved":true,"impact_recoil":0.0,"lean":-1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"ticks_ms":399716,"zoom":2.5},"saved":true,"sidecar_saved":true,"ticks_ms":399716}
+{"button":1,"kind":"os_mouse","position":"(172.125, 194.625)","pressed":true,"ticks_ms":404035}
+{"buttons":1,"kind":"os_drag","position":"(172.125, 194.625)","ticks_ms":404035}
+{"button":1,"kind":"os_mouse","position":"(172.125, 194.625)","pressed":false,"ticks_ms":404035}
+{"kind":"pose_change","pose":{"aim":0.12,"armor":"de_armor_5","beard":0,"face_shape":2,"guard":0.0,"helmet":"de_helmet_5","impact_recoil":0.0,"lean":1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"zoom":2.5},"reason":"slider_lean","ticks_ms":404036}
+{"kind":"pose_change","pose":{"aim":0.12,"armor":"de_armor_5","beard":0,"face_shape":2,"guard":0.0,"helmet":"de_helmet_5","impact_recoil":0.0,"lean":1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"zoom":2.5},"reason":"preset_lean","ticks_ms":404036}
+{"button":1,"kind":"os_mouse","position":"(1204.875, 155.25)","pressed":true,"ticks_ms":408882}
+{"buttons":1,"kind":"os_drag","position":"(1204.875, 155.25)","ticks_ms":408902}
+{"button":1,"kind":"os_mouse","position":"(1204.875, 155.25)","pressed":false,"ticks_ms":408902}
+{"image":"E:/GALUMU/docs/development/screenshots/v055/manual01/pose_008.png","kind":"capture","pose":{"aim":0.12,"armor":"de_armor_5","beard":0,"build":"0.4.14","face_shape":2,"guard":0.0,"helmet":"de_helmet_5","image":"E:/GALUMU/docs/development/screenshots/v055/manual01/pose_008.png","image_saved":true,"impact_recoil":0.0,"lean":1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"ticks_ms":409016,"zoom":2.5},"saved":true,"sidecar_saved":true,"ticks_ms":409016}
+{"button":1,"kind":"os_mouse","position":"(222.75, 93.375)","pressed":true,"ticks_ms":436965}
+{"kind":"pose_change","pose":{"aim":0.12,"armor":"de_armor_5","beard":0,"face_shape":2,"guard":0.0,"helmet":"fr_helmet_0","impact_recoil":0.0,"lean":1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"zoom":2.5},"reason":"select_helmet","ticks_ms":455553}
+{"button":1,"kind":"os_mouse","position":"(666.0, 93.375)","pressed":true,"ticks_ms":475766}
+{"kind":"pose_change","pose":{"aim":0.12,"armor":"fr_armor_4","beard":0,"face_shape":2,"guard":0.0,"helmet":"fr_helmet_0","impact_recoil":0.0,"lean":1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":0,"zoom":2.5},"reason":"select_armor","ticks_ms":482535}
+{"button":1,"kind":"os_mouse","position":"(1144.125, 93.375)","pressed":true,"ticks_ms":488681}
+{"kind":"pose_change","pose":{"aim":0.12,"armor":"fr_armor_4","beard":0,"face_shape":2,"guard":0.0,"helmet":"fr_helmet_0","impact_recoil":0.0,"lean":1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":5,"zoom":2.5},"reason":"select_skin","ticks_ms":494484}
+{"button":1,"kind":"os_mouse","position":"(408.375, 194.625)","pressed":true,"ticks_ms":498914}
+{"buttons":1,"kind":"os_drag","position":"(408.375, 194.625)","ticks_ms":498933}
+{"button":1,"kind":"os_mouse","position":"(408.375, 194.625)","pressed":false,"ticks_ms":498933}
+{"kind":"pose_change","pose":{"aim":0.12,"armor":"fr_armor_4","beard":0,"face_shape":2,"guard":0.0,"helmet":"fr_helmet_0","impact_recoil":0.85,"lean":1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":5,"zoom":2.5},"reason":"toggle_impact","ticks_ms":498933}
+{"button":1,"kind":"os_mouse","position":"(1204.875, 155.25)","pressed":true,"ticks_ms":508915}
+{"buttons":1,"kind":"os_drag","position":"(1204.875, 155.25)","ticks_ms":508936}
+{"button":1,"kind":"os_mouse","position":"(1204.875, 155.25)","pressed":false,"ticks_ms":508936}
+{"image":"E:/GALUMU/docs/development/screenshots/v055/manual01/pose_009.png","kind":"capture","pose":{"aim":0.12,"armor":"fr_armor_4","beard":0,"build":"0.4.14","face_shape":2,"guard":0.0,"helmet":"fr_helmet_0","image":"E:/GALUMU/docs/development/screenshots/v055/manual01/pose_009.png","image_saved":true,"impact_recoil":0.85,"lean":1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":5,"ticks_ms":509045,"zoom":2.5},"saved":true,"sidecar_saved":true,"ticks_ms":509045}
+{"button":1,"kind":"os_mouse","position":"(281.25, 194.625)","pressed":true,"ticks_ms":513930}
+{"buttons":1,"kind":"os_drag","position":"(281.25, 194.625)","ticks_ms":513948}
+{"button":1,"kind":"os_mouse","position":"(281.25, 194.625)","pressed":false,"ticks_ms":513948}
+{"kind":"pose_change","pose":{"aim":0.12,"armor":"fr_armor_4","beard":0,"face_shape":2,"guard":0.0,"helmet":"fr_helmet_0","impact_recoil":0.85,"lean":-1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":5,"zoom":2.5},"reason":"slider_lean","ticks_ms":513948}
+{"kind":"pose_change","pose":{"aim":0.12,"armor":"fr_armor_4","beard":0,"face_shape":2,"guard":0.0,"helmet":"fr_helmet_0","impact_recoil":0.85,"lean":-1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":5,"zoom":2.5},"reason":"preset_lean","ticks_ms":513949}
+{"button":1,"kind":"os_mouse","position":"(1326.375, 93.375)","pressed":true,"ticks_ms":519253}
+{"kind":"pose_change","pose":{"aim":0.12,"armor":"fr_armor_4","beard":4,"face_shape":2,"guard":0.0,"helmet":"fr_helmet_0","impact_recoil":0.85,"lean":-1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":5,"zoom":2.5},"reason":"select_beard","ticks_ms":524069}
+{"button":1,"kind":"os_mouse","position":"(1204.875, 155.25)","pressed":true,"ticks_ms":528465}
+{"buttons":1,"kind":"os_drag","position":"(1204.875, 155.25)","ticks_ms":528477}
+{"button":1,"kind":"os_mouse","position":"(1204.875, 155.25)","pressed":false,"ticks_ms":528495}
+{"image":"E:/GALUMU/docs/development/screenshots/v055/manual01/pose_010.png","kind":"capture","pose":{"aim":0.12,"armor":"fr_armor_4","beard":4,"build":"0.4.14","face_shape":2,"guard":0.0,"helmet":"fr_helmet_0","image":"E:/GALUMU/docs/development/screenshots/v055/manual01/pose_010.png","image_saved":true,"impact_recoil":0.85,"lean":-1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":5,"ticks_ms":528607,"zoom":2.5},"saved":true,"sidecar_saved":true,"ticks_ms":528607}
+{"button":1,"kind":"os_mouse","position":"(1347.75, 155.25)","pressed":true,"ticks_ms":532849}
+{"buttons":1,"kind":"os_drag","position":"(1347.75, 155.25)","ticks_ms":532868}
+{"button":1,"kind":"os_mouse","position":"(1347.75, 155.25)","pressed":false,"ticks_ms":532868}
+{"acceptance":"Not scored; inspect the images","captures":10,"kind":"session_end","pose":{"aim":0.12,"armor":"fr_armor_4","beard":4,"face_shape":2,"guard":0.0,"helmet":"fr_helmet_0","impact_recoil":0.85,"lean":-1.0,"scope":"Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.","skin":5,"zoom":2.5},"ticks_ms":532868}

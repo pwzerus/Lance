@@ -1,10 +1,20 @@
 # 任务、审查建议与文件认领
 
-最后整理：2026-10-30 EDT。DEV-054完成v0.4.14自建像素脸返工，运行98e383a：四脸型五官/颌面/胡须与自建短颈肩衣，保留.13佩戴连接；实际包UI存读档/姿态/头接触落马、ZIP双模式通过。完整范围和审查见DEV-054交接。下一次两小时加速/颠簸/重击音及此前第四阶段运动甲声未启动。
+最后整理：2026-10-30 EDT。QA-054B完成实际OS戴盔/自建/练习/竞技与交互双向姿态，额外找错10分02秒，发现后继续修复枪尾遮脸及退出音频清理；独立v0.4.15-r2，运行a6accff。实际包/解压双模式、WASAPI及OS暂停关闭已验，详情见QA-054B交接。下一次两小时加速/颠簸/重击音及此前第四阶段运动甲声未启动。
 
 当前版本分支为 `codex/v0.4`。同版本的修复、同一／相近功能继续在该分支提交 commit；大的结构性改动形成新版本时再创建新的版本分支。不按每个小任务新建分支。
 
 ## 当前文件占用
+
+QA-054B完成：root、manual_pose055及fit_audit055文件全部释放，仅收尾提交/推送。最终.15-r2包含7e7686a与a6accff，源码/实际包四张枪层图一致，头部接触/落马、解压双模式及9图、实际OS暂停关闭干净。正式档和.14旧包保持原SHA。以下QA-054B段为认领历史，不代表仍占用；未声明全部外观或实战持续按键极限俯仰已验。
+
+QA-054B / 2026-10-30 23:00 EDT：用户要求实际桌面手动换盔/左右/俯仰检查，完成后另做至少10分钟找错，发现问题继续修复不因10分钟结束而遗留。基线be84a03，实际包v0.4.14。root认领本轮桌面观察脚本/日志、必要character_face/head_fit/rider_view/fit数据修复、版本导出及交接文档；manual_pose055只写test_head_manual_v055.gd/.uid与V055_POSE_TOOL.md，fit_audit055只读审查并写V055_INDEPENDENT_REVIEW.md。实际比赛OS操作与交互QA姿态查看器分开报告；root独占引擎和桌面，不注入按键冒充手动。正式档/旧包/既有Claude改动保留。十分钟起点在首轮手动验证完成后记录，不用准备时间抵扣。
+
+QA-054B具体观察文件：root仅新增game/tests/test_desktop_v055.gd/.uid（复用旧v051初始化和只读输入记录，补本轮外观/方向/俯仰状态与F8截图），docs/development/logs/v055/、screenshots/v055/和V055_DESKTOP_PLAY.md；不改生产desktop_input_audit。
+
+QA-054B修复扩展（23:15 EDT）：OS交互姿态发现最大后仰、枪角+.12时后柄双向穿脸。root新增认领game/scripts/visual/lance_art.gd，与rider_view.gd就地调整后柄/前段遮挡，不改物理枪位或动作限速。manual_pose055仅新增test_lance_layer_v055.gd/.uid及V055_LAYER_QA.md，不跑引擎。拟独立v0.4.15修复包；.14保留。
+
+QA-054B退出警告排查（23:28 EDT）：十分钟专项结束时发现比赛后退出泄漏，verbose证实AudioStreamWAV/PlaybackWAV，非脸部/模型。root新增认领tests/test_audio_exit_v055.gd/.uid及必要sound_bank.gd/battle.gd生命周期修复；先最小复现与定位，原有stop_all保留，不盲目删除资源。独立审查仍只读。
 
 DEV-054完成：root与两位独立审查者全部文件释放，root仅收尾提交推送。新版.14实际包10张头像/选项图与源码SHA完全相同；最小化GPU自动QA，不代表OS输入或用户满意。既有Claude改动、正式档及.13旧包保留。下面为认领历史。
 

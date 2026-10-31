@@ -1,0 +1,17 @@
+{
+	"aim": 0.12,
+	"armor": "eng_armor_0",
+	"beard": 2,
+	"build": "0.4.15",
+	"face_shape": 3,
+	"guard": 1.0,
+	"helmet": "fr_helmet_3",
+	"image": "E:/GALUMU/docs/development/screenshots/v055/manual02/pose_006.png",
+	"image_saved": true,
+	"impact_recoil": 0.0,
+	"lean": 1.0,
+	"scope": "Interactive fixed production-renderer poses, both facings. Not a match, no gameplay timing or collision claim.",
+	"skin": 0,
+	"ticks_ms": 155441,
+	"zoom": 2.5
+}

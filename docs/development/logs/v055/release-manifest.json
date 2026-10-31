@@ -1,0 +1,57 @@
+{
+  "task": "QA-054B",
+  "created_utc": "2026-10-31T03:40:02.1642131Z",
+  "branch": "codex/v0.4",
+  "runtime_commit": "a6accff1895bc48eeb8be5a800ab7b840d48bdba",
+  "lance_fix_commit": "7e7686aa2d2d1686ed9aa46a558cf12f3d8f2029",
+  "version": "0.4.15",
+  "package_revision": "r2",
+  "artifacts": [
+    {
+      "file": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.15-r2\\LanceAndLaurel.exe",
+      "bytes": 96725504,
+      "sha256": "78CCC576E8F8BFFD7EF6AD6F36EBD72A41E609A1052225A55B3407C96EA84065",
+      "unpacked_sha256": "78CCC576E8F8BFFD7EF6AD6F36EBD72A41E609A1052225A55B3407C96EA84065"
+    },
+    {
+      "file": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.15-r2\\LanceAndLaurel.pck",
+      "bytes": 72224816,
+      "sha256": "28818DA2F5F9D8F601A0EB4F757281A07F53C16E14A048B9CECCC523D8D4645D",
+      "unpacked_sha256": "28818DA2F5F9D8F601A0EB4F757281A07F53C16E14A048B9CECCC523D8D4645D"
+    },
+    {
+      "file": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.15-r2\\README.txt",
+      "bytes": 780,
+      "sha256": "FAECC904097B5865EB7C8CF5022F3BF0D0AC9B78EB01CA0B0BD7EFCF71C6A21A",
+      "unpacked_sha256": "FAECC904097B5865EB7C8CF5022F3BF0D0AC9B78EB01CA0B0BD7EFCF71C6A21A"
+    },
+    {
+      "file": "E:/GALUMU/builds/LanceAndLaurel-v0.4.15-r2-Windows.zip",
+      "bytes": 105612865,
+      "sha256": "F2CA0FC6A032C5D9A92F1CBEC45373387591E38293850C08EC7FB9B7887955BB"
+    }
+  ],
+  "protected": {
+    "formal_profile_sha256": "C013C4F3FCC7C099DC8AB313C60A70C2AFCF07323CED9A949C718A6304180309",
+    "formal_profile_unchanged": true,
+    "v0414_pck_sha256": "E29BFA58EBE956F2D24D30F73BA487B9F96CE55E04EE58EE3E062F1A29CFBADE",
+    "v0414_pck_unchanged": true
+  },
+  "validation": {
+    "source_import": "import02.log",
+    "lance_source": "layer01.json",
+    "lance_actual_pck": "export-layer01.json",
+    "head_contacts": "head-contact01.json",
+    "audio_actual_pck": "export-audio01.log",
+    "zip_both_modes": "unzip-smoke01.log",
+    "os_paused_close": "desktop05.log",
+    "extra_inspection_start_utc": "2026-10-31T03:14:14Z",
+    "extra_inspection_end_utc": "2026-10-31T03:24:16Z",
+    "extra_inspection_seconds": 602,
+    "issues_fixed_after_time_limit": true,
+    "os_extreme_lean_in_combat_verified": false,
+    "interactive_pose_viewer": "manual01 and manual02",
+    "human_aesthetic_acceptance": false
+  },
+  "distribution": "Local EXE/PCK/ZIP only; source, docs and evidence committed to origin/codex/v0.4; no GitHub Release upload"
+}

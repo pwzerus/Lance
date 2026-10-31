@@ -1,0 +1,147 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Unrecognized output string "misc2" in mapping:
+030000000d0f00000202000000000000,Horipad O Nintendo Switch 2 Controller,a:b1,b:b0,back:b8,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,dpup:h0.1,guide:b12,leftshoulder:b4,leftstick:b10,lefttrigger:b6,leftx:a0,lefty:a1,misc1:b13,misc2:b14,rightshoulder:b5,rightstick:b11,righttrigger:b7,rightx:a2,righty:a3,start:b9,x:b3,y:b2,platform:Windows,
+Unrecognized output string "misc2" in mapping:
+030000000d0f00009601000000000000,Horipad Steam,a:b0,b:b1,back:b10,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,dpup:h0.1,guide:b12,leftshoulder:b6,leftstick:b13,lefttrigger:b8,leftx:a0,lefty:a1,misc2:b2,paddle1:b5,paddle2:b15,paddle3:b18,paddle4:b19,rightshoulder:b7,rightstick:b14,righttrigger:b9,rightx:a3,righty:a4,start:b11,x:b3,y:b4,platform:Windows,
+Unrecognized output string "misc2" in mapping:
+030000007e0500006920000000000000,Nintendo Switch 2 Pro Controller,a:b0,b:b1,back:b14,dpdown:b8,dpleft:b10,dpright:b9,dpup:b11,guide:b16,leftshoulder:b12,leftstick:b15,lefttrigger:b13,leftx:a0,lefty:a1~,misc1:b17,misc2:b20,paddle1:b18,paddle2:b19,rightshoulder:b4,rightstick:b7,righttrigger:b5,rightx:a2,righty:a3~,start:b6,x:b2,y:b3,platform:Windows,
+Native OpenGL API detected: 3.3: Intel - Intel(R) Graphics
+SDL: Init OK!
+Using "winink" pen tablet driver...
+Shader 'CanvasSdfShaderGLES3' SHA256: 80f0cd64f3efe5e18bfc861fb52c634cd20e41788781bc4b03f542bc86f7f406
+Shader 'SkeletonShaderGLES3' SHA256: d562341725faaa06f55cc69095c3a197c262394f8c52a1301a7b4f779a357a5b
+Shader 'ParticlesShaderGLES3' SHA256: 73d47ad199b15485790eab670d64ad6c667aa13f39126b9b1c164c21a46b11ab
+Shader 'ParticlesCopyShaderGLES3' SHA256: 420eaecf91ab4ba21d2def7a5dda4ed4204748ec03e9d25dce018e6db45ca9f8
+Shader 'CopyShaderGLES3' SHA256: b99b0e0e586864d1baf876a66dd0cd47138d56dba4f115d9f7345e12bb43651a
+Shader 'CubemapFilterShaderGLES3' SHA256: ae10a0165208b6264c04b3607ddeebde49b76b9f012140f1373952591e0a75c1
+Shader 'GlowShaderGLES3' SHA256: 7f10786f6fcc58ea29074521e78269d0c7aa50e69b2968725145705176ef7b46
+Shader 'PostShaderGLES3' SHA256: 852f3fe6f88c580d1892a49739db7202c88898d99cb0720a1b4490f214a3d60d
+Shader 'FeedShaderGLES3' SHA256: c18485629801fed2d330085ee40eefb2a3d3795f271ece859f59433a1d208f62
+Shader 'CanvasShaderGLES3' SHA256: 2dbf1fb9b26421a78a7c5ab5deeb0a99d3772ac8891ee6a134ac3beb62392faa
+Shader 'CanvasOcclusionShaderGLES3' SHA256: 0aaccb939f70d6575679fa0284de66f063bb383723f9cda882b7dfb167a866e4
+Shader 'SceneShaderGLES3' SHA256: 7422928353917ba0f1e4b8df74c30d1bbbace7d6b011a706114db24258f0a62b
+Shader 'SkyShaderGLES3' SHA256: 3ad32641652938b5203b12b9f641d7dbd9b78ed14f9cdcf3e4da99c333f800a0
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 0
+EDITOR API HASH: 0
+Loading resource: E:/GALUMU/game/tests/test_desktop_v055.gd
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/core/game_state.gdc
+Loaded system CA certificates
+Loading resource: res://.godot/exported/133200997/export-3ad5c15c4f3250da0cc7c1af1770d85f-main.scn
+Loading resource: res://scripts/main.gdc
+Loading resource: res://assets/art/pixel_v03/tournament_field.png
+Loading resource: res://.godot/imported/tournament_field.png-ac883e8f1c4e6006ce47a228cfacb4cc.ctex
+Loading resource: res://assets/art/pixel_v03/rider_atlas.png
+Loading resource: res://.godot/imported/rider_atlas.png-439e563c7f1f55afa1aa25301c0f7185.ctex
+Loading resource: res://scripts/visual/mounted_pixel.gdshader
+Loading resource: res://assets/art/pixel_v041/horse_atlas.png
+Loading resource: res://.godot/imported/horse_atlas.png-f72fdc383c6e8d8d23647321028e149c.ctex
+Loading resource: res://assets/art/pixel_v03/equipment_eras.png
+Loading resource: res://.godot/imported/equipment_eras.png-fe8a33eaf4cd6197185084842dff235d.ctex
+Loading resource: res://assets/art/pixel_v041/nasal_head.png
+Loading resource: res://.godot/imported/nasal_head.png-3ee0afffd4c1fa70296672f5b31d76e3.ctex
+Loading resource: res://assets/art/pixel_v03/shield_fields.png
+Loading resource: res://.godot/imported/shield_fields.png-942f2a4b79124c61165da4395986f59d.ctex
+Loading resource: res://assets/art/pixel_v047/arms_atlas.png
+Loading resource: res://.godot/imported/arms_atlas.png-30e525fc41b1234312a0fb48b408ee31.ctex
+Loading resource: res://assets/art/pixel_v050/horse_complete_skin_v050_01.png
+Loading resource: res://.godot/imported/horse_complete_skin_v050_01.png-2259e9fa78a8bdfdb9ade314bd92e6c4.ctex
+Loading resource: res://assets/art/pixel_v03/campaign_field.png
+Loading resource: res://.godot/imported/campaign_field.png-b2da995b2b3ddbb3ded74207996ae484.ctex
+GALUMU_BUILD v0.4.15
+Loading resource: res://assets/audio/impact_v050/contact_helmet_solid_0.wav
+Loading resource: res://.godot/imported/contact_helmet_solid_0.wav-17b338a8eff7920253c80725f468e5c6.sample
+Loading resource: res://assets/audio/impact_v050/contact_helmet_solid_1.wav
+Loading resource: res://.godot/imported/contact_helmet_solid_1.wav-cfcc5232f39071989b31dee901d950f4.sample
+Loading resource: res://assets/audio/impact_v050/contact_helmet_solid_2.wav
+Loading resource: res://.godot/imported/contact_helmet_solid_2.wav-e23e8b888cfed4e8cc5ae171581c3c13.sample
+Loading resource: res://assets/audio/impact_v050/contact_helmet_glance_0.wav
+Loading resource: res://.godot/imported/contact_helmet_glance_0.wav-ee082e68f309d37be53ced9223bec1c1.sample
+Loading resource: res://assets/audio/impact_v050/contact_helmet_glance_1.wav
+Loading resource: res://.godot/imported/contact_helmet_glance_1.wav-23825be158f2bcdee24862fe6b90e0b2.sample
+Loading resource: res://assets/audio/impact_v050/contact_helmet_glance_2.wav
+Loading resource: res://.godot/imported/contact_helmet_glance_2.wav-eb610826773808af5eb1023ca5c02291.sample
+Loading resource: res://assets/audio/impact_v050/contact_plate_solid_0.wav
+Loading resource: res://.godot/imported/contact_plate_solid_0.wav-760196ade95806e1443d7d4b47b7ab79.sample
+Loading resource: res://assets/audio/impact_v050/contact_plate_solid_1.wav
+Loading resource: res://.godot/imported/contact_plate_solid_1.wav-467bb51d9827617014dfcaf7677160aa.sample
+Loading resource: res://assets/audio/impact_v050/contact_plate_solid_2.wav
+Loading resource: res://.godot/imported/contact_plate_solid_2.wav-d8ed3bc0950997e8e8dbf4afccc1efbf.sample
+Loading resource: res://assets/audio/impact_v050/contact_plate_glance_0.wav
+Loading resource: res://.godot/imported/contact_plate_glance_0.wav-822e3cbd9521df788673e47f48ca1dff.sample
+Loading resource: res://assets/audio/impact_v050/contact_plate_glance_1.wav
+Loading resource: res://.godot/imported/contact_plate_glance_1.wav-98acae7ffc89909d944059421cee3537.sample
+Loading resource: res://assets/audio/impact_v050/contact_plate_glance_2.wav
+Loading resource: res://.godot/imported/contact_plate_glance_2.wav-0047f00bfb83e88ecbd212ed5a3e35b7.sample
+Loading resource: res://assets/audio/impact_v050/contact_mail_solid_0.wav
+Loading resource: res://.godot/imported/contact_mail_solid_0.wav-61fdcc536aa0240edf54d3924033b235.sample
+Loading resource: res://assets/audio/impact_v050/contact_mail_solid_1.wav
+Loading resource: res://.godot/imported/contact_mail_solid_1.wav-76986ba4f24babaf3033424b093877f3.sample
+Loading resource: res://assets/audio/impact_v050/contact_mail_solid_2.wav
+Loading resource: res://.godot/imported/contact_mail_solid_2.wav-875adde552ada04fdaec4f763d28cb2a.sample
+Loading resource: res://assets/audio/impact_v050/contact_mail_glance_0.wav
+Loading resource: res://.godot/imported/contact_mail_glance_0.wav-7b82a45520100d08958f3619bdb77970.sample
+Loading resource: res://assets/audio/impact_v050/contact_mail_glance_1.wav
+Loading resource: res://.godot/imported/contact_mail_glance_1.wav-6bbf4876e5a12ee1db1c9db82ebe0a8f.sample
+Loading resource: res://assets/audio/impact_v050/contact_mail_glance_2.wav
+Loading resource: res://.godot/imported/contact_mail_glance_2.wav-00ed76af1f60ea38b95a563b9755b309.sample
+Loading resource: res://assets/audio/impact_v050/contact_padded_solid_0.wav
+Loading resource: res://.godot/imported/contact_padded_solid_0.wav-57375319ea65761e07845f5ef181e2ef.sample
+Loading resource: res://assets/audio/impact_v050/contact_padded_solid_1.wav
+Loading resource: res://.godot/imported/contact_padded_solid_1.wav-071811e494d68624d1e7f31223227c06.sample
+Loading resource: res://assets/audio/impact_v050/contact_padded_solid_2.wav
+Loading resource: res://.godot/imported/contact_padded_solid_2.wav-8f78b3e6f4c81833f8e88bf8bf726237.sample
+Loading resource: res://assets/audio/impact_v050/contact_padded_glance_0.wav
+Loading resource: res://.godot/imported/contact_padded_glance_0.wav-c68b3572bd74c52154f9f28e710aecd5.sample
+Loading resource: res://assets/audio/impact_v050/contact_padded_glance_1.wav
+Loading resource: res://.godot/imported/contact_padded_glance_1.wav-b63cb21c3b34e4e4254fbc5a9ffb4179.sample
+Loading resource: res://assets/audio/impact_v050/contact_padded_glance_2.wav
+Loading resource: res://.godot/imported/contact_padded_glance_2.wav-00fd3b0b7d881bf4afe7ba9edb7b9321.sample
+Loading resource: res://assets/audio/impact_v050/contact_shield_wood_solid_0.wav
+Loading resource: res://.godot/imported/contact_shield_wood_solid_0.wav-dbdccfd72f2c965f9e976f9c9955c24e.sample
+Loading resource: res://assets/audio/impact_v050/contact_shield_wood_solid_1.wav
+Loading resource: res://.godot/imported/contact_shield_wood_solid_1.wav-55f905bf0ec0d5c6869bafb8b01912b2.sample
+Loading resource: res://assets/audio/impact_v050/contact_shield_wood_solid_2.wav
+Loading resource: res://.godot/imported/contact_shield_wood_solid_2.wav-58ef227369c3a1395d11eae617f36812.sample
+Loading resource: res://assets/audio/impact_v050/contact_shield_wood_glance_0.wav
+Loading resource: res://.godot/imported/contact_shield_wood_glance_0.wav-2734d01f70fe7787b63f29e015762dc9.sample
+Loading resource: res://assets/audio/impact_v050/contact_shield_wood_glance_1.wav
+Loading resource: res://.godot/imported/contact_shield_wood_glance_1.wav-90b859e4f164da848babb7a8fddb203c.sample
+Loading resource: res://assets/audio/impact_v050/contact_shield_wood_glance_2.wav
+Loading resource: res://.godot/imported/contact_shield_wood_glance_2.wav-28e5d1139f061b1465e57bdfefc2a6e4.sample
+Loading resource: res://assets/audio/impact_v050/contact_brigandine_solid_0.wav
+Loading resource: res://.godot/imported/contact_brigandine_solid_0.wav-06fbee708dd8df2b2893501241a7a2ed.sample
+Loading resource: res://assets/audio/impact_v050/contact_brigandine_solid_1.wav
+Loading resource: res://.godot/imported/contact_brigandine_solid_1.wav-a65a7f4947963b39ab09e4f48dfc41a4.sample
+Loading resource: res://assets/audio/impact_v050/contact_brigandine_solid_2.wav
+Loading resource: res://.godot/imported/contact_brigandine_solid_2.wav-c59177fe68c45135ecdc7dc72f998455.sample
+Loading resource: res://assets/audio/impact_v050/contact_brigandine_glance_0.wav
+Loading resource: res://.godot/imported/contact_brigandine_glance_0.wav-520dff4050b7676908f684ac6c749edd.sample
+Loading resource: res://assets/audio/impact_v050/contact_brigandine_glance_1.wav
+Loading resource: res://.godot/imported/contact_brigandine_glance_1.wav-c06ed377882f4d127308056526209795.sample
+Loading resource: res://assets/audio/impact_v050/contact_brigandine_glance_2.wav
+Loading resource: res://.godot/imported/contact_brigandine_glance_2.wav-46e876a0f5cfddf5332ad70504e5c326.sample
+Loading resource: res://assets/audio/impact_v050/lance_break_0.wav
+Loading resource: res://.godot/imported/lance_break_0.wav-8db1efca7b69cc99d17af2eeac8eb016.sample
+Loading resource: res://assets/audio/impact_v050/lance_break_1.wav
+Loading resource: res://.godot/imported/lance_break_1.wav-d6b3f2eb6a34198b1f0612db747736d2.sample
+Loading resource: res://assets/audio/impact_v050/lance_break_2.wav
+Loading resource: res://.godot/imported/lance_break_2.wav-c69a844fbac21697aff8a1263318dc14.sample
+Loading resource: res://assets/fonts/NotoSansSC.ttf
+Loading resource: res://.godot/imported/NotoSansSC.ttf-53e7d2951cb723449d16fcecb813db38.fontdata
+Loading resource: res://assets/art/pixel_v051/de_armor_3.png
+Loading resource: res://.godot/imported/de_armor_3.png-376af81bf318ff99b5db2971f456648c.ctex
+Loading resource: res://assets/art/pixel_v051/fr_helmet_3.png
+Loading resource: res://.godot/imported/fr_helmet_3.png-968cfda41fbbc2bb6102722172cba665.ctex
+Loading resource: res://assets/art/pixel_v051/it_armor_5.png
+Loading resource: res://.godot/imported/it_armor_5.png-2dfe68b3580760772f9eaf984d874ec3.ctex
+Loading resource: res://assets/art/pixel_v051/it_helmet_5.png
+Loading resource: res://.godot/imported/it_helmet_5.png-abf84372f3ed3388e201ad98c751bfd7.ctex
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"

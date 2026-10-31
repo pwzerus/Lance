@@ -1,0 +1,24 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+EQUIPMENT_POSES_V051 page=eng_forward_high size=(1920, 1368) saved=true
+EQUIPMENT_POSES_V051 page=eng_back_low size=(1920, 1368) saved=true
+EQUIPMENT_POSES_V051 page=fr_forward_high size=(1920, 1368) saved=true
+EQUIPMENT_POSES_V051 page=fr_back_low size=(1920, 1368) saved=true
+EQUIPMENT_POSES_V051 page=de_forward_high size=(1920, 1368) saved=true
+EQUIPMENT_POSES_V051 page=de_back_low size=(1920, 1368) saved=true
+EQUIPMENT_POSES_V051 page=it_forward_high size=(1920, 1368) saved=true
+EQUIPMENT_POSES_V051 page=it_back_low size=(1920, 1368) saved=true
+EQUIPMENT_POSES_V051 page=faces_eng_helmet_0 size=(1600, 832) saved=true
+EQUIPMENT_POSES_V051 page=faces_eng_helmet_3 size=(1600, 832) saved=true
+EQUIPMENT_POSES_V051 page=faces_fr_helmet_0 size=(1600, 832) saved=true
+EQUIPMENT_POSES_V051 page=faces_fr_helmet_3 size=(1600, 832) saved=true
+EQUIPMENT_POSES_V051 page=faces_fr_helmet_4 size=(1600, 832) saved=true
+EQUIPMENT_POSES_V051 page=faces_fr_helmet_5 size=(1600, 832) saved=true
+EQUIPMENT_POSES_V051 page=faces_de_helmet_0 size=(1600, 832) saved=true
+EQUIPMENT_POSES_V051 page=faces_de_helmet_5 size=(1600, 832) saved=true
+EQUIPMENT_POSES_V051 page=faces_it_helmet_0 size=(1600, 832) saved=true
+EQUIPMENT_POSES_V051 page=faces_it_helmet_1 size=(1600, 832) saved=true
+EQUIPMENT_POSES_V051 page=faces_it_helmet_2 size=(1600, 832) saved=true
+EQUIPMENT_POSES_V051 page=faces_it_helmet_3 size=(1600, 832) saved=true
+EQUIPMENT_POSES_V051 passed=true pages=20 open_helmets=12

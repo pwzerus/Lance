@@ -1,0 +1,19 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+HEAD_FIT_V052 page=eng_neutral fixtures=12
+HEAD_FIT_V052 page=eng_forward fixtures=12
+HEAD_FIT_V052 page=eng_back fixtures=12
+HEAD_FIT_V052 page=fr_neutral fixtures=12
+HEAD_FIT_V052 page=fr_forward fixtures=12
+HEAD_FIT_V052 page=fr_back fixtures=12
+HEAD_FIT_V052 page=de_neutral fixtures=12
+HEAD_FIT_V052 page=de_forward fixtures=12
+HEAD_FIT_V052 page=de_back fixtures=12
+HEAD_FIT_V052 page=it_neutral fixtures=12
+HEAD_FIT_V052 page=it_forward fixtures=12
+HEAD_FIT_V052 page=it_back fixtures=12
+HEAD_FIT_V052 page=mixed_neutral fixtures=12
+HEAD_FIT_V052 page=mixed_forward fixtures=12
+HEAD_FIT_V052 page=mixed_back fixtures=12
+HEAD_FIT_V052 passed=true fixtures=180

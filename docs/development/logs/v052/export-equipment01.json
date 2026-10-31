@@ -1,0 +1,17 @@
+{
+	"failures": [],
+	"passed": true,
+	"rows": [
+		{
+			"contacts": 6,
+			"cosmetic_simulation": "arena",
+			"phase": "ended"
+		},
+		{
+			"contacts": 6,
+			"cosmetic_simulation": "war",
+			"phase": "ended"
+		}
+	],
+	"scope": "48 asset imports, real isolated purchases/auto/manual reload, legacy IDs, leg cosmetic simulation, engine-rendered regional sheets and shop; not OS input or human play"
+}

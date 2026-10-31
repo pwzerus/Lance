@@ -1,6 +1,16 @@
 # 当前实现与接手地图
 
-## 最新装备阶段：DEV-051 / v0.4.11（2026-10-30 EDT）
+## 最新适配修复：DEV-052 / v0.4.12（2026-10-30 EDT）
+
+今晚90分钟范围是头、头盔、颈部与胸甲领口适配；下一次两小时的加速、非弹跳颠簸、镜头和重击音尚未启动。基线b8adf017，运行提交`3a0487f0e9d530d2210c446b52def41e7a5304d6`，仍在codex/v0.4。独立发布目录`builds/LanceAndLaurel-v0.4.12`，不覆盖.11。完整结果见[DEV-052交接](handoffs/2026-10-30-DEV-052-Codex.md)及[V052审查](../development/V052_REVIEW.md)。
+
+`head_fit.gd`和`equipment_fit_v052.json`按24件头盔轮廓注册尺寸/偏移、脸框/裁切，使用原躯干变换；胸甲后衬领和有限上颈填充修复悬空/穿领观感。`character_face`的默认捏人路径保留，骑乘关闭第二条肤色颈部；五种胡须仍有区别。`fallen_rider`地面包络同步实际头框。未更改原素材PNG、装备ID/数值、战斗头部锚点、枪盾限速或AI。
+
+实际EXE/PCK已通过190个头颈姿态和16页源/包一致渲染、全部开放盔四脸型双向/极值、26例扫掠接触/断枪/实战头部KO，以及48件购装/自动手动存档回归。源码另验外观UI与六种完整落马。均是隔离QA、最小化窗口的真实引擎自动验证；本轮没有OS鼠标试玩或真人听感验收。
+
+PCK SHA256：`BD09369DEEA7E36A1A80DC1D445EBA9EEB7DF5260638806D3FF88EBA06204EF3`；ZIP独立解压的EXE/PCK一致。基础肩臂与新装备精细度差异、极限后仰枪尾挡脸保留；没有穷举24×24全部胸盔混搭。用户指出的马匹加速/颠簸和撞击轻的问题仍待下一次处理，不能用本轮连接检查宣称手感已解决。
+
+## 沿用装备阶段：DEV-051 / v0.4.11（2026-10-30 EDT）
 
 基线`7c727b2`，历史资料提交`5ab563b`，运行实现`22c8104c2b62f50554a610013d399943cd81c41f`已推送codex/v0.4。独立发布目录`builds/LanceAndLaurel-v0.4.11`，旧包保留。四个地区各6头盔/6胸甲共48张独立素材已接入收藏、购装、存档、骑乘与装备详情；胸防护、头防护仍分别使用原数值。腿部4种花纹只绘制，不增加防护或腿伤目标。
 
@@ -66,11 +76,11 @@ OS已操作源码与最终解压包的菜单/练习/换盾/暂停/退出；没�
 
 ## 启动与工具
 
-- [Play-Latest.cmd](../../Play-Latest.cmd)指向独立[Windows目录](../../builds/LanceAndLaurel-v0.4.11/)，EXE和PCK同目录；旧包与失败候选不覆盖。
+- [Play-Latest.cmd](../../Play-Latest.cmd)指向独立[Windows目录](../../builds/LanceAndLaurel-v0.4.12/)，EXE和PCK同目录；旧包与失败候选不覆盖。
 - 主项目[game/project.godot](../../game/project.godot)，Godot4.5.1/GDScript/Compatibility，Windows x86_64。
 - 本机引擎tools/godot-4.5.1/Godot_v4.5.1-stable_win64_console.exe；导出模板tools/templates/windows_release_x86_64.exe。
-- PCK SHA256：4900B0FBDA8EA296E058424A765096FA3D7AC22ABB86763511CBB96CE6FDDABC。
-- 完整文档、ZIP身份、远程SHA及当前测试结果以DEV-051最终回执为准。根HANDOFF仍是旧入口且包含对方未提交内容，不能将其v0.4早期状态覆盖本文。
+- PCK SHA256：BD09369DEEA7E36A1A80DC1D445EBA9EEB7DF5260638806D3FF88EBA06204EF3。
+- 完整文档、ZIP身份、远程SHA及当前测试结果以DEV-052最终回执为准。根HANDOFF仍是旧入口且包含对方未提交内容，不能将其v0.4早期状态覆盖本文。
 
 ## 玩家控制与规则
 

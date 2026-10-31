@@ -1,0 +1,1627 @@
+{
+	"failures": [],
+	"passed": true,
+	"rows": [
+		{
+			"armor": "eng_armor_0",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_0",
+			"layout": "{ \"helmet\": [P: (-33.0, -147.0), S: (64.0, 74.0)], \"face\": [P: (-17.0, -124.8), S: (55.04, 51.8)], \"face_clip\": [P: (-22.0, -126.0), S: (49.0, 36.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "eng_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "eng_armor_0",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_0",
+			"layout": "{ \"helmet\": [P: (-33.0, -147.0), S: (64.0, 74.0)], \"face\": [P: (-17.0, -124.8), S: (55.04, 51.8)], \"face_clip\": [P: (-22.0, -126.0), S: (49.0, 36.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "eng_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "eng_armor_1",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_1",
+			"layout": "{ \"helmet\": [P: (-29.5, -147.0), S: (59.0, 70.0)], \"face\": [P: (-29.5, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "eng_armor_1",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_1",
+			"layout": "{ \"helmet\": [P: (-29.5, -147.0), S: (59.0, 70.0)], \"face\": [P: (-29.5, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "eng_armor_2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_2",
+			"layout": "{ \"helmet\": [P: (-29.0, -148.0), S: (58.0, 73.0)], \"face\": [P: (-29.0, -148.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "eng_armor_2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_2",
+			"layout": "{ \"helmet\": [P: (-29.0, -148.0), S: (58.0, 73.0)], \"face\": [P: (-29.0, -148.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "eng_armor_3",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_3",
+			"layout": "{ \"helmet\": [P: (-32.5, -147.0), S: (65.0, 73.0)], \"face\": [P: (-14.3, -125.83), S: (50.05, 50.37)], \"face_clip\": [P: (-22.0, -128.0), S: (50.0, 38.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "eng_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "eng_armor_3",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_3",
+			"layout": "{ \"helmet\": [P: (-32.5, -147.0), S: (65.0, 73.0)], \"face\": [P: (-14.3, -125.83), S: (50.05, 50.37)], \"face_clip\": [P: (-22.0, -128.0), S: (50.0, 38.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "eng_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "eng_armor_4",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_4",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 72.0)], \"face\": [P: (-31.0, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "eng_armor_4",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_4",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 72.0)], \"face\": [P: (-31.0, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "eng_armor_5",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_5",
+			"layout": "{ \"helmet\": [P: (-31.0, -149.0), S: (62.0, 74.0)], \"face\": [P: (-31.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "eng_armor_5",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_5",
+			"layout": "{ \"helmet\": [P: (-31.0, -149.0), S: (62.0, 74.0)], \"face\": [P: (-31.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "eng_armor_0",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_0",
+			"layout": "{ \"helmet\": [P: (-33.0, -147.0), S: (64.0, 74.0)], \"face\": [P: (-17.0, -124.8), S: (55.04, 51.8)], \"face_clip\": [P: (-22.0, -126.0), S: (49.0, 36.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "eng_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "eng_armor_0",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_0",
+			"layout": "{ \"helmet\": [P: (-33.0, -147.0), S: (64.0, 74.0)], \"face\": [P: (-17.0, -124.8), S: (55.04, 51.8)], \"face_clip\": [P: (-22.0, -126.0), S: (49.0, 36.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "eng_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "eng_armor_1",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_1",
+			"layout": "{ \"helmet\": [P: (-29.5, -147.0), S: (59.0, 70.0)], \"face\": [P: (-29.5, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "eng_armor_1",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_1",
+			"layout": "{ \"helmet\": [P: (-29.5, -147.0), S: (59.0, 70.0)], \"face\": [P: (-29.5, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "eng_armor_2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_2",
+			"layout": "{ \"helmet\": [P: (-29.0, -148.0), S: (58.0, 73.0)], \"face\": [P: (-29.0, -148.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "eng_armor_2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_2",
+			"layout": "{ \"helmet\": [P: (-29.0, -148.0), S: (58.0, 73.0)], \"face\": [P: (-29.0, -148.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "eng_armor_3",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_3",
+			"layout": "{ \"helmet\": [P: (-32.5, -147.0), S: (65.0, 73.0)], \"face\": [P: (-14.3, -125.83), S: (50.05, 50.37)], \"face_clip\": [P: (-22.0, -128.0), S: (50.0, 38.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "eng_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "eng_armor_3",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_3",
+			"layout": "{ \"helmet\": [P: (-32.5, -147.0), S: (65.0, 73.0)], \"face\": [P: (-14.3, -125.83), S: (50.05, 50.37)], \"face_clip\": [P: (-22.0, -128.0), S: (50.0, 38.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "eng_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "eng_armor_4",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_4",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 72.0)], \"face\": [P: (-31.0, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "eng_armor_4",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_4",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 72.0)], \"face\": [P: (-31.0, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "eng_armor_5",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_5",
+			"layout": "{ \"helmet\": [P: (-31.0, -149.0), S: (62.0, 74.0)], \"face\": [P: (-31.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "eng_armor_5",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_5",
+			"layout": "{ \"helmet\": [P: (-31.0, -149.0), S: (62.0, 74.0)], \"face\": [P: (-31.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "eng_armor_0",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_0",
+			"layout": "{ \"helmet\": [P: (-33.0, -147.0), S: (64.0, 74.0)], \"face\": [P: (-17.0, -124.8), S: (55.04, 51.8)], \"face_clip\": [P: (-22.0, -126.0), S: (49.0, 36.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "eng_back",
+			"pose": "back"
+		},
+		{
+			"armor": "eng_armor_0",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_0",
+			"layout": "{ \"helmet\": [P: (-33.0, -147.0), S: (64.0, 74.0)], \"face\": [P: (-17.0, -124.8), S: (55.04, 51.8)], \"face_clip\": [P: (-22.0, -126.0), S: (49.0, 36.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "eng_back",
+			"pose": "back"
+		},
+		{
+			"armor": "eng_armor_1",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_1",
+			"layout": "{ \"helmet\": [P: (-29.5, -147.0), S: (59.0, 70.0)], \"face\": [P: (-29.5, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_back",
+			"pose": "back"
+		},
+		{
+			"armor": "eng_armor_1",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_1",
+			"layout": "{ \"helmet\": [P: (-29.5, -147.0), S: (59.0, 70.0)], \"face\": [P: (-29.5, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_back",
+			"pose": "back"
+		},
+		{
+			"armor": "eng_armor_2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_2",
+			"layout": "{ \"helmet\": [P: (-29.0, -148.0), S: (58.0, 73.0)], \"face\": [P: (-29.0, -148.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_back",
+			"pose": "back"
+		},
+		{
+			"armor": "eng_armor_2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_2",
+			"layout": "{ \"helmet\": [P: (-29.0, -148.0), S: (58.0, 73.0)], \"face\": [P: (-29.0, -148.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_back",
+			"pose": "back"
+		},
+		{
+			"armor": "eng_armor_3",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_3",
+			"layout": "{ \"helmet\": [P: (-32.5, -147.0), S: (65.0, 73.0)], \"face\": [P: (-14.3, -125.83), S: (50.05, 50.37)], \"face_clip\": [P: (-22.0, -128.0), S: (50.0, 38.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "eng_back",
+			"pose": "back"
+		},
+		{
+			"armor": "eng_armor_3",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_3",
+			"layout": "{ \"helmet\": [P: (-32.5, -147.0), S: (65.0, 73.0)], \"face\": [P: (-14.3, -125.83), S: (50.05, 50.37)], \"face_clip\": [P: (-22.0, -128.0), S: (50.0, 38.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "eng_back",
+			"pose": "back"
+		},
+		{
+			"armor": "eng_armor_4",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_4",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 72.0)], \"face\": [P: (-31.0, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_back",
+			"pose": "back"
+		},
+		{
+			"armor": "eng_armor_4",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_4",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 72.0)], \"face\": [P: (-31.0, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_back",
+			"pose": "back"
+		},
+		{
+			"armor": "eng_armor_5",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_5",
+			"layout": "{ \"helmet\": [P: (-31.0, -149.0), S: (62.0, 74.0)], \"face\": [P: (-31.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_back",
+			"pose": "back"
+		},
+		{
+			"armor": "eng_armor_5",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_5",
+			"layout": "{ \"helmet\": [P: (-31.0, -149.0), S: (62.0, 74.0)], \"face\": [P: (-31.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "eng_back",
+			"pose": "back"
+		},
+		{
+			"armor": "fr_armor_0",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_0",
+			"layout": "{ \"helmet\": [P: (-39.5, -145.0), S: (79.0, 37.0)], \"face\": [P: (-19.75, -130.57), S: (50.56, 61.05)], \"face_clip\": [P: (-25.0, -132.0), S: (53.0, 42.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "fr_armor_0",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_0",
+			"layout": "{ \"helmet\": [P: (-39.5, -145.0), S: (79.0, 37.0)], \"face\": [P: (-19.75, -130.57), S: (50.56, 61.05)], \"face_clip\": [P: (-25.0, -132.0), S: (53.0, 42.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "fr_armor_1",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_1",
+			"layout": "{ \"helmet\": [P: (-30.0, -148.0), S: (60.0, 73.0)], \"face\": [P: (-30.0, -148.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "fr_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "fr_armor_1",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_1",
+			"layout": "{ \"helmet\": [P: (-30.0, -148.0), S: (60.0, 73.0)], \"face\": [P: (-30.0, -148.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "fr_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "fr_armor_2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_2",
+			"layout": "{ \"helmet\": [P: (-31.0, -149.0), S: (62.0, 74.0)], \"face\": [P: (-31.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "fr_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "fr_armor_2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_2",
+			"layout": "{ \"helmet\": [P: (-31.0, -149.0), S: (62.0, 74.0)], \"face\": [P: (-31.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "fr_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "fr_armor_3",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_3",
+			"layout": "{ \"helmet\": [P: (-34.0, -147.0), S: (64.0, 73.0)], \"face\": [P: (-9.040001, -130.21), S: (40.32, 54.75)], \"face_clip\": [P: (-19.0, -130.0), S: (49.0, 40.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "fr_armor_3",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_3",
+			"layout": "{ \"helmet\": [P: (-34.0, -147.0), S: (64.0, 73.0)], \"face\": [P: (-9.040001, -130.21), S: (40.32, 54.75)], \"face_clip\": [P: (-19.0, -130.0), S: (49.0, 40.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "fr_armor_4",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_4",
+			"layout": "{ \"helmet\": [P: (-40.5, -147.0), S: (77.0, 57.0)], \"face\": [P: (-17.4, -130.47), S: (52.36, 58.71)], \"face_clip\": [P: (-24.0, -130.0), S: (53.0, 44.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "fr_armor_4",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_4",
+			"layout": "{ \"helmet\": [P: (-40.5, -147.0), S: (77.0, 57.0)], \"face\": [P: (-17.4, -130.47), S: (52.36, 58.71)], \"face_clip\": [P: (-24.0, -130.0), S: (53.0, 44.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "fr_armor_5",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_5",
+			"layout": "{ \"helmet\": [P: (-33.5, -149.0), S: (63.0, 74.0)], \"face\": [P: (-10.19, -129.76), S: (40.95, 55.5)], \"face_clip\": [P: (-20.0, -130.0), S: (49.0, 40.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "fr_armor_5",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_5",
+			"layout": "{ \"helmet\": [P: (-33.5, -149.0), S: (63.0, 74.0)], \"face\": [P: (-10.19, -129.76), S: (40.95, 55.5)], \"face_clip\": [P: (-20.0, -130.0), S: (49.0, 40.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "fr_armor_0",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_0",
+			"layout": "{ \"helmet\": [P: (-39.5, -145.0), S: (79.0, 37.0)], \"face\": [P: (-19.75, -130.57), S: (50.56, 61.05)], \"face_clip\": [P: (-25.0, -132.0), S: (53.0, 42.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "fr_armor_0",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_0",
+			"layout": "{ \"helmet\": [P: (-39.5, -145.0), S: (79.0, 37.0)], \"face\": [P: (-19.75, -130.57), S: (50.56, 61.05)], \"face_clip\": [P: (-25.0, -132.0), S: (53.0, 42.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "fr_armor_1",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_1",
+			"layout": "{ \"helmet\": [P: (-30.0, -148.0), S: (60.0, 73.0)], \"face\": [P: (-30.0, -148.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "fr_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "fr_armor_1",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_1",
+			"layout": "{ \"helmet\": [P: (-30.0, -148.0), S: (60.0, 73.0)], \"face\": [P: (-30.0, -148.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "fr_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "fr_armor_2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_2",
+			"layout": "{ \"helmet\": [P: (-31.0, -149.0), S: (62.0, 74.0)], \"face\": [P: (-31.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "fr_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "fr_armor_2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_2",
+			"layout": "{ \"helmet\": [P: (-31.0, -149.0), S: (62.0, 74.0)], \"face\": [P: (-31.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "fr_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "fr_armor_3",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_3",
+			"layout": "{ \"helmet\": [P: (-34.0, -147.0), S: (64.0, 73.0)], \"face\": [P: (-9.040001, -130.21), S: (40.32, 54.75)], \"face_clip\": [P: (-19.0, -130.0), S: (49.0, 40.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "fr_armor_3",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_3",
+			"layout": "{ \"helmet\": [P: (-34.0, -147.0), S: (64.0, 73.0)], \"face\": [P: (-9.040001, -130.21), S: (40.32, 54.75)], \"face_clip\": [P: (-19.0, -130.0), S: (49.0, 40.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "fr_armor_4",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_4",
+			"layout": "{ \"helmet\": [P: (-40.5, -147.0), S: (77.0, 57.0)], \"face\": [P: (-17.4, -130.47), S: (52.36, 58.71)], \"face_clip\": [P: (-24.0, -130.0), S: (53.0, 44.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "fr_armor_4",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_4",
+			"layout": "{ \"helmet\": [P: (-40.5, -147.0), S: (77.0, 57.0)], \"face\": [P: (-17.4, -130.47), S: (52.36, 58.71)], \"face_clip\": [P: (-24.0, -130.0), S: (53.0, 44.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "fr_armor_5",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_5",
+			"layout": "{ \"helmet\": [P: (-33.5, -149.0), S: (63.0, 74.0)], \"face\": [P: (-10.19, -129.76), S: (40.95, 55.5)], \"face_clip\": [P: (-20.0, -130.0), S: (49.0, 40.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "fr_armor_5",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_5",
+			"layout": "{ \"helmet\": [P: (-33.5, -149.0), S: (63.0, 74.0)], \"face\": [P: (-10.19, -129.76), S: (40.95, 55.5)], \"face_clip\": [P: (-20.0, -130.0), S: (49.0, 40.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "fr_armor_0",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_0",
+			"layout": "{ \"helmet\": [P: (-39.5, -145.0), S: (79.0, 37.0)], \"face\": [P: (-19.75, -130.57), S: (50.56, 61.05)], \"face_clip\": [P: (-25.0, -132.0), S: (53.0, 42.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_back",
+			"pose": "back"
+		},
+		{
+			"armor": "fr_armor_0",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_0",
+			"layout": "{ \"helmet\": [P: (-39.5, -145.0), S: (79.0, 37.0)], \"face\": [P: (-19.75, -130.57), S: (50.56, 61.05)], \"face_clip\": [P: (-25.0, -132.0), S: (53.0, 42.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_back",
+			"pose": "back"
+		},
+		{
+			"armor": "fr_armor_1",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_1",
+			"layout": "{ \"helmet\": [P: (-30.0, -148.0), S: (60.0, 73.0)], \"face\": [P: (-30.0, -148.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "fr_back",
+			"pose": "back"
+		},
+		{
+			"armor": "fr_armor_1",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_1",
+			"layout": "{ \"helmet\": [P: (-30.0, -148.0), S: (60.0, 73.0)], \"face\": [P: (-30.0, -148.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "fr_back",
+			"pose": "back"
+		},
+		{
+			"armor": "fr_armor_2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_2",
+			"layout": "{ \"helmet\": [P: (-31.0, -149.0), S: (62.0, 74.0)], \"face\": [P: (-31.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "fr_back",
+			"pose": "back"
+		},
+		{
+			"armor": "fr_armor_2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_2",
+			"layout": "{ \"helmet\": [P: (-31.0, -149.0), S: (62.0, 74.0)], \"face\": [P: (-31.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "fr_back",
+			"pose": "back"
+		},
+		{
+			"armor": "fr_armor_3",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_3",
+			"layout": "{ \"helmet\": [P: (-34.0, -147.0), S: (64.0, 73.0)], \"face\": [P: (-9.040001, -130.21), S: (40.32, 54.75)], \"face_clip\": [P: (-19.0, -130.0), S: (49.0, 40.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_back",
+			"pose": "back"
+		},
+		{
+			"armor": "fr_armor_3",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_3",
+			"layout": "{ \"helmet\": [P: (-34.0, -147.0), S: (64.0, 73.0)], \"face\": [P: (-9.040001, -130.21), S: (40.32, 54.75)], \"face_clip\": [P: (-19.0, -130.0), S: (49.0, 40.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_back",
+			"pose": "back"
+		},
+		{
+			"armor": "fr_armor_4",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_4",
+			"layout": "{ \"helmet\": [P: (-40.5, -147.0), S: (77.0, 57.0)], \"face\": [P: (-17.4, -130.47), S: (52.36, 58.71)], \"face_clip\": [P: (-24.0, -130.0), S: (53.0, 44.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_back",
+			"pose": "back"
+		},
+		{
+			"armor": "fr_armor_4",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_4",
+			"layout": "{ \"helmet\": [P: (-40.5, -147.0), S: (77.0, 57.0)], \"face\": [P: (-17.4, -130.47), S: (52.36, 58.71)], \"face_clip\": [P: (-24.0, -130.0), S: (53.0, 44.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_back",
+			"pose": "back"
+		},
+		{
+			"armor": "fr_armor_5",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_5",
+			"layout": "{ \"helmet\": [P: (-33.5, -149.0), S: (63.0, 74.0)], \"face\": [P: (-10.19, -129.76), S: (40.95, 55.5)], \"face_clip\": [P: (-20.0, -130.0), S: (49.0, 40.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_back",
+			"pose": "back"
+		},
+		{
+			"armor": "fr_armor_5",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_5",
+			"layout": "{ \"helmet\": [P: (-33.5, -149.0), S: (63.0, 74.0)], \"face\": [P: (-10.19, -129.76), S: (40.95, 55.5)], \"face_clip\": [P: (-20.0, -130.0), S: (49.0, 40.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "fr_back",
+			"pose": "back"
+		},
+		{
+			"armor": "de_armor_0",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "de_helmet_0",
+			"layout": "{ \"helmet\": [P: (-34.0, -147.0), S: (64.0, 74.0)], \"face\": [P: (-18.0, -115.18), S: (45.44, 42.92)], \"face_clip\": [P: (-23.0, -129.0), S: (51.0, 39.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "de_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "de_armor_0",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "de_helmet_0",
+			"layout": "{ \"helmet\": [P: (-34.0, -147.0), S: (64.0, 74.0)], \"face\": [P: (-18.0, -115.18), S: (45.44, 42.92)], \"face_clip\": [P: (-23.0, -129.0), S: (51.0, 39.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "de_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "de_armor_1",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "de_helmet_1",
+			"layout": "{ \"helmet\": [P: (-30.0, -147.0), S: (60.0, 72.0)], \"face\": [P: (-30.0, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "de_armor_1",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "de_helmet_1",
+			"layout": "{ \"helmet\": [P: (-30.0, -147.0), S: (60.0, 72.0)], \"face\": [P: (-30.0, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "de_armor_2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "de_helmet_2",
+			"layout": "{ \"helmet\": [P: (-31.5, -149.0), S: (63.0, 74.0)], \"face\": [P: (-31.5, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "de_armor_2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "de_helmet_2",
+			"layout": "{ \"helmet\": [P: (-31.5, -149.0), S: (63.0, 74.0)], \"face\": [P: (-31.5, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "de_armor_3",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "de_helmet_3",
+			"layout": "{ \"helmet\": [P: (-32.0, -149.0), S: (64.0, 74.0)], \"face\": [P: (-32.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "de_armor_3",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "de_helmet_3",
+			"layout": "{ \"helmet\": [P: (-32.0, -149.0), S: (64.0, 74.0)], \"face\": [P: (-32.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "de_armor_4",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "de_helmet_4",
+			"layout": "{ \"helmet\": [P: (-30.5, -149.0), S: (61.0, 74.0)], \"face\": [P: (-30.5, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "de_armor_4",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "de_helmet_4",
+			"layout": "{ \"helmet\": [P: (-30.5, -149.0), S: (61.0, 74.0)], \"face\": [P: (-30.5, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "de_armor_5",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "de_helmet_5",
+			"layout": "{ \"helmet\": [P: (-32.0, -151.0), S: (64.0, 76.0)], \"face\": [P: (-8.959999, -122.88), S: (32.64, 36.48)], \"face_clip\": [P: (-16.0, -130.0), S: (45.0, 40.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "de_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "de_armor_5",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "de_helmet_5",
+			"layout": "{ \"helmet\": [P: (-32.0, -151.0), S: (64.0, 76.0)], \"face\": [P: (-8.959999, -122.88), S: (32.64, 36.48)], \"face_clip\": [P: (-16.0, -130.0), S: (45.0, 40.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "de_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "de_armor_0",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "de_helmet_0",
+			"layout": "{ \"helmet\": [P: (-34.0, -147.0), S: (64.0, 74.0)], \"face\": [P: (-18.0, -115.18), S: (45.44, 42.92)], \"face_clip\": [P: (-23.0, -129.0), S: (51.0, 39.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "de_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "de_armor_0",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "de_helmet_0",
+			"layout": "{ \"helmet\": [P: (-34.0, -147.0), S: (64.0, 74.0)], \"face\": [P: (-18.0, -115.18), S: (45.44, 42.92)], \"face_clip\": [P: (-23.0, -129.0), S: (51.0, 39.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "de_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "de_armor_1",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "de_helmet_1",
+			"layout": "{ \"helmet\": [P: (-30.0, -147.0), S: (60.0, 72.0)], \"face\": [P: (-30.0, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "de_armor_1",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "de_helmet_1",
+			"layout": "{ \"helmet\": [P: (-30.0, -147.0), S: (60.0, 72.0)], \"face\": [P: (-30.0, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "de_armor_2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "de_helmet_2",
+			"layout": "{ \"helmet\": [P: (-31.5, -149.0), S: (63.0, 74.0)], \"face\": [P: (-31.5, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "de_armor_2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "de_helmet_2",
+			"layout": "{ \"helmet\": [P: (-31.5, -149.0), S: (63.0, 74.0)], \"face\": [P: (-31.5, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "de_armor_3",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "de_helmet_3",
+			"layout": "{ \"helmet\": [P: (-32.0, -149.0), S: (64.0, 74.0)], \"face\": [P: (-32.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "de_armor_3",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "de_helmet_3",
+			"layout": "{ \"helmet\": [P: (-32.0, -149.0), S: (64.0, 74.0)], \"face\": [P: (-32.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "de_armor_4",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "de_helmet_4",
+			"layout": "{ \"helmet\": [P: (-30.5, -149.0), S: (61.0, 74.0)], \"face\": [P: (-30.5, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "de_armor_4",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "de_helmet_4",
+			"layout": "{ \"helmet\": [P: (-30.5, -149.0), S: (61.0, 74.0)], \"face\": [P: (-30.5, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "de_armor_5",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "de_helmet_5",
+			"layout": "{ \"helmet\": [P: (-32.0, -151.0), S: (64.0, 76.0)], \"face\": [P: (-8.959999, -122.88), S: (32.64, 36.48)], \"face_clip\": [P: (-16.0, -130.0), S: (45.0, 40.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "de_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "de_armor_5",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "de_helmet_5",
+			"layout": "{ \"helmet\": [P: (-32.0, -151.0), S: (64.0, 76.0)], \"face\": [P: (-8.959999, -122.88), S: (32.64, 36.48)], \"face_clip\": [P: (-16.0, -130.0), S: (45.0, 40.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "de_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "de_armor_0",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "de_helmet_0",
+			"layout": "{ \"helmet\": [P: (-34.0, -147.0), S: (64.0, 74.0)], \"face\": [P: (-18.0, -115.18), S: (45.44, 42.92)], \"face_clip\": [P: (-23.0, -129.0), S: (51.0, 39.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "de_back",
+			"pose": "back"
+		},
+		{
+			"armor": "de_armor_0",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "de_helmet_0",
+			"layout": "{ \"helmet\": [P: (-34.0, -147.0), S: (64.0, 74.0)], \"face\": [P: (-18.0, -115.18), S: (45.44, 42.92)], \"face_clip\": [P: (-23.0, -129.0), S: (51.0, 39.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "de_back",
+			"pose": "back"
+		},
+		{
+			"armor": "de_armor_1",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "de_helmet_1",
+			"layout": "{ \"helmet\": [P: (-30.0, -147.0), S: (60.0, 72.0)], \"face\": [P: (-30.0, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_back",
+			"pose": "back"
+		},
+		{
+			"armor": "de_armor_1",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "de_helmet_1",
+			"layout": "{ \"helmet\": [P: (-30.0, -147.0), S: (60.0, 72.0)], \"face\": [P: (-30.0, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_back",
+			"pose": "back"
+		},
+		{
+			"armor": "de_armor_2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "de_helmet_2",
+			"layout": "{ \"helmet\": [P: (-31.5, -149.0), S: (63.0, 74.0)], \"face\": [P: (-31.5, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_back",
+			"pose": "back"
+		},
+		{
+			"armor": "de_armor_2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "de_helmet_2",
+			"layout": "{ \"helmet\": [P: (-31.5, -149.0), S: (63.0, 74.0)], \"face\": [P: (-31.5, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_back",
+			"pose": "back"
+		},
+		{
+			"armor": "de_armor_3",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "de_helmet_3",
+			"layout": "{ \"helmet\": [P: (-32.0, -149.0), S: (64.0, 74.0)], \"face\": [P: (-32.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_back",
+			"pose": "back"
+		},
+		{
+			"armor": "de_armor_3",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "de_helmet_3",
+			"layout": "{ \"helmet\": [P: (-32.0, -149.0), S: (64.0, 74.0)], \"face\": [P: (-32.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_back",
+			"pose": "back"
+		},
+		{
+			"armor": "de_armor_4",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "de_helmet_4",
+			"layout": "{ \"helmet\": [P: (-30.5, -149.0), S: (61.0, 74.0)], \"face\": [P: (-30.5, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_back",
+			"pose": "back"
+		},
+		{
+			"armor": "de_armor_4",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "de_helmet_4",
+			"layout": "{ \"helmet\": [P: (-30.5, -149.0), S: (61.0, 74.0)], \"face\": [P: (-30.5, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "de_back",
+			"pose": "back"
+		},
+		{
+			"armor": "de_armor_5",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "de_helmet_5",
+			"layout": "{ \"helmet\": [P: (-32.0, -151.0), S: (64.0, 76.0)], \"face\": [P: (-8.959999, -122.88), S: (32.64, 36.48)], \"face_clip\": [P: (-16.0, -130.0), S: (45.0, 40.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "de_back",
+			"pose": "back"
+		},
+		{
+			"armor": "de_armor_5",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "de_helmet_5",
+			"layout": "{ \"helmet\": [P: (-32.0, -151.0), S: (64.0, 76.0)], \"face\": [P: (-8.959999, -122.88), S: (32.64, 36.48)], \"face_clip\": [P: (-16.0, -130.0), S: (45.0, 40.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "de_back",
+			"pose": "back"
+		},
+		{
+			"armor": "it_armor_0",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_0",
+			"layout": "{ \"helmet\": [P: (-33.0, -148.0), S: (64.0, 75.0)], \"face\": [P: (-17.0, -130.75), S: (50.56, 54.0)], \"face_clip\": [P: (-23.0, -131.0), S: (50.0, 41.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "it_armor_0",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_0",
+			"layout": "{ \"helmet\": [P: (-33.0, -148.0), S: (64.0, 75.0)], \"face\": [P: (-17.0, -130.75), S: (50.56, 54.0)], \"face_clip\": [P: (-23.0, -131.0), S: (50.0, 41.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "it_armor_1",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_1",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 74.0)], \"face\": [P: (-11.16, -128.5), S: (47.74, 56.24)], \"face_clip\": [P: (-21.0, -131.0), S: (50.0, 41.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "it_armor_1",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_1",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 74.0)], \"face\": [P: (-11.16, -128.5), S: (47.74, 56.24)], \"face_clip\": [P: (-21.0, -131.0), S: (50.0, 41.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "it_armor_2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_2",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 74.0)], \"face\": [P: (-10.54, -128.5), S: (46.5, 57.72)], \"face_clip\": [P: (-21.0, -131.0), S: (50.0, 41.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "it_armor_2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_2",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 74.0)], \"face\": [P: (-10.54, -128.5), S: (46.5, 57.72)], \"face_clip\": [P: (-21.0, -131.0), S: (50.0, 41.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "it_armor_3",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_3",
+			"layout": "{ \"helmet\": [P: (-31.5, -147.0), S: (63.0, 73.0)], \"face\": [P: (-15.75, -138.24), S: (48.51, 64.24)], \"face_clip\": [P: (-23.0, -133.0), S: (51.0, 43.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "it_armor_3",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_3",
+			"layout": "{ \"helmet\": [P: (-31.5, -147.0), S: (63.0, 73.0)], \"face\": [P: (-15.75, -138.24), S: (48.51, 64.24)], \"face_clip\": [P: (-23.0, -133.0), S: (51.0, 43.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "it_armor_4",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_4",
+			"layout": "{ \"helmet\": [P: (-32.0, -147.0), S: (64.0, 72.0)], \"face\": [P: (-32.0, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "it_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "it_armor_4",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_4",
+			"layout": "{ \"helmet\": [P: (-32.0, -147.0), S: (64.0, 72.0)], \"face\": [P: (-32.0, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "it_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "it_armor_5",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_5",
+			"layout": "{ \"helmet\": [P: (-30.0, -151.0), S: (60.0, 76.0)], \"face\": [P: (-30.0, -151.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "it_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "it_armor_5",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_5",
+			"layout": "{ \"helmet\": [P: (-30.0, -151.0), S: (60.0, 76.0)], \"face\": [P: (-30.0, -151.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "it_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "it_armor_0",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_0",
+			"layout": "{ \"helmet\": [P: (-33.0, -148.0), S: (64.0, 75.0)], \"face\": [P: (-17.0, -130.75), S: (50.56, 54.0)], \"face_clip\": [P: (-23.0, -131.0), S: (50.0, 41.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "it_armor_0",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_0",
+			"layout": "{ \"helmet\": [P: (-33.0, -148.0), S: (64.0, 75.0)], \"face\": [P: (-17.0, -130.75), S: (50.56, 54.0)], \"face_clip\": [P: (-23.0, -131.0), S: (50.0, 41.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "it_armor_1",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_1",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 74.0)], \"face\": [P: (-11.16, -128.5), S: (47.74, 56.24)], \"face_clip\": [P: (-21.0, -131.0), S: (50.0, 41.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "it_armor_1",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_1",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 74.0)], \"face\": [P: (-11.16, -128.5), S: (47.74, 56.24)], \"face_clip\": [P: (-21.0, -131.0), S: (50.0, 41.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "it_armor_2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_2",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 74.0)], \"face\": [P: (-10.54, -128.5), S: (46.5, 57.72)], \"face_clip\": [P: (-21.0, -131.0), S: (50.0, 41.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "it_armor_2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_2",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 74.0)], \"face\": [P: (-10.54, -128.5), S: (46.5, 57.72)], \"face_clip\": [P: (-21.0, -131.0), S: (50.0, 41.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "it_armor_3",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_3",
+			"layout": "{ \"helmet\": [P: (-31.5, -147.0), S: (63.0, 73.0)], \"face\": [P: (-15.75, -138.24), S: (48.51, 64.24)], \"face_clip\": [P: (-23.0, -133.0), S: (51.0, 43.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "it_armor_3",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_3",
+			"layout": "{ \"helmet\": [P: (-31.5, -147.0), S: (63.0, 73.0)], \"face\": [P: (-15.75, -138.24), S: (48.51, 64.24)], \"face_clip\": [P: (-23.0, -133.0), S: (51.0, 43.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "it_armor_4",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_4",
+			"layout": "{ \"helmet\": [P: (-32.0, -147.0), S: (64.0, 72.0)], \"face\": [P: (-32.0, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "it_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "it_armor_4",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_4",
+			"layout": "{ \"helmet\": [P: (-32.0, -147.0), S: (64.0, 72.0)], \"face\": [P: (-32.0, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "it_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "it_armor_5",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_5",
+			"layout": "{ \"helmet\": [P: (-30.0, -151.0), S: (60.0, 76.0)], \"face\": [P: (-30.0, -151.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "it_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "it_armor_5",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_5",
+			"layout": "{ \"helmet\": [P: (-30.0, -151.0), S: (60.0, 76.0)], \"face\": [P: (-30.0, -151.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "it_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "it_armor_0",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_0",
+			"layout": "{ \"helmet\": [P: (-33.0, -148.0), S: (64.0, 75.0)], \"face\": [P: (-17.0, -130.75), S: (50.56, 54.0)], \"face_clip\": [P: (-23.0, -131.0), S: (50.0, 41.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_back",
+			"pose": "back"
+		},
+		{
+			"armor": "it_armor_0",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_0",
+			"layout": "{ \"helmet\": [P: (-33.0, -148.0), S: (64.0, 75.0)], \"face\": [P: (-17.0, -130.75), S: (50.56, 54.0)], \"face_clip\": [P: (-23.0, -131.0), S: (50.0, 41.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_back",
+			"pose": "back"
+		},
+		{
+			"armor": "it_armor_1",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_1",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 74.0)], \"face\": [P: (-11.16, -128.5), S: (47.74, 56.24)], \"face_clip\": [P: (-21.0, -131.0), S: (50.0, 41.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_back",
+			"pose": "back"
+		},
+		{
+			"armor": "it_armor_1",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_1",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 74.0)], \"face\": [P: (-11.16, -128.5), S: (47.74, 56.24)], \"face_clip\": [P: (-21.0, -131.0), S: (50.0, 41.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_back",
+			"pose": "back"
+		},
+		{
+			"armor": "it_armor_2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_2",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 74.0)], \"face\": [P: (-10.54, -128.5), S: (46.5, 57.72)], \"face_clip\": [P: (-21.0, -131.0), S: (50.0, 41.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_back",
+			"pose": "back"
+		},
+		{
+			"armor": "it_armor_2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_2",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 74.0)], \"face\": [P: (-10.54, -128.5), S: (46.5, 57.72)], \"face_clip\": [P: (-21.0, -131.0), S: (50.0, 41.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_back",
+			"pose": "back"
+		},
+		{
+			"armor": "it_armor_3",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_3",
+			"layout": "{ \"helmet\": [P: (-31.5, -147.0), S: (63.0, 73.0)], \"face\": [P: (-15.75, -138.24), S: (48.51, 64.24)], \"face_clip\": [P: (-23.0, -133.0), S: (51.0, 43.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_back",
+			"pose": "back"
+		},
+		{
+			"armor": "it_armor_3",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_3",
+			"layout": "{ \"helmet\": [P: (-31.5, -147.0), S: (63.0, 73.0)], \"face\": [P: (-15.75, -138.24), S: (48.51, 64.24)], \"face_clip\": [P: (-23.0, -133.0), S: (51.0, 43.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "it_back",
+			"pose": "back"
+		},
+		{
+			"armor": "it_armor_4",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_4",
+			"layout": "{ \"helmet\": [P: (-32.0, -147.0), S: (64.0, 72.0)], \"face\": [P: (-32.0, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "it_back",
+			"pose": "back"
+		},
+		{
+			"armor": "it_armor_4",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_4",
+			"layout": "{ \"helmet\": [P: (-32.0, -147.0), S: (64.0, 72.0)], \"face\": [P: (-32.0, -147.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "it_back",
+			"pose": "back"
+		},
+		{
+			"armor": "it_armor_5",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_5",
+			"layout": "{ \"helmet\": [P: (-30.0, -151.0), S: (60.0, 76.0)], \"face\": [P: (-30.0, -151.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "it_back",
+			"pose": "back"
+		},
+		{
+			"armor": "it_armor_5",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_5",
+			"layout": "{ \"helmet\": [P: (-30.0, -151.0), S: (60.0, 76.0)], \"face\": [P: (-30.0, -151.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "it_back",
+			"pose": "back"
+		},
+		{
+			"armor": "de_armor_5",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_0",
+			"layout": "{ \"helmet\": [P: (-39.5, -145.0), S: (79.0, 37.0)], \"face\": [P: (-19.75, -130.57), S: (50.56, 61.05)], \"face_clip\": [P: (-25.0, -132.0), S: (53.0, 42.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "de_armor_5",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_0",
+			"layout": "{ \"helmet\": [P: (-39.5, -145.0), S: (79.0, 37.0)], \"face\": [P: (-19.75, -130.57), S: (50.56, 61.05)], \"face_clip\": [P: (-25.0, -132.0), S: (53.0, 42.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "mail_basic",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_5",
+			"layout": "{ \"helmet\": [P: (-31.0, -149.0), S: (62.0, 74.0)], \"face\": [P: (-31.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "mixed_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "mail_basic",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_5",
+			"layout": "{ \"helmet\": [P: (-31.0, -149.0), S: (62.0, 74.0)], \"face\": [P: (-31.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "mixed_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "it_armor_2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_4",
+			"layout": "{ \"helmet\": [P: (-40.5, -147.0), S: (77.0, 57.0)], \"face\": [P: (-17.4, -130.47), S: (52.36, 58.71)], \"face_clip\": [P: (-24.0, -130.0), S: (53.0, 44.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "it_armor_2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_4",
+			"layout": "{ \"helmet\": [P: (-40.5, -147.0), S: (77.0, 57.0)], \"face\": [P: (-17.4, -130.47), S: (52.36, 58.71)], \"face_clip\": [P: (-24.0, -130.0), S: (53.0, 44.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "eng_armor_2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_3",
+			"layout": "{ \"helmet\": [P: (-31.5, -147.0), S: (63.0, 73.0)], \"face\": [P: (-15.75, -138.24), S: (48.51, 64.24)], \"face_clip\": [P: (-23.0, -133.0), S: (51.0, 43.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "eng_armor_2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_3",
+			"layout": "{ \"helmet\": [P: (-31.5, -147.0), S: (63.0, 73.0)], \"face\": [P: (-15.75, -138.24), S: (48.51, 64.24)], \"face_clip\": [P: (-23.0, -133.0), S: (51.0, 43.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "armor_e2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "helm_e2",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 72.0)], \"face\": [P: (-18.6, -131.16), S: (37.2, 51.84)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": false }",
+			"page": "mixed_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "armor_e2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "helm_e2",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 72.0)], \"face\": [P: (-18.6, -131.16), S: (37.2, 51.84)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": false }",
+			"page": "mixed_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "fr_armor_4",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "helm_nasal",
+			"layout": "{ \"helmet\": [P: (-33.0, -147.0), S: (64.0, 74.0)], \"face\": [P: (-17.0, -124.8), S: (55.04, 51.8)], \"face_clip\": [P: (-22.0, -126.0), S: (49.0, 36.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "fr_armor_4",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "helm_nasal",
+			"layout": "{ \"helmet\": [P: (-33.0, -147.0), S: (64.0, 74.0)], \"face\": [P: (-17.0, -124.8), S: (55.04, 51.8)], \"face_clip\": [P: (-22.0, -126.0), S: (49.0, 36.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_neutral",
+			"pose": "neutral"
+		},
+		{
+			"armor": "de_armor_5",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_0",
+			"layout": "{ \"helmet\": [P: (-39.5, -145.0), S: (79.0, 37.0)], \"face\": [P: (-19.75, -130.57), S: (50.56, 61.05)], \"face_clip\": [P: (-25.0, -132.0), S: (53.0, 42.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "de_armor_5",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_0",
+			"layout": "{ \"helmet\": [P: (-39.5, -145.0), S: (79.0, 37.0)], \"face\": [P: (-19.75, -130.57), S: (50.56, 61.05)], \"face_clip\": [P: (-25.0, -132.0), S: (53.0, 42.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "mail_basic",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_5",
+			"layout": "{ \"helmet\": [P: (-31.0, -149.0), S: (62.0, 74.0)], \"face\": [P: (-31.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "mixed_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "mail_basic",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_5",
+			"layout": "{ \"helmet\": [P: (-31.0, -149.0), S: (62.0, 74.0)], \"face\": [P: (-31.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "mixed_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "it_armor_2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_4",
+			"layout": "{ \"helmet\": [P: (-40.5, -147.0), S: (77.0, 57.0)], \"face\": [P: (-17.4, -130.47), S: (52.36, 58.71)], \"face_clip\": [P: (-24.0, -130.0), S: (53.0, 44.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "it_armor_2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_4",
+			"layout": "{ \"helmet\": [P: (-40.5, -147.0), S: (77.0, 57.0)], \"face\": [P: (-17.4, -130.47), S: (52.36, 58.71)], \"face_clip\": [P: (-24.0, -130.0), S: (53.0, 44.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "eng_armor_2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_3",
+			"layout": "{ \"helmet\": [P: (-31.5, -147.0), S: (63.0, 73.0)], \"face\": [P: (-15.75, -138.24), S: (48.51, 64.24)], \"face_clip\": [P: (-23.0, -133.0), S: (51.0, 43.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "eng_armor_2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_3",
+			"layout": "{ \"helmet\": [P: (-31.5, -147.0), S: (63.0, 73.0)], \"face\": [P: (-15.75, -138.24), S: (48.51, 64.24)], \"face_clip\": [P: (-23.0, -133.0), S: (51.0, 43.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "armor_e2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "helm_e2",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 72.0)], \"face\": [P: (-18.6, -131.16), S: (37.2, 51.84)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": false }",
+			"page": "mixed_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "armor_e2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "helm_e2",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 72.0)], \"face\": [P: (-18.6, -131.16), S: (37.2, 51.84)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": false }",
+			"page": "mixed_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "fr_armor_4",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "helm_nasal",
+			"layout": "{ \"helmet\": [P: (-33.0, -147.0), S: (64.0, 74.0)], \"face\": [P: (-17.0, -124.8), S: (55.04, 51.8)], \"face_clip\": [P: (-22.0, -126.0), S: (49.0, 36.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "fr_armor_4",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "helm_nasal",
+			"layout": "{ \"helmet\": [P: (-33.0, -147.0), S: (64.0, 74.0)], \"face\": [P: (-17.0, -124.8), S: (55.04, 51.8)], \"face_clip\": [P: (-22.0, -126.0), S: (49.0, 36.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_forward",
+			"pose": "forward"
+		},
+		{
+			"armor": "de_armor_5",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_0",
+			"layout": "{ \"helmet\": [P: (-39.5, -145.0), S: (79.0, 37.0)], \"face\": [P: (-19.75, -130.57), S: (50.56, 61.05)], \"face_clip\": [P: (-25.0, -132.0), S: (53.0, 42.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_back",
+			"pose": "back"
+		},
+		{
+			"armor": "de_armor_5",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_0",
+			"layout": "{ \"helmet\": [P: (-39.5, -145.0), S: (79.0, 37.0)], \"face\": [P: (-19.75, -130.57), S: (50.56, 61.05)], \"face_clip\": [P: (-25.0, -132.0), S: (53.0, 42.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_back",
+			"pose": "back"
+		},
+		{
+			"armor": "mail_basic",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "eng_helmet_5",
+			"layout": "{ \"helmet\": [P: (-31.0, -149.0), S: (62.0, 74.0)], \"face\": [P: (-31.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "mixed_back",
+			"pose": "back"
+		},
+		{
+			"armor": "mail_basic",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "eng_helmet_5",
+			"layout": "{ \"helmet\": [P: (-31.0, -149.0), S: (62.0, 74.0)], \"face\": [P: (-31.0, -149.0), S: (0.0, 0.0)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": true }",
+			"page": "mixed_back",
+			"pose": "back"
+		},
+		{
+			"armor": "it_armor_2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "fr_helmet_4",
+			"layout": "{ \"helmet\": [P: (-40.5, -147.0), S: (77.0, 57.0)], \"face\": [P: (-17.4, -130.47), S: (52.36, 58.71)], \"face_clip\": [P: (-24.0, -130.0), S: (53.0, 44.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_back",
+			"pose": "back"
+		},
+		{
+			"armor": "it_armor_2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "fr_helmet_4",
+			"layout": "{ \"helmet\": [P: (-40.5, -147.0), S: (77.0, 57.0)], \"face\": [P: (-17.4, -130.47), S: (52.36, 58.71)], \"face_clip\": [P: (-24.0, -130.0), S: (53.0, 44.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_back",
+			"pose": "back"
+		},
+		{
+			"armor": "eng_armor_2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "it_helmet_3",
+			"layout": "{ \"helmet\": [P: (-31.5, -147.0), S: (63.0, 73.0)], \"face\": [P: (-15.75, -138.24), S: (48.51, 64.24)], \"face_clip\": [P: (-23.0, -133.0), S: (51.0, 43.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_back",
+			"pose": "back"
+		},
+		{
+			"armor": "eng_armor_2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "it_helmet_3",
+			"layout": "{ \"helmet\": [P: (-31.5, -147.0), S: (63.0, 73.0)], \"face\": [P: (-15.75, -138.24), S: (48.51, 64.24)], \"face_clip\": [P: (-23.0, -133.0), S: (51.0, 43.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_back",
+			"pose": "back"
+		},
+		{
+			"armor": "armor_e2",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "helm_e2",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 72.0)], \"face\": [P: (-18.6, -131.16), S: (37.2, 51.84)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": false }",
+			"page": "mixed_back",
+			"pose": "back"
+		},
+		{
+			"armor": "armor_e2",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "helm_e2",
+			"layout": "{ \"helmet\": [P: (-31.0, -147.0), S: (62.0, 72.0)], \"face\": [P: (-18.6, -131.16), S: (37.2, 51.84)], \"face_clip\": [P: (-26.0, -144.0), S: (59.0, 54.0)], \"neck_x\": 3.0, \"open\": false, \"authored\": false }",
+			"page": "mixed_back",
+			"pose": "back"
+		},
+		{
+			"armor": "fr_armor_4",
+			"connected_alpha": true,
+			"direction": 1,
+			"helmet": "helm_nasal",
+			"layout": "{ \"helmet\": [P: (-33.0, -147.0), S: (64.0, 74.0)], \"face\": [P: (-17.0, -124.8), S: (55.04, 51.8)], \"face_clip\": [P: (-22.0, -126.0), S: (49.0, 36.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_back",
+			"pose": "back"
+		},
+		{
+			"armor": "fr_armor_4",
+			"connected_alpha": true,
+			"direction": -1,
+			"helmet": "helm_nasal",
+			"layout": "{ \"helmet\": [P: (-33.0, -147.0), S: (64.0, 74.0)], \"face\": [P: (-17.0, -124.8), S: (55.04, 51.8)], \"face_clip\": [P: (-22.0, -126.0), S: (49.0, 36.0)], \"neck_x\": 3.0, \"open\": true, \"authored\": true }",
+			"page": "mixed_back",
+			"pose": "back"
+		}
+	],
+	"scope": "GPU frozen production rider poses at gait phases/recoil, 24 sets + 6 cross/legacy pairs, both directions, three lean poses. Alpha connectivity catches detached silhouettes; proportion and face fit still require visual inspection. No OS input or player enjoyment claim."
+}

@@ -1,0 +1,2772 @@
+[
+  {
+    "path": "docs/development/logs/v057/audio-exit-package01.log",
+    "bytes": 484,
+    "sha256": "1BA51327F7084A6904F509AF0555609B86054D5511239462B0111DA2D798E6AA"
+  },
+  {
+    "path": "docs/development/logs/v057/baseline-fall.json",
+    "bytes": 17189,
+    "sha256": "60E006B3014E0D65970C4861DEA237FE426F51916A21BA5E6CEC9687E1C86F93"
+  },
+  {
+    "path": "docs/development/logs/v057/baseline-fall.log",
+    "bytes": 1065,
+    "sha256": "ACA51525E44395B9C43C8420264DFAD362AC8B203FDF3426FD033420ABE1AB20"
+  },
+  {
+    "path": "docs/development/logs/v057/build-manifest.json",
+    "bytes": 807,
+    "sha256": "728981F7D6EFD57926D2B780EF2E11CE260975902C3A9F1463D9368CABBF1EE4"
+  },
+  {
+    "path": "docs/development/logs/v057/desktop-unavailable.txt",
+    "bytes": 429,
+    "sha256": "8AD861F5F751A38C3841CA48B19B274D12138766A8EA610EBBB2EBB02CA64CD6"
+  },
+  {
+    "path": "docs/development/logs/v057/export-r2.log",
+    "bytes": 40488,
+    "sha256": "AC1075C9B773746FFCD64A6C347929131A3336865B832DCC3CE5D859A8C87268"
+  },
+  {
+    "path": "docs/development/logs/v057/export-r3.log",
+    "bytes": 40453,
+    "sha256": "3A04F4E1C46B597801B235C58D9475D5EBF030A134322909FB6B264F837E0B28"
+  },
+  {
+    "path": "docs/development/logs/v057/export01.log",
+    "bytes": 40257,
+    "sha256": "678997FFA457D3C5088F2DE4558C991B08C05896A8F8A089DF86F5DFAEAE9E3B"
+  },
+  {
+    "path": "docs/development/logs/v057/extreme01.log",
+    "bytes": 424,
+    "sha256": "825C878AF196C952DA6D31FCCE392CA67D156D5034AEA501A11665C7C97DF8A5"
+  },
+  {
+    "path": "docs/development/logs/v057/fall-scene01.json",
+    "bytes": 17166,
+    "sha256": "162801105BE021398ABF1399E05B56241EB67FB442DAA536DF61FF39BD6E7B5D"
+  },
+  {
+    "path": "docs/development/logs/v057/fall-scene01.log",
+    "bytes": 942,
+    "sha256": "0880B9BCE05B0D19A898B0FC66305BFE8C050FD09B374DE2C81CD7734C7C0737"
+  },
+  {
+    "path": "docs/development/logs/v057/fall-stress-package01.json",
+    "bytes": 270267,
+    "sha256": "9A9CC721F34B8BFD4B397D4F0BB009126B75B98251C4CCED5B9C043F9B346918"
+  },
+  {
+    "path": "docs/development/logs/v057/fall-stress-package01.log",
+    "bytes": 1172,
+    "sha256": "F9DB5434DD782C86CE4DD7D4AA916835E38ECF3F89BCE3E4A37F694383E7659F"
+  },
+  {
+    "path": "docs/development/logs/v057/fall-stress-package02.json",
+    "bytes": 249840,
+    "sha256": "4F3A6D155AC031686998AA571453ED3EEB35635B8007AFA370BC27C482F3404F"
+  },
+  {
+    "path": "docs/development/logs/v057/fall-stress-package02.log",
+    "bytes": 197,
+    "sha256": "27AEA441ED692AAD586EAE4D24FB301770BB704956240C518B85E6BB71547A64"
+  },
+  {
+    "path": "docs/development/logs/v057/fall-stress02.json",
+    "bytes": 249760,
+    "sha256": "55A264BF5A90EB268EF7CB46E86A57D6F5CAB8121342DE0D4CF3AF2A1442CDAE"
+  },
+  {
+    "path": "docs/development/logs/v057/fall-stress02.log",
+    "bytes": 197,
+    "sha256": "27AEA441ED692AAD586EAE4D24FB301770BB704956240C518B85E6BB71547A64"
+  },
+  {
+    "path": "docs/development/logs/v057/fall02.json",
+    "bytes": 411700,
+    "sha256": "0E13572F9F0AF74B586FCAA1AEF39318A03D37FAB0438BFE5B9D4EA7A7487766"
+  },
+  {
+    "path": "docs/development/logs/v057/fall02.log",
+    "bytes": 8615,
+    "sha256": "B79F4C78A860A18D9314B0151920E70196C6908AF8F475228E4A0142D4B3C7C1"
+  },
+  {
+    "path": "docs/development/logs/v057/fall03.json",
+    "bytes": 315358,
+    "sha256": "78EB88F6E32A7C697146789F2B1B8B8B472D303D271480C8C97493F13C9C1056"
+  },
+  {
+    "path": "docs/development/logs/v057/fall03.log",
+    "bytes": 197,
+    "sha256": "27AEA441ED692AAD586EAE4D24FB301770BB704956240C518B85E6BB71547A64"
+  },
+  {
+    "path": "docs/development/logs/v057/fall04.json",
+    "bytes": 288401,
+    "sha256": "0E849F65E82B4EA5455C49BACF928A24F8110E63BFC8A944E0A5FB49C6C548A9"
+  },
+  {
+    "path": "docs/development/logs/v057/fall04.log",
+    "bytes": 197,
+    "sha256": "27AEA441ED692AAD586EAE4D24FB301770BB704956240C518B85E6BB71547A64"
+  },
+  {
+    "path": "docs/development/logs/v057/fall05.json",
+    "bytes": 295401,
+    "sha256": "C70AA5AA51198477D28ECCEEBAD192FB582BD918C4B8105089E12A529FE6D43A"
+  },
+  {
+    "path": "docs/development/logs/v057/fall05.log",
+    "bytes": 197,
+    "sha256": "27AEA441ED692AAD586EAE4D24FB301770BB704956240C518B85E6BB71547A64"
+  },
+  {
+    "path": "docs/development/logs/v057/fatal-settled-package01.json",
+    "bytes": 2172939,
+    "sha256": "CFD0F581AC3DCA4D899FAB8F161D3AE2F5119CE87DBCD92E36FDDF0121B8EC20"
+  },
+  {
+    "path": "docs/development/logs/v057/fatal-settled-package01.log",
+    "bytes": 220,
+    "sha256": "00CB5E3AB25BD80384D66FD89FFF95DCEE02762B64BA0EB4C9EC127D505BDA4E"
+  },
+  {
+    "path": "docs/development/logs/v057/final-package-exits.json",
+    "bytes": 583,
+    "sha256": "F9082CA8A2F5413424B72FDCC5621545B5FC67E855A5282807212A1C9F9A136B"
+  },
+  {
+    "path": "docs/development/logs/v057/full-charge-package01.json",
+    "bytes": 2589238,
+    "sha256": "4C251C0A00FCB48F2BBB5DB1F520072A65F0CBFBB771CCA19902B84183E27E72"
+  },
+  {
+    "path": "docs/development/logs/v057/full-charge-package01.log",
+    "bytes": 258,
+    "sha256": "9435E0E1502BF28A6770B03FCE31A7E7E220B6561C0BB50CE01B1A6AD9ED3DB8"
+  },
+  {
+    "path": "docs/development/logs/v057/full-charge-package02.json",
+    "bytes": 2677467,
+    "sha256": "B51D2F9509517B83F21B575FEC437A36C4A80683392F4AEE86CD374ABC3D3558"
+  },
+  {
+    "path": "docs/development/logs/v057/full-charge-package02.log",
+    "bytes": 257,
+    "sha256": "A230110B7C6E79C5ED84212AC9D25F42036C17BD6D2F9C4BBDAF7E1F045D01CF"
+  },
+  {
+    "path": "docs/development/logs/v057/full-charge01.json",
+    "bytes": 2748746,
+    "sha256": "F3710CA2A3CCE11087AACCAFC820DB679EE10249ADC5E4EC6AAB04A42EDB1BDE"
+  },
+  {
+    "path": "docs/development/logs/v057/full-charge01.log",
+    "bytes": 258,
+    "sha256": "43755E6FDE50B17470D320E2ED876034C37081B7107FD81EAAE422F12EE7C954"
+  },
+  {
+    "path": "docs/development/logs/v057/impact-package01.json",
+    "bytes": 4940338,
+    "sha256": "1863140D6EE29804DD0D974A15A6697042C0601264A25F266B9B27CB061248AF"
+  },
+  {
+    "path": "docs/development/logs/v057/impact-package01.log",
+    "bytes": 220,
+    "sha256": "00CB5E3AB25BD80384D66FD89FFF95DCEE02762B64BA0EB4C9EC127D505BDA4E"
+  },
+  {
+    "path": "docs/development/logs/v057/impact-package02.json",
+    "bytes": 3948386,
+    "sha256": "76951D93DC4C580790E1BEFB115CCFC7C756E1DD8C47BBF62E512AC2603B1F14"
+  },
+  {
+    "path": "docs/development/logs/v057/impact-package02.log",
+    "bytes": 220,
+    "sha256": "00CB5E3AB25BD80384D66FD89FFF95DCEE02762B64BA0EB4C9EC127D505BDA4E"
+  },
+  {
+    "path": "docs/development/logs/v057/impact-package03.json",
+    "bytes": 4553811,
+    "sha256": "334B27B249928A5FECA997E29CFEF3F9271A61223392FC22954FEF7E2D769F8A"
+  },
+  {
+    "path": "docs/development/logs/v057/impact-package03.log",
+    "bytes": 220,
+    "sha256": "00CB5E3AB25BD80384D66FD89FFF95DCEE02762B64BA0EB4C9EC127D505BDA4E"
+  },
+  {
+    "path": "docs/development/logs/v057/impact-solid-package01.json",
+    "bytes": 535681,
+    "sha256": "0A72DBA67E4F1308FF78983AEAEBF9FFA495E5DFDBE536B609F964ECE1A32790"
+  },
+  {
+    "path": "docs/development/logs/v057/impact-solid-package01.log",
+    "bytes": 220,
+    "sha256": "00CB5E3AB25BD80384D66FD89FFF95DCEE02762B64BA0EB4C9EC127D505BDA4E"
+  },
+  {
+    "path": "docs/development/logs/v057/impact-solid01.json",
+    "bytes": 595434,
+    "sha256": "3192F3259AC1B20DF386C44EA29CBC61FA3FB2ED28CF9EB2A5905BA917606C60"
+  },
+  {
+    "path": "docs/development/logs/v057/impact-solid01.log",
+    "bytes": 632,
+    "sha256": "24C0F1114AECE6A7C49D2A389623D87AAE6B390BB3CA3BA7B41C0FA3706216B3"
+  },
+  {
+    "path": "docs/development/logs/v057/impact-solid02.json",
+    "bytes": 598523,
+    "sha256": "33CB5C64B4950710AF761860647C8A47628FB3E7B1B793690E71F14D58F2436A"
+  },
+  {
+    "path": "docs/development/logs/v057/impact-solid02.log",
+    "bytes": 220,
+    "sha256": "2E22C829579B0C50CF9FF70F083DB41DE240F56B9216B56C56FBE5DC0515B0D1"
+  },
+  {
+    "path": "docs/development/logs/v057/impact01.json",
+    "bytes": 295079,
+    "sha256": "4F9CC5FE4491B07D3ED31E557D7965901310088C47B1062FF3E26AA39BE6F8F7"
+  },
+  {
+    "path": "docs/development/logs/v057/impact01.log",
+    "bytes": 220,
+    "sha256": "2E22C829579B0C50CF9FF70F083DB41DE240F56B9216B56C56FBE5DC0515B0D1"
+  },
+  {
+    "path": "docs/development/logs/v057/impact02.json",
+    "bytes": 4597321,
+    "sha256": "2A1BC418C12C259E5C8CBC7B547F16EC28D003C0D71DBD61AFADB786006598E4"
+  },
+  {
+    "path": "docs/development/logs/v057/impact02.log",
+    "bytes": 220,
+    "sha256": "2E22C829579B0C50CF9FF70F083DB41DE240F56B9216B56C56FBE5DC0515B0D1"
+  },
+  {
+    "path": "docs/development/logs/v057/import01.log",
+    "bytes": 1463,
+    "sha256": "E927E5C36BBEF1FC780CAD2D8A512A62B7107C1D1C787D6D216A06800BE5CD13"
+  },
+  {
+    "path": "docs/development/logs/v057/import02.log",
+    "bytes": 1027,
+    "sha256": "6A7008ED79E3790D89C4BEC3A0D9FADBC3BB0784F3EE77F7EE0998209394CD83"
+  },
+  {
+    "path": "docs/development/logs/v057/protected-files-final.json",
+    "bytes": 390,
+    "sha256": "9E0ED97F73F695C54254FDBFA6FA1FD52674606DB2F9EC678871A7887B124534"
+  },
+  {
+    "path": "docs/development/logs/v057/reaction01.log",
+    "bytes": 406,
+    "sha256": "1AC28AACD7ABA2A85472E73DF7CFE4E415887ED5BF97EFBA18147DF680013C15"
+  },
+  {
+    "path": "docs/development/logs/v057/reaction02.log",
+    "bytes": 362,
+    "sha256": "54DEF6E4A0599E36C03EB3CCF380BF53548FAE5D89128E355C08D5B8C752B1C8"
+  },
+  {
+    "path": "docs/development/logs/v057/rules01.log",
+    "bytes": 364,
+    "sha256": "F05B7750A0C1F951668BC363668165CA08151454D3C80060FE675AC6F7CEB1F8"
+  },
+  {
+    "path": "docs/development/logs/v057/run-final-package.ps1",
+    "bytes": 1407,
+    "sha256": "6BF19892CF9EFB2A16CB7961746FAE13D320B830380770BBBBF320862A25768F"
+  },
+  {
+    "path": "docs/development/logs/v057/smoke-zip01.log",
+    "bytes": 2813,
+    "sha256": "89A0B7217EEA0C927F067143F978BC2A6F8E1039274703F4DEDF77FE8BA622C6"
+  },
+  {
+    "path": "docs/development/logs/v057/timing-package01.json",
+    "bytes": 9537,
+    "sha256": "1728F913D1B910BF71C003BBAAB92961FF530DE668F74ED44E52D479A011CA05"
+  },
+  {
+    "path": "docs/development/logs/v057/timing-package01.log",
+    "bytes": 208,
+    "sha256": "4A81AE8AA62127C4BE465ADA4395B753B684A331BD3B3A6A08F1A22152A66AE0"
+  },
+  {
+    "path": "docs/development/logs/v057/timing01.json",
+    "bytes": 9537,
+    "sha256": "1728F913D1B910BF71C003BBAAB92961FF530DE668F74ED44E52D479A011CA05"
+  },
+  {
+    "path": "docs/development/logs/v057/timing01.log",
+    "bytes": 111,
+    "sha256": "258CBBF58AB4661CFA5CACD6AC633916A90ECE5733B4CE38A609BCD323F6A53D"
+  },
+  {
+    "path": "docs/development/logs/v057/zip-file-hashes.json",
+    "bytes": 399,
+    "sha256": "3ED8496154830B90978C2B5395595A7676E500A238222F2331BA8133E937A78D"
+  },
+  {
+    "path": "docs/development/logs/v057/extreme01/extreme_closed.png",
+    "bytes": 353913,
+    "sha256": "1BA67508AFF8648448253FAB4717872167FF487FF3287D00CC8414073B618C02"
+  },
+  {
+    "path": "docs/development/logs/v057/extreme01/extreme_open.png",
+    "bytes": 314165,
+    "sha256": "5EB122A236FBFCDE4916F018770FEAE72E70A6A869654C81C086C9FD95077507"
+  },
+  {
+    "path": "docs/development/logs/v057/extreme01/report.json",
+    "bytes": 26930,
+    "sha256": "75AB059F71EFBA6FD3DD3094FAB356C078A55A4401317E106A294E6C8A72C2D3"
+  },
+  {
+    "path": "docs/development/logs/v057/reaction02/reaction_body.png",
+    "bytes": 245966,
+    "sha256": "69FE9AF1BC89D4A010802DEF26747C8CF5FE3C3ED867D66087F016AD5F97A206"
+  },
+  {
+    "path": "docs/development/logs/v057/reaction02/reaction_flank.png",
+    "bytes": 240368,
+    "sha256": "5BDABA543812B68C0AB56F7B1632A8476D6714B50F8991B7F9593B1CA4839446"
+  },
+  {
+    "path": "docs/development/logs/v057/reaction02/reaction_head.png",
+    "bytes": 244145,
+    "sha256": "6909A89B7CA79735E2A7F98ECC9D6C98E2F72355EC185CE5D4100F97F5D8FEB0"
+  },
+  {
+    "path": "docs/development/logs/v057/reaction02/reaction_shield.png",
+    "bytes": 235560,
+    "sha256": "5C3E0E4863068AA4AFED934D4AAB2E65F9463CA8B413ADBF2035C1B878C62262"
+  },
+  {
+    "path": "docs/development/logs/v057/reaction02/report.json",
+    "bytes": 74334,
+    "sha256": "8857D4546702729996FD9C7132A48948BDF214B2EE10D8AD4DF5562E292015D6"
+  },
+  {
+    "path": "docs/development/screenshots/v057/baseline-fall/war_body_facing_left_whole_airborne.png",
+    "bytes": 1163386,
+    "sha256": "EE29C00B2CE50FAB1D664FC9664AF18C885ACD6B186186D83A8CD9F1933C56CA"
+  },
+  {
+    "path": "docs/development/screenshots/v057/baseline-fall/war_body_facing_left_whole_first_contact_detached.png",
+    "bytes": 1169900,
+    "sha256": "DA3A662756F685D8E9F0583221BF33A5C338E1BD482C360DE1AC990583EA037C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/baseline-fall/war_body_facing_left_whole_landed.png",
+    "bytes": 1130701,
+    "sha256": "7EF52DB72C6045616D3B8477CABAD4BF214BF463279B9C341A142D0AF225EEFB"
+  },
+  {
+    "path": "docs/development/screenshots/v057/baseline-fall/war_body_facing_left_whole_pre_contact.png",
+    "bytes": 1171375,
+    "sha256": "9E7B5F0A89C07B00D80CC55E82FC97CA0B53CFFCF78A097B7D88557EADD6773F"
+  },
+  {
+    "path": "docs/development/screenshots/v057/baseline-fall/war_body_facing_left_whole_released_023.png",
+    "bytes": 1157504,
+    "sha256": "035AB49E696FC2700DE24E80ECAE1CA47F2555ACD0640634451AD9DF70DF74C9"
+  },
+  {
+    "path": "docs/development/screenshots/v057/baseline-fall/war_body_facing_left_whole_settled.png",
+    "bytes": 1315962,
+    "sha256": "B89A9AAFA2437E46B9B5520AEA77310583DD57FD847FD8DA3D2F3B0D4BC6B525"
+  },
+  {
+    "path": "docs/development/screenshots/v057/baseline-fall/war_body_facing_right_whole_airborne.png",
+    "bytes": 1160771,
+    "sha256": "44F84E1753012ECDE0EEAA585D431E3728F4C32354D1F697496A40CCD2CD5C98"
+  },
+  {
+    "path": "docs/development/screenshots/v057/baseline-fall/war_body_facing_right_whole_first_contact_detached.png",
+    "bytes": 1168308,
+    "sha256": "D58671B12B3EA06011CCC08B6169C43B13107E0104A58A97974945B077AEB46D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/baseline-fall/war_body_facing_right_whole_landed.png",
+    "bytes": 1155513,
+    "sha256": "E4983135A79097FCA6B3FF30AACF14594D7CA42319E35C08B84C8A6BF911419D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/baseline-fall/war_body_facing_right_whole_pre_contact.png",
+    "bytes": 1172387,
+    "sha256": "61D9294A842B70A5F8DEBFB020FD50D735AC6F866EA1EADB21E26EC5087F4FE7"
+  },
+  {
+    "path": "docs/development/screenshots/v057/baseline-fall/war_body_facing_right_whole_released_023.png",
+    "bytes": 1158017,
+    "sha256": "2EBC4EB68364DD406146355C976AD5F10CE529EACF3BCAD53928ECF463252F8E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/baseline-fall/war_body_facing_right_whole_settled.png",
+    "bytes": 1370293,
+    "sha256": "14ABE0BF966C37A8188FDB9C921DC79DF0BB34537EDF751D4307892527107C78"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-scene01/war_body_facing_left_whole_airborne.png",
+    "bytes": 1161753,
+    "sha256": "F74FF83CEDEE029BA138E90DBD536EB531FB922577506B2908696D9E0018E583"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-scene01/war_body_facing_left_whole_first_contact_detached.png",
+    "bytes": 1170230,
+    "sha256": "201708FD94ED3A117E51A932B0520321A3A0E4D1952A1EE3528593A2D7E442EA"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-scene01/war_body_facing_left_whole_landed.png",
+    "bytes": 1120613,
+    "sha256": "0B04DA93823BAF7FBD7AC5956F3591E681D3610FB4117D94F4F57ECB0484E9EB"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-scene01/war_body_facing_left_whole_pre_contact.png",
+    "bytes": 1171440,
+    "sha256": "1525C93359D1B2451842118E04A52D1D6D5233D48CA8ABFC40937DFC5E2DC124"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-scene01/war_body_facing_left_whole_released_023.png",
+    "bytes": 1145951,
+    "sha256": "C3558C19022DA695ECA2B826E2E0C5340FE95B65A2576DC097B54F7F7E767E07"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-scene01/war_body_facing_left_whole_settled.png",
+    "bytes": 1252821,
+    "sha256": "27824E39887302AE63F05FC8647C405390E04F6D66E9456C626837C194B800DF"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-scene01/war_body_facing_right_whole_airborne.png",
+    "bytes": 1155594,
+    "sha256": "3E38A6102509E56F4FC9D9DDE2EBB9D4C6B3F59B98AD7584EB4B2DD552F2BFD6"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-scene01/war_body_facing_right_whole_first_contact_detached.png",
+    "bytes": 1168463,
+    "sha256": "A05524239DC783B455275C46B91FD7D8114D876CE9C2701DC7F4F8010CD589A3"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-scene01/war_body_facing_right_whole_landed.png",
+    "bytes": 1134732,
+    "sha256": "872920A079BDC99AC492486BFF4228FEF6A0699D981280BFBB53E90143D9ADFA"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-scene01/war_body_facing_right_whole_pre_contact.png",
+    "bytes": 1172301,
+    "sha256": "71252DD35FEC775B225226769A28C53C0F0994A9B4906CD9CD540672AC90E6CB"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-scene01/war_body_facing_right_whole_released_023.png",
+    "bytes": 1134661,
+    "sha256": "22310F04D8A6D2D465C9A306FB2AFAF1B7B9339D1588699A1B614E713F128572"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-scene01/war_body_facing_right_whole_settled.png",
+    "bytes": 1302028,
+    "sha256": "CB7286064DCF5CBACFACA3441A2556DABF4952D71F798E1EA69FA679D3ECC1F3"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress-package01/frame_000.png",
+    "bytes": 141057,
+    "sha256": "44094F27BD370345145CB66FE58D3B22E0F1B5183D1BBEA0A05735743E52053E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress-package01/frame_003.png",
+    "bytes": 189768,
+    "sha256": "CF473DD222F8542709B63295EF723475CB62F309FA5A40CA1B23FC0F64C4663F"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress-package01/frame_010.png",
+    "bytes": 187467,
+    "sha256": "542645B11029356F26364B9BDF056052EA1DED2BCB5B084C8649B2214BDE3300"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress-package01/frame_018.png",
+    "bytes": 207653,
+    "sha256": "C0A95737EBF35553A38768D8E1432C6A0ABFF48F67CF0E6C4B019804B936D0C1"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress-package01/frame_030.png",
+    "bytes": 204321,
+    "sha256": "C0B5CA86B0C141CB59062D7C0B4C6F2CCE3A2C01F3FD645110A14E175A26045B"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress-package01/frame_045.png",
+    "bytes": 202829,
+    "sha256": "5419EE295D38B7C88A4DC04CC442C21000A03C4ADAE7D7E541ACA12795EC986E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress-package01/frame_065.png",
+    "bytes": 202541,
+    "sha256": "C1935EB7F1AD5B846EAB51DA95151DD78E10B4E18178D37F704B077F2BF8A9F3"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress-package01/frame_095.png",
+    "bytes": 189200,
+    "sha256": "1147768FDAFA4E00DA6D84E0167C9BB26B3C4A7548B0EF50F08040D8682F27CE"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress-package01/frame_150.png",
+    "bytes": 184354,
+    "sha256": "981EB4331D6005BCEE9D91C2F8335C4A8B1A6D22C1003E6C6975FDDFB0D218AE"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress-package01/frame_210.png",
+    "bytes": 184267,
+    "sha256": "5A44EE930B95AE355B7BC151FDA2F5D2A32BFF86F31FBA7F54E45243701E7501"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress-package02/frame_000.png",
+    "bytes": 141057,
+    "sha256": "44094F27BD370345145CB66FE58D3B22E0F1B5183D1BBEA0A05735743E52053E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress-package02/frame_003.png",
+    "bytes": 189768,
+    "sha256": "CF473DD222F8542709B63295EF723475CB62F309FA5A40CA1B23FC0F64C4663F"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress-package02/frame_010.png",
+    "bytes": 187467,
+    "sha256": "542645B11029356F26364B9BDF056052EA1DED2BCB5B084C8649B2214BDE3300"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress-package02/frame_018.png",
+    "bytes": 208090,
+    "sha256": "5C4D15D9BCDB6A6195AC97C5FDFA0C00D6BB821F2B394BF5F218C7B6FEC7FA48"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress-package02/frame_030.png",
+    "bytes": 203721,
+    "sha256": "898CB86EBC3B0DCAEC1031B37DFC5956CE2CF7FD469029C0EA501A9D50CAB7A2"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress-package02/frame_045.png",
+    "bytes": 203271,
+    "sha256": "648371C217A9B2AFDFE07B8161888C697CF8C15D5DB208BE5C9D8EF6A8B5CD75"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress-package02/frame_065.png",
+    "bytes": 203096,
+    "sha256": "37F94806EAFC9E2F1F8F0C498B70C94B7A63C64B026E72D1676C702E213EBAAD"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress-package02/frame_095.png",
+    "bytes": 186785,
+    "sha256": "9391524317FE346FC051025C38E22225279F15B8196D9E501A094E8C87DB68CA"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress-package02/frame_150.png",
+    "bytes": 179183,
+    "sha256": "9CC6FC8E232D6CBEAEEBF689ABEFED97DC7053F7225C21F28CD997A7EA605C37"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress-package02/frame_210.png",
+    "bytes": 179660,
+    "sha256": "40CDD8C45C0DD0190E5D51CF6525A21022491ABDDD42B68B34D1007ED620CF2D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress02/frame_000.png",
+    "bytes": 141057,
+    "sha256": "44094F27BD370345145CB66FE58D3B22E0F1B5183D1BBEA0A05735743E52053E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress02/frame_003.png",
+    "bytes": 189768,
+    "sha256": "CF473DD222F8542709B63295EF723475CB62F309FA5A40CA1B23FC0F64C4663F"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress02/frame_010.png",
+    "bytes": 187467,
+    "sha256": "542645B11029356F26364B9BDF056052EA1DED2BCB5B084C8649B2214BDE3300"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress02/frame_018.png",
+    "bytes": 208264,
+    "sha256": "700DE1C36E27C62234BCE3A63CBC5D4D8C96EEF9D66D2FCC8D9C562E6F8A8144"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress02/frame_030.png",
+    "bytes": 204856,
+    "sha256": "E6EB5D35BE4B6E260BA6B7EAE5F04E3D6EC6E33F9479A5393D5114B81652DC9D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress02/frame_045.png",
+    "bytes": 202495,
+    "sha256": "842F655D8ADE722F8F3EEA4C741531B070987D5EECE8E5C18354100CD264B94F"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress02/frame_065.png",
+    "bytes": 203125,
+    "sha256": "0D667ED5F18A28ECA87AAD7A2E88B36683C372B637401D9144228571DDAFCD1A"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress02/frame_095.png",
+    "bytes": 186958,
+    "sha256": "14337D8A5736705C4EF1CB262CF075F17E91CB7F4497B4A22010B85663758941"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress02/frame_150.png",
+    "bytes": 179183,
+    "sha256": "9CC6FC8E232D6CBEAEEBF689ABEFED97DC7053F7225C21F28CD997A7EA605C37"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall-stress02/frame_210.png",
+    "bytes": 179660,
+    "sha256": "40CDD8C45C0DD0190E5D51CF6525A21022491ABDDD42B68B34D1007ED620CF2D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall02/frame_000.png",
+    "bytes": 78043,
+    "sha256": "E46550883B4CF09411E93F08BD86694D2F6B3F3D28FAF8DBD8E94B2060612330"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall02/frame_003.png",
+    "bytes": 171880,
+    "sha256": "F7FCAF32003020D69A9A05F1FE3626E9BB48FF4E0E0C7E0B8EADD80B161C8677"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall02/frame_010.png",
+    "bytes": 175203,
+    "sha256": "EDAF93F3AE55E3C99AF7EFF54CCD65B0451C8043AC77CA289CD81F64054162C0"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall02/frame_018.png",
+    "bytes": 199194,
+    "sha256": "1FA9B589270B1C77D8EE9DD8C7750F2E2896302D7D11BED549A9691F13CF7B22"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall02/frame_030.png",
+    "bytes": 192476,
+    "sha256": "43D105565DCD11A4C947E54BFC56DC84EC7918B67E9C739A342234E54C3FBEB0"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall02/frame_045.png",
+    "bytes": 191093,
+    "sha256": "62B0C3ABB2092830A9436563D95457A6A99CF054A9889A91FEAE3ED26C8E4712"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall02/frame_065.png",
+    "bytes": 185177,
+    "sha256": "49DA3CED77A8EDAE727673D1C885246150D82D82B635F0E426B50BCE79676ABB"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall02/frame_095.png",
+    "bytes": 164319,
+    "sha256": "9E0F8ED2855D521E3923450B0472790B39A28B22CE9F1E6DD515336585382E33"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall02/frame_150.png",
+    "bytes": 162822,
+    "sha256": "8FCAE4AC625D5DFDB8B872C32085BC9C5A13F464C98F440AD5C64A6AEC689D0D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall02/frame_210.png",
+    "bytes": 162818,
+    "sha256": "BC37EB414ADFBE03A57522B8EF761BECE68EEB0B7944F47E89C7AEC865C04F43"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall03/frame_000.png",
+    "bytes": 78043,
+    "sha256": "E46550883B4CF09411E93F08BD86694D2F6B3F3D28FAF8DBD8E94B2060612330"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall03/frame_003.png",
+    "bytes": 171880,
+    "sha256": "F7FCAF32003020D69A9A05F1FE3626E9BB48FF4E0E0C7E0B8EADD80B161C8677"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall03/frame_010.png",
+    "bytes": 175203,
+    "sha256": "EDAF93F3AE55E3C99AF7EFF54CCD65B0451C8043AC77CA289CD81F64054162C0"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall03/frame_018.png",
+    "bytes": 199194,
+    "sha256": "1FA9B589270B1C77D8EE9DD8C7750F2E2896302D7D11BED549A9691F13CF7B22"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall03/frame_030.png",
+    "bytes": 192476,
+    "sha256": "43D105565DCD11A4C947E54BFC56DC84EC7918B67E9C739A342234E54C3FBEB0"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall03/frame_045.png",
+    "bytes": 191114,
+    "sha256": "DDEA6D8F08F73266BADF945C60F98CE696DF8D8CF504B7CD5CC66CAD4CE6F925"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall03/frame_065.png",
+    "bytes": 185634,
+    "sha256": "900E7321908DF9F6ADA6524C94011B8EF763ED426D122605CDE80DF2CBFC8520"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall03/frame_095.png",
+    "bytes": 164028,
+    "sha256": "2CDF7E85061A20E20B0474B508621F37D8B0E5AFA0281A2EF38901238183CFB3"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall03/frame_150.png",
+    "bytes": 162036,
+    "sha256": "449A9CA28BA837CD90C23E58941ADD29F78E4074938F034548CCB74DBEA57E9E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall03/frame_210.png",
+    "bytes": 162036,
+    "sha256": "449A9CA28BA837CD90C23E58941ADD29F78E4074938F034548CCB74DBEA57E9E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall04/frame_000.png",
+    "bytes": 78043,
+    "sha256": "E46550883B4CF09411E93F08BD86694D2F6B3F3D28FAF8DBD8E94B2060612330"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall04/frame_003.png",
+    "bytes": 171880,
+    "sha256": "F7FCAF32003020D69A9A05F1FE3626E9BB48FF4E0E0C7E0B8EADD80B161C8677"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall04/frame_010.png",
+    "bytes": 175203,
+    "sha256": "EDAF93F3AE55E3C99AF7EFF54CCD65B0451C8043AC77CA289CD81F64054162C0"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall04/frame_018.png",
+    "bytes": 199194,
+    "sha256": "1FA9B589270B1C77D8EE9DD8C7750F2E2896302D7D11BED549A9691F13CF7B22"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall04/frame_030.png",
+    "bytes": 192310,
+    "sha256": "E41EE7171344562B11AE152D14581B1EB83A9D01606C40E8C5CA609B377D2515"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall04/frame_045.png",
+    "bytes": 192639,
+    "sha256": "C2347E8F01136469785AFDB8A889CB02C8160B5E0B8FB56B2D9F8F0D3464E178"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall04/frame_065.png",
+    "bytes": 185523,
+    "sha256": "4B6A96C35ECE645CCA08D0571222BC326B9B3FF002C15163FAFB96F55CC435DE"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall04/frame_095.png",
+    "bytes": 163611,
+    "sha256": "58F3DBE02AB412A7E397B9C4EB3958F29E4BCBBA163053790F7A31F619D45191"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall04/frame_150.png",
+    "bytes": 161756,
+    "sha256": "A5F56B95E8620976C7FAFBD1FF349C24CC598AA5200F0E4ABCF873C2BBDED36E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall04/frame_210.png",
+    "bytes": 161756,
+    "sha256": "A5F56B95E8620976C7FAFBD1FF349C24CC598AA5200F0E4ABCF873C2BBDED36E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall05/frame_000.png",
+    "bytes": 78043,
+    "sha256": "E46550883B4CF09411E93F08BD86694D2F6B3F3D28FAF8DBD8E94B2060612330"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall05/frame_003.png",
+    "bytes": 171880,
+    "sha256": "F7FCAF32003020D69A9A05F1FE3626E9BB48FF4E0E0C7E0B8EADD80B161C8677"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall05/frame_010.png",
+    "bytes": 175203,
+    "sha256": "EDAF93F3AE55E3C99AF7EFF54CCD65B0451C8043AC77CA289CD81F64054162C0"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall05/frame_018.png",
+    "bytes": 199194,
+    "sha256": "1FA9B589270B1C77D8EE9DD8C7750F2E2896302D7D11BED549A9691F13CF7B22"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall05/frame_030.png",
+    "bytes": 192890,
+    "sha256": "D48B346363F6ACC7005D6C1FB62A98FBE67B3EF2DA7B45CABF3A563574B9CEBD"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall05/frame_045.png",
+    "bytes": 191009,
+    "sha256": "B92F661F2D959F9CCDF2D470E5C6400AB567ADA21C723CF32F0AE9D069F37BDC"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall05/frame_065.png",
+    "bytes": 185252,
+    "sha256": "782D3F05714C06B933D33F5FE70751A28172B14FA5C6430B528BF0A22716DCEB"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall05/frame_095.png",
+    "bytes": 151163,
+    "sha256": "C9BE45ADA0D2CED3DD922B883633F7724A23C8733746A3C762B037DA99760693"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall05/frame_150.png",
+    "bytes": 144910,
+    "sha256": "0BFCE25B579AD0AD447C3EB1632039E47FFADAE3E3AA421E38183AB5ED972619"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fall05/frame_210.png",
+    "bytes": 144829,
+    "sha256": "5AABA64124324DF7F75B3C9A36D8B06B13019B5FDB3121997252A72454D4A09A"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_0_body_slow_airborne.png",
+    "bytes": 924950,
+    "sha256": "CAAC3706549606AF059E2E62095D7222A00D3059DA0B570025F62B6B0DA77665"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_0_body_slow_before.png",
+    "bytes": 968057,
+    "sha256": "2EA986F7A852AF0ABFD7EE7CB0370B8A734967F9F1DE9792CB3CC699994EDB03"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_0_body_slow_first_contact.png",
+    "bytes": 927946,
+    "sha256": "6B60ADB196FBB9CD86DC6021747C953077779BBA8D7285CA108399F727846C48"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_0_body_slow_landed.png",
+    "bytes": 913670,
+    "sha256": "BF325D8B5B6A46C51FF8529C898E85ADB639AE89373CBF7B4BCD1A5B0A6232D3"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_0_body_slow_loaded_hold.png",
+    "bytes": 928887,
+    "sha256": "C4E9442859E8C143CEACE92200E40B8B2CFC497F5BEA0B3F958CA5873007982D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_0_body_slow_read.png",
+    "bytes": 929701,
+    "sha256": "F38C8C3D401C097D8D89865B25A8EC000DFC7338709A573A7161D66EFDFE79D7"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_0_body_slow_release.png",
+    "bytes": 922456,
+    "sha256": "764DEBFB89C954420787A1A4DE3B1B5044ED362B3D4BF220171F24C25075DAD2"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_0_body_slow_settled.png",
+    "bytes": 862497,
+    "sha256": "78BE4766597154F5E8A52ED9D12FF05EFFAD1E7D3A6535F9E7DACB63A65024F8"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_0_body_slow_weapon_release.png",
+    "bytes": 921592,
+    "sha256": "271DD06E411408468D2E30385FEBFDED4CB212E32A8E024F315A048226CDF747"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_0_head_slow_airborne.png",
+    "bytes": 925233,
+    "sha256": "7C847FC6E8F2574C361802E556CF57E347D285876964B36A564AA5EACDC5A8ED"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_0_head_slow_before.png",
+    "bytes": 968875,
+    "sha256": "F57CCCC5C94791005CBC08A9C52D410B24A71A61C5F97359FCBD719B09EA3C9E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_0_head_slow_first_contact.png",
+    "bytes": 929663,
+    "sha256": "FF608ED793C6ECCA5E4D23C21A8CEE4B1FABD1922D76983EA853114475AC5BDE"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_0_head_slow_landed.png",
+    "bytes": 911200,
+    "sha256": "DE213ACBE2E55E7A63C7F538AD389786B6EF427CC5FC2F07A267C012567F9E40"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_0_head_slow_loaded_hold.png",
+    "bytes": 932716,
+    "sha256": "118D758E356A70FE399E3C30A92ED2F7E46809FFB147AD65820940A864E70486"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_0_head_slow_read.png",
+    "bytes": 934852,
+    "sha256": "D1228712E6C2793C10DEF0FB51301BC4F5AE54EA75941DA7FA67C4F815423DAA"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_0_head_slow_release.png",
+    "bytes": 924811,
+    "sha256": "03279DCDB1F864843D6C992B97F8E2A1C0D5D9D42E6847F51071B92BC00C2026"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_0_head_slow_settled.png",
+    "bytes": 842942,
+    "sha256": "1DCAE785E2D9365B3206A615464DC8DAC1879380365865635828A4BC246E9852"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_0_head_slow_weapon_release.png",
+    "bytes": 919719,
+    "sha256": "BAA38B650C6ABE7531EF0A69E81D6B9F27E046D43CE4FBB071B23C9FE669EB66"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_1_body_slow_airborne.png",
+    "bytes": 929580,
+    "sha256": "245B744EB7BBD063049454A0A3E6EF19589C0AAD7408FDAE2CE841B0184C78F6"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_1_body_slow_before.png",
+    "bytes": 971057,
+    "sha256": "815F65BDCF83F9D90C5C42162D7538F384D767B49179000677579BBB209879AE"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_1_body_slow_first_contact.png",
+    "bytes": 924882,
+    "sha256": "EC7F7C2AF040FB3E06663BF5052C1A1224E304DA01A750826412EF9B386EFF20"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_1_body_slow_landed.png",
+    "bytes": 929683,
+    "sha256": "0088666B174D6206B0AACE243DC5475FBF7A4182FB83800FCC7DC9792430D610"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_1_body_slow_loaded_hold.png",
+    "bytes": 929877,
+    "sha256": "7804B599FAFA786222812F0201EC2A89880B44464D86490954127F7703EE4AE8"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_1_body_slow_read.png",
+    "bytes": 931308,
+    "sha256": "59FE586A568077468D69CD3336F05AA12357D83B290858A243677C968A9BD265"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_1_body_slow_release.png",
+    "bytes": 927815,
+    "sha256": "E2682E326D9D4181594376726DA54656F91275229DF5DC1BECA3A1BB2601BE9D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_1_body_slow_settled.png",
+    "bytes": 850226,
+    "sha256": "352BBBC0014EF6D52873B07B17AE4D6B05701DE85FA3A9A3CBC12876BE1B24B1"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_1_body_slow_weapon_release.png",
+    "bytes": 921247,
+    "sha256": "D768C803CB888A075D89488C4F2D7FCD46E2EB349B1D4220C4B873C0E4804C81"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_1_head_slow_airborne.png",
+    "bytes": 924722,
+    "sha256": "DF5A9C40AD4F2FEC51733C72A74E6A54A80A6AE63C934CB61197F4AF10B2F865"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_1_head_slow_before.png",
+    "bytes": 970341,
+    "sha256": "8478B09A9004916ACFE898587DC5B1862E082E83D9F442811174538BBB4593EF"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_1_head_slow_first_contact.png",
+    "bytes": 927228,
+    "sha256": "EA25E9D7C0CCDECA43FDE332B660698CD1B02F591353A57596581DACD0069BBD"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_1_head_slow_landed.png",
+    "bytes": 931200,
+    "sha256": "7CE6092DE05BA144BA55F4CAA89DE427AF2188FBD5F96CDD907AF31B3104F533"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_1_head_slow_loaded_hold.png",
+    "bytes": 930933,
+    "sha256": "3B601AED814AA63FCB034988D571115890A5586247BD83DA0A03DF87B0F8C6F3"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_1_head_slow_read.png",
+    "bytes": 931848,
+    "sha256": "752BAC6D9A9E61CE0FD55879F4B4F5141FC443451FAF979E6EF6922BF913C1C4"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_1_head_slow_release.png",
+    "bytes": 925779,
+    "sha256": "0B232F772F218D19B545F68168599811D769349D5D60195FA880A2A6ECE9041F"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_1_head_slow_settled.png",
+    "bytes": 848705,
+    "sha256": "0594967230EAD562BC0F5C96D82C7A7E5AFA71F74770E52E544132852A97CF1E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/fatal-settled-package01/war_fatal_1_head_slow_weapon_release.png",
+    "bytes": 921729,
+    "sha256": "19DFC8017FB6E5948EEA25A510B4F2D073BF990B8A392512058BEF18F1C91480"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package01/actual_contact.png",
+    "bytes": 955120,
+    "sha256": "26EE5993F6CB2BD400CD79FECAA692CBC800B2C365B4C730E0AAB4E767E524BF"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package01/charge_start.png",
+    "bytes": 887960,
+    "sha256": "55599A06D400D6A92395A7454A59803B94CD56475069612EA2DBF6AD02639201"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package01/crossed_rollout.png",
+    "bytes": 963140,
+    "sha256": "00FEBD112573464420A1A083F986775D6C5D8416C273263E5ED27F19C5599EE8"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package01/first_pass_complete.png",
+    "bytes": 901198,
+    "sha256": "C4B14D79D117FFCC6C0BEB88C78AF8DB5DD30F1201644F43B13ABB83D4A8FF1F"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package01/gap_1100.png",
+    "bytes": 956039,
+    "sha256": "E38E402C11D663BEC9DC3650AF98A11B86DB043D12652E2D64AF85BB35633DF3"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package01/gap_1200.png",
+    "bytes": 948802,
+    "sha256": "707918BD93FD78690E9988B97D75AF21DF01ABFD32B8A43B2C0A0F6FDA4E6541"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package01/gap_1550.png",
+    "bytes": 941113,
+    "sha256": "E18EFA2F19A6084BC91FAA2429AD62DD801D84232931FB0BD266D2E8D81B62D9"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package01/gap_1900.png",
+    "bytes": 925592,
+    "sha256": "4A04EA72829758EC7D57C7BB076CA5E8C8DCCF918AF47113639FE4B6A5CD4E0E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package01/gap_2200.png",
+    "bytes": 892180,
+    "sha256": "87E343BE9F180293DFE4850354AE28E98E93475C41848102D1D62B34178D72B9"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package01/gap_850.png",
+    "bytes": 973277,
+    "sha256": "E3BF67A020DA5A7890A614D3260A7F855D27AC16CB3CEF5F80C217EC3D7AB5CB"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package01/read.png",
+    "bytes": 965593,
+    "sha256": "0E176728C8E62CD8D1E9CF91308110F9439C209E0AE88FAA297C2B1E97B9091C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package01/ready.png",
+    "bytes": 890241,
+    "sha256": "16A04FCB493EB3C6FB381FA7623D6C7997E5FF59A18B49F5F31F0DEBE1F16DEA"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package01/rehold_spur.png",
+    "bytes": 892845,
+    "sha256": "738B6242AC6C4EE6FE0CF825183CD58D5D2E9F93611E73108BD607B0233EC68F"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package01/release_spur.png",
+    "bytes": 892349,
+    "sha256": "F7C0CAF10C886A2034EFD84F78C06C2CF1F7D709D5861FF8B76BB197E14952E2"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package01/release.png",
+    "bytes": 956550,
+    "sha256": "8A3189FA545C10F9B2E706C9AC0BDAA5C5880DBF1018D08D848E529B2B00807A"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package02/actual_contact.png",
+    "bytes": 953411,
+    "sha256": "1B92939286C3083EFBAA4B62E796B0E34B3D7A0FEEE12B56AFCB61C3AC8848E9"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package02/charge_start.png",
+    "bytes": 887952,
+    "sha256": "3A381666F69D648D905374CDA7A03E70BEA1803F6FA2FE5492014EB28D46591E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package02/crossed_rollout.png",
+    "bytes": 964382,
+    "sha256": "2D84CBA7A1405A4E35F651B070FB007D2FB1D1DFF0BB2953DAE58F3E7953E9FC"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package02/first_pass_complete.png",
+    "bytes": 902620,
+    "sha256": "AE38A0F9DABFC4DA3DAF3263A69574AD7CA25986198D8284AB4A36DC79B25546"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package02/gap_1100.png",
+    "bytes": 954089,
+    "sha256": "CAE4356A1CCC4728E21E336A3485BECE48CFE12A83D6AB63164CA2123E493A1B"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package02/gap_1200.png",
+    "bytes": 947817,
+    "sha256": "CB4F705460A9E1177783AA7E43D267E76E5295812416AF9779FF59753DDF362F"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package02/gap_1550.png",
+    "bytes": 941077,
+    "sha256": "052150EDCF06E16E72F101A29E3BD8C2416F053A09F3F9714BC7DBE2E0A2157C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package02/gap_1900.png",
+    "bytes": 925510,
+    "sha256": "1B9C5328AF0BB240E00825F1F341797696706291FF71AAA6734FE632726C22E6"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package02/gap_2200.png",
+    "bytes": 892131,
+    "sha256": "A4EFF804172ACCA92F61D8CF6A40B54F0C018372D5F5E43176E036A2593623FB"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package02/gap_850.png",
+    "bytes": 974694,
+    "sha256": "F1E255422DDF4439BFBC151B97F3AFB8DA367D9BBC2C6160BEB9007DF2372C23"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package02/read.png",
+    "bytes": 964193,
+    "sha256": "4A120EE7994F54B2666E72E2B0933F5C0149F3F29D932E7C445D908CC75A826C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package02/ready.png",
+    "bytes": 890241,
+    "sha256": "16A04FCB493EB3C6FB381FA7623D6C7997E5FF59A18B49F5F31F0DEBE1F16DEA"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package02/rehold_spur.png",
+    "bytes": 893179,
+    "sha256": "8664A6D4C1461D5546A39BB751BD5300913DCE1773313E86D628364D57274669"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package02/release_spur.png",
+    "bytes": 891803,
+    "sha256": "CCA05E566D3D28344F4C067E3463F4E6052829AC74E157106555B7F5ADD48989"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge-package02/release.png",
+    "bytes": 957568,
+    "sha256": "2BCD2A1D6A47108737E89EAC1C0F9AB88499D6B1212DC6A35A9275E8FC14B788"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge01/actual_contact.png",
+    "bytes": 954514,
+    "sha256": "032F5BA416ACC2D3ED13147E00F5F2FEE8D1DC203AA1B713D4C2B2CD758D80A9"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge01/charge_start.png",
+    "bytes": 888047,
+    "sha256": "44EA2B4CCD05468C77CABC3EE55BE3CECDCFDE0FD40F1F8857EA8F5C876B9E28"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge01/crossed_rollout.png",
+    "bytes": 962942,
+    "sha256": "84151603078D67B8E8590256A3E95A3A4072401C6E3013CAB47662E9B1485460"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge01/first_pass_complete.png",
+    "bytes": 902540,
+    "sha256": "DD8ABF0680E443E5190A9E41D8963BE46C2BEB9C10E228DC3C2F65517C05F68B"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge01/gap_1100.png",
+    "bytes": 954245,
+    "sha256": "8BA562B2A9414CCBC51EEF388E2D50B043D15212F0CF800A5CEB8282C4E74402"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge01/gap_1200.png",
+    "bytes": 948573,
+    "sha256": "B35B71C66433EB3396AAF1F059296AA04F5B89AB7E3148EA9A61440C792C5D58"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge01/gap_1550.png",
+    "bytes": 941285,
+    "sha256": "90EA6604C61B74B515B137625D1164CDEA8D17B96C57F99CD34A850736180A6F"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge01/gap_1900.png",
+    "bytes": 925321,
+    "sha256": "2F0119D14B33E01967749692189911C56273BDCC59D881D5B50AD6DD91BF5BF9"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge01/gap_2200.png",
+    "bytes": 892032,
+    "sha256": "4FD8FF981A0526AF3815C43540E6A9D17D7CAA98B453CBC2BA145E4319EF8909"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge01/gap_850.png",
+    "bytes": 973202,
+    "sha256": "E9A141DEF84839AC4BACAF75E3808D81E91CC60C7DA1263A4B581825F62D8F11"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge01/read.png",
+    "bytes": 965243,
+    "sha256": "5BB52D815915B7693682066E2FB6E1AB465F48E53B7F48852327E2C94309C52B"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge01/ready.png",
+    "bytes": 890241,
+    "sha256": "16A04FCB493EB3C6FB381FA7623D6C7997E5FF59A18B49F5F31F0DEBE1F16DEA"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge01/rehold_spur.png",
+    "bytes": 892953,
+    "sha256": "4BC49A683DFE93337A3CCF637D6056D02569CB4A44422C2487317B4AD5000CE7"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge01/release_spur.png",
+    "bytes": 892539,
+    "sha256": "7AA96C1BA6E7E33A3403882B70ACDAD8B54DCC37C2E7CBA723508B6BE0FCCC35"
+  },
+  {
+    "path": "docs/development/screenshots/v057/full-charge01/release.png",
+    "bytes": 956475,
+    "sha256": "49D4782A58E11002A7B2BF4082E991148333D5CF27098812A0C642966039C809"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_0_body_slow_before.png",
+    "bytes": 985583,
+    "sha256": "DAD5B4B49B56989D804959105313765CB2548574E180777BFB4B7CC8C05B538C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_0_body_slow_first_contact.png",
+    "bytes": 954808,
+    "sha256": "91EA0F30CFCF478AA584F554146FE03C7F07983FDF516C7442F19FA79CE92446"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_0_body_slow_loaded_hold.png",
+    "bytes": 953761,
+    "sha256": "658DEEAB1FC327144AF5F8C5A95628B40481FCCC9406669F7BCC17C7DAF3446B"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_0_body_slow_read.png",
+    "bytes": 953895,
+    "sha256": "D5A5976E399882BC3AD6FB4563F2B59DC20E5E12D29CF2ECC21E2763C669542E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_0_body_slow_release.png",
+    "bytes": 948609,
+    "sha256": "67214852FF46B781A9F1A7C8B9B414F479AD2B5C18E1AA65E4C80ED00429B78E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_0_head_slow_before.png",
+    "bytes": 986946,
+    "sha256": "E0BA57340EB4DFF939FBCE0AF02D0275E958D246F95C54A915960B9CFDB94E3C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_0_head_slow_first_contact.png",
+    "bytes": 954129,
+    "sha256": "996E0E92A363C8D604D28C1DA3AD6FD091592897D15EF4271F430428017A2C88"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_0_head_slow_loaded_hold.png",
+    "bytes": 955075,
+    "sha256": "0A21412238DE26C17F090E0700A403AB8D3EE6CDE5017E2ECEBAC4A359A58B12"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_0_head_slow_read.png",
+    "bytes": 953760,
+    "sha256": "4EA9DBAEDAD611DF2647B7A115A4BF1A7D6E41C9E44D7187BF25DD1BDFB65587"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_0_head_slow_release.png",
+    "bytes": 947482,
+    "sha256": "9CFAC922FF9B53D32916E6E4F251F15A97F2AC5BFA4F522B2BC7D2692C6F3541"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_0_shield_off_before.png",
+    "bytes": 983920,
+    "sha256": "5E99D7961F035F2BB079B73D95C40F1FAD5D32A4BC8B5DDFFE0B1D76D6295235"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_0_shield_off_first_contact.png",
+    "bytes": 944897,
+    "sha256": "7DA86AE3B93D8FE2744C80BE9629E03CB406165C779290D75D3E8AEDF33D5F6D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_0_shield_off_loaded_hold.png",
+    "bytes": 952258,
+    "sha256": "8B74A6B49C2E23E73AC27962C3F5AEB1DAC31808D19EC27C6C23F5F077BE7639"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_0_shield_off_release.png",
+    "bytes": 952849,
+    "sha256": "69874CF0C916806C98AC7BF7FAD27CB62B44C90FC414ECA0340892CC8DDDBA79"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_0_shield_slow_before.png",
+    "bytes": 983920,
+    "sha256": "5E99D7961F035F2BB079B73D95C40F1FAD5D32A4BC8B5DDFFE0B1D76D6295235"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_0_shield_slow_first_contact.png",
+    "bytes": 945634,
+    "sha256": "5EA98BB69D96850CB13DA6B32E279A18AC2293D722EA3BC8E4710A1217C347AA"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_0_shield_slow_loaded_hold.png",
+    "bytes": 954676,
+    "sha256": "19A5993C8F9B6BEAC0CA92417787874FFF540FCB1B2DFEA6BB2379CF2E98B62A"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_0_shield_slow_read.png",
+    "bytes": 953815,
+    "sha256": "DCBB5E8DF6CD3194CA6B06451215E6162B345F7DE87E7F1F7E0B3CCE64B91F01"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_0_shield_slow_release.png",
+    "bytes": 943839,
+    "sha256": "D3BF4C5F17305CA316714AA6A184ECE55343F1CFDD352DFAF1524F56718BC744"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_1_body_slow_before.png",
+    "bytes": 989093,
+    "sha256": "B7A5A2D32FAF81ADD9288AFC03A578342457DA71B990F84AC45FF04F668152A0"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_1_body_slow_first_contact.png",
+    "bytes": 954287,
+    "sha256": "231DA6928ADD26FD6A512F626619E003F65491BB785F104414A4168DB94C1FD2"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_1_body_slow_loaded_hold.png",
+    "bytes": 957213,
+    "sha256": "8E34FB4C4C0D09E08CED6CC06542E63F5464A4CE2B7BEBE174184FA66BDA8A64"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_1_body_slow_read.png",
+    "bytes": 956631,
+    "sha256": "816A5988B3D086BBD9D64527242571A5A8FF49B6186CC0FFC2BB9029B9D2A247"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_1_body_slow_release.png",
+    "bytes": 950265,
+    "sha256": "D9EE7849A86065BBC6C30DE06641FBCF67002270C81FF77DC2419D61EF094398"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_1_head_slow_before.png",
+    "bytes": 987979,
+    "sha256": "48FC214F75C570C933C9982A078C8FFB668DA799C419122ECB6FC90219A28541"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_1_head_slow_first_contact.png",
+    "bytes": 955143,
+    "sha256": "967C0F589290188AEEF3B50F2AD3450651C9C3F9AA052E3ADE510C40FA43DB83"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_1_head_slow_loaded_hold.png",
+    "bytes": 955604,
+    "sha256": "F825F1E2849F9D5B8A708C198F26A0FD560B0A211FAFE759A832551143D4CCE1"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_1_head_slow_read.png",
+    "bytes": 955196,
+    "sha256": "66B1423AAA24B3B9522ED9D08FB28BCBB3FE38BF60D343DFDD9CB50AA57C9345"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_1_head_slow_release.png",
+    "bytes": 950022,
+    "sha256": "530985A5B8B61A65555E556813A26166989BA6E38AE7725DF399846752153A2D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_1_shield_slow_before.png",
+    "bytes": 986944,
+    "sha256": "5C68AF03EF6C970677987AC8E2ABA993A68B93DC43684A5B4F754E23F93CA5AD"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_1_shield_slow_first_contact.png",
+    "bytes": 946888,
+    "sha256": "D453C729D5B782087CF6CB48A485F7E3CD1134D62081E1FDDE730A2B72DDEEC1"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_1_shield_slow_loaded_hold.png",
+    "bytes": 953488,
+    "sha256": "C300FEF57215F1533DB8CE526C49D7BC620A6D484441D6AFA878DB6CD68A0996"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_1_shield_slow_read.png",
+    "bytes": 953961,
+    "sha256": "38AEFC50487619FC4847B1A0B187AF3E0C573EDE9065F02036B982B7BF9962C2"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/arena_mounted_1_shield_slow_release.png",
+    "bytes": 946452,
+    "sha256": "22F017BFD1CAC3A884104A187D4FB79A0FF78241C7FDA442BFC25B64E6A0B2E1"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_0_body_slow_airborne.png",
+    "bytes": 921542,
+    "sha256": "44F25D4077B6BEF93C076FD9F5CFD6E09AEAF29589AC1B134746D3E1BB569C74"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_0_body_slow_before.png",
+    "bytes": 968057,
+    "sha256": "2EA986F7A852AF0ABFD7EE7CB0370B8A734967F9F1DE9792CB3CC699994EDB03"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_0_body_slow_first_contact.png",
+    "bytes": 926843,
+    "sha256": "5923F7940B23A2C12891BE1E64E729F51EC8A0914CB00D2BBDCBFDF7F813F88F"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_0_body_slow_landed.png",
+    "bytes": 915618,
+    "sha256": "69EA958B3648A5EC1243F490C5AF5598451F64FC288EFEFD5A73613AAFD744E9"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_0_body_slow_loaded_hold.png",
+    "bytes": 927799,
+    "sha256": "926BEB9E1733DEC1591E9FF38360C10AE17522BF650474CF87C1CA8E9106695F"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_0_body_slow_read.png",
+    "bytes": 928640,
+    "sha256": "E436C542BE1DE59FA54CBD86F033AB63FD2E454AE306C431C6335F42F883271A"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_0_body_slow_release.png",
+    "bytes": 922182,
+    "sha256": "9B2B2D91931098DB742B13C8A75D58B80E1E568FB765AE11FD55CBC71E6D3975"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_0_body_slow_weapon_release.png",
+    "bytes": 919817,
+    "sha256": "D8CAE8FFD2DD254ECF1723924B87A864321898EA1CE0A3D1A0AD535F65A5B757"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_0_head_slow_airborne.png",
+    "bytes": 927421,
+    "sha256": "6612D89811F0C3B7968847E0CA28C67332B23C85B8C848AE68BE8141EA466A66"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_0_head_slow_before.png",
+    "bytes": 968875,
+    "sha256": "F57CCCC5C94791005CBC08A9C52D410B24A71A61C5F97359FCBD719B09EA3C9E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_0_head_slow_first_contact.png",
+    "bytes": 932695,
+    "sha256": "A08CA6CBA96992ECC544F8803075B1BDB319A5E27EE62FDC4AD1981BF404D79C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_0_head_slow_landed.png",
+    "bytes": 913890,
+    "sha256": "CFF0B1C3E768E9E58E9BFD5B993CC620D7BA0CCFB8E9E20958815D9B529DADEC"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_0_head_slow_loaded_hold.png",
+    "bytes": 934001,
+    "sha256": "743DD1D8A74AF615DE45F7174B47A16A486C48EA2E622BCA8937631D86B23290"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_0_head_slow_read.png",
+    "bytes": 934857,
+    "sha256": "5E9BFDA7581D1DBEEF1912F9FD3C74A4D65B491EAA59D80520FB4BE03E7BE378"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_0_head_slow_release.png",
+    "bytes": 923455,
+    "sha256": "CD2787EFD6025BD2DEF33D38E80122261DB6E0949B3436F9764651BEE939E7DA"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_0_head_slow_weapon_release.png",
+    "bytes": 919500,
+    "sha256": "F32472A4B0ACDF235493FA5F5B66430387DE570E35E6B62F93816E52F5348E50"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_1_body_slow_airborne.png",
+    "bytes": 925185,
+    "sha256": "D494E1D1ECE6C0D8CC95A5C50E6705A7067E666EF2A65D40509BFB3F09D1A48D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_1_body_slow_before.png",
+    "bytes": 971057,
+    "sha256": "815F65BDCF83F9D90C5C42162D7538F384D767B49179000677579BBB209879AE"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_1_body_slow_first_contact.png",
+    "bytes": 928893,
+    "sha256": "CAC3F8FB1982B70595E8AB39D35B476E6B73FD2AB483C834371D555897E7547C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_1_body_slow_landed.png",
+    "bytes": 931582,
+    "sha256": "F024EEB32839F446CC659F52597F8C9EDFD57FE1B6C42C835D1B5245B78F98DE"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_1_body_slow_loaded_hold.png",
+    "bytes": 928510,
+    "sha256": "579A701D815C1D506A9DA5F92BA3272816645F58C6BE32C43980C67E766CB5F3"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_1_body_slow_read.png",
+    "bytes": 928509,
+    "sha256": "8E348AA8EA9C743F736C0986F5A04A55496157DC28364C0CDEEDFAAE19514596"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_1_body_slow_release.png",
+    "bytes": 928639,
+    "sha256": "E2BD835962DF3086A5DCC5782A3D121967AF5409F578C9FAA3D4D74F203297AF"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_1_body_slow_weapon_release.png",
+    "bytes": 920800,
+    "sha256": "7D978AD2571A3776D57308BD71FC69F777997B4099B5D74654F8023018C12BB6"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_1_head_slow_airborne.png",
+    "bytes": 925020,
+    "sha256": "22BD9975AFDB24E68F8409D1EDB15C2B4DA1B465F42A0561CB0522028069C81B"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_1_head_slow_before.png",
+    "bytes": 970341,
+    "sha256": "8478B09A9004916ACFE898587DC5B1862E082E83D9F442811174538BBB4593EF"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_1_head_slow_first_contact.png",
+    "bytes": 927605,
+    "sha256": "D9B6140EFE52F067ED6837C149558DB2C493666159C8551895AECB5A01B71642"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_1_head_slow_landed.png",
+    "bytes": 930994,
+    "sha256": "5C09D99199D7203943F961CAE3B21081D53802159197F8C949E9218B2EE7BFC1"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_1_head_slow_loaded_hold.png",
+    "bytes": 927577,
+    "sha256": "32DC21F1F8AAB5356851CD06FF13A03D3D5237193913F022F4E4090A24495BD9"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_1_head_slow_read.png",
+    "bytes": 930809,
+    "sha256": "E91CC8A20EF7BC274C2A51585834D0EB51F833413A4407306321858FEB4351EB"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_1_head_slow_release.png",
+    "bytes": 926854,
+    "sha256": "F05874DFB0BBC1E4B4A19393056BD3D84EC6CBDA8FE28D90E8745822E61CA997"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package01/war_fatal_1_head_slow_weapon_release.png",
+    "bytes": 919384,
+    "sha256": "5B5F1ED2B197A9CFDDAFE51333F033423903B588854365C41C535DB9220C2A84"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_0_body_slow_before.png",
+    "bytes": 985583,
+    "sha256": "DAD5B4B49B56989D804959105313765CB2548574E180777BFB4B7CC8C05B538C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_0_body_slow_first_contact.png",
+    "bytes": 952507,
+    "sha256": "2AE8D5F6993E4AAE6042CA1ED91AAAB54E3CA2A2FE2F72AD0017BBF146BAF260"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_0_body_slow_loaded_hold.png",
+    "bytes": 954831,
+    "sha256": "D2ACFA02B578F84E74D5BD6F0A5298C53A363106E581A858B2BCF80FA748B841"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_0_body_slow_read.png",
+    "bytes": 954847,
+    "sha256": "4E6031743DAA5A64EF03C5D2BEF794A721F42D3A939244DF5E3C5DD721D5C79F"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_0_body_slow_release.png",
+    "bytes": 946888,
+    "sha256": "A62D9E4F3253A970F9C3B475B71856753788771863937188595E522034A1FD20"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_0_head_slow_before.png",
+    "bytes": 986946,
+    "sha256": "E0BA57340EB4DFF939FBCE0AF02D0275E958D246F95C54A915960B9CFDB94E3C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_0_head_slow_first_contact.png",
+    "bytes": 956259,
+    "sha256": "7FC53A39BD962E7474C84CBE8C4A0179B0E39F5687D91D92BF604BB7B2B085D4"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_0_head_slow_loaded_hold.png",
+    "bytes": 945972,
+    "sha256": "A4D766B9496B1B36644ED4539DE1656C3094B9046DAB46304D3D3F93F45355F5"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_0_head_slow_read.png",
+    "bytes": 945151,
+    "sha256": "20D7801FBC94E64637743354941EF353C55106EE037E1190F91E9420515DC360"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_0_head_slow_release.png",
+    "bytes": 946073,
+    "sha256": "3D0BCFEB25C7619D10A319A8A72961E2C93728E554C7CCBF8ECB26B9809873EA"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_0_shield_off_before.png",
+    "bytes": 983920,
+    "sha256": "5E99D7961F035F2BB079B73D95C40F1FAD5D32A4BC8B5DDFFE0B1D76D6295235"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_0_shield_off_first_contact.png",
+    "bytes": 943836,
+    "sha256": "84D2A77D20A27DCAD71845F01113C34D59B6E15805C8A3D97F5B86153066C65B"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_0_shield_off_loaded_hold.png",
+    "bytes": 953040,
+    "sha256": "2F2C61DF822A6785AAD67FBF0D9E3E9A2C9CC3B073DC5EBC1BCF150FCDC0AC5D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_0_shield_off_release.png",
+    "bytes": 954310,
+    "sha256": "0751CE996B88BD1741E012DCD777EE016219537AEECC59FA99F940DECFEE667F"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_0_shield_slow_before.png",
+    "bytes": 983920,
+    "sha256": "5E99D7961F035F2BB079B73D95C40F1FAD5D32A4BC8B5DDFFE0B1D76D6295235"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_0_shield_slow_first_contact.png",
+    "bytes": 944377,
+    "sha256": "7698D86D93FCC5DD1FBAE4B176B25A8035267441850DD587BC01E1A0875FBC4D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_0_shield_slow_loaded_hold.png",
+    "bytes": 953724,
+    "sha256": "8C10B771C3620CB788BB377763BD55E45B12469A3BF0BDDF90A3B0AB47853BB2"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_0_shield_slow_read.png",
+    "bytes": 953820,
+    "sha256": "13CF4EE41712BD84D05F972C2DCFA0D7894F6CC3A860347C827D36A881C21D6F"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_0_shield_slow_release.png",
+    "bytes": 943098,
+    "sha256": "B7FA3EDD93E7028C830FE9381779F89DFAE9F8F4EE81B073111F5563DC532E00"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_1_body_slow_before.png",
+    "bytes": 989093,
+    "sha256": "B7A5A2D32FAF81ADD9288AFC03A578342457DA71B990F84AC45FF04F668152A0"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_1_body_slow_first_contact.png",
+    "bytes": 952555,
+    "sha256": "DEBCFBB79802BBA04ABF97A0C41C3F5A9A040C53CFB45E12EAACDDBE7A8E266A"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_1_body_slow_loaded_hold.png",
+    "bytes": 956984,
+    "sha256": "6A075040F5E267E153AB5DFA5107EA783929A27A9E72CC54901323A6B8DF30E4"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_1_body_slow_read.png",
+    "bytes": 956512,
+    "sha256": "8EA05AB622349E894366613E1403899E06F6EDAA882668C92542251DBA0D14E9"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_1_body_slow_release.png",
+    "bytes": 951852,
+    "sha256": "93F66D3FB3CDC4B27CCFE1F9E4FC298B7EC1F43F1B563611DD5099F4341FD967"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_1_head_slow_before.png",
+    "bytes": 987979,
+    "sha256": "48FC214F75C570C933C9982A078C8FFB668DA799C419122ECB6FC90219A28541"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_1_head_slow_first_contact.png",
+    "bytes": 953220,
+    "sha256": "946833C22F2DCEE67C2ACF29337CF6A65A9D23509FB080CC3E25D34D2F85C1D8"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_1_head_slow_loaded_hold.png",
+    "bytes": 954966,
+    "sha256": "F50EAF01538E887954CFDF1549D290CB52E085DC680E6F1714EF5E0E02B47CBA"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_1_head_slow_read.png",
+    "bytes": 955945,
+    "sha256": "2EBE65B5C6CDF386FB606570F3B8E9BEC62B9F90456D0934F480EA24AAF69F97"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_1_head_slow_release.png",
+    "bytes": 950894,
+    "sha256": "5F139503B7EFC3ACB2B9EEC25B8EFB8F46C438680A026645FB415B1459C093B7"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_1_shield_slow_before.png",
+    "bytes": 986944,
+    "sha256": "5C68AF03EF6C970677987AC8E2ABA993A68B93DC43684A5B4F754E23F93CA5AD"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_1_shield_slow_first_contact.png",
+    "bytes": 947446,
+    "sha256": "62AE521638B59AA1B60CD985D43938D351C255A918495DB2FDC876DBF4E50265"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_1_shield_slow_loaded_hold.png",
+    "bytes": 956308,
+    "sha256": "5D0D3A29A5F47B792C284012250D27B2EF2ACF61B2F446AD720C44D0779CBEE1"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_1_shield_slow_read.png",
+    "bytes": 955309,
+    "sha256": "AE351872C6DCEF5D3A7349FDCF55D0879EF22B7C41D2202E5EB74D5736F39AB9"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/arena_mounted_1_shield_slow_release.png",
+    "bytes": 949098,
+    "sha256": "6A708B5C6085ABC98F404FD3408951FFCF6585270EC9FFF1C9C2ACF9B387A721"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_0_body_slow_airborne.png",
+    "bytes": 924950,
+    "sha256": "D0860A298389DA1D0B9C6187C37AD603E44EF61B8D72EE5CEB4941CB0421716E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_0_body_slow_before.png",
+    "bytes": 968057,
+    "sha256": "2EA986F7A852AF0ABFD7EE7CB0370B8A734967F9F1DE9792CB3CC699994EDB03"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_0_body_slow_first_contact.png",
+    "bytes": 929045,
+    "sha256": "83667425B8F9CDA853D11B2B2F062BF8B7F7161A01488D460C5658C017CA6B1D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_0_body_slow_landed.png",
+    "bytes": 913271,
+    "sha256": "4807D2E6F47489CF4866B02EF8B583FB9C91E41A3BE6EA35D8A5E299762438F4"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_0_body_slow_loaded_hold.png",
+    "bytes": 931710,
+    "sha256": "892F57B8AA6BCFA5511D387FDDA55E4468C0CD0BD065A5818CEC0B71211AAE77"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_0_body_slow_read.png",
+    "bytes": 930842,
+    "sha256": "1DDE1467A42C45E50E3FF8792DE7FAD9C8579AE6E0C87249C8D027FDCAA2EC22"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_0_body_slow_release.png",
+    "bytes": 921147,
+    "sha256": "6BC1281D0DAE1D0A424E9DA620F1273341FBDF7FC1B9FB08CC896E07BC6BC8B6"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_0_body_slow_weapon_release.png",
+    "bytes": 921935,
+    "sha256": "AC8C46B5CC56BCE3EE7E468113CF71A9ECE37640E74FF844BCE16A82B906D761"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_0_head_slow_airborne.png",
+    "bytes": 925927,
+    "sha256": "E5ECD691CBF9C07B7D72E76856DAC5692C04DE044458882B69CA5DCD9E4755AD"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_0_head_slow_before.png",
+    "bytes": 968875,
+    "sha256": "F57CCCC5C94791005CBC08A9C52D410B24A71A61C5F97359FCBD719B09EA3C9E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_0_head_slow_first_contact.png",
+    "bytes": 929625,
+    "sha256": "496B48221BB0B0B485C52EBDC5F26C14334B8F78F4EBD8463FB4964A6855659A"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_0_head_slow_landed.png",
+    "bytes": 911922,
+    "sha256": "E7E93877BE82983CBAA37D90B05B8FB8F53CD7EE7ACC5004773E5506DB9CAC61"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_0_head_slow_loaded_hold.png",
+    "bytes": 933852,
+    "sha256": "B07AC0EEF4E76C712B4613B733733A8B5AF478FD9CD571DC04656724B699FF17"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_0_head_slow_read.png",
+    "bytes": 934349,
+    "sha256": "F36CEAE7FE8C320465CCBCE9491E94094AA23C2D167D0DF5D337017962919286"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_0_head_slow_release.png",
+    "bytes": 925463,
+    "sha256": "B8E2FD64EBAB63BC9231571B2C7248AFFF406AA9D3958503C249075974AED781"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_0_head_slow_weapon_release.png",
+    "bytes": 919631,
+    "sha256": "4DB187DDCD7048AB728A1B893E55250E3ADA131A613F9BFCE0B7285009648AE8"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_1_body_slow_airborne.png",
+    "bytes": 926105,
+    "sha256": "8E00208AE9F8D1BE4E97D52F0AC95554681F855D89A365557A63996FB2E07324"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_1_body_slow_before.png",
+    "bytes": 971057,
+    "sha256": "815F65BDCF83F9D90C5C42162D7538F384D767B49179000677579BBB209879AE"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_1_body_slow_first_contact.png",
+    "bytes": 925102,
+    "sha256": "8130126B14B3B8ED93C17D5B858F01A9DD3710A3661915F9B67538A9EF44D8F9"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_1_body_slow_landed.png",
+    "bytes": 928696,
+    "sha256": "0E7C985802946CB611EF39D433F4E95B31F7F55CD0F885B1440F1BC5E4042BD9"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_1_body_slow_loaded_hold.png",
+    "bytes": 928716,
+    "sha256": "8FFE07327756E86F893DFAE22D47AA4AC79D5E41D002BFB546A0F1FBF30BC73E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_1_body_slow_read.png",
+    "bytes": 929517,
+    "sha256": "5F687B890B55F7C213D63D181B90321789D95C2AB77B078A83D3487C2C567279"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_1_body_slow_release.png",
+    "bytes": 929275,
+    "sha256": "956F60DBC8CE4B29A4E2C812512D07D3988E358CF66A5A7037EBA497D55E6F2C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_1_body_slow_weapon_release.png",
+    "bytes": 920934,
+    "sha256": "440827B5CC075A132321F41E9DA75A4A8AE938D621D6C5B7D5A2A3D21AD95D40"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_1_head_slow_airborne.png",
+    "bytes": 924580,
+    "sha256": "7456E464235C126AB3439DB0659EAA9B9392F02B088B7A84769CBDC8A0E3580B"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_1_head_slow_before.png",
+    "bytes": 970341,
+    "sha256": "8478B09A9004916ACFE898587DC5B1862E082E83D9F442811174538BBB4593EF"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_1_head_slow_first_contact.png",
+    "bytes": 929905,
+    "sha256": "06DF25B3987849D13F2542686908FD91F20484BBF7F4060C08BE1F0AF696863A"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_1_head_slow_landed.png",
+    "bytes": 930088,
+    "sha256": "C4588CB9CF0ADCCF08FC67C1ADA20C19775DE796E9C435000D4C183FD30D046B"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_1_head_slow_loaded_hold.png",
+    "bytes": 931067,
+    "sha256": "ACDE1B7235C6C5BF8984A5B37D37356AB4B8BF882868B12BA1BEA9F43111784D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_1_head_slow_read.png",
+    "bytes": 930154,
+    "sha256": "904E0F7927CDD4E5FDD58289EF13E7E4167D2FD7F8FBD1FE0825576616B921C0"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_1_head_slow_release.png",
+    "bytes": 924850,
+    "sha256": "65AD7FFC8FD414B8957F2E999950970BFEA8FF91B6256B96CCE3FEC98E6E7C30"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package02/war_fatal_1_head_slow_weapon_release.png",
+    "bytes": 922282,
+    "sha256": "F6B1659DAC42E8603821EDE3FAA53D2DE49DA564AE019DB6880A115AC8C53CB7"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_0_body_slow_before.png",
+    "bytes": 985583,
+    "sha256": "DAD5B4B49B56989D804959105313765CB2548574E180777BFB4B7CC8C05B538C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_0_body_slow_first_contact.png",
+    "bytes": 953763,
+    "sha256": "259C125E134CDC5F15E74D2024A6530A7C6446EA4E9E25149B7EF6AF91A4547A"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_0_body_slow_loaded_hold.png",
+    "bytes": 954272,
+    "sha256": "A1FFFCEBAA150BE61EEA76350B88E4208D1FE8FD528EA9FB5D00CB14ADEA3A0C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_0_body_slow_read.png",
+    "bytes": 953921,
+    "sha256": "51B6AC8E5B1E947304B568A6B19F8246B1F91D376EDC48B9B5F620BD56711B7B"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_0_body_slow_release.png",
+    "bytes": 947722,
+    "sha256": "0120A16664DC6C929585DCB0B752A429C30EC69528F862BCCCF2545B0EE06AB0"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_0_head_slow_before.png",
+    "bytes": 986946,
+    "sha256": "E0BA57340EB4DFF939FBCE0AF02D0275E958D246F95C54A915960B9CFDB94E3C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_0_head_slow_first_contact.png",
+    "bytes": 955161,
+    "sha256": "FFF895E7662F8F2DD330CFD6653B51387356F19B359EAB7D8E7EA450D8B44B64"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_0_head_slow_loaded_hold.png",
+    "bytes": 947605,
+    "sha256": "A43AF24617843D88202A93C4F3B0B2B5E92F5710B48007C74F788BB66AACE7EC"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_0_head_slow_read.png",
+    "bytes": 947118,
+    "sha256": "7E6757EC6593A79B4AB68DF0C8EB350E756597AF0E510A0E7ABA40C2C6AB237D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_0_head_slow_release.png",
+    "bytes": 946370,
+    "sha256": "231BFA7F72757C393B686892D54841AA4EE0D06B323993137AF2C969AD642AFA"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_0_shield_off_before.png",
+    "bytes": 983920,
+    "sha256": "5E99D7961F035F2BB079B73D95C40F1FAD5D32A4BC8B5DDFFE0B1D76D6295235"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_0_shield_off_first_contact.png",
+    "bytes": 943696,
+    "sha256": "86995F27CF7D981DE665B45262F3071AACF1DF67DF63FC84170FB2159C7DC1FC"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_0_shield_off_loaded_hold.png",
+    "bytes": 954257,
+    "sha256": "3C970F7F680A8FDEF25907C68DD99B34A519FE8904D2AA62E5F6009E20A8B24C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_0_shield_off_release.png",
+    "bytes": 954666,
+    "sha256": "664B2030BC259593879F1AD065BAE7DD35A454327DD522E67B991DF2888867CE"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_0_shield_slow_before.png",
+    "bytes": 983920,
+    "sha256": "5E99D7961F035F2BB079B73D95C40F1FAD5D32A4BC8B5DDFFE0B1D76D6295235"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_0_shield_slow_first_contact.png",
+    "bytes": 944440,
+    "sha256": "31454CD98A06A076E50F0747DA3E2A6A6C80EE0359DF40A343DC713D09F0B4F1"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_0_shield_slow_loaded_hold.png",
+    "bytes": 954511,
+    "sha256": "BE117837D40EEC4C59CF2A44E1E37503BBD220EF19978E7371C90B842A9DD4E0"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_0_shield_slow_read.png",
+    "bytes": 953604,
+    "sha256": "ACBE7632F2C9C33F256A906380C795D5E38E1FE6A6B202C43F6DB7FF8799A440"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_0_shield_slow_release.png",
+    "bytes": 945983,
+    "sha256": "7BEB2ACE4272AFB26D0B57209EF033A6038FF406C97C3ED1D65CB6E5D30A5DCE"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_1_body_slow_before.png",
+    "bytes": 989093,
+    "sha256": "B7A5A2D32FAF81ADD9288AFC03A578342457DA71B990F84AC45FF04F668152A0"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_1_body_slow_first_contact.png",
+    "bytes": 954456,
+    "sha256": "EBCBCEBE286719B83B2538F970508CAFAB37CD225BF363730D21DB1E4F7E0288"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_1_body_slow_loaded_hold.png",
+    "bytes": 957675,
+    "sha256": "02D2E7C17C62778853A510A243F1E077F804E8C330CCB8ABB6BB4741DD265EAC"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_1_body_slow_read.png",
+    "bytes": 957290,
+    "sha256": "CC515383A4F142DB957FE1F298EFF9462118F772FB5D57E9619C088C3160C08B"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_1_body_slow_release.png",
+    "bytes": 952038,
+    "sha256": "E9CB48CA1D8E75394FE3EEE829DD41D1B92E819D008EAFC98111B607BC0880F1"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_1_head_slow_before.png",
+    "bytes": 987979,
+    "sha256": "48FC214F75C570C933C9982A078C8FFB668DA799C419122ECB6FC90219A28541"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_1_head_slow_first_contact.png",
+    "bytes": 952670,
+    "sha256": "11E92BB24194327A3C32A352D2DF5F286E5B8EB1087F78E2F26C0821EFB68812"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_1_head_slow_loaded_hold.png",
+    "bytes": 955484,
+    "sha256": "CD82941552090F45CB4D2184A926BA85FB78D78906760B628B86E9D86D827BA2"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_1_head_slow_read.png",
+    "bytes": 955281,
+    "sha256": "CD1BA99860D9189BDAB139C9F3E3D5B38BC9351F243422ACEB2D6072925F7EA2"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_1_head_slow_release.png",
+    "bytes": 953456,
+    "sha256": "B5E1435679CCB2849CD412CDED5E2558B37657384D4569FF1139BFF50E3BBB57"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_1_shield_slow_before.png",
+    "bytes": 986944,
+    "sha256": "5C68AF03EF6C970677987AC8E2ABA993A68B93DC43684A5B4F754E23F93CA5AD"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_1_shield_slow_first_contact.png",
+    "bytes": 945465,
+    "sha256": "C49EE81E2468BED6C9C7B2F2208F4F1A017629F1B40CA0AD412F14B7B2B29A0A"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_1_shield_slow_loaded_hold.png",
+    "bytes": 956062,
+    "sha256": "425BB2AB9725426DF3B0E383DE599D50D09A24B3C6300D960B20696FE9A092FB"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_1_shield_slow_read.png",
+    "bytes": 956432,
+    "sha256": "63A894F7DE0B1477AE1B668AD16C01FE655DB222EE39B3B6220AC52CFD5FE6EC"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/arena_mounted_1_shield_slow_release.png",
+    "bytes": 946447,
+    "sha256": "FD582F24FAE0397A2FE699C65EADC5B1D4A30DA56C65B6F9C18486FA82F29308"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_0_body_slow_airborne.png",
+    "bytes": 921928,
+    "sha256": "6A47DA963EC72AF4A295BD630DA382DB14FBF2BE193D746F7BED6F9CAB883106"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_0_body_slow_before.png",
+    "bytes": 968057,
+    "sha256": "2EA986F7A852AF0ABFD7EE7CB0370B8A734967F9F1DE9792CB3CC699994EDB03"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_0_body_slow_first_contact.png",
+    "bytes": 927189,
+    "sha256": "3C5A0F10D393A40092D0703F4252AF56DD9964FFF2EFDB0B6B6DF7D7EF055BD4"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_0_body_slow_landed.png",
+    "bytes": 915550,
+    "sha256": "9C9B08E9C5B2D979D5A4E0389DBA9C580A8FF1D12D7ACC610F9CED030BED31F9"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_0_body_slow_loaded_hold.png",
+    "bytes": 928999,
+    "sha256": "7879A6F37757A1BB5E2EAE725A7179BD2E207D4B2C2A6F94D5404F32983E88ED"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_0_body_slow_read.png",
+    "bytes": 929587,
+    "sha256": "92C0D4A16E2B6A31E84DC95AD58F8A10F8880D8F4509CD2671E3478E4F02DFF5"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_0_body_slow_release.png",
+    "bytes": 923375,
+    "sha256": "411FCC24B328DC13F4D3AE0FCEB094951281797B29F550407AAEA24E8ACE6C4D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_0_body_slow_weapon_release.png",
+    "bytes": 920014,
+    "sha256": "DED2E37C20D8B18C739FC072628AB93B31C55F0C7CC11FDB1BE460CE470E4997"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_0_head_slow_airborne.png",
+    "bytes": 924481,
+    "sha256": "D5D3935EE5FBEFA4AFD4A6311255429FBFC74FA091A82B32D7B9DE0ACB5224D5"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_0_head_slow_before.png",
+    "bytes": 968875,
+    "sha256": "F57CCCC5C94791005CBC08A9C52D410B24A71A61C5F97359FCBD719B09EA3C9E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_0_head_slow_first_contact.png",
+    "bytes": 930426,
+    "sha256": "099B22561F9907994AD0206350D63F97AA16FC6CD0EA82C64883DE3A1F370044"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_0_head_slow_landed.png",
+    "bytes": 912990,
+    "sha256": "D9F8DFA80312DF188003099A2A0F32955D6413467766754E5C807FEDD4E0F87D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_0_head_slow_loaded_hold.png",
+    "bytes": 934383,
+    "sha256": "975C65F39A1244C9B4724805EF44C25C18CFE19A40C6AC399B75753005EC0B6A"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_0_head_slow_read.png",
+    "bytes": 934476,
+    "sha256": "4E67287F50E23A30842F438C6BF95C6339FB704B6ACCF481E2036471581A43A6"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_0_head_slow_release.png",
+    "bytes": 927395,
+    "sha256": "2C1CADD4F3CA9AE87B0E6069D1EDB9FB97E6DD0465A012171341488F5A9AF546"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_0_head_slow_weapon_release.png",
+    "bytes": 919593,
+    "sha256": "1BBBB0C74C25B9A548957E9EA7481525E6A056184E7BB300066A4CFEBF2DBA87"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_1_body_slow_airborne.png",
+    "bytes": 924182,
+    "sha256": "5DFF1BE32A3D835D7EC821CF8F24983C76BF025DD17B1998544D644C99AED7EB"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_1_body_slow_before.png",
+    "bytes": 971057,
+    "sha256": "815F65BDCF83F9D90C5C42162D7538F384D767B49179000677579BBB209879AE"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_1_body_slow_first_contact.png",
+    "bytes": 928279,
+    "sha256": "D2CF5F2286CA328A0A66CC18D7B41EA3E306146EEB9212DF2889B7D68C6790FE"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_1_body_slow_landed.png",
+    "bytes": 929490,
+    "sha256": "51B26235296B8E06D6C27F3B62FA7FC597176873CD0B8EF57EA8CFB3EFB9F987"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_1_body_slow_loaded_hold.png",
+    "bytes": 929755,
+    "sha256": "0CAC80A8D4676DF7D34FC019EF10340A357BF4BE4BB5CA287864B4EF42EE5B63"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_1_body_slow_read.png",
+    "bytes": 930318,
+    "sha256": "C58D69D3DDAE9AC7BA5FC4205DCF8AD31BD56EAA2E731F5FF4730276AA2A4AF4"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_1_body_slow_release.png",
+    "bytes": 926157,
+    "sha256": "27EDEA8A012E048A466CDCE74E8F71C2677319A912D5A069517ADE6D4B42F99F"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_1_body_slow_weapon_release.png",
+    "bytes": 921533,
+    "sha256": "20286A9C39919C96F59F4BE0DF78CD9AE25ADC3E27C16689EFE536D8E46BF853"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_1_head_slow_airborne.png",
+    "bytes": 923341,
+    "sha256": "19072F19880458C13359D8EEFE75BE5F314B267DF633F8D45984985E99E62BCF"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_1_head_slow_before.png",
+    "bytes": 970341,
+    "sha256": "8478B09A9004916ACFE898587DC5B1862E082E83D9F442811174538BBB4593EF"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_1_head_slow_first_contact.png",
+    "bytes": 929708,
+    "sha256": "809267B7275893F8D4AF0D0EB8D6FBC6EAD42AF606EAB3C8C66CDB9E1C1A6535"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_1_head_slow_landed.png",
+    "bytes": 931052,
+    "sha256": "5A87E75332DC3097353580F04401F8B0526CC6E284D286700A65E80C51A06AF2"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_1_head_slow_loaded_hold.png",
+    "bytes": 928905,
+    "sha256": "893B75C6CFFB9F2A163C9C964C9A0E3845AC09EC603EEF8AE1A0D8080275ED48"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_1_head_slow_read.png",
+    "bytes": 930818,
+    "sha256": "A102A75A3EA464ED6FEF933B8995E1FF4666850EDD5F70C701E3C1B190B0B248"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_1_head_slow_release.png",
+    "bytes": 925413,
+    "sha256": "51E98C9393200FA315BC9BADD9935F96C6DB17E00D62285D17C8B7FD893AB48A"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-package03/war_fatal_1_head_slow_weapon_release.png",
+    "bytes": 919612,
+    "sha256": "5D4434C71D5B7D9B0269E4409ED9CBD59BF88DED39AAC256C8A0897655D51C77"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid-package01/arena_mounted_0_shield_slow_solid_before.png",
+    "bytes": 982153,
+    "sha256": "91AD3030B4D6BDD72081419F8A45BC0E7D72E831466D011870A3A2344DC58441"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid-package01/arena_mounted_0_shield_slow_solid_first_contact.png",
+    "bytes": 943345,
+    "sha256": "48896B76C8602B7B47D24434D3D8615B06344FE7CE414F9B93D9A84DC05E4B56"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid-package01/arena_mounted_0_shield_slow_solid_loaded_hold.png",
+    "bytes": 952366,
+    "sha256": "C4358DAA4B6C094B073B3F3E1E83A63B3BC7EB0124D4F8229C41A52DB19653A7"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid-package01/arena_mounted_0_shield_slow_solid_read.png",
+    "bytes": 951421,
+    "sha256": "34E1C39CCE94B8AA1BDD68AE58B0E788B56F538AD4C4C321291A5B5ADD462EAC"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid-package01/arena_mounted_0_shield_slow_solid_release.png",
+    "bytes": 942846,
+    "sha256": "BBE26107311F5826996A5F2B817AFCD772E9E7A05D3387B382AB4872136768A4"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid-package01/arena_mounted_1_shield_slow_solid_break_before.png",
+    "bytes": 987978,
+    "sha256": "E3224109D021E3D86657943C2CEA1D3D961EEEC973B5380C47A0E5E287FEE4F1"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid-package01/arena_mounted_1_shield_slow_solid_break_first_contact.png",
+    "bytes": 945522,
+    "sha256": "6060BB421AC20956165BF52A822B697A39E93729C870CCAA87E864C3B17D7B14"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid-package01/arena_mounted_1_shield_slow_solid_break_loaded_hold.png",
+    "bytes": 956530,
+    "sha256": "B7DCE656848234128F3549EBB42B540283FE1DA9958CCA35ED3D95C92DDBACE3"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid-package01/arena_mounted_1_shield_slow_solid_break_read.png",
+    "bytes": 958322,
+    "sha256": "5011C6514C6FFE778CB24B3C3B8F835967B317C3FD4E5BE1D42B08B7217BAF15"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid-package01/arena_mounted_1_shield_slow_solid_break_release.png",
+    "bytes": 946296,
+    "sha256": "B3CD2B566A04E0CC5E7313B353686DE995BA3CB18311E9123B5B0737B78086F1"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid01/arena_mounted_0_shield_slow_solid_before.png",
+    "bytes": 982153,
+    "sha256": "91AD3030B4D6BDD72081419F8A45BC0E7D72E831466D011870A3A2344DC58441"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid01/arena_mounted_0_shield_slow_solid_first_contact.png",
+    "bytes": 941775,
+    "sha256": "68EBB6716C49111A7B23D1A7D5BE9E6F2777B98387C21FE4D5C0C5DED3536461"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid01/arena_mounted_0_shield_slow_solid_loaded_hold.png",
+    "bytes": 953010,
+    "sha256": "F65E82427DB2BFEF4034746451F3A66D72B22DB74AECF8148DA1366FE650FDB1"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid01/arena_mounted_0_shield_slow_solid_read.png",
+    "bytes": 951933,
+    "sha256": "9E02344639AD9773271E1C5A7CDE624293E43E3CDE9DCDEFC06C43A9F3F75F46"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid01/arena_mounted_0_shield_slow_solid_release.png",
+    "bytes": 943122,
+    "sha256": "54AEEF92D7CF4EDD4800A7F0DDCAB1535CCECFD8F336FEECABEFBD01E41368FB"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid01/arena_mounted_1_shield_slow_solid_break_before.png",
+    "bytes": 987978,
+    "sha256": "E3224109D021E3D86657943C2CEA1D3D961EEEC973B5380C47A0E5E287FEE4F1"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid01/arena_mounted_1_shield_slow_solid_break_first_contact.png",
+    "bytes": 946363,
+    "sha256": "E6034316CE9A70E97C3CF705C17662B2E7E2D049C681060551E361980CF81FD0"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid01/arena_mounted_1_shield_slow_solid_break_loaded_hold.png",
+    "bytes": 954610,
+    "sha256": "1415C93E41D0292744968DCBF382F60B62965C115235C7E65E26A9D4E9B22E46"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid01/arena_mounted_1_shield_slow_solid_break_read.png",
+    "bytes": 956407,
+    "sha256": "8E65416D83E9F5E8E94B40E4C6746E484906EB5FE61AE9EE25076871ACD8F2D6"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid01/arena_mounted_1_shield_slow_solid_break_release.png",
+    "bytes": 947301,
+    "sha256": "F7912389CF8FF03148DA399DF4DE2AD26FCB9523C22D3406F53188307632F779"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid02/arena_mounted_0_shield_slow_solid_before.png",
+    "bytes": 982153,
+    "sha256": "91AD3030B4D6BDD72081419F8A45BC0E7D72E831466D011870A3A2344DC58441"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid02/arena_mounted_0_shield_slow_solid_first_contact.png",
+    "bytes": 942501,
+    "sha256": "081A1C41755A66542F480B54AEF699CAFC7584B3EE4A92FB0FAF36FD66DA24A9"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid02/arena_mounted_0_shield_slow_solid_loaded_hold.png",
+    "bytes": 951209,
+    "sha256": "382946DA720630B22A75E8F5428708E984F19A5D137040227D9538280B9B88F4"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid02/arena_mounted_0_shield_slow_solid_read.png",
+    "bytes": 951539,
+    "sha256": "67D7F68EE1B44D43404E7EFA19EE59ED390142A81721C85B14728F59C10D0F87"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid02/arena_mounted_0_shield_slow_solid_release.png",
+    "bytes": 942235,
+    "sha256": "B5BECD5CFD5881EBD7F456BC0E9F9D0E88C7E029D6B9AEC0F385AEE097DE15FF"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid02/arena_mounted_1_shield_slow_solid_break_before.png",
+    "bytes": 987978,
+    "sha256": "E3224109D021E3D86657943C2CEA1D3D961EEEC973B5380C47A0E5E287FEE4F1"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid02/arena_mounted_1_shield_slow_solid_break_first_contact.png",
+    "bytes": 946846,
+    "sha256": "5D9EB4CA0CB3284D77D7C7C1E22CF71A7A3033574D27FE9FBC2727CBC7C22F46"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid02/arena_mounted_1_shield_slow_solid_break_loaded_hold.png",
+    "bytes": 954266,
+    "sha256": "D14CF17E8E865B1C4988F4C42E12B388D05CB85C9C041E0B2F5B11FBC52B7932"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid02/arena_mounted_1_shield_slow_solid_break_read.png",
+    "bytes": 954729,
+    "sha256": "C961FE707305E67D19746E0C6038890FB4EC11AF628AFD69BBAD2B0F5B103067"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact-solid02/arena_mounted_1_shield_slow_solid_break_release.png",
+    "bytes": 951918,
+    "sha256": "AE2F632A1B529ED6ADAD66E1E9AA92D2078E5CB693051D86A8492373923C6098"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact01/arena_mounted_0_shield_slow_before.png",
+    "bytes": 983920,
+    "sha256": "5E99D7961F035F2BB079B73D95C40F1FAD5D32A4BC8B5DDFFE0B1D76D6295235"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact01/arena_mounted_0_shield_slow_first_contact.png",
+    "bytes": 945790,
+    "sha256": "044105C56470DB228543EE30C6FA41825DB0385359416CCE6D33C158A5196D70"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact01/arena_mounted_0_shield_slow_loaded_hold.png",
+    "bytes": 953546,
+    "sha256": "E3C7B1C30886E1E4DCFB3961EB10BFFE51106A5A4B1DFA1C7BC1A98396E21552"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact01/arena_mounted_0_shield_slow_read.png",
+    "bytes": 954296,
+    "sha256": "DE51D7AFA6EA122F3AE19631A932364943CC50D303E54F61D69E8A7126034CC5"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact01/arena_mounted_0_shield_slow_release.png",
+    "bytes": 943711,
+    "sha256": "CEE38F155C52E6A6214F467A313596A68C5FC430F4D716D1F76139A0596E373C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_0_body_slow_before.png",
+    "bytes": 985583,
+    "sha256": "DAD5B4B49B56989D804959105313765CB2548574E180777BFB4B7CC8C05B538C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_0_body_slow_first_contact.png",
+    "bytes": 953304,
+    "sha256": "7B8CA58EFA4AAE0537BA31EF7DBB453A20F070951F588EFFA5CB4490DA3354C6"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_0_body_slow_loaded_hold.png",
+    "bytes": 955202,
+    "sha256": "B89625081981588E1AD86972EE864ED015CBD718640E72DD679A7D7BA49FD50E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_0_body_slow_read.png",
+    "bytes": 954257,
+    "sha256": "B1C1D3BD1F8D5EAD4F0102DC52E462F4A57BEF873B02166ED4C90ED0EABD6941"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_0_body_slow_release.png",
+    "bytes": 947772,
+    "sha256": "8FB4F7DB6EFB75B5759957488BD094C6FE3679869569B7511098249825442B87"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_0_head_slow_before.png",
+    "bytes": 986946,
+    "sha256": "E0BA57340EB4DFF939FBCE0AF02D0275E958D246F95C54A915960B9CFDB94E3C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_0_head_slow_first_contact.png",
+    "bytes": 954938,
+    "sha256": "F927CA1FFA480591910777062B12441CC9FDBBD32E8609AEF3B781D84209A755"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_0_head_slow_loaded_hold.png",
+    "bytes": 951755,
+    "sha256": "DA6DF280E7A3E8449989B3C52E31B7CDD8EBE491A9646AEDDA48ADEBC038719D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_0_head_slow_read.png",
+    "bytes": 951925,
+    "sha256": "2E5A9B92C562154B3965307D40833FFB69E24513E71A9762CBB5DA3F44180624"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_0_head_slow_release.png",
+    "bytes": 945723,
+    "sha256": "9CBFB4AE3F191225D54927FD2242B625C93A16D1C6C6E8F5D1E29E01AC95DF92"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_0_shield_off_before.png",
+    "bytes": 983920,
+    "sha256": "5E99D7961F035F2BB079B73D95C40F1FAD5D32A4BC8B5DDFFE0B1D76D6295235"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_0_shield_off_first_contact.png",
+    "bytes": 944143,
+    "sha256": "501C0C4FFE44CDFCDF9C81D4B12605F8ED0CECF93ECBB685988BA845279E63F2"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_0_shield_off_loaded_hold.png",
+    "bytes": 954239,
+    "sha256": "3C4AD09140047EDD6F2871372BB9B058633E02063E14CBC7ED0497232435FB1C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_0_shield_off_release.png",
+    "bytes": 954213,
+    "sha256": "31A61A0359EAA019847FA7DF43B0DD8547BBA9D10D5E48757DED71EBBC223B03"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_0_shield_slow_before.png",
+    "bytes": 983920,
+    "sha256": "5E99D7961F035F2BB079B73D95C40F1FAD5D32A4BC8B5DDFFE0B1D76D6295235"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_0_shield_slow_first_contact.png",
+    "bytes": 943378,
+    "sha256": "1AC4AAD4C08FD808124143667214323AFDCD4B2B7A216A3F8EDC2165B4057DF6"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_0_shield_slow_loaded_hold.png",
+    "bytes": 954275,
+    "sha256": "4D7426BA6F68B4F817A3E336FBB70445DD9701565409EA1628EB7EB9D9EC155D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_0_shield_slow_read.png",
+    "bytes": 954891,
+    "sha256": "4AB535D3A1771CAE35C30447127C0B932AF9A7F60D7512AF9FA20014DD3C7250"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_0_shield_slow_release.png",
+    "bytes": 943956,
+    "sha256": "B195E34FA21F9C5506D78C5ADE41FADCD44BC4C48126CF419919E138A5C60164"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_1_body_slow_before.png",
+    "bytes": 989093,
+    "sha256": "B7A5A2D32FAF81ADD9288AFC03A578342457DA71B990F84AC45FF04F668152A0"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_1_body_slow_first_contact.png",
+    "bytes": 951984,
+    "sha256": "DBCCE207E96A5052B5679C3315A09986585C0741AE84C4F31BD4E0270DBF2390"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_1_body_slow_loaded_hold.png",
+    "bytes": 956605,
+    "sha256": "0B1168134E62AC61AEEDFAAB5D3B53310E6939DB2BE1C0CC597D9DB383F07129"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_1_body_slow_read.png",
+    "bytes": 956461,
+    "sha256": "72DC7F9AADCB42EFC422DBAC010F7C88A93A46092B7F4A1A0AAC7706E1638B71"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_1_body_slow_release.png",
+    "bytes": 951712,
+    "sha256": "76C87C2862C33F37F62DC8C83DC38EC2D63E9C90791AD1324972145F5C5507F9"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_1_head_slow_before.png",
+    "bytes": 987979,
+    "sha256": "48FC214F75C570C933C9982A078C8FFB668DA799C419122ECB6FC90219A28541"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_1_head_slow_first_contact.png",
+    "bytes": 952481,
+    "sha256": "CF0F1FCD686E79928E1B85738BC0A9744B378E0F81BA455DCD206CF42B3ED449"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_1_head_slow_loaded_hold.png",
+    "bytes": 954928,
+    "sha256": "221C7930EFC48AB84B847481B54752AC8493A585DF75A1F90E7C0A6A775FC72A"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_1_head_slow_read.png",
+    "bytes": 955339,
+    "sha256": "F97AAF5A6E66135892663C8F0CA47E83BFF7E86EA5326B0BC9F927D5B1C5542F"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_1_head_slow_release.png",
+    "bytes": 951009,
+    "sha256": "C5001AD8E3DB2C7A6389E229AC026441FD324EEB9E3752AA9F0C59AF2285642B"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_1_shield_slow_before.png",
+    "bytes": 986944,
+    "sha256": "5C68AF03EF6C970677987AC8E2ABA993A68B93DC43684A5B4F754E23F93CA5AD"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_1_shield_slow_first_contact.png",
+    "bytes": 947946,
+    "sha256": "5BB500B807164B299FCBFE2362BB349A8A58850BDBE8828DB2C2691607597876"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_1_shield_slow_loaded_hold.png",
+    "bytes": 955112,
+    "sha256": "F0F1EFD179EBBEADD3270BED74DCA60F575BCCA5DB1A4372A6F44E2D78A49F26"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_1_shield_slow_read.png",
+    "bytes": 955169,
+    "sha256": "C187C891102C388196CD7AC300D64C136E174CBCFD9FE93BBFE8E4FA1D7E87A3"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/arena_mounted_1_shield_slow_release.png",
+    "bytes": 946492,
+    "sha256": "3BF87E37973BC052EF9F8ABA0C7C9881D34A266245154540135845C2054D9A38"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_0_body_slow_airborne.png",
+    "bytes": 923233,
+    "sha256": "DB1E8E999FE62B4F18FD9CC26717544647025C255F1876741E40FB0AD946DF6A"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_0_body_slow_before.png",
+    "bytes": 968057,
+    "sha256": "2EA986F7A852AF0ABFD7EE7CB0370B8A734967F9F1DE9792CB3CC699994EDB03"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_0_body_slow_first_contact.png",
+    "bytes": 928524,
+    "sha256": "7D0D84FEA639EAE6E8EB8DE3E44D623DA4E1E6A64F33657D56A34C1239CA50B6"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_0_body_slow_landed.png",
+    "bytes": 916388,
+    "sha256": "1A3D8868F8F6A788D7F2548E486978C2B2D8AC39B4A0D0F5A420037A0670C53E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_0_body_slow_loaded_hold.png",
+    "bytes": 928678,
+    "sha256": "4D31298F01D6864BF9289B7D8EF79185EE9864EFAF64D6D46E892214B31F07D6"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_0_body_slow_read.png",
+    "bytes": 927676,
+    "sha256": "B77A6CA9426DACADAE64E117EFBCE048EA16096B1CFE88155749DB85FE40C8A4"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_0_body_slow_release.png",
+    "bytes": 923183,
+    "sha256": "D4BF1DF65B78236C6A49739166EEEB850F8CDEDB84E78993DB2122FE9EE2C848"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_0_body_slow_weapon_release.png",
+    "bytes": 919552,
+    "sha256": "58F141C00DFD1CA1272C3C774090FBBC16C29C754217130AB1CA75702E821F12"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_0_head_slow_airborne.png",
+    "bytes": 927057,
+    "sha256": "0EB38A72D98B938F1DC482D07C1FDD0AC0B2364CC2B4469E16196D1AABDEC323"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_0_head_slow_before.png",
+    "bytes": 968875,
+    "sha256": "F57CCCC5C94791005CBC08A9C52D410B24A71A61C5F97359FCBD719B09EA3C9E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_0_head_slow_first_contact.png",
+    "bytes": 931915,
+    "sha256": "EC5B7B5A6E1FD77F146F5010BF0BF86812BE3E33AE7F16916A4FBE0E1B4BADDE"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_0_head_slow_landed.png",
+    "bytes": 915142,
+    "sha256": "527B4A80449023C32217D588243842182CE53FC6401825B76002A2F0A53D32FA"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_0_head_slow_loaded_hold.png",
+    "bytes": 933291,
+    "sha256": "939C51A3368FB8EFE9A6689E460F7CE8DD009B803D80BBC2C60F47C698E9EE3D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_0_head_slow_read.png",
+    "bytes": 933320,
+    "sha256": "B56E6AA844475E90C604988C9971020869CBF942CDF87756B58DB41AF4EF311D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_0_head_slow_release.png",
+    "bytes": 928011,
+    "sha256": "30222C724F45BF538C4B9BE036936DF0DEF87FD3C1F7FEA5D744D2B4D37DFD4C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_0_head_slow_weapon_release.png",
+    "bytes": 919834,
+    "sha256": "BEE8504CCB6D56223609F5D6F9BB4B7B3D27F46B132B3B60120EE2E5965E42F2"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_1_body_slow_airborne.png",
+    "bytes": 924441,
+    "sha256": "5160E8279B7E37B992977B3AA31DB60C78739163EE310C50C7B5D6E50D7B9269"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_1_body_slow_before.png",
+    "bytes": 971057,
+    "sha256": "815F65BDCF83F9D90C5C42162D7538F384D767B49179000677579BBB209879AE"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_1_body_slow_first_contact.png",
+    "bytes": 926538,
+    "sha256": "DED0537415CA0FDC10C0ED5ED4BEC0A169E350A76157DAA487907F3538EFA915"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_1_body_slow_landed.png",
+    "bytes": 933113,
+    "sha256": "B66B45B4E2225F37C4387A3AB0569516632E842EE825EE364095BA290F8B74B5"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_1_body_slow_loaded_hold.png",
+    "bytes": 927546,
+    "sha256": "62A0F4EA3A9C052A56EAE2950E9D7F8ACA7FF5FA05B690E6AD61BC82EB1DB57E"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_1_body_slow_read.png",
+    "bytes": 929451,
+    "sha256": "ED84B39E247917A9152E4B9C94147B1D6EE9FD84584FED459BEBB45949D63BCF"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_1_body_slow_release.png",
+    "bytes": 926628,
+    "sha256": "5C92D14214FB25EF451E8DDC307D4EB24B855DA44223BC0368FB1CAEB735151C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_1_body_slow_weapon_release.png",
+    "bytes": 918953,
+    "sha256": "42A7622D93BAB8E895C6E2D11D62F949CF4A73DE3EEBD5CC60C90A471157F5B5"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_1_head_slow_airborne.png",
+    "bytes": 925105,
+    "sha256": "842DFCB9CBEF1DCF7857C890F1D17159074819CC58966F4C3F80A8C671366A77"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_1_head_slow_before.png",
+    "bytes": 970341,
+    "sha256": "8478B09A9004916ACFE898587DC5B1862E082E83D9F442811174538BBB4593EF"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_1_head_slow_first_contact.png",
+    "bytes": 926652,
+    "sha256": "4DB1AF090C76B6F0399EAAA5047ED6365BDA32C5402694D2C140DA36BF3A836B"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_1_head_slow_landed.png",
+    "bytes": 932827,
+    "sha256": "C6381C9F9CB9FE853127DD5B1BE15187B06872F533ECB0277561218814D53CDA"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_1_head_slow_loaded_hold.png",
+    "bytes": 929239,
+    "sha256": "7BCD8EFEE07F52802D97B0070F22B877107979266AE38F38F27833E0FDDA832A"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_1_head_slow_read.png",
+    "bytes": 930415,
+    "sha256": "1B21C939548403158BEF23DCB8551DF49C4371FA9A8AEF773A6F1AD933B44E8D"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_1_head_slow_release.png",
+    "bytes": 926236,
+    "sha256": "9D19F4B656A299B13DFCF19605F897E1C93C3FA1D2650D951C9F1A889B83D7A0"
+  },
+  {
+    "path": "docs/development/screenshots/v057/impact02/war_fatal_1_head_slow_weapon_release.png",
+    "bytes": 919712,
+    "sha256": "03AF019285C9AA5BDE2DECF3A2D1EA7C0BF3307CB216EDABC538AEA0C1F3B6F3"
+  },
+  {
+    "path": "docs/development/screenshots/v057/smoke-zip01/01_home.png",
+    "bytes": 672577,
+    "sha256": "F0BF7D8D7C2F6FB966D01383782FA94F2B86317359408F0C6A6E26041CD8C379"
+  },
+  {
+    "path": "docs/development/screenshots/v057/smoke-zip01/02_armory.png",
+    "bytes": 527181,
+    "sha256": "A7BB3E38A7C6EB18B816BB6517E9AAA31CBE6094451803C99B78A16298281A61"
+  },
+  {
+    "path": "docs/development/screenshots/v057/smoke-zip01/03_history.png",
+    "bytes": 485222,
+    "sha256": "E2B28C783BEE234192FE0CCC87F664E6445D9ABF8FAFD6D8F65F2E7DCD9EB3A6"
+  },
+  {
+    "path": "docs/development/screenshots/v057/smoke-zip01/04_arena.png",
+    "bytes": 986730,
+    "sha256": "CB489C9A68C903CA33951C3F7FB12AC61239C224FCA863F303CA55454B8960C1"
+  },
+  {
+    "path": "docs/development/screenshots/v057/smoke-zip01/05_result.png",
+    "bytes": 753568,
+    "sha256": "31EA7117FC1D2B53ADA25113C03879DD1EEC6B851410299C769AAE2103DE265C"
+  },
+  {
+    "path": "docs/development/screenshots/v057/smoke-zip01/06_war.png",
+    "bytes": 960465,
+    "sha256": "B5D208262BD7C80E7FB22072FE52CB4D872315BF84E935EAC4171327528FFED8"
+  },
+  {
+    "path": "docs/development/screenshots/v057/smoke-zip01/07_war_result.png",
+    "bytes": 760121,
+    "sha256": "713D872C5449A784C8694C4A13C25816E9639D8204D3623BF382AC3D33BDE705"
+  },
+  {
+    "path": "docs/development/screenshots/v057/smoke-zip01/08_arena_impact.png",
+    "bytes": 955660,
+    "sha256": "CB18B4DDD4DB157780AE5EAFA3551B2952E81473EA993430CF106D12FFEADCC8"
+  },
+  {
+    "path": "docs/development/screenshots/v057/smoke-zip01/09_war_impact.png",
+    "bytes": 944347,
+    "sha256": "94F8EFEC9E8FD9D839CCE89C9218CE90156835D2061680292B5CB11AC51E678D"
+  }
+]

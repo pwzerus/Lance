@@ -1,0 +1,20 @@
+{
+  "version": "0.4.17-r3",
+  "runtime_commit": "4ef9bd85e3ebee0458fbb60b74ead8b3d4583a8d",
+  "branch": "codex/v0.4",
+  "engine": "Godot 4.5.1 stable official f62fdbde1",
+  "platform": "Windows x86_64",
+  "renderer": "gl_compatibility",
+  "export_log": "docs/development/logs/v057/export-r3.log",
+  "files": {
+    "LanceAndLaurel.pck": {
+      "bytes": 73655368,
+      "sha256": "FE232E0B92A4206EE2A014344FA94D54B60CE2287A01107480F77721E3191872"
+    },
+    "LanceAndLaurel.exe": {
+      "bytes": 96725504,
+      "sha256": "78CCC576E8F8BFFD7EF6AD6F36EBD72A41E609A1052225A55B3407C96EA84065"
+    }
+  },
+  "note": "External QA scripts load production resources from this PCK without --path. Tests and tools are excluded. Later documentation/test commits do not alter these binary hashes."
+}

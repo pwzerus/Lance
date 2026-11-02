@@ -1,10 +1,22 @@
 # 任务、审查建议与文件认领
 
-最后整理：2026-11-02 EST。DEV-056开发与实际包/整段边界/ZIP验证完成，独立v0.4.16，运行04ebb2e；全部生产/测试文件释放，root仅收尾提交推送。本轮桌面接口Transport closed，不能沿用QA-054B的OS证据充当本轮试玩。此前第四阶段运动甲声仍未启动。
+最后整理：2026-11-02 EST。DEV-057接触传力与落马返工已完成，额外找错21:46:11–22:17:42 UTC；独立v0.4.17-r3，运行4ef9bd8。实际包末帧/ZIP/QA验证完成，生产/测试全部释放，root仅收尾提交推送。本轮桌面接口Transport closed，不能沿用QA-054B的OS证据充当本轮试玩。第四阶段运动甲声仍未启动。
 
 当前版本分支为 `codex/v0.4`。同版本的修复、同一／相近功能继续在该分支提交 commit；大的结构性改动形成新版本时再创建新的版本分支。不按每个小任务新建分支。
 
 ## 当前文件占用
+
+DEV-057交出：motion056/sound056/timing056生产全部释放，以下认领段为历史。root完成最终文档/启动器/提交后释放本轮全部文件。具体修改、验证类型和下一步见DEV-057交接。
+
+DEV-057后置极限检查补充：r2实际包24组姿态有3组低盾右向落地被长盾撑胸；motion056认领原fallen_rider/test_fall修复上肢地面可达候选，不放宽关节/骨长/支撑阈值。源码stress02及fall05通过后冻结，最终独立导出.17-r3，首包/r2保留。root继续独占最终包验证、启动器和交接。
+
+DEV-057后置审查修复：motion056重新持有fallen_rider及其test，删除未参与靴贴片绘制的独立脚踝角，使foot地面包络跟随实际shin/靴朝向；不新造分件。首导出.17保留为候选，最终另导.17-r2。root负责导出路径更新与复验。
+
+DEV-057后置专项从21:46:11 UTC至至少22:16:11 UTC：生产c51af0f已冻结待实际包复验；sound056仅新增tests/test_extreme_pose_v057.gd/.uid及自己的review，用真实渲染复核极限俯仰受击后柄和detached颈桥。motion056/timing056仅独立只读代码/图像审查。root持有最后导出、必要修复及文档，所有引擎串行。
+
+DEV-057验证扩展：sound056另持有新tests/test_timing_v057.gd/.uid，保留旧v049测试，按contact先加载再冻结的新合约复用暂停/重开/30/60/120Hz限速及扫掠落空验证；root继续独占引擎。motion056优先修实际截图发现的单靴撑高躯干落地问题；不能以旧最下点不穿地断言当自然平躺通过。
+
+DEV-057 / 2026-11-02 20:16:52 UTC：用户试玩.16后仍认为对冲软、死亡僵硬，要求按实际命中部位传递冲力及关节动作，完成后另计30分钟审查修复；主实现未另设截止。基线7fe878f，既有Claude/历史五项差异继续保留。root持有battle.gd、core/joust_match.gd（仅必要事件/受击状态）、visual/exchange_director.gd、impact_fx.gd、必要版本/导出/启动器及DEV-057设计/协作记录。motion056持有visual/fallen_rider.gd、新tests/test_fall_v057.gd/.uid和V057_FALL_REVIEW.md；sound056持有visual/rider_view.gd、必要lance_art.gd及新tests/test_reaction_v057.gd/.uid与V057_REACTION_REVIEW.md；timing056只读诊断碰撞/演出并持有新tests/test_impact_v057.gd/.uid和V057_INDEPENDENT_REVIEW.md。所有引擎/QA存档/桌面由root独占串行；不改正式档、旧包，不重写玩法或添加肢解。目标独立v0.4.17，同codex/v0.4；功能完成后单独记录后置30分钟开始/结束。
 
 DEV-056完成：root、motion056、timing056、sound056所有生产、QA和审查文件已释放；root仅处理交付提交/推送。v0.4.16及ZIP实际包通过，正式档/旧包保留。后续优先补实际OS长按与人耳听感；不把自动运行当作玩家认可。以下DEV-056认领段保留为历史，不代表仍占用。
 

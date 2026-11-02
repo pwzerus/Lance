@@ -1,0 +1,6 @@
+2026-11-02 DEV-057: Read computer-use SKILL.md, guidance, confirmations before connecting.
+node_repl @oai/sky initialization -> Transport closed.
+Same initialization retry -> Transport closed.
+node_repl js_reset -> Transport closed.
+No Windows UI input was performed. No alternative helper or UI injection was used.
+Engine viewport events/scene fixtures and GPU rendering are separate evidence, never manual or human acceptance.

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "full-charge-package02",
+    "exit_code": 0,
+    "log": "E:/GALUMU/docs/development/logs/v057/full-charge-package02.log"
+  },
+  {
+    "name": "impact-solid-package01",
+    "exit_code": 0,
+    "log": "E:/GALUMU/docs/development/logs/v057/impact-solid-package01.log"
+  },
+  {
+    "name": "timing-package01",
+    "exit_code": 0,
+    "log": "E:/GALUMU/docs/development/logs/v057/timing-package01.log"
+  },
+  {
+    "name": "audio-exit-package01",
+    "exit_code": 0,
+    "log": "E:/GALUMU/docs/development/logs/v057/audio-exit-package01.log"
+  }
+]

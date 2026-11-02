@@ -124,7 +124,6 @@ func _make_joints() -> void:
 		if zone=="flank": hip_impulse *= -1.25
 		_joint(side+"_hip",hip_impulse*load,19.0,4.5,-.85,.85)
 		_hinge(side+"_knee",leg.knee-leg.hip,leg.ankle-leg.knee,(1.9 if zone=="flank" else 1.2)*load,24.0,5.0)
-		_joint(side+"_ankle",(.7 if side=="near" else -.5)*load,21.0,4.7,-.30,.30)
 
 func _joint_targets() -> Dictionary:
 	# A brief regional protective reaction yields to freely hanging limbs.
@@ -145,7 +144,6 @@ func _joint_targets() -> Dictionary:
 		if zone=="flank": hip_air *= -1.35
 		targets[side+"_hip"] = lerpf(hip_air,.28 if side=="near" else -.12,ground_blend)
 		targets[side+"_knee"] = float(joints[side+"_knee"].bend_sign)*lerpf((.72 if zone=="flank" else .34)*reaction+.12,.50 if side=="near" else .30,ground_blend)
-		targets[side+"_ankle"] = lerpf(-.08*reaction,.05,ground_blend)
 	if grounded and not visual.detached_pose.is_empty():
 		_ground_targets(targets,ground_blend)
 	return targets
@@ -159,7 +157,7 @@ func _ground_targets(targets: Dictionary, blend: float) -> void:
 	var mirror = Vector2(int(fighter.direction),1)
 	for side in ["near","far"]:
 		var leg: Dictionary = initial_legs[side]
-		var foot_turn = float(joints[side+"_hip"].angle)+float(joints[side+"_knee"].angle)+float(joints[side+"_ankle"].angle)
+		var foot_turn = float(joints[side+"_hip"].angle)+float(joints[side+"_knee"].angle)
 		var foot_below_ankle = ((leg.foot-leg.ankle).rotated(foot_turn)*mirror).rotated(rotation).y
 		# On a forward fall the boot points DOWN from its ankle. Account for
 		# that live orientation, or a 19-unit ankle margin still leaves the
@@ -313,7 +311,9 @@ func _update_pose() -> void:
 		var shin_turn = hip_turn+float(joints[side+"_knee"].angle)
 		legs[side].knee = leg.hip+thigh.rotated(hip_turn)
 		legs[side].ankle = legs[side].knee+shin.rotated(shin_turn)
-		legs[side].foot = legs[side].ankle+(leg.foot-leg.ankle).rotated(shin_turn+float(joints[side+"_ankle"].angle))
+		# The existing boot is part of the knee-to-ankle patch. Its collision
+		# envelope must use that same shin rotation, not an invisible ankle.
+		legs[side].foot = legs[side].ankle+(leg.foot-leg.ankle).rotated(shin_turn)
 	var wrist_turn = spine+float(joints.right_upper.angle)*.45+float(joints.right_elbow.angle)*.25
 	for renderer in [visual,far_leg]:
 		renderer.detached_pose = pose

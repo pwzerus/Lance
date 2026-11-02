@@ -106,6 +106,10 @@ func inspect(actor, row: Dictionary) -> void:
 	for side in ["near","far"]:
 		var now: Dictionary = actor.visual.detached_legs[side]
 		var initial: Dictionary = actor.initial_legs[side]
+		var initial_shin: Vector2 = initial.ankle-initial.knee
+		var current_shin: Vector2 = now.ankle-now.knee
+		var visible_boot_end: Vector2 = now.ankle+(initial.foot-initial.ankle).rotated(initial_shin.angle_to(current_shin))
+		check(now.foot.distance_to(visible_boot_end)<.002,"Foot envelope uses the visible knee-to-ankle boot rotation")
 		for pair in [["hip","knee"],["knee","ankle"],["ankle","foot"]]:
 			var error = absf(now[pair[0]].distance_to(now[pair[1]])-initial[pair[0]].distance_to(initial[pair[1]]))
 			row.maximum_bone_error = maxf(row.maximum_bone_error,error)

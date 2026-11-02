@@ -1,4 +1,4 @@
-extends "res://tests/test_impact_audio_v050.gd"
+extends "test_impact_audio_v050.gd"
 ## Reuse the existing real playback/PCM/group-budget contract. Additional
 ## measurements isolate spectral/body changes from merely raising the gain.
 

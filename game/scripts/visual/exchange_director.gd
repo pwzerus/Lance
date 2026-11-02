@@ -7,12 +7,12 @@ extends RefCounted
 const APPROACH_MAX_DURATION = 1.15
 const APPROACH_ENTER_DURATION = .18
 const APPROACH_MIN_SCALE = .45
-const HITSTOP_MIN_DURATION = .045
-const HITSTOP_MAX_DURATION = .085
+const HITSTOP_MIN_DURATION = .055
+const HITSTOP_MAX_DURATION = .095
 const HITSTOP_SCALE = .001
-const READ_DURATION = .25
-const READ_SCALE = .32
-const RELEASE_DURATION = .25
+const READ_DURATION = .18
+const READ_SCALE = .36
+const RELEASE_DURATION = .20
 const FAST_RELEASE_DURATION = .12
 const MAX_IMPACT_DURATION = HITSTOP_MAX_DURATION+READ_DURATION+RELEASE_DURATION
 const EPSILON = .00000001
@@ -110,11 +110,13 @@ static func _merge_summary(a: Dictionary, b: Dictionary) -> Dictionary:
 
 static func contact_strength(event: Dictionary) -> float:
 	var strength = clampf(maxf(0.0,float(event.get("impulse",0.0)))/85.0,0.0,1.0)
-	# A blocked blow can be loud and forceful while transferring little injury
-	# impulse to its rider. Use actual contact speed for that presentation.
+	# Armour or a shield can transmit little injury while receiving a heavy
+	# lance strike. Use actual incoming contact speed for this presentation,
+	# never to increase damage. Scraping contact keeps a weaker visual accent.
 	var speed: Variant = event.get("speed",0.0)
-	if event.get("zone","")=="shield" and (speed is int or speed is float) and is_finite(float(speed)):
-		strength = maxf(strength,clampf(float(speed)/900.0,0.0,1.0)*.75)
+	if (speed is int or speed is float) and is_finite(float(speed)):
+		var transfer = .48 if bool(event.get("glanced",false)) else .75
+		strength = maxf(strength,clampf(float(speed)/900.0,0.0,1.0)*transfer)
 	return strength
 
 func notify_contacts(events: Array) -> void:

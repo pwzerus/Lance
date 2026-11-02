@@ -81,6 +81,9 @@ var guard_high = false
 const COMBAT_SAFE_RECT = Rect2(16,154,1408,548)
 const GUARD_VALUES = [1.0,.43,0.0]
 const GUARD_NAMES = ["护头","护胸","护腹"]
+const RUNUP_ZOOM = .68
+const DUEL_ENTER_GAP = 1900.0
+const DUEL_FULL_GAP = 1200.0
 var guard_slot = 1
 var guard_buttons: Array[Button] = []
 var ui_pointer_held = false
@@ -164,6 +167,10 @@ func _ready() -> void:
 		match_model.fighters[i]["red"] = rider.red
 		world.add_child(rider)
 		riders.append(rider)
+	# A detached rider keeps its mount's effective Z. Draw its main body
+	# after that mount so the near thigh does not vanish at the handover.
+	# The separate far leg stays at its lower Z; the rail still splits lanes.
+	world.move_child(effects,world.get_child_count()-1)
 	rail = Node2D.new()
 	rail.z_index = 1
 	rail.draw.connect(_draw_rail)
@@ -411,6 +418,7 @@ func _process(delta: float) -> void:
 		# the whole hold before the player has seen that actual collision.
 		_advance_exchange(0.0 if contact_first_frame_pending else elapsed)
 		contact_first_frame_pending = false
+		sound.set_movement_duck(float(exchange_state.audio_duck))
 		# Start the short attack beside its visible frame, after any synchronous
 		# result persistence. Keep hit rules and rewards in the physics step.
 		for cue in sound.limit_contact_group(contact_audio):
@@ -481,12 +489,12 @@ func _update_camera(real_delta: float, now: int) -> void:
 		# Settle into the run-up framing before the horse starts. Otherwise
 		# camera travel on the first spur is mistaken for acceleration.
 		var settle = 1.0-smoothstep(.25,1.35,float(match_model.phase_time))
-		desired_zoom = lerpf(.28,.82,settle)
+		desired_zoom = lerpf(.28,RUNUP_ZOOM,settle)
 		center_x = lerpf(center_x,720+a+450.0/desired_zoom,settle)
 	elif match_model.phase=="charge" and before_crossing:
-		var duel = 1.0-smoothstep(1800,2800,separation)
+		var duel = 1.0-smoothstep(DUEL_FULL_GAP,DUEL_ENTER_GAP,separation)
 		var duel_zoom = clampf(1120.0/(separation+300.0),.44,1.65)
-		desired_zoom = lerpf(.82,duel_zoom,duel)
+		desired_zoom = lerpf(RUNUP_ZOOM,duel_zoom,duel)
 		var follow_x = 720+a+450.0/desired_zoom
 		center_x = lerpf(follow_x,720+(a+b)*.5,duel)
 	elif match_model.phase in ["charge","turn","ended"]:
@@ -513,8 +521,15 @@ func _update_camera(real_delta: float, now: int) -> void:
 	var vertical_bounds = _mounted_vertical_bounds()
 	var safe = COMBAT_SAFE_RECT.grow(-8)
 	var zoom_limit = safe.size.y/maxf(1.0,vertical_bounds.y-vertical_bounds.x)
+	# Leave a little framing room during the approach. A real contact then
+	# closes that room with a quick, bounded push; the previous camera was
+	# already at its safe maximum long before the hit and had no visual accent.
+	if match_model.phase=="charge" and before_crossing and not pass_connected:
+		desired_zoom = minf(desired_zoom,zoom_limit*.93)
+	elif focus_weight>0.0:
+		desired_zoom = lerpf(desired_zoom,zoom_limit,focus_weight)
 	desired_zoom = minf(desired_zoom,zoom_limit)
-	var response = 10.0 if match_model.phase=="ready" else (8.0 if focus_weight>0.0 else (5.0 if approach_slow else 3.3))
+	var response = 10.0 if match_model.phase=="ready" else (17.0 if focus_weight>0.0 else (5.0 if approach_slow else 4.0))
 	var blend = 1.0-exp(-real_delta*response)
 	camera.zoom = camera.zoom.lerp(Vector2.ONE*desired_zoom,blend)
 	var viewport_center_y = get_viewport_rect().size.y*.5
@@ -553,7 +568,10 @@ func _update_views() -> void:
 		if match_model.phase == "ended" and terminal_at > 0:
 			departing = departure_elapsed*float(fighter.speed)*int(fighter.direction)
 		riders[i].position = Vector2(float(fighter.x)+departing, float(fighter.get("lane_y",0.0)))
-		riders[i].moving = not is_finished and (match_model.phase=="charge" or (match_model.phase=="turn" and fighter.gait_moving) or (match_model.phase=="ended" and float(fighter.speed)>.5))
+		# Results freeze the existing phase and departure position. Preserve
+		# that pose on both the horse renderer and the model-driven saddle;
+		# switching only the renderer to standing disconnected their geometry.
+		riders[i].moving = match_model.phase=="charge" or (match_model.phase=="turn" and fighter.gait_moving) or (match_model.phase=="ended" and float(fighter.speed)>.5)
 		riders[i].visible = true
 		riders[i].blood_enabled = GameState.profile.settings.blood
 	effects.blood_enabled = GameState.profile.settings.blood

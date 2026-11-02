@@ -169,12 +169,12 @@ func _advance_recoil(delta: float) -> void:
 		remaining -= dt
 
 func receive_impact(strength: float, on_shield: bool) -> void:
-	impact_velocity = minf(impact_velocity+clampf(strength,0,1)*(17.0 if on_shield else 42.0),48.0)
+	impact_velocity = minf(impact_velocity+clampf(strength,0,1)*(30.0 if on_shield else 52.0),60.0)
 	if on_shield:
-		shield_velocity = minf(shield_velocity+clampf(strength,0,1)*36.0,42.0)
+		shield_velocity = minf(shield_velocity+clampf(strength,0,1)*48.0,56.0)
 
 func receive_lance_contact(strength: float) -> void:
-	lance_velocity = minf(lance_velocity+clampf(strength,0,1)*32.0,36.0)
+	lance_velocity = minf(lance_velocity+clampf(strength,0,1)*40.0,46.0)
 
 func draw_part(part: String, destination: Rect2, color: Color = Color.WHITE) -> void:
 	draw_texture_rect_region(ATLAS,destination,PARTS[part],color)

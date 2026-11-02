@@ -1,0 +1,548 @@
+{
+	"driver": "WASAPI",
+	"failures": [],
+	"mix_rate": 48000.0,
+	"passed": true,
+	"record_position": "Last Master effect; effects run before the Master volume/mute stage in Godot 4.5.1.",
+	"rows": [
+		{
+			"case": {
+				"duration": 0.38,
+				"id": "00_muted_record_probe",
+				"probe": true
+			},
+			"events": [],
+			"master_muted": true,
+			"maximum_post_mute_meter_db": -199.999984741211,
+			"metrics": {
+				"bits": 16,
+				"channels": 2,
+				"clipped_samples": 0,
+				"duration": 0.512,
+				"frames": 24576,
+				"near_full_scale_samples": 0,
+				"peak": 0.180328369140625,
+				"peak_channels": [
+					0.180328369140625,
+					0.180328369140625
+				],
+				"peak_dbfs": -14.878718899601,
+				"rate": 48000,
+				"rms": 0.0192841457338871,
+				"sha256": "8cfe0c58125710d0a90bc18e10a8c81c79ea22e45d177b95e60080bd642fbeef",
+				"valid": true
+			},
+			"scope": "Actual pre-mute Master mix of authored production cues and representative movement/UI layers, not a full match or human listening verdict.",
+			"wav": "E:/GALUMU/docs/development/logs/v056/master_mix01/00_muted_record_probe.wav"
+		},
+		{
+			"case": {
+				"duration": 1.0,
+				"events": [
+					{
+						"attacker": 0,
+						"broke": false,
+						"damage": 10.0,
+						"defender": 1,
+						"glanced": false,
+						"impulse": 85.0,
+						"position": "(0.0, -210.0)",
+						"speed": 960.0,
+						"type": "hit",
+						"zone": "head"
+					}
+				],
+				"id": "01_helmet_running_mix"
+			},
+			"events": [
+				{
+					"actual_seconds": 0.233208,
+					"batch": 1,
+					"cues": [
+						{
+							"cue": "contact_helmet_solid_0",
+							"db": -2.5,
+							"group_reduction_db": 0.0,
+							"kind": "solid",
+							"material": "helmet",
+							"pitch": 0.91,
+							"strength": 1.0,
+							"variant": 0,
+							"zone": "head"
+						}
+					]
+				}
+			],
+			"master_muted": true,
+			"maximum_post_mute_meter_db": -199.999984741211,
+			"metrics": {
+				"bits": 16,
+				"channels": 2,
+				"clipped_samples": 0,
+				"duration": 1.14133333333333,
+				"frames": 54784,
+				"near_full_scale_samples": 0,
+				"peak": 0.48797607421875,
+				"peak_channels": [
+					0.48797607421875,
+					0.48797607421875
+				],
+				"peak_dbfs": -6.23202942426966,
+				"rate": 48000,
+				"rms": 0.0447844345682219,
+				"sha256": "e74ee980fab4fbccc34259e83a9d3036dd79d23cc9cafab2e58147d932ef2c40",
+				"valid": true
+			},
+			"scope": "Actual pre-mute Master mix of authored production cues and representative movement/UI layers, not a full match or human listening verdict.",
+			"wav": "E:/GALUMU/docs/development/logs/v056/master_mix01/01_helmet_running_mix.wav"
+		},
+		{
+			"case": {
+				"duration": 1.0,
+				"events": [
+					{
+						"attacker": 0,
+						"broke": false,
+						"damage": 10.0,
+						"defender": 1,
+						"glanced": false,
+						"impulse": 85.0,
+						"position": "(0.0, -210.0)",
+						"speed": 960.0,
+						"type": "hit",
+						"zone": "body"
+					}
+				],
+				"id": "02_plate_running_mix"
+			},
+			"events": [
+				{
+					"actual_seconds": 0.233226,
+					"batch": 1,
+					"cues": [
+						{
+							"cue": "contact_plate_solid_0",
+							"db": -2.5,
+							"group_reduction_db": 0.0,
+							"kind": "solid",
+							"material": "plate",
+							"pitch": 0.91,
+							"strength": 1.0,
+							"variant": 0,
+							"zone": "body"
+						}
+					]
+				}
+			],
+			"master_muted": true,
+			"maximum_post_mute_meter_db": -199.999984741211,
+			"metrics": {
+				"bits": 16,
+				"channels": 2,
+				"clipped_samples": 0,
+				"duration": 1.152,
+				"frames": 55296,
+				"near_full_scale_samples": 0,
+				"peak": 0.515960693359375,
+				"peak_channels": [
+					0.515960693359375,
+					0.515960693359375
+				],
+				"peak_dbfs": -5.74766764603496,
+				"rate": 48000,
+				"rms": 0.0498571072341643,
+				"sha256": "ef6d51fed67bfb0351bfc55657051f226bc2bcc03b45fc87cb427209ca51b849",
+				"valid": true
+			},
+			"scope": "Actual pre-mute Master mix of authored production cues and representative movement/UI layers, not a full match or human listening verdict.",
+			"wav": "E:/GALUMU/docs/development/logs/v056/master_mix01/02_plate_running_mix.wav"
+		},
+		{
+			"case": {
+				"duration": 1.0,
+				"events": [
+					{
+						"attacker": 0,
+						"broke": false,
+						"damage": 10.0,
+						"defender": 1,
+						"glanced": false,
+						"impulse": 11.0,
+						"position": "(0.0, -210.0)",
+						"speed": 960.0,
+						"type": "hit",
+						"zone": "shield"
+					}
+				],
+				"id": "03_wood_shield_running_mix"
+			},
+			"events": [
+				{
+					"actual_seconds": 0.232771,
+					"batch": 1,
+					"cues": [
+						{
+							"cue": "contact_shield_wood_solid_0",
+							"db": -4.75,
+							"group_reduction_db": 0.0,
+							"kind": "solid",
+							"material": "shield_wood",
+							"pitch": 0.9375,
+							"strength": 0.75,
+							"variant": 0,
+							"zone": "shield"
+						}
+					]
+				}
+			],
+			"master_muted": true,
+			"maximum_post_mute_meter_db": -199.999984741211,
+			"metrics": {
+				"bits": 16,
+				"channels": 2,
+				"clipped_samples": 0,
+				"duration": 1.14133333333333,
+				"frames": 54784,
+				"near_full_scale_samples": 0,
+				"peak": 0.356170654296875,
+				"peak_channels": [
+					0.356170654296875,
+					0.356170654296875
+				],
+				"peak_dbfs": -8.96683731800304,
+				"rate": 48000,
+				"rms": 0.037610318513668,
+				"sha256": "0fd6fcebb066c48be47b4f6101ce81e9596ad3014ad7945920bb02b965bcbe72",
+				"valid": true
+			},
+			"scope": "Actual pre-mute Master mix of authored production cues and representative movement/UI layers, not a full match or human listening verdict.",
+			"wav": "E:/GALUMU/docs/development/logs/v056/master_mix01/03_wood_shield_running_mix.wav"
+		},
+		{
+			"case": {
+				"duration": 1.95,
+				"events": [
+					{
+						"attacker": 0,
+						"broke": true,
+						"damage": 10.0,
+						"defender": 1,
+						"glanced": false,
+						"impulse": 85.0,
+						"position": "(0.0, -210.0)",
+						"speed": 960.0,
+						"type": "hit",
+						"zone": "head"
+					},
+					{
+						"attacker": 1,
+						"broke": true,
+						"damage": 10.0,
+						"defender": 0,
+						"glanced": false,
+						"impulse": 85.0,
+						"position": "(0.0, -210.0)",
+						"speed": 960.0,
+						"type": "hit",
+						"zone": "body"
+					}
+				],
+				"id": "04_double_break_win_boundary",
+				"ui": "win"
+			},
+			"events": [
+				{
+					"actual_seconds": 0.233333,
+					"batch": 1,
+					"cues": [
+						{
+							"cue": "contact_helmet_solid_1",
+							"db": -10.2182778530507,
+							"group_reduction_db": -7.71827785305069,
+							"kind": "solid",
+							"material": "helmet",
+							"pitch": 0.898,
+							"strength": 1.0,
+							"variant": 1,
+							"zone": "head"
+						},
+						{
+							"cue": "lance_break_0",
+							"db": -14.9405000752729,
+							"group_reduction_db": -7.71827785305069,
+							"pitch": 1.0,
+							"variant": 0
+						},
+						{
+							"cue": "contact_plate_solid_1",
+							"db": -10.2182778530507,
+							"group_reduction_db": -7.71827785305069,
+							"kind": "solid",
+							"material": "plate",
+							"pitch": 0.898,
+							"strength": 1.0,
+							"variant": 1,
+							"zone": "body"
+						},
+						{
+							"cue": "lance_break_1",
+							"db": -14.9405000752729,
+							"group_reduction_db": -7.71827785305069,
+							"pitch": 0.975,
+							"variant": 1
+						}
+					]
+				},
+				{
+					"actual_seconds": 0.233333,
+					"note": "Deliberate same-frame boundary stress; normal results appear later.",
+					"ui": "win"
+				}
+			],
+			"master_muted": true,
+			"maximum_post_mute_meter_db": -199.999984741211,
+			"metrics": {
+				"bits": 16,
+				"channels": 2,
+				"clipped_samples": 0,
+				"duration": 2.10133333333333,
+				"frames": 100864,
+				"near_full_scale_samples": 0,
+				"peak": 0.546875,
+				"peak_channels": [
+					0.546875,
+					0.546875
+				],
+				"peak_dbfs": -5.24223859267223,
+				"rate": 48000,
+				"rms": 0.0408119035336951,
+				"sha256": "64477a4efb6b277759ca8df9c274cfd6af965c48064170751f1160a21f22a395",
+				"valid": true
+			},
+			"scope": "Actual pre-mute Master mix of authored production cues and representative movement/UI layers, not a full match or human listening verdict.",
+			"wav": "E:/GALUMU/docs/development/logs/v056/master_mix01/04_double_break_win_boundary.wav"
+		},
+		{
+			"case": {
+				"duration": 1.65,
+				"events": [
+					{
+						"attacker": 0,
+						"broke": true,
+						"damage": 10.0,
+						"defender": 1,
+						"glanced": false,
+						"impulse": 85.0,
+						"position": "(0.0, -210.0)",
+						"speed": 960.0,
+						"type": "hit",
+						"zone": "head"
+					},
+					{
+						"attacker": 1,
+						"broke": true,
+						"damage": 10.0,
+						"defender": 0,
+						"glanced": false,
+						"impulse": 85.0,
+						"position": "(0.0, -210.0)",
+						"speed": 960.0,
+						"type": "hit",
+						"zone": "body"
+					}
+				],
+				"id": "05_double_break_lose_boundary",
+				"ui": "lose"
+			},
+			"events": [
+				{
+					"actual_seconds": 0.234002,
+					"batch": 1,
+					"cues": [
+						{
+							"cue": "contact_helmet_solid_2",
+							"db": -10.2182778530507,
+							"group_reduction_db": -7.71827785305069,
+							"kind": "solid",
+							"material": "helmet",
+							"pitch": 0.924,
+							"strength": 1.0,
+							"variant": 2,
+							"zone": "head"
+						},
+						{
+							"cue": "lance_break_2",
+							"db": -14.9405000752729,
+							"group_reduction_db": -7.71827785305069,
+							"pitch": 1.025,
+							"variant": 2
+						},
+						{
+							"cue": "contact_plate_solid_2",
+							"db": -10.2182778530507,
+							"group_reduction_db": -7.71827785305069,
+							"kind": "solid",
+							"material": "plate",
+							"pitch": 0.924,
+							"strength": 1.0,
+							"variant": 2,
+							"zone": "body"
+						},
+						{
+							"cue": "lance_break_0",
+							"db": -14.9405000752729,
+							"group_reduction_db": -7.71827785305069,
+							"pitch": 1.0,
+							"variant": 0
+						}
+					]
+				},
+				{
+					"actual_seconds": 0.234002,
+					"note": "Deliberate same-frame boundary stress; normal results appear later.",
+					"ui": "lose"
+				}
+			],
+			"master_muted": true,
+			"maximum_post_mute_meter_db": -199.999984741211,
+			"metrics": {
+				"bits": 16,
+				"channels": 2,
+				"clipped_samples": 0,
+				"duration": 1.792,
+				"frames": 86016,
+				"near_full_scale_samples": 0,
+				"peak": 0.411285400390625,
+				"peak_channels": [
+					0.411285400390625,
+					0.411285400390625
+				],
+				"peak_dbfs": -7.71713413183569,
+				"rate": 48000,
+				"rms": 0.0372096695172724,
+				"sha256": "a83f009a4cbb65c88642172c0560655e493792b66ec2649668b42c38eed75853",
+				"valid": true
+			},
+			"scope": "Actual pre-mute Master mix of authored production cues and representative movement/UI layers, not a full match or human listening verdict.",
+			"wav": "E:/GALUMU/docs/development/logs/v056/master_mix01/05_double_break_lose_boundary.wav"
+		},
+		{
+			"case": {
+				"duration": 1.15,
+				"events": [
+					{
+						"attacker": 0,
+						"broke": true,
+						"damage": 10.0,
+						"defender": 1,
+						"glanced": false,
+						"impulse": 85.0,
+						"position": "(0.0, -210.0)",
+						"speed": 960.0,
+						"type": "hit",
+						"zone": "body"
+					}
+				],
+				"id": "06_staggered_contacts_and_click",
+				"second_events": [
+					{
+						"attacker": 1,
+						"broke": true,
+						"damage": 10.0,
+						"defender": 0,
+						"glanced": false,
+						"impulse": 11.0,
+						"position": "(0.0, -210.0)",
+						"speed": 960.0,
+						"type": "hit",
+						"zone": "shield"
+					}
+				],
+				"ui": "click"
+			},
+			"events": [
+				{
+					"actual_seconds": 0.232923,
+					"batch": 1,
+					"cues": [
+						{
+							"cue": "contact_plate_solid_0",
+							"db": -4.19767793977107,
+							"group_reduction_db": -1.69767793977107,
+							"kind": "solid",
+							"material": "plate",
+							"pitch": 0.91,
+							"strength": 1.0,
+							"variant": 0,
+							"zone": "body"
+						},
+						{
+							"cue": "lance_break_1",
+							"db": -8.91990016199329,
+							"group_reduction_db": -1.69767793977107,
+							"pitch": 0.975,
+							"variant": 1
+						}
+					]
+				},
+				{
+					"actual_seconds": 0.232923,
+					"note": "Deliberate same-frame boundary stress; normal results appear later.",
+					"ui": "click"
+				},
+				{
+					"actual_seconds": 0.300437,
+					"batch": 2,
+					"cues": [
+						{
+							"cue": "contact_shield_wood_solid_1",
+							"db": -10.3422499587816,
+							"group_reduction_db": -5.59224995878157,
+							"kind": "solid",
+							"material": "shield_wood",
+							"pitch": 0.9255,
+							"strength": 0.75,
+							"variant": 1,
+							"zone": "shield"
+						},
+						{
+							"cue": "lance_break_2",
+							"db": -16.1033610698927,
+							"group_reduction_db": -5.59224995878157,
+							"pitch": 1.025,
+							"variant": 2
+						}
+					]
+				}
+			],
+			"master_muted": true,
+			"maximum_post_mute_meter_db": -199.999984741211,
+			"metrics": {
+				"bits": 16,
+				"channels": 2,
+				"clipped_samples": 0,
+				"duration": 1.29066666666667,
+				"frames": 61952,
+				"near_full_scale_samples": 0,
+				"peak": 0.51739501953125,
+				"peak_channels": [
+					0.51739501953125,
+					0.51739501953125
+				],
+				"peak_dbfs": -5.72355512276855,
+				"rate": 48000,
+				"rms": 0.0448186565038681,
+				"sha256": "c4fa7693e1ff68ee0e2b2fb7672d64d4ada53cb35173247dfdbeb54da9fac3d9",
+				"valid": true
+			},
+			"scope": "Actual pre-mute Master mix of authored production cues and representative movement/UI layers, not a full match or human listening verdict.",
+			"wav": "E:/GALUMU/docs/development/logs/v056/master_mix01/06_staggered_contacts_and_click.wav"
+		}
+	],
+	"run_dir": "E:/GALUMU/docs/development/logs/v056/master_mix01",
+	"scope": "Actual AudioEffectRecord Master output before final mute, saved WAV PCM read-back for these representative/explicit stress schedules. Not every possible gameplay mix, LUFS, hardware loudness, true-peak certification, collision verification or human listening.",
+	"sources": [
+		"https://docs.godotengine.org/en/4.5/classes/class_audioeffectrecord.html",
+		"https://github.com/godotengine/godot/blob/4.5.1-stable/servers/audio_server.cpp#L507-L570"
+	]
+}

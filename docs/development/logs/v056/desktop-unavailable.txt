@@ -1,0 +1,13 @@
+DEV-056 Windows desktop verification limitation
+
+The existing computer-use skill was read. The node_repl transport used by
+@oai/sky returned "Transport closed" on initialization, again on the recovery
+initialization/list_windows attempt, and on js_reset. No desktop input was
+issued in this development stage. No Godot editor was brought to the desktop.
+
+All observed game frames in v056 are engine-rendered QA or exported-package
+automation. Viewport-dispatched inputs are not OS mouse/keyboard input.
+Prior DEV-055 OS evidence must not be reused as proof of DEV-056 manual play.
+
+No alternative UI-injection helper, security-setting changes, or formal-save
+mutation was used to work around the unavailable transport.

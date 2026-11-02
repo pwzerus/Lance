@@ -1,0 +1,19 @@
+{
+  "checked_utc": "2026-11-02T17:48:34.8850937Z",
+  "runtime_commit": "04ebb2e07e92e52da7260d926665515857cb3869",
+  "version": "0.4.16",
+  "files": {
+    "LanceAndLaurel.pck": "359CC17DC77C8C87522A4D783EA20C3736441A11D336109DDE1DEA0DD911FE96",
+    "LanceAndLaurel.exe": "78CCC576E8F8BFFD7EF6AD6F36EBD72A41E609A1052225A55B3407C96EA84065"
+  },
+  "zip_sha256": "615BE0FC58AC42AB5D74AA672300DA8E51F4DA7619C496D7328BA22ADAB765AE",
+  "zip_exe_pck_identical": true,
+  "formal_profile_unchanged": true,
+  "old_pck_unchanged": true,
+  "formal_profile_sha256": "C013C4F3FCC7C099DC8AB313C60A70C2AFCF07323CED9A949C718A6304180309",
+  "old_pck_sha256": "28818DA2F5F9D8F601A0EB4F757281A07F53C16E14A048B9CECCC523D8D4645D",
+  "smoke_screenshots": 9,
+  "launcher": "@echo off\nstart \"\" \"%~dp0builds\\LanceAndLaurel-v0.4.16\\LanceAndLaurel.exe\"",
+  "desktop_input": "unavailable: node_repl transport closed",
+  "human_acceptance": "not performed"
+}

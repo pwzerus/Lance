@@ -1,0 +1,7 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+GALUMU_BUILD v0.4.16
+ERROR: Actual contact first rendered frame lost contact stage
+   at: push_error (core/variant/variant_utility.cpp:1024)
+FULL_CHARGE_V056 passed=false wall=12.119504 contacts=2 failures=["Actual contact first rendered frame lost contact stage"]

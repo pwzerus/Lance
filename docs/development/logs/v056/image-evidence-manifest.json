@@ -1,0 +1,1741 @@
+{
+  "description": "All raw v056 PNGs remain local; selected images are committed with reproducible QA scripts and reports. Missing unselected images in a fresh clone are intentional.",
+  "image_count": 289,
+  "selected_count": 92,
+  "images": [
+    {
+      "path": "docs/development/screenshots/v056/baseline-charge/frame_000.png",
+      "bytes": 184319,
+      "sha256": "40736D3A7D7AF0F9BB071742C51691FBD8BDE394A9379A92FF91A36E6AB6568A",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/baseline-charge/frame_090.png",
+      "bytes": 199062,
+      "sha256": "3817F38D090EDC02E2E663FEED02FA726AD30D2939A6F0CEFF6A3F1D87287AFC",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/baseline-charge/frame_149.png",
+      "bytes": 194995,
+      "sha256": "0C118599EECE952A887558B29737DBFF32440EF0649D52EE50D4F5253886550E",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/baseline-charge/frame_165.png",
+      "bytes": 197712,
+      "sha256": "3FF264EC0A67A3C10F509A657E4E04332E322A70C189F9471B3651C774A2FC92",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/baseline-charge/frame_210.png",
+      "bytes": 202178,
+      "sha256": "AC42B5F2D23F740CEB34C6366ABD4765D96316C18E0DD58CC6BE519F017DB3BF",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/baseline-charge/frame_300.png",
+      "bytes": 203220,
+      "sha256": "54C002B5AA93F856FD3DC124BCF4FF7EB557F93A2AA880988D7B3B92572CE6D9",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/baseline-charge/frame_330.png",
+      "bytes": 200275,
+      "sha256": "A20C5287D500A3193A760CD571546A9077DBF98C6E1D0CAD20710AC1C0A8B56B",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/baseline-charge/frame_390.png",
+      "bytes": 194298,
+      "sha256": "5A9253C59342BC24632E7DD4CF33223D95463567CB5549FC2FB22D108CCE5FE2",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/baseline-charge/frame_449.png",
+      "bytes": 198515,
+      "sha256": "5F7E47145A2401C6952366523C5F878F77277EA01B8CB43244506425FB94E9C0",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/baseline-charge/frame_480.png",
+      "bytes": 205491,
+      "sha256": "62DB2D6A1E1F04E5B3A6F2D1E637D0E6E8D8251829C32CB41A56BC552DFB53E7",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/baseline-charge/frame_570.png",
+      "bytes": 202926,
+      "sha256": "0080FBE46FF9C7ACD98068936CC51200602F56D8F9DE7BA54F16C890243B22DC",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/baseline-charge/frame_600.png",
+      "bytes": 213482,
+      "sha256": "597AB198B9D4D03538996E3940B032A069DDA1E331112A8972869937887C59CA",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/baseline-charge/frame_690.png",
+      "bytes": 198332,
+      "sha256": "8F50379B9A47A45DA29A323261488BBE430C7FC1404EC046CAD6873397FA440D",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/baseline-motion/frame_020.png",
+      "bytes": 208121,
+      "sha256": "FB3430B620881E0CCF633FBC663CF79836128D56BC50839179C62F140127B665",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/baseline-motion/frame_065.png",
+      "bytes": 206166,
+      "sha256": "78667A7C0AF20089EC8448B8048EAC46DD273C3EC1280D0B78AF70F1DC55AE65",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/baseline-motion/frame_110.png",
+      "bytes": 214514,
+      "sha256": "EFB6E00AC5D2FBF033733BCFF4AC3E723E83767DCBD0D54143DEE0FF8354AB70",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/baseline-motion/frame_155.png",
+      "bytes": 212267,
+      "sha256": "DBB2E1A9B2E836CDF23B6A898A049017E4D864833A38449DB32B0FC502647866",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/baseline-motion/frame_200.png",
+      "bytes": 200399,
+      "sha256": "B71A18BFF28F0E7E17CE7B4AF113CB9254AE54815B0965166906BEEF62CD05A7",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/baseline-motion/frame_235.png",
+      "bytes": 210791,
+      "sha256": "CE9C742E5D3F5B3D30C1DD09DA36C22B7E525975C7C435DE062D32C4941BBE30",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/baseline-motion/frame_290.png",
+      "bytes": 211725,
+      "sha256": "EB4CEF8A596780AFC4DD2644333D131AE5F006041D6D636EAD3843F84DD096A5",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/baseline-motion/frame_345.png",
+      "bytes": 206296,
+      "sha256": "AE400CF38E69AF58D3CF09D6CB34C2E2006CBEAAE4154FD8E00938A40409972E",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/arena_miss_slow_on_approach.png",
+      "bytes": 986783,
+      "sha256": "8B3FBBE6AE6F85A1CD3D9A277DF33885AEC07D546BEB3F0E5A273001500F4FE4",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/arena_miss_slow_on_crossed_restored.png",
+      "bytes": 987376,
+      "sha256": "837EDA1694737B3B831C92B45C4B374F9074FE0880AEE49A39DE3D5739E45447",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/arena_miss_slow_on_release.png",
+      "bytes": 981096,
+      "sha256": "69E957B2174A6D3A88800F96ADC9CF882FAADCC990F537B0153C28967EFA08A3",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/arena_shield_slow_off_crossed_restored.png",
+      "bytes": 947868,
+      "sha256": "4E627B54F1DCD540BA001A797558B6368354FBA6A977781E0661D45BC8078B18",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/arena_shield_slow_off_first_contact.png",
+      "bytes": 951438,
+      "sha256": "BF65620F918654484EFAAB06CF7F04A0A3E759D24A6826C81BDD85EC864E2ADB",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/arena_shield_slow_on_approach.png",
+      "bytes": 984348,
+      "sha256": "7453372A8495D870B8F854C9F502310AC14095173E3C4A95BF2349AABFF89E7F",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/arena_shield_slow_on_crossed_restored.png",
+      "bytes": 947087,
+      "sha256": "673419DFADE431811D701292C0E5FE0DC395810535FD731357903B600CDDD728",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/arena_shield_slow_on_first_contact.png",
+      "bytes": 947007,
+      "sha256": "7F8429FD98ACC04BEEF4A4D0E10A030C1133EA440BCBD4EBF313E05C8ADC61F2",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/arena_shield_slow_on_read.png",
+      "bytes": 949203,
+      "sha256": "062D103758FAC97C81A348E7AF3E9705B71DE2062B941C05D2D78FADBB547C0C",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/arena_shield_slow_on_release.png",
+      "bytes": 953872,
+      "sha256": "5D7D60F05CB0097EE6D53701C98D4712133CB8A5A12F2956B818238A592E7681",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/from_rest_time_120.png",
+      "bytes": 891820,
+      "sha256": "3BFDA62A1DFEAE7519EF3E33D27227F35CF554CB22113E7D2DD6C0CCBF3DA152",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/from_rest_time_30.png",
+      "bytes": 890149,
+      "sha256": "EC1B7FD57BA0A4B037DDB7655F368F777EC08893ABD1BB9E852DD248DEE1414E",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/from_rest_time_54.png",
+      "bytes": 891086,
+      "sha256": "E7097E0619BC455BC888C911D9D2A1598F8AF5D4E3FEF83D105ABC27BD10D7AF",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/input_coast.png",
+      "bytes": 891333,
+      "sha256": "8A19629293309BB48E3D09601AC4D732491BC6203EDDEF3A30AF65B3689AD757",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/input_cruise.png",
+      "bytes": 893315,
+      "sha256": "5E714C2B60AC33A48A3F7354A68B1F854926D4B7DD7A83A0700AEFC596A6D483",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/input_hold.png",
+      "bytes": 893887,
+      "sha256": "0F1C5468F51EBF6C3AF0C60264E450A931A41E88D2E9291EBD063DCB8BFE5A90",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/runup_ready_1.png",
+      "bytes": 887741,
+      "sha256": "E863A5C14594A1C5BC4C556E9AC77FC325D6D0618DE45F0DBC3437EA736A28AC",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/runup_ready_150.png",
+      "bytes": 891481,
+      "sha256": "EA80A5EF7BC5A2F8C34CFC96AE6ABF8A111CC54332AD75CDFCA5ECD0CFE2AC93",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/runup_ready_80.png",
+      "bytes": 887912,
+      "sha256": "224562181133368C8B4557EB8ED065EF4AB0320550E0D65D45D965FC85F0FA24",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/war_body_slow_on_approach.png",
+      "bytes": 964750,
+      "sha256": "943E89BECC5415073D8116FA0F9F47523CBB22CD17015DA7A7096C7D6E1BABE7",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/war_body_slow_on_crossed_restored.png",
+      "bytes": 933462,
+      "sha256": "763661D83F35CA8BC8648733C09C1AE36B6F7768F2A5817B0894F6A97E5E11B4",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/war_body_slow_on_first_contact.png",
+      "bytes": 937215,
+      "sha256": "89F71149B8E976E7AE1405196157F998214AD39E0141490A3AA4DA82675BAC88",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/war_body_slow_on_read.png",
+      "bytes": 938482,
+      "sha256": "FBAB2E32B9789E73B6BB69504055624D39524CDB3F9E5373B524EDDB8906DE66",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/war_miss_slow_off_crossed_restored.png",
+      "bytes": 974899,
+      "sha256": "A780D8EC1CFC0FFE512C205ADB1FB2896D2231AC3D1ED64BF33D797630745041",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/war_wounded_slow_on_approach.png",
+      "bytes": 965655,
+      "sha256": "714046C8B468CBD11C7FB539566F2F47998DEF13C9E8891496F926473235D119",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/war_wounded_slow_on_first_contact.png",
+      "bytes": 931619,
+      "sha256": "3C71253B3C69F6E7CDB05D5E02D629AAF9827AF873EE0ED5CE2AE751D2A385A4",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/war_wounded_slow_on_release.png",
+      "bytes": 932039,
+      "sha256": "07951E6BDD0DF3FA9B0ECF5DAF2310D4938970C6B519B3D6D09292B690521B63",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange-package01/war_wounded_slow_on_terminal_restored.png",
+      "bytes": 1057496,
+      "sha256": "B23B5B79C05252953D1B40D3335EFFAAA427E4600ADC46A3A8B021261787E599",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange01/arena_miss_slow_on_approach.png",
+      "bytes": 986781,
+      "sha256": "43C7DE98686A3E662E4E9FC111A3D1B61DDC3DF0166F0427E6AF9AA93AFC4934",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange01/arena_miss_slow_on_crossed_restored.png",
+      "bytes": 985419,
+      "sha256": "A02AE3008FC4093B6CCFBCD8EF8A229FA652411020F1DE73D2566D3CE5D30A85",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange01/arena_miss_slow_on_release.png",
+      "bytes": 980873,
+      "sha256": "593CC4D0A12645B2E17A02A809DC2989150EB7B11919F07E2DCD441151DA9282",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange01/arena_shield_slow_off_crossed_restored.png",
+      "bytes": 949916,
+      "sha256": "B1BAF0B65670B633E266C9FD1653405B38C0AB1D2C0FBB8E579D3D98515AEF77",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange01/arena_shield_slow_off_first_contact.png",
+      "bytes": 952002,
+      "sha256": "C1DF7FCAD252DEE4B606623A0C1DB760A12CC74F220BB9CD4F09A3718E8E68D9",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange01/arena_shield_slow_on_approach.png",
+      "bytes": 983618,
+      "sha256": "4B32EB4BDE968C22A928700B32E9664D75A1D70663D09D9182AFBD9D4487CAA8",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange01/arena_shield_slow_on_crossed_restored.png",
+      "bytes": 948487,
+      "sha256": "E50333ADBEF6CC6EEC0C1D3751B967654C718B450908EE91BE60A82B8A56F152",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange01/arena_shield_slow_on_first_contact.png",
+      "bytes": 948169,
+      "sha256": "288C2B0233A0F77369EFF1E723FEC4CB52B8333D736BEABEC2EA6B2311D35F50",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange01/arena_shield_slow_on_read.png",
+      "bytes": 947318,
+      "sha256": "3D87F5C95BFADBFCBBA907A98AC8E5B7919F815A34878E531A5CE5266F34A0AD",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange01/war_body_slow_on_approach.png",
+      "bytes": 965275,
+      "sha256": "8811F195B201F579E5943610B36A4B70BCF68FAE12C1C736DDDF5AC57132BF30",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange01/war_body_slow_on_crossed_restored.png",
+      "bytes": 934450,
+      "sha256": "F2013B8A39ACC8A9D0902321BF6AB573288532B481A961E2AB028E19D52AF509",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange01/war_body_slow_on_first_contact.png",
+      "bytes": 935810,
+      "sha256": "9136CD6781E81BD60793C5488E2B6AD4C810B253E5CD51AC6FE305A066EFD97E",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange01/war_body_slow_on_release.png",
+      "bytes": 939152,
+      "sha256": "E3969C93ECD8FCE717416CEDE047FA983ED00ADD85F3CCA064396A50AF647CC6",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange01/war_miss_slow_off_crossed_restored.png",
+      "bytes": 972200,
+      "sha256": "5E80FC605DB69F513805F4CC04560954649590655A0280293B10A15EAA23DE1D",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange01/war_wounded_slow_on_approach.png",
+      "bytes": 965549,
+      "sha256": "CA0A1E7751FA7BF002E373F355FE1412C49269FC352247F7CA5079496D0F8775",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange01/war_wounded_slow_on_first_contact.png",
+      "bytes": 927201,
+      "sha256": "2B003274E24E02A7153A30444CFB22761505F3119C01BB4F559DB199D53E5BD9",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange01/war_wounded_slow_on_release.png",
+      "bytes": 927484,
+      "sha256": "0AF254E07FBD244C4132A8D160E301A20C9C6598784408AFA8B337AA3C49631B",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/exchange01/war_wounded_slow_on_terminal_restored.png",
+      "bytes": 1054459,
+      "sha256": "C3EDBC1A9EBF2694EAD7D190459102AE5736D8AB7ED5DD1CC0A3C6D0799D5B7C",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers-package01/war_body_facing_left_whole_airborne.png",
+      "bytes": 1161849,
+      "sha256": "617351679338B9A24E7682667F6446BF3011B403EDD38C569F4C2069E593FCA9",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers-package01/war_body_facing_left_whole_first_contact_detached.png",
+      "bytes": 1169922,
+      "sha256": "833322FFD2B703D030BD9099682697589C737607128A7EA8597F6094051F0492",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers-package01/war_body_facing_left_whole_landed.png",
+      "bytes": 1125465,
+      "sha256": "9CB649A0070F7A68C5C0C77355AA402473E36C13A40819CF87D70B6F240BFA24",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers-package01/war_body_facing_left_whole_pre_contact.png",
+      "bytes": 1171442,
+      "sha256": "1F513CF0D2BDA14C127ABE0796376FCC8D5CBD13C7BB088A609AFDF6A3750008",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers-package01/war_body_facing_left_whole_released_023.png",
+      "bytes": 1152302,
+      "sha256": "58786143E1596ABDA738132A508678FD34291AE3BDDC37FA1D83E769C770BB64",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers-package01/war_body_facing_left_whole_settled.png",
+      "bytes": 1306627,
+      "sha256": "1D020A444D315495E66D89CD313A8903E03E07C3955F7B1ADDF4144B6D711C84",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers-package01/war_body_facing_right_whole_airborne.png",
+      "bytes": 1159014,
+      "sha256": "0AF934493508D535080A60574636F0C7C0BA3BDE70BE482E60E5E353B13FABDB",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers-package01/war_body_facing_right_whole_first_contact_detached.png",
+      "bytes": 1168201,
+      "sha256": "596C91816D629B4CA2911C941BBA3097262A247E636EB4E8AA28BE64A7D44E0B",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers-package01/war_body_facing_right_whole_landed.png",
+      "bytes": 1146227,
+      "sha256": "1C36D9A9B99D84EC219C5DDD8B18906CF32D10ABB19807200CA7A68E1D2C5544",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers-package01/war_body_facing_right_whole_pre_contact.png",
+      "bytes": 1172362,
+      "sha256": "0D50E9496279626187D69BC8365A6094B14C8EB1C073393C237753D8E8FC5E78",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers-package01/war_body_facing_right_whole_released_023.png",
+      "bytes": 1159775,
+      "sha256": "935774558C6CB606EF8F09B441C31AB71DC0167562205BC5217BC079A8AEAAAF",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers-package01/war_body_facing_right_whole_settled.png",
+      "bytes": 1360753,
+      "sha256": "775ECF78FA6E4AFB57A08B38A86BB0D215D76ED7DBBADF4BA138E0B761284EA1",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers01/war_body_facing_left_whole_airborne.png",
+      "bytes": 1153621,
+      "sha256": "DC371AEB9D466D9B348EEBAEFF8FF26443855CA58DAD30FCA2121721457EFF5B",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers01/war_body_facing_left_whole_first_contact_detached.png",
+      "bytes": 1169138,
+      "sha256": "0F1FB62D65C4D52ACA549CF83983BF8F39E932889E37FF6CAF74BCB201A5AC3C",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers01/war_body_facing_left_whole_landed.png",
+      "bytes": 1125505,
+      "sha256": "AD986CD9B6D713B74D292E42E15DD05D1CC5F597F502B9355EC740838FA4B2F4",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers01/war_body_facing_left_whole_pre_contact.png",
+      "bytes": 1171356,
+      "sha256": "AF85EC6A64DBBF404BAA05A37557A947B4F6880E3C81CD0FF20497F5BB90E737",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers01/war_body_facing_left_whole_released_023.png",
+      "bytes": 1147045,
+      "sha256": "B01D4F5FF3A1249E6819269AD2B7A7B566625BE91C8BB651E682A792C2235230",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers01/war_body_facing_left_whole_settled.png",
+      "bytes": 1284884,
+      "sha256": "7B9C6E962B658F74DE0836D7004B181C107ECD9461D2D175EA7176E7B621E901",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers01/war_body_facing_right_whole_airborne.png",
+      "bytes": 1151059,
+      "sha256": "F3C091490345AC3334BEAA383542017E5D6823D751F9F5094C333458374A0619",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers01/war_body_facing_right_whole_first_contact_detached.png",
+      "bytes": 1168044,
+      "sha256": "BABC63F9B69409AA13D71601C9CD7F89AEB528A1DCDDE414AE1B1336754F4FF3",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers01/war_body_facing_right_whole_landed.png",
+      "bytes": 1152592,
+      "sha256": "42BCE59A3FE1CBB5A3A49E3173E93C205541629DD4A290679546C874ADDEC296",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers01/war_body_facing_right_whole_pre_contact.png",
+      "bytes": 1172331,
+      "sha256": "970F0BD6809F19BFC295EA3AB08ACCBF8244AFBDDA2DFCDE6D7798F1C8FD0332",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers01/war_body_facing_right_whole_released_023.png",
+      "bytes": 1143459,
+      "sha256": "909B1AB967F8D5691B5298CCC2CDDDFD76DF5ACE07A39FD01ACA4F3EA135FFD4",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers01/war_body_facing_right_whole_settled.png",
+      "bytes": 1326707,
+      "sha256": "1D1685D5A45217C64A026F6FAFAB34FCFAFE58DD77161A6CB7576CE0AAA9BD82",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers02/war_body_facing_left_whole_airborne.png",
+      "bytes": 1162193,
+      "sha256": "D95666F914007256F1037DD24AE03F411FE9EA05C9566FDB6CAC60016F58CFA7",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers02/war_body_facing_left_whole_first_contact_detached.png",
+      "bytes": 1169681,
+      "sha256": "EE56146107B00C56CFEF34AEA0C413029351EF9BC9CFFA30133A0392FD0EC893",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers02/war_body_facing_left_whole_landed.png",
+      "bytes": 1125978,
+      "sha256": "ABE4EAAB82EAE190EE7526EE26955D18AF328C67D64AF6972860EC5E4EB36C46",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers02/war_body_facing_left_whole_pre_contact.png",
+      "bytes": 1171355,
+      "sha256": "21CEEA7589578FF991814B821D06359EB9056B7EA215DE5D9869CB19A4499093",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers02/war_body_facing_left_whole_released_023.png",
+      "bytes": 1153119,
+      "sha256": "9E4377F73D7E06D51AC7C0898F3C9D66FD69482476299B3AEE474BD879435740",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers02/war_body_facing_left_whole_settled.png",
+      "bytes": 1290038,
+      "sha256": "F608F67911D5A48ACC64B750E6224318C4FA8FF61BD98C233A61EB4A87781154",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers02/war_body_facing_right_whole_airborne.png",
+      "bytes": 1158675,
+      "sha256": "0715745B0A6B1B6A9386635FFEDA99D8F18043A6EDF17D82304409DA62CB8229",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers02/war_body_facing_right_whole_first_contact_detached.png",
+      "bytes": 1168291,
+      "sha256": "906DF585DB7E6A7AE5DD89CE2B109AF1AB93A23E999D6421447CB8FF8884435F",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers02/war_body_facing_right_whole_landed.png",
+      "bytes": 1146258,
+      "sha256": "5D8A2A63BA330ABFA40E152507B507C700E697A692F135897AB1F4BA2A7146D2",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers02/war_body_facing_right_whole_pre_contact.png",
+      "bytes": 1172334,
+      "sha256": "708BC4FB2AE1859BD0D5FD379E5816C4AFF1A9A3A900F7C9A170A68A017567F1",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers02/war_body_facing_right_whole_released_023.png",
+      "bytes": 1153560,
+      "sha256": "D3A3772B4A7854376B3D33BC911C62631F1E0F4AE9E18673E98D70E3FA6E3E1C",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers02/war_body_facing_right_whole_settled.png",
+      "bytes": 1339056,
+      "sha256": "CA23D99F3A9782E236E6411670E355E5470BCF756E892C5E0155E320C6618342",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers03/war_body_facing_left_whole_airborne.png",
+      "bytes": 1162131,
+      "sha256": "25505754D80D405AC30631D0251FDF0CEAF6421C3C82969899524FCBB2722DF3",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers03/war_body_facing_left_whole_first_contact_detached.png",
+      "bytes": 1169905,
+      "sha256": "25DD039F16C3F5324BEF659DEDB109417D89CF22ADBF0C796FF93752ADFBC6AE",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers03/war_body_facing_left_whole_landed.png",
+      "bytes": 1127505,
+      "sha256": "9738F3963FA10119B4CA46B1DF4B3F64FC11379B9FCF63737217D61414609B1C",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers03/war_body_facing_left_whole_pre_contact.png",
+      "bytes": 1171348,
+      "sha256": "EBFED07EF2C35175978CEC67C9046A65CDD5A1A42ED680E7DEB4F4D6D3665A68",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers03/war_body_facing_left_whole_released_023.png",
+      "bytes": 1152366,
+      "sha256": "B15E5876DB8E824250C05F2D261E09A7DB3C4BB71ACD2B74386B9FB21F7FBF4E",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers03/war_body_facing_left_whole_settled.png",
+      "bytes": 1289403,
+      "sha256": "FF54B43DE86D882BCD4A043DDF823B3A3A860DB35EFCA69A2BCE46B7D0331319",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers03/war_body_facing_right_whole_airborne.png",
+      "bytes": 1158834,
+      "sha256": "7027B8D73888E356259DB9207E13290B94893D892C861C76390E7224B8C7F72F",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers03/war_body_facing_right_whole_first_contact_detached.png",
+      "bytes": 1168332,
+      "sha256": "3CC7AB37F774D8671ACBCEFAD3084DC1A21A88FD81F905F980B61FE248E4D283",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers03/war_body_facing_right_whole_landed.png",
+      "bytes": 1149207,
+      "sha256": "670CFE50EA5434C14195D725DB0DDBC680789504EE494392B06980E096E8245B",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers03/war_body_facing_right_whole_pre_contact.png",
+      "bytes": 1172363,
+      "sha256": "431C6C8C3B239EF15490AEED250837DEF781F26C16F7D31E18C08297CBE433A1",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers03/war_body_facing_right_whole_released_023.png",
+      "bytes": 1157840,
+      "sha256": "937B91C9BD598AFF53C53CEE2AF96D634DA5CD5E84C09FB49BE5CF99A7DD292D",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/fall-layers03/war_body_facing_right_whole_settled.png",
+      "bytes": 1340724,
+      "sha256": "27A80F8825B03151A0BBE3CB0912D62C96B407B7E0D6B171C6071D9746413400",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-baseline/frame_000.png",
+      "bytes": 184319,
+      "sha256": "40736D3A7D7AF0F9BB071742C51691FBD8BDE394A9379A92FF91A36E6AB6568A",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-baseline/frame_090.png",
+      "bytes": 199062,
+      "sha256": "3817F38D090EDC02E2E663FEED02FA726AD30D2939A6F0CEFF6A3F1D87287AFC",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-baseline/frame_149.png",
+      "bytes": 194995,
+      "sha256": "0C118599EECE952A887558B29737DBFF32440EF0649D52EE50D4F5253886550E",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-baseline/frame_165.png",
+      "bytes": 197712,
+      "sha256": "3FF264EC0A67A3C10F509A657E4E04332E322A70C189F9471B3651C774A2FC92",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-baseline/frame_210.png",
+      "bytes": 202178,
+      "sha256": "AC42B5F2D23F740CEB34C6366ABD4765D96316C18E0DD58CC6BE519F017DB3BF",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-baseline/frame_300.png",
+      "bytes": 203220,
+      "sha256": "54C002B5AA93F856FD3DC124BCF4FF7EB557F93A2AA880988D7B3B92572CE6D9",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-baseline/frame_330.png",
+      "bytes": 200275,
+      "sha256": "A20C5287D500A3193A760CD571546A9077DBF98C6E1D0CAD20710AC1C0A8B56B",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-baseline/frame_390.png",
+      "bytes": 194298,
+      "sha256": "5A9253C59342BC24632E7DD4CF33223D95463567CB5549FC2FB22D108CCE5FE2",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-baseline/frame_449.png",
+      "bytes": 198515,
+      "sha256": "5F7E47145A2401C6952366523C5F878F77277EA01B8CB43244506425FB94E9C0",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-baseline/frame_480.png",
+      "bytes": 205491,
+      "sha256": "62DB2D6A1E1F04E5B3A6F2D1E637D0E6E8D8251829C32CB41A56BC552DFB53E7",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-baseline/frame_570.png",
+      "bytes": 202926,
+      "sha256": "0080FBE46FF9C7ACD98068936CC51200602F56D8F9DE7BA54F16C890243B22DC",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-baseline/frame_600.png",
+      "bytes": 213482,
+      "sha256": "597AB198B9D4D03538996E3940B032A069DDA1E331112A8972869937887C59CA",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-baseline/frame_690.png",
+      "bytes": 198332,
+      "sha256": "8F50379B9A47A45DA29A323261488BBE430C7FC1404EC046CAD6873397FA440D",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-candidate/frame_000.png",
+      "bytes": 182975,
+      "sha256": "435FA3B2978E64DA6B83761BD7D52EA415F0D24D688B9CBF9C9F012B7CA1606E",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-candidate/frame_090.png",
+      "bytes": 200989,
+      "sha256": "1DBD174435F721F0CA661CD2FB3DEDFA2A24B48C2EF8B9F80D2F4D8F66768A38",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-candidate/frame_149.png",
+      "bytes": 199521,
+      "sha256": "28E50CFF51A025F1FBAF12FD987DFBE38E76E1DFC86A74680227EB6AE9A129D2",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-candidate/frame_165.png",
+      "bytes": 199159,
+      "sha256": "A7D87E5B5A4304AF8AF9E3929EAEC090B3641D5BB9D998E85126F75348C85108",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-candidate/frame_210.png",
+      "bytes": 200489,
+      "sha256": "33921BB417CB4B68F2A84A45A1A3AB4B8A53499D566ACD09C91E66778EE8A0C4",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-candidate/frame_300.png",
+      "bytes": 195594,
+      "sha256": "1DF7DC23DCFF14C265E0B474AAA4BD7D5CA37AC4C0A4D15349F5F85A3A4987FA",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-candidate/frame_330.png",
+      "bytes": 198952,
+      "sha256": "27C787D6FBF4C6DE06BAB99EA26CB9FEBD66D26F18F1D991B5D5CEB2B2DE1BD0",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-candidate/frame_390.png",
+      "bytes": 196251,
+      "sha256": "0EFD23C4E6281E0A663CE06B948F18B5ECA17FC849FBD49460F573A65D4ECC99",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-candidate/frame_449.png",
+      "bytes": 197385,
+      "sha256": "468C5C48167BE4F62E9EB1C98E6F9C92544E1C2B8037920FACB6553674079245",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-candidate/frame_480.png",
+      "bytes": 201115,
+      "sha256": "69B0B3DC066E53A14B3A391FAF6E9AC25AD111255BE6B03FBA2B98A8C1878982",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-candidate/frame_570.png",
+      "bytes": 199995,
+      "sha256": "5429C7597E3A82DBBEA73C5DA1A68B5347764A2B1942D6ACCA885A735F1F23E9",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-candidate/frame_600.png",
+      "bytes": 213449,
+      "sha256": "AEDD4AE5813AD8DCBEC3B1C2D7338ED1230795653699E51ACA591D7591B26BD3",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/film-candidate/frame_690.png",
+      "bytes": 199246,
+      "sha256": "1F94C3009D108576109A79BF413034A4FFEE4A855D445402B701F315C72E094F",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-fast30/actual_contact.png",
+      "bytes": 952717,
+      "sha256": "C8DE623B33248F3B8E815F14AE848E801CB8C81AF3373C7F23A1A0FA7BBD38EF",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-fast30/charge_start.png",
+      "bytes": 886117,
+      "sha256": "6EFED24B5A35DD2D32BD5C4AE2F943DC8AB2E5843D8BDC40F0C60EFC29DF0BF1",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-fast30/crossed_rollout.png",
+      "bytes": 957641,
+      "sha256": "3EBC97517A7E6143710EEA81574A3F706F9CB78ADFA75E4191B0EF62954D0305",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-fast30/first_pass_complete.png",
+      "bytes": 894454,
+      "sha256": "2D428698816F033822DEBE3592D498865ECEE1625E5F17A0440FB26726B50223",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-fast30/gap_1100.png",
+      "bytes": 955230,
+      "sha256": "7C85059E49602756D92B665FB75C5AA714D046E3B004FABA1B85787830F38949",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-fast30/gap_1200.png",
+      "bytes": 946441,
+      "sha256": "E351735E9F98CA90C1B46E8C3D696F4E8D0844D36483F69D3B239280E27303D6",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-fast30/gap_1550.png",
+      "bytes": 937462,
+      "sha256": "8FDEB8CA029B4FFAD49F4DC2072A575E9CF1CBDCE14F58111B0BC17D83B78D3D",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-fast30/gap_1900.png",
+      "bytes": 921893,
+      "sha256": "27312DB68134EAC3762366C6BF5F35E87C738202761477D8EBB0705A5C6B7E4B",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-fast30/gap_2200.png",
+      "bytes": 888269,
+      "sha256": "84FF88BB855EDC6E840466C3108EBC37139E4A4D32D603E11D37CD35C83E6E3C",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-fast30/gap_850.png",
+      "bytes": 969219,
+      "sha256": "583B4E313CF1230D4AB3A71653BA7D1B2273747A0CA5EA1F6E537F06F44D948C",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-fast30/read.png",
+      "bytes": 959772,
+      "sha256": "8D1FC3762AE45A52E5119228A7DB91933B72C9EE9308F2C89817D27B3A538870",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-fast30/ready.png",
+      "bytes": 889847,
+      "sha256": "F1E5A3473AB2354EA8AD2E91D50042EFA7EA5671E097B7D2FCEB9914F24C7492",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-fast30/rehold_spur.png",
+      "bytes": 890954,
+      "sha256": "A0EBCE7A7B81AE097777902AF81CB086AAC610ACC83BCFFB7C1153E96E580ACE",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-fast30/release_spur.png",
+      "bytes": 889265,
+      "sha256": "30C984ECF9B01A2130A08DE0829EBD437933C3F4DD90C165670AE580C015837A",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-fast30/release.png",
+      "bytes": 960164,
+      "sha256": "3C42CE4C555A8B110BD306FA4B2090822D477CEBC2661556B272E291AD2F7814",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package01/actual_contact.png",
+      "bytes": 953818,
+      "sha256": "28A57561FA6145686EC5A7D15BDD039096FE3945666035335EC09BC4C6F85E9B",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package01/charge_start.png",
+      "bytes": 887958,
+      "sha256": "A75F8C8BB237A260F937C3BC21B3682DFE2D3140B1553E5BE514F05D94A57284",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package01/crossed_rollout.png",
+      "bytes": 963306,
+      "sha256": "C37C010842D41C102023FC33956F17141BF837572E9ED2F61148130AFA94A966",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package01/first_pass_complete.png",
+      "bytes": 900557,
+      "sha256": "789A3C51B473882DD5A53B21499E27CD7F1E33CAC055231101F90A0BAE3696B8",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package01/gap_1100.png",
+      "bytes": 956245,
+      "sha256": "E5FC48C83EFDB79DEFB569CCC6930FD3998BBFEA25955E6BD8255F5EDF5E36E5",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package01/gap_1200.png",
+      "bytes": 948446,
+      "sha256": "DA9C2FE3DAA3D910B9018ECBB1D6CECA0595E2E7319C871B4BF196CCE6B303B5",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package01/gap_1550.png",
+      "bytes": 940550,
+      "sha256": "39000E4D0ED0FEF58CA32255B8EDE7C1F4819902B43BA2E55EB83D4AD17E47D2",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package01/gap_1900.png",
+      "bytes": 925785,
+      "sha256": "7978B8A240B172D5C9DB6341B205DCDE6EE4733FE0243630AFDE54B7D4448F1C",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package01/gap_2200.png",
+      "bytes": 891991,
+      "sha256": "5879DC5289A233F961DFE994ECA48F302193EC38868EEDEF0FCD69B7E7A8A61F",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package01/gap_850.png",
+      "bytes": 972865,
+      "sha256": "FEA70E31F3EF78DE68C1D3C3CC6F2907CF27E248DFA9B1881141C82B574179AB",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package01/read.png",
+      "bytes": 958121,
+      "sha256": "E5A10814E0DFB0AB1F75E869AE3A3928ECB3017F55D0B40AE9F947BF08BC7A15",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package01/ready.png",
+      "bytes": 890253,
+      "sha256": "FBACFCD7BC0DFBFD3DF6628F36D6F7BE9D394F000BABD27C5917AD9DBDBC8441",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package01/rehold_spur.png",
+      "bytes": 892855,
+      "sha256": "5A47343498B25F7ABF51E63CDB012585FA4677C33032FFED846DBB4240D98C9D",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package01/release_spur.png",
+      "bytes": 892341,
+      "sha256": "E8B106F862338F7C103CA65E71C368A7548E9E49FBE52E71B1FB46B3371450AA",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package01/release.png",
+      "bytes": 964794,
+      "sha256": "F3B7ECEFBE23AF7F8827EEAE3BA5A5F82FC10F1D7A3381D6A572D28C4CBB4050",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package02/actual_contact.png",
+      "bytes": 953748,
+      "sha256": "1BBE766E7A0A89A27299E0ABD0C42187E6881C48D367DA501DF63908325A0EE8",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package02/charge_start.png",
+      "bytes": 887992,
+      "sha256": "D97312803BCEAAA5CBB1D5001045AB61C2A603344AFF8296C84A7BD35C6115FA",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package02/crossed_rollout.png",
+      "bytes": 963894,
+      "sha256": "E6D2FEC6CE01D77D453478495085FF5205F34E7B4B27363F746999FDD6C4281B",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package02/first_pass_complete.png",
+      "bytes": 900722,
+      "sha256": "80C42DF6065246179887501106BABFF47DFBCF0521075D5E60DC641FAF0B82FB",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package02/gap_1100.png",
+      "bytes": 956381,
+      "sha256": "5AEF82A70F82F9AA073314BD4783DDBF0DBEF68D013F13C0191ECD01149E4802",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package02/gap_1200.png",
+      "bytes": 948811,
+      "sha256": "2A45F78FA7195839885456785770A13CBB5178095CBB8A12D51D933E0A5384CE",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package02/gap_1550.png",
+      "bytes": 941176,
+      "sha256": "16465AD4F9EB9428F301B2ED4F848A7706417D0E57CF8A8D0F8B9F86AD3EF87C",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package02/gap_1900.png",
+      "bytes": 925570,
+      "sha256": "4F599810C85F7D2E18679BCA6F8E4F6156FC112B9EEB51A4D54D07A3C21F874E",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package02/gap_2200.png",
+      "bytes": 891963,
+      "sha256": "D8317BC9DE60CA3C7D1398498EB6F2CB798D464FEA99136C8B606EFD3F4712E8",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package02/gap_850.png",
+      "bytes": 972873,
+      "sha256": "9E92D005950C35E4BAB7B595DCDC2556DD3C982A80D84F2EA2CB60E3D894C98C",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package02/read.png",
+      "bytes": 958130,
+      "sha256": "41B9ECA71768634F037B83D859EE18736833A66FAB3A1A9B06015E4F480CC0DB",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package02/ready.png",
+      "bytes": 890253,
+      "sha256": "FBACFCD7BC0DFBFD3DF6628F36D6F7BE9D394F000BABD27C5917AD9DBDBC8441",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package02/rehold_spur.png",
+      "bytes": 892950,
+      "sha256": "50F4C7AAA82FC3CD21C29BEEF3F43CE384877165283097BB4F17B5BD8D4D7473",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package02/release_spur.png",
+      "bytes": 892222,
+      "sha256": "8DB94CD43BEE3504038723AEB998910E5269E449772D4BB0E524D645BDFD0171",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-package02/release.png",
+      "bytes": 965547,
+      "sha256": "CA42E218137323319B0B4AEE06BA361A84B0EA15F748248A13438A14B5D5595A",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-steady-off/actual_contact.png",
+      "bytes": 954384,
+      "sha256": "05B77B13DE9225128DE4E311629694E6F841B8D268051EFB8A768866C5858FBD",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-steady-off/charge_start.png",
+      "bytes": 889393,
+      "sha256": "E4C11C778ABF7FF086C648FC349287376AA5E10D41EFF2CE5A2A20D7771A0AA5",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-steady-off/crossed_rollout.png",
+      "bytes": 967789,
+      "sha256": "F983360EA4150DA3FD68C5F5769F178292B7F20EB7B9C452AD8CD3C2680DDB37",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-steady-off/first_pass_complete.png",
+      "bytes": 900440,
+      "sha256": "91DF6E7C8CD4262A426611E3493DB891C334C15A8FE13035ABC3816F18D8AA3F",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-steady-off/gap_1100.png",
+      "bytes": 957679,
+      "sha256": "0867FB20CE11C3D61C495C0090A27E65277F8FEF652DBA40620C76D16B9207A9",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-steady-off/gap_1200.png",
+      "bytes": 950777,
+      "sha256": "6D859950A72BF9E4C73F6A4BADA7925FC3A147D562720F70CFB58F8B590BE5B6",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-steady-off/gap_1550.png",
+      "bytes": 942895,
+      "sha256": "DB83683622BC131EA8AE6B8FD4AA8B79E34355D7F8042AFB99620A297CFF7485",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-steady-off/gap_1900.png",
+      "bytes": 926850,
+      "sha256": "E5E3EFD13254A3D4F66F3BDBF2000647165ABB47A090901AA93C6405261B3836",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-steady-off/gap_2200.png",
+      "bytes": 893247,
+      "sha256": "2129225BEDF588C1BE985751A3AECDDF486AB2F0BB818806460C914A0E3E4173",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-steady-off/gap_850.png",
+      "bytes": 972790,
+      "sha256": "F0EA63DB87DEBE7030CFA25D7C0EF3285FCD073C8A5F0E69624D2720D253E1B5",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-steady-off/ready.png",
+      "bytes": 890564,
+      "sha256": "7AEF2DD3232F2B652E621A7B974563156803D4073C0004739917FF2C7C244786",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-steady-off/rehold_spur.png",
+      "bytes": 894169,
+      "sha256": "A8A84CE2EFAA559547F86EB00302A8245160A4886990876C094051CCB369608D",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-steady-off/release_spur.png",
+      "bytes": 893480,
+      "sha256": "5D85DB1317C32D11B9DE02138A63E9C62F776C353382B9CCB59D92C642E09056",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/full-charge-steady-off/release.png",
+      "bytes": 959643,
+      "sha256": "3A49402A0E2C537A992248A1C160D2850D2A24F582986D0771F18C2DE58780C7",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/head-contacts-package01/de_0_war_attack0_fall_contact.png",
+      "bytes": 1135844,
+      "sha256": "0CC447A79315631384265069322CF43B297667355ECB07A067ABF5441EF9CADA",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/head-contacts-package01/de_0_war_attack0_fall_released.png",
+      "bytes": 1165118,
+      "sha256": "CF966F585EF23CD6427BA84643E27957A0607267E7F814ABD3DBFA9CC6D02CFE",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/head-contacts-package01/de_0_war_attack1_fall_contact.png",
+      "bytes": 1136495,
+      "sha256": "61CD975993FE4D5F272FCA04F057B5B3D1322A318308345E8FD4DA8C25111D92",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/head-contacts-package01/de_0_war_attack1_fall_released.png",
+      "bytes": 1150774,
+      "sha256": "AF26117DBE55247A31CFA93B66D4B46E03392E524964D46C956FF81A52A02889",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/head-contacts-package01/eng_0_war_attack0_fall_contact.png",
+      "bytes": 1135477,
+      "sha256": "7D6CBF1DDF48C64A4B78B6A4840C9E07DC0FE7CB37A91FF49ADC8245CF59FB49",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/head-contacts-package01/eng_0_war_attack0_fall_released.png",
+      "bytes": 1163488,
+      "sha256": "C16D41272E8BD288ED17EE45488D35AF4C7795BC35E3E30791DF12E622C88B5F",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/head-contacts-package01/eng_0_war_attack1_fall_contact.png",
+      "bytes": 1135590,
+      "sha256": "E410B7C9821A19CC76E69B87C7A37D8E9FB87A647C996B74B15B21B851C0FB18",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/head-contacts-package01/eng_0_war_attack1_fall_released.png",
+      "bytes": 1149276,
+      "sha256": "F118FB5D44778935641930FE459F29C0E4EC9284BF43FD1309FFBEEDC9A3164E",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/head-contacts-package01/fr_0_war_attack0_fall_contact.png",
+      "bytes": 1129114,
+      "sha256": "20912954BF05DDD3FE5F4E34BE7A2368F1C1C35539C8723F5549E5EBB2F2B785",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/head-contacts-package01/fr_0_war_attack0_fall_released.png",
+      "bytes": 1161111,
+      "sha256": "210808CA7CB72FC747BC2C2A96FA09A75209AC2D55BD111DAD9F9DE69AAC0F23",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/head-contacts-package01/fr_0_war_attack1_fall_contact.png",
+      "bytes": 1129585,
+      "sha256": "E86F3D5F34E2BD9FD23366A6562F653B69105096616907AA8552B7F1CEBE4CAD",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/head-contacts-package01/fr_0_war_attack1_fall_released.png",
+      "bytes": 1142575,
+      "sha256": "4FDCA5E0F4F1F99D851AA4C2C79E0F31C8781DCD9235DF28B29C80DBE8499077",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/input01/from_rest_time_120.png",
+      "bytes": 857722,
+      "sha256": "7363E115FEF9759D90E2362E6C6832C7BAC2264532B8BCD4D44A39DABB3210DB",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/input01/from_rest_time_30.png",
+      "bytes": 856395,
+      "sha256": "FB158981B503CFFAD721A42BC18B2A6EEDE992EFBC1E94D8CC060006E4E14FA7",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/input01/from_rest_time_54.png",
+      "bytes": 856800,
+      "sha256": "E59692760E980948AAB95157DC28269CE902B15D3755DB07B84DE24A393863FE",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/input01/input_coast.png",
+      "bytes": 856587,
+      "sha256": "F3376FA0362EE5C97BBCF3A2A7D41CB94A05BA6FF2C1552A404DF87CDFDF7AE1",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/input01/input_cruise.png",
+      "bytes": 859686,
+      "sha256": "EEE0A094F367112F956FD41C7F0B17AE1F72DAECCB6C2CE8C003EAFCDA09BCCB",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/input01/input_hold.png",
+      "bytes": 859995,
+      "sha256": "12469828C474F89290897F6ABCD9793833250352DAD5DF54BBF3EBD26349D590",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/input01/runup_ready_1.png",
+      "bytes": 852462,
+      "sha256": "5BCA0ADDF9A7E5264576FE3BF3E12318298EC53C1C5D62685E772C03C945019E",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/input01/runup_ready_150.png",
+      "bytes": 855756,
+      "sha256": "4573C63419F2C106D6C17D7C9F1D671ED22C896DEF04A81D11AF533F2F0EEE99",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/input01/runup_ready_80.png",
+      "bytes": 853050,
+      "sha256": "5481DA79E2B11DF5A673F9AAC0114CE5ADB1A93C2C6A5521EDEAE22C7FB317C6",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/input02/from_rest_time_120.png",
+      "bytes": 891752,
+      "sha256": "06B59E91F69D91F1AAE3601B0C59FA04F351F5FF704A4481947641BF652E9DE3",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/input02/from_rest_time_30.png",
+      "bytes": 890149,
+      "sha256": "EC1B7FD57BA0A4B037DDB7655F368F777EC08893ABD1BB9E852DD248DEE1414E",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/input02/from_rest_time_54.png",
+      "bytes": 891100,
+      "sha256": "1A96066990EE0AB0AF214F7355815AD1324F8B61A2E1B906DDBD5CA7AAAF2BAC",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/input02/input_coast.png",
+      "bytes": 891323,
+      "sha256": "65AD0BA292458F3900A1F906A0D88D8D409109695E96537745F791649E10B87F",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/input02/input_cruise.png",
+      "bytes": 893313,
+      "sha256": "D5911342B38479F898F50EC0531F7EC5EE37F869796F8CF3D930B39050CD472E",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/input02/input_hold.png",
+      "bytes": 893871,
+      "sha256": "63CAAE5F564B24C126A965176DF20A66C559A79CFBC534551B3E435330C7135E",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/input02/runup_ready_1.png",
+      "bytes": 887741,
+      "sha256": "E863A5C14594A1C5BC4C556E9AC77FC325D6D0618DE45F0DBC3437EA736A28AC",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/input02/runup_ready_150.png",
+      "bytes": 891481,
+      "sha256": "EA80A5EF7BC5A2F8C34CFC96AE6ABF8A111CC54332AD75CDFCA5ECD0CFE2AC93",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/input02/runup_ready_80.png",
+      "bytes": 887912,
+      "sha256": "224562181133368C8B4557EB8ED065EF4AB0320550E0D65D45D965FC85F0FA24",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/lance-layer-package01/back_lean_aim_extremes.png",
+      "bytes": 846085,
+      "sha256": "340D8D1CE0964A4AFC62D38851AAFB7EFDF6D67DD73596B68868DEA08EFC74D8",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/lance-layer-package01/back_lean_broken.png",
+      "bytes": 722960,
+      "sha256": "040BD16AE057E8493E5C1A586E125895186FDEB7D0B03E1046B532677CF66687",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/lance-layer-package01/back_lean_whole.png",
+      "bytes": 724577,
+      "sha256": "E2EDA16F0BA54205EA0B4AB91DADEEA077A2E20FE410829A77E9BCB0B381366A",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/lance-layer-package01/released_whole_and_broken.png",
+      "bytes": 51334,
+      "sha256": "49DA1A83A89B94A36E19A207F7FB8DB596352628263155C7930AAE27B429BC01",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion-review-phase/new_00.png",
+      "bytes": 329431,
+      "sha256": "4F8A906162C241AE35AAAD372B5A253C37705D5246FD685D879039132B38E55C",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion-review-phase/new_01.png",
+      "bytes": 321816,
+      "sha256": "87F95159B8E39E7CD41B88259CB86E06B161D66D8B9B31A65D87012200822B8A",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion-review-phase/new_02.png",
+      "bytes": 326070,
+      "sha256": "B8985D51142DF550634F417775DFE2297087944E363B72448FDE48BF6C76106D",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion-review-phase/new_03.png",
+      "bytes": 325968,
+      "sha256": "F7A06625E1C738E7230DD2CF82A7FF7310D2FB0570D46ABB69E41F53E9D15262",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion-review-phase/old_00.png",
+      "bytes": 328924,
+      "sha256": "6F83B51CBAD034CA090DDEA946508E01759849FE226120D32C057F09D99B3004",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion-review-phase/old_01.png",
+      "bytes": 327537,
+      "sha256": "9B0D2ABE85B798FF7DA9516FCD7535535AC140E93430815D23652046EBB780CB",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion-review-phase/old_02.png",
+      "bytes": 327252,
+      "sha256": "6939C735FE2E6D07B21B71770691F222024485EA243C79EB341B52F8EEF64E6C",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion-review-phase/old_03.png",
+      "bytes": 325788,
+      "sha256": "1A997D0AFC1CC5AB99570F222356AB1A33EBEA505940DC08376E6F9D074A4286",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion-review-phase/swing_00.png",
+      "bytes": 323681,
+      "sha256": "969D103CE96D1550F37E71983CC5ECB246C477D4C95A369A3AA66763986B9822",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion-review-phase/swing_01.png",
+      "bytes": 322005,
+      "sha256": "1FEE2EA4C7B37689381687347901EB489AFC378D1F8C809F166927A9B4B68D2F",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion-review-phase/swing_02.png",
+      "bytes": 325916,
+      "sha256": "B28FF7E0594BA2A71D63FD4E1227997B7999BE75438A88195DBD4DDB5B678942",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion01/frame_000.png",
+      "bytes": 182975,
+      "sha256": "435FA3B2978E64DA6B83761BD7D52EA415F0D24D688B9CBF9C9F012B7CA1606E",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion01/frame_090.png",
+      "bytes": 200989,
+      "sha256": "1DBD174435F721F0CA661CD2FB3DEDFA2A24B48C2EF8B9F80D2F4D8F66768A38",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion01/frame_149.png",
+      "bytes": 199521,
+      "sha256": "28E50CFF51A025F1FBAF12FD987DFBE38E76E1DFC86A74680227EB6AE9A129D2",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion01/frame_165.png",
+      "bytes": 199159,
+      "sha256": "A7D87E5B5A4304AF8AF9E3929EAEC090B3641D5BB9D998E85126F75348C85108",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion01/frame_210.png",
+      "bytes": 201347,
+      "sha256": "316FB0DDFDEFBE9F556F0579CB08E849829917BF5177D5401B97FFA1A2D60E99",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion01/frame_300.png",
+      "bytes": 195756,
+      "sha256": "4076848EB8C6C9A369DF215F48249056E78ED7D12B2F88079E79FDFD2A442A24",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion01/frame_330.png",
+      "bytes": 199365,
+      "sha256": "F8C9DA9747160B6D49628AB29818F602A9313E1CBBD09A136A3FE570F463580D",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion01/frame_390.png",
+      "bytes": 195979,
+      "sha256": "092F764BE8D8079C140E19DBAA816368D4CBB61A7C9FFEA0964DE18CDAEEDC92",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion01/frame_449.png",
+      "bytes": 197385,
+      "sha256": "468C5C48167BE4F62E9EB1C98E6F9C92544E1C2B8037920FACB6553674079245",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion01/frame_480.png",
+      "bytes": 201103,
+      "sha256": "D5EDADB80BEE88965267775DCBAEA104B56633F54B4C12DCE7A646E977B3AE72",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion01/frame_570.png",
+      "bytes": 200174,
+      "sha256": "7B0586438763C7B3A22684256BA8E1ECFB723237F39635264DADB0275ACABB06",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion01/frame_600.png",
+      "bytes": 213128,
+      "sha256": "7353345F203681CAD54B3FAC58225EDB27BE540F20BBAE82D459B011951D5876",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/motion01/frame_690.png",
+      "bytes": 199246,
+      "sha256": "1F94C3009D108576109A79BF413034A4FFEE4A855D445402B701F315C72E094F",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/smoke-source01/05_result.png",
+      "bytes": 753132,
+      "sha256": "E61FF584520FB931C158C9927515CFCBA7EF8B69613E2E156FA5F7C32D5C99C2",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/smoke-source01/06_war.png",
+      "bytes": 959778,
+      "sha256": "98F11E4622B5130FC85F7ABA461B026356E28300F2DBBCC90EF570291EFA29CD",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/smoke-source01/07_war_result.png",
+      "bytes": 761845,
+      "sha256": "128C942C0D9ED4349D1E991B8DAC2B13320C81D5779E16244F3261F5C2255E68",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/smoke-source01/09_war_impact.png",
+      "bytes": 943155,
+      "sha256": "0B95709F0B8A8D5B82AA9D880563A9E8FD158902FECA328D8971AF6542A81EFE",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/smoke-zip01/01_home.png",
+      "bytes": 672979,
+      "sha256": "9625A7F3491452A2DE81FD2374E727BFD2D40BB1153021D84F06BACED7FFEB12",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/smoke-zip01/02_armory.png",
+      "bytes": 527181,
+      "sha256": "A7BB3E38A7C6EB18B816BB6517E9AAA31CBE6094451803C99B78A16298281A61",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/smoke-zip01/03_history.png",
+      "bytes": 485222,
+      "sha256": "E2B28C783BEE234192FE0CCC87F664E6445D9ABF8FAFD6D8F65F2E7DCD9EB3A6",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/smoke-zip01/04_arena.png",
+      "bytes": 983241,
+      "sha256": "212BC5DC306AD2A6377381B19019086E4434812DCA1D82BF4088D56216E78A20",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/smoke-zip01/05_result.png",
+      "bytes": 752737,
+      "sha256": "6ED240EAD0D3E6DA5C700A2A3CB248AE9D0700E9D2B8B83FD312ABDB900D5F86",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/smoke-zip01/06_war.png",
+      "bytes": 959697,
+      "sha256": "2E90FEAB46F3A8B472DB2EFF0A43BD5437100FD972E2786976AC3406779FA713",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/smoke-zip01/07_war_result.png",
+      "bytes": 761824,
+      "sha256": "7C05730ECC55D3990C51F1815904CCC522CFA93AC2C42FE2E9908D2B8113E705",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/smoke-zip01/08_arena_impact.png",
+      "bytes": 955051,
+      "sha256": "59C60C45C5C9175736C6F6339FAD627CB249AD800D1574B43556FEDDA5098094",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/smoke-zip01/09_war_impact.png",
+      "bytes": 943239,
+      "sha256": "FEED676E67AD05A143717B77A98AEFC6CB10D3E8FA95B98F819E68899A154B40",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/terminal-package01/cycle_045_after.png",
+      "bytes": 1113479,
+      "sha256": "AB169E7391B1563A4ECF90B71B53B5E977348BCD749C769CFC7294242386D22A",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/terminal-package01/cycle_045_before.png",
+      "bytes": 914187,
+      "sha256": "452483AC1A66194175EA8E8AB251498CF43630197783C332DDBA00DA3CA4EBB2",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/terminal-package01/cycle_045_result.png",
+      "bytes": 823221,
+      "sha256": "C4633DD191ECB949DAC0C6127051AD41279D8D64162D74976B93A5251253F134",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/terminal-package01/cycle_085_after.png",
+      "bytes": 1107275,
+      "sha256": "2053BCC3B42F0FBEA3D8509E0C2ADCB82B4C2FCEE2BF03DA66F1B3C80F7B107A",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/terminal-package01/cycle_085_before.png",
+      "bytes": 908338,
+      "sha256": "7D6B4143A708BC5849014416C03B9017BCB71C306E3CEB793208E34BF9E7A0E5",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/terminal-package01/cycle_085_result.png",
+      "bytes": 820698,
+      "sha256": "CF8AFF37E81144B867ACAA9BEB1535FEFB1A6631C97708509427331392B76F7F",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/terminal01/cycle_045_after.png",
+      "bytes": 1104034,
+      "sha256": "04903F75B2B87E9209996F36B2291E13C8808829D5AAD6F6E1B738096745ACA0",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/terminal01/cycle_045_before.png",
+      "bytes": 914187,
+      "sha256": "452483AC1A66194175EA8E8AB251498CF43630197783C332DDBA00DA3CA4EBB2",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/terminal01/cycle_045_result.png",
+      "bytes": 818058,
+      "sha256": "31F74E51622B5F2EE496509A493F44DF28AE2578E4CB04275CEAC21ADE55E059",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/terminal01/cycle_085_after.png",
+      "bytes": 1104072,
+      "sha256": "D478F8A5FA5AB76A67BD8F9FAE92798ECB349388D4F6280353AD21024B02D341",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/terminal01/cycle_085_before.png",
+      "bytes": 908338,
+      "sha256": "7D6B4143A708BC5849014416C03B9017BCB71C306E3CEB793208E34BF9E7A0E5",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/terminal01/cycle_085_result.png",
+      "bytes": 817203,
+      "sha256": "FC12F07B4C9D2242977DA158EC99C0B922911B30324E7E78A322D841A8D7F7E2",
+      "selected_for_git": true
+    },
+    {
+      "path": "docs/development/screenshots/v056/terminal02/cycle_045_after.png",
+      "bytes": 1113479,
+      "sha256": "AB169E7391B1563A4ECF90B71B53B5E977348BCD749C769CFC7294242386D22A",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/terminal02/cycle_045_before.png",
+      "bytes": 914187,
+      "sha256": "452483AC1A66194175EA8E8AB251498CF43630197783C332DDBA00DA3CA4EBB2",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/terminal02/cycle_045_result.png",
+      "bytes": 823216,
+      "sha256": "5B43EE9FC7C845CBE8F80F8AF6E4B4CB64568B75A158097D70399B0190BB2B1C",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/terminal02/cycle_085_after.png",
+      "bytes": 1107275,
+      "sha256": "2053BCC3B42F0FBEA3D8509E0C2ADCB82B4C2FCEE2BF03DA66F1B3C80F7B107A",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/terminal02/cycle_085_before.png",
+      "bytes": 908338,
+      "sha256": "7D6B4143A708BC5849014416C03B9017BCB71C306E3CEB793208E34BF9E7A0E5",
+      "selected_for_git": false
+    },
+    {
+      "path": "docs/development/screenshots/v056/terminal02/cycle_085_result.png",
+      "bytes": 820635,
+      "sha256": "B05428CFC0150E717C99CD5659E06D8FC54D9F2B330634D23B27586285BE0FDB",
+      "selected_for_git": false
+    }
+  ]
+}

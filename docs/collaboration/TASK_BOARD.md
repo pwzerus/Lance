@@ -1,10 +1,20 @@
 # 任务、审查建议与文件认领
 
-最后整理：2026-10-30 EDT。QA-054B完成实际OS戴盔/自建/练习/竞技与交互双向姿态，额外找错10分02秒，发现后继续修复枪尾遮脸及退出音频清理；独立v0.4.15-r2，运行a6accff。实际包/解压双模式、WASAPI及OS暂停关闭已验，详情见QA-054B交接。下一次两小时加速/颠簸/重击音及此前第四阶段运动甲声未启动。
+最后整理：2026-11-02 EST。DEV-056开发与实际包/整段边界/ZIP验证完成，独立v0.4.16，运行04ebb2e；全部生产/测试文件释放，root仅收尾提交推送。本轮桌面接口Transport closed，不能沿用QA-054B的OS证据充当本轮试玩。此前第四阶段运动甲声仍未启动。
 
 当前版本分支为 `codex/v0.4`。同版本的修复、同一／相近功能继续在该分支提交 commit；大的结构性改动形成新版本时再创建新的版本分支。不按每个小任务新建分支。
 
 ## 当前文件占用
+
+DEV-056完成：root、motion056、timing056、sound056所有生产、QA和审查文件已释放；root仅处理交付提交/推送。v0.4.16及ZIP实际包通过，正式档/旧包保留。后续优先补实际OS长按与人耳听感；不把自动运行当作玩家认可。以下DEV-056认领段保留为历史，不代表仍占用。
+
+DEV-056 / 2026-11-02 11:32:16 EST：用户启动两小时冲锋手感阶段（首轮至13:32:16 EST，关键问题可延长，提前完成继续有依据试玩/审查/修复）。基线11b9b1c，现有Claude文档与rules_v045改动归属沿用并保留。root认领core/joust_match.gd、visual/horse_gait.gd、rider_view.gd、battle.gd、exchange_director.gd、impact_fx.gd及必要main版本入口、project/export/Play-Latest、设计与交接文档；不重写已验头颈与枪层。子代理sound056只持有visual/sound_bank.gd、新assets/audio/impact_v056/、相关生成工具/test_impact_audio_v056.gd/.uid和V056_AUDIO_REVIEW；motion056只读动作诊断及新test_charge_motion_v056.gd/.uid、V056_MOTION_REVIEW；timing056只读时间/镜头/输入审查及新test_exchange_v056.gd/.uid、V056_TIMING_REVIEW。引擎/桌面由root独占串行，隔离QA档。目标独立v0.4.16，同codex/v0.4分支，保护正式档与.15-r2。
+
+DEV-056审查扩展 / 12:12 EST：motion056新增持有tests/test_terminal_pose_v056.gd/.uid，检查结果页冻结时骑手/马体步态标志不一致；root只在battle.gd作最小修复。sound056新增持有tests/test_contact_mix_v056.gd/.uid，录制隔离进程实际混音做峰值与材质预览。原桌面接口Transport closed，重试与重置失败，尚无本轮OS输入证据；不以自动渲染代替手动试玩。
+
+DEV-056落马图像复核 / 12:12 EST：timing056新增tests/test_fall_layers_v056.gd/.uid，检查本轮实际接触图中近腿突然被马腹遮挡的同z绘制顺序；root仍只修改battle.gd场景排序，不扩大物理或死亡规则。
+
+DEV-056整段对冲观察：timing056新增tests/test_full_charge_v056.gd/.uid，由真实Battle正常process/physics从倒计时到接触/交错运行，引擎派发一次按住/松开/再按住及盾位输入，补1900→1200镜头转场和连续帧证据；root串行引擎与最终包复验。
 
 QA-054B完成：root、manual_pose055及fit_audit055文件全部释放，仅收尾提交/推送。最终.15-r2包含7e7686a与a6accff，源码/实际包四张枪层图一致，头部接触/落马、解压双模式及9图、实际OS暂停关闭干净。正式档和.14旧包保持原SHA。以下QA-054B段为认领历史，不代表仍占用；未声明全部外观或实战持续按键极限俯仰已验。
 

@@ -40,3 +40,39 @@ sound056只读检查root执行的`logs/v056/audio02.json/.log`及当前Battle/Ex
 - 场景退出停止wind并清stream，sound.stop_all清声音引用和movement_duck；main仍保留120ms真实退出清理及重复退出守卫。新duck是纯数值元数据，没有引入持有音频资源的新引用。
 
 上述范围没有发现确定的P1/P2混音或生命周期故障。剩余边界：0.78是contact组的保守峰值和，不是整个Master输出测量；wind/hoof/菜单音和实际硬件仍未做总线录音/人耳接受度验收。近身/受击下的主观响度、金属质感以及木盾是否足够有重量，需要玩家试听，不以能量比或测试数量证明。最终PCK须重复运行新音频夹具；该次源码证据不能替代发布包身份核对。
+
+## 实际 Master 混音录制夹具（待 root 运行）
+
+新增自包含 `game/tests/test_contact_mix_v056.gd`，隔离QA入口 `--script res://tests/test_contact_mix_v056.gd -- --test-profile --run-dir=<不存在的绝对目录>`。现有目录即拒绝运行；输出每例WAV及report.json，不覆盖既有证据。发布包若排除tests，可用外部脚本绝对路径运行；其生产preload仍必须从该PCK读取。另将test_impact_audio_v056的旧夹具基类改为相对路径，使外部发布验证能找到同目录的v050测试。
+
+夹具使用实际SoundBank、Exchange包络、同帧接触组预算和池；录制有风声/近远蹄声的头盔、胸板、木盾，双命中双断枪与胜负UI同帧边界，以及相隔65ms的两批接触+click。UI同帧属于明确的压力安排，不能说真实比赛必然这样播放。首个接触帧使用0时间推进，后续使用真实时钟恢复duck。没有改碰撞结果或生产增益。
+
+依据[AudioEffectRecord文档](https://docs.godotengine.org/en/4.5/classes/class_audioeffectrecord.html)及[Godot 4.5.1音频服务源码](https://github.com/godotengine/godot/blob/4.5.1-stable/servers/audio_server.cpp#L507-L570)，Master效果处理先于最终mute/音量阶段；夹具在Master最后加入录制效果，并将Master最终mute。它要求录音实际非静音、mute后电平表保持静音，二者都成立才验证这个安排。录制结束把真实写出的RIFF/PCM重新读取，输出声道峰值、RMS、近满幅及削波样本数；退出移除临时效果并恢复总线状态，不改系统音量或音频布局文件。
+
+这新增的是实际混音采样证据，不是分组保守上界，也不是麦克风/扬声器录制、人耳评价、LUFS、真峰值认证或全部可能游戏混音的证明。脚本完成静态复核；引擎结果待root执行后填写。
+
+## master_mix01 录音独立复核与跨场景检查
+
+root随后执行`docs/development/logs/v056/master_mix01/report.json`，结果WASAPI、48kHz、passed=true。sound056未再运行引擎，使用独立Node文件解析重新读取该目录7个WAV的RIFF块和全部16位PCM采样，并核对SHA256、帧数、峰值、RMS：均与报告一致（RMS浮点差小于5e-17）。这是对落盘证据的独立复算，不能改称为另一轮引擎运行。
+
+| 录制场景 | PCM峰值 | 峰值dBFS |
+| --- | ---: | ---: |
+| mute前录制探针 | 0.180328 | -14.879 |
+| 头盔+风/蹄 | 0.487976 | -6.232 |
+| 胸板+风/蹄 | 0.515961 | -5.748 |
+| 木盾+风/蹄 | 0.356171 | -8.967 |
+| 双击/双断枪+胜利UI边界 | 0.546875 | -5.242 |
+| 双击/双断枪+失败UI边界 | 0.411285 | -7.717 |
+| 延迟第二批接触+click | 0.517395 | -5.724 |
+
+7个文件均为48kHz/16位双声道；实际左右PCM完全相同，当前夹具没有空间声像差异。按夹具定义的满幅样本（绝对整数值≥32766）和近满幅样本（幅度≥0.98）都为0。录音非静音，所有录制期的mute后Master最大电平约-200dB，支持“效果链录到了mute前数据、最终输出静音”的实际结果。最大峰值只适用于这7个安排，不外推任意未来素材/混音/硬件系统音量。
+
+追加只读检查Battle完整蹄声/风声生命周期、main菜单/重开/退出和GameState设置路径，未发现本次movement_duck造成的跨场景恢复缺陷：
+
+- 蹄声只在charge且未暂停的落蹄信号上播放，使用现有速度增益与前后腿音高。duck仅是每个SoundBank实例和每个voice上的数值；共享静态字典只保存音频流，不保存duck或播放器增益。新Battle新建SoundBank，初始duck为0。
+- 接触后同一Battle仍逐帧推进Exchange；ready/turn或新pass重置包络，下个_process重算蹄声原db，不会累计衰减。结束表现继续推进包络；结果UI使用main独立SoundBank，不会继承战斗蹄声duck。
+- 暂停对wind、SoundBank和Exchange一起暂停；恢复沿用剩余包络并重置真实时间起点。暂停返回营地/重开经main.remove_child立即触发Battle退出，停止wind并清stream、stop_all清所有声流及duck；队列释放后新Battle不复用这些voice。
+- 当前“音乐与音效”开关在营地设置页，回营地前Battle已经关闭。菜单开关及读取存档同步main音频；下一局从GameState重新读取enabled，false时wind不会启动，SoundBank.play拒绝播放。GameState本身仅改数据并发profile_changed，Battle不监听该信号；若以后增加战斗中切换声音的UI，需显式同步Battle sound及独立wind，不能只调用GameState.set_setting。当前暂停页没有该声音开关，所以这属于未来接入注意事项，不是现有玩家可触发回归。
+- 应用退出先禁用main声音、stop_all，再关闭Battle；main仍等待120ms真实时间清理。只改set_movement_duck没有新增静态状态、音频资源持有或退出重启路径。
+
+本次实际录音填补了上述“未做Master录音”的部分边界；仍未有人耳接受度验收，也不能以数值证明撞击足够重、三种材质听起来足够明显。发布PCK身份及最终发布回归由root记录。

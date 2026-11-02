@@ -87,3 +87,56 @@ root运行`logs/v056/exchange01.json/.log`，版本0.4.16，GPU为Intel Graphics
 root运行`fall-layers01`，两侧均产生实际命中并完成落马，但唯一失败为“Age-zero fallen near leg remains above its own horse”；effects树序0先于mounted5/6，符合初诊。root在Battle的riders创建后执行`world.move_child(effects,world.get_child_count()-1)`，新`fall-layers02`两侧通过、failures=[]、12张图，effects序6后于mounted4/5，所有有效z保持不变。
 
 独立图像复核发现并报告第二个**夹具证据瑕疵**：01/02的age0捕获在mounted视图停用process后未请求其自身重绘，可能留下pre_contact完整骑手的draw list。因此这两次age0 PNG不作为视觉前后对照，不能用数值通过掩盖它。正常恢复process后的`airborne`图有效：01两个朝向的近腿都被马腹盖掉、只露靴；02两个朝向的近大腿到靴连续可见，证明实际遮挡已经改善。02的两侧airborne/released/landed/settled共8张逐张检查，远腿早期在马后，分离后逐步露出；远跑道倒地身体及枪仍在栅栏后，近跑道在栅栏前，没有本次排序导致的侧别翻转。已把新夹具交由root，建议capture请求两mounted视图queue_redraw后，另存新运行确认真正age0。
+
+root补上mounted和detached视图重绘后，`fall-layers03`与`fall-layers-package01`均为两情境、12图、passed=true、failures=[]。独立查看这两次左右朝向的真正age0图共4张：近腿连续覆盖本马侧面，远腿仍在腹后，缰绳已经切换为无骑手状态，避免旧draw list冒充新身体。数值、正常process前后对照及最终age0图像形成闭环；package命名报告的实际EXE启动方式由root运行回执提供，本子代理没有独立启动EXE。
+
+## 补充连续整段验证入口
+
+`input02`对手被放远，`exchange01`从gap1200开始，两者都不能覆盖完整1900→1200镜头回双骑的过渡。新增独占`game/tests/test_full_charge_v056.gd`：只复用相对基类的投影与viewport派发，正常启动Main/Battle，从默认4400距离的ready开始，保持原AI/装备/满血和完整引擎process/physics。固定独立QA随机数种子；准备时选一次枪角并按住左键，charge约1.9游戏秒松手、2.55秒再按并换盾位，gap1000再一次小幅枪角和盾位变更。子节点在Battle之后观察实际physics delta与枪盾运动限速；每个真实渲染帧记录wall/game时间、速度、步相、镜头、投影、固定地标流速，覆盖1900/1550/1200/1100和实际接触/驶离。
+
+该夹具不手动调用生产step/process，不设置马速、位置、命中事件或相机。28秒wall上限，完成首轮turn或terminal rollout即退出。GPU图像先保存在内存、结束后编码PNG，记录读回成本；若root使用标准`--write-movie`或`--fixed-fps`，报告标识固定捕捉时钟，不把它当桌面实时帧率。焦点暂停断开、外部输入回调只在注入时打开，属于引擎输入验证而非OS测试。运行与图像结论待root回执。
+
+### 连续实际EXE运行回执
+
+root运行`full-charge-package01`：12.1195秒、1449个实际physics回调、716个渲染样本，正常AI产生双方各一次胸部命中并断枪，没有KO。唯一失败来自夹具错误期望“每一次新hit都必须重新进入contact”：第一次8.248847秒确为contact且impact_elapsed=0，第二次8.415551秒处于read、elapsed=.166，符合既有“后续击中不得重启演出预算”契约。root仅把该检查限制为首次接触，未改生产。
+
+新`full-charge-package02`通过、failures=[]：12.108576秒，同样1449个physics回调、716个渲染样本、两次真实胸击。状态帧明确包含42个approach、6个contact、11个read、12个release，结束scale=1；不是靠手动快进通过。两次运行都未使用movie/fixed-fps。
+
+| 连续镜头指标 | package01 | package02 |
+| --- | --- | --- |
+| gap1900→1200之间渲染样本 | 44帧，约.717秒 | 44帧 |
+| 最小zoom | .6558247 | .6557959 |
+| 该区间固定地标流速，像素/wall秒 | -417.67至-267.69 | -451.17至-240.04 |
+| 双马完整进入视野的首次gap | 1491.982 | 1491.982 |
+| 枪尖绘制/规则投影最大误差 | 约.000489像素 | 约.000489像素 |
+
+最小zoom只比稳定跟拍.68回退约3.6%；地标在该段没有反向或停止，双马在1100承诺距离前约392单位就已完整入镜。独立逐张查看package01的全部15张PNG（该运行的失败只涉及第二击测试期望）：准备、松手/再催马、2200/1900/1550/1200/1100/850、两次命中演出与驶离未见新裁切，头、蹄和接触位置可读。1550处对手马尾尚在屏外、1492起全部入镜，是过渡过程本身；没有宣称1900就要求双马完整。
+
+速度反馈的剩余设计风险需与镜头分开：该真实练习AI在gap≤1200按既有规则松催马，首次接触时玩家480、对手约272，逼近速度会自然下降。package01松手约.633秒后玩家由480降至347，再按后恢复480，是真实减速/再加速。此次证据没有发现镜头抵消为静止的情况；若玩家仍觉得临门速度不足，应结合普通难度AI与连续录像判断，不能为增加紧迫感偷偷修改练习AI/命中平衡。静止PNG和数据不能代替玩家对颠簸、声音或打击重量的最终体验判断。
+
+### 两个针对性边界入口
+
+新夹具增加`--horse-id=<id>`，默认horse_bay；从已加载Catalogue查找并严格验证slot=horse，只在隔离QA内存profile.owned/equipped装备，不改renown、不改AI或实际马匹数值、不写正式存档。`--slow-off`只关闭设置，验证没有approach/read和退出scale恢复；沿用现有短hitstop与快释放，不错误要求关闭时全程scale=1。首次contact帧检查只用于慢动作开启，第二次hit不要求重启。
+
+root运行真实EXE的高速horse_courser配`--max-fps 30`以及稳乘马配`--slow-off`。`--max-fps 30`是渲染上限，physics仍为项目120Hz，不能把它写成30Hz物理测试；标准movie/fixed-fps与普通实时运行也分别报告。
+
+### 两个边界的独立复核与冻结
+
+| 真实EXE报告 | full-charge-fast30 | full-charge-steady-off |
+| --- | --- | --- |
+| 结果 | passed=true，failures=[] | passed=true，failures=[] |
+| 玩家实际Catalogue马 | horse_courser，速度1.24/稳定.88 | horse_steady，速度1.02/稳定1.26 |
+| 慢动作 | 开启；渲染上限30 | 关闭；普通渲染 |
+| 完成首轮wall时间 | 11.840127秒 | 11.750918秒 |
+| physics/渲染样本 | 1414 / 353 | 1405 / 695 |
+| 实际接触 | 双方各1次胸击，均断枪、非KO | 双方各1次胸击，均断枪、非KO |
+| 1900→1200过渡样本/最小zoom | 19帧 / .657049 | 44帧 / .655922 |
+| 地标流速范围（像素/wall秒） | -494.54至-377.48，持续前进 | -458.00至-245.06，持续前进 |
+| 双马全部入镜首次gap | 1475.382 | 1495.543 |
+| 最后scale / movie模式 | 1 / false | 1 / false |
+
+从原始physics样本独立重算相邻帧角度/盾位变化除以实际game delta：两次全程最大骑枪角速度均2.2rad/游戏秒、1100以内最大.95、盾位最大2.8/游戏秒（仅浮点尾差）。近身分别有224/205个发生枪盾移动的样本，检查并非对静止武器空过；最大physics delta均1/120秒，hitstop最小约.000008333秒，30FPS上限未变成30Hz物理。两向绘制枪尖与规则投影最大差约.000489像素。
+
+每次独立查看gap1550、gap1100、actual_contact及read（开启）/release（关闭）4张关键图，共8张：1550仍处进入双骑过渡，对手尾部局部在屏外；1100前已完整、没有新HUD遮头/蹄或枪尖裁切。接触图片与实际胸击标签、粒子位置相符。最快马595疾驰没有令镜头遗漏双骑承诺窗口；慢动作关闭报告只出现runup/contact/release，未进入approach/read，既有短hitstop仍保留。读取报告与这些关键帧后，未发现需要新增生产修改的问题。
+
+本专项测试与审查现冻结移交root。后续用户视频如用同一EXE的MovieMaker固定60帧捕捉，属于真实引擎画面的预览证据，必须单独标记，不能并入上述普通运行的实时性能结论；也不替代OS输入或玩家对手感的判断。

@@ -30,7 +30,7 @@ const HEIGHTS = [
  [0.0,-1.0,-2.0,-1.0,0.0,1.0,0.0,-1.0,-2.0,-1.0,0.0,1.0],
  [1.0,-2.0,-4.5,-2.5,.5,2.0,1.0,-2.0,-4.5,-2.5,.5,2.0],
  [1.0,2.5,1.0,-1.5,-2.0,0.0,2.0,0.0,-4.0,-7.0,-8.0,-4.0],
- [1.0,3.0,1.0,-2.5,-1.0,1.5,3.0,0.0,-5.0,-10.0,-12.0,-7.0]]
+ [1.0,3.0,1.0,-1.0,-.5,1.5,3.0,1.0,-3.0,-7.5,-9.0,-4.0]]
 # Trot is spring-like: back LOW at midstance, HIGH around suspension.
 # Keep the authored vertical curve aligned with the diagonal footfalls.
 const HEIGHT_PHASE = [0.0,.21,0.0,0.0]
@@ -70,7 +70,10 @@ static func gait_index(speed: float) -> int:
 
 static func frequency(speed: float) -> float:
  var w = weights(speed)
- return (.88*w.x+1.48*w.y+1.43*w.z+1.50*w.w)*clampf(speed/100.0,.10,1.12)
+ # Faster travel is visible as both a longer stride and a stronger cadence.
+ # The previous trot/canter/gallop rates were almost identical, so urging
+ # only stretched the legs across the ground while their rhythm stayed flat.
+ return (.88*w.x+1.40*w.y+1.65*w.z+1.90*w.w)*clampf(speed/100.0,.10,1.12)
 
 static func _cycle(values: Array, cycle: float) -> float:
  var p = fposmod(cycle,1.0)*values.size()
@@ -105,12 +108,15 @@ static func body(phase: float, speed: float, moving: bool, stability: float = 1.
   delayed_height += _cycle(HEIGHTS[i],cycle-.055+HEIGHT_PHASE[i])*w[i]
   delayed_pitch += _cycle(PITCHES[i],cycle-.04)*w[i]
  var rider_lag = (delayed_height-height)*.32*transmission
- return {"offset":Vector2(sin(phase-.4)*run*1.2,height*intensity+absf(drive)*1.0),"pitch":pitch*intensity-drive*.018,
-  "neck":(.11*run-pitch*.55+sin(phase-.5)*(.025*w.x+.018*w.y+.050*w.z+.075*w.w))*intensity,
-  "neck_offset":Vector2(run*(3+3*sin(phase-.3)),run*(2+2*cos(phase)))*intensity,
+ # The head counterbalances the SAME trunk loading, instead of bobbing on
+ # an unrelated large sine. Acceleration loads the hindquarters and carries
+ # the seated rider forward; these offsets are shared with the rule anchors.
+ return {"offset":Vector2(sin(phase-.4)*run*1.7+drive*2.0,height*intensity+absf(drive)*1.2),"pitch":pitch*intensity-drive*.028,
+  "neck":(.075*run-pitch*.90+delayed_pitch*.35+sin(phase-.5)*(.020*w.x+.012*w.y))*intensity,
+  "neck_offset":Vector2(run*(2+2*sin(phase-.3)),run*(1+height*.14))*intensity,
   "tail":(.30*run+sin(phase-1.1)*(.04+.10*run))*intensity,
-  "rider_offset":Vector2(-sin(phase)*run*1.7,rider_lag*intensity),
-  "rider_pitch":delayed_pitch*.48+drive*.035,"gait":gait_index(speed)}
+  "rider_offset":Vector2(-sin(phase)*run*2.2-drive*1.2,rider_lag*intensity),
+  "rider_pitch":delayed_pitch*.58+drive*.060,"gait":gait_index(speed)}
 
 static func _swing_point(front: bool, t: float, reach: float, lift: float, run: float) -> Vector2:
  var times = [0.0,.18,.42,.75,1.0] if front else [0.0,.22,.55,.84,1.0]
@@ -183,7 +189,9 @@ static func leg(index: int, phase: float, speed: float, moving: bool, stability:
   hip += root_offset.rotated(float(pose.pitch))
  # Uncurl before touchdown: the last part of swing places a flat hoof,
  # rather than snapping a still-curled toe to the floor on the beat.
- var curl = (.28*w.x+.50*w.y+.72*w.z+.85*w.w)*smoothstep(0,85,speed)
+ # Faster stride cycles need less distal toe curl: keep the hoof placing
+ # forward cleanly rather than flicking through the old deep fold faster.
+ var curl = (.28*w.x+.50*w.y+.65*w.z+.66*w.w)*smoothstep(0,85,speed)
  var toe_angle = 0.0 if contact else -sin(PI*smoothstep(0,.83,swing))*curl
  var pastern = PASTERN if front else HIND_PASTERN
  var lengths = segment_lengths(front)

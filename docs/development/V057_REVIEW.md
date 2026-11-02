@@ -53,6 +53,8 @@ r2实际包的24组极限俯仰/盾位又找出3例右向低盾撑胸，gap15.35
 
 后置专项实际21:46:11–22:17:42 UTC，共31分31秒，结束时已修复发现的支撑问题并完成最终包专项。随后只补实际落稳截图、交接/归档/推送，未为耗时扩功能。Play-Latest改指独立.17-r3；正式档与旧.16PCK最终SHA均与开始一致（protected-files-final.json）。PCK SHA256 FE232E0B92A4206EE2A014344FA94D54B60CE2287A01107480F77721E3191872；build-manifest记录实际运行4ef9bd85e3ebee0458fbb60b74ead8b3d4583a8d。首包和r2是保留候选，不作为最新入口。
 
+完整交付008b387056cbf4cff131816eafc96bebfa58e302已推送GitHub且ls-remote逐字一致；后续纯文档回执不影响包。原始引擎日志中的行尾空白保留，源码/文档diff检查通过。Git提交选入代表性证据，其余本地原始记录按evidence-manifest保留；builds未上传GitHub Release。
+
 ## 已知限制与下一步
 
 - 落马是有限关节与近似地面包络，非全刚体布娃娃；部分靴贴图边缘可能少量越过地线。不能以骨点penetration=0宣称像素级碰撞无误。

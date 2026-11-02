@@ -4,6 +4,7 @@ extends SceneTree
 const Model = preload("res://scripts/core/joust_match.gd")
 const Rider = preload("res://scripts/visual/rider_view.gd")
 const Fallen = preload("res://scripts/visual/fallen_rider.gd")
+const Catalogue = preload("res://scripts/core/catalogue.gd")
 
 class Probe extends Fallen:
 	var release_record: Dictionary = {}
@@ -26,6 +27,9 @@ var captures: Array = []
 var baseline: Dictionary = {}
 var maximum_blood_pose_error = 0.0
 var maximum_rate_pose_error = 0.0
+var pose_stress = false
+var pose_config: Dictionary = {}
+var stress_stats: Dictionary = {}
 
 func _initialize() -> void:
 	call_deferred("run")
@@ -52,6 +56,15 @@ func global_points(actor) -> PackedVector2Array:
 	for point in actor.body_points(): points.append(actor.position+point.rotated(actor.rotation))
 	return points
 
+func support_parts(actor) -> Dictionary:
+	var result = {"helmet":-INF,"torso":-INF,"arms":-INF,"shield":-INF,"legs":-INF}
+	var shield_count = Rider.Shield.polygon(str(actor.fighter.stats.get("shield_shape","kite"))).size() if float(actor.fighter.get("shield",0.0))>0 else 0
+	var points = actor.body_points()
+	for index in range(points.size()):
+		var part = "helmet" if index<4 else ("torso" if index<8 else ("arms" if index<14 else ("shield" if index<14+shield_count else "legs")))
+		result[part] = maxf(result[part],actor.position.y+points[index].rotated(actor.rotation).y+5.0)
+	return result
+
 func make_actor(stage: Node2D, zone: String, facing: int, blood: bool, broken: bool):
 	var model = Model.new()
 	var fighter: Dictionary = model.fighters[0].duplicate(true)
@@ -59,9 +72,12 @@ func make_actor(stage: Node2D, zone: String, facing: int, blood: bool, broken: b
 	fighter.lane_y = 0.0
 	fighter.direction = facing
 	fighter.speed = 480.0
-	fighter.lean = -.35
+	fighter.lean = float(pose_config.get("lean",-.35))
 	fighter.aim = .12
-	fighter.guard = .43
+	fighter.guard = float(pose_config.get("guard",.43))
+	if not stress_stats.is_empty():
+		fighter.stats = stress_stats.duplicate(true)
+		fighter.shield = float(stress_stats.get("shield_capacity",78.0))
 	fighter.gait_moving = true
 	fighter.gait_phase = .60
 	fighter.broken = broken
@@ -126,6 +142,7 @@ func run_case(zone: String, facing: int, hz: int, blood: bool) -> void:
 	root.add_child(stage)
 	var actor = make_actor(stage,zone,facing,blood,zone=="flank")
 	var row = {"zone":zone,"facing":facing,"hz":hz,"blood":blood,"maximum_bone_error":0.0,"maximum_penetration":0.0,"landing_joint_motion":0.0,"landing_time":-1.0,"settled_time":-1.0,"peak_head_angle":0.0,"peak_spine_angle":0.0}
+	row.pose = pose_config.duplicate(true)
 	var previous_aim = float(actor.fighter.aim)
 	var at_half_second = PackedVector2Array()
 	for frame in range(hz*4):
@@ -141,6 +158,7 @@ func run_case(zone: String, facing: int, hz: int, blood: bool) -> void:
 		if frame+1==hz/2: at_half_second = global_points(actor)
 	check(actor.grounded and actor.settled,"All regional falls land and damp to rest within four game seconds",row)
 	row.final_support_gap = actor.support_gap()
+	row.final_support_parts = support_parts(actor)
 	check(actor.support_gap()<14.0,"Settled torso or helmet reaches floor support instead of balancing on one boot",row)
 	check(actor.landing_count==1,"One fall emits one landing event",row)
 	check(row.landing_joint_motion>.10,"Landing carries into attached joints rather than freezing the limbs",row)
@@ -150,7 +168,7 @@ func run_case(zone: String, facing: int, hz: int, blood: bool) -> void:
 		check(actor.release_record.held_hidden and actor.release_record.far_hidden,"Release removes both held weapon layers")
 	row.release = actor.release_record
 	row.half_second_body = vector_rows(at_half_second)
-	var key = zone+"/"+str(facing)
+	var key = zone+"/"+str(facing)+"/"+str(pose_config)
 	if hz==120 and not blood:
 		baseline[key] = at_half_second
 	elif baseline.has(key):
@@ -183,8 +201,11 @@ func render_sequence() -> void:
 		stage.add_child(line)
 		var zone = ["head","body","flank"][index%3]
 		var facing = 1 if index<3 else -1
+		if pose_stress:
+			pose_config = {"lean":-1.0 if index%2==0 else 1.0,"guard":0.0 if index%3==0 else 1.0}
 		var label = Label.new()
 		label.text = "DEV-057  %s / 朝向 %d" % [zone,facing]
+		if pose_stress: label.text += "  倾%.0f / 盾%.0f" % [pose_config.lean,pose_config.guard]
 		label.position = Vector2(-225,-400)
 		stage.add_child(label)
 		actors.append(make_actor(stage,zone,facing,false,index%2==0))
@@ -206,6 +227,7 @@ func run() -> void:
 	for argument in OS.get_cmdline_user_args():
 		if argument.begins_with("--report="): report_path = argument.trim_prefix("--report=")
 		if argument.begins_with("--captures="): capture_dir = argument.trim_prefix("--captures=")
+		if argument=="--pose-stress": pose_stress = true
 	var state = root.get_node_or_null("GameState")
 	if state==null or not str(state.save_path).contains("qa_") or DisplayServer.get_name()=="headless":
 		push_error("Fall QA requires GPU and -- --test-profile")
@@ -220,13 +242,31 @@ func run() -> void:
 	root.size = Vector2i(1440,900)
 	root.content_scale_size = Vector2i(1440,900)
 	root.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
-	for zone in ["head","body","flank"]:
-		for facing in [1,-1]:
-			for hz in [120,60,30]:
-				for blood in [false,true]: run_case(zone,facing,hz,blood)
+	if pose_stress:
+		# Catalogue-derived full helmet and long shield, with no save/profile
+		# mutation. One representative kit, not every equipment permutation.
+		var equipment: Dictionary = state.default_profile().equipped.duplicate(true)
+		equipment.helmet = "de_helmet_1"
+		equipment.armor = "de_armor_1"
+		equipment.shield = "de_shield_0"
+		stress_stats = Catalogue.stats(Catalogue.load_items(),equipment)
+		for zone in ["head","body","flank"]:
+			for facing in [1,-1]:
+				for lean in [-1.0,1.0]:
+					for guard in [0.0,1.0]:
+						pose_config = {"lean":lean,"guard":guard}
+						run_case(zone,facing,60,false)
+	else:
+		for zone in ["head","body","flank"]:
+			for facing in [1,-1]:
+				for hz in [120,60,30]:
+					for blood in [false,true]: run_case(zone,facing,hz,blood)
 	await render_sequence()
 	await process_frame
 	var report = {"passed":failures.is_empty(),"failures":failures,"examples":examples,"cases":cases,"captures":captures,"maximum_blood_pose_error":maximum_blood_pose_error,"maximum_rate_pose_error":maximum_rate_pose_error,"scope":"Actual FallenRider setup/advance/weapon release and Rider drawing, three zones and two directions at 30/60/120 steps with blood on/off. Geometric initial handover, bone lengths, neck range, finite held wrist, exact release boundary, ground/rest and postlanding joint motion. GPU 60-step sequence, camera-free staged grid. Direct visual-event fixtures, not genuine swept hits, normal Battle camera, OS input, full loose-weapon flight physics or player quality approval."}
+	report.pose_stress = pose_stress
+	if pose_stress:
+		report.scope = "24 production fall boundary fixtures: three zones, both directions, lean -1/+1 and guard 0/1; de_helmet_1/de_armor_1/de_shield_0 catalogue stats, 60Hz and blood off. Same initial handover/length/ground/rest/boot/release assertions. Four GAME seconds, not the director's wall-clock result gate. Selected six combinations in GPU grid, not all outfits or OS input. No player profile writes; blood/rate comparison deliberately not repeated."
 	var file = FileAccess.open(report_path,FileAccess.WRITE)
 	if file==null:
 		push_error("Cannot write fall QA report")

@@ -174,11 +174,11 @@ func _ground_targets(targets: Dictionary, blend: float) -> void:
 			for point in Rider.Shield.polygon(str(fighter.stats.get("shield_shape","kite"))):
 				var offset: Vector2 = pose.shield_center-pose.left.hand+pose.torso_transform.basis_xform(point*mirror)
 				margin = maxf(margin,offset.rotated(rotation).y+7.0)
-		var solution = _ground_chain(arm.shoulder.rotated(spine),(arm.elbow-arm.shoulder).rotated(spine),(arm.hand-arm.elbow).rotated(spine),side+"_upper",side+"_elbow",1.0,level,roll_direction,margin)
+		var solution = _ground_chain(arm.shoulder.rotated(spine),(arm.elbow-arm.shoulder).rotated(spine),(arm.hand-arm.elbow).rotated(spine),side+"_upper",side+"_elbow",1.0,level,roll_direction,margin,true)
 		targets[side+"_upper"] = lerpf(float(targets[side+"_upper"]),solution.x,blend)
 		targets[side+"_elbow"] = lerpf(float(targets[side+"_elbow"]),solution.y,blend)
 
-func _ground_chain(origin: Vector2, upper: Vector2, lower: Vector2, upper_key: String, lower_key: String, angle_sign: float, level: float, along: float, margin: float) -> Vector2:
+func _ground_chain(origin: Vector2, upper: Vector2, lower: Vector2, upper_key: String, lower_key: String, angle_sign: float, level: float, along: float, margin: float, arm_support: bool = false) -> Vector2:
 	var start = origin.rotated(rotation)
 	var u = upper.rotated(rotation)
 	var v = lower.rotated(rotation)
@@ -186,8 +186,16 @@ func _ground_chain(origin: Vector2, upper: Vector2, lower: Vector2, upper_key: S
 	var lower_joint: Dictionary = joints[lower_key]
 	var result = Vector2(float(upper_joint.angle),float(lower_joint.angle))
 	var best = INF
-	for extension in [.62,.82,.96]:
-		var target = Vector2(start.x+along*(u.length()+v.length())*extension,level-margin)
+	var length = u.length()+v.length()
+	var offsets = [along*length*.62,along*length*.82,along*length*.96]
+	if arm_support:
+		# A low, long shield can block the original headward landing target
+		# at the shoulder limit. Let the hand fold across the body or beside
+		# its present position, rather than widening the joint/ground limits.
+		var present = u.rotated(float(upper_joint.angle)*angle_sign)+v.rotated((float(upper_joint.angle)+float(lower_joint.angle))*angle_sign)
+		offsets.append_array([-along*length*.40,-along*length*.70,present.x,0.0])
+	for candidate in range(offsets.size()):
+		var target = Vector2(start.x+float(offsets[candidate]),level-margin)
 		var ray = target-start
 		var distance = clampf(ray.length(),absf(u.length()-v.length())+.01,u.length()+v.length()-.01)
 		var bend = acos(clampf((u.length_squared()+distance*distance-v.length_squared())/(2*u.length()*distance),-1,1))
@@ -201,7 +209,7 @@ func _ground_chain(origin: Vector2, upper: Vector2, lower: Vector2, upper_key: S
 			var elbow = start+u.rotated(first*angle_sign)
 			var end = elbow+v.rotated((first+second)*angle_sign)
 			var below = maxf(0.0,maxf(elbow.y+10.0,end.y+margin)-level)
-			var score = below*40.0+end.distance_to(target)+absf(first)*2.0+absf(second)*2.0
+			var score = below*40.0+end.distance_to(target)+absf(first)*2.0+absf(second)*2.0+(8.0 if candidate>=3 else 0.0)
 			if score<best:
 				best = score
 				result = Vector2(first,second)

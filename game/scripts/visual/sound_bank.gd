@@ -10,54 +10,54 @@ const IMPACT_VARIANTS = 3
 const IMPACT_FAMILIES = ["helmet","plate","mail","padded","shield_wood","brigandine"]
 const CONTACT_RATE = 44100
 const CONTACT_GROUP_BUDGET = .78
-# Exact pre-bake PCM peaks from audio-01's original 16-bit WAVs. QA compares
-# these to imported PCM. Godot 4.5.1's cubic resampler has coefficient L1
+# Exact written PCM peaks from build_impact_audio_v056.py. QA compares these
+# to imported PCM. Godot 4.5.1's cubic resampler has coefficient L1
 # bound 1 + mu - mu^2 <= 1.25; allow its 32767 PCM divisor and float margin.
 # https://github.com/godotengine/godot/blob/4.5.1-stable/servers/audio/audio_stream.cpp#L178-L205
 const CONTACT_RESAMPLE_BOUND = 1.251
 # This table is a conservative group gain bound, not a per-sample limiter.
 const CONTACT_PEAKS = {
-	"contact_helmet_solid_0":0.449401855,
-	"contact_helmet_solid_1":0.445098877,
-	"contact_helmet_solid_2":0.442871094,
-	"contact_helmet_glance_0":0.179412842,
-	"contact_helmet_glance_1":0.188323975,
-	"contact_helmet_glance_2":0.174102783,
-	"contact_plate_solid_0":0.445434570,
-	"contact_plate_solid_1":0.428344727,
-	"contact_plate_solid_2":0.440490723,
-	"contact_plate_glance_0":0.187408447,
-	"contact_plate_glance_1":0.189178467,
-	"contact_plate_glance_2":0.189605713,
-	"contact_mail_solid_0":0.340972900,
-	"contact_mail_solid_1":0.343902588,
-	"contact_mail_solid_2":0.339447021,
-	"contact_mail_glance_0":0.179229736,
-	"contact_mail_glance_1":0.194702148,
-	"contact_mail_glance_2":0.191192627,
-	"contact_padded_solid_0":0.434051514,
-	"contact_padded_solid_1":0.468811035,
-	"contact_padded_solid_2":0.484130859,
-	"contact_padded_glance_0":0.203308105,
-	"contact_padded_glance_1":0.195739746,
-	"contact_padded_glance_2":0.203948975,
-	"contact_shield_wood_solid_0":0.410278320,
-	"contact_shield_wood_solid_1":0.438842773,
-	"contact_shield_wood_solid_2":0.440490723,
-	"contact_shield_wood_glance_0":0.168457031,
-	"contact_shield_wood_glance_1":0.181488037,
-	"contact_shield_wood_glance_2":0.170745850,
-	"contact_brigandine_solid_0":0.426055908,
-	"contact_brigandine_solid_1":0.439270020,
-	"contact_brigandine_solid_2":0.415313721,
-	"contact_brigandine_glance_0":0.198272705,
-	"contact_brigandine_glance_1":0.201171875,
-	"contact_brigandine_glance_2":0.190490723,
-	"lance_break_0":0.351745605,
-	"lance_break_1":0.346435547,
-	"lance_break_2":0.341796875
+	"contact_helmet_solid_0":0.679992675781,
+	"contact_helmet_solid_1":0.679992675781,
+	"contact_helmet_solid_2":0.679992675781,
+	"contact_helmet_glance_0":0.387573242188,
+	"contact_helmet_glance_1":0.387573242188,
+	"contact_helmet_glance_2":0.387573242188,
+	"contact_plate_solid_0":0.679992675781,
+	"contact_plate_solid_1":0.679992675781,
+	"contact_plate_solid_2":0.679992675781,
+	"contact_plate_glance_0":0.387573242188,
+	"contact_plate_glance_1":0.387573242188,
+	"contact_plate_glance_2":0.387573242188,
+	"contact_mail_solid_0":0.629974365234,
+	"contact_mail_solid_1":0.629974365234,
+	"contact_mail_solid_2":0.629974365234,
+	"contact_mail_glance_0":0.359100341797,
+	"contact_mail_glance_1":0.359100341797,
+	"contact_mail_glance_2":0.359100341797,
+	"contact_padded_solid_0":0.639984130859,
+	"contact_padded_solid_1":0.639984130859,
+	"contact_padded_solid_2":0.639984130859,
+	"contact_padded_glance_0":0.364776611328,
+	"contact_padded_glance_1":0.364776611328,
+	"contact_padded_glance_2":0.364776611328,
+	"contact_shield_wood_solid_0":0.679992675781,
+	"contact_shield_wood_solid_1":0.679992675781,
+	"contact_shield_wood_solid_2":0.679992675781,
+	"contact_shield_wood_glance_0":0.387573242188,
+	"contact_shield_wood_glance_1":0.387573242188,
+	"contact_shield_wood_glance_2":0.387573242188,
+	"contact_brigandine_solid_0":0.649993896484,
+	"contact_brigandine_solid_1":0.649993896484,
+	"contact_brigandine_solid_2":0.649993896484,
+	"contact_brigandine_glance_0":0.370483398438,
+	"contact_brigandine_glance_1":0.370483398438,
+	"contact_brigandine_glance_2":0.370483398438,
+	"lance_break_0":0.569976806641,
+	"lance_break_1":0.569976806641,
+	"lance_break_2":0.569976806641
 }
-const IMPACT_ASSET_DIR = "res://assets/audio/impact_v050/"
+const IMPACT_ASSET_DIR = "res://assets/audio/impact_v056/"
 static var contact_generation_count = 0
 # Audible responses, not historical acoustic measurements. Metal has a short
 # shell attack over a heavy body; no sustained high sine serves as the hit.
@@ -72,6 +72,7 @@ const CONTACT_PROFILES = {
 var voices: Array[AudioStreamPlayer] = []
 var next_voice = 0
 var playback_paused = false
+var movement_duck = 0.0
 var _music_start_on_resume = false
 var _impact_counters: Dictionary = {}
 
@@ -132,6 +133,14 @@ func set_enabled(value: bool) -> void:
 		elif not enabled:
 			music.stop()
 
+func set_movement_duck(amount: float) -> void:
+	# The exchange's existing real-time envelope makes room for contact.
+	# Always derive from the requested gain; repeated frames must not add cuts.
+	movement_duck = clampf(_finite_number(amount,0.0),0.0,1.0)
+	for voice in voices:
+		if str(voice.get_meta("sfx_cue",""))=="hoof":
+			voice.volume_db = float(voice.get_meta("sfx_base_db",voice.volume_db))-movement_duck*18.0
+
 func play(sound: String, volume_db: float = -5.0, pitch: float = 1.0) -> void:
 	if not enabled or playback_paused:
 		return
@@ -153,7 +162,8 @@ func play(sound: String, volume_db: float = -5.0, pitch: float = 1.0) -> void:
 	player.stop()
 	player.stream_paused = false
 	player.stream = streams.get(sound,streams.impact)
-	player.volume_db = volume_db
+	player.set_meta("sfx_base_db",volume_db)
+	player.volume_db = volume_db-(movement_duck*18.0 if sound=="hoof" else 0.0)
 	player.pitch_scale = pitch
 	player.set_meta("sfx_cue",sound)
 	player.play()
@@ -212,7 +222,10 @@ func impact_cue(event: Dictionary, defender_stats: Dictionary) -> Dictionary:
 		pitch *= .95 # Same actual armour, more damped lower-torso resonance.
 	if kind=="glance":
 		pitch *= 1.035
-	return {"cue":_contact_name(family,kind,variant),"db":lerpf(-12.0,-5.0,strength)-(1.5 if kind=="glance" else 0.0),
+	# Material body is now audible in the mids as well as the bass. Give an
+	# isolated committed contact priority, while the unchanged group limiter
+	# still bounds simultaneous hits/cracks and retained contact tails.
+	return {"cue":_contact_name(family,kind,variant),"db":lerpf(-11.5,-2.5,strength)-(2.2 if kind=="glance" else 0.0),
 		"pitch":pitch,"material":family,"zone":zone,"kind":kind,"variant":variant,"strength":strength}
 
 func break_cue(event: Dictionary) -> Dictionary:
@@ -298,6 +311,7 @@ func _loop_music() -> void:
 
 func stop_all() -> void:
 	_music_start_on_resume = false
+	movement_duck = 0.0
 	if music:
 		music.stop()
 		music.stream = null

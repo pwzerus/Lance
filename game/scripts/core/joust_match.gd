@@ -44,6 +44,8 @@ func _make_fighter(x: float, direction: int, stats: Dictionary) -> Dictionary:
 		"surge": 0.0, "last_hit": "", "damage_total": 0.0, "wounds": [],
 		"balance":100.0,"lean_velocity":0.0,"prev_flank":Vector2.ZERO,
 		"guard":0.0,"guard_target":0.0,"lance_stability":.85,"aim_velocity":0.0,
+		"reaction_angle":0.0,"reaction_angular_velocity":0.0,"reaction_shift":0.0,"reaction_shift_velocity":0.0,
+		"shield_compression":0.0,"shield_compression_velocity":0.0,"lance_compression":0.0,"lance_compression_velocity":0.0,
 		"gait_phase":0.0,"gait_moving":false,"acceleration":0.0,"accel_command":0.0,"motion_drive":0.0,"mount_velocity_y":0.0,"lane_y":32.0 if direction==1 else -32.0}
 
 func _reset_positions() -> void:
@@ -63,13 +65,18 @@ func _reset_positions() -> void:
 		fighter.boost = false
 		fighter.gait_phase = 0.0 if i==0 else 1.1
 		fighter.gait_moving = false
+		for key in ["reaction_angle","reaction_angular_velocity","reaction_shift","reaction_shift_velocity","shield_compression","shield_compression_velocity","lance_compression","lance_compression_velocity"]:
+			fighter[key] = 0.0
 		if mode == "arena":
 			fighter.broken = false
 			fighter.durability = float(fighter.stats.get("durability", 100.0))
 		_cache_pose(fighter)
 
 static func pose_angle(fighter: Dictionary) -> float:
-	return float(fighter.lean)*(deg_to_rad(25.0) if float(fighter.lean)>=0 else deg_to_rad(45.0))+gait_pose(fighter).rider_pitch
+	return float(fighter.lean)*(deg_to_rad(25.0) if float(fighter.lean)>=0 else deg_to_rad(45.0))+gait_pose(fighter).rider_pitch+float(fighter.get("reaction_angle",0.0))
+
+static func rider_origin(fighter: Dictionary) -> Vector2:
+	return mount_origin(fighter)+(HIP+Vector2(float(fighter.get("reaction_shift",0.0)),0))*Vector2(int(fighter.direction),1)
 
 static func gait_pose(fighter: Dictionary) -> Dictionary:
 	return Gait.body(float(fighter.get("gait_phase",0.0)),float(fighter.get("speed",0.0)),bool(fighter.get("gait_moving",false)),float(fighter.stats.get("stability",1.0)),float(fighter.get("motion_drive",0.0)))
@@ -83,22 +90,51 @@ static func mount_origin(fighter: Dictionary) -> Vector2:
 
 static func body_position(fighter: Dictionary) -> Vector2:
 	var angle = pose_angle(fighter)
-	return mount_origin(fighter)+Vector2((HIP.x + sin(angle) * 44.0) * int(fighter.direction), HIP.y - cos(angle) * 44.0)
+	return rider_origin(fighter)+Vector2(sin(angle)*44.0*int(fighter.direction),-cos(angle)*44.0)
 
 static func head_position(fighter: Dictionary) -> Vector2:
 	var angle = pose_angle(fighter)
-	return mount_origin(fighter)+Vector2((HIP.x + sin(angle) * 111.0) * int(fighter.direction), HIP.y - cos(angle) * 111.0)
+	return rider_origin(fighter)+Vector2(sin(angle)*111.0*int(fighter.direction),-cos(angle)*111.0)
 
 static func hand_position(fighter: Dictionary) -> Vector2:
 	var angle = pose_angle(fighter)
-	return mount_origin(fighter)+(HIP+Vector2(48,-53).rotated(angle))*Vector2(int(fighter.direction),1)
+	var ray = Vector2(cos(float(fighter.aim))*int(fighter.direction),sin(float(fighter.aim)))
+	return rider_origin(fighter)+Vector2(48,-53).rotated(angle)*Vector2(int(fighter.direction),1)-ray*float(fighter.get("lance_compression",0.0))
 
 static func shield_position(fighter: Dictionary) -> Vector2:
 	# Forward bracing raises the left-chest shield; leaning back withdraws
 	# the head, but exposes the abdomen and compromises saddle stability.
 	var guard = float(fighter.get("guard",0.0))
-	var local = Vector2(lerpf(44,55,smoothstep(0,.43,guard)),lerpf(-4.0,-109.0,guard))
-	return mount_origin(fighter)+(HIP+local.rotated(pose_angle(fighter)))*Vector2(int(fighter.direction),1)
+	var local = Vector2(lerpf(44,55,smoothstep(0,.43,guard))-float(fighter.get("shield_compression",0.0)),lerpf(-4.0,-109.0,guard))
+	return rider_origin(fighter)+local.rotated(pose_angle(fighter))*Vector2(int(fighter.direction),1)
+
+static func reaction_strength(event: Dictionary) -> float:
+	# Presentation loading, separate from injury: a solid shield transfers
+	# little damage but must visibly take the arriving lance's momentum.
+	var transfer = .48 if bool(event.get("glanced",false)) else .75
+	return clampf(maxf(float(event.get("impulse",0.0))/85.0,clampf(float(event.get("speed",0.0))/900.0,0,1)*transfer),0,1)
+
+static func advance_reaction(fighter: Dictionary, delta: float) -> void:
+	# Same constrained spring pose drives visible shoulders, grips AND targets.
+	# Impacts add velocity only, never a new position or a free aim command.
+	var remaining = maxf(0.0,minf(delta,.25))
+	while remaining>.000001:
+		var dt = minf(remaining,1.0/120.0)
+		for config in [["reaction_angle","reaction_angular_velocity",160.0,16.0,-.34,.28],
+			["reaction_shift","reaction_shift_velocity",400.0,24.0,-6.0,3.0],
+			["shield_compression","shield_compression_velocity",330.0,24.0,-3.0,24.0],
+			["lance_compression","lance_compression_velocity",360.0,24.0,-2.0,12.0]]:
+			var position_key = str(config[0])
+			var velocity_key = str(config[1])
+			var displacement = float(fighter.get(position_key,0.0))
+			var velocity = float(fighter.get(velocity_key,0.0))
+			velocity += (-float(config[2])*displacement-float(config[3])*velocity)*dt
+			var next = clampf(displacement+velocity*dt,float(config[4]),float(config[5]))
+			if next==float(config[4]) and velocity<0.0 or next==float(config[5]) and velocity>0.0:
+				velocity = 0.0
+			fighter[position_key] = next
+			fighter[velocity_key] = velocity
+		remaining -= dt
 
 static func flank_position(fighter: Dictionary) -> Vector2:
 	return body_position(fighter)+Vector2(-6.0*int(fighter.direction),34.0)
@@ -155,6 +191,8 @@ func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float
 	fighter.boost = boost
 
 func step(delta: float) -> void:
+	for fighter in fighters:
+		advance_reaction(fighter,delta)
 	if phase == "ended":
 		return
 	time_elapsed += delta
@@ -345,6 +383,13 @@ func _apply_contact(contact: Dictionary) -> void:
 	defender.surge = 0.20
 	contact.merge({"damage": damage, "impulse": impulse, "glanced": glanced, "broke": broke_now, "dead": defender.dead, "ko": defender.ko,"ko_reason":ko_reason,"support":support,"balance_left":defender.balance,"shield_broke":shield_before>0 and float(defender.shield)<=0,
 		"break_tip":old_tip,"break_hand":old_hand,"break_reach":old_reach,"break_angle":attacker.aim,"break_direction":attacker.direction})
+	var loading = reaction_strength(contact)
+	var angular_kick = -5.6 if zone=="head" else (4.5 if zone=="flank" else (-2.6 if zone=="shield" else -4.8))
+	defender.reaction_angular_velocity = clampf(float(defender.get("reaction_angular_velocity",0.0))+angular_kick*loading,-6.0,5.0)
+	defender.reaction_shift_velocity = maxf(-170.0,float(defender.get("reaction_shift_velocity",0.0))-145.0*loading)
+	if zone=="shield":
+		defender.shield_compression_velocity = minf(760.0,float(defender.get("shield_compression_velocity",0.0))+690.0*loading)
+	attacker.lance_compression_velocity = minf(360.0,float(attacker.get("lance_compression_velocity",0.0))+320.0*loading)
 	events.append(contact)
 
 static func break_chance(match_mode: String, impulse: float, durability: float = 100.0) -> float:

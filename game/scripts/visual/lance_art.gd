@@ -13,7 +13,9 @@ static func surface(hand: Vector2, angle: float, distance: float, offset: float,
 	var axis = Vector2(cos(angle),sin(angle))
 	var normal = Vector2(-axis.y,axis.x)
 	var t = clampf(distance/maxf(1.0,length),0,1)
-	var bend = 0.0 if broken else recoil*14.0*sin(PI*t)
+	# Compression now also reaches the real grip/arm through the shared pose.
+	# Keep a short elastic shaft flex, not a rubber bow; grip and tip stay exact.
+	var bend = 0.0 if broken else clampf(recoil,-1,1)*6.5*sin(PI*t)
 	return hand+axis*distance+normal*(offset+bend)
 
 static func radius(stats: Dictionary, distance: float, full_length: float) -> float:

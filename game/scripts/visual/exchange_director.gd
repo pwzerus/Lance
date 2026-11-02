@@ -7,11 +7,13 @@ extends RefCounted
 const APPROACH_MAX_DURATION = 1.15
 const APPROACH_ENTER_DURATION = .18
 const APPROACH_MIN_SCALE = .45
-const HITSTOP_MIN_DURATION = .055
-const HITSTOP_MAX_DURATION = .095
+const CONTACT_LOAD_DURATION = .045
+const CONTACT_LOAD_SCALE = .80
+const HITSTOP_MIN_DURATION = .085
+const HITSTOP_MAX_DURATION = .110
 const HITSTOP_SCALE = .001
-const READ_DURATION = .18
-const READ_SCALE = .36
+const READ_DURATION = .16
+const READ_SCALE = .65
 const RELEASE_DURATION = .20
 const FAST_RELEASE_DURATION = .12
 const MAX_IMPACT_DURATION = HITSTOP_MAX_DURATION+READ_DURATION+RELEASE_DURATION
@@ -192,7 +194,9 @@ func _refresh(context: Dictionary) -> void:
 			_audio_duck = .15*_approach
 			_focus_weight = 0.0 # Before contact the owner keeps its own duel framing.
 		"contact":
-			_scale = HITSTOP_SCALE
+			# Let the actual hit load the body/guard for a few frames before
+			# holding it. Freezing the untouched pose made heavy hits look like taps.
+			_scale = CONTACT_LOAD_SCALE if _stage_elapsed<CONTACT_LOAD_DURATION else HITSTOP_SCALE
 			_approach = 0.0
 			_audio_duck = lerpf(.55,.85,_strength)
 			_focus_weight = lerpf(.4,1.0,_strength) if _focus_valid else 0.0
@@ -292,7 +296,8 @@ func advance(real_delta: float, context: Dictionary) -> Dictionary:
 func sample() -> Dictionary:
 	return {"state":_state,"scale":_scale,"approach":_approach,
 		"focus":_focus,"focus_weight":_focus_weight,"audio_duck":_audio_duck,
-		"release":_release,"strength":_strength,"hitstop":_state=="contact",
+		"release":_release,"strength":_strength,"hitstop":_state=="contact" and _stage_elapsed>=CONTACT_LOAD_DURATION,
+		"contact_loading":_state=="contact" and _stage_elapsed<CONTACT_LOAD_DURATION,
 		"pass_connected":_pass_connected,"impact_active":_impact_episode and _state in ["contact","read","release"],
 		"paused":_paused,"pass_id":_pass_id,"stage_elapsed":_stage_elapsed,
 		"impact_elapsed":_impact_elapsed,"approach_elapsed":_approach_elapsed}

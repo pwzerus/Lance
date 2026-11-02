@@ -249,13 +249,12 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 	var near_side = "right" if facing==1 else "left"
 	draw_set_transform_matrix(torso_transform)
 	_draw_anatomical_arm(far_side,far_arm,Color(.70,.73,.76),true,true)
-	var head_transform = torso_transform
-	head_transform.x *= facing
 	var head_fit = HeadFit.layout(fighter.stats)
-	head_transform.origin += torso_transform.x*float(head_fit.head_offset)
+	var head_draw_transform = head_transform(pose,fighter)
+	head_draw_transform.origin -= origin
 	var appearance: Dictionary = fighter.stats.get("appearance",Face.Appearance.variant(hash(str(fighter.stats.get("armor_color",""))+str(fighter.stats.get("shield_color","")))))
 	draw_set_transform_matrix(torso_transform)
-	HeadFit.draw_neck(self,head_fit,appearance,facing)
+	_draw_pose_neck(pose,head_fit,appearance,facing)
 	_draw_impact_torso()
 	_draw_armor_detail()
 	_draw_anatomical_arm(near_side,near_arm,Color.WHITE,true,true)
@@ -272,9 +271,9 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 		draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 		_draw_lance(hand_local,float(fighter.aim),Model.lance_length(fighter),bool(fighter.broken),Lance.Layer.REAR)
 	draw_set_transform_matrix(torso_transform)
-	HeadFit.draw_neck(self,head_fit,appearance,facing)
+	_draw_pose_neck(pose,head_fit,appearance,facing)
 	HeadFit.draw_collar_lip(self,head_fit,torso_texture,_torso_surface_point)
-	draw_set_transform_matrix(head_transform)
+	draw_set_transform_matrix(head_draw_transform)
 	var helmet_art = Art.descriptor(fighter.stats,"helmet")
 	var head_box: Rect2 = head_fit.helmet
 	if not helmet_art.is_empty() and Art.equipment_texture(fighter.stats,"helmet")!=null:
@@ -410,11 +409,15 @@ static func seated_leg_pose(value: Dictionary) -> Dictionary:
 	var pivot = Model.HIP+Model.saddle_offset(value)
 	var pitch = Model.gait_pose(value).pitch
 	var result = {}
+	var reaction_slide = clampf(float(value.get("reaction_shift",0.0)),-6.0,6.0)
 	for side in ["far","near"]:
 		var far = side=="far"
 		var hip = pivot+(Vector2(14,-8) if far else Vector2(-11,3))
 		var knee = hip+(Vector2(21,24) if far else Vector2(23,29)).rotated(pitch*.3)
 		var ankle = hip+(Vector2(10,78) if far else Vector2(7,82)).rotated(pitch*.15)
+		# The seat yields with the shared rider origin, while the knees and
+		# stirrups keep their mount-relative support instead of sliding the legs.
+		hip.x += reaction_slide
 		result[side] = {"hip":hip,"knee":knee,"ankle":ankle,"foot":ankle+Vector2(17,8)}
 	return result
 
@@ -472,7 +475,7 @@ func _draw_rider_leg_patch(region: Rect2, source_a: Vector2, source_b: Vector2, 
 
 static func arm_pose(value: Dictionary) -> Dictionary:
 	var facing = int(value.direction)
-	var transform = Transform2D(Model.pose_angle(value)*facing,Model.mount_origin(value)+Model.HIP*Vector2(facing,1))
+	var transform = Transform2D(Model.pose_angle(value)*facing,Model.rider_origin(value))
 	var inverse = transform.affine_inverse()
 	var right_hand: Vector2 = inverse*Model.hand_position(value)
 	var shield_center: Vector2 = inverse*Model.shield_position(value)
@@ -484,6 +487,58 @@ static func arm_pose(value: Dictionary) -> Dictionary:
 		var elbow = arm_elbow(shoulder,hand,ARM_UPPER,ARM_LOWER)
 		result[side] = {"shoulder":transform*shoulder,"elbow":transform*elbow,"hand":transform*hand}
 	return result
+
+static func _head_hinge(pose: Dictionary, value: Dictionary) -> Transform2D:
+	# Detached neck articulation only; mounted head/target follows the core
+	# reaction pose. The default is precisely the previous head registration.
+	var angle = clampf(float(pose.get("head_rotation",0.0)),-.2,.2)
+	var fit = HeadFit.layout(value.stats)
+	var pivot = Vector2(float(fit.collar.center[0]),float(fit.collar.center[1])+2.0)
+	var hinge = Transform2D(angle,Vector2.ZERO)
+	hinge.origin = pivot-hinge.basis_xform(pivot)
+	return hinge
+
+static func head_transform(pose: Dictionary, value: Dictionary) -> Transform2D:
+	var torso: Transform2D = pose.torso_transform
+	var fit = HeadFit.layout(value.stats)
+	var local = Transform2D(Vector2(float(value.direction),0),Vector2.DOWN,Vector2(float(fit.head_offset),0))
+	return torso*_head_hinge(pose,value)*local
+
+static func neck_geometry(pose: Dictionary, value: Dictionary) -> Dictionary:
+	# A short continuous bridge: jaw end follows the head, root stays buried
+	# inside the original breastplate collar. Coordinates remain torso-local.
+	var fit = HeadFit.layout(value.stats)
+	var facing = int(value.direction)
+	var base = Vector2(float(fit.collar.center[0]),float(fit.collar.center[1])+2.0)
+	var face: Rect2 = fit.face
+	var top = Vector2((face.position.x+face.size.x*.515-3.0)*facing+float(fit.head_offset),face.position.y+face.size.y*.69)
+	var neck_half = face.size.x*.14
+	if not bool(fit.open):
+		top = Vector2(float(fit.neck_x)*facing+float(fit.head_offset),-101)
+		neck_half = 8.0
+	top.y = minf(top.y,base.y-6.0)
+	var hinge = _head_hinge(pose,value)
+	return {"base":base,"top":hinge*top,"across":hinge.basis_xform(Vector2.RIGHT),
+		"down":hinge.basis_xform(Vector2.DOWN),"half":neck_half,"collar_half":float(fit.collar.width)*.5,"open":bool(fit.open)}
+
+func _draw_pose_neck(pose: Dictionary, fit: Dictionary, appearance: Dictionary, facing: int) -> void:
+	if is_zero_approx(float(pose.get("head_rotation",0.0))):
+		HeadFit.draw_neck(self,fit,appearance,facing)
+		return
+	var neck = neck_geometry(pose,fighter)
+	var top: Vector2 = neck.top
+	var base: Vector2 = neck.base
+	var across: Vector2 = neck.across
+	var down: Vector2 = neck.down
+	var half = float(neck.half)
+	var width = float(neck.collar_half)
+	var skin: Color = Face.SKIN[Face.Appearance.sanitize(appearance).skin]
+	var material_color = skin.darkened(.17) if neck.open else Color("51595d")
+	var shadow = skin.darkened(.39) if neck.open else Color("353d42")
+	draw_colored_polygon(PackedVector2Array([top-across*(half+1)-down*3,top+across*(half+1)-down*3,base+Vector2(width-3,-4),base+Vector2(width,0),base+Vector2(-width,0),base+Vector2(-width+3,-4)]),Color("302a28"))
+	draw_colored_polygon(PackedVector2Array([top-across*half-down*3,top+across*half-down*3,base+Vector2(width-4,-4),base+Vector2(width-2,-1),base+Vector2(-width+2,-1),base+Vector2(-width+4,-4)]),material_color)
+	draw_colored_polygon(PackedVector2Array([top-across*half-down*2,top-across*(half-4)-down*2,base+Vector2(-width+6,-1),base+Vector2(-width+2,-1)]),shadow)
+	draw_line(top-across*half-down,top+across*half-down,shadow,2)
 
 static func _arm_in_space(arm: Dictionary, inverse: Transform2D) -> Dictionary:
 	return {"shoulder":inverse*arm.shoulder,"elbow":inverse*arm.elbow,"hand":inverse*arm.hand}
@@ -601,10 +656,11 @@ static func shield_projection(point: Vector2) -> Vector2:
 	return Shield.project(point)
 
 func _torso_surface_point(point: Vector2) -> Vector2:
-	# Small armour/cloth compression only. Neck, seat, shoulder sockets and
-	# every rule anchor stay fixed; contact feedback cannot fake a dodge.
+	# Shared Model reaction now carries the rider/head/arms and colliders.
+	# Only a restrained cloth/plate flex remains; a bending chest bitmap is
+	# no longer the entire impact response or a substitute for moving joints.
 	var t = clampf((point.y+94.0)/104.0,0,1)
-	return point+Vector2(-int(fighter.direction)*5.5*impact_recoil*sin(PI*t),0)
+	return point+Vector2(-int(fighter.direction)*1.5*clampf(impact_recoil,-1,1)*sin(PI*t),0)
 
 func _draw_impact_torso() -> void:
 	for row in range(6):

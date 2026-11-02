@@ -285,6 +285,9 @@ func _physics_process(delta: float) -> void:
 		# A terminal state can be queued outside step() (e.g. a scripted end).
 		# Stop controls, but still deliver the pending result exactly once.
 		_consume_events(match_model.drain_events())
+		for fighter in match_model.fighters:
+			Model.advance_reaction(fighter,delta)
+		_update_views()
 		return
 	var fighter = match_model.fighters[0]
 	var hand = Model.hand_position(fighter)

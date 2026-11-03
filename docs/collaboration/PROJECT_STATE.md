@@ -175,3 +175,5 @@ OS已操作源码与最终解压包的菜单/练习/换盾/暂停/退出；没�
 当前安全候选builds/LanceAndLaurel-v0.4.18-memory2，通过Play-Latest.cmd/Start-MemoryBound.ps1启动。所有开发引擎/导出/QA也必须经过保护器，串行且有限超时。1 GiB Job承诺内存上限、900 MiB提前停止、单实例、25% CPU；启动保留4 GiB RAM，运行不足2 GiB终止。未定位原40GB分配源，不宣称根治；旧EXE没有保护，不运行。资源缩图及包体、测试证据见INC-059交接及docs/development/INC059_MEMORY_REVIEW.md。
 
 INC-059B调查更新：事件显示进程启动111秒已接近40GB，上一轮短测不足。新增240秒隔离夹具和系统内存分区采样；系统可用RAM不足4GiB，尚未启动新夹具，根因仍开放。详见INC059B_MEMORY_INVESTIGATION.md及INC-059B交接，不能误标修复完成。
+
+INC-059B追加：受保护原版菜单240秒未复现40GB增长（启动峰值687.3MiB、末值598.2MiB）。用户要求暂时只做静态排查，不再启动Godot/游戏。根因开放，不能宣称修复完成。

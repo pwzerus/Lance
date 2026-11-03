@@ -180,3 +180,9 @@ INC-059B / Codex接手2491ad9：继续定位40GB根因，手机内存预算考�
 INC-059B暂停运行：只读检查约3.1GiB可用，保护器要求4GiB；用户释放内存后续240秒隔离。诊断工具代码已保存，Godot新夹具未验收，P0根因未解决。
 
 INC-059B状态追加：240秒原版受限运行未复现；用户现要求仅静态排查，动态验证暂停，根因仍开放。
+
+INC-059C / Codex / 基线01ec9fb：仅静态排查40GB与性能热点；认领visual/horse_skin.gd、visual/rider_view.gd、新静态资源审计脚本及INC059C交接文档。禁止运行Godot/游戏；不改动作曲线与规则。
+
+INC-059C范围补充：battle.gd仅修_on_hoof_contact重复IK计算；tools/audit_memory_assets.py仅读取资源头、源代码引用与文件尺寸，不加载引擎或解码图片。
+
+INC-059C交出：静态优化与资源审计已保存，生产文件释放；GDScript解析/运行待授权阶段。40GB根因P0不关闭，详见2026-11-03-INC-059C交接。

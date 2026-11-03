@@ -1,0 +1,671 @@
+{
+  "scope": "All assets PNG headers, including unused/export-excluded assets; no decoding or engine run",
+  "estimate_limits": "One RGBA8 base level only. Excludes font caches, audio, meshes, mipmaps, driver allocations and duplicate copies. Import dimensions are estimates, not measured imported resources.",
+  "png_count": 66,
+  "script_count": 27,
+  "total_source_rgba8_bytes": 415211028,
+  "total_estimated_import_rgba8_bytes": 161020616,
+  "total_png_file_bytes": 77710030,
+  "images": [
+    {
+      "path": "assets/art/campaign_field.png",
+      "width": 1672,
+      "height": 941,
+      "file_bytes": 2832712,
+      "source_rgba8_bytes": 6293408,
+      "configured_size_limit": 0,
+      "estimated_import_rgba8_bytes": 6293408,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/equipment_eras.png",
+      "width": 1774,
+      "height": 887,
+      "file_bytes": 2055823,
+      "source_rgba8_bytes": 6294152,
+      "configured_size_limit": 0,
+      "estimated_import_rgba8_bytes": 6294152,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/nasal_head.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 979023,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 0,
+      "estimated_import_rgba8_bytes": 6290064,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v03/campaign_field.png",
+      "width": 1672,
+      "height": 941,
+      "file_bytes": 1611543,
+      "source_rgba8_bytes": 6293408,
+      "configured_size_limit": 0,
+      "estimated_import_rgba8_bytes": 6293408,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v03/equipment_eras.png",
+      "width": 1774,
+      "height": 887,
+      "file_bytes": 1619846,
+      "source_rgba8_bytes": 6294152,
+      "configured_size_limit": 0,
+      "estimated_import_rgba8_bytes": 6294152,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v03/nasal_head.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 823157,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 0,
+      "estimated_import_rgba8_bytes": 6290064,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v03/rider_atlas.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1247835,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 0,
+      "estimated_import_rgba8_bytes": 6290064,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v03/shield_fields.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1039077,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 0,
+      "estimated_import_rgba8_bytes": 6290064,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v03/tournament_field.png",
+      "width": 1672,
+      "height": 941,
+      "file_bytes": 1596300,
+      "source_rgba8_bytes": 6293408,
+      "configured_size_limit": 0,
+      "estimated_import_rgba8_bytes": 6293408,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v041/horse_atlas.png",
+      "width": 1774,
+      "height": 887,
+      "file_bytes": 822144,
+      "source_rgba8_bytes": 6294152,
+      "configured_size_limit": 0,
+      "estimated_import_rgba8_bytes": 6294152,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v041/nasal_head.png",
+      "width": 1086,
+      "height": 1448,
+      "file_bytes": 993548,
+      "source_rgba8_bytes": 6290112,
+      "configured_size_limit": 0,
+      "estimated_import_rgba8_bytes": 6290112,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v047/arms_atlas.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 862048,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 0,
+      "estimated_import_rgba8_bytes": 6290064,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v049/horse_continuous_skin_v049.png",
+      "width": 1536,
+      "height": 1024,
+      "file_bytes": 1287768,
+      "source_rgba8_bytes": 6291456,
+      "configured_size_limit": 0,
+      "estimated_import_rgba8_bytes": 6291456,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v049/horse_continuous_skin_v049_02.png",
+      "width": 1536,
+      "height": 1024,
+      "file_bytes": 1309652,
+      "source_rgba8_bytes": 6291456,
+      "configured_size_limit": 0,
+      "estimated_import_rgba8_bytes": 6291456,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v050/horse_complete_skin_v050_01.png",
+      "width": 1536,
+      "height": 1024,
+      "file_bytes": 1399795,
+      "source_rgba8_bytes": 6291456,
+      "configured_size_limit": 0,
+      "estimated_import_rgba8_bytes": 6291456,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/de_armor_0.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1412726,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/de_armor_1.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1136520,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/de_armor_2.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1150514,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/de_armor_3.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1139492,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/de_armor_4.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1174380,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/de_armor_5.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1349230,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/de_helmet_0.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 799155,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/de_helmet_1.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 960080,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/de_helmet_2.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 887633,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/de_helmet_3.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 860900,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/de_helmet_4.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1148840,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/de_helmet_5.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1006320,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/eng_armor_0.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1520860,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/eng_armor_1.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 953244,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/eng_armor_2.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1146311,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/eng_armor_3.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1123385,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/eng_armor_4.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1206639,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/eng_armor_5.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1242996,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/eng_helmet_0.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 711145,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/eng_helmet_1.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 884529,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/eng_helmet_2.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 804016,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/eng_helmet_3.png",
+      "width": 1173,
+      "height": 1341,
+      "file_bytes": 847053,
+      "source_rgba8_bytes": 6291972,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 917504,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/eng_helmet_4.png",
+      "width": 1173,
+      "height": 1341,
+      "file_bytes": 1032780,
+      "source_rgba8_bytes": 6291972,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 917504,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/eng_helmet_5.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1041751,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/fr_armor_0.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1326119,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/fr_armor_1.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 960053,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/fr_armor_2.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1193714,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/fr_armor_3.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1043124,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/fr_armor_4.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1206362,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/fr_armor_5.png",
+      "width": 1193,
+      "height": 1319,
+      "file_bytes": 1571554,
+      "source_rgba8_bytes": 6294268,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 948224,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/fr_helmet_0.png",
+      "width": 1536,
+      "height": 1024,
+      "file_bytes": 984148,
+      "source_rgba8_bytes": 6291456,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 698368,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/fr_helmet_1.png",
+      "width": 1122,
+      "height": 1402,
+      "file_bytes": 1099654,
+      "source_rgba8_bytes": 6292176,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 839680,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/fr_helmet_2.png",
+      "width": 1216,
+      "height": 1293,
+      "file_bytes": 944402,
+      "source_rgba8_bytes": 6289152,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 987136,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/fr_helmet_3.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 721378,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 1048576,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/fr_helmet_4.png",
+      "width": 1426,
+      "height": 1103,
+      "file_bytes": 848881,
+      "source_rgba8_bytes": 6291512,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 811008,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/fr_helmet_5.png",
+      "width": 1173,
+      "height": 1341,
+      "file_bytes": 960037,
+      "source_rgba8_bytes": 6291972,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 917504,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/it_armor_0.png",
+      "width": 1190,
+      "height": 1322,
+      "file_bytes": 1390080,
+      "source_rgba8_bytes": 6292720,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 944128,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/it_armor_1.png",
+      "width": 1193,
+      "height": 1319,
+      "file_bytes": 1052847,
+      "source_rgba8_bytes": 6294268,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 948224,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/it_armor_2.png",
+      "width": 1220,
+      "height": 1289,
+      "file_bytes": 1201777,
+      "source_rgba8_bytes": 6290320,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 993280,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/it_armor_3.png",
+      "width": 1193,
+      "height": 1319,
+      "file_bytes": 1091556,
+      "source_rgba8_bytes": 6294268,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 948224,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/it_armor_4.png",
+      "width": 1194,
+      "height": 1317,
+      "file_bytes": 1436756,
+      "source_rgba8_bytes": 6289992,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 950272,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/it_armor_5.png",
+      "width": 1193,
+      "height": 1318,
+      "file_bytes": 1189558,
+      "source_rgba8_bytes": 6289496,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 948224,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/it_helmet_0.png",
+      "width": 1180,
+      "height": 1333,
+      "file_bytes": 1045713,
+      "source_rgba8_bytes": 6291760,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 927744,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/it_helmet_1.png",
+      "width": 1176,
+      "height": 1337,
+      "file_bytes": 777614,
+      "source_rgba8_bytes": 6289248,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 921600,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/it_helmet_2.png",
+      "width": 1199,
+      "height": 1312,
+      "file_bytes": 722414,
+      "source_rgba8_bytes": 6292352,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 958464,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/it_helmet_3.png",
+      "width": 1215,
+      "height": 1295,
+      "file_bytes": 931846,
+      "source_rgba8_bytes": 6293700,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 983040,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/it_helmet_4.png",
+      "width": 1156,
+      "height": 1361,
+      "file_bytes": 915890,
+      "source_rgba8_bytes": 6293264,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 890880,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/pixel_v051/it_helmet_5.png",
+      "width": 1199,
+      "height": 1312,
+      "file_bytes": 1002021,
+      "source_rgba8_bytes": 6292352,
+      "configured_size_limit": 512,
+      "estimated_import_rgba8_bytes": 958464,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/rider_atlas.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1559664,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 0,
+      "estimated_import_rgba8_bytes": 6290064,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/shield_fields.png",
+      "width": 1254,
+      "height": 1254,
+      "file_bytes": 1760594,
+      "source_rgba8_bytes": 6290064,
+      "configured_size_limit": 0,
+      "estimated_import_rgba8_bytes": 6290064,
+      "mipmaps": false
+    },
+    {
+      "path": "assets/art/tournament_field.png",
+      "width": 1672,
+      "height": 941,
+      "file_bytes": 2751504,
+      "source_rgba8_bytes": 6293408,
+      "configured_size_limit": 0,
+      "estimated_import_rgba8_bytes": 6293408,
+      "mipmaps": false
+    }
+  ]
+}

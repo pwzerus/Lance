@@ -381,9 +381,11 @@ func _on_hoof_contact(leg_index: int, rider_index: int) -> void:
 		return
 	var fighter = match_model.fighters[rider_index]
 	var pace = clampf((float(fighter.speed)-Model.TROT_SPEED)/(Model.GALLOP_SPEED-Model.TROT_SPEED),0,1)
-	var pose = riders[rider_index].Gait.leg(leg_index,riders[rider_index].stride_phase,float(fighter.speed),true)
+	var pose: Dictionary
 	if riders[rider_index].leg_poses.size()==4:
 		pose = riders[rider_index].leg_poses[leg_index]
+	else:
+		pose = riders[rider_index].Gait.leg(leg_index,riders[rider_index].stride_phase,float(fighter.speed),true)
 	effects.dust(Vector2(float(fighter.x)+pose.foot.x*int(fighter.direction),float(fighter.lane_y)+pose.foot.y),int(fighter.direction),pace)
 	sound.play("hoof",lerpf(-24,-12,pace)-(5 if rider_index==1 else 0),.88 if leg_index<2 else 1.06)
 

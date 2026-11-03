@@ -276,7 +276,7 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 	draw_set_transform_matrix(head_draw_transform)
 	var helmet_art = Art.descriptor(fighter.stats,"helmet")
 	var head_box: Rect2 = head_fit.helmet
-	if not helmet_art.is_empty() and Art.equipment_texture(fighter.stats,"helmet")!=null:
+	if not helmet_art.is_empty() and head_texture!=null:
 		if bool(helmet_art.get("open_face",false)):
 			Face.draw_face(self,appearance,head_fit.face,head_fit.face_clip,false)
 		draw_texture_rect(head_texture,head_box,false)
@@ -339,10 +339,11 @@ func _draw_horse_leg(index: int, tint: Color, _upper: bool = true, _lower: bool 
 	skin.draw(self,tint)
 
 func _horse_leg_pose(index: int) -> Dictionary:
-	var pose = Gait.leg(index,stride_phase,float(fighter.get("speed",210.0)),moving,float(fighter.stats.get("stability",1.0)),INF,Vector2.INF,float(fighter.get("motion_drive",0.0)))
 	if leg_poses.size()==4:
-		pose = leg_poses[index]
-	return pose
+		return leg_poses[index]
+	# _process already solved and planted all four legs. Only solve here when
+	# drawing before the first process tick; do not discard a fresh IK solve.
+	return Gait.leg(index,stride_phase,float(fighter.get("speed",210.0)),moving,float(fighter.stats.get("stability",1.0)),INF,Vector2.INF,float(fighter.get("motion_drive",0.0)))
 
 func _draw_horse_upper(part: String, start: Vector2, middle: Vector2, end: Vector2, width: float, tint: Color) -> void:
 	# One continuous muscle skin over shoulder/elbow or hip/stifle. Repeating

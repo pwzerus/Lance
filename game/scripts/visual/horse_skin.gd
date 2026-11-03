@@ -27,6 +27,7 @@ var weights: Array[Vector3] = []
 var rest_points = PackedVector2Array()
 var neck_weights = PackedFloat32Array()
 var tail_weights = PackedFloat32Array()
+var tail_bends = PackedFloat64Array()
 var limb_name = ""
 var hind_weights: Array[Vector4] = []
 var fore_weights: Array[Vector4] = []
@@ -59,6 +60,7 @@ func _init(limb: String = "") -> void:
 			var neck_weight = smoothstep(0,.85,(source-NECK_BASE).dot(POLL-NECK_BASE)/(POLL-NECK_BASE).length_squared())*smoothstep(860,1000,source.x)
 			neck_weights.append(neck_weight if limb.is_empty() else 0.0)
 			tail_weights.append(tail_weight if limb.is_empty() else 0.0)
+			tail_bends.append(smoothstep(340,930,source.y))
 			var hind = (1.0-smoothstep(520,640,source.x))*smoothstep(390,620,source.y)*(1.0-tail_weight)
 			var fore = smoothstep(900,965,source.x)*(1.0-smoothstep(1130,1200,source.x))*smoothstep(440,610,source.y)
 			if not limb.is_empty():
@@ -67,6 +69,7 @@ func _init(limb: String = "") -> void:
 				hind = smoothstep(420,620,source.y) if limb=="hind" else 0.0
 				fore = smoothstep(450,610,source.y) if limb=="fore" else 0.0
 			weights.append(Vector3(1.0-hind-fore,hind,fore))
+	var far_hind_polygon = PackedVector2Array(FAR_HIND_POLYGON)
 	for row in range(rows):
 		for column in range(columns):
 			var a = row*(columns+1)+column
@@ -74,7 +77,7 @@ func _init(limb: String = "") -> void:
 			var c = a+columns+1
 			for triangle in [[a,b,c],[b,c+1,c]]:
 				var center = (source_points[triangle[0]]+source_points[triangle[1]]+source_points[triangle[2]])/3.0
-				if limb=="hind" and not Geometry2D.is_point_in_polygon(center,PackedVector2Array(FAR_HIND_POLYGON)):
+				if limb=="hind" and not Geometry2D.is_point_in_polygon(center,far_hind_polygon):
 					continue
 				indices.append_array(PackedInt32Array(triangle))
 	var arrays = []
@@ -114,8 +117,9 @@ static func _limb_weights(source: Vector2, anchors: Array) -> Vector4:
 static func _bone_transform(source_a: Vector2, source_b: Vector2, a: Vector2, b: Vector2, width: float) -> Transform2D:
 	var source_axis = (source_b-source_a).normalized()
 	var source_side = Vector2(-source_axis.y,source_axis.x)
-	var axis = (b-a).normalized()*a.distance_to(b)/source_a.distance_to(source_b)
-	var side = Vector2(-(b-a).normalized().y,(b-a).normalized().x)*width
+	var direction = (b-a).normalized()
+	var axis = direction*a.distance_to(b)/source_a.distance_to(source_b)
+	var side = Vector2(-direction.y,direction.x)*width
 	var x = axis*source_axis.x+side*source_side.x
 	var y = axis*source_axis.y+side*source_side.y
 	return Transform2D(x,y,a-x*source_a.x-y*source_a.y)
@@ -140,18 +144,23 @@ func update(body_pose: Dictionary, hind_pose: Dictionary, fore_pose: Dictionary)
 	rigid_pose.origin = PIVOT+Vector2(body_pose.offset)-rigid_pose.basis_xform(PIVOT)
 	var hind = _limb_transforms(HIND,hind_pose)
 	var fore = _limb_transforms(FORE,fore_pose)
+	# Read pose data once per mesh, not once per neck/tail vertex. Tail bend
+	# weights depend only on source coordinates and are baked in _init.
+	var neck_angle = float(body_pose.neck)
+	var neck_offset = Vector2(body_pose.neck_offset)
+	var tail_angle = float(body_pose.tail)
+	var neck_pivot = rest_point(NECK_BASE)
+	var tail_pivot = rest_point(TAIL_ROOT)
 	for i in range(source_points.size()):
 		var source = source_points[i]
 		var weight = weights[i]
 		var rest = rest_points[i]
 		var neck_weight = neck_weights[i]
 		if neck_weight>0:
-			var pivot = rest_point(NECK_BASE)
-			rest = pivot+(rest-pivot).rotated(float(body_pose.neck)*neck_weight)+Vector2(body_pose.neck_offset)*neck_weight
+			rest = neck_pivot+(rest-neck_pivot).rotated(neck_angle*neck_weight)+neck_offset*neck_weight
 		var tail_weight = tail_weights[i]
 		if tail_weight>0:
-			var tail_pivot = rest_point(TAIL_ROOT)
-			rest = rest.lerp(tail_pivot+(rest-tail_pivot).rotated(float(body_pose.tail)*smoothstep(340,930,source.y)),tail_weight)
+			rest = rest.lerp(tail_pivot+(rest-tail_pivot).rotated(tail_angle*tail_bends[i]),tail_weight)
 		var point = (rigid_pose*rest)*weight.x
 		if weight.y>0.0:
 			var blend = hind_weights[i]

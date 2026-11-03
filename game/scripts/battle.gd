@@ -42,6 +42,9 @@ var contact_first_frame_pending = false
 var contact_audio: Array[Dictionary] = []
 var shake = 0.0
 var impact_kick = Vector2.ZERO
+var camera_impact_age = 1.0
+var camera_impact_strength = -1.0
+var camera_impact_attacker = 2147483647
 var noise = FastNoiseLite.new()
 var wheel_lean = 0.0
 var touch_lean = 0.0
@@ -340,8 +343,38 @@ func _consume_events(events: Array) -> void:
 	_advance_exchange(0.0)
 	if prior_state!="contact" and exchange_state.state=="contact":
 		contact_first_frame_pending = true
+		camera_impact_age = 0.0
+		camera_impact_strength = -1.0
+		camera_impact_attacker = 2147483647
+		shake = 0.0
+		impact_kick = Vector2.ZERO
 	for event in events:
 		_handle_event(event)
+	_load_camera_impulse(events)
+
+func _load_camera_impulse(events: Array) -> void:
+	# A batch has one dominant visual impulse. Opposite simultaneous contacts
+	# must not cancel on screen; ties are stable, independent of event order.
+	for event in events:
+		if event.get("type","")!="hit": continue
+		var strength = clampf(Exchange.contact_strength(event),.15,1.0)
+		var attacker = int(event.attacker)
+		if strength<camera_impact_strength or (strength==camera_impact_strength and attacker>=camera_impact_attacker): continue
+		camera_impact_strength = strength
+		camera_impact_attacker = attacker
+		var direction = int(match_model.fighters[attacker].direction)
+		# Logical screen pixels, converted at the current zoom during rendering.
+		shake = lerpf(4.0,12.0,strength)
+		impact_kick = Vector2(direction*lerpf(8.0,22.0,strength),-lerpf(1.0,5.0,strength))
+
+func _contact_camera_offset() -> Vector2:
+	if not GameState.profile.settings.shake or camera_impact_age>=.48:
+		return Vector2.ZERO
+	var age = camera_impact_age
+	var envelope = exp(-8.0*age)*(1.0-smoothstep(.35,.48,age))
+	var vibration = Vector2(noise.get_noise_1d(age*80.0),noise.get_noise_1d(age*80.0+100.0))*shake*.35
+	var screen_offset = (impact_kick*cos(age*TAU*9.5)+vibration)*envelope
+	return screen_offset/maxf(.01,camera.zoom.x)
 
 func _on_hoof_contact(leg_index: int, rider_index: int) -> void:
 	if paused or match_model.phase!="charge":
@@ -373,10 +406,6 @@ func _handle_event(event: Dictionary) -> void:
 			effects.hit(event.position,int(match_model.fighters[int(event.attacker)].direction),event.damage,event.zone=="shield",event.broke,event.zone,strength)
 			if event.broke:
 				effects.break_lance(event,mode,match_model.fighters[int(event.attacker)].stats)
-			shake = maxf(shake,lerpf(1.5,7.0,strength))
-			var kick_direction = int(match_model.fighters[int(event.attacker)].direction)
-			impact_kick += Vector2(kick_direction*lerpf(2.0,9.0,strength),-2.5*strength)
-			impact_kick = impact_kick.limit_length(10.0)
 			var now = Time.get_ticks_msec()
 			contact_audio.append(sound.impact_cue(event,match_model.fighters[index].stats))
 			if event.broke:
@@ -406,6 +435,10 @@ func _handle_event(event: Dictionary) -> void:
 			terminal_at = Time.get_ticks_msec()
 			finished.emit(event.result)
 		"rerack":
+			camera_impact_age = 1.0
+			camera_impact_strength = -1.0
+			shake = 0.0
+			impact_kick = Vector2.ZERO
 			for rider in riders:
 				rider.visible = true
 
@@ -440,11 +473,10 @@ func _process(delta: float) -> void:
 			is_finished = true
 			Engine.time_scale = 1.0
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		# Short directed compression, then a fast-dying residual vibration.
-		# A one-second random buzz obscured the very contact being highlighted.
+		# Accumulate only unpaused time. Absolute wall-clock noise jumped phase
+		# after pause; the former decay also ended before the loaded pose was read.
 		if not fresh_contact:
-			shake *= exp(-13.0*real_delta)
-			impact_kick *= exp(-17.0*real_delta)
+			camera_impact_age += elapsed
 		if wind and match_model:
 			var pace = clampf((float(match_model.fighters[0].speed)-Model.TROT_SPEED)/(Model.GALLOP_SPEED-Model.TROT_SPEED),0,1)
 			var duck = float(exchange_state.audio_duck)
@@ -453,8 +485,10 @@ func _process(delta: float) -> void:
 			var pitch_target = lerpf(.80,1.22,pace)*lerpf(1.0,.62,duck)
 			wind.pitch_scale = lerpf(wind.pitch_scale,pitch_target,1-exp(-real_delta*12.0))
 	if camera:
-		if not paused:
-			var offset = (Vector2(noise.get_noise_1d(now*.035),noise.get_noise_1d(now*.035+100))*shake+impact_kick) if GameState.profile.settings.shake else Vector2.ZERO
+		if not GameState.profile.settings.shake:
+			camera.offset = Vector2.ZERO
+		elif not paused:
+			var offset = _contact_camera_offset()
 			camera.offset = _safe_camera_offset(offset)
 	if match_model and match_model.phase == "ended" and world:
 		_update_views()
@@ -522,17 +556,18 @@ func _update_camera(real_delta: float, now: int) -> void:
 	# Keeping the envelope independent of the current stride avoids chasing
 	# the horse's bob with the camera and cancelling its visible movement.
 	var vertical_bounds = _mounted_vertical_bounds()
-	var safe = COMBAT_SAFE_RECT.grow(-8)
+	# Reserve a real screen-space margin for the impact vibration as well as
+	# helmet/hoof framing. The HUD remains outside the moving world canvas.
+	var safe = COMBAT_SAFE_RECT.grow(-14)
 	var zoom_limit = safe.size.y/maxf(1.0,vertical_bounds.y-vertical_bounds.x)
-	# Leave a little framing room during the approach. A real contact then
-	# closes that room with a quick, bounded push; the previous camera was
-	# already at its safe maximum long before the hit and had no visual accent.
+	# Reserve a quarter-scale push for an actual hit. A 7% reserve vanished
+	# against the ordinary approach zoom, making contact look no larger.
 	if match_model.phase=="charge" and before_crossing and not pass_connected:
-		desired_zoom = minf(desired_zoom,zoom_limit*.93)
+		desired_zoom = minf(desired_zoom,zoom_limit*.78)
 	elif focus_weight>0.0:
 		desired_zoom = lerpf(desired_zoom,zoom_limit,focus_weight)
 	desired_zoom = minf(desired_zoom,zoom_limit)
-	var response = 10.0 if match_model.phase=="ready" else (17.0 if focus_weight>0.0 else (5.0 if approach_slow else 4.0))
+	var response = 10.0 if match_model.phase=="ready" else (24.0 if focus_weight>0.0 else (5.0 if approach_slow else 4.0))
 	var blend = 1.0-exp(-real_delta*response)
 	camera.zoom = camera.zoom.lerp(Vector2.ONE*desired_zoom,blend)
 	var viewport_center_y = get_viewport_rect().size.y*.5

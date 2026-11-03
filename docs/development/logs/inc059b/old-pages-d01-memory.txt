@@ -1,0 +1,12 @@
+MEM seconds=1 privateMiB=53.0 workingMiB=83.2
+MEM seconds=2 privateMiB=53.1 workingMiB=83.5
+MEM seconds=3 privateMiB=93.8 workingMiB=99.9
+MEM seconds=4 privateMiB=219.3 workingMiB=255.9
+MEM seconds=5 privateMiB=527.5 workingMiB=470.5
+MAP privateCommittedMiB=506.1 mappedCommittedMiB=51.6 imageCommittedMiB=328.1 largestPrivateRegionMiB=32.0 regions=1627
+MEM seconds=6 privateMiB=673.8 workingMiB=619.4
+MEM seconds=7 privateMiB=684.7 workingMiB=653.3
+MEM seconds=8 privateMiB=685.4 workingMiB=654.1
+MEM seconds=9 privateMiB=991.4 workingMiB=801.7
+MAP privateCommittedMiB=997.1 mappedCommittedMiB=51.6 imageCommittedMiB=328.1 largestPrivateRegionMiB=32.0 regions=1985
+STOP memory budget exceeded or system reserve below 2 GiB

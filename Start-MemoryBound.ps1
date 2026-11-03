@@ -2,7 +2,9 @@ param(
     [Parameter(Mandatory)][string]$Executable,
     [string]$Arguments = '',
     [ValidateRange(0,600)][int]$TimeoutSeconds = 60,
-    [string]$MemoryLog = ''
+    [string]$MemoryLog = '',
+    [switch]$InspectOnly,
+    [switch]$MemoryMap
 )
 $ErrorActionPreference = 'Stop'
 $target = (Resolve-Path -LiteralPath $Executable).Path
@@ -13,6 +15,33 @@ using System.Runtime.InteropServices;
 using System.Text;
 
 public static class MemoryBound {
+    [StructLayout(LayoutKind.Sequential)]
+    struct Region {
+        public IntPtr Address, AllocationBase;
+        public uint AllocationProtect;
+        public UIntPtr Size;
+        public uint State, Protect, Type;
+    }
+    [DllImport("kernel32", SetLastError=true)] static extern UIntPtr VirtualQueryEx(IntPtr process, IntPtr address, out Region region, UIntPtr length);
+    static string Map(IntPtr process) {
+        ulong address = 0, privateBytes = 0, mappedBytes = 0, imageBytes = 0, largest = 0;
+        int regions = 0;
+        for (int i=0; i<100000; i++) {
+            Region region;
+            if (VirtualQueryEx(process, new IntPtr((long)address), out region, new UIntPtr((uint)Marshal.SizeOf(typeof(Region)))) == UIntPtr.Zero) break;
+            ulong size = region.Size.ToUInt64();
+            if (size==0 || address+size<=address) break;
+            if (region.State==0x1000) {
+                regions++;
+                if (region.Type==0x20000) { privateBytes+=size; largest=Math.Max(largest,size); }
+                else if (region.Type==0x40000) mappedBytes+=size;
+                else if (region.Type==0x1000000) imageBytes+=size;
+            }
+            address=(ulong)region.Address.ToInt64()+size;
+            if (address>0x7fffffffffffUL) break;
+        }
+        return String.Format("MAP privateCommittedMiB={0:F1} mappedCommittedMiB={1:F1} imageCommittedMiB={2:F1} largestPrivateRegionMiB={3:F1} regions={4}", privateBytes/1048576.0,mappedBytes/1048576.0,imageBytes/1048576.0,largest/1048576.0,regions);
+    }
     [StructLayout(LayoutKind.Sequential)]
     struct MemoryStatus {
         public uint Length, Load;
@@ -63,7 +92,16 @@ public static class MemoryBound {
     static void Check(bool success) {
         if (!success) throw new Win32Exception(Marshal.GetLastWin32Error());
     }
-    public static int Run(string app, string arguments, int seconds, string log) {
+    public static string Inspect() {
+        MemoryStatus status = new MemoryStatus();
+        status.Length = (uint)Marshal.SizeOf(typeof(MemoryStatus));
+        Check(GlobalMemoryStatusEx(ref status));
+        return String.Format("RAM totalMiB={0:F0} availableMiB={1:F0} commitLimitMiB={2:F0} availableCommitMiB={3:F0}", status.TotalPhysical/1048576.0, status.AvailablePhysical/1048576.0, status.TotalPageFile/1048576.0, status.AvailablePageFile/1048576.0);
+    }
+    public static string InspectSelfMap() {
+        using (var current = System.Diagnostics.Process.GetCurrentProcess()) { return Map(current.Handle); }
+    }
+    public static int Run(string app, string arguments, int seconds, string log, bool memoryMap) {
         MemoryStatus memory = new MemoryStatus();
         memory.Length = (uint)Marshal.SizeOf(typeof(MemoryStatus));
         Check(GlobalMemoryStatusEx(ref memory));
@@ -98,6 +136,7 @@ public static class MemoryBound {
             Check(ResumeThread(child.Thread) != uint.MaxValue);
             uint wait = 258;
             var clock = System.Diagnostics.Stopwatch.StartNew();
+            double nextMap = 5;
             using (var observed = System.Diagnostics.Process.GetProcessById((int)child.ProcessId)) {
                 while (seconds == 0 || clock.Elapsed.TotalSeconds < seconds) {
                     wait = WaitForSingleObject(child.Process, 1000);
@@ -106,6 +145,12 @@ public static class MemoryBound {
                     string line = String.Format("MEM seconds={0:F0} privateMiB={1:F1} workingMiB={2:F1}", clock.Elapsed.TotalSeconds, observed.PrivateMemorySize64/1048576.0, observed.WorkingSet64/1048576.0);
                     Console.WriteLine(line);
                     if (!String.IsNullOrEmpty(log)) System.IO.File.AppendAllText(log, line + Environment.NewLine);
+                    if (memoryMap && (clock.Elapsed.TotalSeconds>=nextMap || observed.PrivateMemorySize64>850L*1024L*1024L)) {
+                        string map = Map(child.Process);
+                        Console.WriteLine(map);
+                        if (!String.IsNullOrEmpty(log)) System.IO.File.AppendAllText(log, map + Environment.NewLine);
+                        nextMap=clock.Elapsed.TotalSeconds+30;
+                    }
                     // End a runaway before allocation failures can flood logs or spin.
                     Check(GlobalMemoryStatusEx(ref memory));
                     if (observed.PrivateMemorySize64 > 900L*1024L*1024L || memory.AvailablePhysical < 2UL*1024*1024*1024) {
@@ -132,4 +177,9 @@ public static class MemoryBound {
     }
 }
 '@
-exit [MemoryBound]::Run($target, $Arguments, $TimeoutSeconds, $MemoryLog)
+if ($InspectOnly) {
+    [MemoryBound]::Inspect()
+    if ($MemoryMap) { [MemoryBound]::InspectSelfMap() }
+    exit 0
+}
+exit [MemoryBound]::Run($target, $Arguments, $TimeoutSeconds, $MemoryLog, $MemoryMap)

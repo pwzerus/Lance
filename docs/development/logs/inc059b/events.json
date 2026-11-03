@@ -1,0 +1,32 @@
+[
+  {
+    "event_utc": "2026-11-03T19:56:23.3141930Z",
+    "process": "LanceAndLaurel.exe",
+    "created_utc": "2026-11-03T19:53:24.0389783Z",
+    "seconds_since_launch": 179.2752147,
+    "process_commit_bytes": "40331833344",
+    "physical_total_bytes": "16597598208",
+    "system_commit_limit_bytes": "60338679808",
+    "system_commit_bytes": "60227936256"
+  },
+  {
+    "event_utc": "2026-11-03T14:44:08.3433244Z",
+    "process": "LanceAndLaurel.exe",
+    "created_utc": "2026-11-03T14:40:19.0922627Z",
+    "seconds_since_launch": 229.2510617,
+    "process_commit_bytes": "40761319424",
+    "physical_total_bytes": "16597598208",
+    "system_commit_limit_bytes": "60338679808",
+    "system_commit_bytes": "60218974208"
+  },
+  {
+    "event_utc": "2026-11-03T14:42:10.3139341Z",
+    "process": "LanceAndLaurel.exe",
+    "created_utc": "2026-11-03T14:40:19.0922627Z",
+    "seconds_since_launch": 111.2216714,
+    "process_commit_bytes": "39778885632",
+    "physical_total_bytes": "16597598208",
+    "system_commit_limit_bytes": "60338679808",
+    "system_commit_bytes": "60218040320"
+  }
+]

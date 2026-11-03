@@ -13,6 +13,7 @@ const MANIFEST_PATH = "res://data/equipment_art_v051.json"
 static var _manifest: Dictionary = {}
 static var _manifest_loaded = false
 static var _textures: Dictionary = {}
+const MAX_CACHED_TEXTURES = 12
 
 static func descriptor(stats: Dictionary, slot: String) -> Dictionary:
 	if not _manifest_loaded:
@@ -28,7 +29,14 @@ static func equipment_texture(stats: Dictionary, slot: String) -> Texture2D:
 	if entry.is_empty():
 		return null
 	var id = str(stats.get(slot+"_art",""))
+	if _textures.has(id):
+		var cached = _textures[id]
+		_textures.erase(id)
+		_textures[id] = cached
+		return cached
 	if not _textures.has(id):
+		if _textures.size() >= MAX_CACHED_TEXTURES:
+			_textures.erase(_textures.keys()[0])
 		var path = str(entry.get("image_path",""))
 		if not ResourceLoader.exists(path):
 			return null
@@ -37,7 +45,9 @@ static func equipment_texture(stats: Dictionary, slot: String) -> Texture2D:
 			_textures[id] = null
 			return null
 		var rectangle: Array = entry.get("source_region",[0,0,texture.get_width(),texture.get_height()])
-		_textures[id] = region(texture,Rect2(float(rectangle[0]),float(rectangle[1]),float(rectangle[2]),float(rectangle[3])))
+		var original: Array = entry.get("source_size",[texture.get_width(),texture.get_height()])
+		var ratio = texture.get_size()/Vector2(float(original[0]),float(original[1]))
+		_textures[id] = region(texture,Rect2(Vector2(float(rectangle[0]),float(rectangle[1]))*ratio,Vector2(float(rectangle[2]),float(rectangle[3]))*ratio))
 	return _textures[id]
 
 static func torso_for(stats: Dictionary, red: bool = false) -> Texture2D:

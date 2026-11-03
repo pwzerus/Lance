@@ -1,0 +1,578 @@
+[
+  {
+    "frames": 33,
+    "nodes": 27.0,
+    "objects": 1494.0,
+    "resources": 80.0,
+    "seconds": 2.718,
+    "stage": "home_0",
+    "static": 0
+  },
+  {
+    "frames": 92,
+    "nodes": 27.0,
+    "objects": 1495.0,
+    "resources": 80.0,
+    "seconds": 4.732,
+    "stage": "home_1",
+    "static": 0
+  },
+  {
+    "frames": 150,
+    "nodes": 27.0,
+    "objects": 1495.0,
+    "resources": 80.0,
+    "seconds": 6.75,
+    "stage": "home_2",
+    "static": 0
+  },
+  {
+    "frames": 208,
+    "nodes": 27.0,
+    "objects": 1495.0,
+    "resources": 80.0,
+    "seconds": 8.769,
+    "stage": "home_3",
+    "static": 0
+  },
+  {
+    "frames": 266,
+    "nodes": 27.0,
+    "objects": 1495.0,
+    "resources": 80.0,
+    "seconds": 10.793,
+    "stage": "home_4",
+    "static": 0
+  },
+  {
+    "frames": 324,
+    "nodes": 27.0,
+    "objects": 1495.0,
+    "resources": 80.0,
+    "seconds": 12.813,
+    "stage": "home_5",
+    "static": 0
+  },
+  {
+    "frames": 382,
+    "nodes": 27.0,
+    "objects": 1495.0,
+    "resources": 80.0,
+    "seconds": 14.833,
+    "stage": "home_6",
+    "static": 0
+  },
+  {
+    "frames": 440,
+    "nodes": 27.0,
+    "objects": 1495.0,
+    "resources": 80.0,
+    "seconds": 16.843,
+    "stage": "home_7",
+    "static": 0
+  },
+  {
+    "frames": 498,
+    "nodes": 27.0,
+    "objects": 1495.0,
+    "resources": 80.0,
+    "seconds": 18.856,
+    "stage": "home_8",
+    "static": 0
+  },
+  {
+    "frames": 556,
+    "nodes": 27.0,
+    "objects": 1495.0,
+    "resources": 80.0,
+    "seconds": 20.881,
+    "stage": "home_9",
+    "static": 0
+  },
+  {
+    "frames": 614,
+    "nodes": 27.0,
+    "objects": 1495.0,
+    "resources": 80.0,
+    "seconds": 22.897,
+    "stage": "home_10",
+    "static": 0
+  },
+  {
+    "frames": 672,
+    "nodes": 27.0,
+    "objects": 1495.0,
+    "resources": 80.0,
+    "seconds": 24.917,
+    "stage": "home_11",
+    "static": 0
+  },
+  {
+    "frames": 725,
+    "nodes": 57.0,
+    "objects": 1611.0,
+    "resources": 86.0,
+    "seconds": 26.943,
+    "stage": "battle_0_0",
+    "static": 0
+  },
+  {
+    "frames": 750,
+    "nodes": 57.0,
+    "objects": 1611.0,
+    "resources": 86.0,
+    "seconds": 27.958,
+    "stage": "battle_0_1",
+    "static": 0
+  },
+  {
+    "frames": 774,
+    "nodes": 64.0,
+    "objects": 1627.0,
+    "resources": 86.0,
+    "seconds": 29.006,
+    "stage": "battle_0_2",
+    "static": 0
+  },
+  {
+    "frames": 796,
+    "nodes": 64.0,
+    "objects": 1628.0,
+    "resources": 86.0,
+    "seconds": 30.025,
+    "stage": "battle_0_3",
+    "static": 0
+  },
+  {
+    "frames": 817,
+    "nodes": 64.0,
+    "objects": 1627.0,
+    "resources": 86.0,
+    "seconds": 31.033,
+    "stage": "battle_0_4",
+    "static": 0
+  },
+  {
+    "frames": 838,
+    "nodes": 64.0,
+    "objects": 1628.0,
+    "resources": 86.0,
+    "seconds": 32.07,
+    "stage": "battle_0_5",
+    "static": 0
+  },
+  {
+    "frames": 860,
+    "nodes": 64.0,
+    "objects": 1629.0,
+    "resources": 86.0,
+    "seconds": 33.103,
+    "stage": "battle_0_6",
+    "static": 0
+  },
+  {
+    "frames": 882,
+    "nodes": 70.0,
+    "objects": 1638.0,
+    "resources": 86.0,
+    "seconds": 34.132,
+    "stage": "battle_0_7",
+    "static": 0
+  },
+  {
+    "frames": 903,
+    "nodes": 70.0,
+    "objects": 1637.0,
+    "resources": 86.0,
+    "seconds": 35.153,
+    "stage": "battle_0_8",
+    "static": 0
+  },
+  {
+    "frames": 924,
+    "nodes": 70.0,
+    "objects": 1638.0,
+    "resources": 86.0,
+    "seconds": 36.148,
+    "stage": "battle_0_9",
+    "static": 0
+  },
+  {
+    "frames": 948,
+    "nodes": 70.0,
+    "objects": 1639.0,
+    "resources": 86.0,
+    "seconds": 37.185,
+    "stage": "battle_0_10",
+    "static": 0
+  },
+  {
+    "frames": 972,
+    "nodes": 70.0,
+    "objects": 1637.0,
+    "resources": 86.0,
+    "seconds": 38.213,
+    "stage": "battle_0_11",
+    "static": 0
+  },
+  {
+    "frames": 1001,
+    "nodes": 27.0,
+    "objects": 1529.0,
+    "resources": 86.0,
+    "seconds": 39.233,
+    "stage": "return_0",
+    "static": 0
+  },
+  {
+    "frames": 1058,
+    "nodes": 57.0,
+    "objects": 1611.0,
+    "resources": 86.0,
+    "seconds": 41.283,
+    "stage": "battle_1_0",
+    "static": 0
+  },
+  {
+    "frames": 1083,
+    "nodes": 57.0,
+    "objects": 1611.0,
+    "resources": 86.0,
+    "seconds": 42.32,
+    "stage": "battle_1_1",
+    "static": 0
+  },
+  {
+    "frames": 1106,
+    "nodes": 64.0,
+    "objects": 1627.0,
+    "resources": 86.0,
+    "seconds": 43.336,
+    "stage": "battle_1_2",
+    "static": 0
+  },
+  {
+    "frames": 1128,
+    "nodes": 64.0,
+    "objects": 1628.0,
+    "resources": 86.0,
+    "seconds": 44.344,
+    "stage": "battle_1_3",
+    "static": 0
+  },
+  {
+    "frames": 1150,
+    "nodes": 64.0,
+    "objects": 1627.0,
+    "resources": 86.0,
+    "seconds": 45.363,
+    "stage": "battle_1_4",
+    "static": 0
+  },
+  {
+    "frames": 1171,
+    "nodes": 64.0,
+    "objects": 1628.0,
+    "resources": 86.0,
+    "seconds": 46.392,
+    "stage": "battle_1_5",
+    "static": 0
+  },
+  {
+    "frames": 1192,
+    "nodes": 64.0,
+    "objects": 1630.0,
+    "resources": 86.0,
+    "seconds": 47.394,
+    "stage": "battle_1_6",
+    "static": 0
+  },
+  {
+    "frames": 1214,
+    "nodes": 64.0,
+    "objects": 1627.0,
+    "resources": 86.0,
+    "seconds": 48.4,
+    "stage": "battle_1_7",
+    "static": 0
+  },
+  {
+    "frames": 1238,
+    "nodes": 64.0,
+    "objects": 1627.0,
+    "resources": 86.0,
+    "seconds": 49.432,
+    "stage": "battle_1_8",
+    "static": 0
+  },
+  {
+    "frames": 1262,
+    "nodes": 64.0,
+    "objects": 1629.0,
+    "resources": 86.0,
+    "seconds": 50.452,
+    "stage": "battle_1_9",
+    "static": 0
+  },
+  {
+    "frames": 1286,
+    "nodes": 64.0,
+    "objects": 1629.0,
+    "resources": 86.0,
+    "seconds": 51.481,
+    "stage": "battle_1_10",
+    "static": 0
+  },
+  {
+    "frames": 1310,
+    "nodes": 64.0,
+    "objects": 1627.0,
+    "resources": 86.0,
+    "seconds": 52.502,
+    "stage": "battle_1_11",
+    "static": 0
+  },
+  {
+    "frames": 1339,
+    "nodes": 27.0,
+    "objects": 1529.0,
+    "resources": 86.0,
+    "seconds": 53.528,
+    "stage": "return_1",
+    "static": 0
+  },
+  {
+    "frames": 1396,
+    "nodes": 57.0,
+    "objects": 1611.0,
+    "resources": 86.0,
+    "seconds": 55.559,
+    "stage": "battle_2_0",
+    "static": 0
+  },
+  {
+    "frames": 1422,
+    "nodes": 57.0,
+    "objects": 1611.0,
+    "resources": 86.0,
+    "seconds": 56.579,
+    "stage": "battle_2_1",
+    "static": 0
+  },
+  {
+    "frames": 1447,
+    "nodes": 64.0,
+    "objects": 1627.0,
+    "resources": 86.0,
+    "seconds": 57.611,
+    "stage": "battle_2_2",
+    "static": 0
+  },
+  {
+    "frames": 1469,
+    "nodes": 64.0,
+    "objects": 1627.0,
+    "resources": 86.0,
+    "seconds": 58.609,
+    "stage": "battle_2_3",
+    "static": 0
+  },
+  {
+    "frames": 1492,
+    "nodes": 64.0,
+    "objects": 1627.0,
+    "resources": 86.0,
+    "seconds": 59.646,
+    "stage": "battle_2_4",
+    "static": 0
+  },
+  {
+    "frames": 1515,
+    "nodes": 64.0,
+    "objects": 1628.0,
+    "resources": 86.0,
+    "seconds": 60.689,
+    "stage": "battle_2_5",
+    "static": 0
+  },
+  {
+    "frames": 1536,
+    "nodes": 64.0,
+    "objects": 1630.0,
+    "resources": 86.0,
+    "seconds": 61.722,
+    "stage": "battle_2_6",
+    "static": 0
+  },
+  {
+    "frames": 1557,
+    "nodes": 76.0,
+    "objects": 1649.0,
+    "resources": 86.0,
+    "seconds": 62.727,
+    "stage": "battle_2_7",
+    "static": 0
+  },
+  {
+    "frames": 1580,
+    "nodes": 76.0,
+    "objects": 1647.0,
+    "resources": 86.0,
+    "seconds": 63.738,
+    "stage": "battle_2_8",
+    "static": 0
+  },
+  {
+    "frames": 1604,
+    "nodes": 76.0,
+    "objects": 1650.0,
+    "resources": 86.0,
+    "seconds": 64.774,
+    "stage": "battle_2_9",
+    "static": 0
+  },
+  {
+    "frames": 1628,
+    "nodes": 76.0,
+    "objects": 1649.0,
+    "resources": 86.0,
+    "seconds": 65.798,
+    "stage": "battle_2_10",
+    "static": 0
+  },
+  {
+    "frames": 1652,
+    "nodes": 76.0,
+    "objects": 1646.0,
+    "resources": 86.0,
+    "seconds": 66.819,
+    "stage": "battle_2_11",
+    "static": 0
+  },
+  {
+    "frames": 1681,
+    "nodes": 27.0,
+    "objects": 1529.0,
+    "resources": 86.0,
+    "seconds": 67.84,
+    "stage": "return_2",
+    "static": 0
+  },
+  {
+    "frames": 1738,
+    "nodes": 57.0,
+    "objects": 1611.0,
+    "resources": 86.0,
+    "seconds": 69.862,
+    "stage": "battle_3_0",
+    "static": 0
+  },
+  {
+    "frames": 1764,
+    "nodes": 57.0,
+    "objects": 1611.0,
+    "resources": 86.0,
+    "seconds": 70.874,
+    "stage": "battle_3_1",
+    "static": 0
+  },
+  {
+    "frames": 1789,
+    "nodes": 64.0,
+    "objects": 1627.0,
+    "resources": 86.0,
+    "seconds": 71.894,
+    "stage": "battle_3_2",
+    "static": 0
+  },
+  {
+    "frames": 1811,
+    "nodes": 64.0,
+    "objects": 1629.0,
+    "resources": 86.0,
+    "seconds": 72.895,
+    "stage": "battle_3_3",
+    "static": 0
+  },
+  {
+    "frames": 1834,
+    "nodes": 64.0,
+    "objects": 1627.0,
+    "resources": 86.0,
+    "seconds": 73.928,
+    "stage": "battle_3_4",
+    "static": 0
+  },
+  {
+    "frames": 1857,
+    "nodes": 64.0,
+    "objects": 1628.0,
+    "resources": 86.0,
+    "seconds": 74.951,
+    "stage": "battle_3_5",
+    "static": 0
+  },
+  {
+    "frames": 1879,
+    "nodes": 64.0,
+    "objects": 1629.0,
+    "resources": 86.0,
+    "seconds": 75.951,
+    "stage": "battle_3_6",
+    "static": 0
+  },
+  {
+    "frames": 1902,
+    "nodes": 64.0,
+    "objects": 1626.0,
+    "resources": 86.0,
+    "seconds": 76.991,
+    "stage": "battle_3_7",
+    "static": 0
+  },
+  {
+    "frames": 1926,
+    "nodes": 64.0,
+    "objects": 1628.0,
+    "resources": 86.0,
+    "seconds": 78.019,
+    "stage": "battle_3_8",
+    "static": 0
+  },
+  {
+    "frames": 1950,
+    "nodes": 64.0,
+    "objects": 1627.0,
+    "resources": 86.0,
+    "seconds": 79.03,
+    "stage": "battle_3_9",
+    "static": 0
+  },
+  {
+    "frames": 1974,
+    "nodes": 64.0,
+    "objects": 1629.0,
+    "resources": 86.0,
+    "seconds": 80.044,
+    "stage": "battle_3_10",
+    "static": 0
+  },
+  {
+    "frames": 1998,
+    "nodes": 64.0,
+    "objects": 1628.0,
+    "resources": 86.0,
+    "seconds": 81.052,
+    "stage": "battle_3_11",
+    "static": 0
+  },
+  {
+    "frames": 2027,
+    "nodes": 27.0,
+    "objects": 1529.0,
+    "resources": 86.0,
+    "seconds": 82.067,
+    "stage": "return_3",
+    "static": 0
+  }
+]

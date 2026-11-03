@@ -1,0 +1,290 @@
+[
+  {
+    "bytes": 1048576,
+    "id": "de_armor_0",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "de_armor_1",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "de_armor_2",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "de_armor_3",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "de_armor_4",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "de_armor_5",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "de_helmet_0",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "de_helmet_1",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "de_helmet_2",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "de_helmet_3",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "de_helmet_4",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "de_helmet_5",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "eng_armor_0",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "eng_armor_1",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "eng_armor_2",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "eng_armor_3",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "eng_armor_4",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "eng_armor_5",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "eng_helmet_0",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "eng_helmet_1",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "eng_helmet_2",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 915456,
+    "id": "eng_helmet_3",
+    "logical": "(447.0, 512.0)",
+    "physical": "(447, 512)"
+  },
+  {
+    "bytes": 915456,
+    "id": "eng_helmet_4",
+    "logical": "(447.0, 512.0)",
+    "physical": "(447, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "eng_helmet_5",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "fr_armor_0",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "fr_armor_1",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "fr_armor_2",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "fr_armor_3",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "fr_armor_4",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 948224,
+    "id": "fr_armor_5",
+    "logical": "(463.0, 512.0)",
+    "physical": "(463, 512)"
+  },
+  {
+    "bytes": 698368,
+    "id": "fr_helmet_0",
+    "logical": "(512.0, 341.0)",
+    "physical": "(512, 341)"
+  },
+  {
+    "bytes": 837632,
+    "id": "fr_helmet_1",
+    "logical": "(409.0, 512.0)",
+    "physical": "(409, 512)"
+  },
+  {
+    "bytes": 985088,
+    "id": "fr_helmet_2",
+    "logical": "(481.0, 512.0)",
+    "physical": "(481, 512)"
+  },
+  {
+    "bytes": 1048576,
+    "id": "fr_helmet_3",
+    "logical": "(512.0, 512.0)",
+    "physical": "(512, 512)"
+  },
+  {
+    "bytes": 811008,
+    "id": "fr_helmet_4",
+    "logical": "(512.0, 396.0)",
+    "physical": "(512, 396)"
+  },
+  {
+    "bytes": 915456,
+    "id": "fr_helmet_5",
+    "logical": "(447.0, 512.0)",
+    "physical": "(447, 512)"
+  },
+  {
+    "bytes": 942080,
+    "id": "it_armor_0",
+    "logical": "(460.0, 512.0)",
+    "physical": "(460, 512)"
+  },
+  {
+    "bytes": 948224,
+    "id": "it_armor_1",
+    "logical": "(463.0, 512.0)",
+    "physical": "(463, 512)"
+  },
+  {
+    "bytes": 991232,
+    "id": "it_armor_2",
+    "logical": "(484.0, 512.0)",
+    "physical": "(484, 512)"
+  },
+  {
+    "bytes": 948224,
+    "id": "it_armor_3",
+    "logical": "(463.0, 512.0)",
+    "physical": "(463, 512)"
+  },
+  {
+    "bytes": 950272,
+    "id": "it_armor_4",
+    "logical": "(464.0, 512.0)",
+    "physical": "(464, 512)"
+  },
+  {
+    "bytes": 948224,
+    "id": "it_armor_5",
+    "logical": "(463.0, 512.0)",
+    "physical": "(463, 512)"
+  },
+  {
+    "bytes": 927744,
+    "id": "it_helmet_0",
+    "logical": "(453.0, 512.0)",
+    "physical": "(453, 512)"
+  },
+  {
+    "bytes": 921600,
+    "id": "it_helmet_1",
+    "logical": "(450.0, 512.0)",
+    "physical": "(450, 512)"
+  },
+  {
+    "bytes": 956416,
+    "id": "it_helmet_2",
+    "logical": "(467.0, 512.0)",
+    "physical": "(467, 512)"
+  },
+  {
+    "bytes": 983040,
+    "id": "it_helmet_3",
+    "logical": "(480.0, 512.0)",
+    "physical": "(480, 512)"
+  },
+  {
+    "bytes": 888832,
+    "id": "it_helmet_4",
+    "logical": "(434.0, 512.0)",
+    "physical": "(434, 512)"
+  },
+  {
+    "bytes": 956416,
+    "id": "it_helmet_5",
+    "logical": "(467.0, 512.0)",
+    "physical": "(467, 512)"
+  }
+]

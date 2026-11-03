@@ -6,6 +6,12 @@
 
 ## 当前文件占用
 
+INC-059：Windows 两次系统卡死。11月3日纽约时间 09:44 与 14:56 的 Resource-Exhaustion-Detector 2004 指向 LanceAndLaurel.exe，分别约 40.8 GB 与 40.3 GB 虚拟内存，随后均有异常重启。上午 desktop04 隔离试玩日志停在主菜单。Codex 已停用 Play-Latest.cmd；暂缓游戏、引擎导入、导出及 DEV-058 发布。逐帧马匹网格更新是调查线索，尚未证实。恢复前先建立有系统级内存上限及超时的隔离运行，再定位分配来源并验证主菜单与实战内存稳定。
+
+DEV-058验证扩展：motion056只持有新tests/test_feedback_v058.gd/.uid，继承原真实扫掠夹具，增加实际缩放差、逻辑像素震动/开关/暂停/双击稳定性和HUD/挂点观察；root继续独占引擎。其他代理不改生产。
+
+DEV-058 / 2026-11-02 23:15:46 UTC：用户试玩.17后要求对冲瞬间更明显减速、镜头放大、撞击和震动。基线c3517a0，沿用codex/v0.4，拟独立v0.4.18。root认领battle.gd、visual/exchange_director.gd、必要impact_fx.gd及版本/导出/启动器/设计交接文档；timing056仅只读并写V058_INDEPENDENT_REVIEW，sound056仅只读并写V058_FEEL_REVIEW。root串行引擎/QA与桌面，保留正式档/旧包及Claude五项既有差异。目标强化实际命中后的时序与镜头，不加伤害，不瞬移枪盾，不重写已修落马。没有本轮额外时间额度要求。
+
 DEV-057交出：motion056/sound056/timing056生产全部释放，以下认领段为历史。root完成最终文档/启动器/提交后释放本轮全部文件。具体修改、验证类型和下一步见DEV-057交接。
 
 DEV-057后置极限检查补充：r2实际包24组姿态有3组低盾右向落地被长盾撑胸；motion056认领原fallen_rider/test_fall修复上肢地面可达候选，不放宽关节/骨长/支撑阈值。源码stress02及fall05通过后冻结，最终独立导出.17-r3，首包/r2保留。root继续独占最终包验证、启动器和交接。
@@ -160,3 +166,11 @@ DEV-045完成：最终运行dc09976，v0.4.5-r3独立包五项专项、双模式
 
 
 DEV-046完成：运行43a6058，独立v0.4.6-r3；r2五项实际EXE专项、r3双模式镜头/九图/连续预览/输入与集成、Windows ZIP解压实跑通过。原生桌面只验菜单/练习/暂停/重开，长按和真人手感未验收。文件释放；只剩源码归档与文档远程核对。近景HUD遮脚/命中横条遮下半身登记为后续构图P2，详见DEV-046交接。
+
+INC-059修复认领：Codex负责Start-MemoryBound.ps1、Play-Latest.cmd、game/project.godot、export_presets.cfg、visual/horse_skin.gd、新内存QA和本次交接。先验证Job限制，再串行短时QA；禁止无界启动。
+INC-059范围补充：Codex认领scripts/ui/ui_factory.gd、scripts/main.gd、tests/test_memory_inc059.gd；固定字体缓存/帧预算与Windows启动保护。
+INC-059范围补充：equipment_art.gd及pixel_v051/*.png.import、字体import由Codex负责；装备运行纹理上限512，原图保留，缓存最多12项。
+INC-059补充：equipment_art_v051.json添加原图尺寸，导入缩图后按比例保持裁切/挂点。
+INC-059启动器范围补充：Play-Input-Diagnostic.cmd也改为受保护执行，关闭旧诊断脚本无界启动路径。
+
+INC-059当前：防护与优化落地，独立memory2实际包四次往返验证；历史40GB根因仍开放P0，后续只能限额复现。生产文件本轮收尾后释放。详见2026-11-03-INC-059-Codex交接。

@@ -170,3 +170,6 @@ OS已操作源码与最终解压包的菜单/练习/换盾/暂停/退出；没�
 4. 旧桌面QA外部脚本Alt+F4退出曾出现ObjectDB警告；DEV-049无注入观察器已在超时清理和保存退出两条路径干净退出，但不能据此宣称所有历史退出路径已解决。跨机/DPI、触控与真人长测仍未覆盖。
 
 历史与装备资料见docs/HISTORICAL_RESEARCH.md、HISTORICAL_ASSET_BRIEFS.md、EQUIPMENT_PROGRESSION.md；本轮一手动作/竞品资料与未观看视频的边界见V046_REVIEW。双方文件认领唯一入口TASK_BOARD，既有Claude文档差异继续保留。
+
+## INC-059 内存安全覆盖（2026-11-03，优先于以上旧启动说明）
+当前安全候选builds/LanceAndLaurel-v0.4.18-memory2，通过Play-Latest.cmd/Start-MemoryBound.ps1启动。所有开发引擎/导出/QA也必须经过保护器，串行且有限超时。1 GiB Job承诺内存上限、900 MiB提前停止、单实例、25% CPU；启动保留4 GiB RAM，运行不足2 GiB终止。未定位原40GB分配源，不宣称根治；旧EXE没有保护，不运行。资源缩图及包体、测试证据见INC-059交接及docs/development/INC059_MEMORY_REVIEW.md。

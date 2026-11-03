@@ -1,2 +1,3 @@
 @echo off
-start "" "%~dp0builds\qa-v04-release\LanceAndLaurel-QA.exe" --script "%~dp0game\tests\manual_input_probe_v04.gd" --log-file "%~dp0docs\development\logs\v04-user-mouse-runtime.log" -- --test-profile
+"%USERPROFILE%\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\powershell\pwsh.exe" -NoProfile -File "%~dp0Start-MemoryBound.ps1" -Executable "%~dp0builds\LanceAndLaurel-v0.4.18-memory2\LanceAndLaurel.exe" -Arguments "-- --test-profile" -TimeoutSeconds 60
+if errorlevel 1 pause

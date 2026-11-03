@@ -61,6 +61,12 @@ var character_options: Dictionary = {}
 var character_face_preview: CharacterFaceCanvas
 
 func _ready() -> void:
+	# Windows release must enter the OS Job before any gameplay starts.
+	# This is a safety interlock, not a security boundary against manual bypass.
+	if OS.get_name()=="Windows" and not OS.has_feature("editor") and OS.get_environment("GALUMU_MEMORY_BOUND")!="1024":
+		OS.alert("Please launch with Play-Latest.cmd (memory protection required).", "Lance & Laurel")
+		get_tree().quit(2)
+		return
 	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.18"
 	print("GALUMU_BUILD v0.4.18")
 	get_tree().auto_accept_quit = false
@@ -395,6 +401,7 @@ func _on_match_finished(result: Dictionary) -> void:
 	reward = {"coins":0,"renown":0} if practice_match else GameState.award_match(session_id,outcome,current_mode)
 
 func _process(_delta: float) -> void:
+	Engine.max_fps = 10 if DisplayServer.window_get_mode()==DisplayServer.WINDOW_MODE_MINIMIZED else 60
 	if battle and battle.is_finished and not result_visible:
 		show_result()
 	if smoke_mode:

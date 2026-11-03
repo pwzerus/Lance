@@ -8,6 +8,7 @@ run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/description="A historically inspired, physics-driven jousting game."
 config/icon="res://assets/icon.svg"
+run/max_fps=60
 
 [autoload]
 GameState="*res://scripts/core/game_state.gd"

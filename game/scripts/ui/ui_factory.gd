@@ -5,8 +5,11 @@ const INK = Color("e9dfc5")
 const MUTED = Color("a8ad9b")
 const GOLD = Color("c5a568")
 const DARK = Color("15221e")
+static var _shared_theme: Theme
 
 static func theme() -> Theme:
+	if _shared_theme != null:
+		return _shared_theme
 	var result = Theme.new()
 	if ResourceLoader.exists("res://assets/fonts/NotoSansSC.ttf"):
 		var font = FontVariation.new()
@@ -33,6 +36,7 @@ static func theme() -> Theme:
 	result.set_stylebox("panel", "PopupMenu", box(Color("1b2923"), GOLD, 5))
 	result.set_color("font_color", "PopupMenu", INK)
 	result.set_font_size("font_size", "PopupMenu", 18)
+	_shared_theme = result
 	return result
 
 static func box(fill: Color = Color("15221e"), border: Color = Color("57604a"), radius: int = 4) -> StyleBoxFlat:

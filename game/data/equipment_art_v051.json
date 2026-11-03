@@ -1,6 +1,7 @@
 {
   "de_armor_0": {
     "image_path": "res://assets/art/pixel_v051/de_armor_0.png",
+    "source_size": [1254, 1254],
     "source_region": [
       254,
       70,
@@ -15,6 +16,7 @@
   },
   "de_armor_1": {
     "image_path": "res://assets/art/pixel_v051/de_armor_1.png",
+    "source_size": [1254, 1254],
     "source_region": [
       241,
       54,
@@ -29,6 +31,7 @@
   },
   "de_armor_2": {
     "image_path": "res://assets/art/pixel_v051/de_armor_2.png",
+    "source_size": [1254, 1254],
     "source_region": [
       147,
       70,
@@ -43,6 +46,7 @@
   },
   "de_armor_3": {
     "image_path": "res://assets/art/pixel_v051/de_armor_3.png",
+    "source_size": [1254, 1254],
     "source_region": [
       195,
       75,
@@ -57,6 +61,7 @@
   },
   "de_armor_4": {
     "image_path": "res://assets/art/pixel_v051/de_armor_4.png",
+    "source_size": [1254, 1254],
     "source_region": [
       232,
       67,
@@ -71,6 +76,7 @@
   },
   "de_armor_5": {
     "image_path": "res://assets/art/pixel_v051/de_armor_5.png",
+    "source_size": [1254, 1254],
     "source_region": [
       192,
       77,
@@ -85,6 +91,7 @@
   },
   "de_helmet_0": {
     "image_path": "res://assets/art/pixel_v051/de_helmet_0.png",
+    "source_size": [1254, 1254],
     "source_region": [
       184,
       47,
@@ -106,6 +113,7 @@
   },
   "de_helmet_1": {
     "image_path": "res://assets/art/pixel_v051/de_helmet_1.png",
+    "source_size": [1254, 1254],
     "source_region": [
       198,
       85,
@@ -127,6 +135,7 @@
   },
   "de_helmet_2": {
     "image_path": "res://assets/art/pixel_v051/de_helmet_2.png",
+    "source_size": [1254, 1254],
     "source_region": [
       211,
       46,
@@ -148,6 +157,7 @@
   },
   "de_helmet_3": {
     "image_path": "res://assets/art/pixel_v051/de_helmet_3.png",
+    "source_size": [1254, 1254],
     "source_region": [
       158,
       79,
@@ -169,6 +179,7 @@
   },
   "de_helmet_4": {
     "image_path": "res://assets/art/pixel_v051/de_helmet_4.png",
+    "source_size": [1254, 1254],
     "source_region": [
       185,
       40,
@@ -190,6 +201,7 @@
   },
   "de_helmet_5": {
     "image_path": "res://assets/art/pixel_v051/de_helmet_5.png",
+    "source_size": [1254, 1254],
     "source_region": [
       210,
       48,
@@ -211,6 +223,7 @@
   },
   "eng_armor_0": {
     "image_path": "res://assets/art/pixel_v051/eng_armor_0.png",
+    "source_size": [1254, 1254],
     "source_region": [
       136,
       91,
@@ -225,6 +238,7 @@
   },
   "eng_armor_1": {
     "image_path": "res://assets/art/pixel_v051/eng_armor_1.png",
+    "source_size": [1254, 1254],
     "source_region": [
       234,
       126,
@@ -239,6 +253,7 @@
   },
   "eng_armor_2": {
     "image_path": "res://assets/art/pixel_v051/eng_armor_2.png",
+    "source_size": [1254, 1254],
     "source_region": [
       232,
       80,
@@ -253,6 +268,7 @@
   },
   "eng_armor_3": {
     "image_path": "res://assets/art/pixel_v051/eng_armor_3.png",
+    "source_size": [1254, 1254],
     "source_region": [
       238,
       111,
@@ -267,6 +283,7 @@
   },
   "eng_armor_4": {
     "image_path": "res://assets/art/pixel_v051/eng_armor_4.png",
+    "source_size": [1254, 1254],
     "source_region": [
       200,
       87,
@@ -281,6 +298,7 @@
   },
   "eng_armor_5": {
     "image_path": "res://assets/art/pixel_v051/eng_armor_5.png",
+    "source_size": [1254, 1254],
     "source_region": [
       240,
       62,
@@ -295,6 +313,7 @@
   },
   "eng_helmet_0": {
     "image_path": "res://assets/art/pixel_v051/eng_helmet_0.png",
+    "source_size": [1254, 1254],
     "source_region": [
       223,
       109,
@@ -316,6 +335,7 @@
   },
   "eng_helmet_1": {
     "image_path": "res://assets/art/pixel_v051/eng_helmet_1.png",
+    "source_size": [1254, 1254],
     "source_region": [
       206,
       151,
@@ -337,6 +357,7 @@
   },
   "eng_helmet_2": {
     "image_path": "res://assets/art/pixel_v051/eng_helmet_2.png",
+    "source_size": [1254, 1254],
     "source_region": [
       249,
       25,
@@ -358,6 +379,7 @@
   },
   "eng_helmet_3": {
     "image_path": "res://assets/art/pixel_v051/eng_helmet_3.png",
+    "source_size": [1173, 1341],
     "source_region": [
       94,
       72,
@@ -379,6 +401,7 @@
   },
   "eng_helmet_4": {
     "image_path": "res://assets/art/pixel_v051/eng_helmet_4.png",
+    "source_size": [1173, 1341],
     "source_region": [
       195,
       109,
@@ -400,6 +423,7 @@
   },
   "eng_helmet_5": {
     "image_path": "res://assets/art/pixel_v051/eng_helmet_5.png",
+    "source_size": [1254, 1254],
     "source_region": [
       218,
       48,
@@ -421,6 +445,7 @@
   },
   "fr_armor_0": {
     "image_path": "res://assets/art/pixel_v051/fr_armor_0.png",
+    "source_size": [1254, 1254],
     "source_region": [
       223,
       83,
@@ -435,6 +460,7 @@
   },
   "fr_armor_1": {
     "image_path": "res://assets/art/pixel_v051/fr_armor_1.png",
+    "source_size": [1254, 1254],
     "source_region": [
       246,
       62,
@@ -449,6 +475,7 @@
   },
   "fr_armor_2": {
     "image_path": "res://assets/art/pixel_v051/fr_armor_2.png",
+    "source_size": [1254, 1254],
     "source_region": [
       227,
       64,
@@ -463,6 +490,7 @@
   },
   "fr_armor_3": {
     "image_path": "res://assets/art/pixel_v051/fr_armor_3.png",
+    "source_size": [1254, 1254],
     "source_region": [
       238,
       71,
@@ -477,6 +505,7 @@
   },
   "fr_armor_4": {
     "image_path": "res://assets/art/pixel_v051/fr_armor_4.png",
+    "source_size": [1254, 1254],
     "source_region": [
       209,
       38,
@@ -491,6 +520,7 @@
   },
   "fr_armor_5": {
     "image_path": "res://assets/art/pixel_v051/fr_armor_5.png",
+    "source_size": [1193, 1319],
     "source_region": [
       82,
       42,
@@ -505,6 +535,7 @@
   },
   "fr_helmet_0": {
     "image_path": "res://assets/art/pixel_v051/fr_helmet_0.png",
+    "source_size": [1536, 1024],
     "source_region": [
       60,
       213,
@@ -526,6 +557,7 @@
   },
   "fr_helmet_1": {
     "image_path": "res://assets/art/pixel_v051/fr_helmet_1.png",
+    "source_size": [1122, 1402],
     "source_region": [
       93,
       94,
@@ -547,6 +579,7 @@
   },
   "fr_helmet_2": {
     "image_path": "res://assets/art/pixel_v051/fr_helmet_2.png",
+    "source_size": [1216, 1293],
     "source_region": [
       159,
       40,
@@ -568,6 +601,7 @@
   },
   "fr_helmet_3": {
     "image_path": "res://assets/art/pixel_v051/fr_helmet_3.png",
+    "source_size": [1254, 1254],
     "source_region": [
       218,
       58,
@@ -589,6 +623,7 @@
   },
   "fr_helmet_4": {
     "image_path": "res://assets/art/pixel_v051/fr_helmet_4.png",
+    "source_size": [1426, 1103],
     "source_region": [
       63,
       97,
@@ -610,6 +645,7 @@
   },
   "fr_helmet_5": {
     "image_path": "res://assets/art/pixel_v051/fr_helmet_5.png",
+    "source_size": [1173, 1341],
     "source_region": [
       86,
       26,
@@ -631,6 +667,7 @@
   },
   "it_armor_0": {
     "image_path": "res://assets/art/pixel_v051/it_armor_0.png",
+    "source_size": [1190, 1322],
     "source_region": [
       154,
       100,
@@ -645,6 +682,7 @@
   },
   "it_armor_1": {
     "image_path": "res://assets/art/pixel_v051/it_armor_1.png",
+    "source_size": [1193, 1319],
     "source_region": [
       168,
       78,
@@ -659,6 +697,7 @@
   },
   "it_armor_2": {
     "image_path": "res://assets/art/pixel_v051/it_armor_2.png",
+    "source_size": [1220, 1289],
     "source_region": [
       154,
       57,
@@ -673,6 +712,7 @@
   },
   "it_armor_3": {
     "image_path": "res://assets/art/pixel_v051/it_armor_3.png",
+    "source_size": [1193, 1319],
     "source_region": [
       146,
       82,
@@ -687,6 +727,7 @@
   },
   "it_armor_4": {
     "image_path": "res://assets/art/pixel_v051/it_armor_4.png",
+    "source_size": [1194, 1317],
     "source_region": [
       120,
       54,
@@ -701,6 +742,7 @@
   },
   "it_armor_5": {
     "image_path": "res://assets/art/pixel_v051/it_armor_5.png",
+    "source_size": [1193, 1318],
     "source_region": [
       179,
       72,
@@ -715,6 +757,7 @@
   },
   "it_helmet_0": {
     "image_path": "res://assets/art/pixel_v051/it_helmet_0.png",
+    "source_size": [1180, 1333],
     "source_region": [
       97,
       65,
@@ -736,6 +779,7 @@
   },
   "it_helmet_1": {
     "image_path": "res://assets/art/pixel_v051/it_helmet_1.png",
+    "source_size": [1176, 1337],
     "source_region": [
       182,
       83,
@@ -757,6 +801,7 @@
   },
   "it_helmet_2": {
     "image_path": "res://assets/art/pixel_v051/it_helmet_2.png",
+    "source_size": [1199, 1312],
     "source_region": [
       205,
       48,
@@ -778,6 +823,7 @@
   },
   "it_helmet_3": {
     "image_path": "res://assets/art/pixel_v051/it_helmet_3.png",
+    "source_size": [1215, 1295],
     "source_region": [
       217,
       80,
@@ -799,6 +845,7 @@
   },
   "it_helmet_4": {
     "image_path": "res://assets/art/pixel_v051/it_helmet_4.png",
+    "source_size": [1156, 1361],
     "source_region": [
       122,
       169,
@@ -820,6 +867,7 @@
   },
   "it_helmet_5": {
     "image_path": "res://assets/art/pixel_v051/it_helmet_5.png",
+    "source_size": [1199, 1312],
     "source_region": [
       227,
       16,

@@ -4,10 +4,16 @@ param(
     [ValidateRange(0,600)][int]$TimeoutSeconds = 60,
     [string]$MemoryLog = '',
     [switch]$InspectOnly,
-    [switch]$MemoryMap
+    [switch]$MemoryMap,
+    [switch]$HeadlessDiagnostics
 )
 $ErrorActionPreference = 'Stop'
 $target = (Resolve-Path -LiteralPath $Executable).Path
+if (!$InspectOnly -and [string]::IsNullOrEmpty($MemoryLog)) {
+    $diagnosticFolder = Join-Path $PSScriptRoot 'logs/runtime'
+    New-Item -ItemType Directory -Path $diagnosticFolder -Force | Out-Null
+    $MemoryLog = Join-Path $diagnosticFolder ('memory-' + [DateTime]::UtcNow.ToString('yyyyMMdd-HHmmss-fff') + '.log')
+}
 Add-Type -TypeDefinition @'
 using System;
 using System.ComponentModel;
@@ -92,6 +98,16 @@ public static class MemoryBound {
     static void Check(bool success) {
         if (!success) throw new Win32Exception(Marshal.GetLastWin32Error());
     }
+    static void Log(string path, string line) {
+        if (String.IsNullOrEmpty(path)) return;
+        // Bound automatic session diagnostics; never retain samples in RAM.
+        if (System.IO.File.Exists(path) && new System.IO.FileInfo(path).Length > 2*1024*1024) {
+            string previous = path + ".previous";
+            if (System.IO.File.Exists(previous)) System.IO.File.Delete(previous);
+            System.IO.File.Move(path, previous);
+        }
+        System.IO.File.AppendAllText(path, line + Environment.NewLine);
+    }
     public static string Inspect() {
         MemoryStatus status = new MemoryStatus();
         status.Length = (uint)Marshal.SizeOf(typeof(MemoryStatus));
@@ -101,12 +117,22 @@ public static class MemoryBound {
     public static string InspectSelfMap() {
         using (var current = System.Diagnostics.Process.GetCurrentProcess()) { return Map(current.Handle); }
     }
-    public static int Run(string app, string arguments, int seconds, string log, bool memoryMap) {
+    public static int Run(string app, string arguments, int seconds, string log, bool memoryMap, bool headlessDiagnostics) {
+        if (System.IO.Path.GetFileName(app).EndsWith("_console.exe", StringComparison.OrdinalIgnoreCase))
+            throw new ArgumentException("Use the main Godot .exe, not its _console.exe launcher, so process memory telemetry observes the engine itself.");
+        if (headlessDiagnostics && !System.Text.RegularExpressions.Regex.IsMatch(arguments, @"(^|\s)--headless(\s|$)"))
+            throw new ArgumentException("The 512 MiB diagnostic profile requires --headless.");
         MemoryStatus memory = new MemoryStatus();
         memory.Length = (uint)Marshal.SizeOf(typeof(MemoryStatus));
         Check(GlobalMemoryStatusEx(ref memory));
-        if (memory.AvailablePhysical < 4UL*1024*1024*1024)
-            throw new InvalidOperationException("Less than 4 GiB RAM available; launch refused to preserve workspace memory.");
+        // Budget the bounded child plus a 2 GiB system reserve and 256 MiB
+        // launch overhead. The old flat 4 GiB gate blocked even measured
+        // 0.6-0.75 GiB runs; this does NOT increase the child's Job limit.
+        const ulong mib = 1024UL*1024UL;
+        ulong childMiB = headlessDiagnostics ? 512UL : 1024UL;
+        ulong startupReserve = (2048UL+childMiB+256UL)*mib;
+        if (memory.AvailablePhysical < startupReserve || memory.AvailablePageFile < (childMiB+256UL)*mib)
+            throw new InvalidOperationException(String.Format("Insufficient launch budget: need {0} MiB available RAM and {1} MiB available commit.", startupReserve/mib, childMiB+256UL));
         using (var single = new System.Threading.Mutex(false, @"Local\GALUMU.MemoryBound")) {
         if (!single.WaitOne(0)) throw new InvalidOperationException("Another GALUMU game/test is running. Close it before starting another.");
         try {
@@ -118,7 +144,7 @@ public static class MemoryBound {
             Limits limits = new Limits();
             // JOB_OBJECT_LIMIT_JOB_MEMORY | JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
             limits.Basic.Flags = 0x2200;
-            limits.JobMemory = new UIntPtr(1024u * 1024u * 1024u);
+            limits.JobMemory = new UIntPtr(childMiB*mib);
             Check(SetInformationJobObject(job, 9, ref limits, Marshal.SizeOf(typeof(Limits))));
             CpuLimit cpu = new CpuLimit { Flags = 5, Rate = 2500 };
             Check(SetInformationJobObject(job, 15, ref cpu, Marshal.SizeOf(typeof(CpuLimit))));
@@ -134,6 +160,7 @@ public static class MemoryBound {
             Check(AssignProcessToJobObject(job, child.Process));
             assigned = true;
             Check(ResumeThread(child.Thread) != uint.MaxValue);
+            Log(log, String.Format("START utc={0:o} pid={1} jobMiB={2} executable={3}", DateTime.UtcNow, child.ProcessId, childMiB, app));
             uint wait = 258;
             var clock = System.Diagnostics.Stopwatch.StartNew();
             double nextMap = 5;
@@ -142,29 +169,31 @@ public static class MemoryBound {
                     wait = WaitForSingleObject(child.Process, 1000);
                     if (wait != 258) break;
                     observed.Refresh();
-                    string line = String.Format("MEM seconds={0:F0} privateMiB={1:F1} workingMiB={2:F1}", clock.Elapsed.TotalSeconds, observed.PrivateMemorySize64/1048576.0, observed.WorkingSet64/1048576.0);
+                    Check(GlobalMemoryStatusEx(ref memory));
+                    string line = String.Format("MEM seconds={0:F0} privateMiB={1:F1} workingMiB={2:F1} availableRamMiB={3:F0} availableCommitMiB={4:F0}", clock.Elapsed.TotalSeconds, observed.PrivateMemorySize64/1048576.0, observed.WorkingSet64/1048576.0, memory.AvailablePhysical/(double)mib, memory.AvailablePageFile/(double)mib);
                     Console.WriteLine(line);
-                    if (!String.IsNullOrEmpty(log)) System.IO.File.AppendAllText(log, line + Environment.NewLine);
+                    Log(log, line);
                     if (memoryMap && (clock.Elapsed.TotalSeconds>=nextMap || observed.PrivateMemorySize64>850L*1024L*1024L)) {
                         string map = Map(child.Process);
                         Console.WriteLine(map);
-                        if (!String.IsNullOrEmpty(log)) System.IO.File.AppendAllText(log, map + Environment.NewLine);
+                        Log(log, map);
                         nextMap=clock.Elapsed.TotalSeconds+30;
                     }
                     // End a runaway before allocation failures can flood logs or spin.
                     Check(GlobalMemoryStatusEx(ref memory));
-                    if (observed.PrivateMemorySize64 > 900L*1024L*1024L || memory.AvailablePhysical < 2UL*1024*1024*1024) {
-                        string reason = "STOP memory budget exceeded or system reserve below 2 GiB";
+                    if ((ulong)observed.PrivateMemorySize64 > (headlessDiagnostics ? 448UL : 900UL)*mib || memory.AvailablePhysical < 2UL*1024*1024*1024 || memory.AvailablePageFile < 512UL*mib) {
+                        string reason = "STOP memory budget exceeded, RAM reserve below 2 GiB, or available commit below 512 MiB";
                         Console.WriteLine(reason);
-                        if (!String.IsNullOrEmpty(log)) System.IO.File.AppendAllText(log, reason + Environment.NewLine);
+                        Log(log, reason);
                         return 125;
                     }
                 }
             }
-            if (wait == 258) return 124;
+            if (wait == 258) { Log(log, "TIMEOUT: terminating job"); return 124; }
             Check(wait == 0);
             uint code;
             Check(GetExitCodeProcess(child.Process, out code));
+            Log(log, String.Format("EXIT code={0} seconds={1:F1}", code, clock.Elapsed.TotalSeconds));
             return unchecked((int)code);
         } finally {
             if (!assigned && child.Process != IntPtr.Zero) TerminateProcess(child.Process, 1);
@@ -182,4 +211,4 @@ if ($InspectOnly) {
     if ($MemoryMap) { [MemoryBound]::InspectSelfMap() }
     exit 0
 }
-exit [MemoryBound]::Run($target, $Arguments, $TimeoutSeconds, $MemoryLog, $MemoryMap)
+exit [MemoryBound]::Run($target, $Arguments, $TimeoutSeconds, $MemoryLog, $MemoryMap, $HeadlessDiagnostics)

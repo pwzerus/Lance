@@ -3,6 +3,7 @@ extends Node2D
 signal hoof_contact(leg_index: int)
 
 const ATLAS = preload("res://assets/art/pixel_v03/rider_atlas.png")
+const WindowActivity = preload("res://scripts/core/window_activity.gd")
 const Model = preload("res://scripts/core/joust_match.gd")
 const Art = preload("res://scripts/visual/equipment_art.gd")
 const HorseArt = preload("res://scripts/visual/horse_art.gd")
@@ -71,6 +72,8 @@ func _init() -> void:
 	material = pixel_material
 
 func _process(delta: float) -> void:
+	if WindowActivity.suspended():
+		return
 	if not detached_pose.is_empty() or lance_only:
 		_advance_recoil(delta)
 		queue_redraw()
@@ -180,6 +183,9 @@ func draw_part(part: String, destination: Rect2, color: Color = Color.WHITE) -> 
 	draw_texture_rect_region(ATLAS,destination,PARTS[part],color)
 
 func _draw() -> void:
+	# A redraw queued just before minimization must also be discarded.
+	if WindowActivity.suspended():
+		return
 	if fighter.is_empty():
 		return
 	if lance_only:

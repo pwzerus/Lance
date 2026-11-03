@@ -282,6 +282,8 @@ func _pointer_over_hud(point: Vector2) -> bool:
 	return point.x<0.0 or point.x>=1440.0 or point.y<COMBAT_SAFE_RECT.position.y or point.y>=720.0 or (paused and is_instance_valid(pause_panel) and pause_panel.get_global_rect().has_point(point))
 
 func _physics_process(delta: float) -> void:
+	if preload("res://scripts/core/window_activity.gd").suspended():
+		return
 	if paused or is_finished:
 		return
 	if match_model.phase=="ended":
@@ -446,6 +448,9 @@ func _handle_event(event: Dictionary) -> void:
 
 func _process(delta: float) -> void:
 	var now = Time.get_ticks_msec()
+	if preload("res://scripts/core/window_activity.gd").suspended():
+		last_visual_time = now
+		return
 	var elapsed = maxf(0.0,float(now-last_visual_time)/1000.0)
 	var real_delta = minf(elapsed,.1)
 	last_visual_time = now
@@ -696,6 +701,8 @@ func _exchange_hint() -> String:
 	return "交锋间隙 · 调整下一轮枪盾"
 
 func _draw() -> void:
+	if preload("res://scripts/core/window_activity.gd").suspended():
+		return
 	for i in range(2):
 		if match_model:
 			var point = world.position+riders[i].position+Vector2(0,12)

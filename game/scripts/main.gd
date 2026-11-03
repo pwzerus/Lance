@@ -7,6 +7,7 @@ const Model = preload("res://scripts/core/joust_match.gd")
 const Battle = preload("res://scripts/battle.gd")
 const Art = preload("res://scripts/visual/equipment_art.gd")
 const Appearance = preload("res://scripts/core/character_appearance.gd")
+const WindowActivity = preload("res://scripts/core/window_activity.gd")
 const BACKGROUND = preload("res://assets/art/pixel_v03/tournament_field.png")
 
 class CharacterFaceCanvas extends Node2D:
@@ -67,9 +68,10 @@ func _ready() -> void:
 		OS.alert("Please launch with Play-Latest.cmd (memory protection required).", "Lance & Laurel")
 		get_tree().quit(2)
 		return
-	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.18"
-	print("GALUMU_BUILD v0.4.18")
+	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.19"
+	print("GALUMU_BUILD v0.4.19")
 	get_tree().auto_accept_quit = false
+	add_child(WindowActivity.new())
 	get_window().min_size = Vector2i(960,540)
 	ui_layer = CanvasLayer.new()
 	add_child(ui_layer)
@@ -87,7 +89,7 @@ func _ready() -> void:
 		smoke_started = Time.get_ticks_msec()
 	show_home()
 	if GameState.qa_input_probe:
-		get_window().title = "Lance & Laurel v0.4.18 QA - Desktop input"
+		get_window().title = "Lance & Laurel v0.4.19 QA - Desktop input"
 		var audit = preload("res://scripts/core/desktop_input_audit.gd").new()
 		audit.main = self
 		add_child(audit)
@@ -147,7 +149,7 @@ func show_home() -> void:
 	UI.button(screen,"历史手记",Rect2(68,569,247,50),show_history)
 	UI.button(screen,"设置",Rect2(331,569,247,50),show_settings)
 	UI.button(screen,"保存并退出",Rect2(68,645,510,50),_save_and_exit)
-	UI.label(screen,"自动保存已启用 · v0.4.18",Vector2(70,727),16,UI.MUTED)
+	UI.label(screen,"自动保存已启用 · v0.4.19",Vector2(70,727),16,UI.MUTED)
 	UI.label(screen,"你的骑士",Vector2(790,145),20,UI.GOLD)
 	UI.button(screen,"角色外观",Rect2(1010,129,362,54),show_character,true)
 	_add_preview(Vector2(1035,652),1.42)
@@ -401,7 +403,6 @@ func _on_match_finished(result: Dictionary) -> void:
 	reward = {"coins":0,"renown":0} if practice_match else GameState.award_match(session_id,outcome,current_mode)
 
 func _process(_delta: float) -> void:
-	Engine.max_fps = 10 if DisplayServer.window_get_mode()==DisplayServer.WINDOW_MODE_MINIMIZED else 60
 	if battle and battle.is_finished and not result_visible:
 		show_result()
 	if smoke_mode:

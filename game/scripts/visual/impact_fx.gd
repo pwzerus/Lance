@@ -3,6 +3,7 @@ extends Node2D
 signal rider_landed(impact_speed: float)
 const Shard = preload("res://scripts/visual/lance_shard.gd")
 const Cues = preload("res://scripts/visual/combat_cues.gd")
+const WindowActivity = preload("res://scripts/core/window_activity.gd")
 
 var particles: Array = []
 var stains: Array = []
@@ -104,6 +105,8 @@ func falls_settled() -> bool:
 	return true
 
 func _process(delta: float) -> void:
+	if WindowActivity.suspended():
+		return
 	for burst in bursts:
 		burst.life -= delta
 	bursts = bursts.filter(func(b):return b.life>0)
@@ -121,6 +124,8 @@ func _process(delta: float) -> void:
 	queue_redraw()
 
 func _draw_far_dust() -> void:
+	if WindowActivity.suspended():
+		return
 	for particle in particles:
 		if particle.get("dust",false) and float(particle.floor)<0:
 			var color = Color(particle.color)
@@ -128,6 +133,8 @@ func _draw_far_dust() -> void:
 			far_dust.draw_rect(Rect2(Vector2(particle.p),Vector2.ONE*float(particle.size)),color)
 
 func _draw() -> void:
+	if WindowActivity.suspended():
+		return
 	for burst in bursts:
 		_draw_contact_burst(burst)
 	if blood_enabled:

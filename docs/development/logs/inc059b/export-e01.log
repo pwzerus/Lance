@@ -1,0 +1,82 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+ERROR: FreeType: Error loading font: '' (face_index=0).
+   at: _ensure_cache_for_size (modules/text_server_adv/text_server_adv.cpp:1449)
+ERROR: Condition "!_ensure_cache_for_size(fd, size, ffsd)" is true. Returning: 0.0
+   at: _font_get_ascent (modules/text_server_adv/text_server_adv.cpp:2855)
+ERROR: FreeType: Error loading font: '' (face_index=0).
+   at: _ensure_cache_for_size (modules/text_server_adv/text_server_adv.cpp:1449)
+ERROR: Condition "!_ensure_cache_for_size(fd, size, ffsd)" is true. Returning: 0.0
+   at: _font_get_descent (modules/text_server_adv/text_server_adv.cpp:2889)
+ERROR: FreeType: Error loading font: '' (face_index=0).
+   at: _ensure_cache_for_size (modules/text_server_adv/text_server_adv.cpp:1449)
+ERROR: Condition "!_ensure_cache_for_size(fd, size, ffsd)" is true. Returning: 0.0
+   at: _font_get_ascent (modules/text_server_adv/text_server_adv.cpp:2855)
+ERROR: FreeType: Error loading font: '' (face_index=0).
+   at: _ensure_cache_for_size (modules/text_server_adv/text_server_adv.cpp:1449)
+ERROR: Condition "!_ensure_cache_for_size(fd, size, ffsd)" is true. Returning: 0.0
+   at: _font_get_descent (modules/text_server_adv/text_server_adv.cpp:2889)
+ERROR: FreeType: Error loading font: '' (face_index=0).
+   at: _ensure_cache_for_size (modules/text_server_adv/text_server_adv.cpp:1449)
+ERROR: Condition "!_ensure_cache_for_size(fd, size, ffsd)" is true. Returning: 0.0
+   at: _font_get_ascent (modules/text_server_adv/text_server_adv.cpp:2855)
+ERROR: FreeType: Error loading font: '' (face_index=0).
+   at: _ensure_cache_for_size (modules/text_server_adv/text_server_adv.cpp:1449)
+ERROR: Condition "!_ensure_cache_for_size(fd, size, ffsd)" is true. Returning: 0.0
+   at: _font_get_descent (modules/text_server_adv/text_server_adv.cpp:2889)
+ERROR: FreeType: Error loading font: '' (face_index=0).
+   at: _ensure_cache_for_size (modules/text_server_adv/text_server_adv.cpp:1449)
+ERROR: Condition "!_ensure_cache_for_size(fd, size, ffsd)" is true. Returning: 0.0
+   at: _font_get_ascent (modules/text_server_adv/text_server_adv.cpp:2855)
+ERROR: FreeType: Error loading font: '' (face_index=0).
+   at: _ensure_cache_for_size (modules/text_server_adv/text_server_adv.cpp:1449)
+ERROR: Condition "!_ensure_cache_for_size(fd, size, ffsd)" is true. Returning: 0.0
+   at: _font_get_descent (modules/text_server_adv/text_server_adv.cpp:2889)
+ERROR: FreeType: Error loading font: '' (face_index=0).
+   at: _ensure_cache_for_size (modules/text_server_adv/text_server_adv.cpp:1449)
+ERROR: Condition "!_ensure_cache_for_size(fd, size, ffsd)" is true. Returning: 0.0
+   at: _font_get_ascent (modules/text_server_adv/text_server_adv.cpp:2855)
+ERROR: FreeType: Error loading font: '' (face_index=0).
+   at: _ensure_cache_for_size (modules/text_server_adv/text_server_adv.cpp:1449)
+ERROR: Condition "!_ensure_cache_for_size(fd, size, ffsd)" is true. Returning: 0.0
+   at: _font_get_descent (modules/text_server_adv/text_server_adv.cpp:2889)
+ERROR: FreeType: Error loading font: '' (face_index=0).
+   at: _ensure_cache_for_size (modules/text_server_adv/text_server_adv.cpp:1449)
+ERROR: Condition "!_ensure_cache_for_size(fd, size, ffsd)" is true. Returning: 0.0
+   at: _font_get_ascent (modules/text_server_adv/text_server_adv.cpp:2855)
+ERROR: FreeType: Error loading font: '' (face_index=0).
+   at: _ensure_cache_for_size (modules/text_server_adv/text_server_adv.cpp:1449)
+ERROR: Condition "!_ensure_cache_for_size(fd, size, ffsd)" is true. Returning: 0.0
+   at: _font_get_descent (modules/text_server_adv/text_server_adv.cpp:2889)
+ERROR: FreeType: Error loading font: '' (face_index=0).
+   at: _ensure_cache_for_size (modules/text_server_adv/text_server_adv.cpp:1449)
+ERROR: Condition "!_ensure_cache_for_size(fd, size, ffsd)" is true. Returning: 0.0
+   at: _font_get_ascent (modules/text_server_adv/text_server_adv.cpp:2855)
+ERROR: FreeType: Error loading font: '' (face_index=0).
+   at: _ensure_cache_for_size (modules/text_server_adv/text_server_adv.cpp:1449)
+ERROR: Condition "!_ensure_cache_for_size(fd, size, ffsd)" is true. Returning: 0.0
+   at: _font_get_descent (modules/text_server_adv/text_server_adv.cpp:2889)
+ERROR: FreeType: Error loading font: '' (face_index=0).
+   at: _ensure_cache_for_size (modules/text_server_adv/text_server_adv.cpp:1449)
+ERROR: Condition "!_ensure_cache_for_size(fd, size, ffsd)" is true. Returning: 0.0
+   at: _font_get_ascent (modules/text_server_adv/text_server_adv.cpp:2855)
+ERROR: FreeType: Error loading font: '' (face_index=0).
+   at: _ensure_cache_for_size (modules/text_server_adv/text_server_adv.cpp:1449)
+ERROR: Condition "!_ensure_cache_for_size(fd, size, ffsd)" is true. Returning: 0.0
+   at: _font_get_descent (modules/text_server_adv/text_server_adv.cpp:2889)
+ERROR: FreeType: Error loading font: '' (face_index=0).
+   at: _ensure_cache_for_size (modules/text_server_adv/text_server_adv.cpp:1449)
+ERROR: Condition "!_ensure_cache_for_size(fd, size, ffsd)" is true. Returning: 0.0
+   at: _font_get_ascent (modules/text_server_adv/text_server_adv.cpp:2855)
+ERROR: FreeType: Error loading font: '' (face_index=0).
+   at: _ensure_cache_for_size (modules/text_server_adv/text_server_adv.cpp:1449)
+ERROR: Condition "!_ensure_cache_for_size(fd, size, ffsd)" is true. Returning: 0.0
+   at: _font_get_descent (modules/text_server_adv/text_server_adv.cpp:2889)
+ERROR: FreeType: Error loading font: '' (face_index=0).
+   at: _ensure_cache_for_size (modules/text_server_adv/text_server_adv.cpp:1449)
+ERROR: Condition "!_ensure_cache_for_size(fd, size, ffsd)" is true. Returning: 0.0
+   at: _font_get_ascent (modules/text_server_adv/text_server_adv.cpp:2855)
+ERROR: FreeType: Error loading font: '' (face_index=0).
+   at: _ensure_cache_for_size (modules/text_server_adv/text_server_adv.cpp:1449)
+ERROR: Condition "!_ensure_cache_for_size(fd, size, ffsd)" is true. Returning: 0.0
+   at: _font_get_descent (modules/text_server_adv/text_server_adv.cpp:2889)

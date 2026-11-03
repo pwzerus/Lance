@@ -1,0 +1,122 @@
+[
+  {
+    "test": "old-minimized-e01",
+    "samples": 11,
+    "peak_private_mib": 1024.0,
+    "last_sample": {
+      "seconds": 11,
+      "private_mib": 1024.0
+    },
+    "completion": "STOP memory budget exceeded, RAM reserve below 2 GiB, or available commit below 512 MiB"
+  },
+  {
+    "test": "new-minimized-e01",
+    "samples": 30,
+    "peak_private_mib": 927.2,
+    "last_sample": {
+      "seconds": 30,
+      "private_mib": 927.2
+    },
+    "completion": "STOP memory budget exceeded, RAM reserve below 2 GiB, or available commit below 512 MiB"
+  },
+  {
+    "test": "old-frozen-e02",
+    "samples": 66,
+    "peak_private_mib": 686.7,
+    "last_sample": {
+      "seconds": 67,
+      "private_mib": 469.2
+    },
+    "completion": "EXIT code=0 seconds=67.1"
+  },
+  {
+    "test": "old-redraw-e01",
+    "samples": 58,
+    "peak_private_mib": 881.8,
+    "last_sample": {
+      "seconds": 59,
+      "private_mib": 470.0
+    },
+    "completion": "EXIT code=0 seconds=59.0"
+  },
+  {
+    "test": "polygon-e01",
+    "samples": 19,
+    "peak_private_mib": 957.1,
+    "last_sample": {
+      "seconds": 19,
+      "private_mib": 957.1
+    },
+    "completion": "STOP memory budget exceeded, RAM reserve below 2 GiB, or available commit below 512 MiB"
+  },
+  {
+    "test": "polygon-guard-e01",
+    "samples": 28,
+    "peak_private_mib": 386.2,
+    "last_sample": {
+      "seconds": 28,
+      "private_mib": 349.3
+    },
+    "completion": "EXIT code=0 seconds=28.7"
+  },
+  {
+    "test": "fix-minimized-e02",
+    "samples": 266,
+    "peak_private_mib": 625.1,
+    "last_sample": {
+      "seconds": 270,
+      "private_mib": 591.6
+    },
+    "completion": "EXIT code=0 seconds=270.8"
+  },
+  {
+    "test": "suspend-cycle-e01",
+    "samples": 90,
+    "peak_private_mib": 693.8,
+    "last_sample": {
+      "seconds": 91,
+      "private_mib": 638.2
+    },
+    "completion": "EXIT code=0 seconds=91.5"
+  },
+  {
+    "test": "package-suspend-e01",
+    "samples": 90,
+    "peak_private_mib": 682.3,
+    "last_sample": {
+      "seconds": 91,
+      "private_mib": 627.5
+    },
+    "completion": "EXIT code=0 seconds=91.9"
+  },
+  {
+    "test": "package-minimized-e02",
+    "samples": 267,
+    "peak_private_mib": 609.5,
+    "last_sample": {
+      "seconds": 271,
+      "private_mib": 491.6
+    },
+    "completion": "EXIT code=0 seconds=271.1"
+  },
+  {
+    "test": "package-replay-e02",
+    "samples": 225,
+    "peak_private_mib": 662.5,
+    "last_sample": {
+      "seconds": 228,
+      "private_mib": 604.7
+    },
+    "completion": "EXIT code=0 seconds=229.0"
+  },
+  {
+    "test": "export-fix-e01",
+    "samples": 3,
+    "peak_private_mib": 620.0,
+    "last_sample": {
+      "seconds": 3,
+      "private_mib": 620.0
+    },
+    "completion": "EXIT code=0 seconds=3.6"
+  }
+]

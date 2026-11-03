@@ -192,3 +192,11 @@ INC-059D / Codex接手8894b26：用户允许动态排查；认领新的窗口/�
 INC-059D检查点：已准备窗口/字体缓存QA，未运行；RAM低于现有启动线，用户选择释放内存后继续。等待，不关闭根因任务。
 
 INC-059D动态检查点：见INC059D_DYNAMIC_REVIEW；下一步真实关闭路径与font-one隔离，等待用户再次释放内存。P0未解决。
+
+INC-059E / Codex：接手5d3c2fd，用户已无其他窗口；核查仍有后台应用但不终止。认领Start-MemoryBound.ps1启动预算计算与close/paused-close验证；默认1GiB硬限/900MiB早停/2GiB运行保留不变，启动余量改为2GiB+1GiB+256MiB，增加提交余量检查。
+
+INC-059E范围补充：main.gd/project.godot/export_presets.cfg仅更新候选0.4.19版本标识与独立目录；Play-Latest.cmd验证后指向新包。Start-MemoryBound为默认试玩保存有界诊断日志。根因仍开放，不将保护包装当作根治。
+
+INC-059E根因修复扩展：旧版最小化立即暴涨，新候选10FPS仍增长；freeze-rider控制稳定。认领scripts/core/window_activity.gd、visual/rider_view.gd、visual/impact_fx.gd、visual/lance_shard.gd、battle.gd、main.gd、QA和独立v0.4.19修复包。停止不可见窗口的持续绘制与模拟，保留原战斗暂停语义。
+
+INC-059E交出：5394dec代码修复已提交；实际v0.4.19-memoryfix完成271秒最小化、六种页面/战斗恢复、229秒连续5局/4重开、最小化关闭及退出后60秒观察。已复现的不可呈现窗口持续绘制暴涨路径修复闭环；保留1GiB保护。Play-Latest指向新包；释放本轮认领文件（lance_shard最终无需修改）。历史全部系统卡死条件/跨驱动行为仍未排除，详见INC059E审查。交接文档与证据同分支提交并按远程SHA核对交出。

@@ -1,0 +1,43 @@
+{"check":"home: OS window is not drawable","fps_limit":10,"frames":310,"ok":true}
+{"check":"home: background limiter works even when paused","fps_limit":10,"frames":310,"ok":true}
+{"check":"home: no presented frames while minimized","fps_limit":10,"frames":310,"ok":true}
+{"check":"home: display and frame cap restored","fps_limit":60,"frames":365,"ok":true}
+{"check":"home: restored frame captured","fps_limit":60,"frames":365,"ok":true}
+{"check":"armory: OS window is not drawable","fps_limit":10,"frames":532,"ok":true}
+{"check":"armory: background limiter works even when paused","fps_limit":10,"frames":532,"ok":true}
+{"check":"armory: no presented frames while minimized","fps_limit":10,"frames":532,"ok":true}
+{"check":"armory: display and frame cap restored","fps_limit":60,"frames":587,"ok":true}
+{"check":"character: OS window is not drawable","fps_limit":10,"frames":766,"ok":true}
+{"check":"character: background limiter works even when paused","fps_limit":10,"frames":766,"ok":true}
+{"check":"character: no presented frames while minimized","fps_limit":10,"frames":766,"ok":true}
+{"check":"character: display and frame cap restored","fps_limit":60,"frames":821,"ok":true}
+{"check":"arena: OS window is not drawable","fps_limit":10,"frames":1000,"ok":true}
+{"check":"arena: background limiter works even when paused","fps_limit":10,"frames":1000,"ok":true}
+{"check":"arena: battle paused on minimize","fps_limit":10,"frames":1000,"ok":true}
+{"check":"arena: held spur cleared","fps_limit":10,"frames":1000,"ok":true}
+{"check":"arena: no presented frames while minimized","fps_limit":10,"frames":1000,"ok":true}
+{"check":"arena: simulation stayed paused","fps_limit":10,"frames":1000,"ok":true}
+{"check":"arena: display and frame cap restored","fps_limit":60,"frames":1055,"ok":true}
+{"check":"arena: restore did not silently unpause","fps_limit":60,"frames":1055,"ok":true}
+{"check":"arena: restored frame captured","fps_limit":60,"frames":1055,"ok":true}
+{"check":"arena: explicit resume works","fps_limit":60,"frames":1224,"ok":true}
+{"check":"war: OS window is not drawable","fps_limit":10,"frames":1404,"ok":true}
+{"check":"war: background limiter works even when paused","fps_limit":10,"frames":1404,"ok":true}
+{"check":"war: battle paused on minimize","fps_limit":10,"frames":1404,"ok":true}
+{"check":"war: held spur cleared","fps_limit":10,"frames":1404,"ok":true}
+{"check":"war: no presented frames while minimized","fps_limit":10,"frames":1404,"ok":true}
+{"check":"war: simulation stayed paused","fps_limit":10,"frames":1404,"ok":true}
+{"check":"war: display and frame cap restored","fps_limit":60,"frames":1459,"ok":true}
+{"check":"war: restore did not silently unpause","fps_limit":60,"frames":1459,"ok":true}
+{"check":"war: explicit resume works","fps_limit":60,"frames":1640,"ok":true}
+{"check":"prepaused: OS window is not drawable","fps_limit":10,"frames":1819,"ok":true}
+{"check":"prepaused: background limiter works even when paused","fps_limit":10,"frames":1819,"ok":true}
+{"check":"prepaused: battle paused on minimize","fps_limit":10,"frames":1819,"ok":true}
+{"check":"prepaused: held spur cleared","fps_limit":10,"frames":1819,"ok":true}
+{"check":"prepaused: no presented frames while minimized","fps_limit":10,"frames":1819,"ok":true}
+{"check":"prepaused: simulation stayed paused","fps_limit":10,"frames":1819,"ok":true}
+{"check":"prepaused: display and frame cap restored","fps_limit":60,"frames":1874,"ok":true}
+{"check":"prepaused: restore did not silently unpause","fps_limit":60,"frames":1874,"ok":true}
+{"check":"prepaused: explicit resume works","fps_limit":60,"frames":2055,"ok":true}
+{"check":"final close: paused minimized battle","fps_limit":10,"frames":2055,"ok":true}
+{"complete":true,"failures":[]}

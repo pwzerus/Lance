@@ -1,0 +1,7 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+SCRIPT ERROR: Parse Error: Used space character for indentation instead of tab as used before in the file.
+   at: GDScript::reload (E:/GALUMU/game/tests/test_memory_windows_inc059.gd:41)
+ERROR: Failed to load script "E:/GALUMU/game/tests/test_memory_windows_inc059.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript.cpp:3041)

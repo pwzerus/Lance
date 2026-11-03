@@ -1,0 +1,4 @@
+START utc=2026-11-03T22:17:10.6725869Z pid=21676 jobMiB=512 executable=E:\GALUMU\tools\godot-4.5.1\Godot_v4.5.1-stable_win64.exe
+MEM seconds=1 privateMiB=410.6 workingMiB=466.4 availableRamMiB=2934 availableCommitMiB=6659
+MEM seconds=2 privateMiB=512.0 workingMiB=569.9 availableRamMiB=2950 availableCommitMiB=6545
+STOP memory budget exceeded, RAM reserve below 2 GiB, or available commit below 512 MiB

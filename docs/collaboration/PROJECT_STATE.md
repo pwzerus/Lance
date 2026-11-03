@@ -172,7 +172,7 @@ OS已操作源码与最终解压包的菜单/练习/换盾/暂停/退出；没�
 历史与装备资料见docs/HISTORICAL_RESEARCH.md、HISTORICAL_ASSET_BRIEFS.md、EQUIPMENT_PROGRESSION.md；本轮一手动作/竞品资料与未观看视频的边界见V046_REVIEW。双方文件认领唯一入口TASK_BOARD，既有Claude文档差异继续保留。
 
 ## INC-059 内存安全覆盖（2026-11-03，优先于以上旧启动说明）
-当前安全候选builds/LanceAndLaurel-v0.4.18-memory2，通过Play-Latest.cmd/Start-MemoryBound.ps1启动。所有开发引擎/导出/QA也必须经过保护器，串行且有限超时。1 GiB Job承诺内存上限、900 MiB提前停止、单实例、25% CPU；启动保留4 GiB RAM，运行不足2 GiB终止。未定位原40GB分配源，不宣称根治；旧EXE没有保护，不运行。资源缩图及包体、测试证据见INC-059交接及docs/development/INC059_MEMORY_REVIEW.md。
+当前修复包为builds/LanceAndLaurel-v0.4.19-memoryfix，通过Play-Latest.cmd/Start-MemoryBound.ps1启动（切换以脚本实际路径为准）。所有开发引擎/导出/QA也必须经过保护器，串行且有限超时。1 GiB Job承诺内存上限、900 MiB提前停止、单实例、25% CPU；启动可用RAM预算3328MiB（2GiB系统+1GiB游戏+256MiB启动），可用提交至少1280MiB；运行RAM不足2GiB/提交不足512MiB终止。仅headless诊断可选512MiB硬限/448MiB早停/2816MiB启动预算。旧v0.4.18、memory2和最初v0.4.19候选均保留但不应继续使用。以下INC-059B/C/D状态是历史检查点，以末尾INC-059E为准。
 
 INC-059B调查更新：事件显示进程启动111秒已接近40GB，上一轮短测不足。新增240秒隔离夹具和系统内存分区采样；系统可用RAM不足4GiB，尚未启动新夹具，根因仍开放。详见INC059B_MEMORY_INVESTIGATION.md及INC-059B交接，不能误标修复完成。
 
@@ -183,3 +183,5 @@ INC-059C：仅静态修正重复IK/网格不变计算/头盔缓存查找；源�
 INC-059D准备：用户授权恢复动态诊断。新增窗口缩放/菜单切换/战斗诊断夹具，记录字体缓存及引擎资源，尚未执行。启动前可用RAM3.53–3.87GiB不足4GiB保留线；用户答复将释放内存后继续。未启动游戏/引擎，根因仍开放。
 
 INC-059D动态追加：原版/源码resize及pages已执行；原版进入军械库991.4MiB被保护器终止，源码120次切页完成。用户报告关闭游戏后仍可能卡死，真实关闭路径成为优先项；尚未复现40GB，未导出，当前内存余量不足，等待释放。
+
+INC-059E：已稳定复现“最小化窗口仍持续重建绘制”造成原生私有提交暴涨；限10FPS只减缓，停止绘制解决对应增长，100三角形无美术最小复现也得到同样对照。新增WindowActivity始终处理窗口状态/帧率，Rider/Battle/ImpactFX不可呈现时不更新绘制，恢复一次重绘并保留战斗暂停。源码最小化约4分钟稳定591MiB，实际EXE六种页面/战斗恢复及最小化关闭通过，峰值682.3MiB。最终包长时结果与范围见docs/development/INC059E_MINIMIZED_MEMORY_REVIEW.md。历史40GB事件缺少同一时刻窗口状态/分配栈，不把所有系统卡死都宣布根治。新PCK34,282,416字节；启动器仍依赖本机PowerShell7路径。不要用Godot_console.exe做进程内存采样。

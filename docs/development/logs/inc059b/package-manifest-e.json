@@ -1,0 +1,22 @@
+[
+  {
+    "file": "builds/LanceAndLaurel-v0.4.19-memoryfix/LanceAndLaurel.exe",
+    "bytes": 96725504,
+    "sha256": "78CCC576E8F8BFFD7EF6AD6F36EBD72A41E609A1052225A55B3407C96EA84065"
+  },
+  {
+    "file": "builds/LanceAndLaurel-v0.4.19-memoryfix/LanceAndLaurel.pck",
+    "bytes": 34282416,
+    "sha256": "B00B65D8F834E752A3B4D581C7B565BA1C0879E279BF72CE9017670BC17C31FB"
+  },
+  {
+    "file": "builds/LanceAndLaurel-v0.4.19-memoryfix/Start-MemoryBound.ps1",
+    "bytes": 12605,
+    "sha256": "958FA397EB06E26889430051A8DEFE31E18DE6EA86CA57EEB8F69A0EC5C9087E"
+  },
+  {
+    "file": "builds/LanceAndLaurel-v0.4.19-memoryfix/Play-Safe.cmd",
+    "bytes": 326,
+    "sha256": "76308BC9654DDAE181A1845542A0EE030D39D7E0AD560891055D563FBD1D1EE2"
+  }
+]

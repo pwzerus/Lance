@@ -1,0 +1,16 @@
+START utc=2026-11-03T22:26:07.4497158Z pid=26700 jobMiB=1024 executable=E:\GALUMU\builds\LanceAndLaurel-v0.4.18\LanceAndLaurel.exe
+MEM seconds=1 privateMiB=54.3 workingMiB=83.7 availableRamMiB=4092 availableCommitMiB=7436
+MEM seconds=2 privateMiB=54.4 workingMiB=84.0 availableRamMiB=4098 availableCommitMiB=7440
+MEM seconds=3 privateMiB=54.4 workingMiB=84.0 availableRamMiB=4096 availableCommitMiB=7438
+MEM seconds=4 privateMiB=92.6 workingMiB=131.2 availableRamMiB=4034 availableCommitMiB=7357
+MEM seconds=5 privateMiB=494.1 workingMiB=436.9 availableRamMiB=3714 availableCommitMiB=6943
+MAP privateCommittedMiB=474.5 mappedCommittedMiB=51.8 imageCommittedMiB=328.1 largestPrivateRegionMiB=32.0 regions=1599
+MEM seconds=6 privateMiB=667.6 workingMiB=614.1 availableRamMiB=3550 availableCommitMiB=6764
+MEM seconds=7 privateMiB=683.0 workingMiB=652.6 availableRamMiB=3513 availableCommitMiB=6754
+MEM seconds=8 privateMiB=683.8 workingMiB=653.3 availableRamMiB=3512 availableCommitMiB=6752
+MEM seconds=9 privateMiB=683.6 workingMiB=653.3 availableRamMiB=3509 availableCommitMiB=6749
+MEM seconds=10 privateMiB=869.6 workingMiB=704.4 availableRamMiB=3421 availableCommitMiB=6535
+MAP privateCommittedMiB=848.0 mappedCommittedMiB=51.8 imageCommittedMiB=328.1 largestPrivateRegionMiB=32.0 regions=2127
+MEM seconds=11 privateMiB=1024.0 workingMiB=754.2 availableRamMiB=3316 availableCommitMiB=5074
+MAP privateCommittedMiB=1001.6 mappedCommittedMiB=51.8 imageCommittedMiB=328.1 largestPrivateRegionMiB=32.0 regions=2475
+STOP memory budget exceeded, RAM reserve below 2 GiB, or available commit below 512 MiB

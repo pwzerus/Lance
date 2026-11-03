@@ -1,0 +1,21 @@
+START utc=2026-11-03T22:40:27.3210316Z pid=6352 jobMiB=1024 executable=E:\GALUMU\tools\godot-4.5.1\Godot_v4.5.1-stable_win64.exe
+MEM seconds=1 privateMiB=58.0 workingMiB=91.6 availableRamMiB=4160 availableCommitMiB=7353
+MEM seconds=2 privateMiB=58.0 workingMiB=91.7 availableRamMiB=4166 availableCommitMiB=7359
+MEM seconds=3 privateMiB=58.0 workingMiB=91.7 availableRamMiB=4161 availableCommitMiB=7356
+MEM seconds=4 privateMiB=96.9 workingMiB=139.4 availableRamMiB=4101 availableCommitMiB=7278
+MEM seconds=5 privateMiB=230.7 workingMiB=289.3 availableRamMiB=3940 availableCommitMiB=7137
+MEM seconds=6 privateMiB=305.9 workingMiB=368.3 availableRamMiB=3862 availableCommitMiB=7057
+MEM seconds=7 privateMiB=378.7 workingMiB=441.0 availableRamMiB=3790 availableCommitMiB=6984
+MEM seconds=8 privateMiB=451.1 workingMiB=458.5 availableRamMiB=3758 availableCommitMiB=6898
+MEM seconds=9 privateMiB=524.1 workingMiB=476.4 availableRamMiB=3745 availableCommitMiB=6830
+MEM seconds=10 privateMiB=591.9 workingMiB=489.3 availableRamMiB=3707 availableCommitMiB=6740
+MEM seconds=11 privateMiB=664.1 workingMiB=507.3 availableRamMiB=3703 availableCommitMiB=6669
+MEM seconds=12 privateMiB=694.1 workingMiB=488.2 availableRamMiB=3714 availableCommitMiB=6647
+MEM seconds=13 privateMiB=703.5 workingMiB=497.6 availableRamMiB=3718 availableCommitMiB=6639
+MEM seconds=14 privateMiB=713.2 workingMiB=507.0 availableRamMiB=3709 availableCommitMiB=6631
+MEM seconds=15 privateMiB=671.7 workingMiB=510.0 availableRamMiB=3704 availableCommitMiB=6672
+MEM seconds=16 privateMiB=739.5 workingMiB=527.0 availableRamMiB=3627 availableCommitMiB=6549
+MEM seconds=17 privateMiB=812.0 workingMiB=544.4 availableRamMiB=3611 availableCommitMiB=6477
+MEM seconds=18 privateMiB=884.3 workingMiB=561.8 availableRamMiB=3593 availableCommitMiB=6399
+MEM seconds=19 privateMiB=957.1 workingMiB=579.2 availableRamMiB=3568 availableCommitMiB=6325
+STOP memory budget exceeded, RAM reserve below 2 GiB, or available commit below 512 MiB

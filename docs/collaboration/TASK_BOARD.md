@@ -200,3 +200,7 @@ INC-059E范围补充：main.gd/project.godot/export_presets.cfg仅更新候选0.
 INC-059E根因修复扩展：旧版最小化立即暴涨，新候选10FPS仍增长；freeze-rider控制稳定。认领scripts/core/window_activity.gd、visual/rider_view.gd、visual/impact_fx.gd、visual/lance_shard.gd、battle.gd、main.gd、QA和独立v0.4.19修复包。停止不可见窗口的持续绘制与模拟，保留原战斗暂停语义。
 
 INC-059E交出：5394dec代码修复已提交；实际v0.4.19-memoryfix完成271秒最小化、六种页面/战斗恢复、229秒连续5局/4重开、最小化关闭及退出后60秒观察。已复现的不可呈现窗口持续绘制暴涨路径修复闭环；保留1GiB保护。Play-Latest指向新包；释放本轮认领文件（lance_shard最终无需修改）。历史全部系统卡死条件/跨驱动行为仍未排除，详见INC059E审查。交接文档与证据同分支提交并按远程SHA核对交出。
+
+ART-060 / Codex / 2026-11-04：基线868a337；认领horse_skin.gd、rider_view.gd、catalogue.gd、新horse_coats资源与QA、版本/导出入口、协作记录。四国共享多套独立马匹素材，保留十项属性取舍及内存保护。既有Claude文档差异保留。
+
+ART-060静态交出：素材与源码已保存，释放文件认领；等待用户后续允许动态验证。资源预算不足时未启动引擎，用户随后选择仅静态。尚不能标记美术集成验收完成或新版本发布。

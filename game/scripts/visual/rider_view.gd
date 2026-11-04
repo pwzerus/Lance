@@ -63,6 +63,7 @@ var last_feet: Array[Vector2] = [Vector2.INF,Vector2.INF,Vector2.INF,Vector2.INF
 var previous_stride_phase = 0.0
 var cycles_initialized = false
 var horse_skin: RefCounted
+var horse_coat_key = ""
 var far_hind_skin: RefCounted
 var far_fore_skin: RefCounted
 
@@ -216,7 +217,14 @@ func _draw() -> void:
 		far_fore_skin = HorseSkin.new("fore")
 	var stride = stride_phase
 	var horse_pose = Gait.body(stride,float(fighter.get("speed",0.0)),moving,float(fighter.stats.get("stability",1.0)),float(fighter.get("motion_drive",0.0)))
-	var horse_tint = Color(str(fighter.stats.get("horse_color","a87950"))).lerp(Color.WHITE,.48)
+	var coat_key = str(fighter.stats.get("horse_coat","bay"))
+	if horse_coat_key!=coat_key:
+		horse_skin.set_coat(coat_key)
+		far_hind_skin.set_coat(coat_key)
+		far_fore_skin.set_coat(coat_key)
+		horse_coat_key=coat_key
+	# Independent coat textures carry markings; do not tint the saddle/white socks.
+	var horse_tint = Color.WHITE
 	var seated = seated_leg_pose(fighter)
 	var rider_visible = not bool(fighter.get("ko",false)) and not bool(fighter.get("dead",false))
 	_draw_horse_leg(0,horse_tint.darkened(.29))

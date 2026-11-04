@@ -2,6 +2,13 @@ extends RefCounted
 ## One continuous coat from muzzle to hooves. Bone landmarks are measured on
 ## the complete v050 plate; front and hind limbs have separate anatomy.
 const TEXTURE = preload("res://assets/art/pixel_v050/horse_complete_skin_v050_01.png")
+const SOURCE_TEXTURE_SIZE = Vector2(1536,1024)
+const COATS = {
+	"bay":TEXTURE,
+	"grey":preload("res://assets/art/horse_coats060/grey.png"),
+	"flaxen":preload("res://assets/art/horse_coats060/flaxen.png"),
+	"black":preload("res://assets/art/horse_coats060/black.png")}
+var coat: Texture2D = TEXTURE
 const Gait = preload("res://scripts/visual/horse_gait.gd")
 const PIVOT = Vector2(-18,-168)
 const SOURCE_SADDLE = Vector2(749,326)
@@ -47,7 +54,7 @@ func _init(limb: String = "") -> void:
 		for column in range(columns+1):
 			var source = bounds.position+bounds.size*Vector2(float(column)/columns,float(row)/rows)
 			source_points.append(source)
-			uvs.append(source/TEXTURE.get_size())
+			uvs.append(source/SOURCE_TEXTURE_SIZE)
 			vertices.append(rest_point(source))
 			rest_points.append(rest_point(source))
 			hind_weights.append(_limb_weights(source,HIND))
@@ -173,5 +180,8 @@ func update(body_pose: Dictionary, hind_pose: Dictionary, fore_pose: Dictionary)
 	# stay fixed; two horses do not allocate thousands of draw calls per frame.
 	mesh.surface_update_vertex_region(0,0,vertices.to_byte_array())
 
+func set_coat(key: String) -> void:
+	coat = COATS.get(key,TEXTURE)
+
 func draw(canvas: CanvasItem, tint: Color) -> void:
-	canvas.draw_mesh(mesh,TEXTURE,Transform2D.IDENTITY,tint)
+	canvas.draw_mesh(mesh,coat,Transform2D.IDENTITY,tint)

@@ -1,0 +1,29 @@
+[
+  {
+    "file": "black.png",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 1228620,
+    "corner_alpha": 0,
+    "sampled_silhouette_iou": 0.9841077277690161,
+    "extra_opaque_samples": 77
+  },
+  {
+    "file": "flaxen.png",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 1712627,
+    "corner_alpha": 0,
+    "sampled_silhouette_iou": 0.9805202661826982,
+    "extra_opaque_samples": 99
+  },
+  {
+    "file": "grey.png",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 1571863,
+    "corner_alpha": 0,
+    "sampled_silhouette_iou": 0.9826960309777347,
+    "extra_opaque_samples": 98
+  }
+]

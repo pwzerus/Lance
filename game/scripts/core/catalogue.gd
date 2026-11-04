@@ -8,6 +8,9 @@ const ERA_NAMES = ["锁甲与纹章", "板片的时代", "钢铁的轮廓", "比
 const ERA_REQUIREMENTS = [0, 6, 16, 30, 48]
 const SLOT_NAMES = {"armor": "胸甲", "helmet": "头盔", "lance": "骑枪", "shield": "盾牌", "horse": "坐骑", "crest": "纹章"}
 const HISTORY_FILES = ["res://data/history_v051_en_fr.json","res://data/history_v051_de_it.json"]
+const HORSE_COATS = {"horse_bay":"bay","horse_grey":"grey","horse_chestnut":"flaxen",
+	"horse_e1":"grey","horse_e2":"bay","horse_e3":"black","horse_e4":"grey",
+	"horse_cob":"flaxen","horse_courser":"black","horse_steady":"grey"}
 
 static func load_items() -> Array:
 	var raw = FileAccess.get_file_as_string("res://data/equipment.json")
@@ -23,6 +26,9 @@ static func load_items() -> Array:
 				items.append(item)
 	items.append({"id":"shield_basic","name":"旧式绘饰盾","slot":"shield","era":0,"price":0,"region":"欧洲共通","stats":{"shield_capacity":78.0,"shield_handling":1.0,"shield_quality":0},"description":"已有骑手的基础盾牌。","source":"S33 · 游戏改编","historical_note":"沿用旧版基础防护，新增槽位不删除已有收藏。"})
 	_apply_history(items)
+	for item in items:
+		if item.slot=="horse":
+			item.stats["horse_coat"] = HORSE_COATS.get(str(item.id),"bay")
 	return items
 
 static func _apply_history(items: Array) -> void:

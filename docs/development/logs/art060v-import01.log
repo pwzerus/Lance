@@ -1,0 +1,1021 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+[   0% ] first_scan_filesystem | Started Project initialization (5 steps)
+[   0% ] first_scan_filesystem | Scanning file structure...
+[  16% ] first_scan_filesystem | Loading global class names...
+[  33% ] first_scan_filesystem | Verifying GDExtensions...
+[  50% ] first_scan_filesystem | Creating autoload scripts...
+[  66% ] first_scan_filesystem | Initializing plugins...
+[  83% ] first_scan_filesystem | Starting file scan...
+[ DONE ] first_scan_filesystem
+
+Unicode parsing error: Byte 38 is not a correct continuation byte after f2
+Unicode parsing error: Byte 25 is not a correct continuation byte after c8
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (96)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bf)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8c)
+Unicode parsing error: Byte f8 is not a correct continuation byte after df
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ab)
+Unicode parsing error: Byte 45 is not a correct continuation byte after e3
+Unicode parsing error: Byte cf is not a correct continuation byte after f3
+Unicode parsing error: Byte 7d is not a correct continuation byte after cf
+Unicode parsing error: Byte 61 is not a correct continuation byte after df
+Unicode parsing error: Byte 20 is not a correct continuation byte after d4
+Unicode parsing error: Byte c5 is not a correct continuation byte after c0
+Unicode parsing error: Byte 37 is not a correct continuation byte after c5
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error: Byte cd is not a correct continuation byte after d5
+Unicode parsing error: Byte 7f is not a correct continuation byte after cd
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b6)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b6)
+Unicode parsing error: Byte 68 is not a correct continuation byte after c1
+Unicode parsing error: Byte f8 is not a correct continuation byte after d9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (81)
+Unicode parsing error: Byte 42 is not a correct continuation byte after d9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8b)
+Unicode parsing error: Byte d9 is not a correct continuation byte after d1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a8)
+Unicode parsing error: Byte 23 is not a correct continuation byte after ea
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (88)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (80)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bf)
+Unicode parsing error: Byte e8 is not a correct continuation byte after c9
+Unicode parsing error: Byte 78 is not a correct continuation byte after e8
+Unicode parsing error: Byte 3a is not a correct continuation byte after e0
+Unicode parsing error: Byte 50 is not a correct continuation byte after c6
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (99)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ac)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (92)
+Unicode parsing error: Byte 1b is not a correct continuation byte after cd
+Unicode parsing error: Byte e9 is not a correct continuation byte after dc
+Unicode parsing error: Byte d0 is not a correct continuation byte after e9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (87)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (97)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (98)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b5)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (83)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b9)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a7)
+Unicode parsing error: Byte 2d is not a correct continuation byte after c0
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8e)
+Unicode parsing error: Byte 17 is not a correct continuation byte after d3
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (93)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error: Byte 77 is not a correct continuation byte after e4
+Unicode parsing error: Byte 6a is not a correct continuation byte after d7
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8b)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error: Byte ec is not a correct continuation byte after e6
+Unicode parsing error: Byte 3d is not a correct continuation byte after ec
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b3)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a6)
+Unicode parsing error: Byte fc is not a correct continuation byte after d5
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error: Byte f4 is not a correct continuation byte after ce
+Unicode parsing error: Byte 69 is not a correct continuation byte after f4
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8c)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error: Byte cf is not a correct continuation byte after cf
+Unicode parsing error: Byte f7 is not a correct continuation byte after cf
+Unicode parsing error: Byte df is not a correct continuation byte after f7 bd
+Unicode parsing error: Byte 2f is not a correct continuation byte after df
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (93)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fe)
+Unicode parsing error: Byte 15 is not a correct continuation byte after de
+Unicode parsing error: Byte 6f is not a correct continuation byte after f1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bd)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8f)
+Unicode parsing error: Byte 53 is not a correct continuation byte after e6
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f9)
+Unicode parsing error: Byte c is not a correct continuation byte after d9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error: Byte 67 is not a correct continuation byte after ef
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fd)
+Unicode parsing error: Byte 17 is not a correct continuation byte after cf
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (95)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (87)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (9f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a0)
+Unicode parsing error: Byte cd is not a correct continuation byte after c6
+Unicode parsing error: Byte 51 is not a correct continuation byte after cd
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error: Byte 1a is not a correct continuation byte after c8
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8a)
+Unicode parsing error: Byte f4 is not a correct continuation byte after f1 98
+Unicode parsing error: Byte ec is not a correct continuation byte after f4
+Unicode parsing error: Byte fc is not a correct continuation byte after f7 ab
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ac)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (9f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error: Byte 60 is not a correct continuation byte after cd
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8a)
+Unicode parsing error: Byte 69 is not a correct continuation byte after cb
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error: Byte f7 is not a correct continuation byte after c2
+Unicode parsing error: Byte e7 is not a correct continuation byte after f7
+Unicode parsing error: Byte 1e is not a correct continuation byte after e7
+Unicode parsing error: Byte e3 is not a correct continuation byte after dc
+Unicode parsing error: Byte ea is not a correct continuation byte after e3
+Unicode parsing error: Byte d2 is not a correct continuation byte after ea
+Unicode parsing error: Byte 53 is not a correct continuation byte after d2
+Unicode parsing error: Byte 6d is not a correct continuation byte after d1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fe)
+Unicode parsing error: Byte d3 is not a correct continuation byte after c3
+Unicode parsing error: Byte 53 is not a correct continuation byte after d3
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error: Byte 3e is not a correct continuation byte after ef
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (98)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (9b)
+Unicode parsing error: Byte 54 is not a correct continuation byte after cf
+Unicode parsing error: Byte 49 is not a correct continuation byte after e9
+Unicode parsing error: Byte eb is not a correct continuation byte after ce
+Unicode parsing error: Byte ea is not a correct continuation byte after eb
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a0)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a4)
+Unicode parsing error: Byte e1 is not a correct continuation byte after e3
+Unicode parsing error: Byte 70 is not a correct continuation byte after e1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8b)
+Unicode parsing error: Byte d9 is not a correct continuation byte after eb
+Unicode parsing error: Byte e5 is not a correct continuation byte after d9
+Unicode parsing error: Byte 1e is not a correct continuation byte after e5
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a4)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (94)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (86)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ae)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (aa)
+Unicode parsing error: Byte 18 is not a correct continuation byte after c7
+ERROR: ResourceFormatImporter::load - res://assets/art/horse_coats060/black.png.import:1 error: Unterminated string.
+   at: _get_path_and_type (core/io/resource_importer.cpp:85)
+Unicode parsing error: Byte 38 is not a correct continuation byte after f2
+Unicode parsing error: Byte 25 is not a correct continuation byte after c8
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (96)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bf)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8c)
+Unicode parsing error: Byte f8 is not a correct continuation byte after df
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ab)
+Unicode parsing error: Byte 45 is not a correct continuation byte after e3
+Unicode parsing error: Byte cf is not a correct continuation byte after f3
+Unicode parsing error: Byte 7d is not a correct continuation byte after cf
+Unicode parsing error: Byte 61 is not a correct continuation byte after df
+Unicode parsing error: Byte 20 is not a correct continuation byte after d4
+Unicode parsing error: Byte c5 is not a correct continuation byte after c0
+Unicode parsing error: Byte 37 is not a correct continuation byte after c5
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error: Byte cd is not a correct continuation byte after d5
+Unicode parsing error: Byte 7f is not a correct continuation byte after cd
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b6)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b6)
+Unicode parsing error: Byte 68 is not a correct continuation byte after c1
+Unicode parsing error: Byte f8 is not a correct continuation byte after d9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (81)
+Unicode parsing error: Byte 42 is not a correct continuation byte after d9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8b)
+Unicode parsing error: Byte d9 is not a correct continuation byte after d1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a8)
+Unicode parsing error: Byte 23 is not a correct continuation byte after ea
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (88)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (80)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bf)
+Unicode parsing error: Byte e8 is not a correct continuation byte after c9
+Unicode parsing error: Byte 78 is not a correct continuation byte after e8
+Unicode parsing error: Byte 3a is not a correct continuation byte after e0
+Unicode parsing error: Byte 50 is not a correct continuation byte after c6
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (99)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ac)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (92)
+Unicode parsing error: Byte 1b is not a correct continuation byte after cd
+Unicode parsing error: Byte e9 is not a correct continuation byte after dc
+Unicode parsing error: Byte d0 is not a correct continuation byte after e9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (87)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (97)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (98)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b5)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (83)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b9)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a7)
+Unicode parsing error: Byte 2d is not a correct continuation byte after c0
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8e)
+Unicode parsing error: Byte 17 is not a correct continuation byte after d3
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (93)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error: Byte 77 is not a correct continuation byte after e4
+Unicode parsing error: Byte 6a is not a correct continuation byte after d7
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8b)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error: Byte ec is not a correct continuation byte after e6
+Unicode parsing error: Byte 3d is not a correct continuation byte after ec
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b3)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a6)
+Unicode parsing error: Byte fc is not a correct continuation byte after d5
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error: Byte f4 is not a correct continuation byte after ce
+Unicode parsing error: Byte 69 is not a correct continuation byte after f4
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8c)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error: Byte cf is not a correct continuation byte after cf
+Unicode parsing error: Byte f7 is not a correct continuation byte after cf
+Unicode parsing error: Byte df is not a correct continuation byte after f7 bd
+Unicode parsing error: Byte 2f is not a correct continuation byte after df
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (93)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fe)
+Unicode parsing error: Byte 15 is not a correct continuation byte after de
+Unicode parsing error: Byte 6f is not a correct continuation byte after f1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bd)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8f)
+Unicode parsing error: Byte 53 is not a correct continuation byte after e6
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f9)
+Unicode parsing error: Byte c is not a correct continuation byte after d9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error: Byte 67 is not a correct continuation byte after ef
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fd)
+Unicode parsing error: Byte 17 is not a correct continuation byte after cf
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (95)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (87)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (9f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a0)
+Unicode parsing error: Byte cd is not a correct continuation byte after c6
+Unicode parsing error: Byte 51 is not a correct continuation byte after cd
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error: Byte 1a is not a correct continuation byte after c8
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8a)
+Unicode parsing error: Byte f4 is not a correct continuation byte after f1 98
+Unicode parsing error: Byte ec is not a correct continuation byte after f4
+Unicode parsing error: Byte fc is not a correct continuation byte after f7 ab
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ac)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (9f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error: Byte 60 is not a correct continuation byte after cd
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8a)
+Unicode parsing error: Byte 69 is not a correct continuation byte after cb
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error: Byte f7 is not a correct continuation byte after c2
+Unicode parsing error: Byte e7 is not a correct continuation byte after f7
+Unicode parsing error: Byte 1e is not a correct continuation byte after e7
+Unicode parsing error: Byte e3 is not a correct continuation byte after dc
+Unicode parsing error: Byte ea is not a correct continuation byte after e3
+Unicode parsing error: Byte d2 is not a correct continuation byte after ea
+Unicode parsing error: Byte 53 is not a correct continuation byte after d2
+Unicode parsing error: Byte 6d is not a correct continuation byte after d1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fe)
+Unicode parsing error: Byte d3 is not a correct continuation byte after c3
+Unicode parsing error: Byte 53 is not a correct continuation byte after d3
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error: Byte 3e is not a correct continuation byte after ef
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (98)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (9b)
+Unicode parsing error: Byte 54 is not a correct continuation byte after cf
+Unicode parsing error: Byte 49 is not a correct continuation byte after e9
+Unicode parsing error: Byte eb is not a correct continuation byte after ce
+Unicode parsing error: Byte ea is not a correct continuation byte after eb
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a0)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a4)
+Unicode parsing error: Byte e1 is not a correct continuation byte after e3
+Unicode parsing error: Byte 70 is not a correct continuation byte after e1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8b)
+Unicode parsing error: Byte d9 is not a correct continuation byte after eb
+Unicode parsing error: Byte e5 is not a correct continuation byte after d9
+Unicode parsing error: Byte 1e is not a correct continuation byte after e5
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a4)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (94)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (86)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ae)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (aa)
+Unicode parsing error: Byte 18 is not a correct continuation byte after c7
+ERROR: ResourceFormatImporter::load - res://assets/art/horse_coats060/black.png.import:1 error: Unterminated string.
+   at: _get_path_and_type (core/io/resource_importer.cpp:85)
+ERROR: ResourceFormatImporter::load - res://assets/art/horse_coats060/flaxen.png.import:0 error: Unterminated string.
+   at: _get_path_and_type (core/io/resource_importer.cpp:85)
+ERROR: ResourceFormatImporter::load - res://assets/art/horse_coats060/flaxen.png.import:0 error: Unterminated string.
+   at: _get_path_and_type (core/io/resource_importer.cpp:85)
+ERROR: ResourceFormatImporter::load - res://assets/art/horse_coats060/grey.png.import:1 error: Expected value, got 'ERROR'.
+   at: _get_path_and_type (core/io/resource_importer.cpp:85)
+ERROR: ResourceFormatImporter::load - res://assets/art/horse_coats060/grey.png.import:1 error: Expected value, got 'ERROR'.
+   at: _get_path_and_type (core/io/resource_importer.cpp:85)
+[   0% ] update_scripts_classes | Started Registering global classes... (7 steps)
+[   0% ] update_scripts_classes | EquipmentCatalogue
+[  12% ] update_scripts_classes | 
+[  25% ] update_scripts_classes | RiderView
+[  37% ] update_scripts_classes | 
+[  50% ] update_scripts_classes | 
+[  62% ] update_scripts_classes | 
+[  75% ] update_scripts_classes | 
+[ DONE ] update_scripts_classes
+
+[   0% ] _update_scan_actions | Started Scanning actions... (3 steps)
+Unicode parsing error: Byte 38 is not a correct continuation byte after f2
+Unicode parsing error: Byte 25 is not a correct continuation byte after c8
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (96)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bf)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8c)
+Unicode parsing error: Byte f8 is not a correct continuation byte after df
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ab)
+Unicode parsing error: Byte 45 is not a correct continuation byte after e3
+Unicode parsing error: Byte cf is not a correct continuation byte after f3
+Unicode parsing error: Byte 7d is not a correct continuation byte after cf
+Unicode parsing error: Byte 61 is not a correct continuation byte after df
+Unicode parsing error: Byte 20 is not a correct continuation byte after d4
+Unicode parsing error: Byte c5 is not a correct continuation byte after c0
+Unicode parsing error: Byte 37 is not a correct continuation byte after c5
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error: Byte cd is not a correct continuation byte after d5
+Unicode parsing error: Byte 7f is not a correct continuation byte after cd
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b6)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b6)
+Unicode parsing error: Byte 68 is not a correct continuation byte after c1
+Unicode parsing error: Byte f8 is not a correct continuation byte after d9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (81)
+Unicode parsing error: Byte 42 is not a correct continuation byte after d9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8b)
+Unicode parsing error: Byte d9 is not a correct continuation byte after d1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a8)
+Unicode parsing error: Byte 23 is not a correct continuation byte after ea
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (88)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (80)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bf)
+Unicode parsing error: Byte e8 is not a correct continuation byte after c9
+Unicode parsing error: Byte 78 is not a correct continuation byte after e8
+Unicode parsing error: Byte 3a is not a correct continuation byte after e0
+Unicode parsing error: Byte 50 is not a correct continuation byte after c6
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (99)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ac)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (92)
+Unicode parsing error: Byte 1b is not a correct continuation byte after cd
+Unicode parsing error: Byte e9 is not a correct continuation byte after dc
+Unicode parsing error: Byte d0 is not a correct continuation byte after e9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (87)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (97)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (98)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b5)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (83)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b9)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a7)
+Unicode parsing error: Byte 2d is not a correct continuation byte after c0
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8e)
+Unicode parsing error: Byte 17 is not a correct continuation byte after d3
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (93)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error: Byte 77 is not a correct continuation byte after e4
+Unicode parsing error: Byte 6a is not a correct continuation byte after d7
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8b)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error: Byte ec is not a correct continuation byte after e6
+Unicode parsing error: Byte 3d is not a correct continuation byte after ec
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b3)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a6)
+Unicode parsing error: Byte fc is not a correct continuation byte after d5
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error: Byte f4 is not a correct continuation byte after ce
+Unicode parsing error: Byte 69 is not a correct continuation byte after f4
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8c)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error: Byte cf is not a correct continuation byte after cf
+Unicode parsing error: Byte f7 is not a correct continuation byte after cf
+Unicode parsing error: Byte df is not a correct continuation byte after f7 bd
+Unicode parsing error: Byte 2f is not a correct continuation byte after df
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (93)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fe)
+Unicode parsing error: Byte 15 is not a correct continuation byte after de
+Unicode parsing error: Byte 6f is not a correct continuation byte after f1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bd)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8f)
+Unicode parsing error: Byte 53 is not a correct continuation byte after e6
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f9)
+Unicode parsing error: Byte c is not a correct continuation byte after d9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error: Byte 67 is not a correct continuation byte after ef
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fd)
+Unicode parsing error: Byte 17 is not a correct continuation byte after cf
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (95)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (87)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (9f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a0)
+Unicode parsing error: Byte cd is not a correct continuation byte after c6
+Unicode parsing error: Byte 51 is not a correct continuation byte after cd
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error: Byte 1a is not a correct continuation byte after c8
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8a)
+Unicode parsing error: Byte f4 is not a correct continuation byte after f1 98
+Unicode parsing error: Byte ec is not a correct continuation byte after f4
+Unicode parsing error: Byte fc is not a correct continuation byte after f7 ab
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ac)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (9f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error: Byte 60 is not a correct continuation byte after cd
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8a)
+Unicode parsing error: Byte 69 is not a correct continuation byte after cb
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error: Byte f7 is not a correct continuation byte after c2
+Unicode parsing error: Byte e7 is not a correct continuation byte after f7
+Unicode parsing error: Byte 1e is not a correct continuation byte after e7
+Unicode parsing error: Byte e3 is not a correct continuation byte after dc
+Unicode parsing error: Byte ea is not a correct continuation byte after e3
+Unicode parsing error: Byte d2 is not a correct continuation byte after ea
+Unicode parsing error: Byte 53 is not a correct continuation byte after d2
+Unicode parsing error: Byte 6d is not a correct continuation byte after d1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fe)
+Unicode parsing error: Byte d3 is not a correct continuation byte after c3
+Unicode parsing error: Byte 53 is not a correct continuation byte after d3
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error: Byte 3e is not a correct continuation byte after ef
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (98)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (9b)
+Unicode parsing error: Byte 54 is not a correct continuation byte after cf
+Unicode parsing error: Byte 49 is not a correct continuation byte after e9
+Unicode parsing error: Byte eb is not a correct continuation byte after ce
+Unicode parsing error: Byte ea is not a correct continuation byte after eb
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a0)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a4)
+Unicode parsing error: Byte e1 is not a correct continuation byte after e3
+Unicode parsing error: Byte 70 is not a correct continuation byte after e1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8b)
+Unicode parsing error: Byte d9 is not a correct continuation byte after eb
+Unicode parsing error: Byte e5 is not a correct continuation byte after d9
+Unicode parsing error: Byte 1e is not a correct continuation byte after e5
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a4)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (94)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (86)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ae)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (aa)
+Unicode parsing error: Byte 18 is not a correct continuation byte after c7
+ERROR: ResourceFormatImporter::load - 'res://assets/art/horse_coats060/black.png.import:1' error 'Unterminated string'.
+   at: _test_for_reimport (editor/file_system/editor_file_system.cpp:620)
+Unicode parsing error: Byte 38 is not a correct continuation byte after f2
+Unicode parsing error: Byte 25 is not a correct continuation byte after c8
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (96)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bf)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8c)
+Unicode parsing error: Byte f8 is not a correct continuation byte after df
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ab)
+Unicode parsing error: Byte 45 is not a correct continuation byte after e3
+Unicode parsing error: Byte cf is not a correct continuation byte after f3
+Unicode parsing error: Byte 7d is not a correct continuation byte after cf
+Unicode parsing error: Byte 61 is not a correct continuation byte after df
+Unicode parsing error: Byte 20 is not a correct continuation byte after d4
+Unicode parsing error: Byte c5 is not a correct continuation byte after c0
+Unicode parsing error: Byte 37 is not a correct continuation byte after c5
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error: Byte cd is not a correct continuation byte after d5
+Unicode parsing error: Byte 7f is not a correct continuation byte after cd
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b6)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b6)
+Unicode parsing error: Byte 68 is not a correct continuation byte after c1
+Unicode parsing error: Byte f8 is not a correct continuation byte after d9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (81)
+Unicode parsing error: Byte 42 is not a correct continuation byte after d9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8b)
+Unicode parsing error: Byte d9 is not a correct continuation byte after d1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a8)
+Unicode parsing error: Byte 23 is not a correct continuation byte after ea
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (88)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (80)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bf)
+Unicode parsing error: Byte e8 is not a correct continuation byte after c9
+Unicode parsing error: Byte 78 is not a correct continuation byte after e8
+Unicode parsing error: Byte 3a is not a correct continuation byte after e0
+Unicode parsing error: Byte 50 is not a correct continuation byte after c6
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (99)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ac)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (92)
+Unicode parsing error: Byte 1b is not a correct continuation byte after cd
+Unicode parsing error: Byte e9 is not a correct continuation byte after dc
+Unicode parsing error: Byte d0 is not a correct continuation byte after e9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (87)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (97)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (98)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b5)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (83)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b9)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a7)
+Unicode parsing error: Byte 2d is not a correct continuation byte after c0
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8e)
+Unicode parsing error: Byte 17 is not a correct continuation byte after d3
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (93)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error: Byte 77 is not a correct continuation byte after e4
+Unicode parsing error: Byte 6a is not a correct continuation byte after d7
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8b)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error: Byte ec is not a correct continuation byte after e6
+Unicode parsing error: Byte 3d is not a correct continuation byte after ec
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b3)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a6)
+Unicode parsing error: Byte fc is not a correct continuation byte after d5
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error: Byte f4 is not a correct continuation byte after ce
+Unicode parsing error: Byte 69 is not a correct continuation byte after f4
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8c)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error: Byte cf is not a correct continuation byte after cf
+Unicode parsing error: Byte f7 is not a correct continuation byte after cf
+Unicode parsing error: Byte df is not a correct continuation byte after f7 bd
+Unicode parsing error: Byte 2f is not a correct continuation byte after df
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (93)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fe)
+Unicode parsing error: Byte 15 is not a correct continuation byte after de
+Unicode parsing error: Byte 6f is not a correct continuation byte after f1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bd)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8f)
+Unicode parsing error: Byte 53 is not a correct continuation byte after e6
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f9)
+Unicode parsing error: Byte c is not a correct continuation byte after d9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error: Byte 67 is not a correct continuation byte after ef
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fd)
+Unicode parsing error: Byte 17 is not a correct continuation byte after cf
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (95)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (87)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (9f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a0)
+Unicode parsing error: Byte cd is not a correct continuation byte after c6
+Unicode parsing error: Byte 51 is not a correct continuation byte after cd
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error: Byte 1a is not a correct continuation byte after c8
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8a)
+Unicode parsing error: Byte f4 is not a correct continuation byte after f1 98
+Unicode parsing error: Byte ec is not a correct continuation byte after f4
+Unicode parsing error: Byte fc is not a correct continuation byte after f7 ab
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ac)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (9f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error: Byte 60 is not a correct continuation byte after cd
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8a)
+Unicode parsing error: Byte 69 is not a correct continuation byte after cb
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error: Byte f7 is not a correct continuation byte after c2
+Unicode parsing error: Byte e7 is not a correct continuation byte after f7
+Unicode parsing error: Byte 1e is not a correct continuation byte after e7
+Unicode parsing error: Byte e3 is not a correct continuation byte after dc
+Unicode parsing error: Byte ea is not a correct continuation byte after e3
+Unicode parsing error: Byte d2 is not a correct continuation byte after ea
+Unicode parsing error: Byte 53 is not a correct continuation byte after d2
+Unicode parsing error: Byte 6d is not a correct continuation byte after d1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fe)
+Unicode parsing error: Byte d3 is not a correct continuation byte after c3
+Unicode parsing error: Byte 53 is not a correct continuation byte after d3
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error: Byte 3e is not a correct continuation byte after ef
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (98)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (9b)
+Unicode parsing error: Byte 54 is not a correct continuation byte after cf
+Unicode parsing error: Byte 49 is not a correct continuation byte after e9
+Unicode parsing error: Byte eb is not a correct continuation byte after ce
+Unicode parsing error: Byte ea is not a correct continuation byte after eb
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a0)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a4)
+Unicode parsing error: Byte e1 is not a correct continuation byte after e3
+Unicode parsing error: Byte 70 is not a correct continuation byte after e1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8b)
+Unicode parsing error: Byte d9 is not a correct continuation byte after eb
+Unicode parsing error: Byte e5 is not a correct continuation byte after d9
+Unicode parsing error: Byte 1e is not a correct continuation byte after e5
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a4)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (94)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (86)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ae)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (aa)
+Unicode parsing error: Byte 18 is not a correct continuation byte after c7
+ERROR: ResourceFormatImporter::load - 'res://assets/art/horse_coats060/black.png.import:1' error 'Unterminated string'.
+   at: _get_import_dest_paths (editor/file_system/editor_file_system.cpp:772)
+[   0% ] _update_scan_actions | black.png
+ERROR: ResourceFormatImporter::load - 'res://assets/art/horse_coats060/flaxen.png.import:0' error 'Unterminated string'.
+   at: _test_for_reimport (editor/file_system/editor_file_system.cpp:620)
+ERROR: ResourceFormatImporter::load - 'res://assets/art/horse_coats060/flaxen.png.import:0' error 'Unterminated string'.
+   at: _get_import_dest_paths (editor/file_system/editor_file_system.cpp:772)
+[  25% ] _update_scan_actions | flaxen.png
+ERROR: ResourceFormatImporter::load - 'res://assets/art/horse_coats060/grey.png.import:1' error 'Expected value, got 'ERROR''.
+   at: _test_for_reimport (editor/file_system/editor_file_system.cpp:620)
+ERROR: ResourceFormatImporter::load - 'res://assets/art/horse_coats060/grey.png.import:1' error 'Expected value, got 'ERROR''.
+   at: _get_import_dest_paths (editor/file_system/editor_file_system.cpp:772)
+[  50% ] _update_scan_actions | grey.png
+[ DONE ] _update_scan_actions
+
+[   0% ] loading_editor_layout | Started Loading editor (5 steps)
+[   0% ] loading_editor_layout | Loading editor layout...
+[ DONE ] loading_editor_layout
+
+ERROR: ResourceFormatImporter::load - res://assets/art/horse_coats060/grey.png.import:1 error: Expected value, got 'ERROR'.
+   at: _get_path_and_type (core/io/resource_importer.cpp:85)
+ERROR: ResourceFormatImporter::load - res://assets/art/horse_coats060/grey.png.import:1 error: Expected value, got 'ERROR'.
+   at: _get_path_and_type (core/io/resource_importer.cpp:85)
+ERROR: Failed loading resource: res://assets/art/horse_coats060/grey.png.
+   at: _load (core/io/resource_loader.cpp:343)
+ERROR: ResourceFormatImporter::load - res://assets/art/horse_coats060/flaxen.png.import:0 error: Unterminated string.
+   at: _get_path_and_type (core/io/resource_importer.cpp:85)
+ERROR: ResourceFormatImporter::load - res://assets/art/horse_coats060/flaxen.png.import:0 error: Unterminated string.
+   at: _get_path_and_type (core/io/resource_importer.cpp:85)
+ERROR: Failed loading resource: res://assets/art/horse_coats060/flaxen.png.
+   at: _load (core/io/resource_loader.cpp:343)
+Unicode parsing error: Byte 38 is not a correct continuation byte after f2
+Unicode parsing error: Byte 25 is not a correct continuation byte after c8
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (96)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bf)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8c)
+Unicode parsing error: Byte f8 is not a correct continuation byte after df
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ab)
+Unicode parsing error: Byte 45 is not a correct continuation byte after e3
+Unicode parsing error: Byte cf is not a correct continuation byte after f3
+Unicode parsing error: Byte 7d is not a correct continuation byte after cf
+Unicode parsing error: Byte 61 is not a correct continuation byte after df
+Unicode parsing error: Byte 20 is not a correct continuation byte after d4
+Unicode parsing error: Byte c5 is not a correct continuation byte after c0
+Unicode parsing error: Byte 37 is not a correct continuation byte after c5
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error: Byte cd is not a correct continuation byte after d5
+Unicode parsing error: Byte 7f is not a correct continuation byte after cd
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b6)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b6)
+Unicode parsing error: Byte 68 is not a correct continuation byte after c1
+Unicode parsing error: Byte f8 is not a correct continuation byte after d9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (81)
+Unicode parsing error: Byte 42 is not a correct continuation byte after d9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8b)
+Unicode parsing error: Byte d9 is not a correct continuation byte after d1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a8)
+Unicode parsing error: Byte 23 is not a correct continuation byte after ea
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (88)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (80)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bf)
+Unicode parsing error: Byte e8 is not a correct continuation byte after c9
+Unicode parsing error: Byte 78 is not a correct continuation byte after e8
+Unicode parsing error: Byte 3a is not a correct continuation byte after e0
+Unicode parsing error: Byte 50 is not a correct continuation byte after c6
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (99)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ac)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (92)
+Unicode parsing error: Byte 1b is not a correct continuation byte after cd
+Unicode parsing error: Byte e9 is not a correct continuation byte after dc
+Unicode parsing error: Byte d0 is not a correct continuation byte after e9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (87)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (97)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (98)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b5)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (83)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b9)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a7)
+Unicode parsing error: Byte 2d is not a correct continuation byte after c0
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8e)
+Unicode parsing error: Byte 17 is not a correct continuation byte after d3
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (93)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error: Byte 77 is not a correct continuation byte after e4
+Unicode parsing error: Byte 6a is not a correct continuation byte after d7
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8b)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error: Byte ec is not a correct continuation byte after e6
+Unicode parsing error: Byte 3d is not a correct continuation byte after ec
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b3)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a6)
+Unicode parsing error: Byte fc is not a correct continuation byte after d5
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error: Byte f4 is not a correct continuation byte after ce
+Unicode parsing error: Byte 69 is not a correct continuation byte after f4
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8c)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error: Byte cf is not a correct continuation byte after cf
+Unicode parsing error: Byte f7 is not a correct continuation byte after cf
+Unicode parsing error: Byte df is not a correct continuation byte after f7 bd
+Unicode parsing error: Byte 2f is not a correct continuation byte after df
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (93)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fe)
+Unicode parsing error: Byte 15 is not a correct continuation byte after de
+Unicode parsing error: Byte 6f is not a correct continuation byte after f1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bd)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8f)
+Unicode parsing error: Byte 53 is not a correct continuation byte after e6
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f9)
+Unicode parsing error: Byte c is not a correct continuation byte after d9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error: Byte 67 is not a correct continuation byte after ef
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fd)
+Unicode parsing error: Byte 17 is not a correct continuation byte after cf
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (95)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (87)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (9f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a0)
+Unicode parsing error: Byte cd is not a correct continuation byte after c6
+Unicode parsing error: Byte 51 is not a correct continuation byte after cd
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error: Byte 1a is not a correct continuation byte after c8
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8a)
+Unicode parsing error: Byte f4 is not a correct continuation byte after f1 98
+Unicode parsing error: Byte ec is not a correct continuation byte after f4
+Unicode parsing error: Byte fc is not a correct continuation byte after f7 ab
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ac)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (9f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error: Byte 60 is not a correct continuation byte after cd
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8a)
+Unicode parsing error: Byte 69 is not a correct continuation byte after cb
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error: Byte f7 is not a correct continuation byte after c2
+Unicode parsing error: Byte e7 is not a correct continuation byte after f7
+Unicode parsing error: Byte 1e is not a correct continuation byte after e7
+Unicode parsing error: Byte e3 is not a correct continuation byte after dc
+Unicode parsing error: Byte ea is not a correct continuation byte after e3
+Unicode parsing error: Byte d2 is not a correct continuation byte after ea
+Unicode parsing error: Byte 53 is not a correct continuation byte after d2
+Unicode parsing error: Byte 6d is not a correct continuation byte after d1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fe)
+Unicode parsing error: Byte d3 is not a correct continuation byte after c3
+Unicode parsing error: Byte 53 is not a correct continuation byte after d3
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error: Byte 3e is not a correct continuation byte after ef
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (98)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (9b)
+Unicode parsing error: Byte 54 is not a correct continuation byte after cf
+Unicode parsing error: Byte 49 is not a correct continuation byte after e9
+Unicode parsing error: Byte eb is not a correct continuation byte after ce
+Unicode parsing error: Byte ea is not a correct continuation byte after eb
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a0)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a4)
+Unicode parsing error: Byte e1 is not a correct continuation byte after e3
+Unicode parsing error: Byte 70 is not a correct continuation byte after e1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8b)
+Unicode parsing error: Byte d9 is not a correct continuation byte after eb
+Unicode parsing error: Byte e5 is not a correct continuation byte after d9
+Unicode parsing error: Byte 1e is not a correct continuation byte after e5
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a4)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (94)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (86)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ae)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (aa)
+Unicode parsing error: Byte 18 is not a correct continuation byte after c7
+ERROR: ResourceFormatImporter::load - res://assets/art/horse_coats060/black.png.import:1 error: Unterminated string.
+   at: _get_path_and_type (core/io/resource_importer.cpp:85)
+Unicode parsing error: Byte 38 is not a correct continuation byte after f2
+Unicode parsing error: Byte 25 is not a correct continuation byte after c8
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (96)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bf)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8c)
+Unicode parsing error: Byte f8 is not a correct continuation byte after df
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ab)
+Unicode parsing error: Byte 45 is not a correct continuation byte after e3
+Unicode parsing error: Byte cf is not a correct continuation byte after f3
+Unicode parsing error: Byte 7d is not a correct continuation byte after cf
+Unicode parsing error: Byte 61 is not a correct continuation byte after df
+Unicode parsing error: Byte 20 is not a correct continuation byte after d4
+Unicode parsing error: Byte c5 is not a correct continuation byte after c0
+Unicode parsing error: Byte 37 is not a correct continuation byte after c5
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error: Byte cd is not a correct continuation byte after d5
+Unicode parsing error: Byte 7f is not a correct continuation byte after cd
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b6)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b6)
+Unicode parsing error: Byte 68 is not a correct continuation byte after c1
+Unicode parsing error: Byte f8 is not a correct continuation byte after d9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (81)
+Unicode parsing error: Byte 42 is not a correct continuation byte after d9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8b)
+Unicode parsing error: Byte d9 is not a correct continuation byte after d1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a8)
+Unicode parsing error: Byte 23 is not a correct continuation byte after ea
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (88)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (80)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bf)
+Unicode parsing error: Byte e8 is not a correct continuation byte after c9
+Unicode parsing error: Byte 78 is not a correct continuation byte after e8
+Unicode parsing error: Byte 3a is not a correct continuation byte after e0
+Unicode parsing error: Byte 50 is not a correct continuation byte after c6
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (99)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ac)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (92)
+Unicode parsing error: Byte 1b is not a correct continuation byte after cd
+Unicode parsing error: Byte e9 is not a correct continuation byte after dc
+Unicode parsing error: Byte d0 is not a correct continuation byte after e9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (87)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (97)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (98)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b5)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (83)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b9)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a7)
+Unicode parsing error: Byte 2d is not a correct continuation byte after c0
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8e)
+Unicode parsing error: Byte 17 is not a correct continuation byte after d3
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (93)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error: Byte 77 is not a correct continuation byte after e4
+Unicode parsing error: Byte 6a is not a correct continuation byte after d7
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8b)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error: Byte ec is not a correct continuation byte after e6
+Unicode parsing error: Byte 3d is not a correct continuation byte after ec
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b3)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a6)
+Unicode parsing error: Byte fc is not a correct continuation byte after d5
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error: Byte f4 is not a correct continuation byte after ce
+Unicode parsing error: Byte 69 is not a correct continuation byte after f4
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8c)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error: Byte cf is not a correct continuation byte after cf
+Unicode parsing error: Byte f7 is not a correct continuation byte after cf
+Unicode parsing error: Byte df is not a correct continuation byte after f7 bd
+Unicode parsing error: Byte 2f is not a correct continuation byte after df
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (93)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fe)
+Unicode parsing error: Byte 15 is not a correct continuation byte after de
+Unicode parsing error: Byte 6f is not a correct continuation byte after f1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bd)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8f)
+Unicode parsing error: Byte 53 is not a correct continuation byte after e6
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f9)
+Unicode parsing error: Byte c is not a correct continuation byte after d9
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error: Byte 67 is not a correct continuation byte after ef
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fd)
+Unicode parsing error: Byte 17 is not a correct continuation byte after cf
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (95)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (87)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (9f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a0)
+Unicode parsing error: Byte cd is not a correct continuation byte after c6
+Unicode parsing error: Byte 51 is not a correct continuation byte after cd
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error: Byte 1a is not a correct continuation byte after c8
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8a)
+Unicode parsing error: Byte f4 is not a correct continuation byte after f1 98
+Unicode parsing error: Byte ec is not a correct continuation byte after f4
+Unicode parsing error: Byte fc is not a correct continuation byte after f7 ab
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ac)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (9f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f8)
+Unicode parsing error: Byte 60 is not a correct continuation byte after cd
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8a)
+Unicode parsing error: Byte 69 is not a correct continuation byte after cb
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error: Byte f7 is not a correct continuation byte after c2
+Unicode parsing error: Byte e7 is not a correct continuation byte after f7
+Unicode parsing error: Byte 1e is not a correct continuation byte after e7
+Unicode parsing error: Byte e3 is not a correct continuation byte after dc
+Unicode parsing error: Byte ea is not a correct continuation byte after e3
+Unicode parsing error: Byte d2 is not a correct continuation byte after ea
+Unicode parsing error: Byte 53 is not a correct continuation byte after d2
+Unicode parsing error: Byte 6d is not a correct continuation byte after d1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fe)
+Unicode parsing error: Byte d3 is not a correct continuation byte after c3
+Unicode parsing error: Byte 53 is not a correct continuation byte after d3
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error: Byte 3e is not a correct continuation byte after ef
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (98)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (9b)
+Unicode parsing error: Byte 54 is not a correct continuation byte after cf
+Unicode parsing error: Byte 49 is not a correct continuation byte after e9
+Unicode parsing error: Byte eb is not a correct continuation byte after ce
+Unicode parsing error: Byte ea is not a correct continuation byte after eb
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a0)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a4)
+Unicode parsing error: Byte e1 is not a correct continuation byte after e3
+Unicode parsing error: Byte 70 is not a correct continuation byte after e1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8b)
+Unicode parsing error: Byte d9 is not a correct continuation byte after eb
+Unicode parsing error: Byte e5 is not a correct continuation byte after d9
+Unicode parsing error: Byte 1e is not a correct continuation byte after e5
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a4)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (94)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a2)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fc)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (86)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8f)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ae)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (aa)
+Unicode parsing error: Byte 18 is not a correct continuation byte after c7
+ERROR: ResourceFormatImporter::load - res://assets/art/horse_coats060/black.png.import:1 error: Unterminated string.
+   at: _get_path_and_type (core/io/resource_importer.cpp:85)
+ERROR: Failed loading resource: res://assets/art/horse_coats060/black.png.
+   at: _load (core/io/resource_loader.cpp:343)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://assets/art/horse_coats060/grey.png".
+   at: GDScript::reload (res://scripts/visual/horse_skin.gd:8)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://assets/art/horse_coats060/flaxen.png".
+   at: GDScript::reload (res://scripts/visual/horse_skin.gd:9)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://assets/art/horse_coats060/black.png".
+   at: GDScript::reload (res://scripts/visual/horse_skin.gd:10)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/visual/rider_view.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/main.gd:0)
+ERROR: Failed to load script "res://scripts/main.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript.cpp:3041)

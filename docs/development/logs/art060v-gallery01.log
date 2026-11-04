@@ -1,0 +1,7 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+SCRIPT ERROR: Invalid assignment of property or key 'planted_feet' with value of type 'Array' on a base object of type 'Node2D (RiderView)'.
+   at: run (res://tests/test_horse_gallery060.gd:54)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/test_horse_gallery060.gd:54)

@@ -1,0 +1,1336 @@
+{
+  "source_file": "docs/development/logs/feel061-fullcharge-package01.json",
+  "source_sha256": "68D28FC76E4E547600FC789762A0BF63F737A15FC0D2FFCE02DDFCDE38C9B8E5",
+  "result": {
+    "passed": true,
+    "failures": [],
+    "project_version": "0.4.21",
+    "scope": "Production Main/Battle and ordinary engine process/physics from the untouched ready countdown and 4400-unit separation through first pass. Normal practice AI and full-health equipment. Viewport-dispatched hold, release, repress, shield keys and two aim movements; no OS input. Physics observer follows Battle in the scene tree; no manual stepping, camera fitting, invented contacts or overridden speeds.",
+    "completion_wall_seconds": 12.377124,
+    "horse_id": "horse_bay",
+    "actual_contacts": [
+      {
+        "attacker": 0,
+        "balance_left": 43.2291542766677,
+        "break_angle": -0.200000104889496,
+        "break_direction": 1,
+        "break_hand": "(-101.3264, -192.6157)",
+        "break_reach": 247.0,
+        "break_tip": "(140.75, -241.6871)",
+        "broke": true,
+        "damage": 19.6542207365874,
+        "dead": false,
+        "defender": 1,
+        "glanced": false,
+        "impulse": 69.2327386869907,
+        "ko": false,
+        "ko_reason": "",
+        "position": "(139.4594, -241.8537)",
+        "shield_broke": false,
+        "speed": 704.295654296875,
+        "support": 1.0,
+        "type": "hit",
+        "zone": "body"
+      },
+      {
+        "attacker": 1,
+        "balance_left": 63.655382062973,
+        "break_angle": 0.389414311169364,
+        "break_direction": -1,
+        "break_hand": "(119.254, -259.6325)",
+        "break_reach": 247.0,
+        "break_tip": "(-109.2534, -165.8598)",
+        "broke": true,
+        "damage": 11.4373297378432,
+        "dead": false,
+        "defender": 0,
+        "glanced": false,
+        "impulse": 44.3227048012524,
+        "ko": false,
+        "ko_reason": "",
+        "position": "(-108.9254, -165.9213)",
+        "shield_broke": false,
+        "speed": 480.807556152344,
+        "support": 0.993460342023879,
+        "type": "hit",
+        "zone": "body"
+      }
+    ],
+    "input_events": [
+      {
+        "engine_viewport_dispatch": true,
+        "guard_slot": 1,
+        "label": "initial_aim_once",
+        "mouse_held": false,
+        "os_input": false,
+        "pointer_aim": -0.240000153057868,
+        "type": "InputEventMouseMotion",
+        "wall_msec": 2318
+      },
+      {
+        "engine_viewport_dispatch": true,
+        "guard_slot": 1,
+        "label": "press_1",
+        "mouse_held": true,
+        "os_input": false,
+        "pointer_aim": -0.240000153057868,
+        "type": "InputEventMouseButton",
+        "wall_msec": 2318
+      },
+      {
+        "engine_viewport_dispatch": true,
+        "guard_slot": 1,
+        "label": "release_1",
+        "mouse_held": false,
+        "os_input": false,
+        "pointer_aim": -0.240000153057868,
+        "type": "InputEventMouseButton",
+        "wall_msec": 6779
+      },
+      {
+        "engine_viewport_dispatch": true,
+        "guard_slot": 1,
+        "label": "press_1",
+        "mouse_held": true,
+        "os_input": false,
+        "pointer_aim": -0.240000153057868,
+        "type": "InputEventMouseButton",
+        "wall_msec": 7439
+      },
+      {
+        "engine_viewport_dispatch": true,
+        "guard_slot": 2,
+        "label": "guard_flank",
+        "mouse_held": true,
+        "os_input": false,
+        "pointer_aim": -0.240000153057868,
+        "type": "InputEventKey",
+        "wall_msec": 7439
+      },
+      {
+        "engine_viewport_dispatch": true,
+        "guard_slot": 2,
+        "label": "guard_flank_release",
+        "mouse_held": true,
+        "os_input": false,
+        "pointer_aim": -0.240000153057868,
+        "type": "InputEventKey",
+        "wall_msec": 7439
+      },
+      {
+        "engine_viewport_dispatch": true,
+        "guard_slot": 0,
+        "label": "late_guard_head",
+        "mouse_held": true,
+        "os_input": false,
+        "pointer_aim": -0.240000153057868,
+        "type": "InputEventKey",
+        "wall_msec": 9394
+      },
+      {
+        "engine_viewport_dispatch": true,
+        "guard_slot": 0,
+        "label": "late_guard_head_release",
+        "mouse_held": true,
+        "os_input": false,
+        "pointer_aim": -0.240000153057868,
+        "type": "InputEventKey",
+        "wall_msec": 9394
+      },
+      {
+        "engine_viewport_dispatch": true,
+        "guard_slot": 0,
+        "label": "late_small_aim_change",
+        "mouse_held": true,
+        "os_input": false,
+        "pointer_aim": -0.200000104889496,
+        "type": "InputEventMouseMotion",
+        "wall_msec": 9394
+      },
+      {
+        "engine_viewport_dispatch": true,
+        "guard_slot": 0,
+        "label": "release_1",
+        "mouse_held": false,
+        "os_input": false,
+        "pointer_aim": -0.200000104889496,
+        "type": "InputEventMouseButton",
+        "wall_msec": 14534
+      }
+    ],
+    "limits": "Isolated QA profile; background focus pause disconnected and external input callbacks disabled between injected commands. GPU frames stored in memory and PNG encoded only after play; readback cost recorded. Standard --write-movie records engine frames; movie/fixed-fps clock differs from desktop real-time and cannot establish playable framerate. Visual/movie review and real OS input remain separate evidence.",
+    "markers": {
+      "actual_contact": {
+        "camera_center": [
+          758.205261230469,
+          460.978302001953
+        ],
+        "camera_offset": [
+          17.5288887023926,
+          -2.23009157180786
+        ],
+        "camera_x": 758.205261230469,
+        "contact_count": 1,
+        "engine_scale": 0.8,
+        "exchange": {
+          "approach": 0.0,
+          "approach_elapsed": 0.766,
+          "audio_duck": 0.818350842424673,
+          "contact_loading": true,
+          "focus": "(139.4594, -241.8537)",
+          "focus_weight": 0.936701684849346,
+          "hitstop": false,
+          "impact_active": true,
+          "impact_elapsed": 0.0,
+          "pass_connected": true,
+          "pass_id": 1,
+          "paused": false,
+          "release": 0.0,
+          "scale": 0.8,
+          "stage_elapsed": 0.0,
+          "state": "contact",
+          "strength": 0.894502808082243
+        },
+        "fighters": [
+          {
+            "direction": 1,
+            "drawn_tip_error_px": 3.0517578125E-05,
+            "horse_in_x": true,
+            "tip": [
+              618.462829589844,
+              383.798797607422
+            ],
+            "tip_in_view": true,
+            "x_max": 723.398193359375,
+            "x_min": 291.7001953125
+          },
+          {
+            "direction": -1,
+            "drawn_tip_error_px": 3.0517578125E-05,
+            "horse_in_x": true,
+            "tip": [
+              538.041625976563,
+              427.443634033203
+            ],
+            "tip_in_view": true,
+            "x_max": 1032.13134765625,
+            "x_min": 600.433410644531
+          }
+        ],
+        "gap": 278.912473373947,
+        "marker_pixels_per_wall_second": -5651.24039607608,
+        "model_time": 7.9792884133258,
+        "mouse_held": true,
+        "opponent_speed": 272.619049068363,
+        "pass_id": 1,
+        "path": "E:/GALUMU/docs/development/logs/feel061-fullcharge-package01/actual_contact.png",
+        "phase": "charge",
+        "physics_game_delta_since_render": 0.0175684984876234,
+        "player_aim": -0.200000104889496,
+        "player_gait_phase": 62.1175856650898,
+        "player_guard": 1.0,
+        "player_speed": 480.0,
+        "pointer_aim": -0.200000104889496,
+        "process_game_delta": 0.0178613067957481,
+        "readback_wall_ms": 3.235,
+        "wall_delta": 0.050549,
+        "wall_seconds": 8.365249,
+        "world_marker_x": -669.994506835938,
+        "zoom": 1.10691785812378
+      },
+      "charge_start": {
+        "camera_center": [
+          -817.14697265625,
+          448.900238037109
+        ],
+        "camera_offset": [
+          0.0,
+          0.0
+        ],
+        "camera_x": -817.14697265625,
+        "contact_count": 0,
+        "engine_scale": 1.0,
+        "exchange": {
+          "approach": 0.0,
+          "approach_elapsed": 0.0,
+          "audio_duck": 0.0,
+          "contact_loading": false,
+          "focus": "(0.0, 0.0)",
+          "focus_weight": 0.0,
+          "hitstop": false,
+          "impact_active": false,
+          "impact_elapsed": 0.0,
+          "pass_connected": false,
+          "pass_id": 1,
+          "paused": false,
+          "release": 0.0,
+          "scale": 1.0,
+          "stage_elapsed": 0.0,
+          "state": "runup",
+          "strength": 0.0
+        },
+        "fighters": [
+          {
+            "direction": 1,
+            "drawn_tip_error_px": 3.0517578125E-05,
+            "horse_in_x": true,
+            "tip": [
+              453.092651367188,
+              369.833770751953
+            ],
+            "tip_in_view": true,
+            "x_max": 398.988037109375,
+            "x_min": 134.223266601563
+          },
+          {
+            "direction": -1,
+            "drawn_tip_error_px": 0.000244140625,
+            "horse_in_x": false,
+            "tip": [
+              3080.86791992188,
+              427.758666992188
+            ],
+            "tip_in_view": false,
+            "x_max": 3386.07666015625,
+            "x_min": 3121.31176757813
+          }
+        ],
+        "gap": 4399.99890046296,
+        "marker_pixels_per_wall_second": 4.54287254237886,
+        "model_time": 2.61666666666666,
+        "mouse_held": true,
+        "opponent_speed": 0.0659722222222222,
+        "pass_id": 1,
+        "path": "E:/GALUMU/docs/development/logs/feel061-fullcharge-package01/charge_start.png",
+        "phase": "charge",
+        "physics_game_delta_since_render": 0.0416666666666665,
+        "player_aim": -0.240000153057868,
+        "player_gait_phase": 0.00460766922526503,
+        "player_guard": 0.43,
+        "player_speed": 0.0659722222222222,
+        "pointer_aim": -0.240000153057868,
+        "process_game_delta": 0.0416666666666667,
+        "readback_wall_ms": 3.416,
+        "wall_delta": 0.046043,
+        "wall_seconds": 2.692339,
+        "world_marker_x": 948.883605957031,
+        "zoom": 0.678883910179138
+      },
+      "crossed_rollout": {
+        "camera_center": [
+          850.505187988281,
+          463.538452148438
+        ],
+        "camera_offset": [
+          0.0,
+          0.0
+        ],
+        "camera_x": 850.505187988281,
+        "contact_count": 2,
+        "engine_scale": 1.0,
+        "exchange": {
+          "approach": 0.0,
+          "approach_elapsed": 0.766,
+          "audio_duck": 0.0,
+          "contact_loading": false,
+          "focus": "(139.4594, -241.8537)",
+          "focus_weight": 0.0,
+          "hitstop": false,
+          "impact_active": false,
+          "impact_elapsed": 0.666835084242467,
+          "pass_connected": true,
+          "pass_id": 1,
+          "paused": false,
+          "release": 0.0,
+          "scale": 1.0,
+          "stage_elapsed": 0.0,
+          "state": "runup",
+          "strength": 0.894502808082243
+        },
+        "fighters": [
+          {
+            "direction": 1,
+            "drawn_tip_error_px": 0.0,
+            "horse_in_x": true,
+            "tip": [
+              1173.79125976563,
+              380.769470214844
+            ],
+            "tip_in_view": true,
+            "x_max": 1287.376953125,
+            "x_min": 826.467834472656
+          },
+          {
+            "direction": -1,
+            "drawn_tip_error_px": 3.0517578125E-05,
+            "horse_in_x": true,
+            "tip": [
+              345.306518554688,
+              363.864196777344
+            ],
+            "tip_in_view": true,
+            "x_max": 670.876708984375,
+            "x_min": 209.967651367188
+          }
+        ],
+        "gap": -521.654008707646,
+        "marker_pixels_per_wall_second": -150.914581996376,
+        "model_time": 9.12227013027708,
+        "mouse_held": true,
+        "opponent_speed": 210.0,
+        "pass_id": 1,
+        "path": "E:/GALUMU/docs/development/logs/feel061-fullcharge-package01/crossed_rollout.png",
+        "phase": "charge",
+        "physics_game_delta_since_render": 0.0499999999999972,
+        "player_aim": -0.200000104889496,
+        "player_gait_phase": 77.3999579648183,
+        "player_guard": 1.0,
+        "player_speed": 480.0,
+        "pointer_aim": -0.200000104889496,
+        "process_game_delta": 0.0512161111111108,
+        "readback_wall_ms": 3.925,
+        "wall_delta": 0.052981,
+        "wall_seconds": 9.936647,
+        "world_marker_x": -852.415161132813,
+        "zoom": 1.18181812763214
+      },
+      "first_pass_complete": {
+        "camera_center": [
+          1087.90112304688,
+          436.21533203125
+        ],
+        "camera_offset": [
+          0.0,
+          0.0
+        ],
+        "camera_x": 1087.90112304688,
+        "contact_count": 2,
+        "engine_scale": 1.0,
+        "exchange": {
+          "approach": 0.0,
+          "approach_elapsed": 0.0,
+          "audio_duck": 0.0,
+          "contact_loading": false,
+          "focus": "(0.0, 0.0)",
+          "focus_weight": 0.0,
+          "hitstop": false,
+          "impact_active": false,
+          "impact_elapsed": 0.0,
+          "pass_connected": false,
+          "pass_id": 2,
+          "paused": false,
+          "release": 0.0,
+          "scale": 1.0,
+          "stage_elapsed": 0.0,
+          "state": "runup",
+          "strength": 0.0
+        },
+        "fighters": [
+          {
+            "direction": 1,
+            "drawn_tip_error_px": 0.0,
+            "horse_in_x": true,
+            "tip": [
+              1327.875,
+              408.616790771484
+            ],
+            "tip_in_view": true,
+            "x_max": 1371.46997070313,
+            "x_min": 1192.3759765625
+          },
+          {
+            "direction": -1,
+            "drawn_tip_error_px": 3.0517578125E-05,
+            "horse_in_x": true,
+            "tip": [
+              118.809448242188,
+              401.581420898438
+            ],
+            "tip_in_view": true,
+            "x_max": 244.246826171875,
+            "x_min": 65.1529235839844
+          }
+        ],
+        "gap": -2454.67246935579,
+        "marker_pixels_per_wall_second": 125.539602644878,
+        "model_time": 11.5722701302769,
+        "mouse_held": true,
+        "opponent_speed": 480.0,
+        "pass_id": 2,
+        "path": "E:/GALUMU/docs/development/logs/feel061-fullcharge-package01/first_pass_complete.png",
+        "phase": "turn",
+        "physics_game_delta_since_render": 0.0499999999999972,
+        "player_aim": -0.200000104889496,
+        "player_gait_phase": 110.157972882329,
+        "player_guard": 1.0,
+        "player_speed": 479.736111111111,
+        "pointer_aim": -0.200000104889496,
+        "process_game_delta": 0.046441,
+        "readback_wall_ms": 4.345,
+        "wall_delta": 0.048627,
+        "wall_seconds": 12.372157,
+        "world_marker_x": -0.00421142578125,
+        "zoom": 0.45921528339386
+      },
+      "gap_1100": {
+        "camera_center": [
+          652.827758789063,
+          449.661346435547
+        ],
+        "camera_offset": [
+          0.0,
+          0.0
+        ],
+        "camera_x": 652.827758789063,
+        "contact_count": 0,
+        "engine_scale": 1.0,
+        "exchange": {
+          "approach": 0.0,
+          "approach_elapsed": 0.0,
+          "audio_duck": 0.0,
+          "contact_loading": false,
+          "focus": "(0.0, 0.0)",
+          "focus_weight": 0.0,
+          "hitstop": false,
+          "impact_active": false,
+          "impact_elapsed": 0.0,
+          "pass_connected": false,
+          "pass_id": 1,
+          "paused": false,
+          "release": 0.0,
+          "scale": 1.0,
+          "stage_elapsed": 0.0,
+          "state": "runup",
+          "strength": 0.0
+        },
+        "fighters": [
+          {
+            "direction": 1,
+            "drawn_tip_error_px": 0.0,
+            "horse_in_x": true,
+            "tip": [
+              542.142883300781,
+              364.257629394531
+            ],
+            "tip_in_view": true,
+            "x_max": 482.799591064453,
+            "x_min": 197.352905273438
+          },
+          {
+            "direction": -1,
+            "drawn_tip_error_px": 6.103515625E-05,
+            "horse_in_x": true,
+            "tip": [
+              947.024169921875,
+              429.927703857422
+            ],
+            "tip_in_view": true,
+            "x_max": 1273.54077148438,
+            "x_min": 988.094116210938
+          }
+        ],
+        "gap": 1080.37361689815,
+        "marker_pixels_per_wall_second": -479.519710558639,
+        "model_time": 7.04166666666681,
+        "mouse_held": true,
+        "opponent_speed": 473.072916666667,
+        "pass_id": 1,
+        "path": "E:/GALUMU/docs/development/logs/feel061-fullcharge-package01/gap_1100.png",
+        "phase": "charge",
+        "physics_game_delta_since_render": 0.0500000000000025,
+        "player_aim": -0.240000153057868,
+        "player_gait_phase": 49.5810031491564,
+        "player_guard": 0.0,
+        "player_speed": 480.0,
+        "pointer_aim": -0.240000153057868,
+        "process_game_delta": 0.0513888888888889,
+        "readback_wall_ms": 3.155,
+        "wall_delta": 0.050171,
+        "wall_seconds": 7.127494,
+        "world_marker_x": -109.133178710938,
+        "zoom": 0.731914579868317
+      },
+      "gap_1200": {
+        "camera_center": [
+          639.231872558594,
+          448.852661132813
+        ],
+        "camera_offset": [
+          0.0,
+          0.0
+        ],
+        "camera_x": 639.231872558594,
+        "contact_count": 0,
+        "engine_scale": 1.0,
+        "exchange": {
+          "approach": 0.0,
+          "approach_elapsed": 0.0,
+          "audio_duck": 0.0,
+          "contact_loading": false,
+          "focus": "(0.0, 0.0)",
+          "focus_weight": 0.0,
+          "hitstop": false,
+          "impact_active": false,
+          "impact_elapsed": 0.0,
+          "pass_connected": false,
+          "pass_id": 1,
+          "paused": false,
+          "release": 0.0,
+          "scale": 1.0,
+          "stage_elapsed": 0.0,
+          "state": "runup",
+          "strength": 0.0
+        },
+        "fighters": [
+          {
+            "direction": 1,
+            "drawn_tip_error_px": 6.82393801980652E-05,
+            "horse_in_x": true,
+            "tip": [
+              526.544555664063,
+              367.687927246094
+            ],
+            "tip_in_view": true,
+            "x_max": 470.093383789063,
+            "x_min": 198.217956542969
+          },
+          {
+            "direction": -1,
+            "drawn_tip_error_px": 6.103515625E-05,
+            "horse_in_x": true,
+            "tip": [
+              977.336242675781,
+              429.688354492188
+            ],
+            "tip_in_view": true,
+            "x_max": 1289.94970703125,
+            "x_min": 1018.07427978516
+          }
+        ],
+        "gap": 1176.06794560185,
+        "marker_pixels_per_wall_second": -417.388572322067,
+        "model_time": 6.9416666666668,
+        "mouse_held": true,
+        "opponent_speed": 479.802083333333,
+        "pass_id": 1,
+        "path": "E:/GALUMU/docs/development/logs/feel061-fullcharge-package01/gap_1200.png",
+        "phase": "charge",
+        "physics_game_delta_since_render": 0.0583333333333362,
+        "player_aim": -0.240000153057868,
+        "player_gait_phase": 48.2439413157886,
+        "player_guard": 0.0,
+        "player_speed": 480.0,
+        "pointer_aim": -0.240000153057868,
+        "process_game_delta": 0.0513888888888889,
+        "readback_wall_ms": 3.193,
+        "wall_delta": 0.053187,
+        "wall_seconds": 7.023528,
+        "world_marker_x": -60.2349243164063,
+        "zoom": 0.697116374969482
+      },
+      "gap_1550": {
+        "camera_center": [
+          517.886291503906,
+          448.63427734375
+        ],
+        "camera_offset": [
+          0.0,
+          0.0
+        ],
+        "camera_x": 517.886291503906,
+        "contact_count": 0,
+        "engine_scale": 1.0,
+        "exchange": {
+          "approach": 0.0,
+          "approach_elapsed": 0.0,
+          "audio_duck": 0.0,
+          "contact_loading": false,
+          "focus": "(0.0, 0.0)",
+          "focus_weight": 0.0,
+          "hitstop": false,
+          "impact_active": false,
+          "impact_elapsed": 0.0,
+          "pass_connected": false,
+          "pass_id": 1,
+          "paused": false,
+          "release": 0.0,
+          "scale": 1.0,
+          "stage_elapsed": 0.0,
+          "state": "runup",
+          "strength": 0.0
+        },
+        "fighters": [
+          {
+            "direction": 1,
+            "drawn_tip_error_px": 3.0517578125E-05,
+            "horse_in_x": true,
+            "tip": [
+              501.500061035156,
+              369.197113037109
+            ],
+            "tip_in_view": true,
+            "x_max": 448.216217041016,
+            "x_min": 191.655456542969
+          },
+          {
+            "direction": -1,
+            "drawn_tip_error_px": 0.0,
+            "horse_in_x": false,
+            "tip": [
+              1159.04711914063,
+              428.136749267578
+            ],
+            "tip_in_view": true,
+            "x_max": 1453.45129394531,
+            "x_min": 1196.890625
+          }
+        ],
+        "gap": 1528.06574652778,
+        "marker_pixels_per_wall_second": -321.305655278088,
+        "model_time": 6.57500000000012,
+        "mouse_held": true,
+        "opponent_speed": 480.0,
+        "pass_id": 1,
+        "path": "E:/GALUMU/docs/development/logs/feel061-fullcharge-package01/gap_1550.png",
+        "phase": "charge",
+        "physics_game_delta_since_render": 0.0500000000000025,
+        "player_aim": -0.240000153057868,
+        "player_gait_phase": 43.3413812601067,
+        "player_guard": 0.0,
+        "player_speed": 480.0,
+        "pointer_aim": -0.240000153057868,
+        "process_game_delta": 0.0500126296296298,
+        "readback_wall_ms": 3.079,
+        "wall_delta": 0.051027,
+        "wall_seconds": 6.662381,
+        "world_marker_x": 63.5424194335938,
+        "zoom": 0.657848060131073
+      },
+      "gap_1900": {
+        "camera_center": [
+          301.559112548828,
+          449.174072265625
+        ],
+        "camera_offset": [
+          0.0,
+          0.0
+        ],
+        "camera_x": 301.559112548828,
+        "contact_count": 0,
+        "engine_scale": 1.0,
+        "exchange": {
+          "approach": 0.0,
+          "approach_elapsed": 0.0,
+          "audio_duck": 0.0,
+          "contact_loading": false,
+          "focus": "(0.0, 0.0)",
+          "focus_weight": 0.0,
+          "hitstop": false,
+          "impact_active": false,
+          "impact_elapsed": 0.0,
+          "pass_connected": false,
+          "pass_id": 1,
+          "paused": false,
+          "release": 0.0,
+          "scale": 1.0,
+          "stage_elapsed": 0.0,
+          "state": "runup",
+          "strength": 0.0
+        },
+        "fighters": [
+          {
+            "direction": 1,
+            "drawn_tip_error_px": 3.0517578125E-05,
+            "horse_in_x": true,
+            "tip": [
+              524.947265625,
+              370.151702880859
+            ],
+            "tip_in_view": true,
+            "x_max": 472.014831542969,
+            "x_min": 206.908752441406
+          },
+          {
+            "direction": -1,
+            "drawn_tip_error_px": 3.0517578125E-05,
+            "horse_in_x": false,
+            "tip": [
+              1432.99450683594,
+              428.616302490234
+            ],
+            "tip_in_view": true,
+            "x_max": 1739.13012695313,
+            "x_min": 1474.02416992188
+          }
+        ],
+        "gap": 1864.06574652778,
+        "marker_pixels_per_wall_second": -333.153497219272,
+        "model_time": 6.2250000000001,
+        "mouse_held": true,
+        "opponent_speed": 480.0,
+        "pass_id": 1,
+        "path": "E:/GALUMU/docs/development/logs/feel061-fullcharge-package01/gap_1900.png",
+        "phase": "charge",
+        "physics_game_delta_since_render": 0.0583333333333362,
+        "player_aim": -0.240000153057868,
+        "player_gait_phase": 38.6616648433195,
+        "player_guard": 0.0,
+        "player_speed": 480.0,
+        "pointer_aim": -0.240000153057868,
+        "process_game_delta": 0.0508333333333333,
+        "readback_wall_ms": 3.486,
+        "wall_delta": 0.053673,
+        "wall_seconds": 6.303048,
+        "world_marker_x": 188.728210449219,
+        "zoom": 0.679758965969086
+      },
+      "gap_2200": {
+        "camera_center": [
+          157.735336303711,
+          449.176391601563
+        ],
+        "camera_offset": [
+          0.0,
+          0.0
+        ],
+        "camera_x": 157.735336303711,
+        "contact_count": 0,
+        "engine_scale": 1.0,
+        "exchange": {
+          "approach": 0.0,
+          "approach_elapsed": 0.0,
+          "audio_duck": 0.0,
+          "contact_loading": false,
+          "focus": "(0.0, 0.0)",
+          "focus_weight": 0.0,
+          "hitstop": false,
+          "impact_active": false,
+          "impact_elapsed": 0.0,
+          "pass_connected": false,
+          "pass_id": 1,
+          "paused": false,
+          "release": 0.0,
+          "scale": 1.0,
+          "stage_elapsed": 0.0,
+          "state": "runup",
+          "strength": 0.0
+        },
+        "fighters": [
+          {
+            "direction": 1,
+            "drawn_tip_error_px": 0.0,
+            "horse_in_x": true,
+            "tip": [
+              523.735656738281,
+              370.813690185547
+            ],
+            "tip_in_view": true,
+            "x_max": 469.086975097656,
+            "x_min": 203.887023925781
+          },
+          {
+            "direction": -1,
+            "drawn_tip_error_px": 0.0001220703125,
+            "horse_in_x": false,
+            "tip": [
+              1632.47814941406,
+              428.204040527344
+            ],
+            "tip_in_view": false,
+            "x_max": 1937.93139648438,
+            "x_min": 1672.7314453125
+          }
+        ],
+        "gap": 2160.06574652778,
+        "marker_pixels_per_wall_second": -316.847234047881,
+        "model_time": 5.91666666666675,
+        "mouse_held": true,
+        "opponent_speed": 480.0,
+        "pass_id": 1,
+        "path": "E:/GALUMU/docs/development/logs/feel061-fullcharge-package01/gap_2200.png",
+        "phase": "charge",
+        "physics_game_delta_since_render": 0.0500000000000025,
+        "player_aim": -0.240000153057868,
+        "player_gait_phase": 34.5390575237688,
+        "player_guard": 0.0,
+        "player_speed": 480.0,
+        "pointer_aim": -0.240000153057868,
+        "process_game_delta": 0.0508333333333333,
+        "readback_wall_ms": 3.285,
+        "wall_delta": 0.049915,
+        "wall_seconds": 5.994124,
+        "world_marker_x": 286.339965820313,
+        "zoom": 0.679999887943268
+      },
+      "gap_850": {
+        "camera_center": [
+          671.502685546875,
+          452.878112792969
+        ],
+        "camera_offset": [
+          0.0,
+          0.0
+        ],
+        "camera_x": 671.502685546875,
+        "contact_count": 0,
+        "engine_scale": 1.0,
+        "exchange": {
+          "approach": 0.0,
+          "approach_elapsed": 0.0,
+          "audio_duck": 0.0,
+          "contact_loading": false,
+          "focus": "(0.0, 0.0)",
+          "focus_weight": 0.0,
+          "hitstop": false,
+          "impact_active": false,
+          "impact_elapsed": 0.0,
+          "pass_connected": false,
+          "pass_id": 1,
+          "paused": false,
+          "release": 0.0,
+          "scale": 1.0,
+          "stage_elapsed": 0.0,
+          "state": "runup",
+          "strength": 0.0
+        },
+        "fighters": [
+          {
+            "direction": 1,
+            "drawn_tip_error_px": 0.0,
+            "horse_in_x": true,
+            "tip": [
+              608.289489746094,
+              367.581665039063
+            ],
+            "tip_in_view": true,
+            "x_max": 538.678161621094,
+            "x_min": 209.396545410156
+          },
+          {
+            "direction": -1,
+            "drawn_tip_error_px": 0.0,
+            "horse_in_x": true,
+            "tip": [
+              864.646240234375,
+              429.978973388672
+            ],
+            "tip_in_view": true,
+            "x_max": 1241.92724609375,
+            "x_min": 912.645629882813
+          }
+        ],
+        "gap": 832.925815972223,
+        "marker_pixels_per_wall_second": -431.268316435399,
+        "model_time": 7.30833333333349,
+        "mouse_held": true,
+        "opponent_speed": 420.229166666667,
+        "pass_id": 1,
+        "path": "E:/GALUMU/docs/development/logs/feel061-fullcharge-package01/gap_850.png",
+        "phase": "charge",
+        "physics_game_delta_since_render": 0.0500000000000025,
+        "player_aim": -0.200000104889496,
+        "player_gait_phase": 53.1465013714704,
+        "player_guard": 0.443333333333333,
+        "player_speed": 480.0,
+        "pointer_aim": -0.200000104889496,
+        "process_game_delta": 0.0526736666666669,
+        "readback_wall_ms": 3.308,
+        "wall_delta": 0.050789,
+        "wall_seconds": 7.394232,
+        "world_marker_x": -252.227233886719,
+        "zoom": 0.844311773777008
+      },
+      "read": {
+        "camera_center": [
+          777.610900878906,
+          463.390838623047
+        ],
+        "camera_offset": [
+          6.36815547943115,
+          -0.923159301280975
+        ],
+        "camera_x": 777.610900878906,
+        "contact_count": 2,
+        "engine_scale": 0.28,
+        "exchange": {
+          "approach": 0.0,
+          "approach_elapsed": 0.766,
+          "audio_duck": 0.623625702020561,
+          "contact_loading": false,
+          "focus": "(139.4594, -241.8537)",
+          "focus_weight": 0.936701684849346,
+          "hitstop": false,
+          "impact_active": true,
+          "impact_elapsed": 0.148,
+          "pass_connected": true,
+          "pass_id": 1,
+          "paused": false,
+          "release": 0.0,
+          "scale": 0.28,
+          "stage_elapsed": 0.00116491575753273,
+          "state": "read",
+          "strength": 0.894502808082243
+        },
+        "fighters": [
+          {
+            "direction": 1,
+            "drawn_tip_error_px": 0.0,
+            "horse_in_x": true,
+            "tip": [
+              616.375,
+              381.344604492188
+            ],
+            "tip_in_view": true,
+            "x_max": 736.601623535156,
+            "x_min": 276.529937744141
+          },
+          {
+            "direction": -1,
+            "drawn_tip_error_px": 0.0,
+            "horse_in_x": true,
+            "tip": [
+              713.218566894531,
+              343.349517822266
+            ],
+            "tip_in_view": true,
+            "x_max": 1030.26733398438,
+            "x_min": 570.195617675781
+          }
+        ],
+        "gap": 248.938664031306,
+        "marker_pixels_per_wall_second": -562.458408381516,
+        "model_time": 8.0193884133258,
+        "mouse_held": true,
+        "opponent_speed": 263.797049068363,
+        "pass_id": 1,
+        "path": "E:/GALUMU/docs/development/logs/feel061-fullcharge-package01/read.png",
+        "phase": "charge",
+        "physics_game_delta_since_render": 5.00000000016598E-05,
+        "player_aim": -0.200000104889496,
+        "player_gait_phase": 62.6537474602703,
+        "player_guard": 1.0,
+        "player_speed": 480.0,
+        "pointer_aim": -0.200000104889496,
+        "process_game_delta": 5.02280740740738E-05,
+        "readback_wall_ms": 3.133,
+        "wall_delta": 0.049378,
+        "wall_seconds": 8.513948,
+        "world_marker_x": -771.079284667969,
+        "zoom": 1.17967092990875
+      },
+      "ready": {
+        "camera_center": [
+          720.0,
+          429.97216796875
+        ],
+        "camera_offset": [
+          0.0,
+          0.0
+        ],
+        "camera_x": 720.0,
+        "contact_count": 0,
+        "engine_scale": 1.0,
+        "exchange": {
+          "approach": 0.0,
+          "approach_elapsed": 0.0,
+          "audio_duck": 0.0,
+          "contact_loading": false,
+          "focus": "(0.0, 0.0)",
+          "focus_weight": 0.0,
+          "hitstop": false,
+          "impact_active": false,
+          "impact_elapsed": 0.0,
+          "pass_connected": false,
+          "pass_id": 1,
+          "paused": false,
+          "release": 0.0,
+          "scale": 1.0,
+          "stage_elapsed": 0.0,
+          "state": "runup",
+          "strength": 0.0
+        },
+        "fighters": [
+          {
+            "direction": 1,
+            "drawn_tip_error_px": 0.0,
+            "horse_in_x": true,
+            "tip": [
+              181.338806152344,
+              406.760894775391
+            ],
+            "tip_in_view": true,
+            "x_max": 157.200012207031,
+            "x_min": 48.0
+          },
+          {
+            "direction": -1,
+            "drawn_tip_error_px": 0.0,
+            "horse_in_x": true,
+            "tip": [
+              1258.52075195313,
+              397.821533203125
+            ],
+            "tip_in_view": true,
+            "x_max": 1389.19995117188,
+            "x_min": 1280.0
+          }
+        ],
+        "gap": 4400.0,
+        "marker_pixels_per_wall_second": 0.0,
+        "model_time": 0.0583333333333333,
+        "mouse_held": false,
+        "opponent_speed": 0.0,
+        "pass_id": 1,
+        "path": "E:/GALUMU/docs/development/logs/feel061-fullcharge-package01/ready.png",
+        "phase": "ready",
+        "physics_game_delta_since_render": 0.0583333333333333,
+        "player_aim": -0.08,
+        "player_gait_phase": 0.0,
+        "player_guard": 0.43,
+        "player_speed": 0.0,
+        "pointer_aim": -0.08,
+        "process_game_delta": 0.075,
+        "readback_wall_ms": 6.06,
+        "wall_delta": 0.0,
+        "wall_seconds": 0.154369,
+        "world_marker_x": 384.0,
+        "zoom": 0.280000001192093
+      },
+      "rehold_spur": {
+        "camera_center": [
+          -131.861282348633,
+          449.176391601563
+        ],
+        "camera_offset": [
+          0.0,
+          0.0
+        ],
+        "camera_x": -131.861282348633,
+        "contact_count": 0,
+        "engine_scale": 1.0,
+        "exchange": {
+          "approach": 0.0,
+          "approach_elapsed": 0.0,
+          "audio_duck": 0.0,
+          "contact_loading": false,
+          "focus": "(0.0, 0.0)",
+          "focus_weight": 0.0,
+          "hitstop": false,
+          "impact_active": false,
+          "impact_elapsed": 0.0,
+          "pass_connected": false,
+          "pass_id": 1,
+          "paused": false,
+          "release": 0.0,
+          "scale": 1.0,
+          "stage_elapsed": 0.0,
+          "state": "runup",
+          "strength": 0.0
+        },
+        "fighters": [
+          {
+            "direction": 1,
+            "drawn_tip_error_px": 0.0,
+            "horse_in_x": true,
+            "tip": [
+              510.935913085938,
+              369.250305175781
+            ],
+            "tip_in_view": true,
+            "x_max": 458.781372070313,
+            "x_min": 193.581420898438
+          },
+          {
+            "direction": -1,
+            "drawn_tip_error_px": 0.0,
+            "horse_in_x": false,
+            "tip": [
+              2063.71923828125,
+              428.116790771484
+            ],
+            "tip_in_view": false,
+            "x_max": 2368.77734375,
+            "x_min": 2103.5771484375
+          }
+        ],
+        "gap": 2808.81789351852,
+        "marker_pixels_per_wall_second": -273.863442929705,
+        "model_time": 5.20000000000005,
+        "mouse_held": false,
+        "opponent_speed": 480.0,
+        "pass_id": 1,
+        "path": "E:/GALUMU/docs/development/logs/feel061-fullcharge-package01/rehold_spur.png",
+        "phase": "charge",
+        "physics_game_delta_since_render": 0.0500000000000025,
+        "player_aim": -0.240000153057868,
+        "player_gait_phase": 25.4404494357838,
+        "player_guard": 0.43,
+        "player_speed": 343.383333333334,
+        "pointer_aim": -0.240000153057868,
+        "process_game_delta": 0.0508333333333333,
+        "readback_wall_ms": 3.381,
+        "wall_delta": 0.050302,
+        "wall_seconds": 5.277548,
+        "world_marker_x": 483.265747070313,
+        "zoom": 0.679999887943268
+      },
+      "release": {
+        "camera_center": [
+          786.453491210938,
+          463.538177490234
+        ],
+        "camera_offset": [
+          -0.294416040182114,
+          0.0152958231046796
+        ],
+        "camera_x": 786.453491210938,
+        "contact_count": 2,
+        "engine_scale": 0.284529599727202,
+        "exchange": {
+          "approach": 0.0,
+          "approach_elapsed": 0.766,
+          "audio_duck": 0.619702403673688,
+          "contact_loading": false,
+          "focus": "(139.4594, -241.8537)",
+          "focus_weight": 0.930808790826896,
+          "hitstop": false,
+          "impact_active": true,
+          "impact_elapsed": 0.438,
+          "pass_connected": true,
+          "pass_id": 1,
+          "paused": false,
+          "release": 0.0465204823230527,
+          "scale": 0.284529599727202,
+          "stage_elapsed": 0.0111649157575327,
+          "state": "release",
+          "strength": 0.894502808082243
+        },
+        "fighters": [
+          {
+            "direction": 1,
+            "drawn_tip_error_px": 0.0,
+            "horse_in_x": true,
+            "tip": [
+              653.639953613281,
+              377.296142578125
+            ],
+            "tip_in_view": true,
+            "x_max": 780.382568359375,
+            "x_min": 319.474304199219
+          },
+          {
+            "direction": -1,
+            "drawn_tip_error_px": 0.0,
+            "horse_in_x": true,
+            "tip": [
+              691.034973144531,
+              347.2265625
+            ],
+            "tip_in_view": true,
+            "x_max": 1003.68658447266,
+            "x_min": 542.778259277344
+          }
+        ],
+        "gap": 188.94983835739,
+        "marker_pixels_per_wall_second": -21.7791320119466,
+        "model_time": 8.10105507999244,
+        "mouse_held": true,
+        "opponent_speed": 245.830382401697,
+        "pass_id": 1,
+        "path": "E:/GALUMU/docs/development/logs/feel061-fullcharge-package01/release.png",
+        "phase": "charge",
+        "physics_game_delta_since_render": 0.0139999999999958,
+        "player_aim": -0.200000104889496,
+        "player_gait_phase": 63.7456812908541,
+        "player_guard": 1.0,
+        "player_speed": 480.0,
+        "pointer_aim": -0.200000104889496,
+        "process_game_delta": 0.014,
+        "readback_wall_ms": 3.033,
+        "wall_delta": 0.047838,
+        "wall_seconds": 8.805286,
+        "world_marker_x": -776.367126464844,
+        "zoom": 1.18181610107422
+      },
+      "release_spur": {
+        "camera_center": [
+          -421.684936523438,
+          449.176177978516
+        ],
+        "camera_offset": [
+          0.0,
+          0.0
+        ],
+        "camera_x": -421.684936523438,
+        "contact_count": 0,
+        "engine_scale": 1.0,
+        "exchange": {
+          "approach": 0.0,
+          "approach_elapsed": 0.0,
+          "audio_duck": 0.0,
+          "contact_loading": false,
+          "focus": "(0.0, 0.0)",
+          "focus_weight": 0.0,
+          "hitstop": false,
+          "impact_active": false,
+          "impact_elapsed": 0.0,
+          "pass_connected": false,
+          "pass_id": 1,
+          "paused": false,
+          "release": 0.0,
+          "scale": 1.0,
+          "stage_elapsed": 0.0,
+          "state": "runup",
+          "strength": 0.0
+        },
+        "fighters": [
+          {
+            "direction": 1,
+            "drawn_tip_error_px": 0.0001220703125,
+            "horse_in_x": true,
+            "tip": [
+              525.634582519531,
+              367.519561767578
+            ],
+            "tip_in_view": true,
+            "x_max": 470.354125976563,
+            "x_min": 205.154296875
+          },
+          {
+            "direction": -1,
+            "drawn_tip_error_px": 0.0,
+            "horse_in_x": false,
+            "tip": [
+              2474.9541015625,
+              427.635498046875
+            ],
+            "tip_in_view": false,
+            "x_max": 2780.73608398438,
+            "x_min": 2515.5361328125
+          }
+        ],
+        "gap": 3397.62280092593,
+        "marker_pixels_per_wall_second": -321.083036774225,
+        "model_time": 4.54166666666668,
+        "mouse_held": true,
+        "opponent_speed": 480.0,
+        "pass_id": 1,
+        "path": "E:/GALUMU/docs/development/logs/feel061-fullcharge-package01/release_spur.png",
+        "phase": "charge",
+        "physics_game_delta_since_render": 0.0583333333333362,
+        "player_aim": -0.240000153057868,
+        "player_gait_phase": 17.1381915491491,
+        "player_guard": 0.43,
+        "player_speed": 480.0,
+        "pointer_aim": -0.240000153057868,
+        "process_game_delta": 0.0520833333333333,
+        "readback_wall_ms": 3.579,
+        "wall_delta": 0.052332,
+        "wall_seconds": 4.617514,
+        "world_marker_x": 680.345764160156,
+        "zoom": 0.679999530315399
+      }
+    },
+    "examples": []
+  }
+}

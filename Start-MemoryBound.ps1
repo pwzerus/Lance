@@ -5,7 +5,10 @@ param(
     [string]$MemoryLog = '',
     [switch]$InspectOnly,
     [switch]$MemoryMap,
-    [switch]$HeadlessDiagnostics
+    [switch]$HeadlessDiagnostics,
+    [switch]$GeometryDiagnostics,
+    [switch]$RenderDiagnostics,
+    [switch]$IsolatedDesktop
 )
 $ErrorActionPreference = 'Stop'
 $target = (Resolve-Path -LiteralPath $Executable).Path
@@ -94,6 +97,8 @@ public static class MemoryBound {
     [DllImport("kernel32", SetLastError=true)] static extern bool GetExitCodeProcess(IntPtr process, out uint code);
     [DllImport("kernel32")] static extern bool TerminateProcess(IntPtr process, uint code);
     [DllImport("kernel32")] static extern bool CloseHandle(IntPtr handle);
+    [DllImport("user32", SetLastError=true, CharSet=CharSet.Unicode)] static extern IntPtr CreateDesktop(string name, IntPtr device, IntPtr mode, uint flags, uint access, IntPtr attributes);
+    [DllImport("user32", SetLastError=true)] static extern bool CloseDesktop(IntPtr desktop);
 
     static void Check(bool success) {
         if (!success) throw new Win32Exception(Marshal.GetLastWin32Error());
@@ -117,7 +122,20 @@ public static class MemoryBound {
     public static string InspectSelfMap() {
         using (var current = System.Diagnostics.Process.GetCurrentProcess()) { return Map(current.Handle); }
     }
-    public static int Run(string app, string arguments, int seconds, string log, bool memoryMap, bool headlessDiagnostics) {
+    public static int Run(string app, string arguments, int seconds, string log, bool memoryMap, bool headlessDiagnostics, bool isolatedDesktop, bool geometryDiagnostics, bool renderDiagnostics) {
+        if ((headlessDiagnostics ? 1 : 0) + (geometryDiagnostics ? 1 : 0) + (renderDiagnostics ? 1 : 0) > 1)
+            throw new ArgumentException("Choose only one diagnostic memory profile.");
+        if (isolatedDesktop && (seconds <= 0 || !System.Text.RegularExpressions.Regex.IsMatch(arguments, @"(^|\s)--test-profile(\s|$)")))
+            throw new ArgumentException("Isolated desktop is for finite QA runs with --test-profile only.");
+        if (renderDiagnostics && (!isolatedDesktop || seconds <= 0 || !arguments.Contains("--script ") || arguments.Contains("--editor") || arguments.Contains("--export")))
+            throw new ArgumentException("512 MiB render diagnostics require finite isolated-desktop script QA, not import/export or gameplay.");
+        if (geometryDiagnostics) {
+            if (seconds <= 0 || !System.Text.RegularExpressions.Regex.IsMatch(arguments, @"(^|\s)--headless(\s|$)") ||
+                !System.Text.RegularExpressions.Regex.IsMatch(arguments, @"(^|\s)--script\s") ||
+                !arguments.Contains("--test-profile") || arguments.Contains("--editor") || arguments.Contains("--export"))
+                throw new ArgumentException("256 MiB geometry diagnostics require finite headless script QA; never use for import/export or gameplay.");
+            headlessDiagnostics = true;
+        }
         if (System.IO.Path.GetFileName(app).EndsWith("_console.exe", StringComparison.OrdinalIgnoreCase))
             throw new ArgumentException("Use the main Godot .exe, not its _console.exe launcher, so process memory telemetry observes the engine itself.");
         if (headlessDiagnostics && !System.Text.RegularExpressions.Regex.IsMatch(arguments, @"(^|\s)--headless(\s|$)"))
@@ -129,7 +147,7 @@ public static class MemoryBound {
         // launch overhead. The old flat 4 GiB gate blocked even measured
         // 0.6-0.75 GiB runs; this does NOT increase the child's Job limit.
         const ulong mib = 1024UL*1024UL;
-        ulong childMiB = headlessDiagnostics ? 512UL : 1024UL;
+        ulong childMiB = geometryDiagnostics ? 256UL : ((headlessDiagnostics || renderDiagnostics) ? 512UL : 1024UL);
         ulong startupReserve = (2048UL+childMiB+256UL)*mib;
         if (memory.AvailablePhysical < startupReserve || memory.AvailablePageFile < (childMiB+256UL)*mib)
             throw new InvalidOperationException(String.Format("Insufficient launch budget: need {0} MiB available RAM and {1} MiB available commit.", startupReserve/mib, childMiB+256UL));
@@ -140,6 +158,7 @@ public static class MemoryBound {
         Check(job != IntPtr.Zero);
         Child child = new Child();
         bool assigned = false;
+        IntPtr desktop = IntPtr.Zero, desktopName = IntPtr.Zero;
         try {
             Limits limits = new Limits();
             // JOB_OBJECT_LIMIT_JOB_MEMORY | JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
@@ -150,6 +169,15 @@ public static class MemoryBound {
             Check(SetInformationJobObject(job, 15, ref cpu, Marshal.SizeOf(typeof(CpuLimit))));
             Startup startup = new Startup();
             startup.Size = Marshal.SizeOf(typeof(Startup));
+            if (isolatedDesktop) {
+                // Own non-input desktop: never call SwitchDesktop or move the user's focus.
+                string name = "GALUMU_QA_" + Guid.NewGuid().ToString("N");
+                desktop = CreateDesktop(name, IntPtr.Zero, IntPtr.Zero, 0, 0x01FF, IntPtr.Zero);
+                Check(desktop != IntPtr.Zero);
+                desktopName = Marshal.StringToHGlobalUni(name);
+                startup.Desktop = desktopName;
+                Log(log, "QA_DESKTOP " + name + " (not switched to input desktop)");
+            }
             string previous = Environment.GetEnvironmentVariable("GALUMU_MEMORY_BOUND");
             try {
                 Environment.SetEnvironmentVariable("GALUMU_MEMORY_BOUND", "1024");
@@ -181,7 +209,7 @@ public static class MemoryBound {
                     }
                     // End a runaway before allocation failures can flood logs or spin.
                     Check(GlobalMemoryStatusEx(ref memory));
-                    if ((ulong)observed.PrivateMemorySize64 > (headlessDiagnostics ? 448UL : 900UL)*mib || memory.AvailablePhysical < 2UL*1024*1024*1024 || memory.AvailablePageFile < 512UL*mib) {
+                    if ((ulong)observed.PrivateMemorySize64 > (geometryDiagnostics ? 224UL : ((headlessDiagnostics || renderDiagnostics) ? 448UL : 900UL))*mib || memory.AvailablePhysical < 2UL*1024*1024*1024 || memory.AvailablePageFile < 512UL*mib) {
                         string reason = "STOP memory budget exceeded, RAM reserve below 2 GiB, or available commit below 512 MiB";
                         Console.WriteLine(reason);
                         Log(log, reason);
@@ -198,8 +226,11 @@ public static class MemoryBound {
         } finally {
             if (!assigned && child.Process != IntPtr.Zero) TerminateProcess(child.Process, 1);
             CloseHandle(job);
+            if (desktop != IntPtr.Zero && child.Process != IntPtr.Zero) WaitForSingleObject(child.Process, 5000);
             if (child.Thread != IntPtr.Zero) CloseHandle(child.Thread);
             if (child.Process != IntPtr.Zero) CloseHandle(child.Process);
+            if (desktopName != IntPtr.Zero) Marshal.FreeHGlobal(desktopName);
+            if (desktop != IntPtr.Zero) Log(log, "QA_DESKTOP_CLOSED=" + CloseDesktop(desktop));
         }
         } finally { single.ReleaseMutex(); }
         }
@@ -211,4 +242,4 @@ if ($InspectOnly) {
     if ($MemoryMap) { [MemoryBound]::InspectSelfMap() }
     exit 0
 }
-exit [MemoryBound]::Run($target, $Arguments, $TimeoutSeconds, $MemoryLog, $MemoryMap, $HeadlessDiagnostics)
+exit [MemoryBound]::Run($target, $Arguments, $TimeoutSeconds, $MemoryLog, $MemoryMap, $HeadlessDiagnostics, $IsolatedDesktop, $GeometryDiagnostics, $RenderDiagnostics)

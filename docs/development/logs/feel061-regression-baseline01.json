@@ -1,0 +1,13 @@
+{
+	"failures": [
+		"Hoof delivery exceeds its lift envelope",
+		"Hoof curve has a velocity discontinuity at an interior knot",
+		"Hoof starts/stops with a velocity jump against the planted target",
+		"Hoof overshoots or reverses before landing"
+	],
+	"fixed_vertices": 2173,
+	"maximum_curve_velocity_jump": 79.0080800652504,
+	"maximum_skull_length_error": 0.000030517578125,
+	"passed": false,
+	"scope": "Curve continuity, no overshoot, rigid poll/muzzle and bounded mesh topology. Not a human feel verdict."
+}

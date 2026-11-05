@@ -57,7 +57,7 @@ func pose_error(before: Array, after: Array) -> float:
 		maximum = maxf(maximum,absf(float(a.phase)-float(b.phase)))
 		for key in ["offset","rider_offset","neck_offset"]:
 			maximum = maxf(maximum,a.visual[key].distance_to(b.visual[key]))
-		for key in ["pitch","neck","rider_pitch","tail"]:
+		for key in ["pitch","neck","head","rider_pitch","tail"]:
 			maximum = maxf(maximum,absf(float(a.visual[key])-float(b.visual[key])))
 		check(a.legs.size()==4 and b.legs.size()==4,"Both terminal riders keep four leg chains")
 		for leg_index in range(mini(a.legs.size(),b.legs.size())):
@@ -71,7 +71,7 @@ func consistency_error(rows: Array) -> float:
 		check(row.moving==row.gait_moving,"Terminal renderer and model agree on gait participation")
 		for key in ["offset","rider_offset","neck_offset"]:
 			maximum = maxf(maximum,row.visual[key].distance_to(row.model[key]))
-		for key in ["pitch","neck","rider_pitch","tail"]:
+		for key in ["pitch","neck","head","rider_pitch","tail"]:
 			maximum = maxf(maximum,absf(float(row.visual[key])-float(row.model[key])))
 		maximum = maxf(maximum,(row.visual.offset+row.visual.rider_offset).distance_to(row.saddle))
 	return maximum

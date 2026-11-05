@@ -1,0 +1,8 @@
+{
+	"failures": [],
+	"fixed_vertices": 2173,
+	"maximum_curve_velocity_jump": 0.806021271273494,
+	"maximum_skull_length_error": 0.000030517578125,
+	"passed": true,
+	"scope": "Curve continuity, no overshoot, rigid poll/muzzle and bounded mesh topology. Not a human feel verdict."
+}

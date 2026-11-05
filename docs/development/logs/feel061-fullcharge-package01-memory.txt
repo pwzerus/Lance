@@ -1,0 +1,23 @@
+QA_DESKTOP GALUMU_QA_4498264d46b443e88c5768a51b45afb1 (not switched to input desktop)
+START utc=2026-11-05T15:56:51.9791979Z pid=29492 jobMiB=1024 executable=E:\GALUMU\builds\LanceAndLaurel-v0.4.21\LanceAndLaurel.exe
+MEM seconds=1 privateMiB=94.6 workingMiB=139.5 availableRamMiB=3618 availableCommitMiB=9360
+MEM seconds=2 privateMiB=264.9 workingMiB=316.6 availableRamMiB=3409 availableCommitMiB=9153
+MEM seconds=3 privateMiB=598.5 workingMiB=542.4 availableRamMiB=3189 availableCommitMiB=8833
+MEM seconds=4 privateMiB=693.4 workingMiB=641.8 availableRamMiB=3079 availableCommitMiB=8730
+MEM seconds=5 privateMiB=704.9 workingMiB=665.9 availableRamMiB=3045 availableCommitMiB=8708
+MEM seconds=6 privateMiB=705.6 workingMiB=666.7 availableRamMiB=3024 availableCommitMiB=8683
+MEM seconds=7 privateMiB=710.0 workingMiB=675.3 availableRamMiB=3019 availableCommitMiB=8688
+MEM seconds=8 privateMiB=714.5 workingMiB=679.7 availableRamMiB=3020 availableCommitMiB=8686
+MEM seconds=9 privateMiB=727.2 workingMiB=695.3 availableRamMiB=2994 availableCommitMiB=8667
+MEM seconds=10 privateMiB=738.6 workingMiB=707.4 availableRamMiB=2982 availableCommitMiB=8656
+MEM seconds=11 privateMiB=705.0 workingMiB=708.7 availableRamMiB=2983 availableCommitMiB=8691
+MEM seconds=12 privateMiB=706.4 workingMiB=712.2 availableRamMiB=2955 availableCommitMiB=8638
+MEM seconds=13 privateMiB=682.0 workingMiB=706.4 availableRamMiB=2976 availableCommitMiB=8710
+MEM seconds=14 privateMiB=682.7 workingMiB=707.1 availableRamMiB=2985 availableCommitMiB=8704
+MEM seconds=15 privateMiB=698.6 workingMiB=717.6 availableRamMiB=2981 availableCommitMiB=8719
+MEM seconds=16 privateMiB=698.0 workingMiB=717.4 availableRamMiB=2982 availableCommitMiB=8717
+MEM seconds=17 privateMiB=698.0 workingMiB=717.4 availableRamMiB=2990 availableCommitMiB=8721
+MEM seconds=18 privateMiB=697.2 workingMiB=717.2 availableRamMiB=2987 availableCommitMiB=8722
+MEM seconds=19 privateMiB=696.8 workingMiB=717.0 availableRamMiB=2985 availableCommitMiB=8721
+EXIT code=0 seconds=20.0
+QA_DESKTOP_CLOSED=True

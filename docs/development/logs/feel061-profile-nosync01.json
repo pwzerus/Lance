@@ -1,0 +1,21 @@
+{
+	"draw_per_rider": {
+		"count": 480,
+		"mean_us": 3318.98541666667,
+		"median_us": 2997.0,
+		"p95_us": 4997.0
+	},
+	"frame_wall": {
+		"count": 239,
+		"mean_us": 16666.3430962343,
+		"median_us": 16667.0,
+		"p95_us": 16833.0
+	},
+	"process_per_rider": {
+		"count": 478,
+		"mean_us": 429.707112970711,
+		"median_us": 359.0,
+		"p95_us": 981.0
+	},
+	"scope": "Actual two RiderViews, 640x480 offscreen desktop, 300 frames. No Main/Battle and no human input. Gait placement is diagnostic, not world-locked locomotion evidence."
+}

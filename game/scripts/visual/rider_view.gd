@@ -122,7 +122,7 @@ func _process(delta: float) -> void:
 		if moving and (not leg_pose.contact or early_release[index]):
 			if is_finite(planted_feet[index]) or not swing_starts[index].is_finite():
 				swing_starts[index] = last_feet[index] if last_feet[index].is_finite() else Vector2(position.x+leg_pose.foot.x*facing,leg_pose.foot.y)
-				release_cycles[index] = cycle
+				release_cycles[index] = cycle if leg_pose.nominal_contact else minf(cycle,float(leg_pose.duty))
 				swing_durations[index] = maxf(.08,(1-cycle)/maxf(.1,Gait.frequency(speed)))
 			# Once lifted, finish the swing. A slower gait's longer duty must
 			# not replant a hoof halfway through the air on the following tick.

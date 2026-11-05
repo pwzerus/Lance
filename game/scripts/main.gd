@@ -68,8 +68,8 @@ func _ready() -> void:
 		OS.alert("Please launch with Play-Latest.cmd (memory protection required).", "Lance & Laurel")
 		get_tree().quit(2)
 		return
-	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.20"
-	print("GALUMU_BUILD v0.4.20")
+	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.21"
+	print("GALUMU_BUILD v0.4.21")
 	get_tree().auto_accept_quit = false
 	add_child(WindowActivity.new())
 	get_window().min_size = Vector2i(960,540)
@@ -89,7 +89,7 @@ func _ready() -> void:
 		smoke_started = Time.get_ticks_msec()
 	show_home()
 	if GameState.qa_input_probe:
-		get_window().title = "Lance & Laurel v0.4.20 QA - Desktop input"
+		get_window().title = "Lance & Laurel v0.4.21 QA - Desktop input"
 		var audit = preload("res://scripts/core/desktop_input_audit.gd").new()
 		audit.main = self
 		add_child(audit)
@@ -149,7 +149,7 @@ func show_home() -> void:
 	UI.button(screen,"历史手记",Rect2(68,569,247,50),show_history)
 	UI.button(screen,"设置",Rect2(331,569,247,50),show_settings)
 	UI.button(screen,"保存并退出",Rect2(68,645,510,50),_save_and_exit)
-	UI.label(screen,"自动保存已启用 · v0.4.20",Vector2(70,727),16,UI.MUTED)
+	UI.label(screen,"自动保存已启用 · v0.4.21",Vector2(70,727),16,UI.MUTED)
 	UI.label(screen,"你的骑士",Vector2(790,145),20,UI.GOLD)
 	UI.button(screen,"角色外观",Rect2(1010,129,362,54),show_character,true)
 	_add_preview(Vector2(1035,652),1.42)

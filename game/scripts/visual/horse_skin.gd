@@ -33,6 +33,7 @@ var indices = PackedInt32Array()
 var weights: Array[Vector3] = []
 var rest_points = PackedVector2Array()
 var neck_weights = PackedFloat32Array()
+var head_weights = PackedFloat32Array()
 var tail_weights = PackedFloat32Array()
 var tail_bends = PackedFloat64Array()
 var limb_name = ""
@@ -66,6 +67,7 @@ func _init(limb: String = "") -> void:
 			var tail_weight = (1.0-smoothstep(tail_boundary-8,tail_boundary+8,source.x))*smoothstep(340,470,source.y)
 			var neck_weight = smoothstep(0,.85,(source-NECK_BASE).dot(POLL-NECK_BASE)/(POLL-NECK_BASE).length_squared())*smoothstep(860,1000,source.x)
 			neck_weights.append(neck_weight if limb.is_empty() else 0.0)
+			head_weights.append(head_weight(source) if limb.is_empty() else 0.0)
 			tail_weights.append(tail_weight if limb.is_empty() else 0.0)
 			tail_bends.append(smoothstep(340,930,source.y))
 			var hind = (1.0-smoothstep(520,640,source.x))*smoothstep(390,620,source.y)*(1.0-tail_weight)
@@ -141,7 +143,20 @@ static func neck_point(source: Vector2, body_pose: Dictionary) -> Vector2:
 	var weight = smoothstep(0,.85,(source-NECK_BASE).dot(POLL-NECK_BASE)/(POLL-NECK_BASE).length_squared())*smoothstep(860,1000,source.x)
 	var pivot = rest_point(NECK_BASE)
 	var local = pivot+(rest_point(source)-pivot).rotated(float(body_pose.neck)*weight)+Vector2(body_pose.neck_offset)*weight
+	local = local.lerp(head_transform(body_pose)*rest_point(source),head_weight(source))
 	return PIVOT+(local-PIVOT).rotated(float(body_pose.pitch))+Vector2(body_pose.offset)
+
+static func head_weight(source: Vector2) -> float:
+	# Preserve a rigid skull past the poll; the neck keeps its smooth bend.
+	return smoothstep(1220,1300,source.x)*(1.0-smoothstep(300,380,source.y))
+
+static func head_transform(body_pose: Dictionary) -> Transform2D:
+	var pivot = rest_point(NECK_BASE)
+	var poll = rest_point(POLL)
+	var base = pivot+(poll-pivot).rotated(float(body_pose.neck))+Vector2(body_pose.neck_offset)
+	var transform = Transform2D(float(body_pose.neck)+float(body_pose.get("head",0.0)),Vector2.ZERO)
+	transform.origin = base-transform.basis_xform(poll)
+	return transform
 
 static func muzzle_point(body_pose: Dictionary) -> Vector2:
 	return neck_point(MUZZLE,body_pose)
@@ -158,6 +173,7 @@ func update(body_pose: Dictionary, hind_pose: Dictionary, fore_pose: Dictionary)
 	var tail_angle = float(body_pose.tail)
 	var neck_pivot = rest_point(NECK_BASE)
 	var tail_pivot = rest_point(TAIL_ROOT)
+	var head_pose = head_transform(body_pose)
 	for i in range(source_points.size()):
 		var source = source_points[i]
 		var weight = weights[i]
@@ -165,6 +181,8 @@ func update(body_pose: Dictionary, hind_pose: Dictionary, fore_pose: Dictionary)
 		var neck_weight = neck_weights[i]
 		if neck_weight>0:
 			rest = neck_pivot+(rest-neck_pivot).rotated(neck_angle*neck_weight)+neck_offset*neck_weight
+		if head_weights[i]>0:
+			rest = rest.lerp(head_pose*rest_points[i],head_weights[i])
 		var tail_weight = tail_weights[i]
 		if tail_weight>0:
 			rest = rest.lerp(tail_pivot+(rest-tail_pivot).rotated(tail_angle*tail_bends[i]),tail_weight)

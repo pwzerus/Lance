@@ -47,6 +47,7 @@ func run() -> void:
 		for phase in range(4):
 			for rider in riders:
 				rider.moving=speed>0
+				rider.fighter.gait_moving=speed>0
 				rider.fighter.speed=speed
 				rider.fighter.gait_phase=phase*TAU/4
 				rider.fighter.motion_drive=1.0 if speed==480 else 0.0

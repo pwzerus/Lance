@@ -28,17 +28,17 @@ const NAMES = ["慢步","小跑","跑步","疾驰"]
 # collection and flight are separate poses instead of four pendulum legs.
 const HEIGHTS = [
  [0.0,-1.0,-2.0,-1.0,0.0,1.0,0.0,-1.0,-2.0,-1.0,0.0,1.0],
- [1.0,-2.0,-4.5,-2.5,.5,2.0,1.0,-2.0,-4.5,-2.5,.5,2.0],
- [1.0,2.5,1.0,-1.5,-2.0,0.0,2.0,0.0,-4.0,-7.0,-8.0,-4.0],
- [1.0,3.0,1.0,-1.0,-.5,1.5,3.0,1.0,-3.0,-7.5,-9.0,-4.0]]
+ [0.5,-1.0,-2.8,-1.5,.3,1.2,.5,-1.0,-2.8,-1.5,.3,1.2],
+ [.5,1.4,.6,-.8,-1.0,0.0,1.0,0.0,-2.0,-4.0,-4.7,-2.0],
+ [.5,1.8,.6,-.5,-.3,.8,1.5,.5,-1.6,-4.0,-4.8,-2.0]]
 # Trot is spring-like: back LOW at midstance, HIGH around suspension.
 # Keep the authored vertical curve aligned with the diagonal footfalls.
 const HEIGHT_PHASE = [0.0,.21,0.0,0.0]
 const PITCHES = [
  [-.008,-.012,-.007,0.0,.008,.012,.008,.012,.007,0.0,-.008,-.012],
- [-.012,-.020,-.008,.015,.020,.008,-.012,-.020,-.008,.015,.020,.008],
- [-.018,-.028,-.008,.020,.037,.027,-.008,-.030,-.020,0.0,.012,0.0],
- [-.025,-.042,-.014,.032,.058,.042,-.010,-.045,-.028,0.0,.018,0.0]]
+ [-.006,-.010,-.004,.007,.010,.004,-.006,-.010,-.004,.007,.010,.004],
+ [-.008,-.014,-.004,.010,.018,.013,-.004,-.014,-.010,0.0,.006,0.0],
+ [-.010,-.020,-.007,.016,.027,.020,-.005,-.022,-.014,0.0,.009,0.0]]
 
 static func rest_foot(index: int) -> Vector2:
  return REST_FEET[index]
@@ -53,6 +53,11 @@ static func rest_flex(front: bool) -> float:
  var upper = FORE_RADIUS if front else HIND_TIBIA
  var lower = FORE_CANNON if front else HIND_CANNON
  return absf(upper.angle_to(lower))
+
+static func _soft_max(a: float, b: float, radius: float) -> float:
+ if radius<=.00001: return maxf(a,b)
+ var overlap = maxf(0.0,radius-absf(a-b))
+ return maxf(a,b)+overlap*overlap/(4.0*radius)
 
 static func weights(speed: float) -> Vector4:
  var a = smoothstep(135,205,speed)
@@ -87,7 +92,7 @@ static func _cycle(values: Array, cycle: float) -> float:
 
 static func body(phase: float, speed: float, moving: bool, stability: float = 1.0, drive: float = 0.0) -> Dictionary:
  if not moving:
-  return {"offset":Vector2(0,sin(phase)*.45),"pitch":0.0,"neck":sin(phase)*.008,"neck_offset":Vector2.ZERO,"tail":sin(phase*.7)*.045,"rider_offset":Vector2.ZERO,"rider_pitch":0.0,"gait":0}
+  return {"offset":Vector2(0,sin(phase)*.45),"pitch":0.0,"neck":sin(phase)*.008,"head":-sin(phase)*.004,"neck_offset":Vector2.ZERO,"tail":sin(phase*.7)*.045,"rider_offset":Vector2.ZERO,"rider_pitch":0.0,"gait":0}
  var w = weights(speed)
  var cycle = fposmod(phase/TAU,1)
  var intensity = smoothstep(0,95,speed)
@@ -108,39 +113,29 @@ static func body(phase: float, speed: float, moving: bool, stability: float = 1.
   delayed_height += _cycle(HEIGHTS[i],cycle-.055+HEIGHT_PHASE[i])*w[i]
   delayed_pitch += _cycle(PITCHES[i],cycle-.04)*w[i]
  var rider_lag = (delayed_height-height)*.32*transmission
+ var neck_angle = (.075*run-pitch*.90+delayed_pitch*.35+sin(phase-.5)*(.020*w.x+.012*w.y))*intensity
  # The head counterbalances the SAME trunk loading, instead of bobbing on
  # an unrelated large sine. Acceleration loads the hindquarters and carries
  # the seated rider forward; these offsets are shared with the rule anchors.
- return {"offset":Vector2(sin(phase-.4)*run*1.7+drive*2.0,height*intensity+absf(drive)*1.2),"pitch":pitch*intensity-drive*.028,
-  "neck":(.075*run-pitch*.90+delayed_pitch*.35+sin(phase-.5)*(.020*w.x+.012*w.y))*intensity,
+ return {"offset":Vector2(sin(phase-.4)*run*.55+drive*1.3,height*intensity+absf(drive)*.7),"pitch":pitch*intensity-drive*.018,
+  "neck":neck_angle,"head":-neck_angle*.55-pitch*.6+sin(phase-.7)*.012*run*intensity,
   "neck_offset":Vector2(run*(2+2*sin(phase-.3)),run*(1+height*.14))*intensity,
   "tail":(.30*run+sin(phase-1.1)*(.04+.10*run))*intensity,
   "rider_offset":Vector2(-sin(phase)*run*2.2-drive*1.2,rider_lag*intensity),
   "rider_pitch":delayed_pitch*.58+drive*.060,"gait":gait_index(speed)}
 
 static func _swing_point(front: bool, t: float, reach: float, lift: float, run: float) -> Vector2:
- var times = [0.0,.18,.42,.75,1.0] if front else [0.0,.22,.55,.84,1.0]
- var points = [Vector2(-reach,0),Vector2(-reach,-lift*.55),Vector2(0,-lift),Vector2(reach,-lift*.45),Vector2(reach,0)] if front else [Vector2(-reach,0),Vector2(-reach+12,-lift*.65),Vector2(reach*.15,-lift),Vector2(reach+6*run,-lift*.3),Vector2(reach,0)]
- for i in range(times.size()-1):
-  if t<=times[i+1]:
-   var local = inverse_lerp(times[i],times[i+1],t)
-   var a: Vector2 = points[maxi(0,i-1)]
-   var b: Vector2 = points[i]
-   var c: Vector2 = points[i+1]
-   var d: Vector2 = points[mini(points.size()-1,i+2)]
-   var result = b.cubic_interpolate(c,a,d,local)
-   if front:
-    # RiderView uses this x as interpolation towards a predicted WORLD
-    # landing. Overshooting reach extrapolated beyond that landing, pulled
-    # the shorter fore chain fully straight, then snapped its elbow during
-    # late-swing recovery. Keep the authored lift but make forward delivery
-    # monotone with zero endpoint velocity/acceleration.
-    var progress = clampf(t,0,1)
-    var delivered = progress*progress*progress*(progress*(6.0*progress-15.0)+10.0)
-    result.x = lerpf(-reach,reach,delivered)
-   result.y = minf(0,result.y)
-   return result
- return Vector2(reach,0)
+ # One C1 trajectory, rather than Catmull-Rom sections with different time
+ # scales (the latter changed vertical velocity abruptly at every knot).
+ # Both feet deliver monotonically to the world landing target; hind feet
+ # must not overshoot that target and whip backwards before touchdown.
+ var progress = clampf(t,0,1)
+ var delivered = progress*progress*progress*(progress*(6.0*progress-15.0)+10.0)
+ # Clear the ground early while the trunk advances over the planted foot.
+ # A symmetric sin² hump lifted too late and forced a straight-chain clamp.
+ var apex = (.36 if front else .40)-.03*run
+ var lift_weight = smoothstep(0,apex,progress) if progress<apex else 1.0-smoothstep(apex,1.0,progress)
+ return Vector2(lerpf(-reach,reach,delivered),-lift*lift_weight)
 
 static func leg(index: int, phase: float, speed: float, moving: bool, stability: float = 1.0, planted_x: float = INF, override_foot: Vector2 = Vector2.INF, drive: float = 0.0, actual_swing: float = -1.0, cycle_override: float = -1.0) -> Dictionary:
  var pose = body(phase,speed,moving,stability,drive)
@@ -180,7 +175,7 @@ static func leg(index: int, phase: float, speed: float, moving: bool, stability:
  var root_offset = Vector2.ZERO
  if front and moving:
   var stride_x = foot.x-rest_foot(index).x
-  var ground_weight = 1.0-smoothstep(0.0,14.0,maxf(0.0,GROUND-foot.y))
+  var ground_weight = 1.0-smoothstep(0.0,38.0,maxf(0.0,GROUND-foot.y))
   var scapula_activity = smoothstep(0,85,speed)
   # Loading the shoulder cannot vanish as the planted foot passes below
   # the chest. An extension-only dip made the almost straight fore chain
@@ -247,6 +242,11 @@ static func leg(index: int, phase: float, speed: float, moving: bool, stability:
   var pole_angle = deg_to_rad(20.0)*airborne
   var pole_distance = sqrt(maxf(.0001,proximal_length*proximal_length+hip_distance*hip_distance-2.0*proximal_length*hip_distance*cos(pole_angle)))
   minimum_distal = maxf(minimum_distal,minf(pole_distance,maximum_distal))
+ # Anticipate the edge of the IK envelope instead of hitting a hard acos
+ # singularity and reversing the wrist/elbow on the following frame.
+ var soft_radius = minf(2.0*smoothstep(0,85,speed) if moving else 0.0,(maximum_distal-minimum_distal)*.4)
+ distal_distance = _soft_max(distal_distance,minimum_distal,soft_radius)
+ distal_distance = -_soft_max(-distal_distance,-maximum_distal,soft_radius)
  distal_distance = clampf(distal_distance,minimum_distal,maximum_distal)
  var proximal_bend = acos(clampf((proximal_length*proximal_length+hip_distance*hip_distance-distal_distance*distal_distance)/(2.0*proximal_length*hip_distance),-1,1))
  var proximal_angle = hip_ray.angle()+proximal_bend*(1 if front else -1)

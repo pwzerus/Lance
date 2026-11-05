@@ -39,3 +39,5 @@ GitHub 仓库：<https://github.com/pwzerus/Lance>，远程名 `origin`，当前
 > 请在 `E:/GALUMU` 接手骑枪与桂冠。先读根目录 `AGENTS.md`、`DESIGN_DECISIONS.md`、`HANDOFF.md`，再读 `docs/collaboration/` 的现状、记录、任务板与模板。当前已发布 v0.4，代码基线 `69a4bb21898da5c9ec0727281fee82bfea94ae76`，但请以实际 HEAD 和工作区为准。先报告你理解的现状并认领具体任务／文件，再在用户授权范围内开发。每次交出修改附文件清单、行为变化、实际验证证据、未解决问题及下一步；接收别人修改后回填复核。保护玩家存档和旧发布包；不要把自动测试当作真人手感结论。
 
 这段是交接说明草稿；没有向任何外部服务或开发者自动发送。
+
+最新接手入口（2026-11-05）：FEEL-061 步态修正与无屏幕接管QA，见 docs/collaboration/handoffs/2026-11-05-FEEL-061-Codex.md 及 docs/development/FEEL061_REVIEW.md。按实际HEAD核对最终提交；以上旧基线不是本轮基线。

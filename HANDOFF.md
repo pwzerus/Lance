@@ -41,3 +41,9 @@ GitHub 仓库：<https://github.com/pwzerus/Lance>，远程名 `origin`，当前
 这段是交接说明草稿；没有向任何外部服务或开发者自动发送。
 
 最新接手入口（2026-11-05）：FEEL-061 步态修正与无屏幕接管QA，见 docs/collaboration/handoffs/2026-11-05-FEEL-061-Codex.md 及 docs/development/FEEL061_REVIEW.md。按实际HEAD核对最终提交；以上旧基线不是本轮基线。
+
+## DOC-065 最新基线核对（2026-11-06，Codex）
+
+已读取 Claude 的 DOC-062、ART-063 和 RIDER-064 交接及两份审查，核对工作区差异。当前实际源码和 Play-Latest 为 v0.4.23；Git HEAD/远程 codex/v0.4 仍为 e772acd5424c93d175c2c6e41b9dde8bc8105eb0，Claude 的 .22/.23 改动尚未提交。以后接手以该未提交改动叠加的最新工作区为起点，不以聊天里的 .21 或 Git HEAD 单独替代它。
+
+本轮只确认进度、归属和协作规则，没有运行游戏、修改游戏源码或放行 Claude 的功能。上文开头“Claude 尚无游戏代码改动”已过时；已存在 ART-063 和 RIDER-064 游戏改动。后续完整代码审查/复验仍待执行，详情见 docs/collaboration/handoffs/2026-11-06-DOC-065-Codex.md。

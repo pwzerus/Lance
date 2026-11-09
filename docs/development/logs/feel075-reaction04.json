@@ -1,0 +1,54 @@
+{
+	"failures": [],
+	"passed": true,
+	"rows": [
+		{
+			"arm_error": 0.000213623046875,
+			"facing": 1,
+			"peak_degrees": 21.6456760646304,
+			"zone": "head"
+		},
+		{
+			"arm_error": 0.00020599365234375,
+			"facing": 1,
+			"peak_degrees": 16.7496302881069,
+			"zone": "body"
+		},
+		{
+			"arm_error": 0.000213623046875,
+			"facing": 1,
+			"peak_degrees": 6.95753873505977,
+			"zone": "shield"
+		},
+		{
+			"arm_error": 0.000213623046875,
+			"facing": 1,
+			"peak_degrees": 12.8843309908514,
+			"zone": "flank"
+		},
+		{
+			"arm_error": 0.000179290771484375,
+			"facing": -1,
+			"peak_degrees": 21.6456760646304,
+			"zone": "head"
+		},
+		{
+			"arm_error": 0.00020599365234375,
+			"facing": -1,
+			"peak_degrees": 16.7496302881069,
+			"zone": "body"
+		},
+		{
+			"arm_error": 0.000194549560546875,
+			"facing": -1,
+			"peak_degrees": 6.95753873505977,
+			"zone": "shield"
+		},
+		{
+			"arm_error": 0.000179290771484375,
+			"facing": -1,
+			"peak_degrees": 12.8843309908514,
+			"zone": "flank"
+		}
+	]
+}

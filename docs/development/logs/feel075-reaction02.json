@@ -1,0 +1,57 @@
+{
+	"failures": [
+		"Full head hit has insufficient torso follow-through",
+		"Full head hit has insufficient torso follow-through"
+	],
+	"passed": false,
+	"rows": [
+		{
+			"arm_error": 0.000194549560546875,
+			"facing": 1,
+			"peak_degrees": 17.0073169079239,
+			"zone": "head"
+		},
+		{
+			"arm_error": 0.00020599365234375,
+			"facing": 1,
+			"peak_degrees": 16.7496302881069,
+			"zone": "body"
+		},
+		{
+			"arm_error": 0.000213623046875,
+			"facing": 1,
+			"peak_degrees": 6.95753873505977,
+			"zone": "shield"
+		},
+		{
+			"arm_error": 0.000213623046875,
+			"facing": 1,
+			"peak_degrees": 12.8843309908514,
+			"zone": "flank"
+		},
+		{
+			"arm_error": 0.000186920166015625,
+			"facing": -1,
+			"peak_degrees": 17.0073169079239,
+			"zone": "head"
+		},
+		{
+			"arm_error": 0.00020599365234375,
+			"facing": -1,
+			"peak_degrees": 16.7496302881069,
+			"zone": "body"
+		},
+		{
+			"arm_error": 0.000194549560546875,
+			"facing": -1,
+			"peak_degrees": 6.95753873505977,
+			"zone": "shield"
+		},
+		{
+			"arm_error": 0.000179290771484375,
+			"facing": -1,
+			"peak_degrees": 12.8843309908514,
+			"zone": "flank"
+		}
+	]
+}

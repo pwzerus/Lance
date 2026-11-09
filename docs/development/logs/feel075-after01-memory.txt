@@ -1,0 +1,23 @@
+QA_DESKTOP GALUMU_QA_454ae4bb925b4defb1cac9a4d217afdf (not switched to input desktop)
+START utc=2026-11-09T17:44:45.0755655Z pid=33040 jobMiB=512 executable=E:\GALUMU\tools\godot-4.5.1\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1268
+MEM seconds=1 privateMiB=81.4 workingMiB=87.3 availableRamMiB=3554 availableCommitMiB=8678
+MEM seconds=2 privateMiB=80.7 workingMiB=87.2 availableRamMiB=3553 availableCommitMiB=8677
+MEM seconds=3 privateMiB=99.1 workingMiB=109.6 availableRamMiB=3544 availableCommitMiB=8666
+MEM seconds=4 privateMiB=95.6 workingMiB=106.5 availableRamMiB=3544 availableCommitMiB=8673
+MEM seconds=5 privateMiB=95.3 workingMiB=106.2 availableRamMiB=3556 availableCommitMiB=8667
+MEM seconds=6 privateMiB=114.5 workingMiB=174.8 availableRamMiB=3483 availableCommitMiB=8612
+MEM seconds=7 privateMiB=294.8 workingMiB=366.4 availableRamMiB=3288 availableCommitMiB=8459
+MEM seconds=8 privateMiB=319.2 workingMiB=389.2 availableRamMiB=3263 availableCommitMiB=8392
+MEM seconds=9 privateMiB=360.4 workingMiB=429.9 availableRamMiB=3209 availableCommitMiB=8361
+MEM seconds=10 privateMiB=400.4 workingMiB=470.2 availableRamMiB=3159 availableCommitMiB=8308
+MEM seconds=11 privateMiB=435.3 workingMiB=505.2 availableRamMiB=3125 availableCommitMiB=8263
+MEM seconds=12 privateMiB=435.8 workingMiB=506.5 availableRamMiB=3132 availableCommitMiB=8278
+MEM seconds=13 privateMiB=435.7 workingMiB=506.4 availableRamMiB=3130 availableCommitMiB=8272
+MEM seconds=14 privateMiB=434.9 workingMiB=507.0 availableRamMiB=3131 availableCommitMiB=8271
+MEM seconds=15 privateMiB=434.9 workingMiB=507.0 availableRamMiB=3116 availableCommitMiB=8254
+MEM seconds=16 privateMiB=432.7 workingMiB=504.8 availableRamMiB=3127 availableCommitMiB=8279
+MEM seconds=17 privateMiB=381.1 workingMiB=454.6 availableRamMiB=3202 availableCommitMiB=8365
+MEM seconds=18 privateMiB=380.9 workingMiB=454.4 availableRamMiB=3202 availableCommitMiB=8325
+MEM seconds=19 privateMiB=380.9 workingMiB=454.5 availableRamMiB=3209 availableCommitMiB=8382
+EXIT code=0 seconds=20.1
+QA_DESKTOP_CLOSED=True

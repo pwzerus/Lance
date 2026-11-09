@@ -1,0 +1,37 @@
+extends SceneTree
+const Rider = preload("res://scripts/visual/rider_view.gd")
+const Model = preload("res://scripts/core/joust_match.gd")
+const Catalogue = preload("res://scripts/core/catalogue.gd")
+var failures: Array = []
+func _initialize() -> void:
+	call_deferred("run")
+func run() -> void:
+	var report=""
+	for arg in OS.get_cmdline_user_args():
+		if arg.begins_with("--report="): report=arg.trim_prefix("--report=")
+	if report.is_empty() or FileAccess.file_exists(report) or not root.get_node("GameState").save_path.contains("qa_"):
+		quit(2); return
+	var items=Catalogue.load_items()
+	var count=0
+	for region in ["eng","fr","de","it"]:
+		for quality in range(6):
+			var stats=Catalogue.stats(items,{"armor":"%s_armor_%d"%[region,quality],"helmet":"%s_helmet_%d"%[region,quality]})
+			var model=Model.new("arena",stats,stats)
+			for f in model.fighters:
+				for step in range(201):
+					f.lean=(step-100)/100.0
+					var n=Rider.neck_geometry(Rider.arm_pose(f),f)
+					var top: Vector2=n.top
+					var base: Vector2=n.base
+					var across: Vector2=n.across
+					var down: Vector2=n.down
+					var half: float=n.half
+					var width: float=n.collar_half
+					var shapes=[PackedVector2Array([top-across*(half+1)-down*3,top+across*(half+1)-down*3,base+Vector2(width-3,-4),base+Vector2(width,0),base+Vector2(-width,0),base+Vector2(-width+3,-4)]),PackedVector2Array([top-across*half-down*3,top+across*half-down*3,base+Vector2(width-4,-4),base+Vector2(width-2,-1),base+Vector2(-width+2,-1),base+Vector2(-width+4,-4)]),PackedVector2Array([top-across*half-down*2,top-across*(half-4)-down*2,base+Vector2(-width+6,-1),base+Vector2(-width+2,-1)])]
+					for shape in shapes:
+						count+=1
+						if Geometry2D.triangulate_polygon(shape).is_empty():
+							failures.append({"region":region,"quality":quality,"direction":f.direction,"lean":f.lean,"points":str(shape)})
+	FileAccess.open(report,FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"count":count,"failures":failures},"\t"))
+	print("NECK075 failures=",failures.size()," count=",count)
+	quit(0 if failures.is_empty() else 1)

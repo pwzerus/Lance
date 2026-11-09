@@ -1,0 +1,242 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+ERROR: Steady 110 / facing 1 / 20Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+ERROR: Steady 210 / facing 1 / 20Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Steady 340 / facing 1 / 20Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Steady 480 / facing 1 / 20Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Hold/release / facing 1 / 20Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] transition_trial (res://tests/test_horse_anatomy_v050.gd:279)
+       [3] run (res://tests/test_motion_lowrate061.gd:15)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Steady 110 / facing -1 / 20Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] transition_trial (res://tests/test_horse_anatomy_v050.gd:281)
+ERROR: Steady 210 / facing -1 / 20Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Steady 340 / facing -1 / 20Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Steady 480 / facing -1 / 20Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Hold/release / facing -1 / 20Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] transition_trial (res://tests/test_horse_anatomy_v050.gd:279)
+       [3] run (res://tests/test_motion_lowrate061.gd:15)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Steady 110 / facing 1 / 24Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] transition_trial (res://tests/test_horse_anatomy_v050.gd:281)
+ERROR: Steady 210 / facing 1 / 24Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Steady 340 / facing 1 / 24Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Steady 480 / facing 1 / 24Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Hold/release / facing 1 / 24Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] transition_trial (res://tests/test_horse_anatomy_v050.gd:279)
+       [3] run (res://tests/test_motion_lowrate061.gd:15)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Steady 110 / facing -1 / 24Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] transition_trial (res://tests/test_horse_anatomy_v050.gd:281)
+ERROR: Steady 210 / facing -1 / 24Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Steady 340 / facing -1 / 24Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Steady 480 / facing -1 / 24Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Hold/release / facing -1 / 24Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] transition_trial (res://tests/test_horse_anatomy_v050.gd:279)
+       [3] run (res://tests/test_motion_lowrate061.gd:15)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Steady 110 / facing 1 / 48Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] transition_trial (res://tests/test_horse_anatomy_v050.gd:281)
+ERROR: Steady 210 / facing 1 / 48Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Steady 340 / facing 1 / 48Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Steady 480 / facing 1 / 48Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Hold/release / facing 1 / 48Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] transition_trial (res://tests/test_horse_anatomy_v050.gd:279)
+       [3] run (res://tests/test_motion_lowrate061.gd:15)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Steady 110 / facing -1 / 48Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] transition_trial (res://tests/test_horse_anatomy_v050.gd:281)
+ERROR: Steady 210 / facing -1 / 48Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Steady 340 / facing -1 / 48Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Steady 480 / facing -1 / 48Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] steady_trial (res://tests/test_horse_anatomy_v050.gd:237)
+       [3] run (res://tests/test_motion_lowrate061.gd:14)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+ERROR: Hold/release / facing -1 / 48Hz: anatomical segment stretched or disconnected
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy_v050.gd:24)
+       [1] finish_metrics (res://tests/test_horse_anatomy_v050.gd:114)
+       [2] transition_trial (res://tests/test_horse_anatomy_v050.gd:279)
+       [3] run (res://tests/test_motion_lowrate061.gd:15)
+       [4] steady_trial (res://tests/test_horse_anatomy_v050.gd:239)
+MOTION_LOWRATE061 false ["Steady 110 / facing 1 / 20Hz: anatomical segment stretched or disconnected", "Steady 210 / facing 1 / 20Hz: anatomical segment stretched or disconnected", "Steady 340 / facing 1 / 20Hz: anatomical segment stretched or disconnected", "Steady 480 / facing 1 / 20Hz: anatomical segment stretched or disconnected", "Hold/release / facing 1 / 20Hz: anatomical segment stretched or disconnected", "Steady 110 / facing -1 / 20Hz: anatomical segment stretched or disconnected", "Steady 210 / facing -1 / 20Hz: anatomical segment stretched or disconnected", "Steady 340 / facing -1 / 20Hz: anatomical segment stretched or disconnected", "Steady 480 / facing -1 / 20Hz: anatomical segment stretched or disconnected", "Hold/release / facing -1 / 20Hz: anatomical segment stretched or disconnected", "Steady 110 / facing 1 / 24Hz: anatomical segment stretched or disconnected", "Steady 210 / facing 1 / 24Hz: anatomical segment stretched or disconnected", "Steady 340 / facing 1 / 24Hz: anatomical segment stretched or disconnected", "Steady 480 / facing 1 / 24Hz: anatomical segment stretched or disconnected", "Hold/release / facing 1 / 24Hz: anatomical segment stretched or disconnected", "Steady 110 / facing -1 / 24Hz: anatomical segment stretched or disconnected", "Steady 210 / facing -1 / 24Hz: anatomical segment stretched or disconnected", "Steady 340 / facing -1 / 24Hz: anatomical segment stretched or disconnected", "Steady 480 / facing -1 / 24Hz: anatomical segment stretched or disconnected", "Hold/release / facing -1 / 24Hz: anatomical segment stretched or disconnected", "Steady 110 / facing 1 / 48Hz: anatomical segment stretched or disconnected", "Steady 210 / facing 1 / 48Hz: anatomical segment stretched or disconnected", "Steady 340 / facing 1 / 48Hz: anatomical segment stretched or disconnected", "Steady 480 / facing 1 / 48Hz: anatomical segment stretched or disconnected", "Hold/release / facing 1 / 48Hz: anatomical segment stretched or disconnected", "Steady 110 / facing -1 / 48Hz: anatomical segment stretched or disconnected", "Steady 210 / facing -1 / 48Hz: anatomical segment stretched or disconnected", "Steady 340 / facing -1 / 48Hz: anatomical segment stretched or disconnected", "Steady 480 / facing -1 / 48Hz: anatomical segment stretched or disconnected", "Hold/release / facing -1 / 48Hz: anatomical segment stretched or disconnected"]

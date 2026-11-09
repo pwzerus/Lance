@@ -1,0 +1,16 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+ERROR: Knees and stirrup support do not slide with torso recoil
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_reaction_v057.gd:26)
+       [1] validate_pose (res://tests/test_reaction_v057.gd:63)
+       [2] run_contact (res://tests/test_reaction_v057.gd:101)
+       [3] run (res://tests/test_reaction_v057.gd:219)
+ERROR: Zero detached head rotation preserves the existing fitted helmet matrix
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_reaction_v057.gd:26)
+       [1] neck_checks (res://tests/test_reaction_v057.gd:140)
+       [2] run (res://tests/test_reaction_v057.gd:220)
+REACTION_V057 {"cases":72,"failures":["Knees and stirrup support do not slide with torso recoil","Zero detached head rotation preserves the existing fitted helmet matrix"],"max_anchor_error":0.0000431583721365314,"max_arm_error":0.00011444091796875,"passed":false,"run_dir":"E:/GALUMU/docs/development/logs/feel075-reaction01"}

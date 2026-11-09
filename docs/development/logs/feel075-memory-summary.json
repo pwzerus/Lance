@@ -1,0 +1,230 @@
+[
+  {
+    "log": "feel075-after01-memory.txt",
+    "peakPrivateMiB": 435.8,
+    "minAvailableMiB": 3116.0,
+    "result": "EXIT code=0 seconds=20.1\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-arm01-memory.txt",
+    "peakPrivateMiB": null,
+    "minAvailableMiB": null,
+    "result": "EXIT code=0 seconds=0.4\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-audio-generation02-memory.txt",
+    "peakPrivateMiB": 28.3,
+    "minAvailableMiB": 3475.0,
+    "result": "EXIT code=0 seconds=14.3\r"
+  },
+  {
+    "log": "feel075-audio02-memory.txt",
+    "peakPrivateMiB": 58.5,
+    "minAvailableMiB": 3962.0,
+    "result": "EXIT code=0 seconds=1.7\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-audit-export01-memory.txt",
+    "peakPrivateMiB": 581.3,
+    "minAvailableMiB": 3546.0,
+    "result": "EXIT code=1 seconds=5.2\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-audit-export02-memory.txt",
+    "peakPrivateMiB": 588.0,
+    "minAvailableMiB": 3476.0,
+    "result": "EXIT code=0 seconds=5.5\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-before01-memory.txt",
+    "peakPrivateMiB": 432.9,
+    "minAvailableMiB": 3008.0,
+    "result": "EXIT code=1 seconds=26.6\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-contact01-memory.txt",
+    "peakPrivateMiB": null,
+    "minAvailableMiB": null,
+    "result": "EXIT code=0 seconds=1.0\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-export01-memory.txt",
+    "peakPrivateMiB": 590.4,
+    "minAvailableMiB": 3316.0,
+    "result": "EXIT code=0 seconds=9.8\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-export02-memory.txt",
+    "peakPrivateMiB": 603.0,
+    "minAvailableMiB": 3293.0,
+    "result": "EXIT code=0 seconds=5.8\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-fall01-memory.txt",
+    "peakPrivateMiB": 563.2,
+    "minAvailableMiB": 3403.0,
+    "result": "EXIT code=0 seconds=19.8\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-feedback01-memory.txt",
+    "peakPrivateMiB": 811.9,
+    "minAvailableMiB": 3279.0,
+    "result": "EXIT code=0 seconds=23.0\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-import01-memory.txt",
+    "peakPrivateMiB": 682.6,
+    "minAvailableMiB": 3060.0,
+    "result": "EXIT code=0 seconds=12.4\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-import02-memory.txt",
+    "peakPrivateMiB": 684.3,
+    "minAvailableMiB": 3100.0,
+    "result": "EXIT code=0 seconds=8.2\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-legs02-memory.txt",
+    "peakPrivateMiB": 111.8,
+    "minAvailableMiB": 3938.0,
+    "result": "EXIT code=0 seconds=1.4\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-lowrate01-memory.txt",
+    "peakPrivateMiB": 124.7,
+    "minAvailableMiB": 3644.0,
+    "result": "EXIT code=1 seconds=5.6\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-lowrate02-memory.txt",
+    "peakPrivateMiB": 123.9,
+    "minAvailableMiB": 3902.0,
+    "result": "EXIT code=0 seconds=5.9\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-motion01-memory.txt",
+    "peakPrivateMiB": null,
+    "minAvailableMiB": null,
+    "result": "EXIT code=0 seconds=0.9\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-neck01-memory.txt",
+    "peakPrivateMiB": 125.2,
+    "minAvailableMiB": 3844.0,
+    "result": "EXIT code=0 seconds=1.2\r"
+  },
+  {
+    "log": "feel075-package-audio02-memory.txt",
+    "peakPrivateMiB": 48.4,
+    "minAvailableMiB": 3994.0,
+    "result": "EXIT code=0 seconds=1.5\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-package-close02-memory.txt",
+    "peakPrivateMiB": 672.2,
+    "minAvailableMiB": 3334.0,
+    "result": "EXIT code=0 seconds=73.3\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-package-fall02-memory.txt",
+    "peakPrivateMiB": 754.5,
+    "minAvailableMiB": 3586.0,
+    "result": "EXIT code=0 seconds=8.6\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-package-long01-memory.txt",
+    "peakPrivateMiB": 671.5,
+    "minAvailableMiB": 3253.0,
+    "result": "TIMEOUT: terminating job\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-package-match01-memory.txt",
+    "peakPrivateMiB": 723.1,
+    "minAvailableMiB": 3402.0,
+    "result": "EXIT code=0 seconds=44.4\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-package-match02-memory.txt",
+    "peakPrivateMiB": 714.0,
+    "minAvailableMiB": 3448.0,
+    "result": "EXIT code=0 seconds=44.4\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-package-mirror01-memory.txt",
+    "peakPrivateMiB": 452.7,
+    "minAvailableMiB": 3734.0,
+    "result": "EXIT code=0 seconds=13.5\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-polygon-mirror01-memory.txt",
+    "peakPrivateMiB": 435.4,
+    "minAvailableMiB": 3177.0,
+    "result": "EXIT code=0 seconds=20.3\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-polygon01-memory.txt",
+    "peakPrivateMiB": 730.4,
+    "minAvailableMiB": 1693.0,
+    "result": "EXIT code=0 seconds=50.9\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-polygon02-memory.txt",
+    "peakPrivateMiB": 732.8,
+    "minAvailableMiB": 2790.0,
+    "result": "EXIT code=0 seconds=51.1\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-polygon03-memory.txt",
+    "peakPrivateMiB": 722.9,
+    "minAvailableMiB": 3428.0,
+    "result": "EXIT code=0 seconds=44.5\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-reaction01-memory.txt",
+    "peakPrivateMiB": 122.5,
+    "minAvailableMiB": 3516.0,
+    "result": "EXIT code=1 seconds=13.3\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-reaction02-memory.txt",
+    "peakPrivateMiB": null,
+    "minAvailableMiB": null,
+    "result": "EXIT code=1 seconds=0.7\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-reaction04-memory.txt",
+    "peakPrivateMiB": null,
+    "minAvailableMiB": null,
+    "result": "EXIT code=0 seconds=0.7\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-save01-memory.txt",
+    "peakPrivateMiB": null,
+    "minAvailableMiB": null,
+    "result": "EXIT code=1 seconds=0.4\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-save02-memory.txt",
+    "peakPrivateMiB": null,
+    "minAvailableMiB": null,
+    "result": "EXIT code=0 seconds=0.4\r; QA_DESKTOP_CLOSED=True\r"
+  },
+  {
+    "log": "feel075-save03-memory.txt",
+    "peakPrivateMiB": null,
+    "minAvailableMiB": null,
+    "result": "EXIT code=0 seconds=0.3\r"
+  },
+  {
+    "log": "feel075-video-after01-memory.txt",
+    "peakPrivateMiB": 100.5,
+    "minAvailableMiB": 4237.0,
+    "result": "EXIT code=0 seconds=1.3\r"
+  },
+  {
+    "log": "feel075-video-before01-memory.txt",
+    "peakPrivateMiB": 100.4,
+    "minAvailableMiB": 4123.0,
+    "result": "EXIT code=0 seconds=1.3\r"
+  }
+]

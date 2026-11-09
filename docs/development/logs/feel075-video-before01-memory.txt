@@ -1,0 +1,3 @@
+START utc=2026-11-09T18:19:21.6293048Z pid=6280 jobMiB=1024 executable=E:\GALUMU\tools\media-qa\imageio_ffmpeg\binaries\ffmpeg-win-x86_64-v9.0.2.exe reserveMiB=500 startupMiB=1780
+MEM seconds=1 privateMiB=100.4 workingMiB=120.8 availableRamMiB=4123 availableCommitMiB=8717
+EXIT code=0 seconds=1.3

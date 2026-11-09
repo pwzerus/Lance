@@ -1,0 +1,4 @@
+QA_DESKTOP GALUMU_QA_777de32d419f4ddaa2080b9b80d7097a (not switched to input desktop)
+START utc=2026-11-09T18:01:27.7913955Z pid=11340 jobMiB=1024 executable=E:\GALUMU\builds\LanceAndLaurel-v0.4.30\LanceAndLaurel.exe reserveMiB=500 startupMiB=1780
+EXIT code=1 seconds=0.4
+QA_DESKTOP_CLOSED=True

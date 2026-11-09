@@ -1,0 +1,47 @@
+{
+	"appearance": {
+		"beard": 0,
+		"brows": 0,
+		"eyes": 0,
+		"face_shape": 0,
+		"hair": 0,
+		"skin": 0
+	},
+	"coins": 520,
+	"equipped": {
+		"armor": "mail_basic",
+		"caparison": "caparison_none",
+		"crest": "crest_bend",
+		"helmet": "helm_nasal",
+		"horse": "horse_bay",
+		"lance": "lance_ash",
+		"shield": "shield_basic"
+	},
+	"matches": 0,
+	"owned": [
+		"mail_basic",
+		"helm_nasal",
+		"lance_ash",
+		"horse_bay",
+		"crest_bend",
+		"shield_basic",
+		"caparison_none"
+	],
+	"region": 0,
+	"renown": 0,
+	"settings": {
+		"aim_cues": true,
+		"blood": false,
+		"brief_seen": false,
+		"combat_brief_v03": false,
+		"combat_brief_v043": false,
+		"combat_brief_v044": false,
+		"difficulty": 1,
+		"mouse_only": false,
+		"shake": true,
+		"slow_motion": true,
+		"sound": true
+	},
+	"version": 1,
+	"wins": 0
+}

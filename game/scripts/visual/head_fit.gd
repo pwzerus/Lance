@@ -5,6 +5,13 @@ const Art = preload("res://scripts/visual/equipment_art.gd")
 const Face = preload("res://scripts/visual/character_face.gd")
 const DATA_PATH = "res://data/equipment_fit_v052.json"
 static var _data: Dictionary = {}
+# Width/height factors for the helmets that read widest (equip067-helmets01).
+const SLIM = {
+	"fr_helmet_4":Vector2(.84,.95),  # short-tail sallet, 77 px wide
+	"it_helmet_0":Vector2(.87,.94),  # nasal helm over a full mail hood
+	"eng_helmet_4":Vector2(.89,.95), "eng_helmet_5":Vector2(.89,.95),  # Greenwich close helmets
+	"eng_helmet_1":Vector2(.90,.95), "eng_helmet_2":Vector2(.90,.95), "fr_helmet_1":Vector2(.90,.95), "de_helmet_1":Vector2(.90,.95),  # great helms
+	"fr_helmet_0":Vector2(.95,.97)}  # kettle hat: the brim is meant to be wide
 static var _loaded = false
 
 static func layout(stats: Dictionary) -> Dictionary:
@@ -18,7 +25,13 @@ static func layout(stats: Dictionary) -> Dictionary:
 	var fit: Dictionary = _data.get(id,{})
 	var size: Array = fit.get("size",[62.0,72.0])
 	var offset: Array = fit.get("offset",[0.0,-147.0])
-	var box = Rect2(float(offset[0])-float(size[0])*.5,float(offset[1]),float(size[0]),float(size[1]))
+	# EQUIP-067: the user found some helmets "fat". At 62-77 px wide a head was
+	# about 2/3 of the shoulders; slim all helmets a little and the widest more,
+	# keeping each helmet's lower edge (neck and collar joint) where it was.
+	var slim = SLIM.get(id,Vector2(.93,.95))
+	var width = float(size[0])*slim.x
+	var height = float(size[1])*slim.y
+	var box = Rect2(float(offset[0])-width*.5,float(offset[1])+float(size[1])-height,width,height)
 	var face: Array = fit.get("face",entry.get("face_rect",[.2,.22,.6,.72]))
 	var face_box = Rect2(box.position+Vector2(float(face[0]),float(face[1]))*box.size,Vector2(float(face[2]),float(face[3]))*box.size)
 	var clip: Array = fit.get("face_clip",[-26.0,-144.0,59.0,54.0])

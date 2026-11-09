@@ -30,8 +30,10 @@ func _ready() -> void:
 func default_profile() -> Dictionary:
 	return {"version": 1, "coins": 520, "renown": 0, "wins": 0, "matches": 0, "region": 0,
 		"appearance": Appearance.defaults(),
-		"owned": ["mail_basic", "helm_nasal", "lance_ash", "horse_bay", "crest_bend", "shield_basic"],
-		"equipped": {"armor": "mail_basic", "helmet": "helm_nasal", "lance": "lance_ash", "horse": "horse_bay", "crest": "crest_bend", "shield":"shield_basic"},
+		# EQUIP-066: "caparison_none" (bare horse) is owned by everyone, so older
+		# saves without the slot load with an empty caparison slot unchanged.
+		"owned": ["mail_basic", "helm_nasal", "lance_ash", "horse_bay", "crest_bend", "shield_basic", "caparison_none"],
+		"equipped": {"armor": "mail_basic", "helmet": "helm_nasal", "lance": "lance_ash", "horse": "horse_bay", "crest": "crest_bend", "shield":"shield_basic", "caparison":"caparison_none"},
 		"settings": {"blood": false, "shake": true, "sound": true, "mouse_only": false, "brief_seen":false,"combat_brief_v03":false,"combat_brief_v043":false,"combat_brief_v044":false,"aim_cues":true,"slow_motion":true, "difficulty": 1}}
 
 func load_profile() -> void:
@@ -191,6 +193,10 @@ func award_match(session_id: String, outcome: int, mode: String) -> Dictionary:
 	var renown = 1 if outcome <= 0 else 3
 	if mode == "war":
 		coins += 30
+	# EQUIP-067: a caparison is display, not protection; winning under your
+	# arms adds a little renown (user approved a non-combat benefit).
+	if outcome > 0:
+		renown += int(Catalogue.find(items,str(profile.equipped.get("caparison",""))).get("stats",{}).get("caparison_renown",0))
 	profile.coins += coins
 	profile.renown += renown
 	profile.matches += 1

@@ -110,41 +110,66 @@ static func draw_face(source_canvas: CanvasItem, appearance: Dictionary, rect: R
 	block(canvas,rect,9,8,5,2,hair)
 	block(canvas,rect,14,9,5,2,hair)
 	block(canvas,rect,19,10,4,1,hair)
-	# Upper lids and a single row of sclera: no black rectangles around the eyes.
-	# The far eye is narrower. Both pupils look toward the opponent.
+	# HORSE-065 face pass: same 32x40 layout and options, features drawn at
+	# half-cell precision (block() takes fractional cells) so eyes, brows,
+	# nose and lips read as shapes instead of single 1-cell bars.
+	# Eye socket shade first: gives the brow ridge depth without black boxes.
 	var lid = hair.lerp(INK,.45)
-	block(canvas,rect,near_x,eye_y,5,1,lid)
-	block(canvas,rect,near_x+1,eye_y+1,4,1,Color("e0d4bd"))
-	block(canvas,rect,near_x+2,eye_y+1,1,1,iris)
-	block(canvas,rect,near_x+3,eye_y+1,1,1,INK)
-	block(canvas,rect,near_x+1,eye_y+2,1,1,light)
-	block(canvas,rect,near_x+2,eye_y+2,1,1,iris.darkened(.10))
-	block(canvas,rect,near_x+3,eye_y+2,1,1,lid)
-	block(canvas,rect,21,eye_y,3,1,lid)
-	block(canvas,rect,21,eye_y+1,3,1,Color("d4c5ab"))
-	block(canvas,rect,22,eye_y+1,1,1,iris.darkened(.35))
+	var socket = skin.darkened(.14)
+	block(canvas,rect,near_x-.5,eye_y-.5,6,1,socket)
+	block(canvas,rect,20.5,eye_y-.5,3.5,1,socket)
+	# Near eye: almond white, iris with pupil and catch light, upper lid line
+	# thicker toward the outer corner, soft lower lid.
+	block(canvas,rect,near_x+.5,eye_y+.5,4.5,1.5,Color("e6dccb"))
+	block(canvas,rect,near_x+1.5,eye_y+.5,2,1.5,iris)
+	block(canvas,rect,near_x+2.5,eye_y+.5,1,1,INK)
+	block(canvas,rect,near_x+2,eye_y+.5,.5,.5,Color("fbf6ec"))
+	block(canvas,rect,near_x,eye_y,5.5,.75,lid)
+	block(canvas,rect,near_x+4,eye_y+.5,1.5,.5,lid)
+	block(canvas,rect,near_x+.5,eye_y+2,4.5,.5,skin.darkened(.12))
+	block(canvas,rect,near_x+1,eye_y+2.5,3.5,.5,light)
+	# Far eye, foreshortened.
+	block(canvas,rect,21,eye_y+.5,2.5,1.5,Color("d8ccb6"))
+	block(canvas,rect,21.5,eye_y+.5,1,1.5,iris.darkened(.30))
+	block(canvas,rect,20.5,eye_y,3,.75,lid)
+	block(canvas,rect,21,eye_y+2,2.5,.5,skin.darkened(.12))
+	# Brows: tapered, thicker at the inner end.
 	var brow_color = hair.lerp(skin,.38) if a.brows==3 else hair
 	var brow_y = eye_y-2
-	block(canvas,rect,near_x,brow_y,5,1,brow_color)
-	block(canvas,rect,20,brow_y,3,1,brow_color)
-	block(canvas,rect,near_x-1,brow_y+1,1,1,brow_color)
+	block(canvas,rect,near_x+.5,brow_y,2.5,1,brow_color)
+	block(canvas,rect,near_x+3,brow_y-.25,2.5,.75,brow_color)
+	block(canvas,rect,near_x-.5,brow_y+.5,1,.75,brow_color)
+	block(canvas,rect,20.5,brow_y,2.5,.75,brow_color)
 	if a.brows==1:
-		block(canvas,rect,near_x+1,brow_y-1,4,1,brow_color)
-		block(canvas,rect,21,brow_y-1,2,1,brow_color)
+		block(canvas,rect,near_x+1,brow_y-.75,4,.75,brow_color)
+		block(canvas,rect,21,brow_y-.75,2,.75,brow_color)
 	elif a.brows==2:
-		block(canvas,rect,near_x+1,brow_y-1,3,1,brow_color)
-		block(canvas,rect,near_x,brow_y,1,1,skin)
-		block(canvas,rect,20,brow_y,1,1,skin)
-	# Small nose planes with a broken base shadow, not a bright L-shaped block.
-	block(canvas,rect,19,eye_y+2,1,4,soft_shade)
-	block(canvas,rect,20,eye_y+2,1,3,light)
-	block(canvas,rect,20,22 if shape!=2 else 23,3,1,skin)
-	block(canvas,rect,20,23 if shape!=2 else 24,2,1,shade)
+		block(canvas,rect,near_x+1.5,brow_y-.75,3,.75,brow_color)
+		block(canvas,rect,near_x-.5,brow_y+.5,1,.75,skin)
+	# Nose: lit bridge, shaded side plane, rounded tip and a nostril, so the
+	# profile reads three-quarter rather than as a flat L.
+	var nose_base = 22 if shape!=2 else 23
+	block(canvas,rect,19,eye_y+1.5,1,nose_base-eye_y-1.5,soft_shade)
+	block(canvas,rect,20,eye_y+1.5,.75,nose_base-eye_y-2,light)
+	block(canvas,rect,19.5,nose_base-1,3,1.5,skin)
+	block(canvas,rect,21,nose_base-1,1,.75,light)
+	block(canvas,rect,20,nose_base+.5,2.5,.75,shade)
+	block(canvas,rect,19.5,nose_base+.5,.75,.75,skin.darkened(.38))
+	# Cheek warmth and nasolabial fold, very low contrast.
+	block(canvas,rect,near_x+.5,nose_base-1,3.5,2,skin.lerp(Color("c9705a"),.10))
+	block(canvas,rect,18,nose_base+1,.75,2,soft_shade)
+	# Mouth: philtrum shadow, upper lip, parting line, lit lower lip.
 	var mouth_y = 27 if shape==2 else 26
-	block(canvas,rect,16,mouth_y-1,1,1,soft_shade)
-	block(canvas,rect,17,mouth_y,5,1,skin.darkened(.34))
-	block(canvas,rect,22,mouth_y-1,1,1,shade)
-	block(canvas,rect,18,mouth_y+1,3,1,skin.lightened(.05))
+	block(canvas,rect,20,mouth_y-1.5,1.5,.75,soft_shade)
+	block(canvas,rect,17,mouth_y-.5,5,.75,skin.darkened(.22).lerp(Color("a4534a"),.18))
+	block(canvas,rect,17.5,mouth_y+.25,4.5,.5,skin.darkened(.42))
+	block(canvas,rect,18,mouth_y+.75,3.5,.75,skin.lerp(Color("c46a5c"),.16))
+	block(canvas,rect,18.5,mouth_y+1.5,2.5,.5,skin.lightened(.06))
+	block(canvas,rect,16.5,mouth_y,.75,.75,shade)
+	block(canvas,rect,22,mouth_y-.25,.75,.75,shade)
+	# Chin: a small lit plane and the shadow under it.
+	block(canvas,rect,18,mouth_y+2.5,3,1,light)
+	block(canvas,rect,17,mouth_y+3.5,5,.5,soft_shade)
 	# Facial hair follows the jaw and keeps the mouth readable.
 	match int(a.beard):
 		1:

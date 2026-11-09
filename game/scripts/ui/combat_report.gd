@@ -16,7 +16,16 @@ static func summarize(events: Array) -> String:
 			continue
 		var hit: Dictionary = latest[attacker]
 		var detail = "擦盾后损伤" if hit.zone=="shield" and hit.get("glanced",false) else ("格挡后损伤" if hit.zone=="shield" else "骑手损伤")
-		lines.append("%s：%s · %s %d · 平衡余量 %d" % [prefix,ZONES.get(hit.zone,hit.zone),detail,roundi(hit.damage),roundi(hit.balance_left)])
+		# EQUIP-067: say WHY it scored: points, broken lance, glance, and the
+		# drive of the striker's own horse.
+		var note = "（擦偏不计分）" if hit.get("glanced",false) else ""
+		if hit.zone!="shield" and not hit.get("glanced",false):
+			# EQUIP-069: say whether the strike got through the armour.
+			note = "（实击）" if hit.get("attaint",false) else "（护甲化解，只算擦中）"
+		if hit.get("broke",false):
+			note += "（断枪）"
+		var extra = " · 得分 +%d%s · 冲力 %d%%" % [int(hit.get("points",0)),note,roundi(float(hit.get("drive",1.0))*100)]
+		lines.append("%s：%s · %s %d · 平衡余量 %d%s" % [prefix,ZONES.get(hit.zone,hit.zone),detail,roundi(hit.damage),roundi(hit.balance_left),extra])
 	var cause = ""
 	for event in events:
 		if event.get("ko",false):

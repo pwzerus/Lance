@@ -6,8 +6,10 @@ const REGION_COLORS = [Color("416f8e"), Color("a75042"), Color("b39758"), Color(
 const ERAS = ["1100–1300", "1300–1400", "1400–1470", "1470–1530", "1530–1600"]
 const ERA_NAMES = ["锁甲与纹章", "板片的时代", "钢铁的轮廓", "比武的盛世", "宫廷与工坊"]
 const ERA_REQUIREMENTS = [0, 6, 16, 30, 48]
-const SLOT_NAMES = {"armor": "胸甲", "helmet": "头盔", "lance": "骑枪", "shield": "盾牌", "horse": "坐骑", "crest": "纹章"}
+const SLOT_NAMES = {"armor": "胸甲", "helmet": "头盔", "lance": "骑枪", "shield": "盾牌", "horse": "坐骑", "caparison": "马衣", "crest": "纹章"}
 const HISTORY_FILES = ["res://data/history_v051_en_fr.json","res://data/history_v051_de_it.json"]
+const CAPARISON_FILE = "res://data/caparisons_v066.json"
+const WEIGHTS_FILE = "res://data/equipment_weights_v066.json"
 const HORSE_COATS = {"horse_bay":"bay","horse_grey":"grey","horse_chestnut":"flaxen",
 	"horse_e1":"grey","horse_e2":"bay","horse_e3":"black","horse_e4":"grey",
 	"horse_cob":"flaxen","horse_courser":"black","horse_steady":"grey"}
@@ -25,11 +27,42 @@ static func load_items() -> Array:
 			else:
 				items.append(item)
 	items.append({"id":"shield_basic","name":"旧式绘饰盾","slot":"shield","era":0,"price":0,"region":"欧洲共通","stats":{"shield_capacity":78.0,"shield_handling":1.0,"shield_quality":0},"description":"已有骑手的基础盾牌。","source":"S33 · 游戏改编","historical_note":"沿用旧版基础防护，新增槽位不删除已有收藏。"})
+	var caparisons = JSON.parse_string(FileAccess.get_file_as_string(CAPARISON_FILE)) if FileAccess.file_exists(CAPARISON_FILE) else null
+	if caparisons is Array:
+		items.append_array(caparisons)
 	_apply_history(items)
 	for item in items:
 		if item.slot=="horse":
 			item.stats["horse_coat"] = HORSE_COATS.get(str(item.id),"bay")
+	_apply_weights(items)
 	return items
+
+## EQUIP-066: every carried item gets a weight in kg (stats.<slot>_kg) from
+## data/equipment_weights_v066.json. Body armour and helmets are listed per
+## item (museum ranges or labelled estimates); old/legacy pieces use the
+## weight of the historical piece their art was matched to, else a material
+## default. Shields scale with size (capacity), lances with type and length.
+static func _apply_weights(items: Array) -> void:
+	var table = JSON.parse_string(FileAccess.get_file_as_string(WEIGHTS_FILE)) if FileAccess.file_exists(WEIGHTS_FILE) else null
+	if not table is Dictionary:
+		push_error("Missing equipment weights: "+WEIGHTS_FILE)
+		return
+	for item in items:
+		var stats: Dictionary = item.stats
+		match str(item.slot):
+			"armor":
+				var kg = table.armor.get(str(item.id),table.armor.get(str(stats.get("armor_art","")),-1.0))
+				if float(kg)<0:
+					kg = table.armor._by_material.get(str(stats.get("armor_material","")),7.0+3.6*float(stats.get("armor_tier",0)))
+				stats["armor_kg"] = float(kg)
+			"helmet":
+				var kg = table.helmet.get(str(item.id),table.helmet.get(str(stats.get("helmet_art","")),-1.0))
+				stats["helmet_kg"] = float(kg) if float(kg)>=0 else 1.8+.4*float(stats.get("helmet_tier",0))
+			"shield":
+				stats["shield_kg"] = snappedf(float(table.shield.base)+float(table.shield.per_capacity)*float(stats.get("shield_capacity",78.0)),.1)
+			"lance":
+				var base = float(table.lance.get(str(stats.get("lance_type","standard")),table.lance.standard))
+				stats["lance_kg"] = snappedf(base*float(stats.get("reach",247.0))/247.0,.1)
 
 static func _apply_history(items: Array) -> void:
 	# Partial overrides preserve owned IDs, prices and existing numerical balance.
@@ -104,7 +137,7 @@ static func era_for_renown(renown: int) -> int:
 	return era
 
 static func stats(items: Array, equipped: Dictionary) -> Dictionary:
-	var result = {"armor": 0.10, "helmet": 0.08, "power": 1.0, "speed": 1.0, "stability": 1.0, "durability": 100.0, "reach": 247.0, "horse_color": "a87950", "armor_tier": 0, "helmet_tier": 0, "heraldry": "bend", "shield_capacity":78.0,"shield_handling":1.0,"lance_handling":1.0}
+	var result = {"armor": 0.10, "helmet": 0.08, "power": 1.0, "speed": 1.0, "stability": 1.0, "durability": 100.0, "reach": 247.0, "horse_color": "a87950", "armor_tier": 0, "helmet_tier": 0, "heraldry": "bend", "shield_capacity":78.0,"shield_handling":1.0,"lance_handling":1.0,"caparison_style":"none","caparison_kg":0.0}
 	for slot in equipped:
 		var item = find(items, str(equipped[slot]))
 		for key in item.get("stats", {}):
@@ -117,4 +150,6 @@ static func opponent_stats(items: Array, era: int) -> Dictionary:
 		for slot in ["armor","helmet","lance","horse"]:
 			var prefix = "helm" if slot == "helmet" else slot
 			equipment[slot] = "%s_e%d" % [prefix,clampi(era,1,4)]
+		# Later-era opponents ride under cloth bearing their own arms.
+		equipment["caparison"] = "caparison_velvet" if era>=3 else "caparison_wool"
 	return stats(items,equipment)

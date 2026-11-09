@@ -20,12 +20,45 @@ class LanceIcon extends Control:
 	const Lance = preload("res://scripts/visual/lance_art.gd")
 	var equipment: Dictionary = {}
 	func _draw() -> void:
+		# HORSE-065 readability: a whole lance fitted to the card width was 2-3
+		# px thick, so paint, vamplate and head could not be told apart. Keep
+		# the true length across the width but thicken the drawing 2.6x.
+		# Every lance shares one scale (longest catalogue reach 290) so a long
+		# lance visibly outreaches a light one instead of all filling the card;
+		# shaft thickness never drops below 1.6x on small armoury cards.
 		var length = float(equipment.get("reach",247))
-		var factor = size.x/(length+78.0)
-		draw_set_transform(Vector2(67*factor,size.y*.38),0,Vector2.ONE*factor)
+		var factor = size.x/(290.0+78.0)
+		var thick = Vector2(factor,minf(maxf(factor*2.6,1.6),size.y/56.0))
+		draw_set_transform(Vector2(67*factor,size.y*.30),0,thick)
 		Lance.draw(self,equipment,Vector2.ZERO,0,length,false,0,"arena")
-		draw_set_transform(Vector2(67*factor,size.y*.72),0,Vector2.ONE*factor)
+		draw_set_transform(Vector2(67*factor,size.y*.74),0,thick)
 		Lance.draw(self,equipment,Vector2.ZERO,0,length,false,0,"war")
+
+class ShieldIcon extends Control:
+	const ShieldArt = preload("res://scripts/visual/shield_art.gd")
+	var equipment: Dictionary = {}
+	func _draw() -> void:
+		var factor = minf(size.x/84.0,size.y/108.0)
+		ShieldArt.draw(self,equipment,size*.5,false,Color.WHITE,0.0,factor)
+
+class CaparisonIcon extends Control:
+	## EQUIP-066: the player's own horse coat with the caparison texture on top,
+	## in the player's arms: the same two textures the battle mesh uses.
+	const HorseSkin = preload("res://scripts/visual/horse_skin.gd")
+	var style = "none"
+	var design = "bend"
+	var coat = "bay"
+	func _draw() -> void:
+		var coat_texture = HorseSkin.coat_texture(coat)
+		if coat_texture==null:
+			return
+		var aspect = 1024.0/683.0
+		var width = minf(size.x,size.y*aspect)
+		var area = Rect2((size-Vector2(width,width/aspect))*.5,Vector2(width,width/aspect))
+		draw_texture_rect(coat_texture,area,false)
+		var cloth = HorseSkin.caparison_texture(style,design)
+		if cloth!=null:
+			draw_texture_rect(cloth,area,false)
 
 var ui_layer: CanvasLayer
 var screen: Control
@@ -68,8 +101,8 @@ func _ready() -> void:
 		OS.alert("Please launch with Play-Latest.cmd (memory protection required).", "Lance & Laurel")
 		get_tree().quit(2)
 		return
-	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.21"
-	print("GALUMU_BUILD v0.4.21")
+	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.28"
+	print("GALUMU_BUILD v0.4.28")
 	get_tree().auto_accept_quit = false
 	add_child(WindowActivity.new())
 	get_window().min_size = Vector2i(960,540)
@@ -89,7 +122,7 @@ func _ready() -> void:
 		smoke_started = Time.get_ticks_msec()
 	show_home()
 	if GameState.qa_input_probe:
-		get_window().title = "Lance & Laurel v0.4.21 QA - Desktop input"
+		get_window().title = "Lance & Laurel v0.4.28 QA - Desktop input"
 		var audit = preload("res://scripts/core/desktop_input_audit.gd").new()
 		audit.main = self
 		add_child(audit)
@@ -149,7 +182,7 @@ func show_home() -> void:
 	UI.button(screen,"历史手记",Rect2(68,569,247,50),show_history)
 	UI.button(screen,"设置",Rect2(331,569,247,50),show_settings)
 	UI.button(screen,"保存并退出",Rect2(68,645,510,50),_save_and_exit)
-	UI.label(screen,"自动保存已启用 · v0.4.21",Vector2(70,727),16,UI.MUTED)
+	UI.label(screen,"自动保存已启用 · v0.4.28",Vector2(70,727),16,UI.MUTED)
 	UI.label(screen,"你的骑士",Vector2(790,145),20,UI.GOLD)
 	UI.button(screen,"角色外观",Rect2(1010,129,362,54),show_character,true)
 	_add_preview(Vector2(1035,652),1.42)
@@ -352,7 +385,7 @@ func _begin_match(mode: String, practice: bool = false) -> void:
 	UI.label(panel,"你在左侧，马匹会自动前进。",Vector2(32,85),21,UI.INK)
 	UI.label(panel,"左键 / 空格　按住催马，松开立即开始减速；起跑由慢步逐渐提速。\n上下移动鼠标　调枪尖高度；停手压稳，大幅变招会失稳。\n1 / 2 / 3　护头 / 护胸 / 护腹；右键或 Q 循环换盾。\nW 前倾 / S 后仰　后仰避高枪，但削弱攻击并暴露腰腹。\nH 判定范围　Esc 暂停　R 重开　F11 全屏",Vector2(32,139),18,UI.INK,746)
 	UI.separator(panel,Vector2(32,295),746)
-	UI.label(panel,"最多三次对冲；落马提前结束。三轮后比较骑手状态。\n竞技场每轮领取新枪，不会死亡。实战允许死亡，断枪保留。",Vector2(32,316),18,UI.MUTED,746)
+	UI.label(panel,"最多三次对冲；落马提前结束。竞技场三轮后按比武计分：盾 1、胸腹 2、头盔 3（力度不足以穿透护甲只算擦中 1）、断枪 +1，同分比较骑手状态。\n竞技场每轮领取新枪，不会死亡。实战允许死亡，断枪保留，按骑手状态决胜。",Vector2(32,316),18,UI.MUTED,746)
 	UI.label(panel,"枪尖菱形与部位框显示当前枪线；姿态变化会改变实际落点。",Vector2(32,396),17,UI.GOLD,746)
 	UI.button(panel,"明白了，出战",Rect2(32,448,480,58),func():
 		GameState.set_setting("brief_seen",true)
@@ -420,11 +453,18 @@ func show_result() -> void:
 	var explanation = "三次对冲后的骑手状态决胜"
 	if result.get("reason") == "terminal":
 		explanation = "双方同时失去继续战斗能力" if draw else "落马或失去继续战斗能力"
+	elif result.get("reason") == "score":
+		explanation = "按比武计分决胜：盾 1 · 胸腹 2 · 头盔 3（需穿透护甲，否则擦中 1）· 断枪 +1"
+	elif current_mode=="arena":
+		explanation = "比分相同，按骑手状态决胜"
 	if result.get("player_dead",false) or result.get("enemy_dead",false):
 		explanation = "实战致命伤 · 本局终止，收藏保留"
 	UI.label(panel,explanation,Vector2(35,128),18,UI.MUTED,706)
 	UI.separator(panel,Vector2(35,177),706)
-	UI.label(panel,"你的骑手状态  %d%%        对手  %d%%" % [roundi(float(result.get("player_hp",0))),roundi(float(result.get("enemy_hp",0)))],Vector2(35,199),20,UI.INK)
+	var status_line = "你的骑手状态  %d%%        对手  %d%%" % [roundi(float(result.get("player_hp",0))),roundi(float(result.get("enemy_hp",0)))]
+	if current_mode=="arena":
+		status_line = "比分  %d : %d        骑手状态  %d%% : %d%%" % [int(result.get("player_score",0)),int(result.get("enemy_score",0)),roundi(float(result.get("player_hp",0))),roundi(float(result.get("enemy_hp",0)))]
+	UI.label(panel,status_line,Vector2(35,199),20,UI.INK)
 	UI.label(panel,preload("res://scripts/ui/combat_report.gd").summarize(battle.exchange_log if battle else []),Vector2(35,244),17,UI.INK,706)
 	UI.label(panel,"银币  +%s           声望  +%s" % [reward.get("coins",0),reward.get("renown",0)],Vector2(35,363),23,UI.GOLD)
 	var next_era = Catalogue.era_for_renown(int(GameState.profile.renown)) + 1
@@ -443,10 +483,14 @@ func show_armory() -> void:
 	_header("军械库 · 不同年代，不同用途。")
 	UI.label(screen,"武备与纹章",Vector2(55,105),37,UI.INK)
 	UI.button(screen,"返回营地",Rect2(1210,100,175,48),show_home)
+	# EQUIP-066: the cause of horse fatigue is shown where it is decided.
+	var load_text = _load_summary(GameState.player_stats())
+	UI.label(screen,load_text.text,Vector2(300,108),15,load_text.color,890)
 	var index = 0
 	for slot in Catalogue.SLOT_NAMES:
 		var slot_value = str(slot)
-		UI.button(screen,Catalogue.SLOT_NAMES[slot],Rect2(56+index*110,169,101,43),func():
+		# Seven slots (EQUIP-066 added 马衣) share the space the six used.
+		UI.button(screen,Catalogue.SLOT_NAMES[slot],Rect2(56+index*95,169,88,43),func():
 			selected_slot = slot_value
 			selected_item = {}
 			show_armory(),selected_slot == slot_value)
@@ -518,11 +562,12 @@ func show_armory() -> void:
 			selected_item = item_value
 			_update_item_panel())
 		grid.add_child(card)
-		var title = UI.label(card,("◆ " if equipped else "")+str(item.name),Vector2(14,10),15,UI.INK,280)
+		# Wider icon well (was 72x88): equipment differences were too small to see.
+		var title = UI.label(card,("◆ " if equipped else "")+str(item.name),Vector2(14,10),15,UI.INK,218)
 		title.max_lines_visible = 2
-		UI.label(card,"%s · %s" % [item.get("historical_window",Catalogue.ERAS[int(item.era)]),item.get("quality_name","旧藏")],Vector2(14,59),12,UI.MUTED,280)
-		UI.label(card,"已装备" if equipped else ("已收藏" if owned else ("%d 银币 · 声望 %d" % [item.price,Catalogue.required_renown(item)])),Vector2(14,84),14,UI.GOLD,280)
-		_add_item_icon(card,item,Vector2(309,12),Vector2(72,88))
+		UI.label(card,"%s · %s" % [item.get("historical_window",Catalogue.ERAS[int(item.era)]),item.get("quality_name","旧藏")],Vector2(14,59),12,UI.MUTED,218)
+		UI.label(card,"已装备" if equipped else ("已收藏" if owned else ("%d 银币 · 声望 %d" % [item.price,Catalogue.required_renown(item)])),Vector2(14,84),14,UI.GOLD,218)
+		_add_item_icon(card,item,Vector2(236,8),Vector2(152,100))
 	if filtered.is_empty():
 		UI.label(grid,"这个时期的该类装备仍在整理中。",Vector2.ZERO,18,UI.MUTED)
 	info_panel = UI.panel(screen,Rect2(925,229,460,507),Color(.055,.10,.08,.95))
@@ -533,12 +578,41 @@ func show_armory() -> void:
 	message_label = UI.label(screen,"收藏解锁不等于史实复原。每件装备保留来源与改编说明。",Vector2(57,744),16,UI.MUTED,830)
 	queue_redraw()
 
+func _player_heraldry() -> String:
+	return str(GameState.player_stats().get("heraldry","bend"))
+
+func _load_summary(stats: Dictionary) -> Dictionary:
+	var Condition = Model.Condition
+	var carried = Condition.load_kg(stats)
+	var capacity = Condition.capacity_kg(stats)
+	var ratio = carried/maxf(1.0,capacity)
+	var band = "轻快" if ratio<.90 else ("适中" if ratio<1.02 else "沉重")
+	var color = Color("9fd08a") if ratio<.90 else (UI.GOLD if ratio<1.02 else Color("e08a6a"))
+	return {"text":"整备负重 %d kg（护具 %d kg）/ 马匹舒适承载 %d kg · %s" % [roundi(carried),roundi(Condition.worn_kg(stats)),roundi(capacity),band],"color":color}
+
 func _add_item_icon(parent: Control, item: Dictionary, point: Vector2, dimensions: Vector2) -> Control:
 	var icon: Control
 	if item.slot=="lance":
 		var lance_icon = LanceIcon.new()
 		lance_icon.equipment = item.stats
 		icon = lance_icon
+	elif item.slot=="shield" and item.stats.has("shield_shape"):
+		# Shields are shown in the player's own arms: quality reads as build.
+		var shield_icon = ShieldIcon.new()
+		shield_icon.equipment = item.stats.duplicate()
+		shield_icon.equipment["heraldry"] = _player_heraldry()
+		icon = shield_icon
+	elif item.slot=="crest":
+		# A crest card shows the arms themselves (was a blank coloured shield).
+		var crest_icon = ShieldIcon.new()
+		crest_icon.equipment = {"shield_shape":"heater","shield_quality":2,"heraldry":str(item.stats.get("heraldry","bend"))}
+		icon = crest_icon
+	elif item.slot=="caparison":
+		var cloth_icon = CaparisonIcon.new()
+		cloth_icon.style = str(item.stats.get("caparison_style","none"))
+		cloth_icon.design = _player_heraldry()
+		cloth_icon.coat = str(GameState.player_stats().get("horse_coat","bay"))
+		icon = cloth_icon
 	else:
 		var texture = TextureRect.new()
 		texture.texture = Art.item_icon(item)
@@ -564,8 +638,8 @@ func _update_item_panel() -> void:
 	var item = selected_item
 	UI.label(info_panel,item.name,Vector2(22,16),22,UI.GOLD,415)
 	UI.label(info_panel,"%s · %s · %s" % [item.region,item.get("quality_name","旧藏"),item.get("historical_window",Catalogue.ERAS[int(item.era)])],Vector2(22,76),13,UI.MUTED,415)
-	UI.label(info_panel,item.description,Vector2(22,112),15,UI.INK,242)
-	_add_item_icon(info_panel,item,Vector2(279,108),Vector2(156,132))
+	UI.label(info_panel,item.description,Vector2(22,112),15,UI.INK,200)
+	_add_item_icon(info_panel,item,Vector2(232,100),Vector2(206,140))
 	var detail = ""
 	for key in item.stats:
 		var value = item.stats[key]
@@ -580,6 +654,14 @@ func _update_item_panel() -> void:
 			"lance_handling": detail += "调枪速度  ×%.2f   " % value
 			"shield_capacity": detail += "盾耐久  %d   " % value
 			"shield_handling": detail += "换盾速度  ×%.2f   " % value
+			"armor_kg","helmet_kg","shield_kg","lance_kg","caparison_kg":
+				detail += "重量  %.1f kg   " % value
+			"caparison_renown":
+				detail += "获胜额外声望  +%d   " % value
+	if item.slot=="caparison":
+		detail += "不提供防护"
+	elif item.slot=="armor" or item.slot=="helmet":
+		detail += "越重越护身，但马更易累、调枪换盾更慢"
 	var scroll = ScrollContainer.new()
 	scroll.name = "ProvenanceScroll"
 	scroll.position = Vector2(22,246)

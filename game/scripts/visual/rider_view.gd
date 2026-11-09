@@ -8,6 +8,8 @@ const Model = preload("res://scripts/core/joust_match.gd")
 const Art = preload("res://scripts/visual/equipment_art.gd")
 const HorseArt = preload("res://scripts/visual/horse_art.gd")
 const Gait = preload("res://scripts/visual/horse_gait.gd")
+const Condition = preload("res://scripts/core/horse_condition.gd")
+const ShieldArt = preload("res://scripts/visual/shield_art.gd")
 const Shield = preload("res://scripts/core/shield_geometry.gd")
 const ArmArt = preload("res://scripts/visual/rider_arm_art.gd")
 const Face = preload("res://scripts/visual/character_face.gd")
@@ -216,12 +218,18 @@ func _draw() -> void:
 		far_hind_skin = HorseSkin.new("hind")
 		far_fore_skin = HorseSkin.new("fore")
 	var stride = stride_phase
-	var horse_pose = Gait.body(stride,float(fighter.get("speed",0.0)),moving,float(fighter.stats.get("stability",1.0)),float(fighter.get("motion_drive",0.0)))
-	var coat_key = str(fighter.stats.get("horse_coat","bay"))
+	var horse_pose = Gait.body(stride,float(fighter.get("speed",0.0)),moving,float(fighter.stats.get("stability",1.0)),float(fighter.get("motion_drive",0.0)),Condition.fatigue(float(fighter.get("stamina",100.0))))
+	var cloth_style = str(fighter.stats.get("caparison_style","none"))
+	# EQUIP-067: facing left mirrors the horse; the bend uses a pre-mirrored
+	# cloth so it stays dexter chief to sinister base on screen.
+	var cloth_design = design+("_l" if design=="bend" and int(fighter.direction)<0 else "")
+	var coat_key = str(fighter.stats.get("horse_coat","bay"))+"/"+cloth_style+"/"+cloth_design
 	if horse_coat_key!=coat_key:
-		horse_skin.set_coat(coat_key)
-		far_hind_skin.set_coat(coat_key)
-		far_fore_skin.set_coat(coat_key)
+		var coat_name = str(fighter.stats.get("horse_coat","bay"))
+		for skin in [horse_skin,far_hind_skin,far_fore_skin]:
+			skin.set_coat(coat_name)
+			# EQUIP-066: the caparison bears the rider's arms.
+			skin.set_caparison(cloth_style,cloth_design)
 		horse_coat_key=coat_key
 	# Independent coat textures carry markings; do not tint the saddle/white socks.
 	var horse_tint = Color.WHITE
@@ -420,26 +428,54 @@ func _draw_horse_bone(part: String, start: Vector2, end: Vector2, width: float, 
 
 static func seated_leg_pose(value: Dictionary) -> Dictionary:
 	# Local side-view projection. Depth is supplied by draw order, not by
-	# moving both thighs to the visible side. Pelvis stays on the saddle.
+	# moving both thighs to the visible side.
+	# RIDER-064: the hip rides with the rider (seat lag, impact shift) while
+	# the foot stands in a stirrup hung from the SADDLE, which moves with the
+	# horse. A two-bone knee solves between them with the measured thigh and
+	# shin lengths, so the legs absorb the stride instead of moving as one
+	# block with the seat. At rest every joint equals the former fixed pose.
+	var body = Model.gait_pose(value)
+	var pitch = float(body.pitch)
 	var pivot = Model.HIP+Model.saddle_offset(value)
-	var pitch = Model.gait_pose(value).pitch
+	var saddle = Model.HIP+Vector2(body.offset)
+	var speed = float(value.get("speed",0.0))
+	var phase = float(value.get("gait_phase",0.0))
+	var w = Gait.weights(speed)
+	var run = w.z+w.w
+	var activity = smoothstep(0,85,speed) if bool(value.get("gait_moving",false)) else 0.0
+	var lean = clampf(float(value.get("lean",0.0)),-1.0,1.0)
 	var result = {}
 	var reaction_slide = clampf(float(value.get("reaction_shift",0.0)),-6.0,6.0)
 	for side in ["far","near"]:
 		var far = side=="far"
-		var hip = pivot+(Vector2(14,-8) if far else Vector2(-11,3))
-		var knee = hip+(Vector2(21,24) if far else Vector2(23,29)).rotated(pitch*.3)
-		var ankle = hip+(Vector2(10,78) if far else Vector2(7,82)).rotated(pitch*.15)
-		# The seat yields with the shared rider origin, while the knees and
-		# stirrups keep their mount-relative support instead of sliding the legs.
+		var hip_offset = Vector2(14,-8) if far else Vector2(-11,3)
+		var rest_knee = Vector2(21,24) if far else Vector2(23,29)
+		var rest_ankle = Vector2(10,78) if far else Vector2(7,82)
+		var hip = pivot+hip_offset
 		hip.x += reaction_slide
-		result[side] = {"hip":hip,"knee":knee,"ankle":ankle,"foot":ankle+Vector2(17,8)}
+		# The stirrup leather swings a little behind the stride; bracing in a
+		# lean pushes the feet forward (more when leaning back) and heels down.
+		var swing = Vector2(-sin(phase-1.1+(.35 if far else 0.0))*(1.4*w.y+2.8*run),
+			cos(phase-1.1)*(.5*w.y+.9*run))*activity
+		var brace = Vector2((3.0 if lean>0.0 else 8.0)*absf(lean),-1.5*absf(lean))
+		var ankle = saddle+(hip_offset+rest_ankle).rotated(pitch*.6)+swing+brace
+		var thigh = rest_knee.length()
+		var shin = (rest_ankle-rest_knee).length()
+		var reach = ankle-hip
+		var distance = clampf(reach.length(),absf(thigh-shin)+.5,thigh+shin-.5)
+		ankle = hip+reach.normalized()*distance
+		var bend = acos(clampf((thigh*thigh+distance*distance-shin*shin)/(2.0*thigh*distance),-1.0,1.0))
+		# Knee in front of the hip-ankle line, the branch of the measured rest pose.
+		var knee = hip+reach.normalized().rotated(-bend)*thigh
+		var bar = saddle+(hip_offset+Vector2(-3,-1)).rotated(pitch)
+		result[side] = {"hip":hip,"knee":knee,"ankle":ankle,"foot":ankle+Vector2(17,8).rotated(pitch*.6),"bar":bar}
 	return result
 
 func _draw_seated_leg(pose: Dictionary, tint: Color, near: bool) -> void:
 	# Measured joints from the existing rider atlas; keep the decorative
 	# thigh and boot, but give their knee a shared attachment.
-	var strap_top: Vector2 = pose.hip+Vector2(-3,-1)
+	# The leather hangs from the saddle bar, not from the rider's moving seat.
+	var strap_top: Vector2 = pose.get("bar",pose.hip+Vector2(-3,-1))
 	var stirrup: Vector2 = pose.ankle+Vector2(9,11)
 	var stirrup_tint = Color(tint,tint.a*stirrup_alpha)
 	draw_line(strap_top,stirrup,Color("30261d")*stirrup_tint,4)
@@ -511,6 +547,17 @@ static func _head_hinge(pose: Dictionary, value: Dictionary) -> Transform2D:
 	var pivot = Vector2(float(fit.collar.center[0]),float(fit.collar.center[1])+2.0)
 	var hinge = Transform2D(angle,Vector2.ZERO)
 	hinge.origin = pivot-hinge.basis_xform(pivot)
+	if not pose.has("head_rotation"):
+		# RIDER-064, mounted only: the head keeps ~30% of a deliberate lean out
+		# of its orientation so the rider keeps looking at the opponent. It
+		# turns about the model's head anchor (torso-local 0,-111), so the
+		# visible helmet stays on the head hit target; the neck bridge stretches.
+		var lean = float(value.get("lean",0.0))
+		var lean_angle = lean*(deg_to_rad(25.0) if lean>=0.0 else deg_to_rad(45.0))
+		var counter = Transform2D(-.30*lean_angle*int(value.get("direction",1)),Vector2.ZERO)
+		var anchor = Vector2(0,-111)
+		counter.origin = anchor-counter.basis_xform(anchor)
+		hinge = counter*hinge
 	return hinge
 
 static func head_transform(pose: Dictionary, value: Dictionary) -> Transform2D:
@@ -537,7 +584,7 @@ static func neck_geometry(pose: Dictionary, value: Dictionary) -> Dictionary:
 		"down":hinge.basis_xform(Vector2.DOWN),"half":neck_half,"collar_half":float(fit.collar.width)*.5,"open":bool(fit.open)}
 
 func _draw_pose_neck(pose: Dictionary, fit: Dictionary, appearance: Dictionary, facing: int) -> void:
-	if is_zero_approx(float(pose.get("head_rotation",0.0))):
+	if _head_hinge(pose,fighter).is_equal_approx(Transform2D.IDENTITY):
 		HeadFit.draw_neck(self,fit,appearance,facing)
 		return
 	var neck = neck_geometry(pose,fighter)
@@ -639,20 +686,12 @@ func _draw_shield(center: Vector2, design: String) -> void:
 	back_rim.append(back[0])
 	draw_polyline(back_rim,Color("8a6240"),3)
 	if fighter.stats.has("shield_shape"):
-		var shape = str(fighter.stats.shield_shape)
-		var outline = base_outline
-		var outer = PackedVector2Array()
-		var inner = PackedVector2Array()
-		for point in outline:
-			outer.append(center+shield_projection(point))
-			inner.append(center+shield_projection(point*.87)+Vector2(-2.5,0)*shield_recoil)
-		draw_colored_polygon(outer,Color("292b25"))
-		draw_colored_polygon(inner,Color(str(fighter.stats.shield_color))*tint)
-		var rim = inner.duplicate()
-		rim.append(inner[0])
-		draw_polyline(rim,Color("b89b56") if int(fighter.stats.shield_quality)>=3 else Color("887351"),3)
-		for point in inner:
-			draw_rect(Rect2(point-Vector2(1,1),Vector2(3,3)),Color("d2c8a6"))
+		# Shared with the armoury icon. EQUIP-066: the crest's arms (field and
+		# clipped charge) are painted by ShieldArt; quality shows as build.
+		ShieldArt.draw(self,fighter.stats,center,true,tint,shield_recoil,1.0,int(fighter.direction))
+		if ratio<.54:
+			draw_polyline(PackedVector2Array([center+Vector2(-5,-27),center+Vector2(3,-9),center+Vector2(-4,7),center+Vector2(4,24)]),Color("302d28"),2,true)
+		return
 	else:
 		var face = PackedVector2Array()
 		var uv = PackedVector2Array()

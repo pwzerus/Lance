@@ -19,6 +19,17 @@ const HIND_TIBIA = Vector2(-48,46)
 const HIND_CANNON = Vector2(2,44)
 const PASTERN = Vector2(12,23)
 const HIND_PASTERN = Vector2(13,26)
+# ART-063: the old rigid fetlock-to-sole vector is split at the coronet into
+# a pastern bone and a rigid hoof capsule (v050 plate coronet/sole landmarks,
+# 180/666 game units per px). The sum is unchanged, so the rest pose is too.
+# Under load the fetlock sinks while the hoof stays flat on the ground.
+const FORE_HOOF = Vector2(5.41,11.89)
+const HIND_HOOF = Vector2(3.24,12.43)
+# Peak fetlock extension under load per gait, radians (walk/trot/canter/gallop).
+# A gallop stance lasts ~.1s. With the sin^2 load curve, .30 peaks near
+# 10 rad/s, under the 12 rad/s toe bound (art063-anatomy01 measured ~14 rad/s
+# for the first smoothstep(sin) curve with a .32 peak).
+const FETLOCK_SINK = [.10,.20,.26,.30]
 # Retain legacy reach bounds for callers; exact bone-length checks must use
 # segment_lengths(front), because a fore cannon is shorter than a hind one.
 const UPPER = 66.48308055437865
@@ -44,10 +55,25 @@ static func rest_foot(index: int) -> Vector2:
  return REST_FEET[index]
 
 static func segment_lengths(front: bool) -> Dictionary:
+ # "pastern" keeps its legacy meaning (fetlock to sole at rest) for reach
+ # callers; "pastern_bone" and "hoof" are the two jointed distal segments.
  return {"proximal":FORE_PROXIMAL.length() if front else HIND_PROXIMAL.length(),
   "upper":FORE_RADIUS.length() if front else HIND_TIBIA.length(),
   "lower":FORE_CANNON.length() if front else HIND_CANNON.length(),
-  "pastern":PASTERN.length() if front else HIND_PASTERN.length()}
+  "pastern":PASTERN.length() if front else HIND_PASTERN.length(),
+  "pastern_bone":pastern_bone(front).length(),
+  "hoof":(FORE_HOOF if front else HIND_HOOF).length()}
+
+static func pastern_bone(front: bool) -> Vector2:
+ return (PASTERN-FORE_HOOF) if front else (HIND_PASTERN-HIND_HOOF)
+
+static func fetlock_sink(cycle: float, duty: float, speed: float) -> float:
+ # Load rises and falls over stance; zero at touchdown and at lift-off, so
+ # the swing and the planted hoof meet without a jump.
+ var w = weights(speed)
+ var peak = FETLOCK_SINK[0]*w.x+FETLOCK_SINK[1]*w.y+FETLOCK_SINK[2]*w.z+FETLOCK_SINK[3]*w.w
+ var load = sin(PI*clampf(cycle/maxf(.01,duty),0.0,1.0))
+ return peak*load*load*smoothstep(0,85,speed)
 
 static func rest_flex(front: bool) -> float:
  var upper = FORE_RADIUS if front else HIND_TIBIA
@@ -90,9 +116,13 @@ static func _cycle(values: Array, cycle: float) -> float:
  var d = float(values[(i+2)%values.size()])
  return .5*((2*b)+(-a+c)*t+(2*a-5*b+4*c-d)*t*t+(-a+3*b-3*c+d)*t*t*t)
 
-static func body(phase: float, speed: float, moving: bool, stability: float = 1.0, drive: float = 0.0) -> Dictionary:
+static func body(phase: float, speed: float, moving: bool, stability: float = 1.0, drive: float = 0.0, fatigue: float = 0.0) -> Dictionary:
+ # HORSE-065: fatigue (0 fresh .. 1 spent) lowers the neck and deepens the
+ # head nod of a labouring horse. It changes ONLY neck/head, never the saddle
+ # offset, pitch or rider values that the rule anchors share.
+ fatigue = clampf(fatigue,0.0,1.0)
  if not moving:
-  return {"offset":Vector2(0,sin(phase)*.45),"pitch":0.0,"neck":sin(phase)*.008,"head":-sin(phase)*.004,"neck_offset":Vector2.ZERO,"tail":sin(phase*.7)*.045,"rider_offset":Vector2.ZERO,"rider_pitch":0.0,"gait":0}
+  return {"offset":Vector2(0,sin(phase)*.45),"pitch":0.0,"neck":sin(phase)*(.008+.012*fatigue)+.12*fatigue,"head":-sin(phase)*.004-.05*fatigue,"neck_offset":Vector2.ZERO,"tail":sin(phase*.7)*.045,"rider_offset":Vector2.ZERO,"rider_pitch":0.0,"gait":0}
  var w = weights(speed)
  var cycle = fposmod(phase/TAU,1)
  var intensity = smoothstep(0,95,speed)
@@ -114,6 +144,7 @@ static func body(phase: float, speed: float, moving: bool, stability: float = 1.
   delayed_pitch += _cycle(PITCHES[i],cycle-.04)*w[i]
  var rider_lag = (delayed_height-height)*.32*transmission
  var neck_angle = (.075*run-pitch*.90+delayed_pitch*.35+sin(phase-.5)*(.020*w.x+.012*w.y))*intensity
+ neck_angle += (.09+.03*sin(phase-.5))*fatigue*intensity
  # The head counterbalances the SAME trunk loading, instead of bobbing on
  # an unrelated large sine. Acceleration loads the hindquarters and carries
  # the seated rider forward; these offsets are shared with the rule anchors.
@@ -130,10 +161,17 @@ static func _swing_point(front: bool, t: float, reach: float, lift: float, run: 
  # Both feet deliver monotonically to the world landing target; hind feet
  # must not overshoot that target and whip backwards before touchdown.
  var progress = clampf(t,0,1)
- var delivered = progress*progress*progress*(progress*(6.0*progress-15.0)+10.0)
+ # HORSE-065: forward-skewed delivery. The symmetric curve kept the lifted
+ # hoof hanging behind the horse for the first third of the swing, which read
+ # as a backward kick/bounce. The leg now folds forward under the body soon
+ # after lift-off; start and touchdown still have zero world velocity.
+ var warped = progress*(1.0+.55*(1.0-progress))
+ var delivered = warped*warped*warped*(warped*(6.0*warped-15.0)+10.0)
  # Clear the ground early while the trunk advances over the planted foot.
  # A symmetric sin² hump lifted too late and forced a straight-chain clamp.
- var apex = (.36 if front else .40)-.03*run
+ # The apex sits nearer mid-swing so the hoof is high under the belly, not
+ # high behind it.
+ var apex = (.40 if front else .46)-.03*run
  var lift_weight = smoothstep(0,apex,progress) if progress<apex else 1.0-smoothstep(apex,1.0,progress)
  return Vector2(lerpf(-reach,reach,delivered),-lift*lift_weight)
 
@@ -150,7 +188,9 @@ static func leg(index: int, phase: float, speed: float, moving: bool, stability:
  var gallop_duty = [.20,.22,.22,.26][index]
  var duty = .68*w.x+.41*w.y+canter_duty*w.z+gallop_duty*w.w
  var reach = maxf(0,speed)/maxf(.1,frequency(speed))*duty*.5
- var lift = (15*w.x+25*w.y+(37 if front else 33)*w.z+(46 if front else 41)*w.w)*smoothstep(0,85,speed)
+ # Hind hooves fold up close (hock and fetlock flex) rather than being flung
+ # high behind: lower hind lift than the forelegs (HORSE-065).
+ var lift = (15*w.x+(25 if front else 21)*w.y+(37 if front else 27)*w.z+(46 if front else 32)*w.w)*smoothstep(0,85,speed)
  var foot = rest_foot(index)
  var nominal_contact = not moving or cycle<duty
  var contact = nominal_contact
@@ -188,28 +228,52 @@ static func leg(index: int, phase: float, speed: float, moving: bool, stability:
  # forward cleanly rather than flicking through the old deep fold faster.
  var curl = (.28*w.x+.50*w.y+.65*w.z+.66*w.w)*smoothstep(0,85,speed)
  var toe_angle = 0.0 if contact else -sin(PI*smoothstep(0,.83,swing))*curl
- var pastern = PASTERN if front else HIND_PASTERN
+ var hoof = FORE_HOOF if front else HIND_HOOF
+ var bone = pastern_bone(front)
  var lengths = segment_lengths(front)
  var proximal_length = float(lengths.proximal)
  var upper_length = float(lengths.upper)
  var lower_length = float(lengths.lower)
- var ankle = foot-pastern.rotated(toe_angle)
+ # Reach belongs to the entire shoulder/elbow/wrist or hip/stifle/hock
+ # chain, not to two equal sticks below a fixed elbow/stifle.
+ var maximum_reach = proximal_length+upper_length+lower_length-.03
+ # Fetlock suspension: under load the pastern flattens about the coronet of
+ # a flat planted hoof, the spring that makes a supporting leg look loaded.
+ # It may use only the reach that remains: it never lifts a supporting hoof.
+ var sink = 0.0
+ if moving and contact:
+  var wanted = fetlock_sink(cycle,duty,speed)
+  var coronet_probe = foot-hoof
+  if wanted>0.0 and (coronet_probe-bone.rotated(-wanted)-hip).length()>maximum_reach:
+   var low = 0.0
+   var high = wanted
+   if (coronet_probe-bone-hip).length()>maximum_reach:
+    high = 0.0
+   for step in range(10):
+    var middle = (low+high)*.5
+    if (coronet_probe-bone.rotated(-middle)-hip).length()<=maximum_reach:
+     low = middle
+    else:
+     high = middle
+   wanted = low
+  sink = wanted
+ var coronet = foot-hoof.rotated(toe_angle)
+ var ankle = coronet-bone.rotated(toe_angle-sink)
  var hip_ray = ankle-hip
  var requested_reach = hip_ray.length()
  var requested_foot = foot
  var reach_limited = false
- # Reach belongs to the entire shoulder/elbow/wrist or hip/stifle/hock
- # chain, not to two equal sticks below a fixed elbow/stifle.
- var maximum_reach = proximal_length+upper_length+lower_length-.03
  if hip_ray.length()>maximum_reach:
   ankle = hip+hip_ray.normalized()*maximum_reach
-  foot = ankle+pastern.rotated(toe_angle)
+  coronet = ankle+bone.rotated(toe_angle-sink)
+  foot = coronet+hoof.rotated(toe_angle)
   contact = false
   reach_limited = true
   hip_ray = ankle-hip
  if hip_ray.length()<.05:
   ankle = hip+Vector2(0,.05)
-  foot = ankle+pastern.rotated(toe_angle)
+  coronet = ankle+bone.rotated(toe_angle-sink)
+  foot = coronet+hoof.rotated(toe_angle)
   contact = false
   reach_limited = true
   hip_ray = ankle-hip
@@ -226,7 +290,7 @@ static func leg(index: int, phase: float, speed: float, moving: bool, stability:
    flex += compression*(.025*w.x+.04*w.y+.055*w.z+.07*w.w if front else .045*w.x+.07*w.y+.09*w.z+.11*w.w)*fold_activity
   else:
    var fold = sin(PI*smoothstep(0.0,.88 if front else .90,swing))
-   flex += fold*(.60*w.x+1.10*w.y+1.35*w.z+1.50*w.w if front else .28*w.x+.52*w.y+.70*w.z+.82*w.w)*fold_activity
+   flex += fold*(.60*w.x+1.10*w.y+1.35*w.z+1.50*w.w if front else .36*w.x+.66*w.y+.90*w.z+1.05*w.w)*fold_activity
  var distal_distance = sqrt(maxf(.0001,upper_length*upper_length+lower_length*lower_length+2.0*upper_length*lower_length*cos(flex)))
  var hip_distance = hip_ray.length()
  var minimum_distal = maxf(absf(upper_length-lower_length)+.01,absf(hip_distance-proximal_length)+.001)
@@ -264,14 +328,15 @@ static func leg(index: int, phase: float, speed: float, moving: bool, stability:
  var ray = ankle-proximal
  if ray.length()>upper_length+lower_length-.01:
   ankle = proximal+ray.normalized()*(upper_length+lower_length-.01)
-  foot = ankle+pastern.rotated(toe_angle)
+  coronet = ankle+bone.rotated(toe_angle-sink)
+  foot = coronet+hoof.rotated(toe_angle)
   contact = false
   reach_limited = true
   ray = ankle-proximal
  var distance = maxf(.001,ray.length())
  var bend = acos(clampf((upper_length*upper_length+distance*distance-lower_length*lower_length)/(2.0*upper_length*distance),-1,1))
  var knee = proximal+ray.normalized().rotated(bend*(-1 if front else 1))*upper_length
- return {"hip":hip,"proximal":proximal,"knee":knee,"ankle":ankle,"foot":foot,"contact":contact,"nominal_contact":nominal_contact,"cycle":cycle,"toe_angle":toe_angle,"front":front,"swing":swing,"reach":reach,"duty":duty,"lift":lift,"root_offset":root_offset,"reach_limited":reach_limited,"requested_flex":flex,"requested_reach":requested_reach,"maximum_reach":maximum_reach,"requested_foot":requested_foot,"proximal_limited":proximal_limited}
+ return {"hip":hip,"proximal":proximal,"knee":knee,"ankle":ankle,"coronet":coronet,"foot":foot,"sink":sink,"contact":contact,"nominal_contact":nominal_contact,"cycle":cycle,"toe_angle":toe_angle,"front":front,"swing":swing,"reach":reach,"duty":duty,"lift":lift,"root_offset":root_offset,"reach_limited":reach_limited,"requested_flex":flex,"requested_reach":requested_reach,"maximum_reach":maximum_reach,"requested_foot":requested_foot,"proximal_limited":proximal_limited}
 
 static func touchdown_indices(previous_phase: float, current_phase: float, speed: float) -> Array[int]:
  var result: Array[int] = []

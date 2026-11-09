@@ -91,6 +91,8 @@ var guard_slot = 1
 var guard_buttons: Array[Button] = []
 var ui_pointer_held = false
 var speed_meter: ProgressBar
+var stamina_bar: ColorRect
+var fatigue_label: Label
 var tactics_label: Label
 var input_flash_until = 0
 var ready_panel: Control
@@ -257,7 +259,7 @@ func _build_hud() -> void:
 	aim_label = UI.label(aim_panel,"",Vector2(12,6),18,UI.INK,486)
 	UI.label(aim_panel,"连续调枪 · 以实际接触为准",Vector2(12,37),14,UI.MUTED,486)
 	speed_meter = ProgressBar.new()
-	speed_meter.position = Vector2(950,742)
+	speed_meter.position = Vector2(950,744)
 	speed_meter.size = Vector2(470,10)
 	speed_meter.min_value = 0.0
 	speed_meter.max_value = Model.SURGE_SPEED*float(match_model.fighters[0].stats.get("speed",1.0))
@@ -272,7 +274,25 @@ func _build_hud() -> void:
 	speed_meter.add_theme_stylebox_override("background",meter_background)
 	speed_meter.add_theme_stylebox_override("fill",meter_fill)
 	hud.add_child(speed_meter)
-	hint = UI.label(bottom,"鼠标调枪 · 左键/空格催马 · W/S俯仰",Vector2(950,48),14,UI.MUTED,470)
+	# EQUIP-067: the horse's condition gets its own gauge and numbers. The old
+	# status line held stamina at the end of a trimmed label, so players never
+	# saw the horse tire. (Diagnostic readout; may be simplified later.)
+	# Plain rects: a second themed ProgressBar grew to its minimum height and
+	# covered the readout (equip067-hud01).
+	var stamina_back = ColorRect.new()
+	stamina_back.position = Vector2(950,773)
+	stamina_back.size = Vector2(470,8)
+	stamina_back.color = Color("14251f")
+	stamina_back.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	hud.add_child(stamina_back)
+	stamina_bar = ColorRect.new()
+	stamina_bar.position = Vector2(1,1)
+	stamina_bar.size = Vector2(468,6)
+	stamina_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	stamina_back.add_child(stamina_bar)
+	fatigue_label = UI.label(bottom,"",Vector2(950,2),14,UI.INK,470)
+	fatigue_label.autowrap_mode = TextServer.AUTOWRAP_OFF
+	hint = UI.label(bottom,"鼠标调枪 · 左键/空格催马 · W/S俯仰",Vector2(950,63),13,UI.MUTED,470)
 
 func combat_safe_rect() -> Rect2:
 	return COMBAT_SAFE_RECT
@@ -643,11 +663,21 @@ func _update_hud() -> void:
 	aim_label.add_theme_color_override("font_color",Cues.COLORS[projection.zone])
 	aim_label.get_parent().visible = GameState.profile.settings.get("aim_cues",true)
 	speed_meter.value = float(f.speed)
-	var pace_text = "按住催马" if f.boost and float(f.stamina)>4 else ("松手减速" if float(f.speed)>Model.TROT_SPEED+20 else "自动前进")
+	# HORSE-065: a tired horse can still be urged, but no longer holds the gallop.
+	var tired = float(f.stamina)<Model.Condition.TIRED
+	var pace_text = (("马已疲惫 · 全速上限 %d%%" % roundi(Model.Condition.gallop_ceiling(float(f.stamina))*100)) if tired else "按住催马") if f.boost else ("松手减速" if float(f.speed)>Model.TROT_SPEED+20 else "自动前进")
 	if phase=="ready" and f.boost:
 		pace_text = "保持按住 · 等待起跑"
 	var gait_name = Rider.Gait.NAMES[Rider.Gait.gait_index(float(f.speed))]
-	speed_label.text = "%s · %s %d · 耐力 %d%%" % [pace_text,gait_name,roundi(float(f.speed)),roundi(f.stamina)]
+	speed_label.text = "%s · %s %d" % [pace_text,gait_name,roundi(float(f.speed))]
+	var C = Model.Condition
+	var stamina = float(f.stamina)
+	var rate = -C.drain_rate(f.stats) if bool(f.boost) and phase=="charge" else (C.rest_rate(f.stats) if phase in ["ready","turn"] else C.recovery_rate(f.stats,float(f.speed),Model.GALLOP_SPEED,Model.TROT_SPEED))
+	var load_ratio = C.load_kg(f.stats)/maxf(1.0,C.capacity_kg(f.stats))
+	stamina_bar.size = Vector2(468.0*clampf(stamina/100.0,0,1),6)
+	stamina_bar.color = Color("6fae5a") if stamina>=C.TIRED+15 else (Color("d1a64a") if stamina>=C.TIRED else Color("c9573f"))
+	fatigue_label.text = "马力 %d · 全速上限 %d%% · %+.1f/秒 · 负重 %d/%dkg (%d%%)" % [roundi(stamina),roundi(C.gallop_ceiling(stamina)*100.0),rate,roundi(C.load_kg(f.stats)),roundi(C.capacity_kg(f.stats)),roundi(load_ratio*100.0)]
+	fatigue_label.add_theme_color_override("font_color",UI.INK if stamina>=C.TIRED else Color("f08a6a"))
 	var guard_text = GUARD_NAMES[guard_slot]+" · "+["下身较易暴露","头腹较易暴露","头胸较易暴露"][guard_slot]
 	if absf(float(f.guard)-GUARD_VALUES[guard_slot])>.08:
 		guard_text = "换盾中 · 留意空隙"
@@ -656,7 +686,9 @@ func _update_hud() -> void:
 	for i in range(guard_buttons.size()):
 		guard_buttons[i].button_pressed = i==guard_slot
 		guard_buttons[i].disabled = float(f.shield)<=0 or is_finished
-	tactics_label.text = "%s　|　枪稳 %d%%　|　平衡 %d%%　|　盾 %d%%" % [guard_text,roundi(float(f.lance_stability)*100),roundi(f.balance),roundi(float(f.shield)/float(f.stats.get("shield_capacity",78.0))*100)]
+	tactics_label.text = "%s　|　枪稳 %d%%　|　平衡 %d%%　|　盾 %d%%　|　臂力 %d%%" % [guard_text,roundi(float(f.lance_stability)*100),roundi(f.balance),roundi(float(f.shield)/float(f.stats.get("shield_capacity",78.0))*100),roundi(float(f.get("arm",100.0)))]
+	if float(f.get("arm",100.0))<40.0:
+		tactics_label.text += "　· 手臂酸软，调枪换盾变慢"
 	if approach_slow:
 		tactics_label.text += "　· 接近放缓"
 	tactics_label.modulate = Color(1.3,1.2,.7) if Time.get_ticks_msec()<input_flash_until else Color.WHITE
@@ -669,6 +701,9 @@ func _update_hud() -> void:
 	enemy_contact_label.position.y = 10
 	contact_panel.visible = contact_label.visible
 	pass_label.text = "PASS  %02d / 03" % match_model.pass_number
+	if match_model.mode=="arena":
+		# EQUIP-067 tournament scoring: shown beside the pass count.
+		pass_label.text = "%02d/03 · 比分 %d : %d" % [match_model.pass_number,int(match_model.fighters[0].get("score",0)),int(match_model.fighters[1].get("score",0))]
 	intermission.visible = phase in ["ready","turn"]
 	if phase == "ready":
 		callout.text = "第 %s 次对冲" % ["一","二","三"][match_model.pass_number-1]

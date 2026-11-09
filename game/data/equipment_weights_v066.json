@@ -1,0 +1,28 @@
+{
+  "_about": "EQUIP-066 重量表（kg）。来源与推算见 docs/development/EQUIP066_RESEARCH.md。胸甲槽的重量指骑手身上整套躯干与四肢护具（不含头盔与盾），因为画面上骑手穿的是整套。没有原物数据的条目标为游戏估计。",
+  "armor": {
+    "_basis": "锁甲衫 5.7–10.7 kg（Met 32781/27509/32094）+ 衬甲衣 1.5–4 kg；板片衣甲／布面甲 2.5–10 kg（Cleveland 1921.1250，Met 33710），外加锁甲与衬里；15世纪野战全甲 18–25 kg 含头盔（Met 23205，Met 常见问题）；16世纪野战兼比武甲 20–28 kg（Met 24696 23.7 kg，Met 22973 27.95 kg）。最高级组合甲按野战甲加比武加强件计（大护肩 1.9 kg、护颏 2.1 kg，Met 22754）。",
+    "eng_armor_0": 12.0, "eng_armor_1": 12.5, "eng_armor_2": 18.0, "eng_armor_3": 19.0, "eng_armor_4": 24.0, "eng_armor_5": 27.0,
+    "fr_armor_0": 13.0, "fr_armor_1": 13.5, "fr_armor_2": 17.0, "fr_armor_3": 15.5, "fr_armor_4": 24.0, "fr_armor_5": 24.5,
+    "de_armor_0": 12.5, "de_armor_1": 13.0, "de_armor_2": 21.0, "de_armor_3": 20.0, "de_armor_4": 23.0, "de_armor_5": 25.0,
+    "it_armor_0": 11.5, "it_armor_1": 12.0, "it_armor_2": 16.5, "it_armor_3": 21.0, "it_armor_4": 22.0, "it_armor_5": 25.5,
+    "_by_material": {"mail": 12.5, "brigandine": 16.5, "plate": 22.0}
+  },
+  "helmet": {
+    "_basis": "尖顶盔 2.3 kg（Met 21988）；萨莱特 1.0–3.2 kg（Met 34322/26445）；armet 2.4–2.8 kg（Met 25396）；闭盔约 3.1 kg（Met 23054）；大盔 2.4–2.8 kg（拍卖品与巴伐利亚国家博物馆）。鼻护盔、宽檐铁帽无原物数据，为游戏估计。最高级闭盔按加比武护颏计。",
+    "eng_helmet_0": 1.8, "eng_helmet_1": 2.6, "eng_helmet_2": 2.8, "eng_helmet_3": 2.6, "eng_helmet_4": 3.3, "eng_helmet_5": 3.8,
+    "fr_helmet_0": 1.9, "fr_helmet_1": 2.6, "fr_helmet_2": 2.9, "fr_helmet_3": 2.3, "fr_helmet_4": 2.7, "fr_helmet_5": 2.4,
+    "de_helmet_0": 1.8, "de_helmet_1": 2.7, "de_helmet_2": 3.0, "de_helmet_3": 3.2, "de_helmet_4": 3.3, "de_helmet_5": 2.3,
+    "it_helmet_0": 1.7, "it_helmet_1": 2.0, "it_helmet_2": 2.4, "it_helmet_3": 2.3, "it_helmet_4": 2.7, "it_helmet_5": 3.4
+  },
+  "shield": {
+    "_basis": "木盾原物重量缺失，复制品 1.4–5 kg；全钢比武盾 2.32 kg（Met 35722）。按盾耐久（尺寸与厚度）线性估算：1.2 + 2.6 × 耐久 / 100。",
+    "base": 1.2, "per_capacity": 0.026
+  },
+  "lance": {
+    "_basis": "来源有分歧：Brandon lance 436 cm、9.1 kg 空心枪杆（皇家军械馆 VII.550）；其他二手资料称比武枪 4–5 kg。按 4–10 kg 区间取类型基准，再按长度缩放：基准 × 枪长 / 247。",
+    "light": 4.0, "long": 5.0, "stout": 7.0, "standard": 5.0
+  },
+  "tack_kg": 14.0,
+  "_tack_basis": "战鞍 10 kg（Met 25402）至 13.1 kg（Met 23358），加辔头与肚带。"
+}

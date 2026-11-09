@@ -7,6 +7,16 @@ var match_model: JoustMatch
 var enabled = true
 var reading: Dictionary = {"zone":"miss","point":Vector2.ZERO}
 
+static func contact_name(event: Dictionary) -> String:
+	if event.zone=="shield":
+		return {"center":"盾心受击","face":"盾面受击","rim":"盾缘受击"}.get(str(event.get("shield_region","face")),"盾面受击")
+	return {"head":"头盔 / 头部","body":"胸甲 / 躯干","flank":"腰腹"}.get(str(event.zone),str(event.zone))
+
+static func contact_color(event: Dictionary) -> Color:
+	if event.zone=="shield" and event.get("shield_region","")=="rim":
+		return Color("ffb35c")
+	return COLORS.get(str(event.zone),COLORS.body)
+
 static func project(model: JoustMatch, attacker_index: int = 0) -> Dictionary:
 	var attacker = model.fighters[attacker_index]
 	var defender = model.fighters[1-attacker_index]
@@ -24,7 +34,7 @@ static func project(model: JoustMatch, attacker_index: int = 0) -> Dictionary:
 			continue
 		var center = Model.head_position(defender) if zone=="head" else (Model.body_position(defender) if zone=="body" else (Model.flank_position(defender) if zone=="flank" else Model.shield_position(defender)))
 		if zone=="shield":
-			var points = Model.Shield.world_polygon(center,Model.pose_angle(defender),int(defender.direction),str(defender.stats.get("shield_shape","kite")))
+			var points = Model.Shield.world_polygon(center,Model.shield_angle(defender),int(defender.direction),str(defender.stats.get("shield_shape","kite")))
 			var fraction = Model.Shield.segment_fraction(tip,tip+Vector2(direction*20000,0),points)
 			if fraction>=0 and fraction*20000<nearest:
 				nearest = fraction*20000

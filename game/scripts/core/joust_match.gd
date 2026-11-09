@@ -51,6 +51,7 @@ func _make_fighter(x: float, direction: int, stats: Dictionary) -> Dictionary:
 		"guard":0.0,"guard_target":0.0,"lance_stability":.85,"aim_velocity":0.0,
 		"reaction_angle":0.0,"reaction_angular_velocity":0.0,"reaction_shift":0.0,"reaction_shift_velocity":0.0,
 		"shield_compression":0.0,"shield_compression_velocity":0.0,"lance_compression":0.0,"lance_compression_velocity":0.0,
+		"shield_twist":0.0,"shield_twist_velocity":0.0,
 		"gait_phase":0.0,"gait_moving":false,"acceleration":0.0,"accel_command":0.0,"motion_drive":0.0,"mount_velocity_y":0.0,"lane_y":32.0 if direction==1 else -32.0}
 
 func _reset_positions() -> void:
@@ -70,7 +71,7 @@ func _reset_positions() -> void:
 		fighter.boost = false
 		fighter.gait_phase = 0.0 if i==0 else 1.1
 		fighter.gait_moving = false
-		for key in ["reaction_angle","reaction_angular_velocity","reaction_shift","reaction_shift_velocity","shield_compression","shield_compression_velocity","lance_compression","lance_compression_velocity"]:
+		for key in ["reaction_angle","reaction_angular_velocity","reaction_shift","reaction_shift_velocity","shield_compression","shield_compression_velocity","lance_compression","lance_compression_velocity","shield_twist","shield_twist_velocity"]:
 			fighter[key] = 0.0
 		if mode == "arena":
 			fighter.broken = false
@@ -113,7 +114,19 @@ static func shield_position(fighter: Dictionary) -> Vector2:
 	# the head, but exposes the abdomen and compromises saddle stability.
 	var guard = float(fighter.get("guard",0.0))
 	var local = Vector2(lerpf(44,55,smoothstep(0,.43,guard))-float(fighter.get("shield_compression",0.0)),lerpf(-4.0,-109.0,guard))
+	# The shield turns around its handle, not independently of the left hand.
+	var grip = Vector2(-10,4)
+	local += grip-grip.rotated(float(fighter.get("shield_twist",0.0)))
 	return rider_origin(fighter)+local.rotated(pose_angle(fighter))*Vector2(int(fighter.direction),1)
+
+static func shield_angle(fighter: Dictionary) -> float:
+	return pose_angle(fighter)+float(fighter.get("shield_twist",0.0))
+
+static func shield_transform(fighter: Dictionary) -> Transform2D:
+	return Transform2D(Vector2(int(fighter.direction),0),Vector2.DOWN,shield_position(fighter))*Transform2D(shield_angle(fighter),Vector2.ZERO)
+
+static func shield_grip(fighter: Dictionary) -> Vector2:
+	return shield_transform(fighter)*Vector2(-10,4)
 
 static func reaction_strength(event: Dictionary) -> float:
 	# Presentation loading, separate from injury: a solid shield transfers
@@ -128,8 +141,9 @@ static func advance_reaction(fighter: Dictionary, delta: float) -> void:
 	while remaining>.000001:
 		var dt = minf(remaining,1.0/120.0)
 		for config in [["reaction_angle","reaction_angular_velocity",160.0,16.0,-.34,.28],
-			["reaction_shift","reaction_shift_velocity",400.0,24.0,-6.0,3.0],
+			["reaction_shift","reaction_shift_velocity",300.0,22.0,-10.0,3.0],
 			["shield_compression","shield_compression_velocity",330.0,24.0,-3.0,24.0],
+			["shield_twist","shield_twist_velocity",150.0,14.0,-.32,.32],
 			["lance_compression","lance_compression_velocity",360.0,24.0,-2.0,12.0]]:
 			var position_key = str(config[0])
 			var velocity_key = str(config[1])
@@ -161,7 +175,7 @@ func _cache_pose(fighter: Dictionary) -> void:
 	fighter.prev_body = body_position(fighter)
 	fighter.prev_head = head_position(fighter)
 	fighter.prev_shield = shield_position(fighter)
-	fighter.prev_shield_angle = pose_angle(fighter)
+	fighter.prev_shield_angle = shield_angle(fighter)
 	fighter.prev_flank = flank_position(fighter)
 
 func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float, guard: float = -1.0) -> void:
@@ -365,7 +379,7 @@ func _detect_contact(index: int, delta: float) -> Dictionary:
 	for target in targets:
 		var candidate = swept_lance(attacker.prev_hand,hand_position(attacker),attacker.prev_aim,attacker.aim,attacker.prev_length,lance_length(attacker),int(attacker.direction),target.old,target.center,target.radius,delta)
 		if target.zone=="shield" and not candidate.is_empty():
-			candidate = Shield.sweep(attacker.prev_hand,hand_position(attacker),attacker.prev_aim,attacker.aim,attacker.prev_length,lance_length(attacker),int(attacker.direction),target.old,target.center,float(defender.get("prev_shield_angle",pose_angle(defender))),pose_angle(defender),int(defender.direction),str(defender.stats.get("shield_shape","kite")),delta)
+			candidate = Shield.sweep(attacker.prev_hand,hand_position(attacker),attacker.prev_aim,attacker.aim,attacker.prev_length,lance_length(attacker),int(attacker.direction),target.old,target.center,float(defender.get("prev_shield_angle",shield_angle(defender))),shield_angle(defender),int(defender.direction),str(defender.stats.get("shield_shape","kite")),delta)
 		if not candidate.is_empty() and float(candidate.fraction) < earliest:
 			earliest = candidate.fraction
 			found = target
@@ -377,8 +391,12 @@ func _detect_contact(index: int, delta: float) -> Dictionary:
 	var shaft = Vector2(cos(float(attacker.aim))*int(attacker.direction),sin(float(attacker.aim)))
 	# A sideways flick must not manufacture the axial force of a full charge.
 	var relative_speed = clampf((tip_velocity-target_velocity).dot(shaft),30.0,1050.0)
-	return {"attacker": index, "defender": 1 - index, "zone": found.zone, "speed": relative_speed,
+	var event = {"attacker": index, "defender": 1 - index, "zone": found.zone, "speed": relative_speed,
 		"position": sweep.point, "type": "hit"}
+	if found.zone=="shield":
+		event.contact_local = sweep.contact_local
+		event.merge(Shield.contact_region(sweep.contact_local,sweep.local_incoming,str(defender.stats.get("shield_shape","kite"))))
+	return event
 
 func _apply_contact(contact: Dictionary) -> void:
 	var attacker = fighters[int(contact.attacker)]
@@ -393,6 +411,11 @@ func _apply_contact(contact: Dictionary) -> void:
 	var impulse = speed * 0.085 * power * alignment
 	var damage = 19.0 * pow(speed / 620.0, 1.25) * power * alignment
 	var zone = str(contact.zone)
+	if zone=="shield" and not contact.has("shield_region"):
+		var inverse = shield_transform(defender).affine_inverse()
+		contact.contact_local = inverse*Vector2(contact.position)
+		var incoming = Vector2(cos(float(attacker.aim))*int(attacker.direction),sin(float(attacker.aim)))
+		contact.merge(Shield.contact_region(contact.contact_local,inverse.basis_xform(incoming),str(defender.stats.get("shield_shape","kite"))))
 	var glanced = false
 	var shield_before = float(defender.shield)
 	if zone == "head":
@@ -459,11 +482,13 @@ func _apply_contact(contact: Dictionary) -> void:
 	contact.merge({"damage": damage, "impulse": impulse, "glanced": glanced, "broke": broke_now, "points": points, "attaint": attaint, "dead": defender.dead, "ko": defender.ko,"ko_reason":ko_reason,"support":support,"balance_left":defender.balance,"shield_broke":shield_before>0 and float(defender.shield)<=0,
 		"break_tip":old_tip,"break_hand":old_hand,"break_reach":old_reach,"break_angle":attacker.aim,"break_direction":attacker.direction})
 	var loading = reaction_strength(contact)
-	var angular_kick = -5.6 if zone=="head" else (4.5 if zone=="flank" else (-2.6 if zone=="shield" else -4.8))
+	var angular_kick = -6.3 if zone=="head" else (4.5 if zone=="flank" else (-3.6 if zone=="shield" else -5.5))
 	defender.reaction_angular_velocity = clampf(float(defender.get("reaction_angular_velocity",0.0))+angular_kick*loading,-6.0,5.0)
 	defender.reaction_shift_velocity = maxf(-170.0,float(defender.get("reaction_shift_velocity",0.0))-145.0*loading)
 	if zone=="shield":
-		defender.shield_compression_velocity = minf(760.0,float(defender.get("shield_compression_velocity",0.0))+690.0*loading)
+		var eccentricity = float(contact.get("eccentricity",0.0))
+		defender.shield_compression_velocity = minf(760.0,float(defender.get("shield_compression_velocity",0.0))+690.0*loading*lerpf(1.0,.62,eccentricity))
+		defender.shield_twist_velocity = clampf(float(defender.get("shield_twist_velocity",0.0))+6.5*loading*float(contact.get("lever",0.0)),-6.5,6.5)
 	attacker.lance_compression_velocity = minf(360.0,float(attacker.get("lance_compression_velocity",0.0))+320.0*loading)
 	events.append(contact)
 

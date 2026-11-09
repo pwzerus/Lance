@@ -172,7 +172,7 @@ func _ground_targets(targets: Dictionary, blend: float) -> void:
 		if side=="left" and float(fighter.get("shield",0.0))>0.0:
 			var pose: Dictionary = visual.detached_pose
 			for point in Rider.Shield.polygon(str(fighter.stats.get("shield_shape","kite"))):
-				var offset: Vector2 = pose.shield_center-pose.left.hand+pose.torso_transform.basis_xform(point*mirror)
+				var offset: Vector2 = pose.shield_center-pose.left.hand+pose.torso_transform.basis_xform(point.rotated(float(fighter.get("shield_twist",0.0)))*mirror)
 				margin = maxf(margin,offset.rotated(rotation).y+7.0)
 		var solution = _ground_chain(arm.shoulder.rotated(spine),(arm.elbow-arm.shoulder).rotated(spine),(arm.hand-arm.elbow).rotated(spine),side+"_upper",side+"_elbow",1.0,level,roll_direction,margin,true)
 		targets[side+"_upper"] = lerpf(float(targets[side+"_upper"]),solution.x,blend)
@@ -348,7 +348,7 @@ func body_points() -> PackedVector2Array:
 	var mirror = Vector2(int(fighter.direction),1)
 	if float(fighter.get("shield",0.0))>0.0:
 		for point in Rider.Shield.polygon(str(fighter.stats.get("shield_shape","kite"))):
-			points.append(pose.shield_center+torso.basis_xform(point*mirror))
+			points.append(pose.shield_center+torso.basis_xform(point.rotated(float(fighter.get("shield_twist",0.0)))*mirror))
 	for side in ["near","far"]:
 		for joint in ["hip","knee","ankle","foot"]:
 			var point: Vector2 = visual.detached_legs[side][joint]*mirror

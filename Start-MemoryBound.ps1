@@ -197,12 +197,24 @@ public static class MemoryBound {
                 while (seconds == 0 || clock.Elapsed.TotalSeconds < seconds) {
                     wait = WaitForSingleObject(child.Process, 1000);
                     if (wait != 258) break;
-                    observed.Refresh();
+                    long privateBytes, workingBytes;
+                    try {
+                        observed.Refresh();
+                        privateBytes = observed.PrivateMemorySize64;
+                        workingBytes = observed.WorkingSet64;
+                    } catch (InvalidOperationException) {
+                        // The child can exit between the wait timeout and the
+                        // Process property read. Only accept a signalled child;
+                        // errors while it is still running must still surface.
+                        wait = WaitForSingleObject(child.Process, 0);
+                        if (wait == 0) break;
+                        throw;
+                    }
                     Check(GlobalMemoryStatusEx(ref memory));
-                    string line = String.Format("MEM seconds={0:F0} privateMiB={1:F1} workingMiB={2:F1} availableRamMiB={3:F0} availableCommitMiB={4:F0}", clock.Elapsed.TotalSeconds, observed.PrivateMemorySize64/1048576.0, observed.WorkingSet64/1048576.0, memory.AvailablePhysical/(double)mib, memory.AvailablePageFile/(double)mib);
+                    string line = String.Format("MEM seconds={0:F0} privateMiB={1:F1} workingMiB={2:F1} availableRamMiB={3:F0} availableCommitMiB={4:F0}", clock.Elapsed.TotalSeconds, privateBytes/1048576.0, workingBytes/1048576.0, memory.AvailablePhysical/(double)mib, memory.AvailablePageFile/(double)mib);
                     Console.WriteLine(line);
                     Log(log, line);
-                    if (memoryMap && (clock.Elapsed.TotalSeconds>=nextMap || observed.PrivateMemorySize64>850L*1024L*1024L)) {
+                    if (memoryMap && (clock.Elapsed.TotalSeconds>=nextMap || privateBytes>850L*1024L*1024L)) {
                         string map = Map(child.Process);
                         Console.WriteLine(map);
                         Log(log, map);
@@ -210,7 +222,7 @@ public static class MemoryBound {
                     }
                     // End a runaway before allocation failures can flood logs or spin.
                     Check(GlobalMemoryStatusEx(ref memory));
-                    if ((ulong)observed.PrivateMemorySize64 > (geometryDiagnostics ? 224UL : ((headlessDiagnostics || renderDiagnostics) ? 448UL : 900UL))*mib || memory.AvailablePhysical < systemReserveMiB*mib || memory.AvailablePageFile < 512UL*mib) {
+                    if ((ulong)privateBytes > (geometryDiagnostics ? 224UL : ((headlessDiagnostics || renderDiagnostics) ? 448UL : 900UL))*mib || memory.AvailablePhysical < systemReserveMiB*mib || memory.AvailablePageFile < 512UL*mib) {
                         string reason = "STOP memory budget exceeded, RAM reserve below 1 GiB, or available commit below 512 MiB";
                         Console.WriteLine(reason);
                         Log(log, reason);

@@ -3,6 +3,7 @@ extends RefCounted
 ## from a sprite overlap or the opponent's intended target.
 const ZONES = {"head":"头盔 / 头部","body":"胸甲","flank":"腰腹","shield":"盾牌"}
 const CAUSES = {"fatal":"致命伤","health":"骑手状态耗尽","impact":"冲击超过坐稳能力","balance":"连续受击耗尽平衡"}
+const ContactCues = preload("res://scripts/visual/combat_cues.gd")
 
 static func summarize(events: Array) -> String:
 	var latest: Dictionary = {}
@@ -25,7 +26,7 @@ static func summarize(events: Array) -> String:
 		if hit.get("broke",false):
 			note += "（断枪）"
 		var extra = " · 得分 +%d%s · 冲力 %d%%" % [int(hit.get("points",0)),note,roundi(float(hit.get("drive",1.0))*100)]
-		lines.append("%s：%s · %s %d · 平衡余量 %d%s" % [prefix,ZONES.get(hit.zone,hit.zone),detail,roundi(hit.damage),roundi(hit.balance_left),extra])
+		lines.append("%s：%s · %s %d · 平衡余量 %d%s" % [prefix,ContactCues.contact_name(hit),detail,roundi(hit.damage),roundi(hit.balance_left),extra])
 	var cause = ""
 	for event in events:
 		if event.get("ko",false):

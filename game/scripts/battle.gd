@@ -386,8 +386,8 @@ func _load_camera_impulse(events: Array) -> void:
 		camera_impact_attacker = attacker
 		var direction = int(match_model.fighters[attacker].direction)
 		# Logical screen pixels, converted at the current zoom during rendering.
-		shake = lerpf(4.0,12.0,strength)
-		impact_kick = Vector2(direction*lerpf(8.0,22.0,strength),-lerpf(1.0,5.0,strength))
+		shake = lerpf(5.0,16.0,strength)
+		impact_kick = Vector2(direction*lerpf(10.0,29.0,strength),-lerpf(1.0,5.0,strength))
 
 func _contact_camera_offset() -> Vector2:
 	if not GameState.profile.settings.shake or camera_impact_age>=.48:
@@ -395,7 +395,7 @@ func _contact_camera_offset() -> Vector2:
 	var age = camera_impact_age
 	var envelope = exp(-8.0*age)*(1.0-smoothstep(.35,.48,age))
 	var vibration = Vector2(noise.get_noise_1d(age*80.0),noise.get_noise_1d(age*80.0+100.0))*shake*.35
-	var screen_offset = (impact_kick*cos(age*TAU*9.5)+vibration)*envelope
+	var screen_offset = (impact_kick*cos(age*TAU*6.5)+vibration)*envelope
 	return screen_offset/maxf(.01,camera.zoom.x)
 
 func _on_hoof_contact(leg_index: int, rider_index: int) -> void:
@@ -426,6 +426,7 @@ func _handle_event(event: Dictionary) -> void:
 			var index = int(event.defender)
 			var strength = clampf(Exchange.contact_strength(event),.15,1.0)
 			riders[index].receive_impact(strength,event.zone=="shield")
+			riders[index].receive_contact(event)
 			riders[int(event.attacker)].receive_lance_contact(strength)
 			effects.hit(event.position,int(match_model.fighters[int(event.attacker)].direction),event.damage,event.zone=="shield",event.broke,event.zone,strength)
 			if event.broke:
@@ -434,8 +435,9 @@ func _handle_event(event: Dictionary) -> void:
 			contact_audio.append(sound.impact_cue(event,match_model.fighters[index].stats))
 			if event.broke:
 				contact_audio.append(sound.break_cue(event))
-			var zones = {"head":"头盔 / 头部","body":"胸甲","flank":"腰腹","shield":"盾牌格挡"}
-			var hit_text = ("你命中 · " if int(event.attacker)==0 else "对手命中 · ")+zones.get(event.zone,event.zone)
+			var hit_text = ("你命中 · " if int(event.attacker)==0 else "对手命中 · ")+Cues.contact_name(event)
+			if bool(event.get("glanced",false)):
+				hit_text += " · 擦偏"
 			if event.ko:
 				hit_text += " · 击落！"
 			elif event.zone!="shield":
@@ -449,7 +451,7 @@ func _handle_event(event: Dictionary) -> void:
 				enemy_contact_label.text = ""
 			var actual_label = contact_label if int(event.attacker)==0 else enemy_contact_label
 			actual_label.text = hit_text
-			actual_label.add_theme_color_override("font_color",Cues.COLORS[event.zone])
+			actual_label.add_theme_color_override("font_color",Cues.contact_color(event))
 			contact_until = now+2100
 			if bool(event.ko) or bool(event.dead):
 				effects.fall(match_model.fighters[index],int(match_model.fighters[int(event.attacker)].direction),event,riders[index])
@@ -673,6 +675,8 @@ func _update_hud() -> void:
 	var C = Model.Condition
 	var stamina = float(f.stamina)
 	var rate = -C.drain_rate(f.stats) if bool(f.boost) and phase=="charge" else (C.rest_rate(f.stats) if phase in ["ready","turn"] else C.recovery_rate(f.stats,float(f.speed),Model.GALLOP_SPEED,Model.TROT_SPEED))
+	if phase=="ended" or stamina<=0.0 and rate<0.0 or stamina>=100.0 and rate>0.0:
+		rate = 0.0 # Display the clamped change, not impossible gain/loss at a limit.
 	var load_ratio = C.load_kg(f.stats)/maxf(1.0,C.capacity_kg(f.stats))
 	stamina_bar.size = Vector2(468.0*clampf(stamina/100.0,0,1),6)
 	stamina_bar.color = Color("6fae5a") if stamina>=C.TIRED+15 else (Color("d1a64a") if stamina>=C.TIRED else Color("c9573f"))

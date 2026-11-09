@@ -23,6 +23,19 @@ static func world_polygon(center: Vector2, angle: float, facing: int, shape: Str
 		result.append(center+point.rotated(angle)*Vector2(facing,1))
 	return result
 
+static func contact_region(point: Vector2, incoming: Vector2, shape: String = "kite") -> Dictionary:
+	# Every swept entry is on the silhouette boundary. Radial distance from
+	# that entry would incorrectly call ALL hits rim hits. Classify the line
+	# of force's offset across the projected face, not its entry depth.
+	var ray = incoming.normalized() if incoming.length_squared()>.0001 else Vector2.LEFT
+	var side = Vector2(-ray.y,ray.x)
+	var extent = 1.0
+	for vertex in polygon(shape):
+		extent = maxf(extent,absf(vertex.dot(side)))
+	var eccentricity = clampf(absf(point.dot(side))/extent,0.0,1.0)
+	return {"shield_region":"rim" if eccentricity>.72 else ("center" if eccentricity<.38 else "face"),
+		"eccentricity":eccentricity,"lever":clampf(point.cross(ray)/extent,-1.0,1.0)}
+
 static func segment_fraction(start: Vector2, finish: Vector2, points: PackedVector2Array) -> float:
 	if Geometry2D.is_point_in_polygon(start,points):
 		return 0.0
@@ -68,7 +81,9 @@ static func sweep(old_hand: Vector2, hand: Vector2, old_aim: float, aim: float, 
 		var local_current = ((current-old_center.lerp(center,t1))*Vector2(defender_facing,1)).rotated(-lerpf(old_pose,pose,t1))
 		var fraction = segment_fraction(local_previous,local_current,points)
 		if fraction>=0:
-			return {"fraction":lerpf(t0,t1,fraction),"point":previous.lerp(current,fraction),"velocity":(current-previous)/maxf(delta/segments,.00001)}
+			var local_point = local_previous.lerp(local_current,fraction)
+			return {"fraction":lerpf(t0,t1,fraction),"point":previous.lerp(current,fraction),"velocity":(current-previous)/maxf(delta/segments,.00001),
+				"contact_local":local_point,"local_incoming":local_current-local_previous}
 		previous = current
 		local_previous = local_current
 	return {}

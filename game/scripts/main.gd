@@ -101,8 +101,8 @@ func _ready() -> void:
 		OS.alert("Please launch with Play-Latest.cmd (memory protection required).", "Lance & Laurel")
 		get_tree().quit(2)
 		return
-	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.28"
-	print("GALUMU_BUILD v0.4.28")
+	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.29"
+	print("GALUMU_BUILD v0.4.29")
 	get_tree().auto_accept_quit = false
 	add_child(WindowActivity.new())
 	get_window().min_size = Vector2i(960,540)
@@ -122,7 +122,7 @@ func _ready() -> void:
 		smoke_started = Time.get_ticks_msec()
 	show_home()
 	if GameState.qa_input_probe:
-		get_window().title = "Lance & Laurel v0.4.28 QA - Desktop input"
+		get_window().title = "Lance & Laurel v0.4.29 QA - Desktop input"
 		var audit = preload("res://scripts/core/desktop_input_audit.gd").new()
 		audit.main = self
 		add_child(audit)
@@ -182,7 +182,7 @@ func show_home() -> void:
 	UI.button(screen,"历史手记",Rect2(68,569,247,50),show_history)
 	UI.button(screen,"设置",Rect2(331,569,247,50),show_settings)
 	UI.button(screen,"保存并退出",Rect2(68,645,510,50),_save_and_exit)
-	UI.label(screen,"自动保存已启用 · v0.4.28",Vector2(70,727),16,UI.MUTED)
+	UI.label(screen,"自动保存已启用 · v0.4.29",Vector2(70,727),16,UI.MUTED)
 	UI.label(screen,"你的骑士",Vector2(790,145),20,UI.GOLD)
 	UI.button(screen,"角色外观",Rect2(1010,129,362,54),show_character,true)
 	_add_preview(Vector2(1035,652),1.42)
@@ -465,8 +465,16 @@ func show_result() -> void:
 	if current_mode=="arena":
 		status_line = "比分  %d : %d        骑手状态  %d%% : %d%%" % [int(result.get("player_score",0)),int(result.get("enemy_score",0)),roundi(float(result.get("player_hp",0))),roundi(float(result.get("enemy_hp",0)))]
 	UI.label(panel,status_line,Vector2(35,199),20,UI.INK)
-	UI.label(panel,preload("res://scripts/ui/combat_report.gd").summarize(battle.exchange_log if battle else []),Vector2(35,244),17,UI.INK,706)
-	UI.label(panel,"银币  +%s           声望  +%s" % [reward.get("coins",0),reward.get("renown",0)],Vector2(35,363),23,UI.GOLD)
+	# Long armour/glance explanations must never grow over rewards/buttons.
+	var report_scroll = ScrollContainer.new()
+	report_scroll.name = "ContactReport"
+	report_scroll.position = Vector2(35,242)
+	report_scroll.size = Vector2(706,110)
+	report_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	panel.add_child(report_scroll)
+	UI.label(report_scroll,preload("res://scripts/ui/combat_report.gd").summarize(battle.exchange_log if battle else []),Vector2.ZERO,17,UI.INK,684)
+	var reward_label = UI.label(panel,"银币  +%s           声望  +%s" % [reward.get("coins",0),reward.get("renown",0)],Vector2(35,363),23,UI.GOLD)
+	reward_label.name = "ResultRewards"
 	var next_era = Catalogue.era_for_renown(int(GameState.profile.renown)) + 1
 	var progress = "全部时期已开放；继续收集工坊与纹章。" if next_era >= Catalogue.ERAS.size() else "下一时代：%s · 需要 %d 声望（当前 %d）" % [Catalogue.ERAS[next_era],Catalogue.ERA_REQUIREMENTS[next_era],GameState.profile.renown]
 	UI.label(panel,progress,Vector2(35,408),15,UI.MUTED,706)

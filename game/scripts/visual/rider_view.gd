@@ -11,6 +11,7 @@ const Gait = preload("res://scripts/visual/horse_gait.gd")
 const Condition = preload("res://scripts/core/horse_condition.gd")
 const ShieldArt = preload("res://scripts/visual/shield_art.gd")
 const Shield = preload("res://scripts/core/shield_geometry.gd")
+const ContactCues = preload("res://scripts/visual/combat_cues.gd")
 const ArmArt = preload("res://scripts/visual/rider_arm_art.gd")
 const Face = preload("res://scripts/visual/character_face.gd")
 const HeadFit = preload("res://scripts/visual/head_fit.gd")
@@ -47,6 +48,7 @@ var shield_recoil = 0.0
 var impact_velocity = 0.0
 var lance_velocity = 0.0
 var shield_velocity = 0.0
+var contact_mark: Dictionary = {}
 var stride_phase = 0.0
 var preview = false
 var last_cycles = [0.0,0.0,0.0,0.0]
@@ -77,6 +79,10 @@ func _init() -> void:
 func _process(delta: float) -> void:
 	if WindowActivity.suspended():
 		return
+	if not contact_mark.is_empty():
+		contact_mark.age += maxf(0.0,delta)
+		if contact_mark.age>.62:
+			contact_mark.clear()
 	if not detached_pose.is_empty() or lance_only:
 		_advance_recoil(delta)
 		queue_redraw()
@@ -182,6 +188,43 @@ func receive_impact(strength: float, on_shield: bool) -> void:
 func receive_lance_contact(strength: float) -> void:
 	lance_velocity = minf(lance_velocity+clampf(strength,0,1)*40.0,46.0)
 
+func receive_contact(event: Dictionary) -> void:
+	var zone = str(event.zone)
+	var pose = arm_pose(fighter)
+	var surface: Transform2D = Model.shield_transform(fighter) if zone=="shield" else (head_transform(pose,fighter) if zone=="head" else pose.torso_transform)
+	contact_mark = {"zone":zone,"age":0.0,"local":Vector2(event.get("contact_local",Vector2.ZERO)) if zone=="shield" else surface.affine_inverse()*Vector2(event.position),
+		"color":ContactCues.contact_color(event),"rim":event.get("shield_region","")=="rim"}
+
+func _draw_contact_trace(pose: Dictionary, origin: Vector2) -> void:
+	# A confirmed surface mark, never a prediction. Follow the struck part
+	# through its continuous recoil instead of leaving the cue on the track.
+	if contact_mark.is_empty() or not detached_pose.is_empty(): return
+	var zone = str(contact_mark.zone)
+	var surface: Transform2D = Model.shield_transform(fighter) if zone=="shield" else (head_transform(pose,fighter) if zone=="head" else pose.torso_transform)
+	surface.origin -= origin
+	draw_set_transform_matrix(surface)
+	var point: Vector2 = contact_mark.local
+	var alpha = 1.0-smoothstep(.24,.62,float(contact_mark.age))
+	var color = Color(contact_mark.color,alpha)
+	# Four short broken strokes leave the actual contact visible.
+	for direction in [Vector2.RIGHT,Vector2.LEFT,Vector2.UP,Vector2.DOWN]:
+		draw_line(point+direction*4,point+direction*10,Color(.08,.10,.09,alpha),5)
+		draw_line(point+direction*4,point+direction*10,color,2.5)
+	if zone=="shield":
+		var outline = Shield.polygon(str(fighter.stats.get("shield_shape","kite")))
+		var nearest = 0
+		var distance = INF
+		for i in range(outline.size()):
+			var candidate = Geometry2D.get_closest_point_to_segment(point,outline[i],outline[(i+1)%outline.size()]).distance_squared_to(point)
+			if candidate<distance:
+				distance = candidate
+				nearest = i
+		var a = outline[nearest]
+		var b = outline[(nearest+1)%outline.size()]
+		var along = (b-a).normalized()
+		var spot = Geometry2D.get_closest_point_to_segment(point,a,b)
+		draw_line(spot-along*minf(12,spot.distance_to(a)),spot+along*minf(12,spot.distance_to(b)),color,3)
+
 func draw_part(part: String, destination: Rect2, color: Color = Color.WHITE) -> void:
 	draw_texture_rect_region(ATLAS,destination,PARTS[part],color)
 
@@ -246,7 +289,7 @@ func _draw() -> void:
 	horse_skin.update(horse_pose,hind_pose,fore_pose)
 	horse_skin.draw(self,horse_tint)
 	var muzzle = HorseSkin.muzzle_point(horse_pose)
-	var rein_hand = ((Model.shield_position(fighter)-Vector2(fighter.x,fighter.get("lane_y",0)))*Vector2(facing,1))+Vector2(-10,4).rotated(Model.pose_angle(fighter))
+	var rein_hand = (Model.shield_grip(fighter)-Vector2(fighter.x,fighter.get("lane_y",0)))*Vector2(facing,1)
 	if fighter.get("ko",false) or fighter.get("dead",false):
 		rein_hand = Model.HIP+Vector2(8,20)+horse_pose.offset
 	draw_polyline(PackedVector2Array([muzzle,muzzle.lerp(rein_hand,.55)+Vector2(0,20),rein_hand]),Color("493628"),2.5,true)
@@ -264,7 +307,6 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 	var torso_inverse: Transform2D = pose.torso_transform.affine_inverse()
 	var right_arm = _arm_in_space(pose.right,torso_inverse)
 	var left_arm = _arm_in_space(pose.left,torso_inverse)
-	var shield_center: Vector2 = torso_inverse*pose.shield_center
 	var far_arm: Dictionary = left_arm if facing==1 else right_arm
 	var near_arm: Dictionary = right_arm if facing==1 else left_arm
 	var far_side = "left" if facing==1 else "right"
@@ -326,8 +368,10 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 	_draw_grip("left",left_arm,Color(.86,.88,.90) if facing==1 else Color.WHITE)
 	var shield_transform = torso_transform
 	shield_transform.x *= facing
+	shield_transform = shield_transform*Transform2D(float(fighter.get("shield_twist",0.0)),Vector2.ZERO)
+	shield_transform.origin = pose.shield_center-origin
 	draw_set_transform_matrix(shield_transform)
-	_draw_shield(shield_center*Vector2(facing,1),design)
+	_draw_shield(Vector2.ZERO,design)
 	draw_set_transform_matrix(torso_transform)
 	for wound in fighter.get("wounds",[]):
 		var mark = Vector2(-18,-125) if wound.zone=="head" else Vector2(-25,-50)
@@ -336,6 +380,7 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 			var stain = Vector2(0,-106 if head_tier==0 else -84) if wound.zone=="head" else Vector2(-8,-48)
 			for offset in [Vector2.ZERO,Vector2(7,7),Vector2(-4,13)]:
 				draw_circle(stain+offset,2.5,Color("69251e"))
+	_draw_contact_trace(pose,origin)
 	draw_set_transform(Vector2.ZERO)
 
 func _draw_flexible_horse_part(part: String, rectangle: Rect2, bend: float, tint: Color, head: bool) -> void:
@@ -529,8 +574,7 @@ static func arm_pose(value: Dictionary) -> Dictionary:
 	var transform = Transform2D(Model.pose_angle(value)*facing,Model.rider_origin(value))
 	var inverse = transform.affine_inverse()
 	var right_hand: Vector2 = inverse*Model.hand_position(value)
-	var shield_center: Vector2 = inverse*Model.shield_position(value)
-	var left_hand = shield_center+Vector2(-10*facing,4)
+	var left_hand: Vector2 = inverse*Model.shield_grip(value)
 	var result = {"torso_transform":transform,"shield_center":Model.shield_position(value),"shield_grip":transform*left_hand}
 	for side in ["right","left"]:
 		var shoulder = LANCE_SHOULDER if side=="right" else SHIELD_SHOULDER

@@ -32,6 +32,7 @@ const MUZZLE = Vector2(1394,269)
 const TAIL_ROOT = Vector2(293,340)
 const COLUMNS = 52
 const ROWS = 40
+const TAIL_SPLIT_COLUMN = 8
 const COAT_WIDTH_SCALE = SCALE
 const FAR_HIND_POLYGON = [Vector2(380,370),Vector2(552,420),Vector2(548,535),Vector2(490,590),Vector2(440,650),Vector2(390,700),Vector2(380,830),Vector2(430,995),Vector2(300,995),Vector2(280,890),Vector2(280,790),Vector2(269,730),Vector2(276,687),Vector2(311,640),Vector2(335,590),Vector2(325,545),Vector2(320,500),Vector2(350,455)]
 
@@ -55,6 +56,7 @@ func _init(limb: String = "") -> void:
 	var bounds = SOURCE_BOUNDS
 	var columns = COLUMNS
 	var rows = ROWS
+	if limb.is_empty(): columns += 1 # two coincident vertices at the tail gap
 	if not limb.is_empty():
 		# Far legs use the same coat and joint landmarks. Their top cut is
 		# buried under the trunk; no separate circular socket is visible.
@@ -64,6 +66,15 @@ func _init(limb: String = "") -> void:
 	for row in range(rows+1):
 		for column in range(columns+1):
 			var source = bounds.position+bounds.size*Vector2(float(column)/columns,float(row)/rows)
+			if limb.is_empty():
+				var split = tail_seam_x(source.y)
+				# Duplicate the transparent seam. Interpolating a tail vertex and
+				# a hock vertex inside one triangle stretched coat pixels into
+				# alternating teeth when the leg crossed behind the tail.
+				if column<=TAIL_SPLIT_COLUMN:
+					source.x = lerpf(bounds.position.x,split,float(column)/TAIL_SPLIT_COLUMN)
+				else:
+					source.x = lerpf(split,bounds.end.x,float(column-TAIL_SPLIT_COLUMN-1)/(columns-TAIL_SPLIT_COLUMN-1))
 			source_points.append(source)
 			uvs.append(source/SOURCE_TEXTURE_SIZE)
 			vertices.append(rest_point(source))
@@ -73,8 +84,10 @@ func _init(limb: String = "") -> void:
 			# The tail and the hock are close in the plate but separated by
 			# transparent pixels. A broad X blend incorrectly pinned the back
 			# edge of the hock to the tail, stretching it into a triangular flap.
-			var tail_boundary = lerpf(330,263,smoothstep(420,680,source.y))
-			var tail_weight = (1.0-smoothstep(tail_boundary-8,tail_boundary+8,source.x))*smoothstep(340,470,source.y)
+			var tail_boundary = tail_seam_x(source.y)
+			var tail_weight = (1.0-smoothstep(tail_boundary-6,tail_boundary+6,source.x))*smoothstep(340,470,source.y)
+			if limb.is_empty() and source.y>420:
+				tail_weight = smoothstep(340,470,source.y) if column<=TAIL_SPLIT_COLUMN else 0.0
 			var neck_weight = smoothstep(0,.85,(source-NECK_BASE).dot(POLL-NECK_BASE)/(POLL-NECK_BASE).length_squared())*smoothstep(860,1000,source.x)
 			neck_weights.append(neck_weight if limb.is_empty() else 0.0)
 			head_weights.append(head_weight(source) if limb.is_empty() else 0.0)
@@ -90,8 +103,10 @@ func _init(limb: String = "") -> void:
 			weights.append(Vector3(1.0-hind-fore,hind,fore))
 	var far_hind_polygon = PackedVector2Array(FAR_HIND_POLYGON)
 	var far_fore_polygon = PackedVector2Array(FAR_FORE_POLYGON)
+	var tail_indices = PackedInt32Array()
 	for row in range(rows):
 		for column in range(columns):
+			if limb.is_empty() and column==TAIL_SPLIT_COLUMN: continue
 			var a = row*(columns+1)+column
 			var b = a+1
 			var c = a+columns+1
@@ -101,7 +116,13 @@ func _init(limb: String = "") -> void:
 					continue
 				if limb=="fore" and not Geometry2D.is_point_in_polygon(center,far_fore_polygon):
 					continue
-				indices.append_array(PackedInt32Array(triangle))
+				if limb.is_empty() and column<TAIL_SPLIT_COLUMN:
+					tail_indices.append_array(PackedInt32Array(triangle))
+				else:
+					indices.append_array(PackedInt32Array(triangle))
+	# Draw the whole tail behind the near leg. Row-by-row triangle ordering
+	# alternated tail and white sock at crossings, producing a comb pattern.
+	indices = tail_indices+indices
 	var arrays = []
 	arrays.resize(Mesh.ARRAY_MAX)
 	arrays[Mesh.ARRAY_VERTEX] = vertices
@@ -112,6 +133,15 @@ func _init(limb: String = "") -> void:
 
 static func rest_point(source: Vector2) -> Vector2:
 	return PIVOT+(source-SOURCE_SADDLE)*SCALE
+
+static func tail_seam_x(y: float) -> float:
+	# Measured alpha corridor of the shared 1536x1024 plate; all four coats
+	# have identical silhouettes. The branch only separates below the root.
+	var knots = [Vector2(340,293),Vector2(420,270),Vector2(450,270),Vector2(470,276),Vector2(500,284),Vector2(550,300),Vector2(600,305),Vector2(650,290),Vector2(680,275),Vector2(750,265),Vector2(850,260),Vector2(994,240)]
+	for i in range(1,knots.size()):
+		if y<=knots[i].x:
+			return lerpf(knots[i-1].y,knots[i].y,clampf((y-knots[i-1].x)/(knots[i].x-knots[i-1].x),0,1))
+	return knots[-1].y
 
 static func bone_point(source: Vector2, source_a: Vector2, source_b: Vector2, a: Vector2, b: Vector2, width_scale: float = COAT_WIDTH_SCALE) -> Vector2:
 	var source_axis = (source_b-source_a).normalized()

@@ -143,12 +143,12 @@ public static class MemoryBound {
         MemoryStatus memory = new MemoryStatus();
         memory.Length = (uint)Marshal.SizeOf(typeof(MemoryStatus));
         Check(GlobalMemoryStatusEx(ref memory));
-        // User-authorized 1 GiB system reserve plus bounded child and 256 MiB
+        // User-authorized 500 MiB system reserve plus bounded child and 256 MiB
         // launch overhead. The old flat 4 GiB gate blocked even measured
         // 0.6-0.75 GiB runs; this does NOT increase the child's Job limit.
         const ulong mib = 1024UL*1024UL;
         ulong childMiB = geometryDiagnostics ? 256UL : ((headlessDiagnostics || renderDiagnostics) ? 512UL : 1024UL);
-        const ulong systemReserveMiB = 1024UL;
+        const ulong systemReserveMiB = 500UL;
         ulong startupReserve = (systemReserveMiB+childMiB+256UL)*mib;
         if (memory.AvailablePhysical < startupReserve || memory.AvailablePageFile < (childMiB+256UL)*mib)
             throw new InvalidOperationException(String.Format("Insufficient launch budget: need {0} MiB available RAM and {1} MiB available commit.", startupReserve/mib, childMiB+256UL));
@@ -189,7 +189,7 @@ public static class MemoryBound {
             Check(AssignProcessToJobObject(job, child.Process));
             assigned = true;
             Check(ResumeThread(child.Thread) != uint.MaxValue);
-            Log(log, String.Format("START utc={0:o} pid={1} jobMiB={2} executable={3}", DateTime.UtcNow, child.ProcessId, childMiB, app));
+            Log(log, String.Format("START utc={0:o} pid={1} jobMiB={2} executable={3} reserveMiB={4} startupMiB={5}", DateTime.UtcNow, child.ProcessId, childMiB, app, systemReserveMiB, startupReserve/mib));
             uint wait = 258;
             var clock = System.Diagnostics.Stopwatch.StartNew();
             double nextMap = 5;
@@ -223,7 +223,7 @@ public static class MemoryBound {
                     // End a runaway before allocation failures can flood logs or spin.
                     Check(GlobalMemoryStatusEx(ref memory));
                     if ((ulong)privateBytes > (geometryDiagnostics ? 224UL : ((headlessDiagnostics || renderDiagnostics) ? 448UL : 900UL))*mib || memory.AvailablePhysical < systemReserveMiB*mib || memory.AvailablePageFile < 512UL*mib) {
-                        string reason = "STOP memory budget exceeded, RAM reserve below 1 GiB, or available commit below 512 MiB";
+                        string reason = "STOP memory budget exceeded, RAM reserve below 500 MiB, or available commit below 512 MiB";
                         Console.WriteLine(reason);
                         Log(log, reason);
                         return 125;

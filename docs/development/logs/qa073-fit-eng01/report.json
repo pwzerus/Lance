@@ -1,0 +1,7 @@
+{
+	"failures": [],
+	"passed": true,
+	"scope": "Actual GPU frames with scripted poses on isolated desktop, not OS input or human play. Inspect PNGs separately.",
+	"suite": "fit",
+	"trace": []
+}

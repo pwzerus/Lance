@@ -1,6 +1,6 @@
 # GALUMU 开发交接入口
 
-当前入口（2026-11-09）：**v0.4.29-r3 / FEEL-072**，运行提交c69384e，codex/v0.4；从Play-Latest启动。已完成后台人物/马匹/头盔/马衣/疲劳检查，增加分区受力与命中标记，修尾腿交叠及结果排版。先读[最新交接](docs/collaboration/handoffs/2026-11-09-FEEL-072-Codex.md)、[当前现状](docs/collaboration/PROJECT_STATE.md)、[审查](docs/development/FEEL072_REVIEW.md)。系统留1GiB，其他保护开启，无OS接管/真人体验结论。下文各轮版本/未提交状态为历史，不代替此入口；每次仍须核对实际HEAD及工作区。
+当前入口（2026-11-09）：**v0.4.29-r3 / QA-073**，游戏运行提交c69384e，复验基线18fb3ba，codex/v0.4；从根Play-Latest启动。用户授权后根保护器系统保留线改500 MiB，其他保护保持，包内旧保护器仍1GiB。12次后台实际包运行完成，马匹/头盔/纹章/疲劳/受击及三轮比赛画面已复核，未发现新的生产缺陷，游戏包未重导。先读[最新交接](docs/collaboration/handoffs/2026-11-09-QA-073-Codex.md)、[当前现状](docs/collaboration/PROJECT_STATE.md)、[审查](docs/development/QA073_REVIEW.md)。无OS接管/真人体验结论。下文各轮版本/未提交状态为历史，不代替此入口；每次仍须核对实际HEAD及工作区。
 
 
 整理日期：2026-10-24；2026-11-05 由 Claude（DOC-062）更新当前状态段。供项目负责人、Codex 和后续接入的 Claude／其他开发者共同使用。Claude 目前只有 DOC-002、DOC-062 两次文档工作，尚无游戏代码改动；不能把这份文档当成另一位开发者已经开始工作的证明。

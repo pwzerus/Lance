@@ -1,0 +1,48 @@
+QA_DESKTOP GALUMU_QA_c95f4aa439574e4f8e0fed80d4c73092 (not switched to input desktop)
+START utc=2026-11-09T15:46:01.8583712Z pid=15592 jobMiB=1024 executable=E:\GALUMU\builds\LanceAndLaurel-v0.4.29-r2\LanceAndLaurel.exe
+MEM seconds=1 privateMiB=111.0 workingMiB=166.4 availableRamMiB=2522 availableCommitMiB=6500
+MEM seconds=2 privateMiB=317.5 workingMiB=369.1 availableRamMiB=2340 availableCommitMiB=6298
+MEM seconds=3 privateMiB=634.3 workingMiB=564.1 availableRamMiB=2177 availableCommitMiB=5989
+MEM seconds=4 privateMiB=708.2 workingMiB=647.3 availableRamMiB=2091 availableCommitMiB=5917
+MEM seconds=5 privateMiB=723.4 workingMiB=671.8 availableRamMiB=2080 availableCommitMiB=5910
+MEM seconds=6 privateMiB=711.2 workingMiB=668.1 availableRamMiB=2074 availableCommitMiB=5920
+MEM seconds=7 privateMiB=710.3 workingMiB=669.3 availableRamMiB=2072 availableCommitMiB=5920
+MEM seconds=8 privateMiB=710.8 workingMiB=670.4 availableRamMiB=2077 availableCommitMiB=5921
+MEM seconds=9 privateMiB=708.7 workingMiB=669.4 availableRamMiB=2072 availableCommitMiB=5920
+MEM seconds=10 privateMiB=720.7 workingMiB=682.7 availableRamMiB=2013 availableCommitMiB=5856
+MEM seconds=11 privateMiB=642.4 workingMiB=670.3 availableRamMiB=1996 availableCommitMiB=5903
+MEM seconds=12 privateMiB=641.8 workingMiB=673.7 availableRamMiB=2004 availableCommitMiB=5927
+MEM seconds=13 privateMiB=633.8 workingMiB=671.2 availableRamMiB=2009 availableCommitMiB=5934
+MEM seconds=14 privateMiB=631.2 workingMiB=668.8 availableRamMiB=2076 availableCommitMiB=6000
+MEM seconds=15 privateMiB=612.0 workingMiB=658.1 availableRamMiB=2070 availableCommitMiB=6009
+MEM seconds=16 privateMiB=606.6 workingMiB=656.3 availableRamMiB=2079 availableCommitMiB=6018
+MEM seconds=17 privateMiB=604.1 workingMiB=653.9 availableRamMiB=2088 availableCommitMiB=6022
+MEM seconds=18 privateMiB=604.0 workingMiB=653.8 availableRamMiB=2082 availableCommitMiB=6022
+MEM seconds=19 privateMiB=604.0 workingMiB=654.0 availableRamMiB=2083 availableCommitMiB=6022
+MEM seconds=20 privateMiB=604.0 workingMiB=654.0 availableRamMiB=2091 availableCommitMiB=6012
+MEM seconds=21 privateMiB=603.9 workingMiB=653.9 availableRamMiB=2106 availableCommitMiB=6016
+MEM seconds=22 privateMiB=603.8 workingMiB=653.8 availableRamMiB=2104 availableCommitMiB=6016
+MEM seconds=23 privateMiB=603.8 workingMiB=654.1 availableRamMiB=2101 availableCommitMiB=6003
+MEM seconds=24 privateMiB=604.0 workingMiB=655.9 availableRamMiB=2096 availableCommitMiB=6002
+MEM seconds=25 privateMiB=603.7 workingMiB=655.6 availableRamMiB=2099 availableCommitMiB=6003
+MEM seconds=26 privateMiB=603.6 workingMiB=655.5 availableRamMiB=2100 availableCommitMiB=6005
+MEM seconds=27 privateMiB=603.3 workingMiB=655.2 availableRamMiB=2100 availableCommitMiB=6004
+MEM seconds=28 privateMiB=603.4 workingMiB=655.2 availableRamMiB=2094 availableCommitMiB=6004
+MEM seconds=29 privateMiB=603.3 workingMiB=655.1 availableRamMiB=2097 availableCommitMiB=5988
+MEM seconds=30 privateMiB=602.9 workingMiB=654.7 availableRamMiB=2090 availableCommitMiB=5987
+MEM seconds=31 privateMiB=602.7 workingMiB=654.6 availableRamMiB=2088 availableCommitMiB=5994
+MEM seconds=32 privateMiB=602.7 workingMiB=654.6 availableRamMiB=2091 availableCommitMiB=5993
+MEM seconds=33 privateMiB=601.8 workingMiB=654.3 availableRamMiB=2088 availableCommitMiB=6013
+MEM seconds=34 privateMiB=601.7 workingMiB=654.3 availableRamMiB=2088 availableCommitMiB=6006
+MEM seconds=35 privateMiB=601.7 workingMiB=654.3 availableRamMiB=2083 availableCommitMiB=6004
+MEM seconds=36 privateMiB=601.6 workingMiB=654.2 availableRamMiB=2082 availableCommitMiB=6001
+MEM seconds=37 privateMiB=601.6 workingMiB=654.2 availableRamMiB=2085 availableCommitMiB=5998
+MEM seconds=38 privateMiB=601.5 workingMiB=654.1 availableRamMiB=2087 availableCommitMiB=6003
+MEM seconds=40 privateMiB=601.4 workingMiB=654.0 availableRamMiB=2074 availableCommitMiB=5994
+MEM seconds=41 privateMiB=601.4 workingMiB=653.9 availableRamMiB=2077 availableCommitMiB=6010
+MEM seconds=42 privateMiB=601.6 workingMiB=654.1 availableRamMiB=2084 availableCommitMiB=6016
+MEM seconds=43 privateMiB=601.5 workingMiB=654.1 availableRamMiB=2079 availableCommitMiB=6019
+MEM seconds=44 privateMiB=601.5 workingMiB=654.1 availableRamMiB=2084 availableCommitMiB=6018
+MEM seconds=45 privateMiB=552.7 workingMiB=568.7 availableRamMiB=2163 availableCommitMiB=6087
+EXIT code=0 seconds=44.7
+QA_DESKTOP_CLOSED=True

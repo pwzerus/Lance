@@ -1,5 +1,8 @@
 # GALUMU 开发交接入口
 
+当前入口（2026-11-09）：**v0.4.29-r3 / FEEL-072**，运行提交c69384e，codex/v0.4；从Play-Latest启动。已完成后台人物/马匹/头盔/马衣/疲劳检查，增加分区受力与命中标记，修尾腿交叠及结果排版。先读[最新交接](docs/collaboration/handoffs/2026-11-09-FEEL-072-Codex.md)、[当前现状](docs/collaboration/PROJECT_STATE.md)、[审查](docs/development/FEEL072_REVIEW.md)。系统留1GiB，其他保护开启，无OS接管/真人体验结论。下文各轮版本/未提交状态为历史，不代替此入口；每次仍须核对实际HEAD及工作区。
+
+
 整理日期：2026-10-24；2026-11-05 由 Claude（DOC-062）更新当前状态段。供项目负责人、Codex 和后续接入的 Claude／其他开发者共同使用。Claude 目前只有 DOC-002、DOC-062 两次文档工作，尚无游戏代码改动；不能把这份文档当成另一位开发者已经开始工作的证明。
 
 当前可试玩版本是 **v0.4.23**（RIDER-064 骑手腿部与头部，基于 ART-063 马皮重绘；Claude 制作，尚未提交），独立目录 `builds/LanceAndLaurel-v0.4.23`，用根目录 `Play-Latest.cmd` 经内存保护器启动；v0.4.22 和 v0.4.21 仍保留。2026-11-05 核对时版本分支 `codex/v0.4` 本地与远程同为 `e772acd`；接手时以实际 HEAD 为准。最初 v0.4 基线 `69a4bb21898da5c9ec0727281fee82bfea94ae76` 只作历史。工作目录是 `E:/GALUMU`，主项目是 `game/project.godot`。不要在 `builds/v04-source-verification/` 这个验包副本里开发。

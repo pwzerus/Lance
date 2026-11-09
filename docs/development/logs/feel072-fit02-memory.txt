@@ -1,0 +1,14 @@
+QA_DESKTOP GALUMU_QA_7abffb30a3dc435896ee13ca707cbe73 (not switched to input desktop)
+START utc=2026-11-09T15:20:26.5326130Z pid=17156 jobMiB=512 executable=E:\GALUMU\tools\godot-4.5.1\Godot_v4.5.1-stable_win64.exe
+MEM seconds=1 privateMiB=81.4 workingMiB=87.3 availableRamMiB=1822 availableCommitMiB=6588
+MEM seconds=2 privateMiB=80.7 workingMiB=87.1 availableRamMiB=1821 availableCommitMiB=6590
+MEM seconds=3 privateMiB=99.2 workingMiB=109.7 availableRamMiB=1794 availableCommitMiB=6557
+MEM seconds=4 privateMiB=95.5 workingMiB=106.4 availableRamMiB=1799 availableCommitMiB=6570
+MEM seconds=5 privateMiB=85.7 workingMiB=136.5 availableRamMiB=1763 availableCommitMiB=6563
+MEM seconds=6 privateMiB=143.7 workingMiB=225.7 availableRamMiB=1570 availableCommitMiB=6468
+MEM seconds=7 privateMiB=315.8 workingMiB=388.8 availableRamMiB=1409 availableCommitMiB=6317
+MEM seconds=8 privateMiB=360.9 workingMiB=429.2 availableRamMiB=1371 availableCommitMiB=6252
+MEM seconds=9 privateMiB=416.6 workingMiB=480.0 availableRamMiB=1299 availableCommitMiB=6176
+MEM seconds=10 privateMiB=470.8 workingMiB=533.3 availableRamMiB=1242 availableCommitMiB=6117
+STOP memory budget exceeded, RAM reserve below 1 GiB, or available commit below 512 MiB
+QA_DESKTOP_CLOSED=True

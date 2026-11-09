@@ -1,0 +1,18 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+ERROR: Can't create shader cache folder, no shader caching will happen: user://
+   at: RasterizerGLES3 (drivers/gles3/rasterizer_gles3.cpp:335)
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+GALUMU_BUILD v0.4.29
+SMOKE_PROGRESS elapsed=5007 step=4 busy=false phase=ready pass=1 scale=1.0 fps=23.0
+SMOKE_PROGRESS elapsed=10008 step=4 busy=false phase=charge pass=1 scale=1.0 fps=20.0
+SMOKE_PROGRESS elapsed=15057 step=5 busy=false phase=charge pass=1 scale=1.0 fps=20.0
+SMOKE_PROGRESS elapsed=20107 step=5 busy=false phase=charge pass=2 scale=1.0 fps=19.0
+SMOKE_PROGRESS elapsed=25115 step=5 busy=false phase=charge pass=2 scale=0.28 fps=19.0
+SMOKE_PROGRESS elapsed=30148 step=5 busy=false phase=ready pass=3 scale=1.0 fps=21.0
+SMOKE_PROGRESS elapsed=35194 step=5 busy=false phase=charge pass=3 scale=1.0 fps=20.0
+SMOKE_PROGRESS elapsed=40229 step=5 busy=false phase=charge pass=3 scale=1.0 fps=22.0
+HUD067_DONE E:/GALUMU/docs/development/logs/feel072-package-match01 result={ "winner": 1, "reason": "score", "passes": 3, "mode": "arena", "player_hp": 10.9604232126677, "enemy_hp": 98.0509925054405, "player_dead": false, "enemy_dead": false, "player_score": 0, "enemy_score": 11 }
+SMOKE_PROGRESS elapsed=45315 step=6 busy=false phase=ended pass=3 scale=1.0 fps=24.0
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2514)

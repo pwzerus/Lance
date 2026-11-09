@@ -1,0 +1,10 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+ERROR: Can't create shader cache folder, no shader caching will happen: user://
+   at: RasterizerGLES3 (drivers/gles3/rasterizer_gles3.cpp:335)
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+GALUMU_BUILD v0.4.29
+SCRIPT ERROR: Invalid assignment of property or key 'exchange_log' with value of type 'Array' on a base object of type 'Node2D (BattleScene)'.
+   at: run (res://tests/test_result072.gd:25)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/test_result072.gd:25)

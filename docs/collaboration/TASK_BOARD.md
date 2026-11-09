@@ -253,3 +253,13 @@ REVIEW-070检查点：静态接收及PCK核对完成，指定动态复验被保�
 REVIEW-071 / Codex / 2026-11-09：接续REVIEW-070，认领Start-MemoryBound.ps1系统余量由2GiB改为用户指定1GiB；游戏1GiB硬限/900MiB提前停止保持。复验七项、必要修复与接收栏/现状/日志/审查记录；不接管屏幕、不覆盖旧包。
 
 REVIEW-071交出：七项复验全部通过、无游戏代码缺陷修复；根保护器系统保留1GiB，旧包不覆盖。接收栏/现状/日志/证据完成，释放认领；真人手感和未完美术范围继续保留。
+
+FEEL-072 / Codex / 2026-11-09：基线03d450a，认领后台画面复验与命中部位/受力可读性修复。文件：game/scripts/core/{joust_match,shield_geometry}.gd、visual/{rider_view,shield_art,combat_cues,impact_fx,exchange_director}.gd、battle.gd，新增tests/*072*，相关现状/交接/审查/设计记录与必要版本入口。保护1GiB系统余量及全部限制；不接管桌面、不覆盖旧发布。历史rules_v045_results与旧未跟踪证据保留。
+
+FEEL-072范围补充：盾牌受力偏转需同步visual/hit_zone_overlay.gd判定绘制和visual/fallen_rider.gd落地包络，认领这两文件，避免视觉偏转后沿用旧碰撞边界。
+
+FEEL-072画面发现：慢步/快步部分相位尾巴与后腿出现梳齿状交叠，认领visual/horse_skin.gd，复核网格权重与透明缝，不改马匹属性或步态。另将ui/combat_report.gd同步命中部位名称。
+
+FEEL-072保护器诊断修复：测试正常退出与采样读数竞争会抛Process has exited异常，认领Start-MemoryBound.ps1，只修退出竞态，所有预算/CPU/单实例/桌面约束保持。
+
+FEEL-072交出（2026-11-09）：c69384e已推送核对，.29-r3完成后台GPU/有限控制/实际包三轮及长结果滚动复验。头盔/马衣样本已复核，修尾腿缝与疲劳显示，增加可读受力；全部认领文件释放。罩袍纹章、真人手感/材质听感及历史平衡缺口保留。详见FEEL072_REVIEW与交接。

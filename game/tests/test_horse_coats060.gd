@@ -21,7 +21,8 @@ func run() -> void:
 		var far=skin.new("hind")
 		near.set_coat(stats.horse_coat)
 		far.set_coat(stats.horse_coat)
-		assert(near.coat==far.coat and near.coat==skin.COATS[stats.horse_coat])
+		# ART-063: coats are shared CanvasTextures from coat_texture(), not a const dict.
+		assert(near.coat==far.coat and near.coat==skin.coat_texture(stats.horse_coat))
 		assert(near.coat.get_width()>0 and near.coat.get_width()<=1536)
 	assert(count==10)
 	print("HORSE_COATS_060 mapping/shared texture/stat preservation PASS; visual motion not covered")

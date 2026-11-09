@@ -64,3 +64,5 @@ GitHub 仓库：<https://github.com/pwzerus/Lance>，远程名 `origin`，当前
 最新实际入口为v0.4.28（EQUIP-069），此前.23等为历史。Claude连续成果已接收；本轮内存不足，尚未完成指定动态复验，不标功能通过。后续先读docs/development/REVIEW070_REVIEW.md和各交接的新接收栏。
 
 REVIEW-071最新回执：七项源码复验已完成通过，REVIEW-070动态待验状态已更新。根保护器现在系统保留1GiB；详情见docs/development/REVIEW071_REVIEW.md与2026-11-09-REVIEW-071-Codex交接。
+
+最新补充复验：[QA-077](docs/collaboration/handoffs/2026-11-09-QA-077-Codex.md)，仍v0.4.31；有反制证据，但左右追头差异与落地遮挡尚未修复。

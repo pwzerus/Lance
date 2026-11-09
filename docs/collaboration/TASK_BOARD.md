@@ -283,3 +283,6 @@ FEEL-075 / Codex / 2026-11-09：基线f8d9b40，接续.29-r3；认领visual/{hor
 FEEL-075范围补充：长测关闭未退出，隔离QA存档残留tmp；认领core/game_state.gd的存档目录处理及tests/test_save075.gd。先定位异常，不替用户关闭程序，不碰正式存档。
 
 FEEL-075交出：保存退出修复27e8388，动作/声音/发布1013429；独立.30-r2实际包验证和文档证据保存。RiderView/LanceArt/ShieldArt/HeadFit/RiderArmArt临时诊断全部移除，生产未改；battle/exchange_director未改。保留一次无法复现的三角剖分告警，未声称修好，详见FEEL075_REVIEW。系统500MiB及其余保护不变，无OS接管。全部认领释放，既有rules_v045与历史未跟踪材料不纳入提交；仍待用户确认的规则/真人体验不标完成。
+`nQA-077 Codex：基线6518573，认领tests/test_counter077.gd和本轮日志/交接；测试持续追头与防御对照，不接管屏幕。
+
+QA-077交出：测试文件释放。未完成项：左右追头差异定位、远侧落马可读性、AI策略与听感验收。生产未改。

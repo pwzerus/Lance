@@ -1,0 +1,7338 @@
+{
+	"captures": [
+		{
+			"camera": [
+				720.0,
+				457.807281494141,
+				0.920227289199829,
+				0.0,
+				0.0
+			],
+			"case": "arena_mounted_0_shield_slow",
+			"engine_scale": 1.0,
+			"fallen": {
+
+			},
+			"fighters": [
+				{
+					"aim": -0.246062204241753,
+					"dead": false,
+					"gait": 12.6229192821238,
+					"guard": 0.430000007152557,
+					"hp": 100.0,
+					"ko": false,
+					"speed": 504.0,
+					"x": -162.398958333334
+				},
+				{
+					"aim": 0.579999983310699,
+					"dead": false,
+					"gait": 12.6229192821238,
+					"guard": 0.430000007152557,
+					"hp": 100.0,
+					"ko": false,
+					"speed": 504.0,
+					"x": 162.398958333334
+				}
+			],
+			"first_contact_pending": false,
+			"kick": [
+				0.0,
+				0.0
+			],
+			"path": "E:/GALUMU/docs/development/logs/rule076-package-block02/arena_mounted_0_shield_slow_before.png",
+			"phase": "charge",
+			"projection": {
+				"camera_x": 720.0,
+				"fighters": [
+					{
+						"direction": 1.0,
+						"drawn_tip_error_px": 0.000030517578125,
+						"horse_in_x": true,
+						"tip": [
+							818.151123046875,
+							348.098175048828
+						],
+						"tip_in_view": true,
+						"x_max": 745.399230957031,
+						"x_min": 386.510589599609
+					},
+					{
+						"direction": -1.0,
+						"drawn_tip_error_px": 0.0,
+						"horse_in_x": true,
+						"tip": [
+							652.173950195313,
+							469.133666992188
+						],
+						"tip_in_view": true,
+						"x_max": 1044.287109375,
+						"x_min": 685.398498535156
+					}
+				],
+				"gap": 324.797916666668,
+				"world_marker_x": -384.272705078125,
+				"zoom": 0.920227289199829
+			},
+			"queued_audio": 0.0,
+			"response": [
+				{
+					"aim": -0.246062204241753,
+					"angle": 0.0,
+					"angular_velocity": 0.0,
+					"balance": 100.0,
+					"dead": false,
+					"gait": 12.6229192821238,
+					"guard": 0.430000007152557,
+					"hand_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta_length": 0.0,
+					"hp": 100.0,
+					"ko": false,
+					"lance_compression": 0.0,
+					"shield_compression": 0.0,
+					"shield_delta": [
+						0.0,
+						0.0
+					],
+					"shield_delta_length": 0.0,
+					"shift": 0.0,
+					"x": -162.398958333334
+				},
+				{
+					"aim": 0.579999983310699,
+					"angle": 0.0,
+					"angular_velocity": 0.0,
+					"balance": 100.0,
+					"dead": false,
+					"gait": 12.6229192821238,
+					"guard": 0.430000007152557,
+					"hand_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta_length": 0.0,
+					"hp": 100.0,
+					"ko": false,
+					"lance_compression": 0.0,
+					"shield_compression": 0.0,
+					"shield_delta": [
+						0.0,
+						0.0
+					],
+					"shield_delta_length": 0.0,
+					"shift": 0.0,
+					"x": 162.398958333334
+				}
+			],
+			"state": {
+				"approach": 0.0,
+				"approach_elapsed": 0.0,
+				"audio_duck": 0.0,
+				"contact_loading": false,
+				"focus": "(0.0, 0.0)",
+				"focus_weight": 0.0,
+				"hitstop": false,
+				"impact_active": false,
+				"impact_elapsed": 0.0,
+				"pass_connected": false,
+				"pass_id": 1.0,
+				"paused": false,
+				"release": 0.0,
+				"scale": 1.0,
+				"stage_elapsed": 0.0,
+				"state": "runup",
+				"strength": 0.0
+			},
+			"tag": "before",
+			"voices": [],
+			"wall_msec": 3042.0,
+			"wall_seconds": 0.0
+		},
+		{
+			"camera": [
+				750.497314453125,
+				462.655914306641,
+				1.15808713436127,
+				16.5099849700928,
+				-1.01087427139282
+			],
+			"case": "arena_mounted_0_shield_slow",
+			"engine_scale": 0.8,
+			"fallen": {
+
+			},
+			"fighters": [
+				{
+					"aim": -0.246101632714272,
+					"dead": false,
+					"gait": 12.7431375610011,
+					"guard": 0.430000007152557,
+					"hp": 100.0,
+					"ko": false,
+					"speed": 504.0,
+					"x": -158.198958333334
+				},
+				{
+					"aim": 0.579999983310699,
+					"dead": false,
+					"gait": 12.7431375610011,
+					"guard": 0.430000007152557,
+					"hp": 98.9274735682042,
+					"ko": false,
+					"speed": 504.0,
+					"x": 158.198958333334
+				}
+			],
+			"first_contact_pending": false,
+			"kick": [
+				19.1200008392334,
+				-2.92000007629395
+			],
+			"path": "E:/GALUMU/docs/development/logs/rule076-package-block02/arena_mounted_0_shield_slow_first_contact.png",
+			"phase": "charge",
+			"projection": {
+				"camera_x": 750.497314453125,
+				"fighters": [
+					{
+						"direction": 1.0,
+						"drawn_tip_error_px": 0.0,
+						"horse_in_x": true,
+						"tip": [
+							793.6298828125,
+							329.394500732422
+						],
+						"tip_in_view": true,
+						"x_max": 702.389770507813,
+						"x_min": 250.735809326172
+					},
+					{
+						"direction": -1.0,
+						"drawn_tip_error_px": 0.0,
+						"horse_in_x": true,
+						"tip": [
+							575.653625488281,
+							481.72607421875
+						],
+						"tip_in_view": true,
+						"x_max": 1068.80615234375,
+						"x_min": 617.152160644531
+					}
+				],
+				"gap": 316.397916666668,
+				"world_marker_x": -724.14306640625,
+				"zoom": 1.15808713436127
+			},
+			"queued_audio": 0.0,
+			"response": [
+				{
+					"aim": -0.246101632714272,
+					"angle": 0.0,
+					"angular_velocity": 0.0,
+					"balance": 100.0,
+					"dead": false,
+					"gait": 12.7431375610011,
+					"guard": 0.430000007152557,
+					"hand_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta_length": 0.0,
+					"hp": 100.0,
+					"ko": false,
+					"lance_compression": 0.0,
+					"shield_compression": 0.0,
+					"shield_delta": [
+						0.0,
+						0.0
+					],
+					"shield_delta_length": 0.0,
+					"shift": 0.0,
+					"x": -158.198958333334
+				},
+				{
+					"aim": 0.579999983310699,
+					"angle": 0.0,
+					"angular_velocity": -1.728,
+					"balance": 89.5094381041334,
+					"dead": false,
+					"gait": 12.7431375610011,
+					"guard": 0.430000007152557,
+					"hand_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta_length": 0.0,
+					"hp": 98.9274735682042,
+					"ko": false,
+					"lance_compression": 0.0,
+					"shield_compression": 0.0,
+					"shield_delta": [
+						0.0,
+						0.0
+					],
+					"shield_delta_length": 0.0,
+					"shift": 0.0,
+					"x": 158.198958333334
+				}
+			],
+			"state": {
+				"approach": 0.0,
+				"approach_elapsed": 0.0,
+				"audio_duck": 0.694,
+				"contact_loading": true,
+				"focus": "(107.6582, -248.9287)",
+				"focus_weight": 0.688,
+				"hitstop": false,
+				"impact_active": true,
+				"impact_elapsed": 0.0,
+				"pass_connected": true,
+				"pass_id": 1.0,
+				"paused": false,
+				"release": 0.0,
+				"scale": 0.8,
+				"stage_elapsed": 0.0,
+				"state": "contact",
+				"strength": 0.48
+			},
+			"tag": "first_contact",
+			"voices": [
+				{
+					"active": true,
+					"id": 55566141033.0,
+					"kind": "other",
+					"paused": false,
+					"pitch": 0.970312476158142,
+					"playing": true,
+					"position": 0.00290249427780509
+				}
+			],
+			"wall_msec": 3112.0,
+			"wall_seconds": 0.0
+		},
+		{
+			"camera": [
+				753.153747558594,
+				463.372528076172,
+				1.1788055896759,
+				-7.83165550231934,
+				0.881611943244934
+			],
+			"case": "arena_mounted_0_shield_slow",
+			"engine_scale": 0.001,
+			"fallen": {
+
+			},
+			"fighters": [
+				{
+					"aim": -0.246062204241753,
+					"dead": false,
+					"gait": 14.2819315306315,
+					"guard": 0.430000007152557,
+					"hp": 100.0,
+					"ko": false,
+					"speed": 498.257777777778,
+					"x": -104.668647222223
+				},
+				{
+					"aim": 0.505575478076935,
+					"dead": false,
+					"gait": 14.2819315306315,
+					"guard": 0.649356424808502,
+					"hp": 98.9274735682042,
+					"ko": false,
+					"speed": 498.257777777778,
+					"x": 104.668647222223
+				}
+			],
+			"first_contact_pending": false,
+			"kick": [
+				19.1200008392334,
+				-2.92000007629395
+			],
+			"path": "E:/GALUMU/docs/development/logs/rule076-package-block02/arena_mounted_0_shield_slow_loaded_hold.png",
+			"phase": "charge",
+			"projection": {
+				"camera_x": 753.153747558594,
+				"fighters": [
+					{
+						"direction": 1.0,
+						"drawn_tip_error_px": 0.000030517578125,
+						"horse_in_x": true,
+						"tip": [
+							879.145141601563,
+							324.081268310547
+						],
+						"tip_in_view": true,
+						"x_max": 790.739196777344,
+						"x_min": 331.005035400391
+					},
+					{
+						"direction": -1.0,
+						"drawn_tip_error_px": 0.0,
+						"horse_in_x": true,
+						"tip": [
+							533.198120117188,
+							455.683654785156
+						],
+						"tip_in_view": true,
+						"x_max": 1037.50720214844,
+						"x_min": 577.773010253906
+					}
+				],
+				"gap": 209.337294444446,
+				"world_marker_x": -724.41650390625,
+				"zoom": 1.1788055896759
+			},
+			"queued_audio": 0.0,
+			"response": [
+				{
+					"aim": -0.246062204241753,
+					"angle": 0.0,
+					"angular_velocity": 0.0,
+					"balance": 100.0,
+					"dead": false,
+					"gait": 14.2819315306315,
+					"guard": 0.430000007152557,
+					"hand_delta": [
+						-2.27549743652344,
+						0.571487426757813
+					],
+					"head_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta_length": 0.0,
+					"hp": 100.0,
+					"ko": false,
+					"lance_compression": 2.34616210628789,
+					"shield_compression": 0.0,
+					"shield_delta": [
+						0.0,
+						0.0
+					],
+					"shield_delta_length": 0.0,
+					"shift": 0.0,
+					"x": -104.668647222223
+				},
+				{
+					"aim": 0.505575478076935,
+					"angle": -0.0791420758338604,
+					"angular_velocity": -0.0688223756843225,
+					"balance": 89.5094381041334,
+					"dead": false,
+					"gait": 14.2819315306315,
+					"guard": 0.649356424808502,
+					"hand_delta": [
+						5.9971923828125,
+						-3.57876586914063
+					],
+					"head_delta": [
+						10.386344909668,
+						0.448394775390625
+					],
+					"head_delta_length": 10.3960189819336,
+					"hp": 98.9274735682042,
+					"ko": false,
+					"lance_compression": 0.0,
+					"shield_compression": 5.44795145219361,
+					"shield_delta": [
+						12.9667205810547,
+						-3.56130981445313
+					],
+					"shield_delta_length": 13.4468870162964,
+					"shift": -1.6153233508577,
+					"x": 104.668647222223
+				}
+			],
+			"state": {
+				"approach": 0.0,
+				"approach_elapsed": 0.0,
+				"audio_duck": 0.694,
+				"contact_loading": false,
+				"focus": "(107.6582, -248.9287)",
+				"focus_weight": 0.688,
+				"hitstop": true,
+				"impact_active": true,
+				"impact_elapsed": 0.086,
+				"pass_connected": true,
+				"pass_id": 1.0,
+				"paused": false,
+				"release": 0.0,
+				"scale": 0.001,
+				"stage_elapsed": 0.086,
+				"state": "contact",
+				"strength": 0.48
+			},
+			"tag": "loaded_hold",
+			"voices": [
+				{
+					"active": true,
+					"id": 55566141033.0,
+					"kind": "other",
+					"paused": false,
+					"pitch": 0.970312476158142,
+					"playing": true,
+					"position": 0.182857140898705
+				},
+				{
+					"active": true,
+					"id": 55733912937.0,
+					"kind": "hoof",
+					"paused": false,
+					"pitch": 0.879999995231628,
+					"playing": true,
+					"position": 0.0870748311281204
+				},
+				{
+					"active": true,
+					"id": 55784244855.0,
+					"kind": "hoof",
+					"paused": false,
+					"pitch": 0.879999995231628,
+					"playing": true,
+					"position": 0.0870748311281204
+				}
+			],
+			"wall_msec": 3254.0,
+			"wall_seconds": 0.133
+		},
+		{
+			"camera": [
+				753.454833984375,
+				463.493347167969,
+				1.18115401268005,
+				5.08479404449463,
+				-0.447984904050827
+			],
+			"case": "arena_mounted_0_shield_slow",
+			"engine_scale": 0.28,
+			"fallen": {
+
+			},
+			"fighters": [
+				{
+					"aim": -0.246062204241753,
+					"dead": false,
+					"gait": 14.2828932768625,
+					"guard": 0.430000007152557,
+					"hp": 100.0,
+					"ko": false,
+					"speed": 498.251019847222,
+					"x": -104.635430290437
+				},
+				{
+					"aim": 0.505508720874786,
+					"dead": false,
+					"gait": 14.2828932768625,
+					"guard": 0.64955335855484,
+					"hp": 98.9274735682042,
+					"ko": false,
+					"speed": 498.251019847222,
+					"x": 104.635430290437
+				}
+			],
+			"first_contact_pending": false,
+			"kick": [
+				19.1200008392334,
+				-2.92000007629395
+			],
+			"path": "E:/GALUMU/docs/development/logs/rule076-package-block02/arena_mounted_0_shield_slow_read.png",
+			"phase": "charge",
+			"projection": {
+				"camera_x": 753.454833984375,
+				"fighters": [
+					{
+						"direction": 1.0,
+						"drawn_tip_error_px": 0.0,
+						"horse_in_x": true,
+						"tip": [
+							863.895202636719,
+							325.348785400391
+						],
+						"tip_in_view": true,
+						"x_max": 775.307495117188,
+						"x_min": 314.657379150391
+					},
+					{
+						"direction": -1.0,
+						"drawn_tip_error_px": 0.000030517578125,
+						"horse_in_x": true,
+						"tip": [
+							517.161254882813,
+							457.196411132813
+						],
+						"tip_in_view": true,
+						"x_max": 1022.48858642578,
+						"x_min": 561.838500976563
+					}
+				],
+				"gap": 209.270860580874,
+				"world_marker_x": -742.906005859375,
+				"zoom": 1.18115401268005
+			},
+			"queued_audio": 0.0,
+			"response": [
+				{
+					"aim": -0.246062204241753,
+					"angle": 0.0,
+					"angular_velocity": 0.0,
+					"balance": 100.0,
+					"dead": false,
+					"gait": 14.2828932768625,
+					"guard": 0.430000007152557,
+					"hand_delta": [
+						-2.27349853515625,
+						0.570999145507813
+					],
+					"head_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta_length": 0.0,
+					"hp": 100.0,
+					"ko": false,
+					"lance_compression": 2.34410506275326,
+					"shield_compression": 0.0,
+					"shield_delta": [
+						0.0,
+						0.0
+					],
+					"shield_delta_length": 0.0,
+					"shift": 0.0,
+					"x": -104.635430290437
+				},
+				{
+					"aim": 0.505508720874786,
+					"angle": -0.0791466411577513,
+					"angular_velocity": -0.0682135223768526,
+					"balance": 89.5094381041334,
+					"dead": false,
+					"gait": 14.2828932768625,
+					"guard": 0.64955335855484,
+					"hand_delta": [
+						5.99652099609375,
+						-3.57917785644531
+					],
+					"head_delta": [
+						10.386100769043,
+						0.44805908203125
+					],
+					"head_delta_length": 10.3957605361938,
+					"hp": 98.9274735682042,
+					"ko": false,
+					"lance_compression": 0.0,
+					"shield_compression": 5.44380591025567,
+					"shield_delta": [
+						12.9636383056641,
+						-3.56228637695313
+					],
+					"shield_delta_length": 13.4441738128662,
+					"shift": -1.61454887207365,
+					"x": 104.635430290437
+				}
+			],
+			"state": {
+				"approach": 0.0,
+				"approach_elapsed": 0.0,
+				"audio_duck": 0.52,
+				"contact_loading": false,
+				"focus": "(107.6582, -248.9287)",
+				"focus_weight": 0.688,
+				"hitstop": false,
+				"impact_active": true,
+				"impact_elapsed": 0.149,
+				"pass_connected": true,
+				"pass_id": 1.0,
+				"paused": false,
+				"release": 0.0,
+				"scale": 0.28,
+				"stage_elapsed": 0.029,
+				"state": "read",
+				"strength": 0.48
+			},
+			"tag": "read",
+			"voices": [
+				{
+					"active": true,
+					"id": 55566141033.0,
+					"kind": "other",
+					"paused": false,
+					"pitch": 0.970312476158142,
+					"playing": true,
+					"position": 0.272834479808807
+				},
+				{
+					"active": true,
+					"id": 55733912937.0,
+					"kind": "hoof",
+					"paused": false,
+					"pitch": 0.879999995231628,
+					"playing": false,
+					"position": 0.0
+				},
+				{
+					"active": true,
+					"id": 55784244855.0,
+					"kind": "hoof",
+					"paused": false,
+					"pitch": 0.879999995231628,
+					"playing": false,
+					"position": 0.0
+				}
+			],
+			"wall_msec": 3317.0,
+			"wall_seconds": 0.196
+		},
+		{
+			"camera": [
+				749.885986328125,
+				463.538391113281,
+				1.18181765079498,
+				0.0374982282519341,
+				-0.00586307514458895
+			],
+			"case": "arena_mounted_0_shield_slow",
+			"engine_scale": 0.379306666666667,
+			"fallen": {
+
+			},
+			"fighters": [
+				{
+					"aim": -0.246062204241753,
+					"dead": false,
+					"gait": 15.528354646032,
+					"guard": 0.430000007152557,
+					"hp": 100.0,
+					"ko": false,
+					"speed": 485.861035402778,
+					"x": -62.1181432095528
+				},
+				{
+					"aim": 0.427877366542816,
+					"dead": false,
+					"gait": 15.528354646032,
+					"guard": 0.88750284910202,
+					"hp": 98.9274735682042,
+					"ko": false,
+					"speed": 485.861035402778,
+					"x": 62.1181432095528
+				}
+			],
+			"first_contact_pending": false,
+			"kick": [
+				19.1200008392334,
+				-2.92000007629395
+			],
+			"path": "E:/GALUMU/docs/development/logs/rule076-package-block02/arena_mounted_0_shield_slow_release.png",
+			"phase": "charge",
+			"projection": {
+				"camera_x": 749.885986328125,
+				"fighters": [
+					{
+						"direction": 1.0,
+						"drawn_tip_error_px": 0.0,
+						"horse_in_x": true,
+						"tip": [
+							927.8994140625,
+							325.646514892578
+						],
+						"tip_in_view": true,
+						"x_max": 835.768920898438,
+						"x_min": 374.860015869141
+					},
+					{
+						"direction": -1.0,
+						"drawn_tip_error_px": 0.0,
+						"horse_in_x": true,
+						"tip": [
+							463.188018798828,
+							438.96826171875
+						],
+						"tip_in_view": true,
+						"x_max": 982.593505859375,
+						"x_min": 521.684692382813
+					}
+				],
+				"gap": 124.236286419106,
+				"world_marker_x": -733.545288085938,
+				"zoom": 1.18181765079498
+			},
+			"queued_audio": 0.0,
+			"response": [
+				{
+					"aim": -0.246062204241753,
+					"angle": 0.0,
+					"angular_velocity": 0.0,
+					"balance": 100.0,
+					"dead": false,
+					"gait": 15.528354646032,
+					"guard": 0.430000007152557,
+					"hand_delta": [
+						-0.184127807617188,
+						0.0462493896484375
+					],
+					"head_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta_length": 0.0,
+					"hp": 100.0,
+					"ko": false,
+					"lance_compression": 0.189844503648115,
+					"shield_compression": 0.0,
+					"shield_delta": [
+						0.0,
+						0.0
+					],
+					"shield_delta_length": 0.0,
+					"shift": 0.0,
+					"x": -62.1181432095528
+				},
+				{
+					"aim": 0.427877366542816,
+					"angle": -0.0604071760004653,
+					"angular_velocity": 0.382839918401136,
+					"balance": 89.5094381041334,
+					"dead": false,
+					"gait": 15.528354646032,
+					"guard": 0.88750284910202,
+					"hand_delta": [
+						3.81599044799805,
+						-2.72227478027344
+					],
+					"head_delta": [
+						7.15764617919922,
+						0.36151123046875
+					],
+					"head_delta_length": 7.16676998138428,
+					"hp": 98.9274735682042,
+					"ko": false,
+					"lance_compression": 0.0,
+					"shield_compression": 0.820530577409256,
+					"shield_delta": [
+						7.32135009765625,
+						-2.93154907226563
+					],
+					"shield_delta_length": 7.88645362854004,
+					"shift": -0.46322287615082,
+					"x": 62.1181432095528
+				}
+			],
+			"state": {
+				"approach": 0.0,
+				"approach_elapsed": 0.0,
+				"audio_duck": 0.448278518518519,
+				"contact_loading": false,
+				"focus": "(107.6582, -248.9287)",
+				"focus_weight": 0.593106962962963,
+				"hitstop": false,
+				"impact_active": true,
+				"impact_elapsed": 0.456,
+				"pass_connected": true,
+				"pass_id": 1.0,
+				"paused": false,
+				"release": 0.233333333333333,
+				"scale": 0.379306666666667,
+				"stage_elapsed": 0.056,
+				"state": "release",
+				"strength": 0.48
+			},
+			"tag": "release",
+			"voices": [
+				{
+					"active": true,
+					"id": 55566141033.0,
+					"kind": "hoof",
+					"paused": false,
+					"pitch": 1.05999994277954,
+					"playing": false,
+					"position": 0.0
+				},
+				{
+					"active": true,
+					"id": 55733912937.0,
+					"kind": "hoof",
+					"paused": false,
+					"pitch": 1.05999994277954,
+					"playing": false,
+					"position": 0.0
+				},
+				{
+					"active": false,
+					"id": 55784244855.0,
+					"kind": "hoof",
+					"paused": false,
+					"pitch": 0.879999995231628,
+					"playing": false,
+					"position": 0.0
+				}
+			],
+			"wall_msec": 3622.0,
+			"wall_seconds": 0.501
+		},
+		{
+			"camera": [
+				720.0,
+				457.807281494141,
+				0.920227289199829,
+				0.0,
+				0.0
+			],
+			"case": "arena_mounted_0_head_slow",
+			"engine_scale": 1.0,
+			"fallen": {
+
+			},
+			"fighters": [
+				{
+					"aim": -0.514507234096527,
+					"dead": false,
+					"gait": 13.7048837920201,
+					"guard": 0.430000007152557,
+					"hp": 100.0,
+					"ko": false,
+					"speed": 504.0,
+					"x": -124.598958333334
+				},
+				{
+					"aim": 0.579999983310699,
+					"dead": false,
+					"gait": 13.7048837920201,
+					"guard": 0.430000007152557,
+					"hp": 100.0,
+					"ko": false,
+					"speed": 504.0,
+					"x": 124.598958333334
+				}
+			],
+			"first_contact_pending": false,
+			"kick": [
+				0.0,
+				0.0
+			],
+			"path": "E:/GALUMU/docs/development/logs/rule076-package-block02/arena_mounted_0_head_slow_before.png",
+			"phase": "charge",
+			"projection": {
+				"camera_x": 720.0,
+				"fighters": [
+					{
+						"direction": 1.0,
+						"drawn_tip_error_px": 0.0,
+						"horse_in_x": true,
+						"tip": [
+							828.965698242188,
+							291.747924804688
+						],
+						"tip_in_view": true,
+						"x_max": 780.183837890625,
+						"x_min": 421.295166015625
+					},
+					{
+						"direction": -1.0,
+						"drawn_tip_error_px": 0.0,
+						"horse_in_x": true,
+						"tip": [
+							618.778869628906,
+							469.270874023438
+						],
+						"tip_in_view": true,
+						"x_max": 1009.50256347656,
+						"x_min": 650.613891601563
+					}
+				],
+				"gap": 249.197916666668,
+				"world_marker_x": -384.272705078125,
+				"zoom": 0.920227289199829
+			},
+			"queued_audio": 0.0,
+			"response": [
+				{
+					"aim": -0.514507234096527,
+					"angle": 0.0,
+					"angular_velocity": 0.0,
+					"balance": 100.0,
+					"dead": false,
+					"gait": 13.7048837920201,
+					"guard": 0.430000007152557,
+					"hand_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta_length": 0.0,
+					"hp": 100.0,
+					"ko": false,
+					"lance_compression": 0.0,
+					"shield_compression": 0.0,
+					"shield_delta": [
+						0.0,
+						0.0
+					],
+					"shield_delta_length": 0.0,
+					"shift": 0.0,
+					"x": -124.598958333334
+				},
+				{
+					"aim": 0.579999983310699,
+					"angle": 0.0,
+					"angular_velocity": 0.0,
+					"balance": 100.0,
+					"dead": false,
+					"gait": 13.7048837920201,
+					"guard": 0.430000007152557,
+					"hand_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta_length": 0.0,
+					"hp": 100.0,
+					"ko": false,
+					"lance_compression": 0.0,
+					"shield_compression": 0.0,
+					"shield_delta": [
+						0.0,
+						0.0
+					],
+					"shield_delta_length": 0.0,
+					"shift": 0.0,
+					"x": 124.598958333334
+				}
+			],
+			"state": {
+				"approach": 0.0,
+				"approach_elapsed": 0.0,
+				"audio_duck": 0.0,
+				"contact_loading": false,
+				"focus": "(0.0, 0.0)",
+				"focus_weight": 0.0,
+				"hitstop": false,
+				"impact_active": false,
+				"impact_elapsed": 0.0,
+				"pass_connected": false,
+				"pass_id": 1.0,
+				"paused": false,
+				"release": 0.0,
+				"scale": 1.0,
+				"stage_elapsed": 0.0,
+				"state": "runup",
+				"strength": 0.0
+			},
+			"tag": "before",
+			"voices": [],
+			"wall_msec": 4538.0,
+			"wall_seconds": 0.0
+		},
+		{
+			"camera": [
+				763.396423339844,
+				462.655914306641,
+				1.15808713436127,
+				24.4669342041016,
+				-1.90211963653564
+			],
+			"case": "arena_mounted_0_head_slow",
+			"engine_scale": 0.8,
+			"fallen": {
+
+			},
+			"fighters": [
+				{
+					"aim": -0.514979660511017,
+					"dead": false,
+					"gait": 13.8251020708975,
+					"guard": 0.430000007152557,
+					"hp": 100.0,
+					"ko": false,
+					"speed": 504.0,
+					"x": -120.398958333334
+				},
+				{
+					"aim": 0.579999983310699,
+					"dead": false,
+					"gait": 13.8251020708975,
+					"guard": 0.430000007152557,
+					"hp": 59.427664239876,
+					"ko": false,
+					"speed": 504.0,
+					"x": 120.398958333334
+				}
+			],
+			"first_contact_pending": false,
+			"kick": [
+				28.3348426818848,
+				-4.85996675491333
+			],
+			"path": "E:/GALUMU/docs/development/logs/rule076-package-block02/arena_mounted_0_head_slow_first_contact.png",
+			"phase": "charge",
+			"projection": {
+				"camera_x": 763.396423339844,
+				"fighters": [
+					{
+						"direction": 1.0,
+						"drawn_tip_error_px": 0.000030517578125,
+						"horse_in_x": true,
+						"tip": [
+							783.425048828125,
+							258.706939697266
+						],
+						"tip_in_view": true,
+						"x_max": 722.012329101563,
+						"x_min": 270.3583984375
+					},
+					{
+						"direction": -1.0,
+						"drawn_tip_error_px": 0.000030517578125,
+						"horse_in_x": true,
+						"tip": [
+							509.071380615234,
+							482.233520507813
+						],
+						"tip_in_view": true,
+						"x_max": 1000.87725830078,
+						"x_min": 549.223327636719
+					}
+				],
+				"gap": 240.797916666668,
+				"world_marker_x": -748.296203613281,
+				"zoom": 1.15808713436127
+			},
+			"queued_audio": 0.0,
+			"response": [
+				{
+					"aim": -0.514979660511017,
+					"angle": 0.0,
+					"angular_velocity": 0.0,
+					"balance": 100.0,
+					"dead": false,
+					"gait": 13.8251020708975,
+					"guard": 0.430000007152557,
+					"hand_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta_length": 0.0,
+					"hp": 100.0,
+					"ko": false,
+					"lance_compression": 0.0,
+					"shield_compression": 0.0,
+					"shield_delta": [
+						0.0,
+						0.0
+					],
+					"shield_delta_length": 0.0,
+					"shift": 0.0,
+					"x": -120.398958333334
+				},
+				{
+					"aim": 0.579999983310699,
+					"angle": 0.0,
+					"angular_velocity": -10.0,
+					"balance": 57.4771469651481,
+					"dead": false,
+					"gait": 13.8251020708975,
+					"guard": 0.430000007152557,
+					"hand_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta_length": 0.0,
+					"hp": 59.427664239876,
+					"ko": false,
+					"lance_compression": 0.0,
+					"shield_compression": 0.0,
+					"shield_delta": [
+						0.0,
+						0.0
+					],
+					"shield_delta_length": 0.0,
+					"shift": 0.0,
+					"x": 120.398958333334
+				}
+			],
+			"state": {
+				"approach": 0.0,
+				"approach_elapsed": 0.0,
+				"audio_duck": 0.839497510252457,
+				"contact_loading": true,
+				"focus": "(119.6858, -310.3551)",
+				"focus_weight": 0.978995020504914,
+				"hitstop": false,
+				"impact_active": true,
+				"impact_elapsed": 0.0,
+				"pass_connected": true,
+				"pass_id": 1.0,
+				"paused": false,
+				"release": 0.0,
+				"scale": 0.8,
+				"stage_elapsed": 0.0,
+				"state": "contact",
+				"strength": 0.964991700841523
+			},
+			"tag": "first_contact",
+			"voices": [
+				{
+					"active": true,
+					"id": 59861108171.0,
+					"kind": "other",
+					"paused": false,
+					"pitch": 0.913850903511047,
+					"playing": true,
+					"position": 0.00290249427780509
+				}
+			],
+			"wall_msec": 4600.0,
+			"wall_seconds": 0.0
+		},
+		{
+			"camera": [
+				766.794128417969,
+				463.272308349609,
+				1.17671024799347,
+				-12.3145503997803,
+				2.76673030853271
+			],
+			"case": "arena_mounted_0_head_slow",
+			"engine_scale": 0.001,
+			"fallen": {
+
+			},
+			"fighters": [
+				{
+					"aim": -0.514507234096527,
+					"dead": false,
+					"gait": 15.171546794324,
+					"guard": 0.430000007152557,
+					"hp": 100.0,
+					"ko": false,
+					"speed": 499.566666666667,
+					"x": -73.5165879629637
+				},
+				{
+					"aim": 0.518945157527924,
+					"dead": false,
+					"gait": 15.171546794324,
+					"guard": 0.609951078891754,
+					"hp": 59.427664239876,
+					"ko": false,
+					"speed": 499.566666666667,
+					"x": 73.5165879629637
+				}
+			],
+			"first_contact_pending": false,
+			"kick": [
+				28.3348426818848,
+				-4.85996675491333
+			],
+			"path": "E:/GALUMU/docs/development/logs/rule076-package-block02/arena_mounted_0_head_slow_loaded_hold.png",
+			"phase": "charge",
+			"projection": {
+				"camera_x": 766.794128417969,
+				"fighters": [
+					{
+						"direction": 1.0,
+						"drawn_tip_error_px": 0.000030517578125,
+						"horse_in_x": true,
+						"tip": [
+							874.674377441406,
+							254.185180664063
+						],
+						"tip_in_view": true,
+						"x_max": 816.494750976563,
+						"x_min": 357.577758789063
+					},
+					{
+						"direction": -1.0,
+						"drawn_tip_error_px": 0.0,
+						"horse_in_x": true,
+						"tip": [
+							516.106140136719,
+							444.532348632813
+						],
+						"tip_in_view": true,
+						"x_max": 989.51025390625,
+						"x_min": 530.593200683594
+					}
+				],
+				"gap": 147.033175925927,
+				"world_marker_x": -732.624694824219,
+				"zoom": 1.17671024799347
+			},
+			"queued_audio": 0.0,
+			"response": [
+				{
+					"aim": -0.514507234096527,
+					"angle": 0.0,
+					"angular_velocity": 0.0,
+					"balance": 100.0,
+					"dead": false,
+					"gait": 15.171546794324,
+					"guard": 0.430000007152557,
+					"hand_delta": [
+						-4.80949401855469,
+						2.71876525878906
+					],
+					"head_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta_length": 0.0,
+					"hp": 100.0,
+					"ko": false,
+					"lance_compression": 5.52475682586838,
+					"shield_compression": 0.0,
+					"shield_delta": [
+						0.0,
+						0.0
+					],
+					"shield_delta_length": 0.0,
+					"shift": 0.0,
+					"x": -73.5165879629637
+				},
+				{
+					"aim": 0.518945157527924,
+					"angle": -0.450147159393521,
+					"angular_velocity": -1.1896413818118,
+					"balance": 57.4771469651481,
+					"dead": false,
+					"gait": 15.171546794324,
+					"guard": 0.609951078891754,
+					"hand_delta": [
+						31.3990097045898,
+						-15.5724792480469
+					],
+					"head_delta": [
+						51.8219223022461,
+						11.1138916015625
+					],
+					"head_delta_length": 53.0002861022949,
+					"hp": 59.427664239876,
+					"ko": false,
+					"lance_compression": 0.0,
+					"shield_compression": 0.0,
+					"shield_delta": [
+						38.6441192626953,
+						-17.1109619140625
+					],
+					"shield_delta_length": 42.2629013061523,
+					"shift": -3.53898679691534,
+					"x": 73.5165879629637
+				}
+			],
+			"state": {
+				"approach": 0.0,
+				"approach_elapsed": 0.0,
+				"audio_duck": 0.839497510252457,
+				"contact_loading": false,
+				"focus": "(119.6858, -310.3551)",
+				"focus_weight": 0.978995020504914,
+				"hitstop": true,
+				"impact_active": true,
+				"impact_elapsed": 0.064,
+				"pass_connected": true,
+				"pass_id": 1.0,
+				"paused": false,
+				"release": 0.0,
+				"scale": 0.001,
+				"stage_elapsed": 0.064,
+				"state": "contact",
+				"strength": 0.964991700841523
+			},
+			"tag": "loaded_hold",
+			"voices": [
+				{
+					"active": true,
+					"id": 59861108171.0,
+					"kind": "other",
+					"paused": false,
+					"pitch": 0.913850903511047,
+					"playing": true,
+					"position": 0.17124716937542
+				},
+				{
+					"active": true,
+					"id": 60095989150.0,
+					"kind": "hoof",
+					"paused": false,
+					"pitch": 1.05999994277954,
+					"playing": true,
+					"position": 0.0986848101019859
+				},
+				{
+					"active": true,
+					"id": 60146320793.0,
+					"kind": "hoof",
+					"paused": false,
+					"pitch": 1.05999994277954,
+					"playing": true,
+					"position": 0.0986848101019859
+				}
+			],
+			"wall_msec": 4722.0,
+			"wall_seconds": 0.114
+		},
+		{
+			"camera": [
+				767.692077636719,
+				463.523803710938,
+				1.18163204193115,
+				-1.49850749969482,
+				0.589523613452911
+			],
+			"case": "arena_mounted_0_head_slow",
+			"engine_scale": 0.28,
+			"fallen": {
+
+			},
+			"fighters": [
+				{
+					"aim": -0.514507234096527,
+					"dead": false,
+					"gait": 15.1733500685071,
+					"guard": 0.430000007152557,
+					"hp": 100.0,
+					"ko": false,
+					"speed": 499.555575416667,
+					"x": -73.4541428688931
+				},
+				{
+					"aim": 0.518819987773895,
+					"dead": false,
+					"gait": 15.1733500685071,
+					"guard": 0.610320329666138,
+					"hp": 59.427664239876,
+					"ko": false,
+					"speed": 499.555575416667,
+					"x": 73.4541428688931
+				}
+			],
+			"first_contact_pending": false,
+			"kick": [
+				28.3348426818848,
+				-4.85996675491333
+			],
+			"path": "E:/GALUMU/docs/development/logs/rule076-package-block02/arena_mounted_0_head_slow_read.png",
+			"phase": "charge",
+			"projection": {
+				"camera_x": 767.692077636719,
+				"fighters": [
+					{
+						"direction": 1.0,
+						"drawn_tip_error_px": 0.0,
+						"horse_in_x": true,
+						"tip": [
+							861.565368652344,
+							255.830718994141
+						],
+						"tip_in_view": true,
+						"x_max": 803.130493164063,
+						"x_min": 342.294036865234
+					},
+					{
+						"direction": -1.0,
+						"drawn_tip_error_px": 0.00004315837213653,
+						"horse_in_x": true,
+						"tip": [
+							501.323974609375,
+							446.942047119141
+						],
+						"tip_in_view": true,
+						"x_max": 976.722045898438,
+						"x_min": 515.885559082031
+					}
+				],
+				"gap": 146.908285737786,
+				"world_marker_x": -752.542297363281,
+				"zoom": 1.18163204193115
+			},
+			"queued_audio": 0.0,
+			"response": [
+				{
+					"aim": -0.514507234096527,
+					"angle": 0.0,
+					"angular_velocity": 0.0,
+					"balance": 100.0,
+					"dead": false,
+					"gait": 15.1733500685071,
+					"guard": 0.430000007152557,
+					"hand_delta": [
+						-4.80354309082031,
+						2.71539306640625
+					],
+					"head_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta_length": 0.0,
+					"hp": 100.0,
+					"ko": false,
+					"lance_compression": 5.51791766558185,
+					"shield_compression": 0.0,
+					"shield_delta": [
+						0.0,
+						0.0
+					],
+					"shield_delta_length": 0.0,
+					"shift": 0.0,
+					"x": -73.4541428688931
+				},
+				{
+					"aim": 0.518819987773895,
+					"angle": -0.4502953519222,
+					"angular_velocity": -1.18195321245803,
+					"balance": 57.4771469651481,
+					"dead": false,
+					"gait": 15.1733500685071,
+					"guard": 0.610320329666138,
+					"hand_delta": [
+						31.4067115783691,
+						-15.5761108398438
+					],
+					"head_delta": [
+						51.8348846435547,
+						11.1199340820313
+					],
+					"head_delta_length": 53.0142250061035,
+					"hp": 59.427664239876,
+					"ko": false,
+					"lance_compression": 0.0,
+					"shield_compression": 0.0,
+					"shield_delta": [
+						38.6711120605469,
+						-17.11083984375
+					],
+					"shield_delta_length": 42.2875366210938,
+					"shift": -3.5368922103236,
+					"x": 73.4541428688931
+				}
+			],
+			"state": {
+				"approach": 0.0,
+				"approach_elapsed": 0.0,
+				"audio_duck": 0.641247925210381,
+				"contact_loading": false,
+				"focus": "(119.6858, -310.3551)",
+				"focus_weight": 0.978995020504914,
+				"hitstop": false,
+				"impact_active": true,
+				"impact_elapsed": 0.202,
+				"pass_connected": true,
+				"pass_id": 1.0,
+				"paused": false,
+				"release": 0.0,
+				"scale": 0.28,
+				"stage_elapsed": 0.0530502489747543,
+				"state": "read",
+				"strength": 0.964991700841523
+			},
+			"tag": "read",
+			"voices": [
+				{
+					"active": true,
+					"id": 59861108171.0,
+					"kind": "other",
+					"paused": false,
+					"pitch": 0.913850903511047,
+					"playing": true,
+					"position": 0.255419492721558
+				},
+				{
+					"active": false,
+					"id": 60095989150.0,
+					"kind": "hoof",
+					"paused": false,
+					"pitch": 1.05999994277954,
+					"playing": false,
+					"position": 0.0
+				},
+				{
+					"active": false,
+					"id": 60146320793.0,
+					"kind": "hoof",
+					"paused": false,
+					"pitch": 1.05999994277954,
+					"playing": false,
+					"position": 0.0
+				}
+			],
+			"wall_msec": 4856.0,
+			"wall_seconds": 0.248
+		},
+		{
+			"camera": [
+				762.425231933594,
+				463.538421630859,
+				1.18181788921356,
+				0.0,
+				0.0
+			],
+			"case": "arena_mounted_0_head_slow",
+			"engine_scale": 0.37626659814527,
+			"fallen": {
+
+			},
+			"fighters": [
+				{
+					"aim": -0.514507234096527,
+					"dead": false,
+					"gait": 16.2505058472484,
+					"guard": 0.430000007152557,
+					"hp": 100.0,
+					"ko": false,
+					"speed": 490.195330972222,
+					"x": -36.4814397303746
+				},
+				{
+					"aim": 0.468699932098389,
+					"dead": false,
+					"gait": 16.2505058472484,
+					"guard": 0.830622971057892,
+					"hp": 59.427664239876,
+					"ko": false,
+					"speed": 490.195330972222,
+					"x": 36.4814397303746
+				}
+			],
+			"first_contact_pending": false,
+			"kick": [
+				28.3348426818848,
+				-4.85996675491333
+			],
+			"path": "E:/GALUMU/docs/development/logs/rule076-package-block02/arena_mounted_0_head_slow_release.png",
+			"phase": "charge",
+			"projection": {
+				"camera_x": 762.425231933594,
+				"fighters": [
+					{
+						"direction": 1.0,
+						"drawn_tip_error_px": 0.0,
+						"horse_in_x": true,
+						"tip": [
+							913.717224121094,
+							252.234527587891
+						],
+						"tip_in_view": true,
+						"x_max": 851.292053222656,
+						"x_min": 390.383087158203
+					},
+					{
+						"direction": -1.0,
+						"drawn_tip_error_px": 0.00004315837213653,
+						"horse_in_x": true,
+						"tip": [
+							449.983551025391,
+							435.263549804688
+						],
+						"tip_in_view": true,
+						"x_max": 937.520874023438,
+						"x_min": 476.611938476563
+					}
+				],
+				"gap": 72.9628794607492,
+				"world_marker_x": -748.320434570313,
+				"zoom": 1.18181788921356
+			},
+			"queued_audio": 0.0,
+			"response": [
+				{
+					"aim": -0.514507234096527,
+					"angle": 0.0,
+					"angular_velocity": 0.0,
+					"balance": 100.0,
+					"dead": false,
+					"gait": 16.2505058472484,
+					"guard": 0.430000007152557,
+					"hand_delta": [
+						-1.12522506713867,
+						0.636077880859375
+					],
+					"head_delta": [
+						0.0,
+						0.0
+					],
+					"head_delta_length": 0.0,
+					"hp": 100.0,
+					"ko": false,
+					"lance_compression": 1.29256727887593,
+					"shield_compression": 0.0,
+					"shield_delta": [
+						0.0,
+						0.0
+					],
+					"shield_delta_length": 0.0,
+					"shift": 0.0,
+					"x": -36.4814397303746
+				},
+				{
+					"aim": 0.468699932098389,
+					"angle": -0.403209329284217,
+					"angular_velocity": 1.83263391021997,
+					"balance": 57.4771469651481,
+					"dead": false,
+					"gait": 16.2505058472484,
+					"guard": 0.830622971057892,
+					"hand_delta": [
+						26.755199432373,
+						-13.6198425292969
+					],
+					"head_delta": [
+						44.7413520812988,
+						10.5787353515625
+					],
+					"head_delta_length": 45.9749755859375,
+					"hp": 59.427664239876,
+					"ko": false,
+					"lance_compression": 0.0,
+					"shield_compression": 0.0,
+					"shield_delta": [
+						42.2872924804688,
+						-12.7006225585938
+					],
+					"shield_delta_length": 44.153377532959,
+					"shift": -1.56475020663239,
+					"x": 36.4814397303746
+				}
+			],
+			"state": {
+				"approach": 0.0,
+				"approach_elapsed": 0.0,
+				"audio_duck": 0.555510763644109,
+				"contact_loading": false,
+				"focus": "(119.6858, -310.3551)",
+				"focus_weight": 0.848099853525515,
+				"hitstop": false,
+				"impact_active": true,
+				"impact_elapsed": 0.484,
+				"pass_connected": true,
+				"pass_id": 1.0,
+				"paused": false,
+				"release": 0.22937603739481,
+				"scale": 0.37626659814527,
+				"stage_elapsed": 0.0550502489747543,
+				"state": "release",
+				"strength": 0.964991700841523
+			},
+			"tag": "release",
+			"voices": [
+				{
+					"active": true,
+					"id": 59861108171.0,
+					"kind": "other",
+					"paused": false,
+					"pitch": 0.913850903511047,
+					"playing": true,
+					"position": 0.510838985443115
+				},
+				{
+					"active": true,
+					"id": 60095989150.0,
+					"kind": "hoof",
+					"paused": false,
+					"pitch": 1.05999994277954,
+					"playing": true,
+					"position": 0.0986848101019859
+				},
+				{
+					"active": true,
+					"id": 60146320793.0,
+					"kind": "hoof",
+					"paused": false,
+					"pitch": 1.05999994277954,
+					"playing": true,
+					"position": 0.0986848101019859
+				}
+			],
+			"wall_msec": 5141.0,
+			"wall_seconds": 0.533
+		}
+	],
+	"cases": [
+		{
+			"actual_events": [
+				{
+					"attacker": 0,
+					"attaint": false,
+					"balance_left": 89.5094381041334,
+					"break_angle": -0.246101632714272,
+					"break_direction": 1,
+					"break_hand": "(-128.9715, -188.4644)",
+					"break_reach": 247.0,
+					"break_tip": "(110.5863, -248.6397)",
+					"broke": false,
+					"contact_local": "(17.22788, 0.075681)",
+					"damage": 1.07252643179575,
+					"dead": false,
+					"defender": 1,
+					"drive": 1.0225,
+					"eccentricity": 0.000924505627318165,
+					"glanced": true,
+					"impulse": 12.3388592732077,
+					"ko": false,
+					"ko_reason": "",
+					"lever": 0.000924505627318165,
+					"points": 0,
+					"position": "(107.6582, -248.9287)",
+					"shield_broke": false,
+					"shield_region": "center",
+					"speed": 914.870178222656,
+					"support": 1.0,
+					"type": "hit",
+					"zone": "shield"
+				}
+			],
+			"airborne_joint_travel_rad": 0.0,
+			"attacker": 0,
+			"break_fragments_at_event": [],
+			"contact_max_head_response_px": 10.3960189819336,
+			"fatal_fixture": false,
+			"fixture": {
+				"gait_phase": 0.0,
+				"preview": {
+					"attacker": 0,
+					"attaint": false,
+					"balance_left": 89.5094381041334,
+					"break_angle": -0.246101632714272,
+					"break_direction": 1,
+					"break_hand": "(-128.9715, -188.4644)",
+					"break_reach": 247.0,
+					"break_tip": "(110.5863, -248.6397)",
+					"broke": false,
+					"contact_local": "(17.22788, 0.075681)",
+					"damage": 1.07252643179575,
+					"dead": false,
+					"defender": 1,
+					"drive": 1.0225,
+					"eccentricity": 0.000924505627318165,
+					"glanced": true,
+					"impulse": 12.3388592732077,
+					"ko": false,
+					"ko_reason": "",
+					"lever": 0.000924505627318165,
+					"points": 0,
+					"position": "(107.6582, -248.9287)",
+					"shield_broke": false,
+					"shield_region": "center",
+					"speed": 914.870178222656,
+					"support": 1.0,
+					"type": "hit",
+					"zone": "shield"
+				},
+				"ticks": 106
+			},
+			"grounded_joint_travel_rad": 0.0,
+			"low_durability_break_fixture": false,
+			"max_lance_compression": 3.36262757953989,
+			"max_shield_compression": 7.36457801108181,
+			"name": "arena_mounted_0_shield_slow",
+			"seen": {
+				"loaded_hold": true,
+				"read": true,
+				"release": true
+			},
+			"slow_motion": true,
+			"solid_shield_fixture": false,
+			"timeline": [
+				{
+					"camera": [
+						751.258728027344,
+						462.802337646484,
+						1.16402554512024,
+						13.2930850982666,
+						-1.91834962368011
+					],
+					"engine_scale": 0.8,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.246062204241753,
+							"dead": false,
+							"gait": 13.5125345458163,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 502.48,
+							"x": -131.352736111112
+						},
+						{
+							"aim": 0.55753892660141,
+							"dead": false,
+							"gait": 13.5125345458163,
+							"guard": 0.496200978755951,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"speed": 502.48,
+							"x": 131.352736111112
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						19.1200008392334,
+						-2.92000007629395
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 751.258728027344,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.000030517578125,
+								"horse_in_x": true,
+								"tip": [
+									822.242309570313,
+									330.556030273438
+								],
+								"tip_in_view": true,
+								"x_max": 736.407409667969,
+								"x_min": 282.437469482422
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.00006103515625,
+								"horse_in_x": true,
+								"tip": [
+									551.179870605469,
+									474.034423828125
+								],
+								"tip_in_view": true,
+								"x_max": 1042.20324707031,
+								"x_min": 588.233337402344
+							}
+						],
+						"gap": 262.705472222224,
+						"world_marker_x": -728.690185546875,
+						"zoom": 1.16402554512024
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.246062204241753,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 13.5125345458163,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-3.26134490966797,
+								0.819091796875
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 3.36262757953989,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -131.352736111112
+						},
+						{
+							"aim": 0.55753892660141,
+							"angle": -0.0612670309751865,
+							"angular_velocity": -0.739817996009482,
+							"balance": 89.5094381041334,
+							"dead": false,
+							"gait": 13.5125345458163,
+							"guard": 0.496200978755951,
+							"hand_delta": [
+								5.20295715332031,
+								-2.77381896972656
+							],
+							"head_delta": [
+								8.60395812988281,
+								0.341064453125
+							],
+							"head_delta_length": 8.61071586608887,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 7.36457801108181,
+							"shield_delta": [
+								12.7546844482422,
+								-2.59808349609375
+							],
+							"shield_delta_length": 13.0166053771973,
+							"shift": -1.81293283956724,
+							"x": 131.352736111112
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.694,
+						"contact_loading": true,
+						"focus": "(107.6582, -248.9287)",
+						"focus_weight": 0.688,
+						"hitstop": false,
+						"impact_active": true,
+						"impact_elapsed": 0.012,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 0.8,
+						"stage_elapsed": 0.012,
+						"state": "contact",
+						"strength": 0.48
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 55566141033,
+							"kind": "other",
+							"paused": false,
+							"pitch": 0.970312476158142,
+							"playing": true,
+							"position": 0.0928798168897629
+						},
+						{
+							"active": true,
+							"id": 55733912937,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": true,
+							"position": 0.00580498855561018
+						},
+						{
+							"active": true,
+							"id": 55784244855,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": true,
+							"position": 0.00580498855561018
+						}
+					],
+					"wall_msec": 3187,
+					"wall_seconds": 0.066
+				},
+				{
+					"camera": [
+						753.153747558594,
+						463.372528076172,
+						1.1788055896759,
+						-7.83165550231934,
+						0.881611943244934
+					],
+					"engine_scale": 0.001,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.246062204241753,
+							"dead": false,
+							"gait": 14.2819315306315,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 498.257777777778,
+							"x": -104.668647222223
+						},
+						{
+							"aim": 0.505575478076935,
+							"dead": false,
+							"gait": 14.2819315306315,
+							"guard": 0.649356424808502,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"speed": 498.257777777778,
+							"x": 104.668647222223
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						19.1200008392334,
+						-2.92000007629395
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 753.153747558594,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.000030517578125,
+								"horse_in_x": true,
+								"tip": [
+									879.145141601563,
+									324.081268310547
+								],
+								"tip_in_view": true,
+								"x_max": 790.739196777344,
+								"x_min": 331.005035400391
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									533.198120117188,
+									455.683654785156
+								],
+								"tip_in_view": true,
+								"x_max": 1037.50720214844,
+								"x_min": 577.773010253906
+							}
+						],
+						"gap": 209.337294444446,
+						"world_marker_x": -724.41650390625,
+						"zoom": 1.1788055896759
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.246062204241753,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 14.2819315306315,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-2.27549743652344,
+								0.571487426757813
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 2.34616210628789,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -104.668647222223
+						},
+						{
+							"aim": 0.505575478076935,
+							"angle": -0.0791420758338604,
+							"angular_velocity": -0.0688223756843225,
+							"balance": 89.5094381041334,
+							"dead": false,
+							"gait": 14.2819315306315,
+							"guard": 0.649356424808502,
+							"hand_delta": [
+								5.9971923828125,
+								-3.57876586914063
+							],
+							"head_delta": [
+								10.386344909668,
+								0.448394775390625
+							],
+							"head_delta_length": 10.3960189819336,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 5.44795145219361,
+							"shield_delta": [
+								12.9667205810547,
+								-3.56130981445313
+							],
+							"shield_delta_length": 13.4468870162964,
+							"shift": -1.6153233508577,
+							"x": 104.668647222223
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.694,
+						"contact_loading": false,
+						"focus": "(107.6582, -248.9287)",
+						"focus_weight": 0.688,
+						"hitstop": true,
+						"impact_active": true,
+						"impact_elapsed": 0.086,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 0.001,
+						"stage_elapsed": 0.086,
+						"state": "contact",
+						"strength": 0.48
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 55566141033,
+							"kind": "other",
+							"paused": false,
+							"pitch": 0.970312476158142,
+							"playing": true,
+							"position": 0.182857140898705
+						},
+						{
+							"active": true,
+							"id": 55733912937,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": true,
+							"position": 0.0870748311281204
+						},
+						{
+							"active": true,
+							"id": 55784244855,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": true,
+							"position": 0.0870748311281204
+						}
+					],
+					"wall_msec": 3254,
+					"wall_seconds": 0.133
+				},
+				{
+					"camera": [
+						753.454833984375,
+						463.493347167969,
+						1.18115401268005,
+						5.08479404449463,
+						-0.447984904050827
+					],
+					"engine_scale": 0.28,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.246062204241753,
+							"dead": false,
+							"gait": 14.2828932768625,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 498.251019847222,
+							"x": -104.635430290437
+						},
+						{
+							"aim": 0.505508720874786,
+							"dead": false,
+							"gait": 14.2828932768625,
+							"guard": 0.64955335855484,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"speed": 498.251019847222,
+							"x": 104.635430290437
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						19.1200008392334,
+						-2.92000007629395
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 753.454833984375,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									863.895202636719,
+									325.348785400391
+								],
+								"tip_in_view": true,
+								"x_max": 775.307495117188,
+								"x_min": 314.657379150391
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.000030517578125,
+								"horse_in_x": true,
+								"tip": [
+									517.161254882813,
+									457.196411132813
+								],
+								"tip_in_view": true,
+								"x_max": 1022.48858642578,
+								"x_min": 561.838500976563
+							}
+						],
+						"gap": 209.270860580874,
+						"world_marker_x": -742.906005859375,
+						"zoom": 1.18115401268005
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.246062204241753,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 14.2828932768625,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-2.27349853515625,
+								0.570999145507813
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 2.34410506275326,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -104.635430290437
+						},
+						{
+							"aim": 0.505508720874786,
+							"angle": -0.0791466411577513,
+							"angular_velocity": -0.0682135223768526,
+							"balance": 89.5094381041334,
+							"dead": false,
+							"gait": 14.2828932768625,
+							"guard": 0.64955335855484,
+							"hand_delta": [
+								5.99652099609375,
+								-3.57917785644531
+							],
+							"head_delta": [
+								10.386100769043,
+								0.44805908203125
+							],
+							"head_delta_length": 10.3957605361938,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 5.44380591025567,
+							"shield_delta": [
+								12.9636383056641,
+								-3.56228637695313
+							],
+							"shield_delta_length": 13.4441738128662,
+							"shift": -1.61454887207365,
+							"x": 104.635430290437
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.52,
+						"contact_loading": false,
+						"focus": "(107.6582, -248.9287)",
+						"focus_weight": 0.688,
+						"hitstop": false,
+						"impact_active": true,
+						"impact_elapsed": 0.149,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 0.28,
+						"stage_elapsed": 0.029,
+						"state": "read",
+						"strength": 0.48
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 55566141033,
+							"kind": "other",
+							"paused": false,
+							"pitch": 0.970312476158142,
+							"playing": true,
+							"position": 0.272834479808807
+						},
+						{
+							"active": true,
+							"id": 55733912937,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": true,
+							"id": 55784244855,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": false,
+							"position": 0.0
+						}
+					],
+					"wall_msec": 3317,
+					"wall_seconds": 0.196
+				},
+				{
+					"camera": [
+						753.520751953125,
+						463.5263671875,
+						1.18166816234589,
+						-2.05429005622864,
+						0.604255616664886
+					],
+					"engine_scale": 0.28,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.246062204241753,
+							"dead": false,
+							"gait": 14.5521822215478,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 496.172082069445,
+							"x": -95.3560665555111
+						},
+						{
+							"aim": 0.486791133880615,
+							"dead": false,
+							"gait": 14.5521822215478,
+							"guard": 0.704721033573151,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"speed": 496.172082069445,
+							"x": 95.3560665555111
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						19.1200008392334,
+						-2.92000007629395
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 753.520751953125,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									884.279296875,
+									324.027496337891
+								],
+								"tip_in_view": true,
+								"x_max": 794.65478515625,
+								"x_min": 333.80419921875
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.0000682393801980652,
+								"horse_in_x": true,
+								"tip": [
+									511.211181640625,
+									451.306640625
+								],
+								"tip_in_view": true,
+								"x_max": 1020.01330566406,
+								"x_min": 559.162658691406
+							}
+						],
+						"gap": 190.712133111022,
+						"world_marker_x": -735.184753417969,
+						"zoom": 1.18166816234589
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.246062204241753,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 14.5521822215478,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-1.70826721191406,
+								0.429031372070313
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 1.76132103582872,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -95.3560665555111
+						},
+						{
+							"aim": 0.486791133880615,
+							"angle": -0.0787410627387728,
+							"angular_velocity": 0.0864883305657643,
+							"balance": 89.5094381041334,
+							"dead": false,
+							"gait": 14.5521822215478,
+							"guard": 0.704721033573151,
+							"hand_delta": [
+								5.72245788574219,
+								-3.57015991210938
+							],
+							"head_delta": [
+								10.0981292724609,
+								0.427032470703125
+							],
+							"head_delta_length": 10.1071548461914,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 4.25109431086984,
+							"shield_delta": [
+								11.9491806030273,
+								-3.64971923828125
+							],
+							"shield_delta_length": 12.4941329956055,
+							"shift": -1.37057619920803,
+							"x": 95.3560665555111
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.52,
+						"contact_loading": false,
+						"focus": "(107.6582, -248.9287)",
+						"focus_weight": 0.688,
+						"hitstop": false,
+						"impact_active": true,
+						"impact_elapsed": 0.211,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 0.28,
+						"stage_elapsed": 0.091,
+						"state": "read",
+						"strength": 0.48
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 55566141033,
+							"kind": "other",
+							"paused": false,
+							"pitch": 0.970312476158142,
+							"playing": true,
+							"position": 0.272834479808807
+						},
+						{
+							"active": false,
+							"id": 55733912937,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": false,
+							"id": 55784244855,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": false,
+							"position": 0.0
+						}
+					],
+					"wall_msec": 3376,
+					"wall_seconds": 0.255
+				},
+				{
+					"camera": [
+						753.534973144531,
+						463.534820556641,
+						1.18177902698517,
+						-0.192349776625633,
+						-0.117717668414116
+					],
+					"engine_scale": 0.28,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.246062204241753,
+							"dead": false,
+							"gait": 14.7878100481474,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 494.081469847222,
+							"x": -87.271097010599
+						},
+						{
+							"aim": 0.47041329741478,
+							"dead": false,
+							"gait": 14.7878100481474,
+							"guard": 0.752992749214172,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"speed": 494.081469847222,
+							"x": 87.271097010599
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						19.1200008392334,
+						-2.92000007629395
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 753.534973144531,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.000030517578125,
+								"horse_in_x": true,
+								"tip": [
+									892.473876953125,
+									325.068420410156
+								],
+								"tip_in_view": true,
+								"x_max": 801.999267578125,
+								"x_min": 341.105499267578
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									496.488891601563,
+									448.379669189453
+								],
+								"tip_in_view": true,
+								"x_max": 1008.26959228516,
+								"x_min": 547.375793457031
+							}
+						],
+						"gap": 174.542194021198,
+						"world_marker_x": -737.538452148438,
+						"zoom": 1.18177902698517
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.246062204241753,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 14.7878100481474,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-1.2398681640625,
+								0.3114013671875
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 1.27837516096773,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -87.271097010599
+						},
+						{
+							"aim": 0.47041329741478,
+							"angle": -0.0762947725227552,
+							"angular_velocity": 0.19361608077922,
+							"balance": 89.5094381041334,
+							"dead": false,
+							"gait": 14.7878100481474,
+							"guard": 0.752992749214172,
+							"hand_delta": [
+								5.34923934936523,
+								-3.46469116210938
+							],
+							"head_delta": [
+								9.59400177001953,
+								0.402984619140625
+							],
+							"head_delta_length": 9.60246181488037,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 3.23776309280655,
+							"shield_delta": [
+								10.8910369873047,
+								-3.61160278320313
+							],
+							"shield_delta_length": 11.4742479324341,
+							"shift": -1.13692614777475,
+							"x": 87.271097010599
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.52,
+						"contact_loading": false,
+						"focus": "(107.6582, -248.9287)",
+						"focus_weight": 0.688,
+						"hitstop": false,
+						"impact_active": true,
+						"impact_elapsed": 0.267,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 0.28,
+						"stage_elapsed": 0.147,
+						"state": "read",
+						"strength": 0.48
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 55566141033,
+							"kind": "other",
+							"paused": false,
+							"pitch": 0.970312476158142,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": false,
+							"id": 55733912937,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": false,
+							"id": 55784244855,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": false,
+							"position": 0.0
+						}
+					],
+					"wall_msec": 3438,
+					"wall_seconds": 0.317
+				},
+				{
+					"camera": [
+						753.538818359375,
+						463.537536621094,
+						1.18180930614471,
+						0.780572831630707,
+						-0.123657278716564
+					],
+					"engine_scale": 0.28,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.246062204241753,
+							"dead": false,
+							"gait": 15.0234378747471,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 491.737418736111,
+							"x": -79.2226395616129
+						},
+						{
+							"aim": 0.454051434993744,
+							"dead": false,
+							"gait": 15.0234378747471,
+							"guard": 0.801264464855194,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"speed": 491.737418736111,
+							"x": 79.2226395616129
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						19.1200008392334,
+						-2.92000007629395
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 753.538818359375,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									901.550903320313,
+									325.416534423828
+								],
+								"tip_in_view": true,
+								"x_max": 810.358764648438,
+								"x_min": 349.453094482422
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									482.926818847656,
+									444.792236328125
+								],
+								"tip_in_view": true,
+								"x_max": 997.61083984375,
+								"x_min": 536.705200195313
+							}
+						],
+						"gap": 158.445279123226,
+						"world_marker_x": -738.730102539063,
+						"zoom": 1.18180930614471
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.246062204241753,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 15.0234378747471,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-0.826930999755859,
+								0.207687377929688
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 0.852611100794777,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -79.2226395616129
+						},
+						{
+							"aim": 0.454051434993744,
+							"angle": -0.072328288824142,
+							"angular_velocity": 0.276453444200255,
+							"balance": 89.5094381041334,
+							"dead": false,
+							"gait": 15.0234378747471,
+							"guard": 0.801264464855194,
+							"hand_delta": [
+								4.89810180664063,
+								-3.28392028808594
+							],
+							"head_delta": [
+								8.92160034179688,
+								0.38348388671875
+							],
+							"head_delta_length": 8.92983818054199,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 2.3212080751704,
+							"shield_delta": [
+								9.77289581298828,
+								-3.4735107421875
+							],
+							"shield_delta_length": 10.3718252182007,
+							"shift": -0.904076963852901,
+							"x": 79.2226395616129
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.52,
+						"contact_loading": false,
+						"focus": "(107.6582, -248.9287)",
+						"focus_weight": 0.688,
+						"hitstop": false,
+						"impact_active": true,
+						"impact_elapsed": 0.329,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 0.28,
+						"stage_elapsed": 0.209,
+						"state": "read",
+						"strength": 0.48
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 55566141033,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": true,
+							"position": 0.0986848101019859
+						},
+						{
+							"active": true,
+							"id": 55733912937,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": true,
+							"position": 0.0986848101019859
+						},
+						{
+							"active": false,
+							"id": 55784244855,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": false,
+							"position": 0.0
+						}
+					],
+					"wall_msec": 3501,
+					"wall_seconds": 0.38
+				},
+				{
+					"camera": [
+						753.539733886719,
+						463.538208007813,
+						1.18181610107422,
+						-0.529143273830414,
+						0.0944808125495911
+					],
+					"engine_scale": 0.28,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.246062204241753,
+							"dead": false,
+							"gait": 15.2590657013467,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 489.139928736111,
+							"x": -71.2148337104046
+						},
+						{
+							"aim": 0.439925462007523,
+							"dead": false,
+							"gait": 15.2590657013467,
+							"guard": 0.847283363342285,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"speed": 489.139928736111,
+							"x": 71.2148337104046
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						19.1200008392334,
+						-2.92000007629395
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 753.539733886719,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									913.114501953125,
+									325.411437988281
+								],
+								"tip_in_view": true,
+								"x_max": 821.369812011719,
+								"x_min": 360.461547851563
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									472.493438720703,
+									441.453186035156
+								],
+								"tip_in_view": true,
+								"x_max": 989.695556640625,
+								"x_min": 528.787231445313
+							}
+						],
+						"gap": 142.429667420809,
+						"world_marker_x": -737.191711425781,
+						"zoom": 1.18181610107422
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.246062204241753,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 15.2590657013467,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-0.484355926513672,
+								0.12164306640625
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 0.499396383781496,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -71.2148337104046
+						},
+						{
+							"aim": 0.439925462007523,
+							"angle": -0.0672176385858162,
+							"angular_velocity": 0.337250167660198,
+							"balance": 89.5094381041334,
+							"dead": false,
+							"gait": 15.2590657013467,
+							"guard": 0.847283363342285,
+							"hand_delta": [
+								4.40264892578125,
+								-3.04530334472656
+							],
+							"head_delta": [
+								8.13581848144531,
+								0.36981201171875
+							],
+							"head_delta_length": 8.14421939849854,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 1.53713224414573,
+							"shield_delta": [
+								8.6402587890625,
+								-3.2542724609375
+							],
+							"shield_delta_length": 9.23278713226318,
+							"shift": -0.685242882743363,
+							"x": 71.2148337104046
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.52,
+						"contact_loading": false,
+						"focus": "(107.6582, -248.9287)",
+						"focus_weight": 0.688,
+						"hitstop": false,
+						"impact_active": true,
+						"impact_elapsed": 0.391,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 0.28,
+						"stage_elapsed": 0.271,
+						"state": "read",
+						"strength": 0.48
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 55566141033,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": true,
+							"position": 0.0986848101019859
+						},
+						{
+							"active": true,
+							"id": 55733912937,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": true,
+							"position": 0.0986848101019859
+						},
+						{
+							"active": false,
+							"id": 55784244855,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": false,
+							"position": 0.0
+						}
+					],
+					"wall_msec": 3560,
+					"wall_seconds": 0.439
+				},
+				{
+					"camera": [
+						749.885986328125,
+						463.538391113281,
+						1.18181765079498,
+						0.0374982282519341,
+						-0.00586307514458895
+					],
+					"engine_scale": 0.379306666666667,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.246062204241753,
+							"dead": false,
+							"gait": 15.528354646032,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 485.861035402778,
+							"x": -62.1181432095528
+						},
+						{
+							"aim": 0.427877366542816,
+							"dead": false,
+							"gait": 15.528354646032,
+							"guard": 0.88750284910202,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"speed": 485.861035402778,
+							"x": 62.1181432095528
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						19.1200008392334,
+						-2.92000007629395
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 749.885986328125,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									927.8994140625,
+									325.646514892578
+								],
+								"tip_in_view": true,
+								"x_max": 835.768920898438,
+								"x_min": 374.860015869141
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									463.188018798828,
+									438.96826171875
+								],
+								"tip_in_view": true,
+								"x_max": 982.593505859375,
+								"x_min": 521.684692382813
+							}
+						],
+						"gap": 124.236286419106,
+						"world_marker_x": -733.545288085938,
+						"zoom": 1.18181765079498
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.246062204241753,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 15.528354646032,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-0.184127807617188,
+								0.0462493896484375
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 0.189844503648115,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -62.1181432095528
+						},
+						{
+							"aim": 0.427877366542816,
+							"angle": -0.0604071760004653,
+							"angular_velocity": 0.382839918401136,
+							"balance": 89.5094381041334,
+							"dead": false,
+							"gait": 15.528354646032,
+							"guard": 0.88750284910202,
+							"hand_delta": [
+								3.81599044799805,
+								-2.72227478027344
+							],
+							"head_delta": [
+								7.15764617919922,
+								0.36151123046875
+							],
+							"head_delta_length": 7.16676998138428,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 0.820530577409256,
+							"shield_delta": [
+								7.32135009765625,
+								-2.93154907226563
+							],
+							"shield_delta_length": 7.88645362854004,
+							"shift": -0.46322287615082,
+							"x": 62.1181432095528
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.448278518518519,
+						"contact_loading": false,
+						"focus": "(107.6582, -248.9287)",
+						"focus_weight": 0.593106962962963,
+						"hitstop": false,
+						"impact_active": true,
+						"impact_elapsed": 0.456,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.233333333333333,
+						"scale": 0.379306666666667,
+						"stage_elapsed": 0.056,
+						"state": "release",
+						"strength": 0.48
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 55566141033,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": true,
+							"id": 55733912937,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": false,
+							"id": 55784244855,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": false,
+							"position": 0.0
+						}
+					],
+					"wall_msec": 3622,
+					"wall_seconds": 0.501
+				},
+				{
+					"camera": [
+						740.056457519531,
+						463.538452148438,
+						1.18181800842285,
+						0.0,
+						0.0
+					],
+					"engine_scale": 0.631000833333333,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.246062204241753,
+							"dead": false,
+							"gait": 15.8475518084657,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 481.53702481702,
+							"x": -51.421704781071
+						},
+						{
+							"aim": 0.417736291885376,
+							"dead": false,
+							"gait": 15.8475518084657,
+							"guard": 0.921770811080933,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"speed": 481.53702481702,
+							"x": 51.421704781071
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						19.1200008392334,
+						-2.92000007629395
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 740.056457519531,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.0000682393801980652,
+								"horse_in_x": true,
+								"tip": [
+									952.251098632813,
+									325.052551269531
+								],
+								"tip_in_view": true,
+								"x_max": 860.071166992188,
+								"x_min": 399.162170410156
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									460.411468505859,
+									436.246337890625
+								],
+								"tip_in_view": true,
+								"x_max": 981.613403320313,
+								"x_min": 520.704345703125
+							}
+						],
+						"gap": 102.843409562142,
+						"world_marker_x": -721.884765625,
+						"zoom": 1.18181800842285
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.246062204241753,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 15.8475518084657,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								0.0510883331298828,
+								-0.0128326416015625
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": -0.052674838838292,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -51.421704781071
+						},
+						{
+							"aim": 0.417736291885376,
+							"angle": -0.0515523795933462,
+							"angular_velocity": 0.409209047648073,
+							"balance": 89.5094381041334,
+							"dead": false,
+							"gait": 15.8475518084657,
+							"guard": 0.921770811080933,
+							"hand_delta": [
+								3.13047409057617,
+								-2.29771423339844
+							],
+							"head_delta": [
+								5.95881652832031,
+								0.359466552734375
+							],
+							"head_delta_length": 5.96964931488037,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 0.217612769252844,
+							"shield_delta": [
+								5.82821655273438,
+								-2.48379516601563
+							],
+							"shield_delta_length": 6.33540439605713,
+							"shift": -0.24844464204021,
+							"x": 51.421704781071
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.266499398148148,
+						"contact_loading": false,
+						"focus": "(107.6582, -248.9287)",
+						"focus_weight": 0.352599203703704,
+						"hitstop": false,
+						"impact_active": true,
+						"impact_elapsed": 0.518,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.491666666666667,
+						"scale": 0.631000833333333,
+						"stage_elapsed": 0.118,
+						"state": "release",
+						"strength": 0.48
+					},
+					"voices": [
+						{
+							"active": false,
+							"id": 55566141033,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": false,
+							"id": 55733912937,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": false,
+							"id": 55784244855,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": false,
+							"position": 0.0
+						}
+					],
+					"wall_msec": 3689,
+					"wall_seconds": 0.568
+				},
+				{
+					"camera": [
+						727.404968261719,
+						463.538452148438,
+						1.18181812763214,
+						0.0,
+						0.0
+					],
+					"engine_scale": 0.9070525,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.246062204241753,
+							"dead": false,
+							"gait": 16.3785566475403,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 473.52714087032,
+							"x": -33.8643795363194
+						},
+						{
+							"aim": 0.407467216253281,
+							"dead": false,
+							"gait": 16.3785566475403,
+							"guard": 0.957714200019836,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"speed": 473.52714087032,
+							"x": 33.8643795363194
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						19.1200008392334,
+						-2.92000007629395
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 727.404968261719,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.000030517578125,
+								"horse_in_x": true,
+								"tip": [
+									988.09228515625,
+									322.941802978516
+								],
+								"tip_in_view": true,
+								"x_max": 895.772583007813,
+								"x_min": 434.863494873047
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									452.200408935547,
+									432.248657226563
+								],
+								"tip_in_view": true,
+								"x_max": 975.815673828125,
+								"x_min": 514.906555175781
+							}
+						],
+						"gap": 67.7287590726389,
+						"world_marker_x": -706.93310546875,
+						"zoom": 1.18181812763214
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.246062204241753,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 16.3785566475403,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								0.211316108703613,
+								-0.053070068359375
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": -0.217878844856526,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -33.8643795363194
+						},
+						{
+							"aim": 0.407467216253281,
+							"angle": -0.0364723975403305,
+							"angular_velocity": 0.40191813280164,
+							"balance": 89.5094381041334,
+							"dead": false,
+							"gait": 16.3785566475403,
+							"guard": 0.957714200019836,
+							"hand_delta": [
+								2.06362533569336,
+								-1.61102294921875
+							],
+							"head_delta": [
+								4.05122756958008,
+								0.283294677734375
+							],
+							"head_delta_length": 4.06112051010132,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": -0.28717569494816,
+							"shield_delta": [
+								3.67122650146484,
+								-1.75942993164063
+							],
+							"shield_delta_length": 4.07105588912964,
+							"shift": -0.012938872037114,
+							"x": 33.8643795363194
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.0671287499999999,
+						"contact_loading": false,
+						"focus": "(107.6582, -248.9287)",
+						"focus_weight": 0.0888164999999999,
+						"hitstop": false,
+						"impact_active": true,
+						"impact_elapsed": 0.586,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.775,
+						"scale": 0.9070525,
+						"stage_elapsed": 0.186,
+						"state": "release",
+						"strength": 0.48
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 55566141033,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": true,
+							"position": 0.00580498855561018
+						},
+						{
+							"active": true,
+							"id": 55733912937,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": true,
+							"position": 0.00580498855561018
+						},
+						{
+							"active": false,
+							"id": 55784244855,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": false,
+							"position": 0.0
+						}
+					],
+					"wall_msec": 3756,
+					"wall_seconds": 0.635
+				},
+				{
+					"camera": [
+						725.618957519531,
+						463.538452148438,
+						1.18181812763214,
+						0.0,
+						0.0
+					],
+					"engine_scale": 1.0,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.246062204241753,
+							"dead": false,
+							"gait": 17.2509109707516,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 460.223704203653,
+							"x": -5.68262373746698
+						},
+						{
+							"aim": 0.39784899353981,
+							"dead": false,
+							"gait": 17.2509109707516,
+							"guard": 0.984922111034393,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"speed": 460.223704203653,
+							"x": 5.68262373746698
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						19.1200008392334,
+						-2.92000007629395
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 725.618957519531,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.000030517578125,
+								"horse_in_x": true,
+								"tip": [
+									1024.494140625,
+									318.908996582031
+								],
+								"tip_in_view": true,
+								"x_max": 931.18896484375,
+								"x_min": 470.279907226563
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									417.266967773438,
+									426.714782714844
+								],
+								"tip_in_view": true,
+								"x_max": 944.62060546875,
+								"x_min": 483.711547851563
+							}
+						],
+						"gap": 11.365247474934,
+						"world_marker_x": -704.822387695313,
+						"zoom": 1.18181812763214
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.246062204241753,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 17.2509109707516,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								0.157558441162109,
+								-0.0395660400390625
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": -0.162451943166541,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -5.68262373746698
+						},
+						{
+							"aim": 0.39784899353981,
+							"angle": -0.0150931291412554,
+							"angular_velocity": 0.305599583196521,
+							"balance": 89.5094381041334,
+							"dead": false,
+							"gait": 17.2509109707516,
+							"guard": 0.984922111034393,
+							"hand_delta": [
+								0.718833923339844,
+								-0.68194580078125
+							],
+							"head_delta": [
+								1.55543327331543,
+								0.08697509765625
+							],
+							"head_delta_length": 1.55786311626434,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": -0.345791813265967,
+							"shield_delta": [
+								1.1993408203125,
+								-0.765380859375
+							],
+							"shield_delta_length": 1.42275297641754,
+							"shift": 0.117628731205841,
+							"x": 5.68262373746698
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.0,
+						"contact_loading": false,
+						"focus": "(107.6582, -248.9287)",
+						"focus_weight": 0.0,
+						"hitstop": false,
+						"impact_active": false,
+						"impact_elapsed": 0.64,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 1.0,
+						"stage_elapsed": 0.0,
+						"state": "runup",
+						"strength": 0.48
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 55566141033,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": true,
+							"position": 0.0986848101019859
+						},
+						{
+							"active": true,
+							"id": 55733912937,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": true,
+							"position": 0.0986848101019859
+						},
+						{
+							"active": false,
+							"id": 55784244855,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": false,
+							"position": 0.0
+						}
+					],
+					"wall_msec": 3829,
+					"wall_seconds": 0.708
+				},
+				{
+					"camera": [
+						724.263732910156,
+						463.538452148438,
+						1.18181812763214,
+						0.0,
+						0.0
+					],
+					"engine_scale": 1.0,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.246062204241753,
+							"dead": false,
+							"gait": 18.2126572017706,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 445.557037536987,
+							"x": 24.4489565427766
+						},
+						{
+							"aim": 0.390055060386658,
+							"dead": false,
+							"gait": 18.2126572017706,
+							"guard": 0.995200932025909,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"speed": 445.557037536987,
+							"x": -24.4489565427766
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						19.1200008392334,
+						-2.92000007629395
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 724.263732910156,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									1061.11364746094,
+									319.802947998047
+								],
+								"tip_in_view": true,
+								"x_max": 968.400634765625,
+								"x_min": 507.491577148438
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.000030517578125,
+								"horse_in_x": true,
+								"tip": [
+									381.884307861328,
+									426.276641845703
+								],
+								"tip_in_view": true,
+								"x_max": 910.612182617188,
+								"x_min": 449.703155517578
+							}
+						],
+						"gap": -48.8979130855532,
+						"world_marker_x": -703.220764160156,
+						"zoom": 1.18181812763214
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.246062204241753,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 18.2126572017706,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								0.03668212890625,
+								-0.00921630859375
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": -0.0378217542521124,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": 24.4489565427766
+						},
+						{
+							"aim": 0.390055060386658,
+							"angle": -0.0000238033028282611,
+							"angular_velocity": 0.164765353008953,
+							"balance": 89.5094381041334,
+							"dead": false,
+							"gait": 18.2126572017706,
+							"guard": 0.995200932025909,
+							"hand_delta": [
+								-0.0851821899414063,
+								-0.0010986328125
+							],
+							"head_delta": [
+								-0.0838367938995361,
+								0.000091552734375
+							],
+							"head_delta_length": 0.0838368460536003,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": -0.13222865617751,
+							"shield_delta": [
+								-0.215995788574219,
+								-0.00592041015625
+							],
+							"shield_delta_length": 0.216076910495758,
+							"shift": 0.0864776176611691,
+							"x": -24.4489565427766
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.0,
+						"contact_loading": false,
+						"focus": "(107.6582, -248.9287)",
+						"focus_weight": 0.0,
+						"hitstop": false,
+						"impact_active": false,
+						"impact_elapsed": 0.64,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 1.0,
+						"stage_elapsed": 0.0,
+						"state": "runup",
+						"strength": 0.48
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 55566141033,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": true,
+							"id": 55733912937,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": false,
+							"id": 55784244855,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": false,
+							"position": 0.0
+						}
+					],
+					"wall_msec": 3895,
+					"wall_seconds": 0.774
+				},
+				{
+					"camera": [
+						723.327270507813,
+						463.538452148438,
+						1.18181812763214,
+						0.0,
+						0.0
+					],
+					"engine_scale": 1.0,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.246062204241753,
+							"dead": false,
+							"gait": 19.1724030296081,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 430.89037087032,
+							"x": 53.6027590452424
+						},
+						{
+							"aim": 0.385533720254898,
+							"dead": false,
+							"gait": 19.1724030296081,
+							"guard": 0.998472511768341,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"speed": 430.89037087032,
+							"x": -53.6027590452424
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						19.1200008392334,
+						-2.92000007629395
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 723.327270507813,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									1094.04028320313,
+									324.422241210938
+								],
+								"tip_in_view": true,
+								"x_max": 1003.9619140625,
+								"x_min": 543.052856445313
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.000030517578125,
+								"horse_in_x": true,
+								"tip": [
+									350.262298583984,
+									430.010681152344
+								],
+								"tip_in_view": true,
+								"x_max": 877.264526367188,
+								"x_min": 416.355407714844
+							}
+						],
+						"gap": -107.205518090485,
+						"world_marker_x": -702.114013671875,
+						"zoom": 1.18181812763214
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.246062204241753,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 19.1724030296081,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-0.010101318359375,
+								0.002532958984375
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 0.0104181597247734,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": 53.6027590452424
+						},
+						{
+							"aim": 0.385533720254898,
+							"angle": 0.00647064505131389,
+							"angular_velocity": 0.0515498825486806,
+							"balance": 89.5094381041334,
+							"dead": false,
+							"gait": 19.1724030296081,
+							"guard": 0.998472511768341,
+							"hand_delta": [
+								-0.385147094726563,
+								0.295425415039063
+							],
+							"head_delta": [
+								-0.746620178222656,
+								-0.03118896484375
+							],
+							"head_delta_length": 0.747271358966827,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": -0.00775948838176011,
+							"shield_delta": [
+								-0.755844116210938,
+								0.32470703125
+							],
+							"shield_delta_length": 0.822639048099518,
+							"shift": 0.0290578773960536,
+							"x": -53.6027590452424
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.0,
+						"contact_loading": false,
+						"focus": "(107.6582, -248.9287)",
+						"focus_weight": 0.0,
+						"hitstop": false,
+						"impact_active": false,
+						"impact_elapsed": 0.64,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 1.0,
+						"stage_elapsed": 0.0,
+						"state": "runup",
+						"strength": 0.48
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 55566141033,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": true,
+							"position": 0.0870748311281204
+						},
+						{
+							"active": true,
+							"id": 55733912937,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": true,
+							"position": 0.0870748311281204
+						},
+						{
+							"active": false,
+							"id": 55784244855,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": false,
+							"position": 0.0
+						}
+					],
+					"wall_msec": 3957,
+					"wall_seconds": 0.836
+				},
+				{
+					"camera": [
+						722.586120605469,
+						463.538452148438,
+						1.18181812763214,
+						0.0,
+						0.0
+					],
+					"engine_scale": 1.0,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.246062204241753,
+							"dead": false,
+							"gait": 20.109464315964,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 416.223704203654,
+							"x": 81.7787837699304
+						},
+						{
+							"aim": 0.385540574789047,
+							"dead": false,
+							"gait": 20.109464315964,
+							"guard": 1.0,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"speed": 416.223704203654,
+							"x": -81.7787837699304
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						19.1200008392334,
+						-2.92000007629395
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 722.586120605469,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									1127.25866699219,
+									323.436798095703
+								],
+								"tip_in_view": true,
+								"x_max": 1038.13671875,
+								"x_min": 577.227661132813
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									318.78515625,
+									429.067626953125
+								],
+								"tip_in_view": true,
+								"x_max": 844.841430664063,
+								"x_min": 383.932403564453
+							}
+						],
+						"gap": -163.557567539861,
+						"world_marker_x": -701.238098144531,
+						"zoom": 1.18181812763214
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.246062204241753,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 20.109464315964,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-0.010650634765625,
+								0.0026702880859375
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 0.0109831913259762,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": 81.7787837699304
+						},
+						{
+							"aim": 0.385540574789047,
+							"angle": 0.00720094658462561,
+							"angular_velocity": -0.0136397155041636,
+							"balance": 89.5094381041334,
+							"dead": false,
+							"gait": 20.109464315964,
+							"guard": 1.0,
+							"hand_delta": [
+								-0.394233703613281,
+								0.329833984375
+							],
+							"head_delta": [
+								-0.7974853515625,
+								-0.03253173828125
+							],
+							"head_delta_length": 0.798148632049561,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 0.0183245302953128,
+							"shield_delta": [
+								-0.780891418457031,
+								0.364471435546875
+							],
+							"shield_delta_length": 0.861760318279266,
+							"shift": -0.00115572565473905,
+							"x": -81.7787837699304
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.0,
+						"contact_loading": false,
+						"focus": "(107.6582, -248.9287)",
+						"focus_weight": 0.0,
+						"hitstop": false,
+						"impact_active": false,
+						"impact_elapsed": 0.64,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 1.0,
+						"stage_elapsed": 0.0,
+						"state": "runup",
+						"strength": 0.48
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 55566141033,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": true,
+							"position": 0.0870748311281204
+						},
+						{
+							"active": true,
+							"id": 55733912937,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": true,
+							"position": 0.0870748311281204
+						},
+						{
+							"active": true,
+							"id": 55784244855,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": true,
+							"position": 0.00580498855561018
+						},
+						{
+							"active": true,
+							"id": 56874763662,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": true,
+							"position": 0.00580498855561018
+						}
+					],
+					"wall_msec": 4019,
+					"wall_seconds": 0.898
+				},
+				{
+					"camera": [
+						722.010070800781,
+						463.538452148438,
+						1.18181812763214,
+						0.0,
+						0.0
+					],
+					"engine_scale": 1.0,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.246062204241753,
+							"dead": false,
+							"gait": 21.0035011894134,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 401.557037536987,
+							"x": 108.977030716841
+						},
+						{
+							"aim": 0.382330417633057,
+							"dead": false,
+							"gait": 21.0035011894134,
+							"guard": 1.0,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"speed": 401.557037536987,
+							"x": -108.977030716841
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						19.1200008392334,
+						-2.92000007629395
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 722.010070800781,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.000030517578125,
+								"horse_in_x": true,
+								"tip": [
+									1161.568359375,
+									323.143615722656
+								],
+								"tip_in_view": true,
+								"x_max": 1070.9609375,
+								"x_min": 610.051879882813
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									285.635437011719,
+									427.805419921875
+								],
+								"tip_in_view": true,
+								"x_max": 813.378845214844,
+								"x_min": 352.469818115234
+							}
+						],
+						"gap": -217.954061433681,
+						"world_marker_x": -700.557312011719,
+						"zoom": 1.18181812763214
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.246062204241753,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 21.0035011894134,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-0.0030517578125,
+								0.000762939453125
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 0.00314140654944772,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": 108.977030716841
+						},
+						{
+							"aim": 0.382330417633057,
+							"angle": 0.00521686919085099,
+							"angular_velocity": -0.0373480805571626,
+							"balance": 89.5094381041334,
+							"dead": false,
+							"gait": 21.0035011894134,
+							"guard": 1.0,
+							"hand_delta": [
+								-0.275360107421875,
+								0.243179321289063
+							],
+							"head_delta": [
+								-0.571365356445313,
+								-0.01495361328125
+							],
+							"head_delta_length": 0.571560978889465,
+							"hp": 98.9274735682042,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 0.0104168901571789,
+							"shield_delta": [
+								-0.557937622070313,
+								0.272369384765625
+							],
+							"shield_delta_length": 0.620869934558868,
+							"shift": -0.00751188305785386,
+							"x": -108.977030716841
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.0,
+						"contact_loading": false,
+						"focus": "(107.6582, -248.9287)",
+						"focus_weight": 0.0,
+						"hitstop": false,
+						"impact_active": false,
+						"impact_elapsed": 0.64,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 1.0,
+						"stage_elapsed": 0.0,
+						"state": "runup",
+						"strength": 0.48
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 55566141033,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": true,
+							"id": 55733912937,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": true,
+							"id": 55784244855,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": true,
+							"position": 0.0870748311281204
+						},
+						{
+							"active": true,
+							"id": 56874763662,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": true,
+							"position": 0.0870748311281204
+						},
+						{
+							"active": true,
+							"id": 56992204182,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": true,
+							"position": 0.0986848101019859
+						},
+						{
+							"active": true,
+							"id": 57042535834,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": true,
+							"position": 0.0986848101019859
+						}
+					],
+					"wall_msec": 4084,
+					"wall_seconds": 0.963
+				}
+			],
+			"zone": "shield"
+		},
+		{
+			"actual_events": [
+				{
+					"attacker": 0,
+					"attaint": true,
+					"balance_left": 57.4771469651481,
+					"break_angle": -0.514979660511017,
+					"break_direction": 1,
+					"break_hand": "(-92.33431, -188.9175)",
+					"break_reach": 247.0,
+					"break_tip": "(122.6305, -310.5692)",
+					"broke": false,
+					"damage": 40.572335760124,
+					"dead": false,
+					"defender": 1,
+					"drive": 1.0225,
+					"glanced": false,
+					"head_incidence": 0.99998265504837,
+					"head_outcome": "helmet_block",
+					"head_severity": 40.572335760124,
+					"impulse": 82.0242945715295,
+					"ko": false,
+					"ko_reason": "",
+					"points": 3,
+					"position": "(119.6858, -310.3551)",
+					"shield_broke": false,
+					"speed": 900.677001953125,
+					"support": 1.0,
+					"type": "hit",
+					"zone": "head"
+				}
+			],
+			"actual_mode": "war",
+			"airborne_joint_travel_rad": 0.0,
+			"attacker": 0,
+			"break_fragments_at_event": [],
+			"contact_max_head_response_px": 53.0067977905273,
+			"defender_initial_hp": 100.0,
+			"fatal_fixture": false,
+			"fixture": {
+				"gait_phase": 0.0,
+				"preview": {
+					"attacker": 0,
+					"attaint": true,
+					"balance_left": 57.4771469651481,
+					"break_angle": -0.514979660511017,
+					"break_direction": 1,
+					"break_hand": "(-92.33431, -188.9175)",
+					"break_reach": 247.0,
+					"break_tip": "(122.6305, -310.5692)",
+					"broke": false,
+					"damage": 40.572335760124,
+					"dead": false,
+					"defender": 1,
+					"drive": 1.0225,
+					"glanced": false,
+					"head_incidence": 0.99998265504837,
+					"head_outcome": "helmet_block",
+					"head_severity": 40.572335760124,
+					"impulse": 82.0242945715295,
+					"ko": false,
+					"ko_reason": "",
+					"points": 3,
+					"position": "(119.6858, -310.3551)",
+					"shield_broke": false,
+					"speed": 900.677001953125,
+					"support": 1.0,
+					"type": "hit",
+					"zone": "head"
+				},
+				"ticks": 115
+			},
+			"grounded_joint_travel_rad": 0.0,
+			"low_durability_break_fixture": false,
+			"max_lance_compression": 6.62149510433836,
+			"max_shield_compression": 0.0,
+			"name": "arena_mounted_0_head_slow",
+			"seen": {
+				"loaded_hold": true,
+				"read": true,
+				"release": true
+			},
+			"slow_motion": true,
+			"solid_shield_fixture": false,
+			"timeline": [
+				{
+					"camera": [
+						764.065979003906,
+						462.740417480469,
+						1.16175699234009,
+						23.3280487060547,
+						-5.48361396789551
+					],
+					"engine_scale": 0.8,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.514507234096527,
+							"dead": false,
+							"gait": 14.4983244326107,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 502.817777777778,
+							"x": -96.9026027777785
+						},
+						{
+							"aim": 0.562530279159546,
+							"dead": false,
+							"gait": 14.4983244326107,
+							"guard": 0.481489658355713,
+							"hp": 59.427664239876,
+							"ko": false,
+							"speed": 502.817777777778,
+							"x": 96.9026027777785
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						28.3348426818848,
+						-4.85996675491333
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 764.065979003906,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.00006103515625,
+								"horse_in_x": true,
+								"tip": [
+									805.515197753906,
+									265.841064453125
+								],
+								"tip_in_view": true,
+								"x_max": 749.861083984375,
+								"x_min": 296.77587890625
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.000030517578125,
+								"horse_in_x": true,
+								"tip": [
+									504.924377441406,
+									467.266876220703
+								],
+								"tip_in_view": true,
+								"x_max": 975.015625,
+								"x_min": 521.930419921875
+							}
+						],
+						"gap": 193.805205555557,
+						"world_marker_x": -752.403869628906,
+						"zoom": 1.16175699234009
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.514507234096527,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 14.4983244326107,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-5.76424407958984,
+								3.25848388671875
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 6.62149510433836,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -96.9026027777785
+						},
+						{
+							"aim": 0.562530279159546,
+							"angle": -0.326012216445544,
+							"angular_velocity": -4.90169858161442,
+							"balance": 57.4771469651481,
+							"dead": false,
+							"gait": 14.4983244326107,
+							"guard": 0.481489658355713,
+							"hand_delta": [
+								22.9483413696289,
+								-12.6434326171875
+							],
+							"head_delta": [
+								39.0543823242188,
+								5.73309326171875
+							],
+							"head_delta_length": 39.4729423522949,
+							"hp": 59.427664239876,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								23.8086242675781,
+								-14.8060760498047
+							],
+							"shield_delta_length": 28.0369491577148,
+							"shift": -3.48614474595202,
+							"x": 96.9026027777785
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.839497510252457,
+						"contact_loading": true,
+						"focus": "(119.6858, -310.3551)",
+						"focus_weight": 0.978995020504914,
+						"hitstop": false,
+						"impact_active": true,
+						"impact_elapsed": 0.007,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 0.8,
+						"stage_elapsed": 0.007,
+						"state": "contact",
+						"strength": 0.964991700841523
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 59861108171,
+							"kind": "other",
+							"paused": false,
+							"pitch": 0.913850903511047,
+							"playing": true,
+							"position": 0.0870748311281204
+						}
+					],
+					"wall_msec": 4659,
+					"wall_seconds": 0.051
+				},
+				{
+					"camera": [
+						766.794128417969,
+						463.272308349609,
+						1.17671024799347,
+						-12.3145503997803,
+						2.76673030853271
+					],
+					"engine_scale": 0.001,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.514507234096527,
+							"dead": false,
+							"gait": 15.171546794324,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 499.566666666667,
+							"x": -73.5165879629637
+						},
+						{
+							"aim": 0.518945157527924,
+							"dead": false,
+							"gait": 15.171546794324,
+							"guard": 0.609951078891754,
+							"hp": 59.427664239876,
+							"ko": false,
+							"speed": 499.566666666667,
+							"x": 73.5165879629637
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						28.3348426818848,
+						-4.85996675491333
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 766.794128417969,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.000030517578125,
+								"horse_in_x": true,
+								"tip": [
+									874.674377441406,
+									254.185180664063
+								],
+								"tip_in_view": true,
+								"x_max": 816.494750976563,
+								"x_min": 357.577758789063
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									516.106140136719,
+									444.532348632813
+								],
+								"tip_in_view": true,
+								"x_max": 989.51025390625,
+								"x_min": 530.593200683594
+							}
+						],
+						"gap": 147.033175925927,
+						"world_marker_x": -732.624694824219,
+						"zoom": 1.17671024799347
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.514507234096527,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 15.171546794324,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-4.80949401855469,
+								2.71876525878906
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 5.52475682586838,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -73.5165879629637
+						},
+						{
+							"aim": 0.518945157527924,
+							"angle": -0.450147159393521,
+							"angular_velocity": -1.1896413818118,
+							"balance": 57.4771469651481,
+							"dead": false,
+							"gait": 15.171546794324,
+							"guard": 0.609951078891754,
+							"hand_delta": [
+								31.3990097045898,
+								-15.5724792480469
+							],
+							"head_delta": [
+								51.8219223022461,
+								11.1138916015625
+							],
+							"head_delta_length": 53.0002861022949,
+							"hp": 59.427664239876,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								38.6441192626953,
+								-17.1109619140625
+							],
+							"shield_delta_length": 42.2629013061523,
+							"shift": -3.53898679691534,
+							"x": 73.5165879629637
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.839497510252457,
+						"contact_loading": false,
+						"focus": "(119.6858, -310.3551)",
+						"focus_weight": 0.978995020504914,
+						"hitstop": true,
+						"impact_active": true,
+						"impact_elapsed": 0.064,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 0.001,
+						"stage_elapsed": 0.064,
+						"state": "contact",
+						"strength": 0.964991700841523
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 59861108171,
+							"kind": "other",
+							"paused": false,
+							"pitch": 0.913850903511047,
+							"playing": true,
+							"position": 0.17124716937542
+						},
+						{
+							"active": true,
+							"id": 60095989150,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": true,
+							"position": 0.0986848101019859
+						},
+						{
+							"active": true,
+							"id": 60146320793,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": true,
+							"position": 0.0986848101019859
+						}
+					],
+					"wall_msec": 4722,
+					"wall_seconds": 0.114
+				},
+				{
+					"camera": [
+						767.556457519531,
+						463.477508544922,
+						1.1808887720108,
+						5.35109233856201,
+						-1.03905606269836
+					],
+					"engine_scale": 0.001,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.514507234096527,
+							"dead": false,
+							"gait": 15.1723883222761,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 499.561492597222,
+							"x": -73.4874467465284
+						},
+						{
+							"aim": 0.518886744976044,
+							"dead": false,
+							"gait": 15.1723883222761,
+							"guard": 0.6101233959198,
+							"hp": 59.427664239876,
+							"ko": false,
+							"speed": 499.561492597222,
+							"x": 73.4874467465284
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						28.3348426818848,
+						-4.85996675491333
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 767.556457519531,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									853.502319335938,
+									257.902008056641
+								],
+								"tip_in_view": true,
+								"x_max": 795.110534667969,
+								"x_min": 334.563842773438
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.0000431583721365314,
+								"horse_in_x": true,
+								"tip": [
+									493.579895019531,
+									448.910217285156
+								],
+								"tip_in_view": true,
+								"x_max": 968.671569824219,
+								"x_min": 508.124877929688
+							}
+						],
+						"gap": 146.974893493057,
+						"world_marker_x": -759.544494628906,
+						"zoom": 1.1808887720108
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.514507234096527,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 15.1723883222761,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-4.80671691894531,
+								2.71719360351563
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 5.52156652961257,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -73.4874467465284
+						},
+						{
+							"aim": 0.518886744976044,
+							"angle": -0.450216435497335,
+							"angular_velocity": -1.18605237635974,
+							"balance": 57.4771469651481,
+							"dead": false,
+							"gait": 15.1723883222761,
+							"guard": 0.6101233959198,
+							"hand_delta": [
+								31.4026107788086,
+								-15.5741577148438
+							],
+							"head_delta": [
+								51.8279724121094,
+								11.1167297363281
+							],
+							"head_delta_length": 53.0067977905273,
+							"hp": 59.427664239876,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								38.6567306518555,
+								-17.1109313964844
+							],
+							"shield_delta_length": 42.2744216918945,
+							"shift": -3.53801039148533,
+							"x": 73.4874467465284
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.839497510252457,
+						"contact_loading": false,
+						"focus": "(119.6858, -310.3551)",
+						"focus_weight": 0.978995020504914,
+						"hitstop": true,
+						"impact_active": true,
+						"impact_elapsed": 0.135,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 0.001,
+						"stage_elapsed": 0.135,
+						"state": "contact",
+						"strength": 0.964991700841523
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 59861108171,
+							"kind": "other",
+							"paused": false,
+							"pitch": 0.913850903511047,
+							"playing": true,
+							"position": 0.255419492721558
+						},
+						{
+							"active": true,
+							"id": 60095989150,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": true,
+							"id": 60146320793,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						}
+					],
+					"wall_msec": 4793,
+					"wall_seconds": 0.185
+				},
+				{
+					"camera": [
+						767.692077636719,
+						463.523803710938,
+						1.18163204193115,
+						-1.49850749969482,
+						0.589523613452911
+					],
+					"engine_scale": 0.28,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.514507234096527,
+							"dead": false,
+							"gait": 15.1733500685071,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 499.555575416667,
+							"x": -73.4541428688931
+						},
+						{
+							"aim": 0.518819987773895,
+							"dead": false,
+							"gait": 15.1733500685071,
+							"guard": 0.610320329666138,
+							"hp": 59.427664239876,
+							"ko": false,
+							"speed": 499.555575416667,
+							"x": 73.4541428688931
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						28.3348426818848,
+						-4.85996675491333
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 767.692077636719,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									861.565368652344,
+									255.830718994141
+								],
+								"tip_in_view": true,
+								"x_max": 803.130493164063,
+								"x_min": 342.294036865234
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.0000431583721365314,
+								"horse_in_x": true,
+								"tip": [
+									501.323974609375,
+									446.942047119141
+								],
+								"tip_in_view": true,
+								"x_max": 976.722045898438,
+								"x_min": 515.885559082031
+							}
+						],
+						"gap": 146.908285737786,
+						"world_marker_x": -752.542297363281,
+						"zoom": 1.18163204193115
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.514507234096527,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 15.1733500685071,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-4.80354309082031,
+								2.71539306640625
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 5.51791766558185,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -73.4541428688931
+						},
+						{
+							"aim": 0.518819987773895,
+							"angle": -0.4502953519222,
+							"angular_velocity": -1.18195321245803,
+							"balance": 57.4771469651481,
+							"dead": false,
+							"gait": 15.1733500685071,
+							"guard": 0.610320329666138,
+							"hand_delta": [
+								31.4067115783691,
+								-15.5761108398438
+							],
+							"head_delta": [
+								51.8348846435547,
+								11.1199340820313
+							],
+							"head_delta_length": 53.0142250061035,
+							"hp": 59.427664239876,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								38.6711120605469,
+								-17.11083984375
+							],
+							"shield_delta_length": 42.2875366210938,
+							"shift": -3.5368922103236,
+							"x": 73.4541428688931
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.641247925210381,
+						"contact_loading": false,
+						"focus": "(119.6858, -310.3551)",
+						"focus_weight": 0.978995020504914,
+						"hitstop": false,
+						"impact_active": true,
+						"impact_elapsed": 0.202,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 0.28,
+						"stage_elapsed": 0.0530502489747543,
+						"state": "read",
+						"strength": 0.964991700841523
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 59861108171,
+							"kind": "other",
+							"paused": false,
+							"pitch": 0.913850903511047,
+							"playing": true,
+							"position": 0.255419492721558
+						},
+						{
+							"active": false,
+							"id": 60095989150,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": false,
+							"id": 60146320793,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						}
+					],
+					"wall_msec": 4856,
+					"wall_seconds": 0.248
+				},
+				{
+					"camera": [
+						767.720397949219,
+						463.535614013672,
+						1.18178737163544,
+						0.782014787197113,
+						-0.246934294700623
+					],
+					"engine_scale": 0.28,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.514507234096527,
+							"dead": false,
+							"gait": 15.4426390131924,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 497.712047638889,
+							"x": -64.1479556250042
+						},
+						{
+							"aim": 0.500643014907837,
+							"dead": false,
+							"gait": 15.4426390131924,
+							"guard": 0.665488004684448,
+							"hp": 59.427664239876,
+							"ko": false,
+							"speed": 497.712047638889,
+							"x": 64.1479556250042
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						28.3348426818848,
+						-4.85996675491333
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 767.720397949219,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									871.093383789063,
+									256.42724609375
+								],
+								"tip_in_view": true,
+								"x_max": 811.410766601563,
+								"x_min": 350.513702392578
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									485.403411865234,
+									443.56201171875
+								],
+								"tip_in_view": true,
+								"x_max": 963.029296875,
+								"x_min": 502.132202148438
+							}
+						],
+						"gap": 128.295911250008,
+						"world_marker_x": -755.464477539063,
+						"zoom": 1.18178737163544
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.514507234096527,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 15.4426390131924,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-3.83078765869141,
+								2.16551208496094
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 4.40049495337712,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -64.1479556250042
+						},
+						{
+							"aim": 0.500643014907837,
+							"angle": -0.460977081350213,
+							"angular_velocity": -0.129445841803187,
+							"balance": 57.4771469651481,
+							"dead": false,
+							"gait": 15.4426390131924,
+							"guard": 0.665488004684448,
+							"hand_delta": [
+								31.8417778015137,
+								-15.5932006835938
+							],
+							"head_delta": [
+								52.4142684936523,
+								11.9756774902344
+							],
+							"head_delta_length": 53.7649726867676,
+							"hp": 59.427664239876,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								41.8657493591309,
+								-16.4487609863281
+							],
+							"shield_delta_length": 44.9811363220215,
+							"shift": -3.131853197562,
+							"x": 64.1479556250042
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.641247925210381,
+						"contact_loading": false,
+						"focus": "(119.6858, -310.3551)",
+						"focus_weight": 0.978995020504914,
+						"hitstop": false,
+						"impact_active": true,
+						"impact_elapsed": 0.277,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 0.28,
+						"stage_elapsed": 0.128050248974754,
+						"state": "read",
+						"strength": 0.964991700841523
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 59861108171,
+							"kind": "other",
+							"paused": false,
+							"pitch": 0.913850903511047,
+							"playing": true,
+							"position": 0.339591830968857
+						},
+						{
+							"active": false,
+							"id": 60095989150,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": false,
+							"id": 60146320793,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						}
+					],
+					"wall_msec": 4930,
+					"wall_seconds": 0.322
+				},
+				{
+					"camera": [
+						767.724792480469,
+						463.537750244141,
+						1.18181133270264,
+						0.359766155481339,
+						-0.057867519557476
+					],
+					"engine_scale": 0.28,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.514507234096527,
+							"dead": false,
+							"gait": 15.7119279578778,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 495.537497638889,
+							"x": -54.8796566329672
+						},
+						{
+							"aim": 0.486664563417435,
+							"dead": false,
+							"gait": 15.7119279578778,
+							"guard": 0.720655679702759,
+							"hp": 59.427664239876,
+							"ko": false,
+							"speed": 495.537497638889,
+							"x": 54.8796566329672
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						28.3348426818848,
+						-4.85996675491333
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 767.724792480469,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									883.605712890625,
+									255.340545654297
+								],
+								"tip_in_view": true,
+								"x_max": 822.859924316406,
+								"x_min": 361.953491210938
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.000030517578125,
+								"horse_in_x": true,
+								"tip": [
+									472.172729492188,
+									440.059326171875
+								],
+								"tip_in_view": true,
+								"x_max": 952.57470703125,
+								"x_min": 491.668273925781
+							}
+						],
+						"gap": 109.759313265934,
+						"world_marker_x": -755.000427246094,
+						"zoom": 1.18181133270264
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.514507234096527,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 15.7119279578778,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-2.82530784606934,
+								1.59712219238281
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 3.24548265147304,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -54.8796566329672
+						},
+						{
+							"aim": 0.486664563417435,
+							"angle": -0.454232218206191,
+							"angular_velocity": 0.713438856970716,
+							"balance": 57.4771469651481,
+							"dead": false,
+							"gait": 15.7119279578778,
+							"guard": 0.720655679702759,
+							"hand_delta": [
+								31.0300559997559,
+								-15.1686553955078
+							],
+							"head_delta": [
+								51.1142501831055,
+								12.146484375
+							],
+							"head_delta_length": 52.5376396179199,
+							"hp": 59.427664239876,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								43.4460678100586,
+								-15.3082275390625
+							],
+							"shield_delta_length": 46.0641136169434,
+							"shift": -2.62501223517777,
+							"x": 54.8796566329672
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.641247925210381,
+						"contact_loading": false,
+						"focus": "(119.6858, -310.3551)",
+						"focus_weight": 0.978995020504914,
+						"hitstop": false,
+						"impact_active": true,
+						"impact_elapsed": 0.34,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 0.28,
+						"stage_elapsed": 0.191050248974754,
+						"state": "read",
+						"strength": 0.964991700841523
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 59861108171,
+							"kind": "other",
+							"paused": false,
+							"pitch": 0.913850903511047,
+							"playing": true,
+							"position": 0.426666676998138
+						},
+						{
+							"active": false,
+							"id": 60095989150,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": false,
+							"id": 60146320793,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						}
+					],
+					"wall_msec": 4994,
+					"wall_seconds": 0.386
+				},
+				{
+					"camera": [
+						767.725769042969,
+						463.538330078125,
+						1.18181681632996,
+						-0.266806483268738,
+						0.0464118383824825
+					],
+					"engine_scale": 0.28,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.514507234096527,
+							"dead": false,
+							"gait": 15.9812169025631,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 493.031925416667,
+							"x": -45.6554249742635
+						},
+						{
+							"aim": 0.476518750190735,
+							"dead": false,
+							"gait": 15.9812169025631,
+							"guard": 0.775823354721069,
+							"hp": 59.427664239876,
+							"ko": false,
+							"speed": 493.031925416667,
+							"x": 45.6554249742635
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						28.3348426818848,
+						-4.85996675491333
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 767.725769042969,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.000030517578125,
+								"horse_in_x": true,
+								"tip": [
+									896.157470703125,
+									253.848480224609
+								],
+								"tip_in_view": true,
+								"x_max": 834.501098632813,
+								"x_min": 373.592498779297
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									458.709564208984,
+									437.374816894531
+								],
+								"tip_in_view": true,
+								"x_max": 942.413818359375,
+								"x_min": 481.505187988281
+							}
+						],
+						"gap": 91.310849948527,
+						"world_marker_x": -754.26806640625,
+						"zoom": 1.18181681632996
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.514507234096527,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 15.9812169025631,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-1.9020881652832,
+								1.07524108886719
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 2.18496470607182,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -45.6554249742635
+						},
+						{
+							"aim": 0.476518750190735,
+							"angle": -0.433825676310183,
+							"angular_velocity": 1.36140896388444,
+							"balance": 57.4771469651481,
+							"dead": false,
+							"gait": 15.9812169025631,
+							"guard": 0.775823354721069,
+							"hand_delta": [
+								29.2455940246582,
+								-14.4793243408203
+							],
+							"head_delta": [
+								48.4238891601563,
+								11.6417846679688
+							],
+							"head_delta_length": 49.8036575317383,
+							"hp": 59.427664239876,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								43.5310554504395,
+								-13.9969177246094
+							],
+							"shield_delta_length": 45.7259941101074,
+							"shift": -2.08601631702153,
+							"x": 45.6554249742635
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.641247925210381,
+						"contact_loading": false,
+						"focus": "(119.6858, -310.3551)",
+						"focus_weight": 0.978995020504914,
+						"hitstop": false,
+						"impact_active": true,
+						"impact_elapsed": 0.41,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 0.28,
+						"stage_elapsed": 0.261050248974754,
+						"state": "read",
+						"strength": 0.964991700841523
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 59861108171,
+							"kind": "other",
+							"paused": false,
+							"pitch": 0.913850903511047,
+							"playing": true,
+							"position": 0.510838985443115
+						},
+						{
+							"active": true,
+							"id": 60095989150,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": true,
+							"position": 0.0986848101019859
+						},
+						{
+							"active": true,
+							"id": 60146320793,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": true,
+							"position": 0.0986848101019859
+						}
+					],
+					"wall_msec": 5069,
+					"wall_seconds": 0.461
+				},
+				{
+					"camera": [
+						762.425231933594,
+						463.538421630859,
+						1.18181788921356,
+						0.0,
+						0.0
+					],
+					"engine_scale": 0.37626659814527,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.514507234096527,
+							"dead": false,
+							"gait": 16.2505058472484,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 490.195330972222,
+							"x": -36.4814397303746
+						},
+						{
+							"aim": 0.468699932098389,
+							"dead": false,
+							"gait": 16.2505058472484,
+							"guard": 0.830622971057892,
+							"hp": 59.427664239876,
+							"ko": false,
+							"speed": 490.195330972222,
+							"x": 36.4814397303746
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						28.3348426818848,
+						-4.85996675491333
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 762.425231933594,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									913.717224121094,
+									252.234527587891
+								],
+								"tip_in_view": true,
+								"x_max": 851.292053222656,
+								"x_min": 390.383087158203
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.0000431583721365314,
+								"horse_in_x": true,
+								"tip": [
+									449.983551025391,
+									435.263549804688
+								],
+								"tip_in_view": true,
+								"x_max": 937.520874023438,
+								"x_min": 476.611938476563
+							}
+						],
+						"gap": 72.9628794607492,
+						"world_marker_x": -748.320434570313,
+						"zoom": 1.18181788921356
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.514507234096527,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 16.2505058472484,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-1.12522506713867,
+								0.636077880859375
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 1.29256727887593,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -36.4814397303746
+						},
+						{
+							"aim": 0.468699932098389,
+							"angle": -0.403209329284217,
+							"angular_velocity": 1.83263391021997,
+							"balance": 57.4771469651481,
+							"dead": false,
+							"gait": 16.2505058472484,
+							"guard": 0.830622971057892,
+							"hand_delta": [
+								26.755199432373,
+								-13.6198425292969
+							],
+							"head_delta": [
+								44.7413520812988,
+								10.5787353515625
+							],
+							"head_delta_length": 45.9749755859375,
+							"hp": 59.427664239876,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								42.2872924804688,
+								-12.7006225585938
+							],
+							"shield_delta_length": 44.153377532959,
+							"shift": -1.56475020663239,
+							"x": 36.4814397303746
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.555510763644109,
+						"contact_loading": false,
+						"focus": "(119.6858, -310.3551)",
+						"focus_weight": 0.848099853525515,
+						"hitstop": false,
+						"impact_active": true,
+						"impact_elapsed": 0.484,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.22937603739481,
+						"scale": 0.37626659814527,
+						"stage_elapsed": 0.0550502489747543,
+						"state": "release",
+						"strength": 0.964991700841523
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 59861108171,
+							"kind": "other",
+							"paused": false,
+							"pitch": 0.913850903511047,
+							"playing": true,
+							"position": 0.510838985443115
+						},
+						{
+							"active": true,
+							"id": 60095989150,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": true,
+							"position": 0.0986848101019859
+						},
+						{
+							"active": true,
+							"id": 60146320793,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": true,
+							"position": 0.0986848101019859
+						}
+					],
+					"wall_msec": 5141,
+					"wall_seconds": 0.533
+				},
+				{
+					"camera": [
+						745.432983398438,
+						463.538452148438,
+						1.18181812763214,
+						0.0,
+						0.0
+					],
+					"engine_scale": 0.671689616245737,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.514507234096527,
+							"dead": false,
+							"gait": 16.6123788298729,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 485.852631277632,
+							"x": -24.2452098731784
+						},
+						{
+							"aim": 0.460296124219894,
+							"dead": false,
+							"gait": 16.6123788298729,
+							"guard": 0.887820303440094,
+							"hp": 59.427664239876,
+							"ko": false,
+							"speed": 485.852631277632,
+							"x": 24.2452098731784
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						28.3348426818848,
+						-4.85996675491333
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 745.432983398438,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									949.157531738281,
+									249.863433837891
+								],
+								"tip_in_view": true,
+								"x_max": 885.834838867188,
+								"x_min": 424.925750732422
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									449.720275878906,
+									432.786712646484
+								],
+								"tip_in_view": true,
+								"x_max": 943.141662597656,
+								"x_min": 482.232604980469
+							}
+						],
+						"gap": 48.4904197463567,
+						"world_marker_x": -728.238952636719,
+						"zoom": 1.18181812763214
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.514507234096527,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 16.6123788298729,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-0.356989860534668,
+								0.201797485351563
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 0.410081094550703,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -24.2452098731784
+						},
+						{
+							"aim": 0.460296124219894,
+							"angle": -0.351144806942808,
+							"angular_velocity": 2.22673670108044,
+							"balance": 57.4771469651481,
+							"dead": false,
+							"gait": 16.6123788298729,
+							"guard": 0.887820303440094,
+							"hand_delta": [
+								22.6975727081299,
+								-12.287841796875
+							],
+							"head_delta": [
+								38.7773666381836,
+								8.52490234375
+							],
+							"head_delta_length": 39.7033767700195,
+							"hp": 59.427664239876,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								38.3056106567383,
+								-11.2771911621094
+							],
+							"shield_delta_length": 39.9311256408691,
+							"shift": -0.94890843749773,
+							"x": 24.2452098731784
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.292400489454785,
+						"contact_loading": false,
+						"focus": "(119.6858, -310.3551)",
+						"focus_weight": 0.446408653993724,
+						"hitstop": false,
+						"impact_active": true,
+						"impact_elapsed": 0.556,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.52937603739481,
+						"scale": 0.671689616245737,
+						"stage_elapsed": 0.127050248974754,
+						"state": "release",
+						"strength": 0.964991700841523
+					},
+					"voices": [
+						{
+							"active": false,
+							"id": 59861108171,
+							"kind": "other",
+							"paused": false,
+							"pitch": 0.913850903511047,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": false,
+							"id": 60095989150,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": false,
+							"id": 60146320793,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						}
+					],
+					"wall_msec": 5213,
+					"wall_seconds": 0.605
+				},
+				{
+					"camera": [
+						729.5126953125,
+						463.538452148438,
+						1.18181812763214,
+						0.0,
+						0.0
+					],
+					"engine_scale": 0.922364510679264,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.514507234096527,
+							"dead": false,
+							"gait": 17.2583737867118,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 476.600318362513,
+							"x": -2.71584679289489
+						},
+						{
+							"aim": 0.447021871805191,
+							"dead": false,
+							"gait": 17.2583737867118,
+							"guard": 0.947042167186737,
+							"hp": 59.427664239876,
+							"ko": false,
+							"speed": 476.600318362513,
+							"x": 2.71584679289489
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						28.3348426818848,
+						-4.85996675491333
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 729.5126953125,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.000030517578125,
+								"horse_in_x": true,
+								"tip": [
+									994.564208984375,
+									246.189300537109
+								],
+								"tip_in_view": true,
+								"x_max": 930.093505859375,
+								"x_min": 469.184417724609
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.000030517578125,
+								"horse_in_x": true,
+								"tip": [
+									431.799926757813,
+									429.458892822266
+								],
+								"tip_in_view": true,
+								"x_max": 936.512756347656,
+								"x_min": 475.603698730469
+							}
+						],
+						"gap": 5.43169358578978,
+						"world_marker_x": -709.424072265625,
+						"zoom": 1.18181812763214
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.514507234096527,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 17.2583737867118,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								0.291467666625977,
+								-0.164764404296875
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": -0.334813544597573,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": -2.71584679289489
+						},
+						{
+							"aim": 0.447021871805191,
+							"angle": -0.244885459398479,
+							"angular_velocity": 2.3977679545388,
+							"balance": 57.4771469651481,
+							"dead": false,
+							"gait": 17.2583737867118,
+							"guard": 0.947042167186737,
+							"hand_delta": [
+								14.9031276702881,
+								-9.414306640625
+							],
+							"head_delta": [
+								26.9289703369141,
+								4.499267578125
+							],
+							"head_delta_length": 27.3022499084473,
+							"hp": 59.427664239876,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								27.3370952606201,
+								-9.05599975585938
+							],
+							"shield_delta_length": 28.7980537414551,
+							"shift": -0.190455476127839,
+							"x": 2.71584679289489
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.0691438839577981,
+						"contact_loading": false,
+						"focus": "(119.6858, -310.3551)",
+						"focus_weight": 0.105562163138143,
+						"hitstop": false,
+						"impact_active": true,
+						"impact_elapsed": 0.62,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.796042704061476,
+						"scale": 0.922364510679264,
+						"stage_elapsed": 0.191050248974754,
+						"state": "release",
+						"strength": 0.964991700841523
+					},
+					"voices": [
+						{
+							"active": false,
+							"id": 59861108171,
+							"kind": "other",
+							"paused": false,
+							"pitch": 0.913850903511047,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": false,
+							"id": 60095989150,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": false,
+							"id": 60146320793,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						}
+					],
+					"wall_msec": 5280,
+					"wall_seconds": 0.672
+				},
+				{
+					"camera": [
+						727.103759765625,
+						463.538452148438,
+						1.18181812763214,
+						0.0,
+						0.0
+					],
+					"engine_scale": 1.0,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.514507234096527,
+							"dead": false,
+							"gait": 18.1454543784833,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 463.072305539218,
+							"x": 26.1228518763649
+						},
+						{
+							"aim": 0.426890343427658,
+							"dead": false,
+							"gait": 18.1454543784833,
+							"guard": 0.981464743614197,
+							"hp": 59.427664239876,
+							"ko": false,
+							"speed": 463.072305539218,
+							"x": -26.1228518763649
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						28.3348426818848,
+						-4.85996675491333
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 727.103759765625,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.000030517578125,
+								"horse_in_x": true,
+								"tip": [
+									1031.21630859375,
+									246.652679443359
+								],
+								"tip_in_view": true,
+								"x_max": 967.022521972656,
+								"x_min": 506.113464355469
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.00006103515625,
+								"horse_in_x": true,
+								"tip": [
+									387.999114990234,
+									430.111999511719
+								],
+								"tip_in_view": true,
+								"x_max": 905.277587890625,
+								"x_min": 444.368530273438
+							}
+						],
+						"gap": -52.2457037527297,
+						"world_marker_x": -706.5771484375,
+						"zoom": 1.18181812763214
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.514507234096527,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 18.1454543784833,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								0.316883087158203,
+								-0.17913818359375
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": -0.364008268318948,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": 26.1228518763649
+						},
+						{
+							"aim": 0.426890343427658,
+							"angle": -0.110781229526258,
+							"angular_velocity": 1.93113324239082,
+							"balance": 57.4771469651481,
+							"dead": false,
+							"gait": 18.1454543784833,
+							"guard": 0.981464743614197,
+							"hand_delta": [
+								6.11518859863281,
+								-4.762939453125
+							],
+							"head_delta": [
+								12.0308618545532,
+								1.1102294921875
+							],
+							"head_delta_length": 12.0819797515869,
+							"hp": 59.427664239876,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								12.1458206176758,
+								-4.99420166015625
+							],
+							"shield_delta_length": 13.1325178146362,
+							"shift": 0.20932022820334,
+							"x": -26.1228518763649
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.0,
+						"contact_loading": false,
+						"focus": "(119.6858, -310.3551)",
+						"focus_weight": 0.0,
+						"hitstop": false,
+						"impact_active": false,
+						"impact_elapsed": 0.668949751025246,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 1.0,
+						"stage_elapsed": 0.0,
+						"state": "runup",
+						"strength": 0.964991700841523
+					},
+					"voices": [
+						{
+							"active": false,
+							"id": 59861108171,
+							"kind": "other",
+							"paused": false,
+							"pitch": 0.913850903511047,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": false,
+							"id": 60095989150,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": false,
+							"id": 60146320793,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						}
+					],
+					"wall_msec": 5355,
+					"wall_seconds": 0.747
+				},
+				{
+					"camera": [
+						725.117309570313,
+						463.538452148438,
+						1.18181812763214,
+						0.0,
+						0.0
+					],
+					"engine_scale": 1.0,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.514507234096527,
+							"dead": false,
+							"gait": 19.1072006095022,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 448.405638872551,
+							"x": 56.4443389123127
+						},
+						{
+							"aim": 0.405973076820374,
+							"dead": false,
+							"gait": 19.1072006095022,
+							"guard": 0.994100511074066,
+							"hp": 59.427664239876,
+							"ko": false,
+							"speed": 448.405638872551,
+							"x": -56.4443389123127
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						28.3348426818848,
+						-4.85996675491333
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 725.117309570313,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.000030517578125,
+								"horse_in_x": true,
+								"tip": [
+									1066.58190917969,
+									251.632629394531
+								],
+								"tip_in_view": true,
+								"x_max": 1005.20465087891,
+								"x_min": 544.295593261719
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.00006103515625,
+								"horse_in_x": true,
+								"tip": [
+									347.958953857422,
+									434.32568359375
+								],
+								"tip_in_view": true,
+								"x_max": 871.790771484375,
+								"x_min": 410.881713867188
+							}
+						],
+						"gap": -112.888677824625,
+						"world_marker_x": -704.2294921875,
+						"zoom": 1.18181812763214
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.514507234096527,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 19.1072006095022,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								0.098480224609375,
+								-0.0556640625
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": -0.113125609115577,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": 56.4443389123127
+						},
+						{
+							"aim": 0.405973076820374,
+							"angle": -0.0124604192825018,
+							"angular_velocity": 1.11196919390079,
+							"balance": 57.4771469651481,
+							"dead": false,
+							"gait": 19.1072006095022,
+							"guard": 0.994100511074066,
+							"hand_delta": [
+								0.495086669921875,
+								-0.562896728515625
+							],
+							"head_delta": [
+								1.18565559387207,
+								0.072021484375
+							],
+							"head_delta_length": 1.1878410577774,
+							"hp": 59.427664239876,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								1.18875885009766,
+								-0.61407470703125
+							],
+							"shield_delta_length": 1.3379967212677,
+							"shift": 0.195563760349928,
+							"x": -56.4443389123127
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.0,
+						"contact_loading": false,
+						"focus": "(119.6858, -310.3551)",
+						"focus_weight": 0.0,
+						"hitstop": false,
+						"impact_active": false,
+						"impact_elapsed": 0.668949751025246,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 1.0,
+						"stage_elapsed": 0.0,
+						"state": "runup",
+						"strength": 0.964991700841523
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 59861108171,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": true,
+							"position": 0.00580498855561018
+						},
+						{
+							"active": true,
+							"id": 60095989150,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": true,
+							"position": 0.00580498855561018
+						},
+						{
+							"active": false,
+							"id": 60146320793,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 1.05999994277954,
+							"playing": false,
+							"position": 0.0
+						}
+					],
+					"wall_msec": 5436,
+					"wall_seconds": 0.828
+				},
+				{
+					"camera": [
+						723.701110839844,
+						463.538452148438,
+						1.18181812763214,
+						0.0,
+						0.0
+					],
+					"engine_scale": 1.0,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.514507234096527,
+							"dead": false,
+							"gait": 20.0682030023544,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 433.738972205885,
+							"x": 85.7880481704828
+						},
+						{
+							"aim": 0.391267329454422,
+							"dead": false,
+							"gait": 20.0682030023544,
+							"guard": 0.998122274875641,
+							"hp": 59.427664239876,
+							"ko": false,
+							"speed": 433.738972205885,
+							"x": -85.7880481704828
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						28.3348426818848,
+						-4.85996675491333
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 723.701110839844,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.0,
+								"horse_in_x": true,
+								"tip": [
+									1101.61303710938,
+									250.973510742188
+								],
+								"tip_in_view": true,
+								"x_max": 1041.55725097656,
+								"x_min": 580.648193359375
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.000030517578125,
+								"horse_in_x": true,
+								"tip": [
+									311.629425048828,
+									432.161651611328
+								],
+								"tip_in_view": true,
+								"x_max": 838.785522460938,
+								"x_min": 377.876403808594
+							}
+						],
+						"gap": -171.576096340966,
+						"world_marker_x": -702.555847167969,
+						"zoom": 1.18181812763214
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.514507234096527,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 20.0682030023544,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-0.0093231201171875,
+								0.0052642822265625
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 0.0107113928125862,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": 85.7880481704828
+						},
+						{
+							"aim": 0.391267329454422,
+							"angle": 0.0338406689526872,
+							"angular_velocity": 0.404419863594271,
+							"balance": 57.4771469651481,
+							"dead": false,
+							"gait": 20.0682030023544,
+							"guard": 0.998122274875641,
+							"hand_delta": [
+								-1.91822052001953,
+								1.57215881347656
+							],
+							"head_delta": [
+								-3.83348846435547,
+								-0.107757568359375
+							],
+							"head_delta_length": 3.83500266075134,
+							"hp": 59.427664239876,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								-3.81255340576172,
+								1.75479125976563
+							],
+							"shield_delta_length": 4.19700574874878,
+							"shift": 0.0788968296704212,
+							"x": -85.7880481704828
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.0,
+						"contact_loading": false,
+						"focus": "(119.6858, -310.3551)",
+						"focus_weight": 0.0,
+						"hitstop": false,
+						"impact_active": false,
+						"impact_elapsed": 0.668949751025246,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 1.0,
+						"stage_elapsed": 0.0,
+						"state": "runup",
+						"strength": 0.964991700841523
+					},
+					"voices": [
+						{
+							"active": true,
+							"id": 59861108171,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": true,
+							"position": 0.0870748311281204
+						},
+						{
+							"active": true,
+							"id": 60095989150,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": true,
+							"position": 0.0870748311281204
+						},
+						{
+							"active": true,
+							"id": 60146320793,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": true,
+							"position": 0.00580498855561018
+						},
+						{
+							"active": true,
+							"id": 61069067850,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": true,
+							"position": 0.00580498855561018
+						}
+					],
+					"wall_msec": 5514,
+					"wall_seconds": 0.906
+				},
+				{
+					"camera": [
+						722.797241210938,
+						463.538452148438,
+						1.18181812763214,
+						0.0,
+						0.0
+					],
+					"engine_scale": 1.0,
+					"fallen": {
+
+					},
+					"fighters": [
+						{
+							"aim": -0.514507234096527,
+							"dead": false,
+							"gait": 21.0117693053786,
+							"guard": 0.430000007152557,
+							"hp": 100.0,
+							"ko": false,
+							"speed": 419.072305539218,
+							"x": 114.153979650875
+						},
+						{
+							"aim": 0.380835980176926,
+							"dead": false,
+							"gait": 21.0117693053786,
+							"guard": 1.0,
+							"hp": 59.427664239876,
+							"ko": false,
+							"speed": 419.072305539218,
+							"x": -114.153979650875
+						}
+					],
+					"first_contact_pending": false,
+					"kick": [
+						28.3348426818848,
+						-4.85996675491333
+					],
+					"phase": "charge",
+					"projection": {
+						"camera_x": 722.797241210938,
+						"fighters": [
+							{
+								"direction": 1,
+								"drawn_tip_error_px": 0.000030517578125,
+								"horse_in_x": true,
+								"tip": [
+									1137.86608886719,
+									251.0078125
+								],
+								"tip_in_view": true,
+								"x_max": 1076.14892578125,
+								"x_min": 615.23974609375
+							},
+							{
+								"direction": -1,
+								"drawn_tip_error_px": 0.00006103515625,
+								"horse_in_x": true,
+								"tip": [
+									275.909088134766,
+									429.93310546875
+								],
+								"tip_in_view": true,
+								"x_max": 806.330383300781,
+								"x_min": 345.421264648438
+							}
+						],
+						"gap": -228.30795930175,
+						"world_marker_x": -701.487609863281,
+						"zoom": 1.18181812763214
+					},
+					"queued_audio": 0,
+					"response": [
+						{
+							"aim": -0.514507234096527,
+							"angle": 0.0,
+							"angular_velocity": 0.0,
+							"balance": 100.0,
+							"dead": false,
+							"gait": 21.0117693053786,
+							"guard": 0.430000007152557,
+							"hand_delta": [
+								-0.0206756591796875,
+								0.011688232421875
+							],
+							"head_delta": [
+								0.0,
+								0.0
+							],
+							"head_delta_length": 0.0,
+							"hp": 100.0,
+							"ko": false,
+							"lance_compression": 0.0237476175212227,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								0.0,
+								0.0
+							],
+							"shield_delta_length": 0.0,
+							"shift": 0.0,
+							"x": 114.153979650875
+						},
+						{
+							"aim": 0.380835980176926,
+							"angle": 0.04297026894118,
+							"angular_velocity": -0.0292424698229826,
+							"balance": 57.4771469651481,
+							"dead": false,
+							"gait": 21.0117693053786,
+							"guard": 1.0,
+							"hand_delta": [
+								-2.29374694824219,
+								2.05075073242188
+							],
+							"head_delta": [
+								-4.77526092529297,
+								-0.02435302734375
+							],
+							"head_delta_length": 4.77532291412354,
+							"hp": 59.427664239876,
+							"ko": false,
+							"lance_compression": 0.0,
+							"shield_compression": 0.0,
+							"shield_delta": [
+								-4.70140075683594,
+								2.3392333984375
+							],
+							"shield_delta_length": 5.25120782852173,
+							"shift": 0.00598727567704015,
+							"x": -114.153979650875
+						}
+					],
+					"state": {
+						"approach": 0.0,
+						"approach_elapsed": 0.0,
+						"audio_duck": 0.0,
+						"contact_loading": false,
+						"focus": "(119.6858, -310.3551)",
+						"focus_weight": 0.0,
+						"hitstop": false,
+						"impact_active": false,
+						"impact_elapsed": 0.668949751025246,
+						"pass_connected": true,
+						"pass_id": 1,
+						"paused": false,
+						"release": 0.0,
+						"scale": 1.0,
+						"stage_elapsed": 0.0,
+						"state": "runup",
+						"strength": 0.964991700841523
+					},
+					"voices": [
+						{
+							"active": false,
+							"id": 59861108171,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": false,
+							"id": 60095989150,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": false,
+							"position": 0.0
+						},
+						{
+							"active": true,
+							"id": 60146320793,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": true,
+							"position": 0.0870748311281204
+						},
+						{
+							"active": true,
+							"id": 61069067850,
+							"kind": "hoof",
+							"paused": false,
+							"pitch": 0.879999995231628,
+							"playing": true,
+							"position": 0.0870748311281204
+						}
+					],
+					"wall_msec": 5581,
+					"wall_seconds": 0.973
+				}
+			],
+			"zone": "head"
+		}
+	],
+	"examples": [],
+	"failures": [],
+	"passed": true,
+	"project_version": "0.4.31",
+	"scope": "RULE-076 helmet block in WAR mode, full-health, power1.4 and helmet.41 (same weapon as the lethal fixture). Inherited arena_mounted case/file names are historical harness labels; actual mode is war. Finite-control sweep, live GPU/normal nonterminal reaction; no OS input or human approval.",
+	"suite": "all"
+}

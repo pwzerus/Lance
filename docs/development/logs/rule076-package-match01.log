@@ -1,0 +1,7 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+ERROR: Can't create shader cache folder, no shader caching will happen: user://
+   at: RasterizerGLES3 (drivers/gles3/rasterizer_gles3.cpp:335)
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+GALUMU_BUILD v0.4.31
+MATCH072 { "passed": true, "result": { "winner": 0, "reason": "score", "passes": 3, "mode": "arena", "player_hp": 98.506262734145, "enemy_hp": 68.2565310315888, "player_dead": false, "enemy_dead": false, "player_score": 2, "enemy_score": 0 }, "captures": { "charge": 3258, "approach": 8209, "contact": 9255 }, "elapsed_ms": 42338, "scope": "Actual packaged Main/Battle, AI/autopilot arena practice; no forced contacts, no rewards/save writes, no OS input, human play or audio listening." }

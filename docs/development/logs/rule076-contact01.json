@@ -1,0 +1,198 @@
+{
+	"cases": [
+		{
+			"case": "kite / 1 / 0",
+			"hp": 97.1808785529066,
+			"peak_compression": 11.1010586608892,
+			"peak_twist_degrees": 0.0,
+			"region": "center",
+			"score": 1
+		},
+		{
+			"case": "kite / 1 / -27",
+			"hp": 97.1808785529066,
+			"peak_compression": 8.86778685969857,
+			"peak_twist_degrees": 5.54639336639009,
+			"region": "face",
+			"score": 1
+		},
+		{
+			"case": "kite / 1 / 40",
+			"hp": 97.1808785529066,
+			"peak_compression": 7.79250784431048,
+			"peak_twist_degrees": 8.21687906131865,
+			"region": "rim",
+			"score": 1
+		},
+		{
+			"case": "kite / 1 / -40",
+			"hp": 97.1808785529066,
+			"peak_compression": 7.79250784431048,
+			"peak_twist_degrees": 8.21687906131865,
+			"region": "rim",
+			"score": 1
+		},
+		{
+			"case": "kite / -1 / 0",
+			"hp": 97.1808785529066,
+			"peak_compression": 11.1010586608892,
+			"peak_twist_degrees": 0.0,
+			"region": "center",
+			"score": 1
+		},
+		{
+			"case": "kite / -1 / -27",
+			"hp": 97.1808785529066,
+			"peak_compression": 8.86778685969857,
+			"peak_twist_degrees": 5.54639336639009,
+			"region": "face",
+			"score": 1
+		},
+		{
+			"case": "kite / -1 / 40",
+			"hp": 97.1808785529066,
+			"peak_compression": 7.79250784431048,
+			"peak_twist_degrees": 8.21687906131865,
+			"region": "rim",
+			"score": 1
+		},
+		{
+			"case": "kite / -1 / -40",
+			"hp": 97.1808785529066,
+			"peak_compression": 7.79250784431048,
+			"peak_twist_degrees": 8.21687906131865,
+			"region": "rim",
+			"score": 1
+		},
+		{
+			"case": "heater / 1 / 0",
+			"hp": 97.1808785529066,
+			"peak_compression": 11.1010586608892,
+			"peak_twist_degrees": 0.0,
+			"region": "center",
+			"score": 1
+		},
+		{
+			"case": "heater / 1 / -27",
+			"hp": 97.1808785529066,
+			"peak_compression": 8.77663290862957,
+			"peak_twist_degrees": 5.77277676909989,
+			"region": "face",
+			"score": 1
+		},
+		{
+			"case": "heater / 1 / 40",
+			"hp": 97.1808785529066,
+			"peak_compression": 7.65746495383788,
+			"peak_twist_degrees": 8.55226188014798,
+			"region": "rim",
+			"score": 1
+		},
+		{
+			"case": "heater / 1 / -40",
+			"hp": 97.1808785529066,
+			"peak_compression": 7.65746495383788,
+			"peak_twist_degrees": 8.55226188014798,
+			"region": "rim",
+			"score": 1
+		},
+		{
+			"case": "heater / -1 / 0",
+			"hp": 97.1808785529066,
+			"peak_compression": 11.1010586608892,
+			"peak_twist_degrees": 0.0,
+			"region": "center",
+			"score": 1
+		},
+		{
+			"case": "heater / -1 / -27",
+			"hp": 97.1808785529066,
+			"peak_compression": 8.77663290862957,
+			"peak_twist_degrees": 5.77277676909989,
+			"region": "face",
+			"score": 1
+		},
+		{
+			"case": "heater / -1 / 40",
+			"hp": 97.1808785529066,
+			"peak_compression": 7.65746495383788,
+			"peak_twist_degrees": 8.55226188014798,
+			"region": "rim",
+			"score": 1
+		},
+		{
+			"case": "heater / -1 / -40",
+			"hp": 97.1808785529066,
+			"peak_compression": 7.65746495383788,
+			"peak_twist_degrees": 8.55226188014798,
+			"region": "rim",
+			"score": 1
+		},
+		{
+			"case": "targe / 1 / 0",
+			"hp": 97.1808785529066,
+			"peak_compression": 11.1010586608892,
+			"peak_twist_degrees": 0.0,
+			"region": "center",
+			"score": 1
+		},
+		{
+			"case": "targe / 1 / -27",
+			"hp": 97.1808785529066,
+			"peak_compression": 8.51249361860006,
+			"peak_twist_degrees": 6.42877412922488,
+			"region": "face",
+			"score": 1
+		},
+		{
+			"case": "targe / 1 / 40",
+			"hp": 97.1808785529066,
+			"peak_compression": 7.26614748712749,
+			"peak_twist_degrees": 9.52410982107389,
+			"region": "rim",
+			"score": 1
+		},
+		{
+			"case": "targe / 1 / -40",
+			"hp": 97.1808785529066,
+			"peak_compression": 7.26614748712749,
+			"peak_twist_degrees": 9.52410982107389,
+			"region": "rim",
+			"score": 1
+		},
+		{
+			"case": "targe / -1 / 0",
+			"hp": 97.1808785529066,
+			"peak_compression": 11.1010586608892,
+			"peak_twist_degrees": 0.0,
+			"region": "center",
+			"score": 1
+		},
+		{
+			"case": "targe / -1 / -27",
+			"hp": 97.1808785529066,
+			"peak_compression": 8.51249361860006,
+			"peak_twist_degrees": 6.42877412922488,
+			"region": "face",
+			"score": 1
+		},
+		{
+			"case": "targe / -1 / 40",
+			"hp": 97.1808785529066,
+			"peak_compression": 7.26614748712749,
+			"peak_twist_degrees": 9.52410982107389,
+			"region": "rim",
+			"score": 1
+		},
+		{
+			"case": "targe / -1 / -40",
+			"hp": 97.1808785529066,
+			"peak_compression": 7.26614748712749,
+			"peak_twist_degrees": 9.52410982107389,
+			"region": "rim",
+			"score": 1
+		}
+	],
+	"failures": [],
+	"passed": true
+}

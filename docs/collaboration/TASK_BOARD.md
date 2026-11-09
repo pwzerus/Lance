@@ -1,12 +1,12 @@
 # 任务、审查建议与文件认领
 
-最后整理：2026-11-02 EST。DEV-057接触传力与落马返工已完成，额外找错21:46:11–22:17:42 UTC；独立v0.4.17-r3，运行4ef9bd8。实际包末帧/ZIP/QA验证完成，生产/测试全部释放，root仅收尾提交推送。本轮桌面接口Transport closed，不能沿用QA-054B的OS证据充当本轮试玩。第四阶段运动甲声仍未启动。
+最后整理：2026-11-05（Claude DOC-062）。当前交付为FEEL-061/v0.4.21，Codex文件已全部释放；当前占用只有DOC-062的文档，见本页末条。本页认领段按时间顺序追加，以末尾最新条目为准。以下为2026-11-02原抬头，保留为历史：DEV-057接触传力与落马返工已完成，额外找错21:46:11–22:17:42 UTC；独立v0.4.17-r3，运行4ef9bd8。实际包末帧/ZIP/QA验证完成，生产/测试全部释放，root仅收尾提交推送。本轮桌面接口Transport closed，不能沿用QA-054B的OS证据充当本轮试玩。第四阶段运动甲声仍未启动。
 
 当前版本分支为 `codex/v0.4`。同版本的修复、同一／相近功能继续在该分支提交 commit；大的结构性改动形成新版本时再创建新的版本分支。不按每个小任务新建分支。
 
 ## 当前文件占用
 
-INC-059：Windows 两次系统卡死。11月3日纽约时间 09:44 与 14:56 的 Resource-Exhaustion-Detector 2004 指向 LanceAndLaurel.exe，分别约 40.8 GB 与 40.3 GB 虚拟内存，随后均有异常重启。上午 desktop04 隔离试玩日志停在主菜单。Codex 已停用 Play-Latest.cmd；暂缓游戏、引擎导入、导出及 DEV-058 发布。逐帧马匹网格更新是调查线索，尚未证实。恢复前先建立有系统级内存上限及超时的隔离运行，再定位分配来源并验证主菜单与实战内存稳定。
+INC-059：Windows 两次系统卡死。11月3日纽约时间 09:44 与 14:56 的 Resource-Exhaustion-Detector 2004 指向 LanceAndLaurel.exe，分别约 40.8 GB 与 40.3 GB 虚拟内存，随后均有异常重启。上午 desktop04 隔离试玩日志停在主菜单。Codex 已停用 Play-Latest.cmd；暂缓游戏、引擎导入、导出及 DEV-058 发布。逐帧马匹网格更新是调查线索，尚未证实。恢复前先建立有系统级内存上限及超时的隔离运行，再定位分配来源并验证主菜单与实战内存稳定。【2026-11-05状态：保护器已建立，INC-059E修复不可呈现窗口持续绘制暴涨，Play-Latest已恢复并经Start-MemoryBound启动，现指v0.4.21；历史40GB全部原因仍未宣布根治。见本页INC-059E交出段。】
 
 DEV-058验证扩展：motion056只持有新tests/test_feedback_v058.gd/.uid，继承原真实扫掠夹具，增加实际缩放差、逻辑像素震动/开关/暂停/双击稳定性和HUD/挂点观察；root继续独占引擎。其他代理不改生产。
 
@@ -215,6 +215,37 @@ FEEL-061验证扩展：test_terminal_pose_v056.gd 比较项补充新增head自�
 
 FEEL-061交出：已修曲线突变、后蹄倒甩、肩部卸载和离地时序，减少整马弹跳并加入协调头部。原骨长／角度／脚锁阈值保留；实际.21包、四套外观/双朝向、30次催马切换不均匀帧率、结算冻结及两组约313秒重开/最小化均完成。Play-Latest已切换独立.21包，保护器持续开启。释放全部认领文件（joust_match最终无需修改）；文档和远程回执见FEEL061_REVIEW及本日交接。无人接管用户屏幕，真人观感未验收。
 
+DOC-062 / Claude / 2026-11-05：接收FEEL-061并整理过时的当前状态文档。基线e772acd（读.git引用文件并经ls-remote核对，与origin/codex/v0.4一致）。认领HANDOFF.md、docs/collaboration/{PROJECT_STATE,TASK_BOARD,WORK_LOG}.md、handoffs/2026-11-05-FEEL-061-Codex.md的“接收与复核”栏、新handoffs/2026-11-05-DOC-062-Claude.md。只改文档，不改游戏源码、素材、启动器或发布包，不运行游戏。按用户指示Claude不执行git：改动留在工作区未提交，由用户安排Codex审核后提交推送。
+
+DOC-062交出：FEEL-061接收回执已填写，HANDOFF／PROJECT_STATE／TASK_BOARD过时段已修正，WORK_LOG已登记；全部认领文件已释放。改动未提交，逐段清单见handoffs/2026-11-05-DOC-062-Claude.md。未运行游戏，未改源码或发布包。
+
+ART-063 / Claude / 2026-11-05：用户反馈部分马匹皮毛呈密集裂纹、观感恶心，要求更真实好看；马匹动作与骨架更自然；部位拼接处仍有黑线；GPT生成图案差，要求Claude制作马匹美术。基线e772acd（另有DOC-062未提交文档）。认领game/scripts/visual/{horse_skin,horse_gait,rider_view}.gd、mounted_pixel.gdshader、新马皮素材目录game/assets/art/horse_coats063/及其生成脚本与来源记录、新tests/test_horse_art063.gd、必要的四套马皮.import、版本/导出入口(project.godot、export_presets.cfg、main.gd版本标识、Play-Latest.cmd)、DESIGN_DECISIONS增补与协作/审查文档。先诊断再就地改进，保留十匹马属性、四套外观映射、规则挂点与内存保护；不接管屏幕，运行一律经Start-MemoryBound隔离桌面。Claude不执行git，改动交Codex审核提交；拟独立v0.4.22，不覆盖.21。
+
+RIDER-064 / Claude / 2026-11-06：用户反馈人物骨架与动作僵硬、不灵活、不丝滑。基线e772acd加ART-063未提交改动。认领game/scripts/visual/rider_view.gd（seated_leg_pose、_draw_seated_leg、_head_hinge、_draw_pose_neck）、新tests/test_rider_motion064.gd、test_rider_legs064.gd、版本/导出入口与协作文档。只改视觉骨架，模型的rider_origin/pose_angle/hand/shield/head命中锚点及姿态惯性不改；不接管屏幕；改动不提交，交Codex审核。
+
+HORSE-065 / Claude / 2026-11-06：用户要求马皮去掉花纹与毛发纹理；马腿不要“往后弹”的假动作，参考RDR2自然动作；加入马匹疲劳（耐力、承载、盔甲重量、长时冲刺与速度）；之后再改人物脸部和长枪/盾/盔甲的辨识度。认领tools/horse_coat_v063.gd与horse_coats063素材、visual/horse_gait.gd、core/joust_match.gd（体力与速度规则）、新core/horse_condition.gd、core/opponent_ai.gd（体力判断）、battle.gd（耐力HUD文字）、新tests/*065*、版本/导出入口与文档。规则改动记入DESIGN_DECISIONS；不接管屏幕；改动不提交，交Codex审核。
+
+RIDER-064交出：腿部IK与马镫挂马鞍、马镫随步态摆动、前后倾时蹬住马镫、骑乘时头部反向稳定；命中锚点未改。独立v0.4.23已导出复验（PCK 9DA780F9…），Play-Latest已切换；全部认领文件释放，改动未提交。详见handoffs/2026-11-06-RIDER-064-Claude.md。姿态切换速度与枪盾缓动待用户决定。
+
+ART-063交出：四套马皮重绘并改用mipmap线性过滤；关节轮廓黑线和远侧前腿碎片已处理；系骨/硬蹄分段，承重时球节下沉。独立v0.4.22已导出并复验，Play-Latest已切换。另认领并修改了test_horse_coats060.gd（一行断言）和新的tools/package_v063.gd。全部认领文件已释放，改动未提交。逐文件清单、验证和提交建议见handoffs/2026-11-05-ART-063-Claude.md。OS输入和真人试玩未执行。
+
 DOC-065 / Codex / 2026-11-06：用户明确要求每次接手先读Claude的新进度、改动和日志，以实际最新工作区继续开发，不能沿用聊天中旧版。基线e772acd叠加DOC-062、ART-063、RIDER-064未提交改动（本地v0.4.23）。仅认领AGENTS.md、HANDOFF.md、PROJECT_STATE.md、TASK_BOARD.md、WORK_LOG.md的本轮流程增补，以及DOC-062/ART-063/RIDER-064的接收栏、新DOC-065交接；不改游戏、不运行引擎、不将Claude未复核代码直接提交。
 
 DOC-065交出：接手基线和每次核对规则已写明；只读接收汇总集中在DOC-065交接，未预填Claude三份记录中的完整复核/放行栏。未改源码、素材、测试或发布包。仅提交本轮追加的流程记录，Claude未提交内容保持原状；释放全部认领文件，完整代码审查与运行复验未执行。
+
+HORSE-065交出：马匹疲劳（负重/承载/恢复/疲劳上限）、无花纹马皮、腿部摆动、半格脸部、盾牌与长枪辨识。独立v0.4.24已导出复验（PCK 140491FD…B606），Play-Latest已切换；改动未提交。详见handoffs/2026-11-06-HORSE-065-Claude.md与HORSE065_REVIEW.md。
+
+EQUIP-066 / Claude / 2026-11-06：用户要求盔甲细节、纹章与盾牌纹章看得清；新增纯装饰、轻微负重的马衣；按真实装备设定重量并平衡轻重甲（重甲防御高、轻甲快，轻甲可凭技术战胜重甲）；评估需求、调研同类游戏与玩家反馈并给出建议。基线a5b0c2f（.git引用）叠加DOC-062/ART-063/RIDER-064/HORSE-065未提交改动。认领core/{catalogue,game_state,horse_condition,joust_match}.gd、visual/{heraldry(新),shield_art,horse_skin,rider_view}.gd、main.gd（军械库）、新data/{equipment_weights_v066,caparisons_v066}.json、新tools/caparison_v066.gd与assets/art/caparison066/、新tests/*066*、版本/导出入口、DESIGN_DECISIONS与EQUIP066文档。部分接手HIST-01中马衣与纹章一项。不接管屏幕；改动不提交，交Codex审核。
+
+EQUIP-066交出：重量表、马衣槽（12 张蒙皮贴图）、纹章盾面、负重门槛／灵活度／坐稳／冲力、军械库重量与负重显示，以及调研和建议文档。独立v0.4.25已导出复验（PCK 6679791C…A456），Play-Latest已切换；全部认领文件释放，改动未提交。待用户决定：盔甲配置（同档轻重选择）、计分、马衣非战斗收益、前倾切换速度。详见handoffs/2026-11-06-EQUIP-066-Claude.md与EQUIP066_REVIEW.md。
+
+EQUIP-067 / Claude / 2026-11-06（用户授权70分钟）：看得见的马匹疲劳、头盔"胖"，以及用户对待定事项回复"开始做"（计分、前倾速度、马衣收益、马衣镜像）。认领battle.gd、core/{joust_match,game_state}.gd、ui/combat_report.gd、visual/{head_fit,rider_view}.gd、main.gd、caparison工具与新贴图、tests/*067*、版本入口与文档。
+EQUIP-069 / Claude / 2026-11-08：用户批准计分加入护甲实击门槛并重测。认领core/joust_match.gd、ui/combat_report.gd、main.gd、tests/test_balance066.gd、版本入口与文档。
+EQUIP-069交出：v0.4.28已导出复验（PCK D468711A…），Play-Latest已切换；释放全部认领文件，改动未提交。见handoffs/2026-11-08-EQUIP-069-Claude.md。
+EQUIP-068 / Claude / 2026-11-06：枪盾缓动、骑手臂力、马疲劳分档。认领core/{joust_match,horse_condition}.gd、battle.gd、tests/test_arm068.gd、版本入口与文档。
+EQUIP-068交出：v0.4.27已导出复验（PCK A80B7531…），Play-Latest已切换；释放全部认领文件，改动未提交。见handoffs/2026-11-06-EQUIP-068-Claude.md。
+EQUIP-067交出：v0.4.26已导出（PCK 36467CD9…），Play-Latest已切换；全部认领文件释放，改动未提交。罩袍纹章与枪盾缓动未做，计分后AI胜率未重测。详见handoffs/2026-11-06-EQUIP-067-Claude.md。
+
+REVIEW-070 / Codex / 2026-11-09：基线a5b0c2f，接收DOC-062至EQUIP-069已确认归属Claude的工作区。认领各交接接收栏、现状/日志/任务板、本轮审查证据；复验后按文档、素材数据、代码工具、测试、版本入口分组提交，保留所有旧包及存档。必要缺陷修复先记录。
+
+REVIEW-070检查点：静态接收及PCK核对完成，指定动态复验被保护器启动预算拒绝，等待内存余量。分组提交保存已有成果，未标里程碑动态验收完成。

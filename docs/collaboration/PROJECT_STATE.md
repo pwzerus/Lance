@@ -1,6 +1,23 @@
 # 当前实现与接手地图
 
-## 当前交付：FEEL-061 / v0.4.21（2026-11-05 EST）
+## 当前接收：v0.4.28 / REVIEW-070（2026-11-09）
+
+已接收Claude DOC-062至EQUIP-069连续工作区。当前启动入口是.28，PCK已核对；本轮指定动态复验因可用内存低于保护器2.5GiB启动预算未执行，状态为静态接收、动态待验。此前Claude报告的测试不能替代本轮复验。罩袍纹章、真人手感和重甲镜像缺口保留。见docs/development/REVIEW070_REVIEW.md；以下各轮为历史。
+
+
+## 当前交付：RIDER-064 / v0.4.23（2026-11-06，Claude，未提交）
+
+在 ART-063 基础上改善骑手骨架（rider_view.gd）：脚踩在挂于马鞍的马镫上，髋部随骑手，膝盖由两段骨 IK 实时求解；马镫随步态摆动，前后倾时脚蹬住马镫；骑乘时头部绕头部判定锚点反向转动前后倾角的 30%。joust_match 的命中锚点与姿态惯性均未改。Play-Latest 指向 v0.4.23（PCK 9DA780F9…），v0.4.22 和 v0.4.21 保留。详见 [RIDER064审查](../development/RIDER064_REVIEW.md)。
+
+## 上一交付：ART-063 / v0.4.22（2026-11-05，Claude，未提交）
+
+此段优先于以下历史状态。从 e772acd 开始，改动留在工作区，由 Codex 审核提交。Play-Latest 现指向独立的 v0.4.22 包，v0.4.21 保留。
+
+四套马皮由 `game/tools/horse_coat_v063.gd` 从 v050 母版重绘，存放在 `assets/art/horse_coats063`，原图的人字形条纹和噪点已去除。马皮包成 CanvasTexture，只对马皮使用线性加 mipmap 过滤，骑手仍是最近邻。肘部和膝前的轮廓黑线改为马皮色，远侧前腿按 FAR_FORE_POLYGON 裁剪。腿部末段拆为系骨和硬蹄（蹄冠为 v050 实测点），支撑期球节下沉峰值依步态为 0.10/0.20/0.26/0.30 rad，蹄底保持平贴。站立姿势、步频和步序、十匹马的属性、外观映射、规则挂点与内存保护均不变。
+
+验证：解剖测试 063 通过，回归 061 通过，源码与发布包连续渲染、图集、关节放大，发布包对局 65 秒（峰值约 659 MiB）。没有 OS 输入和真人试玩。详见 [ART063审查](../development/ART063_REVIEW.md) 和 [交接](handoffs/2026-11-05-ART-063-Claude.md)。
+
+## 上一交付：FEEL-061 / v0.4.21（2026-11-05 EST）
 
 此段优先于以下历史状态。由0e603cd接手，运行修复e8c7d63、后台保护QA 4acf79e、包验证/入口45b8951；最终发布／推送回执见[FEEL061审查](../development/FEEL061_REVIEW.md)和[交接](handoffs/2026-11-05-FEEL-061-Codex.md)。Play-Latest现指向独立.21包，旧包保留。
 
@@ -132,11 +149,11 @@ OS已操作源码与最终解压包的菜单/练习/换盾/暂停/退出；没�
 
 ## 启动与工具
 
-- [Play-Latest.cmd](../../Play-Latest.cmd)指向独立[Windows目录](../../builds/LanceAndLaurel-v0.4.14/)，EXE和PCK同目录；旧包与失败候选不覆盖。
+- [Play-Latest.cmd](../../Play-Latest.cmd)经[Start-MemoryBound.ps1](../../Start-MemoryBound.ps1)受保护启动独立[v0.4.23目录](../../builds/LanceAndLaurel-v0.4.23/)（2026-11-06 RIDER-064切换；v0.4.22、v0.4.21保留）；包内另有Play-Safe.cmd和同一保护器。启动器依赖本机Codex运行时的PowerShell 7路径，不是跨机安装程序。旧包与失败候选不覆盖。
 - 主项目[game/project.godot](../../game/project.godot)，Godot4.5.1/GDScript/Compatibility，Windows x86_64。
-- 本机引擎tools/godot-4.5.1/Godot_v4.5.1-stable_win64_console.exe；导出模板tools/templates/windows_release_x86_64.exe。
-- PCK SHA256：E29BFA58EBE956F2D24D30F73BA487B9F96CE55E04EE58EE3E062F1A29CFBADE。
-- 完整文档、ZIP身份、远程SHA及当前测试结果以DEV-054最终回执为准。根HANDOFF仍是旧入口且包含对方未提交内容，不能将其v0.4早期状态覆盖本文。
+- 本机引擎tools/godot-4.5.1/Godot_v4.5.1-stable_win64_console.exe；导出模板tools/templates/windows_release_x86_64.exe。所有引擎／导出／QA须经Start-MemoryBound串行运行，见文末INC-059段。
+- 当前PCK SHA256：9DA780F9A388483C5052CFE01D2E49CA9F59577798B7EFA4B20008CF3F56AA9E（v0.4.23，未打ZIP、未推送）。v0.4.22为471C7E80…A156，v0.4.21为8FE51E98…59D3EC；本节更早的E29BFA58…CBADE是v0.4.14的，仅作历史。
+- 当前测试结果以[ART063审查](../development/ART063_REVIEW.md)为准；v0.4.21的ZIP与远程回执见[FEEL061审查](../development/FEEL061_REVIEW.md)。
 
 ## 玩家控制与规则
 
@@ -201,3 +218,4 @@ ART-060V（2026-11-04）：四套马匹已完成保护下的实际导入、双�
 ## DOC-065 接手基线确认（2026-11-06，Codex）
 
 本轮只读核对确认：实际源码、导出目标与启动器均为 v0.4.23，包含 Claude 的 DOC-062、ART-063、RIDER-064 未提交改动。开发应从这一工作区继续；Git e772acd 的 .21 和本聊天旧汇报都是历史基线。读过交接及审查不等于完成代码放行、引擎复验或真人试玩，本轮均未执行。以后每次开工重新核对，不能把本段当成永远最新的版本号。
+

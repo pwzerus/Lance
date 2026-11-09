@@ -31,7 +31,7 @@ func projection_metrics(stream: AudioStreamWAV) -> Dictionary:
 	return {"valid":true,"mid_rms":sqrt(energy/maxi(1,count)),"mid_per_peak":sqrt(energy/maxi(1,count))/maxf(.000001,peak),"peak":peak,"peak_at_seconds":float(peak_at)/stream.mix_rate}
 
 func material_projection_checks(bank) -> void:
-	check(Bank.IMPACT_ASSET_DIR=="res://assets/audio/impact_v056/","Actual bank uses the new authored asset directory")
+	check(Bank.IMPACT_ASSET_DIR=="res://assets/audio/impact_v075/","Actual bank uses the current FEEL-075 authored asset directory")
 	for family in ["helmet","plate","shield_wood"]:
 		for variant in range(3):
 			var cue = "contact_%s_solid_%d" % [family,variant]
@@ -125,7 +125,7 @@ func run() -> void:
 	await create_timer(.22,true,false,true).timeout
 	AudioServer.set_bus_volume_db(0,original_master_db)
 	var report = {"passed":failures.is_empty(),"failures":failures,"rows":rows,"initial_generation_ms":generation_ms,"audio_dir":audio_dir,"audio_driver":AudioServer.get_driver_name(),
-		"scope":"Actual baked v056 PCM/peak table, old-new matched-peak mid-band and attack comparison, unchanged material routing and finite variants, simultaneous/staggered contact budget, real voice pause/resume, mute and bounded pool. No human listening, loudness/whole-Master hardware measurement or player impact acceptance claim."}
+		"scope":"Actual current FEEL-075 PCM/peak table, old-new matched-peak mid-band and attack comparison, material routing and finite variants, simultaneous/staggered contact budget, real voice pause/resume, mute and bounded pool. No human listening, loudness/whole-Master hardware measurement or player impact acceptance claim."}
 	DirAccess.make_dir_recursive_absolute(report_path.get_base_dir())
 	var file = FileAccess.open(report_path,FileAccess.WRITE)
 	if file:

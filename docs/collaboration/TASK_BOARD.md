@@ -302,3 +302,9 @@ FEEL-079交出：v0.4.33，全部认领释放，实际包规则、受击和完�
 FEEL-080 Codex：基线95d2819；认领battle.gd、core/joust_match.gd、horse_condition.gd、opponent_ai.gd、tests/*080*及版本/文档。精简HUD、提高疲劳感并用速度-操控取舍避免单一末段冲刺。
 
 FEEL-080交出：v0.4.34，认领释放，实际包复验通过。仍需不同装备和真实命中的策略胜率对照，不宣布最佳打法问题彻底消失。
+
+FEEL-081 Codex / 2026-11-09：基线bbf8027，v0.4.34，认领battle.gd、visual/horse_gait.gd、visual/impact_fx.gd、必要sound_bank.gd、tests/*081*、版本/启动器及本轮设计交接文档。强化实际低/高速的姿态、蹄尘、声音和接触强弱可读性；不改伤害规则，不增加弹跳，不接管屏幕，保护不变。保留既有rules_v045_results.json和历史未跟踪材料。
+
+FEEL-081复验适配：认领tests/test_impact_audio_v056.gd，旧测试仍硬编码已停用的impact_v056目录；将期望更新为已发布FEEL-075的impact_v075，保持PCM/峰值/材质/声部全部检验，不修改旧音频资产。
+
+FEEL-081交出：v0.4.35，实际包双向低高速12场和三轮比赛通过。全部认领释放；未验真人听感/策略胜率，保护及旧包保持。见FEEL081_REVIEW及本轮交接。

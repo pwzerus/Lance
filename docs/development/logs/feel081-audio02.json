@@ -1,0 +1,686 @@
+{
+	"audio_dir": "",
+	"audio_driver": "Dummy",
+	"failures": [],
+	"initial_generation_ms": 691.269,
+	"passed": true,
+	"rows": [
+		{
+			"cue": "contact_helmet_solid_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.53,
+				"peak": 0.67999267578125,
+				"rms": 0.082699079270334,
+				"sha256": "e25ca003a492a95a9de2c56af9bd73893eb2848a96fc34d0353cde6834fa7703",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_helmet_solid_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.53,
+				"peak": 0.67999267578125,
+				"rms": 0.0831686517856984,
+				"sha256": "5867b04cd5680ae8be5bb64f807f7dcc76a4ba1ca41f36b9b26ac364fc901b64",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_helmet_solid_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.53,
+				"peak": 0.67999267578125,
+				"rms": 0.0863246185938689,
+				"sha256": "54b387c1fcbf116fed17902dd4f41b6f515886cc05347e44a5411e1f9ffd6038",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_helmet_glance_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.32,
+				"peak": 0.3875732421875,
+				"rms": 0.0456182334296156,
+				"sha256": "07bb6cf210854dad6723ae0fa7caff1e707df7016bff2713c23ce77159c711b3",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_helmet_glance_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.32,
+				"peak": 0.3875732421875,
+				"rms": 0.0498984788933956,
+				"sha256": "4d71de6d1a35ecd3378a2b8b63adeea88f5a51a036fc03e1fa5c1f744de4d32e",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_helmet_glance_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.32,
+				"peak": 0.3875732421875,
+				"rms": 0.0513815559230216,
+				"sha256": "9fb8fcdd49059af52c7a36da15c3b3cabc7f1b782ad32d58398f9760ba206143",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_plate_solid_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.6,
+				"peak": 0.67999267578125,
+				"rms": 0.0832799149749,
+				"sha256": "145210c27df867b62c0917fb322652edf5edc6d83d2a531bad4bdb2063a0da90",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_plate_solid_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.6,
+				"peak": 0.67999267578125,
+				"rms": 0.0924518064674071,
+				"sha256": "4779c87b5b808b38cc9a8689e032a6144f2993c3306c56ceaa4be58f9d4c45a4",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_plate_solid_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.6,
+				"peak": 0.67999267578125,
+				"rms": 0.0785674612818251,
+				"sha256": "c23b9fa62b8a232f3af9925c21ebd9bae32e0ea7771145bbf8270e2a0902a287",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_plate_glance_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.32,
+				"peak": 0.3875732421875,
+				"rms": 0.0555748087809402,
+				"sha256": "bf2e55bdac85fde6e93e2f2e47f017e30ea36bdcbeafc8f323919d79fe92c544",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_plate_glance_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.32,
+				"peak": 0.3875732421875,
+				"rms": 0.0542489225628657,
+				"sha256": "947610177cb6bc7d6267ab27df4dd730e49522fec1d721eb177d9e7d3115bb8c",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_plate_glance_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.32,
+				"peak": 0.3875732421875,
+				"rms": 0.0505290224506802,
+				"sha256": "d3b931163657a8ca5f3f90fce1152027d1d6d1fea0284bdddb846fc22d5f2fca",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_mail_solid_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.44,
+				"peak": 0.629974365234375,
+				"rms": 0.0693659595950472,
+				"sha256": "468aab8f3b4b58b3726294ab12273224d272d333e2108ebecc729e8d2f3f62ce",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_mail_solid_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.44,
+				"peak": 0.629974365234375,
+				"rms": 0.0728495937618951,
+				"sha256": "0d624402dc217012aa3ae8fc7fa0ae95972340d5e6aa7f21a5d6e07f9679b656",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_mail_solid_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.44,
+				"peak": 0.629974365234375,
+				"rms": 0.0676763351831558,
+				"sha256": "449fe27775fd2df7c35ff5b3269c7be0fee7742b75e0e5f507e39d658451ba62",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_mail_glance_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.32,
+				"peak": 0.359100341796875,
+				"rms": 0.0481209533319729,
+				"sha256": "35b177fb674b2b0cfd8b79628d727ca6059d0ce6b72d922825f8389086f175f6",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_mail_glance_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.32,
+				"peak": 0.359100341796875,
+				"rms": 0.0476475966361799,
+				"sha256": "95c3d279363eeaa42b5f1fa08f4ce51a5ef4d91e75f6d5bdb9949e1e7f73c894",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_mail_glance_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.32,
+				"peak": 0.359100341796875,
+				"rms": 0.0441235068715475,
+				"sha256": "bddd068060979bced65c619317625a3a44a64233ca65f2ec07055db07174e83d",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_padded_solid_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.42,
+				"peak": 0.639984130859375,
+				"rms": 0.0758895872245686,
+				"sha256": "6c7c11bcb0b59c8ecc885497e736b6fdf4d7efe2bd87d7340bd9a3113fa3db1c",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_padded_solid_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.42,
+				"peak": 0.639984130859375,
+				"rms": 0.0842072913913532,
+				"sha256": "bcfce37c68ef70a880e480fa327ac568f582b822441043c18f5d3eb18190a933",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_padded_solid_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.42,
+				"peak": 0.639984130859375,
+				"rms": 0.0895383242539737,
+				"sha256": "0036bdd9f194e45095dac21e6e492784ff08070e563a7e53d9cff8f43ebd1417",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_padded_glance_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.32,
+				"peak": 0.364776611328125,
+				"rms": 0.0401821948433979,
+				"sha256": "0c3298ecff4b32c19d0df04bc3be791be1d7e1fbac0a99bfb8229f8a437914c8",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_padded_glance_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.32,
+				"peak": 0.364776611328125,
+				"rms": 0.0479101111535449,
+				"sha256": "b9faad4477c8d1b71c654a6b5786650f8a079c5660ca5e662ae6a59b1d66bcd7",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_padded_glance_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.32,
+				"peak": 0.364776611328125,
+				"rms": 0.038830852765687,
+				"sha256": "f3f6c823df3e279c48f67c82d2f81fdff43ff285ce51bf8d3c9a4f926eab008e",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_shield_wood_solid_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.43,
+				"peak": 0.67999267578125,
+				"rms": 0.0861617366339151,
+				"sha256": "2f97f780421c8679ab79d7b9a46c78dc1d36e7a995183e2b06e968202a1e87fb",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_shield_wood_solid_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.43,
+				"peak": 0.67999267578125,
+				"rms": 0.0931591718664929,
+				"sha256": "cd0eedb98f990d2864d79e3e0059f15e39cf10831d306951e09bf5ebf0aa96c3",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_shield_wood_solid_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.43,
+				"peak": 0.67999267578125,
+				"rms": 0.0971704929674916,
+				"sha256": "ccadf2bec1cb8480d243b8942a18b937463a2e43665c8b812bc882fb46fe4341",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_shield_wood_glance_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.32,
+				"peak": 0.3875732421875,
+				"rms": 0.0513642181276212,
+				"sha256": "611a1358173d8ad651710a1e131cd897296d56d163731d4b1072f06d7b51aab8",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_shield_wood_glance_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.32,
+				"peak": 0.3875732421875,
+				"rms": 0.0483866051984692,
+				"sha256": "bcc4816f4831c1b33121c10d00cd1fab6b26ca7a72348d5094e8f6a4ff7d1bb3",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_shield_wood_glance_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.32,
+				"peak": 0.3875732421875,
+				"rms": 0.0536132601818051,
+				"sha256": "2bad5025b4a9988990cb4b61e6b409ebb8c86e1026e99e41ed1f93d8c5c31e3d",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_brigandine_solid_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.48,
+				"peak": 0.649993896484375,
+				"rms": 0.0723107424337377,
+				"sha256": "99af70f229492d3194707bfd0e216b96d4b2cf40a70d6aac254615dfa0aa845f",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_brigandine_solid_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.48,
+				"peak": 0.649993896484375,
+				"rms": 0.066268124874664,
+				"sha256": "e28d80bac01e95e753fe4e598db5015e01273d31e51d5683043fc5ab9ac4184b",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_brigandine_solid_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.48,
+				"peak": 0.649993896484375,
+				"rms": 0.0651772167319546,
+				"sha256": "b3eac06f24e2707888f36114e18c446515876e971c7e397fc0d597a96ea3b12c",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_brigandine_glance_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.32,
+				"peak": 0.3704833984375,
+				"rms": 0.0460609923202293,
+				"sha256": "f8425000fda5f4aa9158973499e0f3ed4d0d3e54f5d739b9659dcd79adf2bdae",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_brigandine_glance_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.32,
+				"peak": 0.3704833984375,
+				"rms": 0.0462654263521875,
+				"sha256": "424cc8aca881f6b5892b29d56bfe643be69b3d2510a4e3c20795e5b2aabec2a2",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "contact_brigandine_glance_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.32,
+				"peak": 0.3704833984375,
+				"rms": 0.0490606619007676,
+				"sha256": "fc46043f8b84b56e0a290da2fbb64206c68778e87ff7b9927b169b3c770b796e",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "lance_break_0",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.41,
+				"peak": 0.569976806640625,
+				"rms": 0.0597564720804291,
+				"sha256": "56901b2113ddc55f265bf0b2f563060a196b9f3c4275f30a340b1a028b987cfc",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "lance_break_1",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.41,
+				"peak": 0.569976806640625,
+				"rms": 0.0648055160286893,
+				"sha256": "87e983b34f8bd5ac3a11fe47c8416f02582af31d8970209176d67fce31fd0fb8",
+				"valid_pcm": true
+			}
+		},
+		{
+			"cue": "lance_break_2",
+			"metrics": {
+				"clipped_samples": 0,
+				"duration": 0.41,
+				"peak": 0.569976806640625,
+				"rms": 0.0603516916077129,
+				"sha256": "42fa82b86fac79b977b3876f9a891202d2c4b3c7782b3b7b2c65fe8bcbf295ef",
+				"valid_pcm": true
+			}
+		},
+		{
+			"comparison_note": "Raw streams at equal fixed gain, 280ms silence between materials; not the final gameplay mix or a listening verdict.",
+			"comparison_order": [
+				"helmet",
+				"plate",
+				"mail",
+				"padded",
+				"shield_wood",
+				"brigandine"
+			]
+		},
+		{
+			"cue": "contact_helmet_solid_0",
+			"kind": "matched_peak_material_projection",
+			"new": {
+				"mid_per_peak": 0.189071439943025,
+				"mid_rms": 0.128567194360672,
+				"peak": 0.67999267578125,
+				"peak_at_seconds": 0.01,
+				"valid": true
+			},
+			"note": "One-pole analysis over the first 120ms; a PCM regression observation, not a loudness or perceptual acceptance score.",
+			"old": {
+				"mid_per_peak": 0.122528450111375,
+				"mid_rms": 0.0550645128277619,
+				"peak": 0.44940185546875,
+				"peak_at_seconds": 0.00294784580498866,
+				"valid": true
+			}
+		},
+		{
+			"cue": "contact_helmet_solid_1",
+			"kind": "matched_peak_material_projection",
+			"new": {
+				"mid_per_peak": 0.192961869340353,
+				"mid_rms": 0.131212657856498,
+				"peak": 0.67999267578125,
+				"peak_at_seconds": 0.00918367346938776,
+				"valid": true
+			},
+			"note": "One-pole analysis over the first 120ms; a PCM regression observation, not a loudness or perceptual acceptance score.",
+			"old": {
+				"mid_per_peak": 0.124600072923846,
+				"mid_rms": 0.0554593525266815,
+				"peak": 0.445098876953125,
+				"peak_at_seconds": 0.00868480725623583,
+				"valid": true
+			}
+		},
+		{
+			"cue": "contact_helmet_solid_2",
+			"kind": "matched_peak_material_projection",
+			"new": {
+				"mid_per_peak": 0.19972332530632,
+				"mid_rms": 0.135810398390973,
+				"peak": 0.67999267578125,
+				"peak_at_seconds": 0.00648526077097506,
+				"valid": true
+			},
+			"note": "One-pole analysis over the first 120ms; a PCM regression observation, not a loudness or perceptual acceptance score.",
+			"old": {
+				"mid_per_peak": 0.123962300284562,
+				"mid_rms": 0.05489931951079,
+				"peak": 0.44287109375,
+				"peak_at_seconds": 0.0026984126984127,
+				"valid": true
+			}
+		},
+		{
+			"cue": "contact_plate_solid_0",
+			"kind": "matched_peak_material_projection",
+			"new": {
+				"mid_per_peak": 0.19682449588223,
+				"mid_rms": 0.133839215614253,
+				"peak": 0.67999267578125,
+				"peak_at_seconds": 0.00346938775510204,
+				"valid": true
+			},
+			"note": "One-pole analysis over the first 120ms; a PCM regression observation, not a loudness or perceptual acceptance score.",
+			"old": {
+				"mid_per_peak": 0.10671902485071,
+				"mid_rms": 0.047536342978545,
+				"peak": 0.4454345703125,
+				"peak_at_seconds": 0.0128571428571429,
+				"valid": true
+			}
+		},
+		{
+			"cue": "contact_plate_solid_1",
+			"kind": "matched_peak_material_projection",
+			"new": {
+				"mid_per_peak": 0.205928304404143,
+				"mid_rms": 0.140029738730869,
+				"peak": 0.67999267578125,
+				"peak_at_seconds": 0.00977324263038549,
+				"valid": true
+			},
+			"note": "One-pole analysis over the first 120ms; a PCM regression observation, not a loudness or perceptual acceptance score.",
+			"old": {
+				"mid_per_peak": 0.109717627583994,
+				"mid_rms": 0.0469969671865523,
+				"peak": 0.4283447265625,
+				"peak_at_seconds": 0.0130385487528345,
+				"valid": true
+			}
+		},
+		{
+			"cue": "contact_plate_solid_2",
+			"kind": "matched_peak_material_projection",
+			"new": {
+				"mid_per_peak": 0.180204573677214,
+				"mid_rms": 0.122537790242788,
+				"peak": 0.67999267578125,
+				"peak_at_seconds": 0.0045124716553288,
+				"valid": true
+			},
+			"note": "One-pole analysis over the first 120ms; a PCM regression observation, not a loudness or perceptual acceptance score.",
+			"old": {
+				"mid_per_peak": 0.109564973989078,
+				"mid_rms": 0.0482623545702621,
+				"peak": 0.44049072265625,
+				"peak_at_seconds": 0.0126077097505669,
+				"valid": true
+			}
+		},
+		{
+			"cue": "contact_shield_wood_solid_0",
+			"kind": "matched_peak_material_projection",
+			"new": {
+				"mid_per_peak": 0.176464482535155,
+				"mid_rms": 0.119994555659434,
+				"peak": 0.67999267578125,
+				"peak_at_seconds": 0.00326530612244898,
+				"valid": true
+			},
+			"note": "One-pole analysis over the first 120ms; a PCM regression observation, not a loudness or perceptual acceptance score.",
+			"old": {
+				"mid_per_peak": 0.140543640841079,
+				"mid_rms": 0.057662008894881,
+				"peak": 0.4102783203125,
+				"peak_at_seconds": 0.00136054421768707,
+				"valid": true
+			}
+		},
+		{
+			"cue": "contact_shield_wood_solid_1",
+			"kind": "matched_peak_material_projection",
+			"new": {
+				"mid_per_peak": 0.17963123319063,
+				"mid_rms": 0.122147922911182,
+				"peak": 0.67999267578125,
+				"peak_at_seconds": 0.0133333333333333,
+				"valid": true
+			},
+			"note": "One-pole analysis over the first 120ms; a PCM regression observation, not a loudness or perceptual acceptance score.",
+			"old": {
+				"mid_per_peak": 0.131729378789931,
+				"mid_rms": 0.0578084859313723,
+				"peak": 0.4388427734375,
+				"peak_at_seconds": 0.00122448979591837,
+				"valid": true
+			}
+		},
+		{
+			"cue": "contact_shield_wood_solid_2",
+			"kind": "matched_peak_material_projection",
+			"new": {
+				"mid_per_peak": 0.200784229211146,
+				"mid_rms": 0.136531805275963,
+				"peak": 0.67999267578125,
+				"peak_at_seconds": 0.00478458049886621,
+				"valid": true
+			},
+			"note": "One-pole analysis over the first 120ms; a PCM regression observation, not a loudness or perceptual acceptance score.",
+			"old": {
+				"mid_per_peak": 0.129657964899298,
+				"mid_rms": 0.0571131306566305,
+				"peak": 0.44049072265625,
+				"peak_at_seconds": 0.00131519274376417,
+				"valid": true
+			}
+		},
+		{
+			"budget": 0.78,
+			"combined_bound": 0.779999999388515,
+			"delayed_existing_bound": 0.157723932687194,
+			"first_bound": 0.779999967119827,
+			"kind": "contact_group_budget",
+			"scope": "Conservative contact-only peak sum; music, wind and hoof streams require the remaining mix headroom. This is not a hardware loudness or whole-Master clipping measurement."
+		},
+		{
+			"contact_gain_unchanged": true,
+			"kind": "movement_duck",
+			"maximum_cut_db": 18.0,
+			"new_and_existing_hoof": true,
+			"same_frame_repeated_set_accumulates": false,
+			"scope": "Real player gains/paused playbacks; no claim of human mix acceptance."
+		},
+		{
+			"audio_driver": "Dummy",
+			"dummy_block_seconds": 0.0928798185941043,
+			"kind": "playback_pause_resume",
+			"mix_rate": 44100.0,
+			"observations": [
+				{
+					"active": true,
+					"paused": false,
+					"position": 0.284444451332092,
+					"stage": "before_pause",
+					"ticks_usec": 1628035
+				},
+				{
+					"active": true,
+					"paused": true,
+					"position": 0.284444451332092,
+					"stage": "immediate_pause",
+					"ticks_usec": 1628083
+				},
+				{
+					"active": true,
+					"paused": true,
+					"position": 0.296054422855377,
+					"stage": "after_pause_wait",
+					"ticks_usec": 1778033
+				},
+				{
+					"active": true,
+					"paused": false,
+					"position": 0.296054422855377,
+					"stage": "immediate_resume",
+					"ticks_usec": 1778096
+				},
+				{
+					"active": true,
+					"paused": false,
+					"position": 0.574693858623505,
+					"stage": "after_resume_wait",
+					"ticks_usec": 1994695
+				}
+			],
+			"requested_resume_seconds": 0.210759637188209
+		},
+		{
+			"generated_samples": 1,
+			"kind": "missing_asset_fixture",
+			"note": "Intentional nonexistent QA path; not part of the shipped cue bank or impact playback."
+		}
+	],
+	"scope": "Actual current FEEL-075 PCM/peak table, old-new matched-peak mid-band and attack comparison, material routing and finite variants, simultaneous/staggered contact budget, real voice pause/resume, mute and bounded pool. No human listening, loudness/whole-Master hardware measurement or player impact acceptance claim."
+}

@@ -410,7 +410,7 @@ func _on_hoof_contact(leg_index: int, rider_index: int) -> void:
 	else:
 		pose = riders[rider_index].Gait.leg(leg_index,riders[rider_index].stride_phase,float(fighter.speed),true)
 	effects.dust(Vector2(float(fighter.x)+pose.foot.x*int(fighter.direction),float(fighter.lane_y)+pose.foot.y),int(fighter.direction),pace)
-	sound.play("hoof",lerpf(-24,-12,pace)-(5 if rider_index==1 else 0),.88 if leg_index<2 else 1.06)
+	sound.play("hoof",lerpf(-27,-12,pace)-(5 if rider_index==1 else 0),(.88 if leg_index<2 else 1.06)*lerpf(1.04,.94,pace))
 
 func _update_ai(delta: float) -> void:
 	var difficulty = 0 if practice else int(GameState.profile.settings.difficulty)
@@ -685,7 +685,13 @@ func _update_hud() -> void:
 	if phase=="ready" and f.boost:
 		pace_text = "保持按住 · 等待起跑"
 	var gait_name = Rider.Gait.NAMES[Rider.Gait.gait_index(float(f.speed))]
-	speed_label.text = pace_text if not training_zones else "%s · %s %d" % [pace_text,gait_name,roundi(float(f.speed))]
+	# Urging is an input, not proof of speed: a tired horse can still be slow.
+	# Keep the actual gait visible through acceleration AND release/coasting.
+	speed_label.text = "%s · %s" % [gait_name,pace_text] if phase=="charge" else pace_text
+	if training_zones:
+		speed_label.text = "%s · %s %d" % [pace_text,gait_name,roundi(float(f.speed))]
+	var pace_color = smoothstep(Model.TROT_SPEED,Model.GALLOP_SPEED,float(f.speed)) if phase=="charge" else 0.0
+	speed_label.add_theme_color_override("font_color",Color("c2d8ce").lerp(Color("f1bd67"),pace_color))
 	var C = Model.Condition
 	var stamina = float(f.stamina)
 	var rate = -C.drain_rate(f.stats) if bool(f.boost) and phase=="charge" else (C.rest_rate(f.stats) if phase in ["ready","turn"] else C.recovery_rate(f.stats,float(f.speed),Model.GALLOP_SPEED,Model.TROT_SPEED))

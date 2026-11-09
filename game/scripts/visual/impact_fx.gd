@@ -30,13 +30,14 @@ func hit(point: Vector2, direction: int, damage: float, shield: bool, broke: boo
 	# The caller supplies strength from this actual contact. No anticipation
 	# marker, target prediction, or blood setting creates a contact flash.
 	var strength = clampf(impulse_strength,0.0,1.0) if is_finite(impulse_strength) else .5
-	var duration = lerpf(.28,.36,strength)
+	var duration = lerpf(.22,.36,strength)
 	bursts.append({"p":point,"life":duration,"duration":duration,"shield":shield,
 		"zone":"shield" if shield else zone,"direction":-1 if direction<0 else 1,
-		"strength":strength,"size":lerpf(18.0,28.0,strength)})
+		"strength":strength,"size":lerpf(12.0,34.0,strength)})
 	var blood = blood_enabled and not shield and damage > 11.0
-	for i in range(18 if broke else 11):
-		var velocity = Vector2(rng.randf_range(-150,150) + direction * 65, rng.randf_range(-165,-35))
+	# Bounded contact fan: low-speed taps must not look like a full charge.
+	for i in range(roundi(lerpf(5,15,strength))+(4 if broke else 0)):
+		var velocity = Vector2(rng.randf_range(-150,150) + direction * 65, rng.randf_range(-165,-35))*lerpf(.45,1.25,strength)
 		var color = Color("c89b55") if broke else Color("f4dda0")
 		particles.append({"p": point, "v": velocity, "life": rng.randf_range(.35,.8), "color": color, "size": rng.randf_range(2,5), "blood": false})
 	if blood:
@@ -80,9 +81,11 @@ func break_lance(event: Dictionary, mode: String, equipment: Dictionary = {}) ->
 		cursor += length
 
 func dust(point: Vector2, direction: int, pace: float = 0.0) -> void:
+	pace = clampf(pace,0,1)
 	for i in range(1+int(pace*3)):
 		particles.append({"p": point, "v": Vector2(-direction*rng.randf_range(30,75)*(1+pace),-rng.randf_range(12,32)), "life": lerpf(.28,.48,pace),
-			"color": Color(.70,.59,.39,lerpf(.24,.42,pace)), "size": rng.randf_range(3,6+pace*4), "blood": false, "dust":true,"floor":point.y+2})
+			"color": Color(.70,.59,.39,lerpf(.24,.42,pace)), "size": rng.randf_range(3,6+pace*4), "blood": false, "dust":true,"floor":point.y+2,
+			"trail":pace*pace*18.0,"direction":direction})
 
 func fall(fighter: Dictionary, direction: int, event: Dictionary = {}, mounted: RiderView = null) -> void:
 	# Capture the same skeleton, face, armor and hands used on horseback.
@@ -130,7 +133,18 @@ func _draw_far_dust() -> void:
 		if particle.get("dust",false) and float(particle.floor)<0:
 			var color = Color(particle.color)
 			color.a *= clampf(float(particle.life)*3.0,0,1)
-			far_dust.draw_rect(Rect2(Vector2(particle.p),Vector2.ONE*float(particle.size)),color)
+			_draw_dust_particle(far_dust,particle,color)
+
+func _draw_dust_particle(canvas: Node2D, particle: Dictionary, color: Color) -> void:
+	var point = Vector2(particle.p)
+	var size = float(particle.size)
+	canvas.draw_rect(Rect2(point,Vector2.ONE*size),color)
+	# A short, grounded wake, emitted only by real hoof contacts. Both lanes
+	# use the same helper; no screen-space speed lines or persistent nodes.
+	var length = float(particle.get("trail",0))*clampf(float(particle.life)*3,0,1)
+	if length>1.0:
+		var start = point+Vector2(-length if int(particle.get("direction",1))>0 else size,size*.55)
+		canvas.draw_rect(Rect2(start,Vector2(length,maxf(2,size*.35))),Color(color,color.a*.45))
 
 func _draw() -> void:
 	if WindowActivity.suspended():
@@ -147,7 +161,10 @@ func _draw() -> void:
 			continue
 		var color = Color(particle.color)
 		color.a *= clampf(float(particle.life) * 3.0,0,1)
-		draw_rect(Rect2(Vector2(particle.p), Vector2.ONE * float(particle.size)), color)
+		if particle.get("dust",false):
+			_draw_dust_particle(self,particle,color)
+		else:
+			draw_rect(Rect2(Vector2(particle.p), Vector2.ONE * float(particle.size)), color)
 
 func _draw_contact_burst(burst: Dictionary) -> void:
 	# A small asymmetric star establishes the exact point, followed by a

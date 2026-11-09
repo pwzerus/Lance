@@ -150,10 +150,12 @@ static func body(phase: float, speed: float, moving: bool, stability: float = 1.
  # the seated rider forward; these offsets are shared with the rule anchors.
  return {"offset":Vector2(sin(phase-.4)*run*.55+drive*1.3,height*intensity+absf(drive)*.7),"pitch":pitch*intensity-drive*.018,
   "neck":neck_angle,"head":-neck_angle*.55-pitch*.6+sin(phase-.7)*.012*run*intensity,
-  "neck_offset":Vector2(run*(2+2*sin(phase-.3)),run*(1+height*.14))*intensity,
+  "neck_offset":Vector2(run*(2+2*sin(phase-.3))+3*w.w,run*(1+height*.14))*intensity,
   "tail":(.30*run+sin(phase-1.1)*(.04+.10*run))*intensity,
   "rider_offset":Vector2(-sin(phase)*run*2.2-drive*1.2,rider_lag*intensity),
-  "rider_pitch":delayed_pitch*.58+drive*.060,"gait":gait_index(speed)}
+  # Sustained forward carriage reads actual travel, not the spur button.
+  # Shared by rule anchors and art; no extra vertical bounce or aim jitter.
+  "rider_pitch":delayed_pitch*.58+drive*.060+run*.040+w.w*.025,"gait":gait_index(speed)}
 
 static func _swing_point(front: bool, t: float, reach: float, lift: float, run: float) -> Vector2:
  # One C1 trajectory, rather than Catmull-Rom sections with different time

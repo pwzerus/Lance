@@ -215,8 +215,7 @@ func impact_cue(event: Dictionary, defender_stats: Dictionary) -> Dictionary:
 	# A shield's rule impulse has already been reduced by block/deflection.
 	# Its audible contact must retain the actual incoming speed's energy;
 	# changing this presentation strength never increases shield damage.
-	var speed_strength = clampf(_finite_number(event.get("speed"),0.0)/900.0,0.0,1.0)*.75
-	var strength = maxf(clampf(impulse/85.0,0.0,1.0),speed_strength)
+	var strength = preload("res://scripts/visual/exchange_director.gd").contact_strength(event)
 	var pitch: float = lerpf(1.02,.91,strength)+[0.0,-.012,.014][variant]
 	if zone=="flank":
 		pitch *= .95 # Same actual armour, more damped lower-torso resonance.
@@ -225,7 +224,7 @@ func impact_cue(event: Dictionary, defender_stats: Dictionary) -> Dictionary:
 	# Material body is now audible in the mids as well as the bass. Give an
 	# isolated committed contact priority, while the unchanged group limiter
 	# still bounds simultaneous hits/cracks and retained contact tails.
-	return {"cue":_contact_name(family,kind,variant),"db":lerpf(-11.5,-2.5,strength)-(2.2 if kind=="glance" else 0.0),
+	return {"cue":_contact_name(family,kind,variant),"db":lerpf(-15.0,-2.5,strength)-(2.2 if kind=="glance" else 0.0),
 		"pitch":pitch,"material":family,"zone":zone,"kind":kind,"variant":variant,"strength":strength}
 
 func break_cue(event: Dictionary) -> Dictionary:

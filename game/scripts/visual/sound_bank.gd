@@ -57,7 +57,7 @@ const CONTACT_PEAKS = {
 	"lance_break_1":0.569976806641,
 	"lance_break_2":0.569976806641
 }
-const IMPACT_ASSET_DIR = "res://assets/audio/impact_v056/"
+const IMPACT_ASSET_DIR = "res://assets/audio/impact_v075/"
 static var contact_generation_count = 0
 # Audible responses, not historical acoustic measurements. Metal has a short
 # shell attack over a heavy body; no sustained high sine serves as the hit.

@@ -104,7 +104,7 @@ static func frequency(speed: float) -> float:
  # Faster travel is visible as both a longer stride and a stronger cadence.
  # The previous trot/canter/gallop rates were almost identical, so urging
  # only stretched the legs across the ground while their rhythm stayed flat.
- return (.88*w.x+1.40*w.y+1.65*w.z+1.90*w.w)*clampf(speed/100.0,.10,1.12)
+ return (.88*w.x+1.40*w.y+1.72*w.z+2.05*w.w)*clampf(speed/100.0,.10,1.12)
 
 static func _cycle(values: Array, cycle: float) -> float:
  var p = fposmod(cycle,1.0)*values.size()
@@ -165,7 +165,9 @@ static func _swing_point(front: bool, t: float, reach: float, lift: float, run: 
  # hoof hanging behind the horse for the first third of the swing, which read
  # as a backward kick/bounce. The leg now folds forward under the body soon
  # after lift-off; start and touchdown still have zero world velocity.
- var warped = progress*(1.0+.55*(1.0-progress))
+ # Deliver earlier than a symmetric swing without concentrating nearly
+ # the whole stride in its first half (the old .55 skew looked like a kick).
+ var warped = progress*(1.0+.24*(1.0-progress))
  var delivered = warped*warped*warped*(warped*(6.0*warped-15.0)+10.0)
  # Clear the ground early while the trunk advances over the planted foot.
  # A symmetric sin² hump lifted too late and forced a straight-chain clamp.
@@ -190,7 +192,7 @@ static func leg(index: int, phase: float, speed: float, moving: bool, stability:
  var reach = maxf(0,speed)/maxf(.1,frequency(speed))*duty*.5
  # Hind hooves fold up close (hock and fetlock flex) rather than being flung
  # high behind: lower hind lift than the forelegs (HORSE-065).
- var lift = (15*w.x+(25 if front else 21)*w.y+(37 if front else 27)*w.z+(46 if front else 32)*w.w)*smoothstep(0,85,speed)
+ var lift = (15*w.x+(25 if front else 21)*w.y+(33 if front else 27)*w.z+(38 if front else 30)*w.w)*smoothstep(0,85,speed)
  var foot = rest_foot(index)
  var nominal_contact = not moving or cycle<duty
  var contact = nominal_contact

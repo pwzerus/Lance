@@ -56,10 +56,10 @@ func setup(value: Dictionary, event: Dictionary, mounted: RiderView = null) -> v
 	initial_pose.torso_transform.origin = Vector2.ZERO
 	# Retain some mounted momentum; actual incoming impulse changes its course.
 	# One constrained body replaces six unrelated random rigid-body throws.
-	velocity = Vector2(float(fighter.speed)*int(fighter.direction)*.18+direction*lerpf(110,225,strength),-lerpf(65,120,strength))
+	velocity = Vector2(float(fighter.speed)*int(fighter.direction)*.18+direction*lerpf(110,260 if zone=="head" else 225,strength),-lerpf(65,145 if zone=="head" else 120,strength))
 	roll_direction = float(direction if zone!="flank" else -direction)
 	target_rotation = roll_direction*PI*.47-float(initial_pose.torso_transform.get_rotation())
-	angular_velocity = roll_direction*lerpf(1.1,2.25 if zone=="head" else 1.8,strength)
+	angular_velocity = roll_direction*lerpf(1.1,3.1 if zone=="head" else 1.8,strength)
 	_make_joints()
 	for far_only in [true,false]:
 		var renderer = Rider.new()

@@ -140,8 +140,10 @@ static func advance_reaction(fighter: Dictionary, delta: float) -> void:
 	var remaining = maxf(0.0,minf(delta,.25))
 	while remaining>.000001:
 		var dt = minf(remaining,1.0/120.0)
-		for config in [["reaction_angle","reaction_angular_velocity",160.0,16.0,-.34,.28],
-			["reaction_shift","reaction_shift_velocity",300.0,22.0,-10.0,3.0],
+		# A committed hit carries the torso through a visible loss of posture;
+		# shoulders/grips/targets still use this one continuously integrated pose.
+		for config in [["reaction_angle","reaction_angular_velocity",105.0,12.0,-.48,.34],
+			["reaction_shift","reaction_shift_velocity",250.0,20.0,-13.0,3.0],
 			["shield_compression","shield_compression_velocity",330.0,24.0,-3.0,24.0],
 			["shield_twist","shield_twist_velocity",150.0,14.0,-.32,.32],
 			["lance_compression","lance_compression_velocity",360.0,24.0,-2.0,12.0]]:
@@ -482,8 +484,8 @@ func _apply_contact(contact: Dictionary) -> void:
 	contact.merge({"damage": damage, "impulse": impulse, "glanced": glanced, "broke": broke_now, "points": points, "attaint": attaint, "dead": defender.dead, "ko": defender.ko,"ko_reason":ko_reason,"support":support,"balance_left":defender.balance,"shield_broke":shield_before>0 and float(defender.shield)<=0,
 		"break_tip":old_tip,"break_hand":old_hand,"break_reach":old_reach,"break_angle":attacker.aim,"break_direction":attacker.direction})
 	var loading = reaction_strength(contact)
-	var angular_kick = -6.3 if zone=="head" else (4.5 if zone=="flank" else (-3.6 if zone=="shield" else -5.5))
-	defender.reaction_angular_velocity = clampf(float(defender.get("reaction_angular_velocity",0.0))+angular_kick*loading,-6.0,5.0)
+	var angular_kick = -11.2 if zone=="head" else (5.0 if zone=="flank" else (-3.6 if zone=="shield" else -6.5))
+	defender.reaction_angular_velocity = clampf(float(defender.get("reaction_angular_velocity",0.0))+angular_kick*loading,-10.0,5.5)
 	defender.reaction_shift_velocity = maxf(-170.0,float(defender.get("reaction_shift_velocity",0.0))-145.0*loading)
 	if zone=="shield":
 		var eccentricity = float(contact.get("eccentricity",0.0))

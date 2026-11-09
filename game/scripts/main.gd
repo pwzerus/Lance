@@ -101,8 +101,8 @@ func _ready() -> void:
 		OS.alert("Please launch with Play-Latest.cmd (memory protection required).", "Lance & Laurel")
 		get_tree().quit(2)
 		return
-	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.30"
-	print("GALUMU_BUILD v0.4.30")
+	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.31"
+	print("GALUMU_BUILD v0.4.31")
 	get_tree().auto_accept_quit = false
 	add_child(WindowActivity.new())
 	get_window().min_size = Vector2i(960,540)
@@ -122,7 +122,7 @@ func _ready() -> void:
 		smoke_started = Time.get_ticks_msec()
 	show_home()
 	if GameState.qa_input_probe:
-		get_window().title = "Lance & Laurel v0.4.30 QA - Desktop input"
+		get_window().title = "Lance & Laurel v0.4.31 QA - Desktop input"
 		var audit = preload("res://scripts/core/desktop_input_audit.gd").new()
 		audit.main = self
 		add_child(audit)
@@ -182,7 +182,7 @@ func show_home() -> void:
 	UI.button(screen,"历史手记",Rect2(68,569,247,50),show_history)
 	UI.button(screen,"设置",Rect2(331,569,247,50),show_settings)
 	UI.button(screen,"保存并退出",Rect2(68,645,510,50),_save_and_exit)
-	UI.label(screen,"自动保存已启用 · v0.4.30",Vector2(70,727),16,UI.MUTED)
+	UI.label(screen,"自动保存已启用 · v0.4.31",Vector2(70,727),16,UI.MUTED)
 	UI.label(screen,"你的骑士",Vector2(790,145),20,UI.GOLD)
 	UI.button(screen,"角色外观",Rect2(1010,129,362,54),show_character,true)
 	_add_preview(Vector2(1035,652),1.42)
@@ -269,7 +269,7 @@ func show_match_setup() -> void:
 	_header("出战 · 选择模式与对手")
 	UI.label(screen,"选择你的交锋",Vector2(60,115),38,UI.INK)
 	UI.button(screen,"返回营地",Rect2(1208,105,175,48),show_home)
-	var descriptions = ["非致死比武 · 每轮领取新枪\n最多三次对冲，落马可提前决胜。","允许死亡 · 断枪跨轮保留\n收藏不会丢失，尖头枪更危险。","熟悉催马、枪线和三档盾位\n对手按轮次换盾，不计胜负奖励。"]
+	var descriptions = ["非致死比武 · 每轮领取新枪\n最多三次对冲，落马可提前决胜。","头部有效重击可致命，头盔可抵挡\n断枪跨轮保留，收藏不会丢失。","熟悉催马、枪线和三档盾位\n对手按轮次换盾，不计胜负奖励。"]
 	for i in range(3):
 		var card = UI.panel(screen,Rect2(60+i*449,200,430,260))
 		UI.label(card,["竞技场","实战","练习场"][i],Vector2(24,22),30,UI.GOLD)

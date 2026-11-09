@@ -8,6 +8,8 @@ var enabled = true
 var reading: Dictionary = {"zone":"miss","point":Vector2.ZERO}
 
 static func contact_name(event: Dictionary) -> String:
+	if event.zone=="head" and event.has("head_outcome"):
+		return {"fatal":"头部 · 致命重击","helmet_block":"头盔抵挡重击","glance":"头盔 / 头部","solid":"头盔 / 头部"}.get(str(event.head_outcome),"头盔 / 头部")
 	if event.zone=="shield":
 		return {"center":"盾心受击","face":"盾面受击","rim":"盾缘受击"}.get(str(event.get("shield_region","face")),"盾面受击")
 	return {"head":"头盔 / 头部","body":"胸甲 / 躯干","flank":"腰腹"}.get(str(event.zone),str(event.zone))

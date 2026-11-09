@@ -6,6 +6,11 @@ const MAX_PASSES = 3
 # Estimated from balance068 hit data: helm hits on light kit average ~24-29,
 # on top plate ~19; 17 turns roughly a third of hits on heavy plate into touches.
 const ATTAINT_DAMAGE = 17.0
+# RULE-076 gameplay thresholds, not measurements of real injury probability.
+const WAR_HEAD_DAMAGE = 50.0
+const WAR_HEAD_SPEED = 820.0
+const WAR_HEAD_INCIDENCE = .82
+const WAR_HEAD_STABILITY = .80
 const START_X = 2200.0
 const EXIT_X = 850.0
 const TROT_SPEED = 210.0
@@ -398,6 +403,13 @@ func _detect_contact(index: int, delta: float) -> Dictionary:
 	if found.zone=="shield":
 		event.contact_local = sweep.contact_local
 		event.merge(Shield.contact_region(sweep.contact_local,sweep.local_incoming,str(defender.stats.get("shield_shape","kite"))))
+	elif found.zone=="head":
+		# Outward normal at the actual entry point, with target translation at
+		# the same sweep fraction. Do not use screen position or merely aim height.
+		var center_at_contact = Vector2(found.old).lerp(found.center,float(sweep.fraction))
+		var normal = Vector2(sweep.point)-center_at_contact
+		var incoming = tip_velocity-target_velocity
+		event.head_incidence = clampf(-incoming.normalized().dot(normal.normalized()),0,1) if normal.length_squared()>.0001 and incoming.length_squared()>.0001 else 0.0
 	return event
 
 func _apply_contact(contact: Dictionary) -> void:
@@ -419,10 +431,23 @@ func _apply_contact(contact: Dictionary) -> void:
 		var incoming = Vector2(cos(float(attacker.aim))*int(attacker.direction),sin(float(attacker.aim)))
 		contact.merge(Shield.contact_region(contact.contact_local,inverse.basis_xform(incoming),str(defender.stats.get("shield_shape","kite"))))
 	var glanced = false
+	var head_outcome = ""
+	var head_angle_factor = 1.0
+	var unarmoured_head_damage = 0.0
 	var shield_before = float(defender.shield)
 	if zone == "head":
+		unarmoured_head_damage = damage*1.38*1.32
 		damage *= 1.38 * (1.0 - float(defender.stats.get("helmet", 0.08)))
 		impulse *= 0.86
+		if mode=="war":
+			# Missing geometry can never award a new critical hit. Legacy synthetic
+			# events keep their former damage, but actual sweeps always supply it.
+			var incidence = clampf(float(contact.get("head_incidence",1.0)),0,1)
+			head_angle_factor = lerpf(.20,1.0,incidence*incidence)
+			glanced = incidence<.60
+			damage *= head_angle_factor
+			impulse *= lerpf(.25,1.0,incidence)
+			head_outcome = "glance" if glanced else "solid"
 	elif zone in ["body","flank"]:
 		damage *= 1.0 - float(defender.stats.get("armor", 0.10))
 		impulse *= 1.28 if zone=="flank" else 1.18
@@ -434,6 +459,15 @@ func _apply_contact(contact: Dictionary) -> void:
 		impulse *= 0.16 if glanced else 0.28
 	if mode == "war" and zone != "shield":
 		damage *= 1.32
+	if mode=="war" and zone=="head":
+		var committed = contact.has("head_incidence") and float(contact.head_incidence)>=WAR_HEAD_INCIDENCE and speed>=WAR_HEAD_SPEED and float(attacker.get("lance_stability",1.0))>=WAR_HEAD_STABILITY and not attacker.broken
+		contact["head_severity"] = damage
+		if committed and damage>=WAR_HEAD_DAMAGE:
+			head_outcome = "fatal"
+			damage = maxf(damage,float(defender.hp))
+		elif committed and unarmoured_head_damage*head_angle_factor>=WAR_HEAD_DAMAGE and damage<WAR_HEAD_DAMAGE:
+			head_outcome = "helmet_block"
+		contact["head_outcome"] = head_outcome
 	defender.hp = maxf(0.0, float(defender.hp) - damage)
 	attacker.damage_total += damage
 	defender.last_hit = zone

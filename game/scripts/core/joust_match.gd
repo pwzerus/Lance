@@ -198,7 +198,12 @@ func _cache_pose(fighter: Dictionary) -> void:
 func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float, guard: float = -1.0) -> void:
 	var fighter = fighters[index]
 	var distance = absf(float(fighters[0].x)-float(fighters[1].x))
-	var committed = phase=="charge" and distance<1100 and float(fighters[0].x)<float(fighters[1].x)
+	# Remaining reaction time, not a fixed distance, determines the close pass.
+	# Releasing the spur buys adjustment time at the cost of one's own drive.
+	var closing_speed = maxf(1.0,float(fighters[0].speed)+float(fighters[1].speed))
+	var contact_time = maxf(0.0,distance-lance_length(fighter)-40.0)/closing_speed
+	var committed = phase=="charge" and contact_time<.85 and float(fighters[0].x)<float(fighters[1].x)
+	var pace_load = smoothstep(TROT_SPEED,GALLOP_SPEED,float(fighter.speed))
 	var previous_aim = float(fighter.aim)
 	# EQUIP-066: armour weight slows lance redirection, guard moves and the
 	# recovery of lance support (light kit = quicker hands, heavy = slower).
@@ -207,7 +212,7 @@ func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float
 	var arm_factor = Condition.arm_factor(float(fighter.get("arm",100.0)))
 	# EQUIP-068 (user request): the lance and shield ease in and out like the
 	# lean, instead of starting and stopping at full speed in one frame.
-	var aim_max = (.95 if committed else 2.2)*float(fighter.stats.get("lance_handling",1.0))*agility*arm_factor
+	var aim_max = (.95 if committed else 2.2)*lerpf(1.0,.75,pace_load)*float(fighter.stats.get("lance_handling",1.0))*agility*arm_factor
 	var aim_motion = eased(previous_aim,clampf(aim,-.68,.58),float(fighter.get("aim_rate",0.0)),aim_max,delta)
 	fighter.aim = aim_motion.x
 	fighter.aim_rate = aim_motion.y
@@ -228,7 +233,7 @@ func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float
 	if guard>=0:
 		fighter.guard_target = clampf(guard,0,1)
 	var previous_guard = float(fighter.guard)
-	var guard_motion = eased(previous_guard,float(fighter.guard_target),float(fighter.get("guard_rate",0.0)),2.8*float(fighter.stats.get("shield_handling",1.0))*agility*arm_factor,delta)
+	var guard_motion = eased(previous_guard,float(fighter.guard_target),float(fighter.get("guard_rate",0.0)),2.8*lerpf(1.0,.85,pace_load)*float(fighter.stats.get("shield_handling",1.0))*agility*arm_factor,delta)
 	fighter.guard = guard_motion.x
 	fighter.guard_rate = guard_motion.y
 	# EQUIP-068 arm fatigue: big lance redirects and shield swings tire the arms

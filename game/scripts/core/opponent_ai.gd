@@ -101,7 +101,12 @@ func update(model: JoustMatch, index: int, difficulty: int, delta: float, rng: R
 	# Reserve a finishing effort with the same stamina rules as the player.
 	# Hysteresis prevents per-frame spur toggling at the exhaustion boundary.
 	var effort_floor = [24.0,18.0,12.0][difficulty] if bool(ai.boost) else 55.0
-	var boost = distance<[4200,3100,2600][difficulty] and float(ai.stamina)>effort_floor
+	# React to the opponent's observed approach, not a universal late-sprint
+	# marker. Normal opponents alternate pressure and measured approaches.
+	var pressure_gap = [4200,3000,2400][difficulty]+(450.0 if pass_id%2==1 else -250.0)
+	var rush_seen = float(last_seen.get("speed",0))>Model.GALLOP_SPEED*.82
+	var closing_window = contact_time<3.0 and rush_seen
+	var boost = (distance<pressure_gap or closing_window) and float(ai.stamina)>effort_floor
 	if practice:
 		boost = distance>1200
 	model.set_controls(index,aim,lean,boost,delta,guard)

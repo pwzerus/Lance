@@ -1,0 +1,65 @@
+{
+	"failures": [
+		"Braking failed to buy correction accuracy",
+		"Braking failed to buy correction accuracy",
+		"Opponent pressure did not shorten late rider's response time"
+	],
+	"passed": false,
+	"rows": [
+		{
+			"adjustment_time": 1.13333333333333,
+			"aim_error": 0.0,
+			"opponent": "early",
+			"speed": 336.794814453124,
+			"stamina": 26.6739062499997,
+			"style": "early",
+			"time": 6.41666666666667
+		},
+		{
+			"adjustment_time": 1.05,
+			"aim_error": 0.0,
+			"opponent": "early",
+			"speed": 496.875,
+			"stamina": 67.0972656249995,
+			"style": "late",
+			"time": 7.21666666666667
+		},
+		{
+			"adjustment_time": 1.3,
+			"aim_error": 0.0,
+			"opponent": "early",
+			"speed": 217.3828125,
+			"stamina": 62.2206995320856,
+			"style": "brake",
+			"time": 6.58333333333333
+		},
+		{
+			"adjustment_time": 1.05,
+			"aim_error": 0.0,
+			"opponent": "late",
+			"speed": 286.970673828124,
+			"stamina": 11.6326562499997,
+			"style": "early",
+			"time": 7.21666666666667
+		},
+		{
+			"adjustment_time": 0.883333333333333,
+			"aim_error": 0.0,
+			"opponent": "late",
+			"speed": 496.875,
+			"stamina": 68.9774218749996,
+			"style": "late",
+			"time": 8.53333333333333
+		},
+		{
+			"adjustment_time": 1.15,
+			"aim_error": 0.0,
+			"opponent": "late",
+			"speed": 217.3828125,
+			"stamina": 44.9767432507548,
+			"style": "brake",
+			"time": 7.31666666666667
+		}
+	],
+	"scope": "Finite controls and actual movement; contacts disabled to measure timing, drive and late target correction, not win rates."
+}

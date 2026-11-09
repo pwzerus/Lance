@@ -13,11 +13,11 @@ const TACK_KG = 14.0
 # the horse is still working (cruising recovers slowly, standing quickly).
 # FEEL-079: a whole run-up at full effort must spend the finishing reserve.
 # These are game pacing values, not equine physiology measurements.
-const DRAIN = 16.0
+const DRAIN = 18.0
 const RECOVERY = 13.0
 const REST_RECOVERY = 6.0
 # Below this stamina the gallop ceiling starts to fall toward FLOOR.
-const TIRED = 50.0
+const TIRED = 60.0
 const FLOOR = .50
 
 ## EQUIP-066: real per-item weights (catalogue writes stats.<slot>_kg from

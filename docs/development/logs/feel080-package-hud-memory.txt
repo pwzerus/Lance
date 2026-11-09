@@ -1,0 +1,18 @@
+QA_DESKTOP GALUMU_QA_625328e42d25459c961f91c15d7bf39f (not switched to input desktop)
+START utc=2026-11-09T22:29:17.4159169Z pid=18716 jobMiB=1024 executable=E:\GALUMU\builds\LanceAndLaurel-v0.4.34\LanceAndLaurel.exe reserveMiB=500 startupMiB=1780
+MEM seconds=1 privateMiB=54.1 workingMiB=88.9 availableRamMiB=2979 availableCommitMiB=6780
+MEM seconds=2 privateMiB=54.1 workingMiB=89.1 availableRamMiB=2969 availableCommitMiB=6776
+MEM seconds=3 privateMiB=54.1 workingMiB=89.1 availableRamMiB=2983 availableCommitMiB=6779
+MEM seconds=4 privateMiB=124.6 workingMiB=188.7 availableRamMiB=2880 availableCommitMiB=6677
+MEM seconds=5 privateMiB=243.1 workingMiB=303.3 availableRamMiB=2763 availableCommitMiB=6559
+MEM seconds=6 privateMiB=510.5 workingMiB=482.3 availableRamMiB=2584 availableCommitMiB=6297
+MEM seconds=7 privateMiB=613.7 workingMiB=586.7 availableRamMiB=2500 availableCommitMiB=6191
+MEM seconds=8 privateMiB=698.7 workingMiB=672.1 availableRamMiB=2402 availableCommitMiB=6099
+MEM seconds=9 privateMiB=731.2 workingMiB=715.2 availableRamMiB=2348 availableCommitMiB=6047
+MEM seconds=10 privateMiB=739.4 workingMiB=715.6 availableRamMiB=2269 availableCommitMiB=5951
+MEM seconds=11 privateMiB=739.4 workingMiB=716.7 availableRamMiB=2261 availableCommitMiB=5954
+MEM seconds=12 privateMiB=739.3 workingMiB=716.8 availableRamMiB=2263 availableCommitMiB=5949
+MEM seconds=13 privateMiB=739.3 workingMiB=717.1 availableRamMiB=2266 availableCommitMiB=5951
+MEM seconds=14 privateMiB=634.2 workingMiB=626.2 availableRamMiB=2361 availableCommitMiB=6046
+EXIT code=0 seconds=14.5
+QA_DESKTOP_CLOSED=True

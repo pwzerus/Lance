@@ -629,6 +629,14 @@ func _mounted_vertical_bounds() -> Vector2:
 	return Vector2(top,bottom)
 
 func _update_views() -> void:
+	# Terminal readability only: retain lane order and world-space ballistics,
+	# but let the fallen silhouette show through foreground occluders.
+	var far_fall = false
+	for fallen in effects.bodies:
+		if is_instance_valid(fallen) and float(fallen.fighter.get("lane_y",0))<0:
+			far_fall = true
+	var fade_blend = 1.0-exp(-8.0*get_process_delta_time())
+	rail.modulate.a = lerpf(rail.modulate.a,.22 if far_fall else 1.0,fade_blend)
 	for i in range(2):
 		var fighter = match_model.fighters[i]
 		var departing = 0.0
@@ -640,6 +648,11 @@ func _update_views() -> void:
 		# switching only the renderer to standing disconnected their geometry.
 		riders[i].moving = match_model.phase=="charge" or (match_model.phase=="turn" and fighter.gait_moving) or (match_model.phase=="ended" and float(fighter.speed)>.5)
 		riders[i].visible = true
+		var obscures_fall = false
+		for fallen in effects.bodies:
+			if is_instance_valid(fallen) and float(fighter.get("lane_y",0))>float(fallen.fighter.get("lane_y",0)) and absf(riders[i].position.x-fallen.position.x)<360.0:
+				obscures_fall = true
+		riders[i].modulate.a = lerpf(riders[i].modulate.a,.20 if obscures_fall else 1.0,fade_blend)
 		riders[i].blood_enabled = GameState.profile.settings.blood
 	effects.blood_enabled = GameState.profile.settings.blood
 	for fallen in effects.bodies:

@@ -1,0 +1,5 @@
+START utc=2026-11-09T20:27:44.8852110Z pid=16324 jobMiB=512 executable=E:\GALUMU\builds\LanceAndLaurel-v0.4.32\LanceAndLaurel.exe reserveMiB=500 startupMiB=1268
+MEM seconds=1 privateMiB=39.2 workingMiB=83.0 availableRamMiB=4188 availableCommitMiB=8779
+MEM seconds=2 privateMiB=39.2 workingMiB=83.1 availableRamMiB=4186 availableCommitMiB=8779
+MEM seconds=3 privateMiB=39.2 workingMiB=83.1 availableRamMiB=4186 availableCommitMiB=8778
+EXIT code=0 seconds=3.2

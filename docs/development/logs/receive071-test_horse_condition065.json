@@ -1,0 +1,90 @@
+{
+	"failures": [],
+	"passed": true,
+	"rows": [
+		{
+			"burden": 0.809659349805228,
+			"capacity_kg": 130.301712720762,
+			"horse": "horse_bay",
+			"kit": "light",
+			"load_kg": 105.5,
+			"max_speed_step": 5.69609310923207,
+			"min_speed_spent": 348.790891693089,
+			"peak_speed": 498.272702418698,
+			"recovered_after_rest": 42.5312460129993,
+			"seconds_to_tired": 6.96666666666667,
+			"speed_after_20s": 348.790891693089,
+			"stamina_spent": 0.0
+		},
+		{
+			"burden": 0.998632167331771,
+			"capacity_kg": 130.301712720762,
+			"horse": "horse_bay",
+			"kit": "heavy",
+			"load_kg": 130.123481781377,
+			"max_speed_step": 5.22838538585387,
+			"min_speed_spent": 336.091918355305,
+			"peak_speed": 480.13131193615,
+			"recovered_after_rest": 39.6210646230907,
+			"seconds_to_tired": 5.03333333333333,
+			"speed_after_20s": 336.091918355305,
+			"stamina_spent": 0.0
+		},
+		{
+			"burden": 1.02971947745737,
+			"capacity_kg": 102.455088312504,
+			"horse": "horse_courser",
+			"kit": "light",
+			"load_kg": 105.5,
+			"max_speed_step": 5.15144429329303,
+			"min_speed_spent": 414.163535382432,
+			"peak_speed": 591.662193403474,
+			"recovered_after_rest": 39.1423200471564,
+			"seconds_to_tired": 3.56666666666667,
+			"speed_after_20s": 414.163535382432,
+			"stamina_spent": 0.0
+		},
+		{
+			"burden": 1.2700538736005,
+			"capacity_kg": 102.455088312504,
+			"horse": "horse_courser",
+			"kit": "heavy",
+			"load_kg": 130.123481781377,
+			"max_speed_step": 4.62,
+			"min_speed_spent": 394.136950820617,
+			"peak_speed": 563.052786886596,
+			"recovered_after_rest": 35.4411703465521,
+			"seconds_to_tired": 2.41666666666667,
+			"speed_after_20s": 394.136950820617,
+			"stamina_spent": 0.0
+		},
+		{
+			"burden": 0.676097118916227,
+			"capacity_kg": 156.042670569451,
+			"horse": "horse_steady",
+			"kit": "light",
+			"load_kg": 105.5,
+			"max_speed_step": 6.02665963068235,
+			"min_speed_spent": 359.856,
+			"peak_speed": 514.08,
+			"recovered_after_rest": 44.58810436869,
+			"seconds_to_tired": 7.35,
+			"speed_after_20s": 359.856,
+			"stamina_spent": 0.0
+		},
+		{
+			"burden": 0.833896788016463,
+			"capacity_kg": 156.042670569451,
+			"horse": "horse_steady",
+			"kit": "heavy",
+			"load_kg": 130.123481781377,
+			"max_speed_step": 5.63610544965928,
+			"min_speed_spent": 354.1053785622,
+			"peak_speed": 505.864826517428,
+			"recovered_after_rest": 42.1579894645464,
+			"seconds_to_tired": 6.7,
+			"speed_after_20s": 354.1053785622,
+			"stamina_spent": 0.0
+		}
+	]
+}

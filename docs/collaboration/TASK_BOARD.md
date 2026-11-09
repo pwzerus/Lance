@@ -267,3 +267,7 @@ FEEL-072交出（2026-11-09）：c69384e已推送核对，.29-r3完成后台GPU/
 QA-073 / Codex / 2026-11-09：基线18fb3ba，用户要求恢复后台画面验证，系统保留改500MB，其他保护保持；不接管桌面。认领Start-MemoryBound.ps1（500MiB系统底线/日志）、DESIGN_DECISIONS.md、HANDOFF.md、现状/任务板/日志、本轮QA073审查与交接及072接收栏、新logs/qa073-*。复验现有.29-r3实际PCK；如发现生产缺陷先追加具体文件认领。历史rules_v045_results和未跟踪材料保留。
 
 QA-073交出：500 MiB根保护线已生效，12次实际包后台运行退出0，逐图审查马匹/头盔/纹章/疲劳/双向受击与正常三轮比赛，未复现新生产缺陷。游戏包未改，证据/交接已保存，认领文件全部释放；真人手感、音频、长测及罩袍纹章缺口保持。详见QA073_REVIEW。
+
+DOC-074 / Codex / 2026-11-09：基线6b19841，按用户指示固化双方默认后台验证与真实桌面操作事先授权。认领AGENTS.md、HANDOFF.md、DESIGN_DECISIONS.md、docs/collaboration/{HANDOFF_TEMPLATE,PROJECT_STATE,WORK_LOG,TASK_BOARD}.md与新DOC-074交接；仅文档，不运行游戏。
+
+DOC-074交出：双方默认后台验证及真实桌面操作事先授权已写入AGENTS、交接入口/模板与现状/设计记录。仅文档检查，无引擎或桌面操作；认领全部释放，既有游戏差异保留。

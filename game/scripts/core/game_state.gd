@@ -91,16 +91,21 @@ func _write_save(path: String, backup: String, data: Dictionary) -> bool:
 	if write_error != OK:
 		save_error = "存档写入未完成：" + str(write_error)
 		return false
-	var folder = DirAccess.open("user://")
+	# The active profile may be an isolated absolute QA path. Do not open
+	# user:// just to rename an unrelated file: that directory may be
+	# unavailable while the selected save directory is writable.
+	var absolute_path = ProjectSettings.globalize_path(path)
+	var absolute_backup = ProjectSettings.globalize_path(backup)
+	var absolute_temp = ProjectSettings.globalize_path(temp_path)
 	if FileAccess.file_exists(path):
 		# A corrupt primary must never overwrite the only usable backup.
 		var prior = JSON.new()
 		if prior.parse(FileAccess.get_file_as_string(path)) == OK and _valid_save(prior.data, data.has("format")):
-			var backup_error = folder.copy(path, backup)
+			var backup_error = DirAccess.copy_absolute(absolute_path, absolute_backup)
 			if backup_error!=OK:
 				save_error = "无法备份原进度："+str(backup_error)
 				return false
-	var error = folder.rename(temp_path, path)
+	var error = DirAccess.rename_absolute(absolute_temp, absolute_path)
 	if error != OK:
 		save_error = "无法保存进度：" + str(error)
 		return false

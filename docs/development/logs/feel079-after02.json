@@ -1,0 +1,31 @@
+{
+	"body": {
+		"after_one_second": 0.00622076747906124,
+		"ko": false,
+		"peak_degrees": 24.0215647493502
+	},
+	"flank": {
+		"after_one_second": -0.00559869073115512,
+		"ko": false,
+		"peak_degrees": 21.6194082744152
+	},
+	"head": {
+		"after_one_second": -0.0013665382244426,
+		"ko": false,
+		"peak_degrees": 20.4431385054843
+	},
+	"hold": {
+		"max_step": 5.66005859375002,
+		"seconds": 5.61666666666667,
+		"speed": 271.702843749998,
+		"stamina": 5.85291666666611
+	},
+	"reserve": {
+		"max_step": 5.66005859375002,
+		"seconds": 7.36666666666667,
+		"speed": 496.875,
+		"stamina": 57.3831249999996
+	},
+	"steady": 100.0,
+	"waving": 0.0
+}

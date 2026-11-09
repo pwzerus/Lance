@@ -77,7 +77,9 @@ func run() -> void:
 		for i in range(2):
 			var target=Model.head_position(duel.fighters[1-i])
 			var hand=Model.hand_position(duel.fighters[i])
-			duel.set_controls(i,atan2(target.y-hand.y,maxf(1,absf(target.x-hand.x))),0,true,1.0/120)
+			# FEEL-079: reserve the finishing effort; an exhausted full-run charge
+			# is intentionally no longer the high-speed lethal fixture.
+			duel.set_controls(i,atan2(target.y-hand.y,maxf(1,absf(target.x-hand.x))),0,absf(duel.fighters[0].x-duel.fighters[1].x)<2600,1.0/120)
 		duel.step(1.0/120)
 		for e in duel.drain_events():
 			if e.type=="hit": hits.append(e)

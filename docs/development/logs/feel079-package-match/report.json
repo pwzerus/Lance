@@ -1,0 +1,22 @@
+{
+	"captures": {
+		"approach": 8629,
+		"charge": 3121,
+		"contact": 9991
+	},
+	"elapsed_ms": 51249,
+	"passed": true,
+	"result": {
+		"enemy_dead": false,
+		"enemy_hp": 80.8772627285047,
+		"enemy_score": 0,
+		"mode": "arena",
+		"passes": 3,
+		"player_dead": false,
+		"player_hp": 99.0852780908031,
+		"player_score": 2,
+		"reason": "score",
+		"winner": 0
+	},
+	"scope": "Actual packaged Main/Battle, AI/autopilot arena practice; no forced contacts, no rewards/save writes, no OS input, human play or audio listening."
+}

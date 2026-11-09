@@ -55,6 +55,7 @@ func _make_fighter(x: float, direction: int, stats: Dictionary) -> Dictionary:
 		"balance":100.0,"lean_velocity":0.0,"prev_flank":Vector2.ZERO,
 		"guard":0.0,"guard_target":0.0,"lance_stability":.85,"aim_velocity":0.0,
 		"reaction_angle":0.0,"reaction_angular_velocity":0.0,"reaction_shift":0.0,"reaction_shift_velocity":0.0,
+		"reaction_neck":0.0,"reaction_neck_velocity":0.0,"arm_rest_delay":0.0,
 		"shield_compression":0.0,"shield_compression_velocity":0.0,"lance_compression":0.0,"lance_compression_velocity":0.0,
 		"shield_twist":0.0,"shield_twist_velocity":0.0,
 		"gait_phase":0.0,"gait_moving":false,"acceleration":0.0,"accel_command":0.0,"motion_drive":0.0,"mount_velocity_y":0.0,"lane_y":32.0 if direction==1 else -32.0}
@@ -76,6 +77,9 @@ func _reset_positions() -> void:
 		fighter.boost = false
 		fighter.gait_phase = 0.0 if i==0 else 1.1
 		fighter.gait_moving = false
+		fighter.reaction_neck = 0.0
+		fighter.reaction_neck_velocity = 0.0
+		fighter.arm_rest_delay = 0.0
 		for key in ["reaction_angle","reaction_angular_velocity","reaction_shift","reaction_shift_velocity","shield_compression","shield_compression_velocity","lance_compression","lance_compression_velocity","shield_twist","shield_twist_velocity"]:
 			fighter[key] = 0.0
 		if mode == "arena":
@@ -145,9 +149,10 @@ static func advance_reaction(fighter: Dictionary, delta: float) -> void:
 	var remaining = maxf(0.0,minf(delta,.25))
 	while remaining>.000001:
 		var dt = minf(remaining,1.0/120.0)
+		var trunk_hit = str(fighter.get("last_hit","")) in ["body","flank"]
 		# A committed hit carries the torso through a visible loss of posture;
 		# shoulders/grips/targets still use this one continuously integrated pose.
-		for config in [["reaction_angle","reaction_angular_velocity",105.0,12.0,-.48,.34],
+		for config in [["reaction_angle","reaction_angular_velocity",52.0 if trunk_hit else 105.0,10.0 if trunk_hit else 12.0,-.68 if trunk_hit else -.48,.58 if trunk_hit else .34],
 			["reaction_shift","reaction_shift_velocity",250.0,20.0,-13.0,3.0],
 			["shield_compression","shield_compression_velocity",330.0,24.0,-3.0,24.0],
 			["shield_twist","shield_twist_velocity",150.0,14.0,-.32,.32],
@@ -162,6 +167,11 @@ static func advance_reaction(fighter: Dictionary, delta: float) -> void:
 				velocity = 0.0
 			fighter[position_key] = next
 			fighter[velocity_key] = velocity
+		# Head orientation lags a torso blow, then returns through the neck.
+		# Its centre stays on the shared head collision anchor.
+		var neck_target = clampf(-float(fighter.reaction_angle)*.45,-.18,.18) if trunk_hit else 0.0
+		fighter.reaction_neck_velocity = float(fighter.get("reaction_neck_velocity",0.0))+(45.0*(neck_target-float(fighter.get("reaction_neck",0.0)))-8.0*float(fighter.get("reaction_neck_velocity",0.0)))*dt
+		fighter.reaction_neck = clampf(float(fighter.get("reaction_neck",0.0))+float(fighter.reaction_neck_velocity)*dt,-.18,.18)
 		remaining -= dt
 
 static func flank_position(fighter: Dictionary) -> Vector2:
@@ -224,7 +234,13 @@ func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float
 	# EQUIP-068 arm fatigue: big lance redirects and shield swings tire the arms
 	# (heavier lance/shield tire faster); holding still lets them recover.
 	var guard_speed = absf(float(fighter.guard)-previous_guard)/maxf(delta,.00001)
-	fighter.arm = clampf(float(fighter.get("arm",100.0))+Condition.arm_rate(fighter.stats,movement,guard_speed)*delta,0.0,100.0)
+	var arm_rate = Condition.arm_rate(fighter.stats,movement,guard_speed)
+	if arm_rate<0:
+		fighter.arm_rest_delay = .40
+	else:
+		fighter.arm_rest_delay = maxf(0.0,float(fighter.get("arm_rest_delay",0.0))-delta)
+		if fighter.arm_rest_delay>0: arm_rate=0.0
+	fighter.arm = clampf(float(fighter.get("arm",100.0))+arm_rate*delta,0.0,100.0)
 	var difference = clampf(lean,-1,1)-float(fighter.lean)
 	# EQUIP-067 (user approved): lean switches faster, 1.6->2.3/s top speed and
 	# 6->9/s^2 build-up; still eased in and out, never an instant snap.
@@ -518,8 +534,8 @@ func _apply_contact(contact: Dictionary) -> void:
 	contact.merge({"damage": damage, "impulse": impulse, "glanced": glanced, "broke": broke_now, "points": points, "attaint": attaint, "dead": defender.dead, "ko": defender.ko,"ko_reason":ko_reason,"support":support,"balance_left":defender.balance,"shield_broke":shield_before>0 and float(defender.shield)<=0,
 		"break_tip":old_tip,"break_hand":old_hand,"break_reach":old_reach,"break_angle":attacker.aim,"break_direction":attacker.direction})
 	var loading = reaction_strength(contact)
-	var angular_kick = -11.2 if zone=="head" else (5.0 if zone=="flank" else (-3.6 if zone=="shield" else -6.5))
-	defender.reaction_angular_velocity = clampf(float(defender.get("reaction_angular_velocity",0.0))+angular_kick*loading,-10.0,5.5)
+	var angular_kick = -11.2 if zone=="head" else (9.0 if zone=="flank" else (-3.6 if zone=="shield" else -10.0))
+	defender.reaction_angular_velocity = clampf(float(defender.get("reaction_angular_velocity",0.0))+angular_kick*loading,-12.0 if zone=="body" else -10.0,9.0 if zone=="flank" else 5.5)
 	defender.reaction_shift_velocity = maxf(-170.0,float(defender.get("reaction_shift_velocity",0.0))-145.0*loading)
 	if zone=="shield":
 		var eccentricity = float(contact.get("eccentricity",0.0))

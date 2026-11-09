@@ -680,7 +680,7 @@ func _update_hud() -> void:
 	speed_meter.value = float(f.speed)
 	# HORSE-065: a tired horse can still be urged, but no longer holds the gallop.
 	var tired = float(f.stamina)<Model.Condition.TIRED
-	var pace_text = (("马已疲惫 · 全速上限 %d%%" % roundi(Model.Condition.gallop_ceiling(float(f.stamina))*100)) if tired else "按住催马") if f.boost else ("松手减速" if float(f.speed)>Model.TROT_SPEED+20 else "自动前进")
+	var pace_text = (("马已疲惫 · 松手回力 · 上限 %d%%" % roundi(Model.Condition.gallop_ceiling(float(f.stamina))*100)) if tired else "催马耗力 · 留力再冲") if f.boost else ("松手减速回力" if float(f.speed)>Model.TROT_SPEED+20 else "巡航回力")
 	if phase=="ready" and f.boost:
 		pace_text = "保持按住 · 等待起跑"
 	var gait_name = Rider.Gait.NAMES[Rider.Gait.gait_index(float(f.speed))]

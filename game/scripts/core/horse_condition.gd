@@ -11,15 +11,14 @@ const RIDER_KG = 72.0
 const TACK_KG = 14.0
 # Stamina per second. Drain applies while urged; recovery depends on how hard
 # the horse is still working (cruising recovers slowly, standing quickly).
-# Tuned (horse065-condition01): 13 tired a horse within 3-4.5 s of urging,
-# before a single charge was over. 9 keeps one charge mostly at full gallop;
-# a long sprint or several passes without rest wear it down.
-const DRAIN = 9.0
-const RECOVERY = 17.0
-const REST_RECOVERY = 11.0
+# FEEL-079: a whole run-up at full effort must spend the finishing reserve.
+# These are game pacing values, not equine physiology measurements.
+const DRAIN = 16.0
+const RECOVERY = 13.0
+const REST_RECOVERY = 6.0
 # Below this stamina the gallop ceiling starts to fall toward FLOOR.
-const TIRED = 35.0
-const FLOOR = .70
+const TIRED = 50.0
+const FLOOR = .50
 
 ## EQUIP-066: real per-item weights (catalogue writes stats.<slot>_kg from
 ## data/equipment_weights_v066.json). The old tier formulas remain only as a
@@ -90,7 +89,8 @@ static func gallop_ceiling(stamina: float) -> float:
 	# Fraction of the full gallop the horse can still reach.
 	# EQUIP-068 (user): a clear step. The smooth curve still read ~100% at
 	# stamina 33 while the HUD already said "tired"; now the gallop drops to
-	# 90% the moment the horse is tired and on to 70% when spent. The speed
+	# 90% the moment the horse is tired. FEEL-079 lowers the spent floor to 50%.
+	# The speed
 	# itself still eases toward the new ceiling (no jump).
 	if stamina>=TIRED:
 		return 1.0
@@ -101,10 +101,10 @@ const TIRED_CEILING = .90
 # ---- EQUIP-068 rider arm fatigue (臂力) --------------------------------------
 # Waving the lance and swinging the shield tire the arms; tired arms move the
 # lance and shield more slowly until they rest. Game abstraction, tuned so that
-# ~3 s of continuous large redirection takes a fresh arm to ~45%.
+# repeated large reversals cost substantially more than holding/adjusting aim.
 const ARM_REST = 18.0        # per second between passes
-const ARM_RECOVERY = 12.0    # per second while holding the lance still
-const ARM_AIM_COST = 9.0     # per (rad/s above the free band) per lance-weight unit
+const ARM_RECOVERY = 13.0    # per second after settling the weapon
+const ARM_AIM_COST = 22.0    # per (rad/s above the free band) per lance-weight unit
 const ARM_GUARD_COST = 7.0   # per (guard units/s) per shield-weight unit
 
 static func arm_rate(stats: Dictionary, aim_speed: float, guard_speed: float) -> float:

@@ -598,7 +598,7 @@ static func _head_hinge(pose: Dictionary, value: Dictionary) -> Transform2D:
 		# visible helmet stays on the head hit target; the neck bridge stretches.
 		var lean = float(value.get("lean",0.0))
 		var lean_angle = lean*(deg_to_rad(25.0) if lean>=0.0 else deg_to_rad(45.0))
-		var counter = Transform2D(-.30*lean_angle*int(value.get("direction",1)),Vector2.ZERO)
+		var counter = Transform2D((-.30*lean_angle+float(value.get("reaction_neck",0.0)))*int(value.get("direction",1)),Vector2.ZERO)
 		var anchor = Vector2(0,-111)
 		counter.origin = anchor-counter.basis_xform(anchor)
 		hinge = counter*hinge

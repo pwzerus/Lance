@@ -98,7 +98,10 @@ func update(model: JoustMatch, index: int, difficulty: int, delta: float, rng: R
 		target_y = float(last_seen.get("body",Model.body_position(enemy).y))+18
 	var hand = Model.hand_position(ai)
 	var aim = asin(clampf((target_y-hand.y)/Model.lance_length(ai),-.629,.548))
-	var boost = float(ai.stamina)>[38,24,16][difficulty] and (distance>[1100,650,0][difficulty])
+	# Reserve a finishing effort with the same stamina rules as the player.
+	# Hysteresis prevents per-frame spur toggling at the exhaustion boundary.
+	var effort_floor = [24.0,18.0,12.0][difficulty] if bool(ai.boost) else 55.0
+	var boost = distance<[4200,3100,2600][difficulty] and float(ai.stamina)>effort_floor
 	if practice:
 		boost = distance>1200
 	model.set_controls(index,aim,lean,boost,delta,guard)

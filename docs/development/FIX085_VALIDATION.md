@@ -52,4 +52,4 @@
 - 最终r2五项运行（fatal、profile、heavy、replay、suspend）日志无ERROR/WARNING；保护器采样private峰值 **783.5MiB**（带多张截图的致命命中夹具），系统可用最低 **1363MiB**；重甲本身峰值699.1MiB。未关闭保护、无触发早停，最后无Godot/Lance进程残留。此为本轮范围，非历史40GB原因全部结案。
 - PCK **34,164,524字节**，SHA256 **9BAA7CFEB167E0995AE30CA39E3E5671D42AFA90774712D2D59E8F6986A69838**；源目录及新包保护器SHA均 **E993D317EBACAC1F7C12025E4E3D68EDDCD66919E422790BC33C46E74B31D635**。
 - 可重现记录：fix085-resume-evidence.json逐项日志/散列/资源采样；fix085-release.json列最终EXE/PCK/启动器/保护器/说明书散列。所有QA正式角色档隔离，三份原始脏文件不提交。发布包本地保留，GitHub分支不等于上传二进制Release。
-- 推送将在同分支进行且ls-remote核对，精确同步SHA见本轮交接的同步回执。
+- 完整交付bc8394a4ece45f688593d4a80520d1eb99570602已推送origin codex/v0.4，ls-remote与本地一致；本回执另提交，最后HEAD以Git为准。

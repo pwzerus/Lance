@@ -5,7 +5,7 @@
 - 接手：codex/v0.4，46036b53f246f9bf38fc395bfcff35997f86cdd3；远程70885cae2efecfc18a1ea8bdf33d2ec0ff407c1a；无新Claude代码。三份旧差异保留。
 - 运行提交：既有a36da44/ee2a3ee；82a6458后台画面/界面测试；3e801f4固定120Hz落马积分；4751ef5最终r2版本入口。交接/证据提交随后，精确HEAD以Git为准。
 - 发布：builds/LanceAndLaurel-v0.4.39-r2，Play-Latest已指向它。PCK34,164,524字节，SHA256 `9BAA7CFEB167E0995AE30CA39E3E5671D42AFA90774712D2D59E8F6986A69838`。旧.38未改动，失败.39候选保留并有QA-NOT-RELEASED说明。
-- 远程：推送及ls-remote核对后在末尾追加回执，不force push、不拉取覆盖。
+- 远程：完整交付 bc8394a4ece45f688593d4a80520d1eb99570602 已推送origin codex/v0.4，ls-remote核对一致；本同步回执随后独立提交。不force push、不拉取覆盖。
 
 ## 实际行为与诊断
 
@@ -43,3 +43,7 @@
 ## 接收与复核（下一位追加）
 
 待接收者核对实际SHA后填写；本记录不预填对方审查或真人验收。
+
+## 同步回执（2026-11-10）
+
+完整交付 bc8394a4ece45f688593d4a80520d1eb99570602 已推送并核对远程同SHA。当前仅保留原三份历史差异，无Godot/Lance进程；保护启动入口指向.39-r2。此回执随后单独提交并再次核对远程，最终HEAD以Git为准。

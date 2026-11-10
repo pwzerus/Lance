@@ -8,7 +8,7 @@
 - 源码24极端+36步长/血腥组合、四马皮双向轻重装加减速通过。最终EXE四个真实扫掠头胸致命落马约2.3–3.1游戏秒安定；旧失败时间序列重放2.383秒。手脚/头盔与碰撞挂点同源，未改马体和四腿曲线。
 - 最终重甲120秒两场，场内60.002FPS/p99 18.331ms；包含重开最大64.939ms，仍有短尖峰。隐藏加载队列停绘和恢复完整；最终r2采样峰值783.5MiB，系统可用最低1363MiB，全部保护不变。仅后台引擎/GPU验证，无OS接管或真人体验结论。
 - PCK34,164,524字节，SHA256 `9BAA7CFEB167E0995AE30CA39E3E5671D42AFA90774712D2D59E8F6986A69838`。
-- 先读 `docs/collaboration/handoffs/2026-11-10-FIX-085-Validation-Codex.md` 与 `docs/development/FIX085_VALIDATION.md`；精确远程回执随后登记。全部本轮文件释放，三份历史差异保留。以下为历史交付。
+- 先读 `docs/collaboration/handoffs/2026-11-10-FIX-085-Validation-Codex.md` 与 `docs/development/FIX085_VALIDATION.md`；完整交付bc8394a已推送origin codex/v0.4且ls-remote一致，本同步回执另提交。全部本轮文件释放，三份历史差异保留。以下为历史交付。
 
 ## 最新交付：PERF-084 / v0.4.38（2026-11-10）
 

@@ -1,0 +1,2636 @@
+{
+	"fixture": {
+		"gait_phase": 0.0,
+		"preview": {
+			"attacker": 0,
+			"attaint": true,
+			"balance_left": 57.4830800824618,
+			"break_angle": -0.527625381946564,
+			"break_direction": 1,
+			"break_hand": "(-94.15112, -186.2099)",
+			"break_reach": 247.0,
+			"break_tip": "(119.2581, -310.5702)",
+			"broke": false,
+			"damage": 100.0,
+			"dead": true,
+			"defender": 1,
+			"drive": 1.0225,
+			"glanced": false,
+			"head_incidence": 0.999985814094543,
+			"head_outcome": "fatal",
+			"head_severity": 63.3693858444898,
+			"impulse": 82.0128499076009,
+			"ko": true,
+			"ko_reason": "fatal",
+			"points": 3,
+			"position": "(117.5589, -310.5663)",
+			"shield_broke": false,
+			"speed": 907.113220214844,
+			"support": 1.0,
+			"type": "hit",
+			"zone": "head"
+		},
+		"ticks": 114
+	},
+	"rows": [
+		{
+			"age": 0.1,
+			"gap": 159.9499168396,
+			"highest_index": 28,
+			"joints": {
+				"far_hip": {
+					"angle": -0.0780106681025794,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": -0.746757630442088
+				},
+				"far_knee": {
+					"angle": 0.126986070865446,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": 1.32352176434214
+				},
+				"head": {
+					"angle": 0.113697912964168,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": 0.826034152310882
+				},
+				"left_elbow": {
+					"angle": 0.194469202207051,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 2.04847471756874
+				},
+				"left_upper": {
+					"angle": -0.0650863607999779,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -0.632538423453381
+				},
+				"near_hip": {
+					"angle": 0.113696314566645,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 1.0816130212497
+				},
+				"near_knee": {
+					"angle": 0.126986070865446,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": 1.32352176434214
+				},
+				"right_elbow": {
+					"angle": 0.0207426736140853,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -0.111351706960294
+				},
+				"right_upper": {
+					"angle": 0.126769307969403,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 1.14046599153056
+				},
+				"spine": {
+					"angle": 0.216288710372143,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": 1.53727120935282
+				}
+			},
+			"root_velocity": 2.71744906526736,
+			"rotation": 0.266735643148422,
+			"settled": false,
+			"target_angle": 1.41584675655766,
+			"targets": {
+				"far_hip": -0.181388097949374,
+				"far_knee": 0.376966472094947,
+				"head": 0.0906940489746871,
+				"left_elbow": 0.633932944189893,
+				"left_upper": -0.136041073462031,
+				"near_hip": 0.256966472094947,
+				"near_knee": 0.376966472094947,
+				"right_elbow": 0.633932944189893,
+				"right_upper": 0.264524309509504,
+				"spine": 0.113367561218359
+			}
+		},
+		{
+			"age": 0.2,
+			"gap": 150.341613769531,
+			"highest_index": 28,
+			"joints": {
+				"far_hip": {
+					"angle": -0.142373638059884,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": -0.538779777958486
+				},
+				"far_knee": {
+					"angle": 0.24884393736154,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": 1.07971514491756
+				},
+				"head": {
+					"angle": 0.154739526349992,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": 0.0797251501768837
+				},
+				"left_elbow": {
+					"angle": 0.384561640527558,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 1.695542227923
+				},
+				"left_upper": {
+					"angle": -0.121160814360249,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -0.485644278542304
+				},
+				"near_hip": {
+					"angle": 0.206401865681383,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.771946893162871
+				},
+				"near_knee": {
+					"angle": 0.24884393736154,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": 1.07971514491756
+				},
+				"right_elbow": {
+					"angle": 0.0135688245794215,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -0.0411526283271862
+				},
+				"right_upper": {
+					"angle": 0.219254932996136,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 0.727677346980699
+				},
+				"spine": {
+					"angle": 0.300972265897083,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": 0.312720288257682
+				}
+			},
+			"root_velocity": 2.75319800597485,
+			"rotation": 0.541133880615234,
+			"settled": false,
+			"target_angle": 1.40080244546645,
+			"targets": {
+				"far_hip": -0.137090175323716,
+				"far_knee": 0.314211081708597,
+				"head": 0.0685450876618578,
+				"left_elbow": 0.508422163417194,
+				"left_upper": -0.102817631492787,
+				"near_hip": 0.194211081708597,
+				"near_knee": 0.314211081708597,
+				"right_elbow": 0.508422163417194,
+				"right_upper": 0.199923172347085,
+				"spine": 0.0856813595773222
+			}
+		},
+		{
+			"age": 0.3,
+			"gap": 136.367893218994,
+			"highest_index": 26,
+			"joints": {
+				"far_hip": {
+					"angle": -0.181683594761162,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": -0.267200100543382
+				},
+				"far_knee": {
+					"angle": 0.333229130959557,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": 0.629726762124726
+				},
+				"head": {
+					"angle": 0.134438328502595,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": -0.385022099637528
+				},
+				"left_elbow": {
+					"angle": 0.518125377496182,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 1.00618497083618
+				},
+				"left_upper": {
+					"angle": -0.158911744561228,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -0.282665019418518
+				},
+				"near_hip": {
+					"angle": 0.2623354465717,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.376381407467884
+				},
+				"near_knee": {
+					"angle": 0.333229130959557,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": 0.629726762124726
+				},
+				"right_elbow": {
+					"angle": 0.0123017238739245,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.00808001696636354
+				},
+				"right_upper": {
+					"angle": 0.267811009417244,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 0.285063496984391
+				},
+				"spine": {
+					"angle": 0.284860846227601,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": -0.488300747938088
+				}
+			},
+			"root_velocity": 2.70684620618748,
+			"rotation": 0.814583241939545,
+			"settled": false,
+			"target_angle": 1.45127486825161,
+			"targets": {
+				"far_hip": -0.103610525622979,
+				"far_knee": 0.266781577965887,
+				"head": 0.0518052628114896,
+				"left_elbow": 0.413563155931774,
+				"left_upper": -0.0777078942172343,
+				"near_hip": 0.146781577965887,
+				"near_knee": 0.266781577965887,
+				"right_elbow": 0.413563155931774,
+				"right_upper": 0.151098683200178,
+				"spine": 0.0647565785143619
+			}
+		},
+		{
+			"age": 0.4,
+			"gap": 115.724620819092,
+			"highest_index": 26,
+			"joints": {
+				"far_hip": {
+					"angle": -0.194169157240713,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": -0.0110327309619722
+				},
+				"far_knee": {
+					"angle": 0.370583729873673,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": 0.165229139648287
+				},
+				"head": {
+					"angle": 0.0875443525172357,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": -0.491992611483646
+				},
+				"left_elbow": {
+					"angle": 0.578775138760526,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.279132594914998
+				},
+				"left_upper": {
+					"angle": -0.176126607899278,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -0.0822625055584273
+				},
+				"near_hip": {
+					"angle": 0.27942117432636,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.00696209604331563
+				},
+				"near_knee": {
+					"angle": 0.370583729873673,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": 0.165229139648287
+				},
+				"right_elbow": {
+					"angle": 0.0147979372523473,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.0362271485728324
+				},
+				"right_upper": {
+					"angle": 0.275126643669279,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -0.0913152378729747
+				},
+				"spine": {
+					"angle": 0.214256783478513,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": -0.825315681410796
+				}
+			},
+			"root_velocity": 2.58830229823775,
+			"rotation": 1.07940006256104,
+			"settled": false,
+			"target_angle": 1.53716750903852,
+			"targets": {
+				"far_hip": -0.0783071507095294,
+				"far_knee": 0.230935130171833,
+				"head": 0.0391535753547647,
+				"left_elbow": 0.341870260343667,
+				"left_upper": -0.058730363032147,
+				"near_hip": 0.110935130171833,
+				"near_knee": 0.230935130171833,
+				"right_elbow": 0.341870260343667,
+				"right_upper": 0.114197928118064,
+				"spine": 0.0489419691934559
+			}
+		},
+		{
+			"age": 0.500000000000001,
+			"gap": 87.295955657959,
+			"highest_index": 22,
+			"joints": {
+				"far_hip": {
+					"angle": -0.184026752993888,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.185575250544369
+				},
+				"far_knee": {
+					"angle": 0.366137128591391,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": -0.202030229137899
+				},
+				"head": {
+					"angle": 0.0438117732086902,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": -0.369464901349781
+				},
+				"left_elbow": {
+					"angle": 0.573161907849318,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -0.310861394465799
+				},
+				"left_upper": {
+					"angle": -0.175095860943129,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 0.0814568029807365
+				},
+				"near_hip": {
+					"angle": 0.264007476802235,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": -0.274359668314071
+				},
+				"near_knee": {
+					"angle": 0.366137128591391,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": -0.202030229137899
+				},
+				"right_elbow": {
+					"angle": 0.0191212012915249,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.0468595447438133
+				},
+				"right_upper": {
+					"angle": 0.250658175428764,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -0.355880456870249
+				},
+				"spine": {
+					"angle": 0.130271542094596,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": -0.810508893770282
+				}
+			},
+			"root_velocity": 2.40849301079201,
+			"rotation": 1.32895052433014,
+			"settled": false,
+			"target_angle": 1.59175791593806,
+			"targets": {
+				"far_hip": -0.0591832713459855,
+				"far_knee": 0.203842967740146,
+				"head": 0.0295916356729927,
+				"left_elbow": 0.287685935480292,
+				"left_upper": -0.0443874535094891,
+				"near_hip": 0.0838429677401461,
+				"near_knee": 0.203842967740146,
+				"right_elbow": 0.287685935480292,
+				"right_upper": 0.0863089373795621,
+				"spine": 0.0369895445912409
+			}
+		},
+		{
+			"age": 0.6,
+			"gap": 46.1849822998047,
+			"highest_index": 22,
+			"joints": {
+				"far_hip": {
+					"angle": -0.158286869275163,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.306424353695273
+				},
+				"far_knee": {
+					"angle": 0.332491244961191,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": -0.427821393184851
+				},
+				"head": {
+					"angle": 0.0169853457943212,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": -0.183485825415367
+				},
+				"left_elbow": {
+					"angle": 0.519661484792639,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -0.690933528650618
+				},
+				"left_upper": {
+					"angle": -0.16040908433273,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 0.194057537719143
+				},
+				"near_hip": {
+					"angle": 0.226377006503318,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": -0.445576664615373
+				},
+				"near_knee": {
+					"angle": 0.332491244961191,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": -0.427821393184851
+				},
+				"right_elbow": {
+					"angle": 0.0237940318123856,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.0451453398444039
+				},
+				"right_upper": {
+					"angle": 0.206299468771883,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -0.50007115998591
+				},
+				"spine": {
+					"angle": 0.0594424025387522,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": -0.60452592111481
+				}
+			},
+			"root_velocity": 2.17894564337239,
+			"rotation": 1.55772888660431,
+			"settled": false,
+			"target_angle": 1.59779685664936,
+			"targets": {
+				"far_hip": -0.0447297542494584,
+				"far_knee": 0.183367151853399,
+				"head": 0.0223648771247292,
+				"left_elbow": 0.246734303706799,
+				"left_upper": -0.0335473156870938,
+				"near_hip": 0.0633671518533993,
+				"near_knee": 0.183367151853399,
+				"right_elbow": 0.246734303706799,
+				"right_upper": 0.0652308916137934,
+				"spine": 0.0279560964059115
+			}
+		},
+		{
+			"age": 0.7,
+			"gap": 0.0,
+			"highest_index": 5,
+			"joints": {
+				"far_hip": {
+					"angle": -0.134365153743779,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": -0.217884052373242
+				},
+				"far_knee": {
+					"angle": 0.302826650116752,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": 0.584147038075305
+				},
+				"head": {
+					"angle": 0.0198014733849505,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": 0.692215419817129
+				},
+				"left_elbow": {
+					"angle": 0.461247130762064,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.393669513943625
+				},
+				"left_upper": {
+					"angle": -0.149235661825616,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -0.43099638298365
+				},
+				"near_hip": {
+					"angle": 0.192022138643242,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.343312263530342
+				},
+				"near_knee": {
+					"angle": 0.302822302457574,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": 0.583625318974028
+				},
+				"right_elbow": {
+					"angle": 0.0299344316446873,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -0.146406944702967
+				},
+				"right_upper": {
+					"angle": 0.131665046286777,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -1.78544630779865
+				},
+				"spine": {
+					"angle": -0.0127892475077216,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": -1.808681130649
+				}
+			},
+			"root_velocity": 0.739881837683207,
+			"rotation": 1.74278271198273,
+			"settled": false,
+			"target_angle": 1.60474742917957,
+			"targets": {
+				"far_hip": 0.0630866560106572,
+				"far_knee": 0.217556924378858,
+				"head": 0.00967333514688283,
+				"left_elbow": 0.29039162970573,
+				"left_upper": 0.106122165629884,
+				"near_hip": 0.133664180743573,
+				"near_knee": 0.209018442203909,
+				"right_elbow": 0.0641823696184325,
+				"right_upper": -0.0820034719857837,
+				"spine": 0.0286325967331279
+			}
+		},
+		{
+			"age": 0.8,
+			"gap": 0.0,
+			"highest_index": 5,
+			"joints": {
+				"far_hip": {
+					"angle": -0.122131268717242,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.405000366323944
+				},
+				"far_knee": {
+					"angle": 0.337154833344101,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": 0.263079744096831
+				},
+				"head": {
+					"angle": 0.0488120817735709,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": 0.0124977377726428
+				},
+				"left_elbow": {
+					"angle": 0.476657080895689,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.0601038192149765
+				},
+				"left_upper": {
+					"angle": -0.141592083172829,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 0.519215109046482
+				},
+				"near_hip": {
+					"angle": 0.215345440901595,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.205834532956045
+				},
+				"near_knee": {
+					"angle": 0.33175251028649,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": 0.1265882381948
+				},
+				"right_elbow": {
+					"angle": 0.00137595844351611,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -0.554452677925062
+				},
+				"right_upper": {
+					"angle": -0.00640502885180002,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -1.21148906650187
+				},
+				"spine": {
+					"angle": -0.102440105191286,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": -0.306684262466079
+				}
+			},
+			"root_velocity": -0.158972376707692,
+			"rotation": 1.75945842266083,
+			"settled": false,
+			"target_angle": 1.66302048667389,
+			"targets": {
+				"far_hip": 0.349863326008275,
+				"far_knee": 0.447492099678934,
+				"head": -0.0182817168535637,
+				"left_elbow": 0.475619291932352,
+				"left_upper": 0.620417917309245,
+				"near_hip": 0.31166611579902,
+				"near_knee": 0.286938719413166,
+				"right_elbow": -0.582317846895802,
+				"right_upper": -0.554170852916091,
+				"spine": 0.0543427462260957
+			}
+		},
+		{
+			"age": 0.899999999999999,
+			"gap": 0.000003814697265625,
+			"highest_index": 5,
+			"joints": {
+				"far_hip": {
+					"angle": -0.0584284638420807,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.782006720230898
+				},
+				"far_knee": {
+					"angle": 0.367274678476417,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": 0.347495225387626
+				},
+				"head": {
+					"angle": 0.0323382104498966,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": -0.259781713530233
+				},
+				"left_elbow": {
+					"angle": 0.481691352391432,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.0549505371896104
+				},
+				"left_upper": {
+					"angle": -0.0472081097905826,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 1.23872537437235
+				},
+				"near_hip": {
+					"angle": 0.235278190986473,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.185636430408995
+				},
+				"near_knee": {
+					"angle": 0.334875384913686,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": -0.0290573509565655
+				},
+				"right_elbow": {
+					"angle": -0.0936930922344111,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -1.25375467959012
+				},
+				"right_upper": {
+					"angle": -0.125153227435831,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -1.1896646471892
+				},
+				"spine": {
+					"angle": -0.0952620995835504,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": 0.294225664959126
+				}
+			},
+			"root_velocity": -0.410400086868614,
+			"rotation": 1.72708988189697,
+			"settled": false,
+			"target_angle": 1.69835478302886,
+			"targets": {
+				"far_hip": 0.418756880026128,
+				"far_knee": 0.546404576933786,
+				"head": -0.0286467295924113,
+				"left_elbow": 0.51545279175712,
+				"left_upper": 0.842788911074339,
+				"near_hip": 0.295000028827952,
+				"near_knee": 0.283138436325486,
+				"right_elbow": -0.881386589223922,
+				"right_upper": -0.743571799948581,
+				"spine": 0.0660465420085873
+			}
+		},
+		{
+			"age": 0.999999999999999,
+			"gap": 0.0,
+			"highest_index": 5,
+			"joints": {
+				"far_hip": {
+					"angle": 0.0452484159108033,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 1.24466752574491
+				},
+				"far_knee": {
+					"angle": 0.360503281158512,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": -0.482823962981284
+				},
+				"head": {
+					"angle": 0.0045067318475277,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": -0.26809702195811
+				},
+				"left_elbow": {
+					"angle": 0.488281722902448,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.0733252976692077
+				},
+				"left_upper": {
+					"angle": 0.0962566488680829,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 1.5424299717124
+				},
+				"near_hip": {
+					"angle": 0.250188335684747,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.115307057366592
+				},
+				"near_knee": {
+					"angle": 0.32775239870938,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": -0.0995432615687905
+				},
+				"right_elbow": {
+					"angle": -0.241835347448899,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -1.61412793229608
+				},
+				"right_upper": {
+					"angle": -0.244475615948114,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -1.18830935523984
+				},
+				"spine": {
+					"angle": -0.0555088217839245,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": 0.439849249874525
+				}
+			},
+			"root_velocity": -0.254711560475675,
+			"rotation": 1.69113028049469,
+			"settled": false,
+			"target_angle": 1.6725151524591,
+			"targets": {
+				"far_hip": 0.789965123910233,
+				"far_knee": -0.105489638132151,
+				"head": -0.0325533467563912,
+				"left_elbow": 0.524511742894809,
+				"left_upper": 0.935579252168656,
+				"near_hip": 0.269682290709083,
+				"near_knee": 0.267373433403646,
+				"right_elbow": -1.00967218455426,
+				"right_upper": -0.83141866022756,
+				"spine": 0.0711893034506239
+			}
+		},
+		{
+			"age": 1.1,
+			"gap": 0.0,
+			"highest_index": 5,
+			"joints": {
+				"far_hip": {
+					"angle": 0.163856466730486,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 1.04230268093234
+				},
+				"far_knee": {
+					"angle": 0.326244527877283,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": -0.0292303526048895
+				},
+				"head": {
+					"angle": -0.0177995190405986,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": -0.179596064488184
+				},
+				"left_elbow": {
+					"angle": 0.511387552417481,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.572739777306579
+				},
+				"left_upper": {
+					"angle": 0.252452109966596,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 1.54447083496662
+				},
+				"near_hip": {
+					"angle": 0.258939884809097,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.0718813283231254
+				},
+				"near_knee": {
+					"angle": 0.315359237076154,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": -0.142179060162379
+				},
+				"right_elbow": {
+					"angle": -0.406656487597394,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -1.63550029312549
+				},
+				"right_upper": {
+					"angle": -0.360637901738393,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -1.13047292771662
+				},
+				"spine": {
+					"angle": -0.0131741318807523,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": 0.393155732119165
+				}
+			},
+			"root_velocity": -0.145438260525203,
+			"rotation": 1.67276585102081,
+			"settled": false,
+			"target_angle": 1.64499760402204,
+			"targets": {
+				"far_hip": 0.513565123978128,
+				"far_knee": 0.523794617229804,
+				"head": -0.0340471759209273,
+				"left_elbow": 1.0852371956328,
+				"left_upper": 0.973721919283315,
+				"near_hip": 0.284116937213435,
+				"near_knee": 0.244736071503378,
+				"right_elbow": -1.06302381004628,
+				"right_upper": -0.886022201705986,
+				"spine": 0.0733982977784398
+			}
+		},
+		{
+			"age": 1.2,
+			"gap": 0.0,
+			"highest_index": 5,
+			"joints": {
+				"far_hip": {
+					"angle": 0.255483681716573,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.826428201914982
+				},
+				"far_knee": {
+					"angle": 0.342324745414217,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": 0.258265280561844
+				},
+				"head": {
+					"angle": -0.0306870894908536,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": -0.0895330529743863
+				},
+				"left_elbow": {
+					"angle": 0.596282691573534,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.993852763919983
+				},
+				"left_upper": {
+					"angle": 0.399314836745255,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 1.38936406843192
+				},
+				"near_hip": {
+					"angle": 0.265723324230835,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.0678033440848472
+				},
+				"near_knee": {
+					"angle": 0.299563732652212,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": -0.168415107405182
+				},
+				"right_elbow": {
+					"angle": -0.561691512512393,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -1.45858937205802
+				},
+				"right_upper": {
+					"angle": -0.468258649170459,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -1.02420225693918
+				},
+				"spine": {
+					"angle": 0.0206957284275394,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": 0.290127061991605
+				}
+			},
+			"root_velocity": -0.127877346024279,
+			"rotation": 1.65956687927246,
+			"settled": false,
+			"target_angle": 1.62298219482165,
+			"targets": {
+				"far_hip": 0.558927887017934,
+				"far_knee": 0.485722739482957,
+				"head": -0.0346254889661529,
+				"left_elbow": 1.09404107713178,
+				"left_upper": 0.989301405129585,
+				"near_hip": 0.299830425860593,
+				"near_knee": 0.226552732789855,
+				"right_elbow": -1.0849234458488,
+				"right_upper": -0.917974731474473,
+				"spine": 0.0743326985630568
+			}
+		},
+		{
+			"age": 1.3,
+			"gap": 0.0,
+			"highest_index": 5,
+			"joints": {
+				"far_hip": {
+					"angle": 0.329740692765515,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.676065558383024
+				},
+				"far_knee": {
+					"angle": 0.370437945863913,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": 0.278400342690138
+				},
+				"head": {
+					"angle": -0.0361519734916868,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": -0.0303484561875147
+				},
+				"left_elbow": {
+					"angle": 0.698926463906162,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 1.01639606551632
+				},
+				"left_upper": {
+					"angle": 0.526867057003489,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 1.17538964128825
+				},
+				"near_hip": {
+					"angle": 0.272616377514823,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.0682916831612814
+				},
+				"near_knee": {
+					"angle": 0.282284548526355,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": -0.172874001157088
+				},
+				"right_elbow": {
+					"angle": -0.694052705466001,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -1.20446982795423
+				},
+				"right_upper": {
+					"angle": -0.567741833440839,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -0.960821311527456
+				},
+				"spine": {
+					"angle": 0.0441702016616201,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": 0.190692733506011
+				}
+			},
+			"root_velocity": -0.132298567613996,
+			"rotation": 1.64655601978302,
+			"settled": false,
+			"target_angle": 1.6077237872195,
+			"targets": {
+				"far_hip": 0.576678440014391,
+				"far_knee": 0.463709654026015,
+				"head": -0.0348516924127134,
+				"left_elbow": 1.09758462960071,
+				"left_upper": 0.995647789954059,
+				"near_hip": 0.301242390408013,
+				"near_knee": 0.217321499758728,
+				"right_elbow": -1.09386301196199,
+				"right_upper": -0.995570275610899,
+				"spine": 0.0747237489364454
+			}
+		},
+		{
+			"age": 1.4,
+			"gap": 0.0,
+			"highest_index": 5,
+			"joints": {
+				"far_hip": {
+					"angle": 0.389858148457262,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.537952412368252
+				},
+				"far_knee": {
+					"angle": 0.395444844059184,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": 0.222719811808817
+				},
+				"head": {
+					"angle": -0.0374168899593243,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": -0.00156212693711397
+				},
+				"left_elbow": {
+					"angle": 0.79298100848979,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.850426446000798
+				},
+				"left_upper": {
+					"angle": 0.632478992130768,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 0.957107080870438
+				},
+				"near_hip": {
+					"angle": 0.278733681616676,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.0521021437948178
+				},
+				"near_knee": {
+					"angle": 0.265800836150334,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": -0.155013006071488
+				},
+				"right_elbow": {
+					"angle": -0.800351704194839,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -0.946135928823999
+				},
+				"right_upper": {
+					"angle": -0.657123631166536,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -0.831060890404556
+				},
+				"spine": {
+					"angle": 0.0589048718355349,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": 0.114662726077992
+				}
+			},
+			"root_velocity": -0.130304881884364,
+			"rotation": 1.63333642482758,
+			"settled": false,
+			"target_angle": 1.59814625160645,
+			"targets": {
+				"far_hip": 0.57194570495396,
+				"far_knee": 0.45811955758283,
+				"head": -0.0349409186092828,
+				"left_elbow": 1.05278676514842,
+				"left_upper": 0.998230106015525,
+				"near_hip": 0.289362809972934,
+				"near_knee": 0.215975815420201,
+				"right_elbow": -1.09750366437213,
+				"right_upper": -0.998198537107268,
+				"spine": 0.0748861647308591
+			}
+		},
+		{
+			"age": 1.5,
+			"gap": 0.000003814697265625,
+			"highest_index": 5,
+			"joints": {
+				"far_hip": {
+					"angle": 0.436181508111371,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.400401605721723
+				},
+				"far_knee": {
+					"angle": 0.414630544759211,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": 0.168398683501979
+				},
+				"head": {
+					"angle": -0.0369559810196986,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": 0.00773280792378685
+				},
+				"left_elbow": {
+					"angle": 0.86505907546287,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.613337261853956
+				},
+				"left_upper": {
+					"angle": 0.717288164114878,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 0.760122962333927
+				},
+				"near_hip": {
+					"angle": 0.282245713969597,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.0187657585438518
+				},
+				"near_knee": {
+					"angle": 0.252002422664901,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": -0.122034351355512
+				},
+				"right_elbow": {
+					"angle": -0.882299717590691,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -0.718308746939287
+				},
+				"right_upper": {
+					"angle": -0.732248959216462,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -0.683785603011359
+				},
+				"spine": {
+					"angle": 0.0674126464157756,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": 0.0635429346094542
+				}
+			},
+			"root_velocity": -0.116508777135537,
+			"rotation": 1.62096512317657,
+			"settled": false,
+			"target_angle": 1.5926161981293,
+			"targets": {
+				"far_hip": 0.554734222891346,
+				"far_knee": 0.46306071961553,
+				"head": -0.0349763529422151,
+				"left_elbow": 1.02992683951176,
+				"left_upper": 0.999280344992826,
+				"near_hip": 0.270522763328148,
+				"near_knee": 0.219253751490667,
+				"right_elbow": -1.09898487233956,
+				"right_upper": -0.99926750035147,
+				"spine": 0.0749532509794389
+			}
+		},
+		{
+			"age": 1.6,
+			"gap": 0.0,
+			"highest_index": 5,
+			"joints": {
+				"far_hip": {
+					"angle": 0.469088879171344,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.270800262025638
+				},
+				"far_knee": {
+					"angle": 0.42944983800153,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": 0.134157448285903
+				},
+				"head": {
+					"angle": -0.0361347752048254,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": 0.00781330642275888
+				},
+				"left_elbow": {
+					"angle": 0.91546951424556,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.421178774702503
+				},
+				"left_upper": {
+					"angle": 0.784014636663746,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 0.593545515632867
+				},
+				"near_hip": {
+					"angle": 0.281940356948374,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": -0.0217113715269446
+				},
+				"near_knee": {
+					"angle": 0.241857071841033,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": -0.0839839074520401
+				},
+				"right_elbow": {
+					"angle": -0.943704047563175,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -0.532393677953921
+				},
+				"right_upper": {
+					"angle": -0.79287776733164,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -0.538363462796478
+				},
+				"spine": {
+					"angle": 0.0719340342049084,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": 0.032249968403239
+				}
+			},
+			"root_velocity": -0.0948620603748445,
+			"rotation": 1.6104462146759,
+			"settled": false,
+			"target_angle": 1.58967729606636,
+			"targets": {
+				"far_hip": 0.533642133900282,
+				"far_knee": 0.47251036493246,
+				"head": -0.034990500636354,
+				"left_elbow": 1.02540495142496,
+				"left_upper": 0.999707398467303,
+				"near_hip": 0.250587114076858,
+				"near_knee": 0.224203065381339,
+				"right_elbow": -1.09958725936123,
+				"right_upper": -0.977641227267755,
+				"spine": 0.0749808497508779
+			}
+		},
+		{
+			"age": 1.7,
+			"gap": 0.0,
+			"highest_index": 5,
+			"joints": {
+				"far_hip": {
+					"angle": 0.489965100094955,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.1597629104057
+				},
+				"far_knee": {
+					"angle": 0.441786354190678,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": 0.116029852716223
+				},
+				"head": {
+					"angle": -0.0354943306279534,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": 0.00508636240173184
+				},
+				"left_elbow": {
+					"angle": 0.949972323205761,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.288934120462495
+				},
+				"left_upper": {
+					"angle": 0.835782859476736,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 0.458068632964336
+				},
+				"near_hip": {
+					"angle": 0.277706945458245,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": -0.0585752312411649
+				},
+				"near_knee": {
+					"angle": 0.235401491621877,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": -0.049039940644642
+				},
+				"right_elbow": {
+					"angle": -0.988788975709435,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -0.387808593359168
+				},
+				"right_upper": {
+					"angle": -0.838083984152196,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -0.381146667464784
+				},
+				"spine": {
+					"angle": 0.0741142758900518,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": 0.0146146037788416
+				}
+			},
+			"root_velocity": -0.0710422369505287,
+			"rotation": 1.60225284099579,
+			"settled": false,
+			"target_angle": 1.58826013897102,
+			"targets": {
+				"far_hip": 0.514050303616433,
+				"far_knee": 0.482422014634101,
+				"head": -0.034996173126423,
+				"left_elbow": 1.02726820455124,
+				"left_upper": 0.999881035157446,
+				"near_hip": 0.233158629008192,
+				"near_knee": 0.229013541188838,
+				"right_elbow": -1.09983220054702,
+				"right_upper": -0.951198531650508,
+				"spine": 0.0749921699903951
+			}
+		},
+		{
+			"age": 1.8,
+			"gap": 0.0,
+			"highest_index": 5,
+			"joints": {
+				"far_hip": {
+					"angle": 0.501067286097563,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.0738410526996708
+				},
+				"far_knee": {
+					"angle": 0.452787430180032,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": 0.105503078434453
+				},
+				"head": {
+					"angle": -0.0351331974146623,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": 0.00248596905282238
+				},
+				"left_elbow": {
+					"angle": 0.973889158708543,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.202819142586529
+				},
+				"left_upper": {
+					"angle": 0.875555067639103,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 0.350622829050016
+				},
+				"near_hip": {
+					"angle": 0.270315290634366,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": -0.0850224813138712
+				},
+				"near_knee": {
+					"angle": 0.232051460143188,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": -0.0216740686099969
+				},
+				"right_elbow": {
+					"angle": -1.02140445434114,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -0.278908555661663
+				},
+				"right_upper": {
+					"angle": -0.868960604734482,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -0.253474384547404
+				},
+				"spine": {
+					"angle": 0.075028576825592,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": 0.00549480973450125
+				}
+			},
+			"root_velocity": -0.0492918698552469,
+			"rotation": 1.59635591506958,
+			"settled": false,
+			"target_angle": 1.58766584336291,
+			"targets": {
+				"far_hip": 0.498415435535527,
+				"far_knee": 0.490772620839673,
+				"head": -0.0349984549499424,
+				"left_elbow": 1.03086750793114,
+				"left_upper": 0.99995163218268,
+				"near_hip": 0.219703506244011,
+				"near_knee": 0.232891561173629,
+				"right_elbow": -1.09993179102051,
+				"right_upper": -0.938735865765534,
+				"spine": 0.074996803004871
+			}
+		},
+		{
+			"age": 1.9,
+			"gap": 0.000003814697265625,
+			"highest_index": 5,
+			"joints": {
+				"far_hip": {
+					"angle": 0.505006547592754,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": 0.0140954009261051
+				},
+				"far_knee": {
+					"angle": 0.462846910768293,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": 0.0963502620280299
+				},
+				"head": {
+					"angle": -0.0349817321126203,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": 0.000845871250696646
+				},
+				"left_elbow": {
+					"angle": 0.990961334354434,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.147226664412931
+				},
+				"left_upper": {
+					"angle": 0.905902289330734,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 0.266843674477919
+				},
+				"near_hip": {
+					"angle": 0.26095910871615,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": -0.0988877540727643
+				},
+				"near_knee": {
+					"angle": 0.230964421374519,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": -0.00302784156967397
+				},
+				"right_elbow": {
+					"angle": -1.04474158093877,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -0.198691959394233
+				},
+				"right_upper": {
+					"angle": -0.889162898094146,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -0.163898223213407
+				},
+				"spine": {
+					"angle": 0.0753193220556757,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": 0.00125490497372718
+				}
+			},
+			"root_velocity": -0.0317630287126747,
+			"rotation": 1.59241509437561,
+			"settled": false,
+			"target_angle": 1.58747685896336,
+			"targets": {
+				"far_hip": 0.487222291541159,
+				"far_knee": 0.496936886635506,
+				"head": -0.0349993751606191,
+				"left_elbow": 1.03466061391529,
+				"left_upper": 0.999980335059585,
+				"near_hip": 0.210270600881097,
+				"near_knee": 0.235671229002258,
+				"right_elbow": -1.09997228228722,
+				"right_upper": -0.932827470745261,
+				"spine": 0.0749986960349091
+			}
+		},
+		{
+			"age": 2.0,
+			"gap": 0.0,
+			"highest_index": 5,
+			"joints": {
+				"far_hip": {
+					"angle": 0.504260007609278,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": -0.0225403509713424
+				},
+				"far_knee": {
+					"angle": 0.471925181460542,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": 0.0857812039113141
+				},
+				"head": {
+					"angle": -0.034944922920128,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": 0.0000711932949599889
+				},
+				"left_elbow": {
+					"angle": 1.00358754767591,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.110800496734256
+				},
+				"left_upper": {
+					"angle": 0.92894804235488,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 0.202283489711809
+				},
+				"near_hip": {
+					"angle": 0.250851431969371,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": -0.101390841102717
+				},
+				"near_knee": {
+					"angle": 0.231308479513766,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": 0.00785999931024002
+				},
+				"right_elbow": {
+					"angle": -1.06130308448654,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -0.140538512351322
+				},
+				"right_upper": {
+					"angle": -0.902144173408186,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -0.104880243941352
+				},
+				"spine": {
+					"angle": 0.0753398230112331,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": -0.000415487461031845
+				}
+			},
+			"root_velocity": -0.0189369553796388,
+			"rotation": 1.58997142314911,
+			"settled": false,
+			"target_angle": 1.58746353334225,
+			"targets": {
+				"far_hip": 0.479912588059734,
+				"far_knee": 0.501049692686708,
+				"head": -0.0349997469828403,
+				"left_elbow": 1.03822738784895,
+				"left_upper": 0.999992004823018,
+				"near_hip": 0.204200853581364,
+				"near_knee": 0.237487714869439,
+				"right_elbow": -1.09998874494094,
+				"right_upper": -0.929792754373943,
+				"spine": 0.0749994685678883
+			}
+		},
+		{
+			"age": 2.1,
+			"gap": 0.0,
+			"highest_index": 5,
+			"joints": {
+				"far_hip": {
+					"angle": 0.500869569575793,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": -0.0412022875339427
+				},
+				"far_knee": {
+					"angle": 0.479849018504078,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": 0.0734897509105663
+				},
+				"head": {
+					"angle": -0.0349541672857628,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": -0.000175393110213897
+				},
+				"left_elbow": {
+					"angle": 1.013263624785,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.0863061854271181
+				},
+				"left_upper": {
+					"angle": 0.946392747428319,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 0.152942306361118
+				},
+				"near_hip": {
+					"angle": 0.240977577008582,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": -0.0954620115499114
+				},
+				"near_knee": {
+					"angle": 0.232405851465716,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": 0.0128659756154823
+				},
+				"right_elbow": {
+					"angle": -1.07298340090069,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -0.0988685961053768
+				},
+				"right_upper": {
+					"angle": -0.910437482494073,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -0.0669443633154085
+				},
+				"spine": {
+					"angle": 0.0752676397872936,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": -0.000862688254591198
+				}
+			},
+			"root_velocity": -0.0103043536332557,
+			"rotation": 1.58857655525208,
+			"settled": false,
+			"target_angle": 1.58751045243781,
+			"targets": {
+				"far_hip": 0.47554817801659,
+				"far_knee": 0.503550415545391,
+				"head": -0.0349998974454222,
+				"left_elbow": 1.04150275341851,
+				"left_upper": 0.999996749402149,
+				"near_hip": 0.200619615032045,
+				"near_knee": 0.238575576513129,
+				"right_elbow": -1.09999543817856,
+				"right_upper": -0.928026795065007,
+				"spine": 0.0749997835426737
+			}
+		},
+		{
+			"age": 2.19999999999999,
+			"gap": 0.0,
+			"highest_index": 5,
+			"joints": {
+				"far_hip": {
+					"angle": 0.496332698944316,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": -0.0473826286818855
+				},
+				"far_knee": {
+					"angle": 0.486489541519919,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": 0.0603760497460254
+				},
+				"head": {
+					"angle": -0.0349731598816768,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": -0.000181726743295234
+				},
+				"left_elbow": {
+					"angle": 1.02092628338409,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.0693483827977467
+				},
+				"left_upper": {
+					"angle": 0.959570245351994,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 0.115448014520782
+				},
+				"near_hip": {
+					"angle": 0.232001037646833,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": -0.084398476023423
+				},
+				"near_knee": {
+					"angle": 0.233777112072546,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": 0.0139727965117335
+				},
+				"right_elbow": {
+					"angle": -1.08118235340922,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -0.0692673103525213
+				},
+				"right_upper": {
+					"angle": -0.91572839374286,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -0.0426786456003671
+				},
+				"spine": {
+					"angle": 0.0751820366821205,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": -0.000808123859890658
+				}
+			},
+			"root_velocity": -0.00494336165687893,
+			"rotation": 1.58785951137543,
+			"settled": false,
+			"target_angle": 1.58756609445617,
+			"targets": {
+				"far_hip": 0.473194584637473,
+				"far_knee": 0.504925962869164,
+				"head": -0.0349999584010664,
+				"left_elbow": 1.04451828147105,
+				"left_upper": 0.999998678405295,
+				"near_hip": 0.198710299091976,
+				"near_knee": 0.239166329129418,
+				"right_elbow": -1.09999815944956,
+				"right_upper": -0.926863543941983,
+				"spine": 0.0749999118742108
+			}
+		},
+		{
+			"age": 2.29999999999999,
+			"gap": 0.0,
+			"highest_index": 5,
+			"joints": {
+				"far_hip": {
+					"angle": 0.491629059082166,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": -0.0458844453922825
+				},
+				"far_knee": {
+					"angle": 0.491828192766158,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.828791024684906,
+					"stiffness": 24.0,
+					"velocity": 0.047606361454244
+				},
+				"head": {
+					"angle": -0.034988019666654,
+					"bend_sign": 1.0,
+					"damping": 7.2,
+					"maximum": 0.2,
+					"minimum": -0.2,
+					"stiffness": 65.0,
+					"velocity": -0.000117540978620114
+				},
+				"left_elbow": {
+					"angle": 1.02717472807153,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": 0.0572778380917539
+				},
+				"left_upper": {
+					"angle": 0.969512036397513,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": 0.0870661934991693
+				},
+				"near_hip": {
+					"angle": 0.224274647454883,
+					"bend_sign": 1.0,
+					"damping": 4.5,
+					"maximum": 0.85,
+					"minimum": -0.85,
+					"stiffness": 19.0,
+					"velocity": -0.0710628234831421
+				},
+				"near_knee": {
+					"angle": 0.235126252050677,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 1.1,
+					"minimum": -0.871032836437225,
+					"stiffness": 24.0,
+					"velocity": 0.012849212292552
+				},
+				"right_elbow": {
+					"angle": -1.08691684059178,
+					"bend_sign": 1.0,
+					"damping": 5.0,
+					"maximum": 0.031154489517212,
+					"minimum": -1.1,
+					"stiffness": 22.0,
+					"velocity": -0.048375463731138
+				},
+				"right_upper": {
+					"angle": -0.919094955439954,
+					"bend_sign": 1.0,
+					"damping": 4.6,
+					"maximum": 1.0,
+					"minimum": -1.0,
+					"stiffness": 18.0,
+					"velocity": -0.0270782280154635
+				},
+				"spine": {
+					"angle": 0.075111923999157,
+					"bend_sign": 1.0,
+					"damping": 6.2,
+					"maximum": 0.42,
+					"minimum": -0.42,
+					"stiffness": 38.0,
+					"velocity": -0.000602882266099072
+				}
+			},
+			"root_velocity": -0.0018909539919806,
+			"rotation": 1.58754587173462,
+			"settled": false,
+			"target_angle": 1.5876116677001,
+			"targets": {
+				"far_hip": 0.472091003318529,
+				"far_knee": 0.505589326932175,
+				"head": -0.034999983116833,
+				"left_elbow": 1.04731949768738,
+				"left_upper": 0.99999946267965,
+				"near_hip": 0.197828451477752,
+				"near_knee": 0.239447837898215,
+				"right_elbow": -1.0999992658364,
+				"right_upper": -0.926019574388152,
+				"spine": 0.0749999641336062
+			}
+		}
+	]
+}

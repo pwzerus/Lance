@@ -346,3 +346,7 @@ FIX-085扩展：认领新game/scripts/ui/build_queue.gd，用小额逐帧任务�
 
 | FIX-085 静态交出 | Codex | main.gd、ui_factory.gd、build_queue.gd、horse_gait.gd、fallen_rider.gd、tests/*085*与本轮文档 | 2026-11-10 | 基线70885ca；本地a36da44/ee2a3ee | 文件释放；任务待动态验证，未完成发布 |
 用户选择先静态后未启动引擎，.38包/入口不动。恢复时须重跑新骑手姿态下落马、分帧首开全过程和实际画面，不能套用旧结果；详见FIX-085交接。
+
+FIX-085 恢复验证 / Codex / 2026-11-10：实际HEAD 46036b53f246f9bf38fc395bfcff35997f86cdd3，远程70885ca，无新Claude功能。用户已释放内存并授权恢复后台。重新认领本轮main.gd、ui/{ui_factory,build_queue,equipment_icon}.gd、visual/{horse_gait,fallen_rider,rider_view}.gd、tests/*085*、版本/启动器与本轮文档；三份历史差异保留。保护全部保持，先验证再独立.39发布。
+
+FIX-085最终交出 / Codex / 2026-11-10：v0.4.39-r2完成发布验证，运行4751ef5，修复3e801f4。所有本轮文件占用释放。原任务已完成；保留改进项：首次约23ms/按钮约0.1秒，重开偶发约65ms；真人骑手自然度/跨机显示未验收。无新的已复现阻断bug。详细范围、失败及修复见FIX085_VALIDATION.md。

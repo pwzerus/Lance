@@ -1,0 +1,38 @@
+{
+	"cases": 1440,
+	"failures": [],
+	"motion": [
+		{
+			"hip_vertical_range": 0.899999976158142,
+			"old_pitch_range": 0.0,
+			"speed": 0.0,
+			"torso_pitch_range": 0.0
+		},
+		{
+			"hip_vertical_range": 2.65490102767944,
+			"old_pitch_range": 0.01391450624,
+			"speed": 100.0,
+			"torso_pitch_range": 0.0288888283555838
+		},
+		{
+			"hip_vertical_range": 3.60773197934031,
+			"old_pitch_range": 0.01163689003,
+			"speed": 210.0,
+			"torso_pitch_range": 0.0102359739373275
+		},
+		{
+			"hip_vertical_range": 5.57142247259617,
+			"old_pitch_range": 0.0183055283078125,
+			"speed": 320.0,
+			"torso_pitch_range": 0.0564697157566688
+		},
+		{
+			"hip_vertical_range": 6.22166877985001,
+			"old_pitch_range": 0.02848825208,
+			"speed": 480.0,
+			"torso_pitch_range": 0.0869579531910863
+		}
+	],
+	"passed": true,
+	"scope": "Math/shared pose regression only, not GPU/player acceptance"
+}

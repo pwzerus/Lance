@@ -1,0 +1,22 @@
+{
+  "version": "0.4.39",
+  "scope": "candidate, pending final runtime gates",
+  "files": {
+    "LanceAndLaurel.exe": {
+      "bytes": 96725504,
+      "sha256": "78CCC576E8F8BFFD7EF6AD6F36EBD72A41E609A1052225A55B3407C96EA84065"
+    },
+    "LanceAndLaurel.pck": {
+      "bytes": 34164236,
+      "sha256": "E2D426249E9ED3F987907F5EF34D2D6B7335194E1E50ADF0DE38F6C2CB7759EB"
+    },
+    "Play-Safe.cmd": {
+      "bytes": 326,
+      "sha256": "76308BC9654DDAE181A1845542A0EE030D39D7E0AD560891055D563FBD1D1EE2"
+    },
+    "Start-MemoryBound.ps1": {
+      "bytes": 16233,
+      "sha256": "E993D317EBACAC1F7C12025E4E3D68EDDCD66919E422790BC33C46E74B31D635"
+    }
+  }
+}

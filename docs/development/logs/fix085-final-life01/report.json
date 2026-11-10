@@ -1,0 +1,108 @@
+{
+	"exit": "production window-close handler",
+	"recent_click": true,
+	"rows": [
+		{
+			"nodes": 38.0,
+			"resources": 87.0,
+			"step": 2
+		},
+		{
+			"nodes": 38.0,
+			"resources": 93.0,
+			"step": 5
+		},
+		{
+			"nodes": 38.0,
+			"resources": 93.0,
+			"step": 8
+		},
+		{
+			"nodes": 38.0,
+			"resources": 93.0,
+			"step": 11
+		},
+		{
+			"nodes": 38.0,
+			"resources": 93.0,
+			"step": 14
+		},
+		{
+			"nodes": 38.0,
+			"resources": 93.0,
+			"step": 17
+		},
+		{
+			"nodes": 38.0,
+			"resources": 93.0,
+			"step": 20
+		},
+		{
+			"nodes": 38.0,
+			"resources": 93.0,
+			"step": 23
+		},
+		{
+			"nodes": 38.0,
+			"resources": 93.0,
+			"step": 26
+		},
+		{
+			"nodes": 38.0,
+			"resources": 93.0,
+			"step": 29
+		},
+		{
+			"nodes": 38.0,
+			"resources": 93.0,
+			"step": 32
+		},
+		{
+			"nodes": 38.0,
+			"resources": 93.0,
+			"step": 35
+		},
+		{
+			"nodes": 38.0,
+			"resources": 93.0,
+			"step": 38
+		},
+		{
+			"nodes": 38.0,
+			"resources": 93.0,
+			"step": 41
+		},
+		{
+			"nodes": 38.0,
+			"resources": 93.0,
+			"step": 44
+		},
+		{
+			"nodes": 38.0,
+			"resources": 93.0,
+			"step": 47
+		},
+		{
+			"nodes": 38.0,
+			"resources": 93.0,
+			"step": 50
+		},
+		{
+			"nodes": 38.0,
+			"resources": 93.0,
+			"step": 53
+		},
+		{
+			"nodes": 38.0,
+			"resources": 93.0,
+			"step": 56
+		},
+		{
+			"nodes": 38.0,
+			"resources": 93.0,
+			"step": 59
+		}
+	],
+	"scope": "Actual GPU menus on isolated desktop with QA saves. Process exit and warnings must be read from supervisor/engine logs; no self-certified pass.",
+	"steps": 60
+}

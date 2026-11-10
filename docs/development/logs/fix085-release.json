@@ -1,0 +1,31 @@
+{
+  "version": "0.4.39-r2",
+  "folder": "builds/LanceAndLaurel-v0.4.39-r2",
+  "files": {
+    "LanceAndLaurel.exe": {
+      "bytes": 96725504,
+      "sha256": "78CCC576E8F8BFFD7EF6AD6F36EBD72A41E609A1052225A55B3407C96EA84065"
+    },
+    "LanceAndLaurel.pck": {
+      "bytes": 34164524,
+      "sha256": "9BAA7CFEB167E0995AE30CA39E3E5671D42AFA90774712D2D59E8F6986A69838"
+    },
+    "Start-MemoryBound.ps1": {
+      "bytes": 16233,
+      "sha256": "E993D317EBACAC1F7C12025E4E3D68EDDCD66919E422790BC33C46E74B31D635"
+    },
+    "Play-Safe.cmd": {
+      "bytes": 326,
+      "sha256": "76308BC9654DDAE181A1845542A0EE030D39D7E0AD560891055D563FBD1D1EE2"
+    },
+    "README.txt": {
+      "bytes": 1451,
+      "sha256": "018C8DB241EAC97CE4A039E8C489B15F6AB6242B148A165AB1171501EA539EC5"
+    }
+  },
+  "source_fix": "3e801f4",
+  "root_launcher": "Play-Latest.cmd",
+  "old38_pck_unchanged": true,
+  "background_only": true,
+  "release_commit": "4751ef5"
+}

@@ -1,0 +1,304 @@
+{
+  "baseline": "46036b53f246f9bf38fc395bfcff35997f86cdd3",
+  "rows": [
+    {
+      "run": "fix085-resume-parse01",
+      "log": "docs/development/logs/fix085-resume-parse01.log",
+      "peak_private_mib": 115.7,
+      "minimum_system_available_mib": 2847.0,
+      "log_sha256": "8ac8d331280b959880621c83001366daba5a044ff270accb3a2a714193a621b6",
+      "issues": []
+    },
+    {
+      "run": "fix085-profile-after03",
+      "log": "docs/development/logs/fix085-profile-after03.log",
+      "peak_private_mib": 683.8,
+      "minimum_system_available_mib": 2265.0,
+      "log_sha256": "00c068b1e142ba0718ff03b1c9fffb47b476b6fede0b46146a7b7de0ae4bd13b",
+      "issues": []
+    },
+    {
+      "run": "fix085-icons01",
+      "log": "docs/development/logs/fix085-icons01.log",
+      "peak_private_mib": 565.3,
+      "minimum_system_available_mib": 2457.0,
+      "log_sha256": "78f77e16c23a45d81f2ec240db54c8cb88ddf4158af86ea73809c0ba82a6fcb4",
+      "issues": []
+    },
+    {
+      "run": "fix085-rider01",
+      "log": "docs/development/logs/fix085-rider01.log",
+      "peak_private_mib": 0,
+      "minimum_system_available_mib": 0,
+      "log_sha256": "2389a5914791420069c37f7f623f54119ebaabb6d50ed82462a4cadc1868db87",
+      "issues": []
+    },
+    {
+      "run": "fix085-motion01",
+      "log": "docs/development/logs/fix085-motion01.log",
+      "peak_private_mib": 0,
+      "minimum_system_available_mib": 0,
+      "log_sha256": "c7c84d481ca448570624d85bd1263574f28d51f8d8e2d723db3a3f3b57272f6e",
+      "issues": []
+    },
+    {
+      "run": "fix085-legs01",
+      "log": "docs/development/logs/fix085-legs01.log",
+      "peak_private_mib": 96.2,
+      "minimum_system_available_mib": 2898.0,
+      "log_sha256": "b39d82105bce849a39ecfdb15a0567e768713edb8945375af0b00a12fe9487fc",
+      "issues": []
+    },
+    {
+      "run": "fix085-fall-combined01",
+      "log": "docs/development/logs/fix085-fall-combined01.log",
+      "peak_private_mib": 616.2,
+      "minimum_system_available_mib": 2375.0,
+      "log_sha256": "27aea441ed692aad586eae4d24fb301770bb704956240c518b85e6bb71547a64",
+      "issues": []
+    },
+    {
+      "run": "fix085-fall-rates01",
+      "log": "docs/development/logs/fix085-fall-rates01.log",
+      "peak_private_mib": 572.0,
+      "minimum_system_available_mib": 2602.0,
+      "log_sha256": "27aea441ed692aad586eae4d24fb301770bb704956240c518b85e6bb71547a64",
+      "issues": []
+    },
+    {
+      "run": "fix085-mounted01",
+      "log": "docs/development/logs/fix085-mounted01.log",
+      "peak_private_mib": 497.8,
+      "minimum_system_available_mib": 1645.0,
+      "log_sha256": "5941d82aec8ab85ff1475bdf5d8b493751e6dd8e1699b1008c86fbe13724c2e0",
+      "issues": []
+    },
+    {
+      "run": "fix085-head01",
+      "log": "docs/development/logs/fix085-head01.log",
+      "peak_private_mib": 0,
+      "minimum_system_available_mib": 0,
+      "log_sha256": "53d1003c367f15f3ab44a879ed70605452328b30d96abf17a178ce33c86adbdd",
+      "issues": []
+    },
+    {
+      "run": "fix085-arm01",
+      "log": "docs/development/logs/fix085-arm01.log",
+      "peak_private_mib": 0,
+      "minimum_system_available_mib": 0,
+      "log_sha256": "c5772f3beae555e468bf1c5b44812f541952e27a7d165847dc78cbf4b6954db9",
+      "issues": []
+    },
+    {
+      "run": "fix085-ui01",
+      "log": "docs/development/logs/fix085-ui01.log",
+      "peak_private_mib": 495.8,
+      "minimum_system_available_mib": 2545.0,
+      "log_sha256": "61ad5736e217f2d06cf1b3c6f9504e8de7e4ab646afa3ba75778f24d2d90574b",
+      "issues": [
+        "UI082_FINDING Missing enabled button: \u88c5\u5907",
+        "UI082_FINDING Equipment save failure has no visible explanation"
+      ]
+    },
+    {
+      "run": "fix085-ui02",
+      "log": "docs/development/logs/fix085-ui02.log",
+      "peak_private_mib": 498.8,
+      "minimum_system_available_mib": 2585.0,
+      "log_sha256": "b6646027a7908016f1f7e3bdca3f06ee03cb72fdf736b2374447681d4878ffcf",
+      "issues": []
+    },
+    {
+      "run": "fix085-profile-old38",
+      "log": "docs/development/logs/fix085-profile-old38.log",
+      "peak_private_mib": 730.4,
+      "minimum_system_available_mib": 2468.0,
+      "log_sha256": "eafc15ed43fe13b7216776f1fe804920292ed64b081f93b9d14644c09a78b062",
+      "issues": []
+    },
+    {
+      "run": "fix085-export39",
+      "log": "docs/development/logs/fix085-export39.log",
+      "peak_private_mib": 613.2,
+      "minimum_system_available_mib": 2259.0,
+      "log_sha256": "a853b5ee17783e34ab0cce1ee78fc22c44ac2b46634543c735cd7f5ff54ba5d2",
+      "issues": []
+    },
+    {
+      "run": "fix085-final-profile01",
+      "log": "docs/development/logs/fix085-final-profile01.log",
+      "peak_private_mib": 670.1,
+      "minimum_system_available_mib": 2399.0,
+      "log_sha256": "c414f6afa24dac50302b8bf6c42fbaa6550309702acef5944b3250b532f09dfe",
+      "issues": []
+    },
+    {
+      "run": "fix085-final-icons01",
+      "log": "docs/development/logs/fix085-final-icons01.log",
+      "peak_private_mib": 605.0,
+      "minimum_system_available_mib": 2606.0,
+      "log_sha256": "0fbc6b05ba5f7037c7e280eea0d83fe7ae7b44ec71cf04fa48b412f5f299baeb",
+      "issues": []
+    },
+    {
+      "run": "fix085-final-fall01",
+      "log": "docs/development/logs/fix085-final-fall01.log",
+      "peak_private_mib": 614.5,
+      "minimum_system_available_mib": 2447.0,
+      "log_sha256": "27aea441ed692aad586eae4d24fb301770bb704956240c518b85e6bb71547a64",
+      "issues": []
+    },
+    {
+      "run": "fix085-final-input01",
+      "log": "docs/development/logs/fix085-final-input01.log",
+      "peak_private_mib": 651.6,
+      "minimum_system_available_mib": 2373.0,
+      "log_sha256": "95d755f7e4d0087bfd1bace7810cd25c71515d3a65f6386018ccf94bf2e7e5db",
+      "issues": []
+    },
+    {
+      "run": "fix085-final-heavy01",
+      "log": "docs/development/logs/fix085-final-heavy01.log",
+      "peak_private_mib": 700.4,
+      "minimum_system_available_mib": 2332.0,
+      "log_sha256": "7201f7ee906c00dc2e78b3b3b5029124b6e50943d1b2d6055f6b77021dca961f",
+      "issues": []
+    },
+    {
+      "run": "fix085-final-ui01",
+      "log": "docs/development/logs/fix085-final-ui01.log",
+      "peak_private_mib": 490.0,
+      "minimum_system_available_mib": 2616.0,
+      "log_sha256": "303f8c4cf74741949c5acfc2d4d2614cb23d48e5edae6e4247c6f65db7571add",
+      "issues": []
+    },
+    {
+      "run": "fix085-final-life01",
+      "log": "docs/development/logs/fix085-final-life01.log",
+      "peak_private_mib": 704.8,
+      "minimum_system_available_mib": 2339.0,
+      "log_sha256": "533ff8be864aec99a59e4ec66f0c8bd7825abda821520a3dd812bfc4b336cfde",
+      "issues": []
+    },
+    {
+      "run": "fix085-final-suspend01",
+      "log": "docs/development/logs/fix085-final-suspend01.log",
+      "peak_private_mib": 458.2,
+      "minimum_system_available_mib": 2574.0,
+      "log_sha256": "c7aaf4f279eefa8c8e69459ea2075d230823b934e71afc63750375a088fad614",
+      "issues": []
+    },
+    {
+      "run": "fix085-final-fatal01",
+      "log": "docs/development/logs/fix085-final-fatal01.log",
+      "peak_private_mib": 783.4,
+      "minimum_system_available_mib": 2156.0,
+      "log_sha256": "63f71a48f2ec8a18d67a2a669cc483a605f1567d21723ef8e563299b211784bd",
+      "issues": [
+        "ERROR: Actual fallen rider did not release, land and settle"
+      ]
+    },
+    {
+      "run": "fix085-rest-before01",
+      "log": "docs/development/logs/fix085-rest-before01.log",
+      "peak_private_mib": 124.5,
+      "minimum_system_available_mib": 2836.0,
+      "log_sha256": "e7cf22211b9eb5a7e77bfe571bdc18b54d33f14bb596b7cb160d850095650fe4",
+      "issues": []
+    },
+    {
+      "run": "fix085-rest-variable01",
+      "log": "docs/development/logs/fix085-rest-variable01.log",
+      "peak_private_mib": 124.5,
+      "minimum_system_available_mib": 3246.0,
+      "log_sha256": "e7cf22211b9eb5a7e77bfe571bdc18b54d33f14bb596b7cb160d850095650fe4",
+      "issues": []
+    },
+    {
+      "run": "fix085-rest-variable-after01",
+      "log": "docs/development/logs/fix085-rest-variable-after01.log",
+      "peak_private_mib": 125.0,
+      "minimum_system_available_mib": 1833.0,
+      "log_sha256": "e7cf22211b9eb5a7e77bfe571bdc18b54d33f14bb596b7cb160d850095650fe4",
+      "issues": []
+    },
+    {
+      "run": "fix085-fixedstep-stress01",
+      "log": "docs/development/logs/fix085-fixedstep-stress01.log",
+      "peak_private_mib": 619.5,
+      "minimum_system_available_mib": 1576.0,
+      "log_sha256": "27aea441ed692aad586eae4d24fb301770bb704956240c518b85e6bb71547a64",
+      "issues": []
+    },
+    {
+      "run": "fix085-fixedstep-rates01",
+      "log": "docs/development/logs/fix085-fixedstep-rates01.log",
+      "peak_private_mib": 586.1,
+      "minimum_system_available_mib": 1645.0,
+      "log_sha256": "27aea441ed692aad586eae4d24fb301770bb704956240c518b85e6bb71547a64",
+      "issues": []
+    },
+    {
+      "run": "fix085-fixedstep-live01",
+      "log": "docs/development/logs/fix085-fixedstep-live01.log",
+      "peak_private_mib": 800.5,
+      "minimum_system_available_mib": 1448.0,
+      "log_sha256": "f758381b0eb5f89f1f722b37c9b213ae69b45d2a5796b40c82fa59b8a5a4eee3",
+      "issues": []
+    },
+    {
+      "run": "fix085-export39r2",
+      "log": "docs/development/logs/fix085-export39r2.log",
+      "peak_private_mib": 615.4,
+      "minimum_system_available_mib": 1441.0,
+      "log_sha256": "e6508952e175d4e8995ea15c450879e2d8aba7fa78ae826d613a7da9746d8dbd",
+      "issues": []
+    },
+    {
+      "run": "fix085-r2-fatal01",
+      "log": "docs/development/logs/fix085-r2-fatal01.log",
+      "peak_private_mib": 783.5,
+      "minimum_system_available_mib": 1363.0,
+      "log_sha256": "fdb86cacd613f439f5e2f1d77dcbfcc1dc40846f8634deef3f71353f47abacc8",
+      "issues": []
+    },
+    {
+      "run": "fix085-r2-profile01",
+      "log": "docs/development/logs/fix085-r2-profile01.log",
+      "peak_private_mib": 669.8,
+      "minimum_system_available_mib": 1571.0,
+      "log_sha256": "4fe6da7e97598d078d2cdb981eb8060ed55e16f5f89c1e008346658ad7997f42",
+      "issues": []
+    },
+    {
+      "run": "fix085-r2-heavy01",
+      "log": "docs/development/logs/fix085-r2-heavy01.log",
+      "peak_private_mib": 699.1,
+      "minimum_system_available_mib": 1513.0,
+      "log_sha256": "baf3d6cc114225039856430f90d6b1c7bd781dc11866292bd4b0f4ea72b902f9",
+      "issues": []
+    },
+    {
+      "run": "fix085-r2-replay01",
+      "log": "docs/development/logs/fix085-r2-replay01.log",
+      "peak_private_mib": 178.7,
+      "minimum_system_available_mib": 2065.0,
+      "log_sha256": "297f4df74d675229bd11869fe83c8f639a428980fcafd5f72244632b9117b356",
+      "issues": []
+    },
+    {
+      "run": "fix085-r2-suspend01",
+      "log": "docs/development/logs/fix085-r2-suspend01.log",
+      "peak_private_mib": 453.1,
+      "minimum_system_available_mib": 1802.0,
+      "log_sha256": "d35a7bd077410d2ce9c357eb6f646ca1fbc30b14db5324dcb8892a2070b5589c",
+      "issues": []
+    }
+  ],
+  "screen_control": false,
+  "qa_profile": true,
+  "pending": [],
+  "release": "0.4.39-r2",
+  "interpretation": "Failed UI082 timing assumption and failed candidate live fall retained. Final runtime results checked individually, not inferred from process exit alone.",
+  "log_hash_note": "Hashes describe local captured bytes; repository text/EOL policy can normalize log line endings. Package hashes describe unmodified binary bytes."
+}

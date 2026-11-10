@@ -1,0 +1,140 @@
+{
+	"failures": [],
+	"hidden_draws": 0,
+	"passed": true,
+	"rows": [
+		{
+			"can_draw": false,
+			"drawn": 1,
+			"static_bytes": 0
+		},
+		{
+			"can_draw": false,
+			"drawn": 1,
+			"static_bytes": 0
+		},
+		{
+			"can_draw": false,
+			"drawn": 1,
+			"static_bytes": 0
+		},
+		{
+			"can_draw": false,
+			"drawn": 1,
+			"static_bytes": 0
+		},
+		{
+			"can_draw": false,
+			"drawn": 1,
+			"static_bytes": 0
+		},
+		{
+			"can_draw": false,
+			"drawn": 1,
+			"static_bytes": 0
+		},
+		{
+			"can_draw": false,
+			"drawn": 1,
+			"static_bytes": 0
+		},
+		{
+			"can_draw": false,
+			"drawn": 1,
+			"static_bytes": 0
+		},
+		{
+			"can_draw": false,
+			"drawn": 1,
+			"static_bytes": 0
+		},
+		{
+			"can_draw": false,
+			"drawn": 1,
+			"static_bytes": 0
+		},
+		{
+			"can_draw": false,
+			"drawn": 1,
+			"static_bytes": 0
+		},
+		{
+			"can_draw": false,
+			"drawn": 1,
+			"static_bytes": 0
+		}
+	],
+	"scope": "Actual window minimize/restore on the isolated desktop, with pending page jobs. Six second hidden steady window; not a long soak or OS input.",
+	"visible": {
+		"can_draw": true,
+		"details": [
+			{
+				"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+				"first_frame": 81,
+				"id": "mail_basic",
+				"loaded": true,
+				"processing": false,
+				"rect": "[P: (291.0, 244.0), S: (152.0, 100.0)]"
+			},
+			{
+				"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+				"first_frame": 82,
+				"id": "eng_armor_0",
+				"loaded": true,
+				"processing": false,
+				"rect": "[P: (702.0, 244.0), S: (152.0, 100.0)]"
+			},
+			{
+				"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+				"first_frame": 83,
+				"id": "eng_armor_1",
+				"loaded": true,
+				"processing": false,
+				"rect": "[P: (291.0, 384.0), S: (152.0, 100.0)]"
+			},
+			{
+				"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+				"first_frame": 84,
+				"id": "fr_armor_0",
+				"loaded": true,
+				"processing": false,
+				"rect": "[P: (702.0, 384.0), S: (152.0, 100.0)]"
+			},
+			{
+				"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+				"first_frame": 85,
+				"id": "fr_armor_1",
+				"loaded": true,
+				"processing": false,
+				"rect": "[P: (291.0, 524.0), S: (152.0, 100.0)]"
+			},
+			{
+				"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+				"first_frame": 86,
+				"id": "de_armor_0",
+				"loaded": true,
+				"processing": false,
+				"rect": "[P: (702.0, 524.0), S: (152.0, 100.0)]"
+			},
+			{
+				"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+				"first_frame": 87,
+				"id": "it_armor_0",
+				"loaded": true,
+				"processing": false,
+				"rect": "[P: (291.0, 664.0), S: (152.0, 100.0)]"
+			},
+			{
+				"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+				"first_frame": 88,
+				"id": "it_armor_1",
+				"loaded": true,
+				"processing": false,
+				"rect": "[P: (702.0, 664.0), S: (152.0, 100.0)]"
+			}
+		],
+		"frame": 153,
+		"loaded": 8,
+		"visible": 8
+	}
+}

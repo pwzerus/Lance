@@ -9,6 +9,23 @@ const STEEL = Color("9da9ad")
 const DARK_STEEL = Color("4b5963")
 enum Layer { WHOLE, REAR, FRONT }
 
+static func strip_indices(samples: int) -> PackedInt32Array:
+	var result = PackedInt32Array()
+	for i in range(samples-1):
+		var lower = samples*2-1-i
+		result.append_array(PackedInt32Array([i,i+1,lower-1,i,lower-1,lower]))
+	return result
+
+static var _shaft_indices = strip_indices(25)
+static var _fragment_indices = strip_indices(17)
+
+static func draw_strip(canvas: CanvasItem, points: PackedVector2Array, triangles: PackedInt32Array) -> void:
+	# This is an authored ribbon: upper samples followed by reversed lower
+	# samples. Ear clipping the almost-collinear shaft at every pose can fail
+	# from float rounding (PERF-084 exact GPU reproduction). Keep ALL vertices,
+	# flex, taper and outline; submit the known adjacent-strip connectivity.
+	RenderingServer.canvas_item_add_triangle_array(canvas.get_canvas_item(),triangles,points,PackedColorArray([WOOD]))
+
 static func surface(hand: Vector2, angle: float, distance: float, offset: float, length: float, broken: bool, recoil: float) -> Vector2:
 	var axis = Vector2(cos(angle),sin(angle))
 	var normal = Vector2(-axis.y,axis.x)
@@ -58,7 +75,7 @@ static func draw(canvas: CanvasItem, stats: Dictionary, hand: Vector2, angle: fl
 		highlight.append(surface(hand,angle,d,-r*.48,length,broken,recoil))
 	var silhouette = upper+lower
 	var mapped = _mapped(silhouette,hand,angle,length,broken,recoil)
-	canvas.draw_colored_polygon(mapped,WOOD)
+	draw_strip(canvas,mapped,_shaft_indices)
 	# Do not draw an artificial end cap at the split inside the hand.
 	canvas.draw_polyline(_mapped(upper,hand,angle,length,broken,recoil),INK,1.7,false)
 	canvas.draw_polyline(_mapped(lower,hand,angle,length,broken,recoil),INK,1.7,false)
@@ -123,7 +140,7 @@ static func draw_fragment(canvas: CanvasItem, stats: Dictionary, source_start: f
 		lower.push_front(Vector2(x,r))
 		highlight.append(Vector2(x,-r*.48))
 	var contour = PackedVector2Array(upper+lower)
-	canvas.draw_colored_polygon(contour,WOOD)
+	draw_strip(canvas,contour,_fragment_indices)
 	contour.append(contour[0])
 	canvas.draw_polyline(contour,INK,1.7,false)
 	canvas.draw_polyline(highlight,LIGHT_WOOD,1.5,false)

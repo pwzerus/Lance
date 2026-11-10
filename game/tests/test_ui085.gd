@@ -1,6 +1,6 @@
 extends SceneTree
 ## FIX-085 async armoury action readiness; same production save-failure checks.
-## Original UI085 one-frame synchronous assumption is retained in its old file.
+## Original UI082 one-frame synchronous assumption is retained in its old file.
 var folder = ""
 var main
 var state

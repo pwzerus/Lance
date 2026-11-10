@@ -109,8 +109,8 @@ func _ready() -> void:
 		OS.alert("Please launch with Play-Latest.cmd (memory protection required).", "Lance & Laurel")
 		get_tree().quit(2)
 		return
-	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.36"
-	print("GALUMU_BUILD v0.4.36")
+	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.37"
+	print("GALUMU_BUILD v0.4.37")
 	get_tree().auto_accept_quit = false
 	add_child(WindowActivity.new())
 	get_window().min_size = Vector2i(960,540)
@@ -130,7 +130,7 @@ func _ready() -> void:
 		smoke_started = Time.get_ticks_msec()
 	show_home()
 	if GameState.qa_input_probe:
-		get_window().title = "Lance & Laurel v0.4.36 QA - Desktop input"
+		get_window().title = "Lance & Laurel v0.4.37 QA - Desktop input"
 		var audit = preload("res://scripts/core/desktop_input_audit.gd").new()
 		audit.main = self
 		add_child(audit)
@@ -186,26 +186,57 @@ func _add_preview(point: Vector2, preview_scale: float = 1.0, stats: Dictionary 
 
 func show_home() -> void:
 	page = "home"
+	_apply_display_settings()
 	_clear_screen()
 	_header("营地 · 准备下一场交锋")
-	UI.label(screen,"骑枪与桂冠",Vector2(64,135),52,UI.INK)
-	UI.label(screen,"LANCE & LAUREL",Vector2(68,210),19,UI.GOLD)
-	UI.label(screen,"读懂来枪，守住空隙。",Vector2(68,263),24,UI.INK)
-	UI.button(screen,"开始游戏",Rect2(68,337,510,65),show_match_setup,true)
-	UI.button(screen,"存档 / 继续进度",Rect2(68,419,510,58),show_saves)
-	UI.button(screen,"军械库",Rect2(68,494,510,58),show_armory)
-	UI.button(screen,"历史手记",Rect2(68,569,247,50),show_history)
-	UI.button(screen,"设置",Rect2(331,569,247,50),show_settings)
-	UI.button(screen,"保存并退出",Rect2(68,645,510,50),_save_and_exit)
-	UI.label(screen,"自动保存已启用 · v0.4.36",Vector2(70,727),16,UI.MUTED)
-	UI.label(screen,"你的骑士",Vector2(790,145),20,UI.GOLD)
-	UI.button(screen,"角色外观",Rect2(1010,129,362,54),show_character,true)
-	_add_preview(Vector2(1035,652),1.42)
-	var champion = UI.panel(screen,Rect2(766,675,606,98),Color(.07,.12,.095,.94))
-	UI.label(champion,"%s  ·  %s 胜 / %s 场" % [Catalogue.REGIONS[int(GameState.profile.region)],_short_number(int(GameState.profile.wins)),_short_number(int(GameState.profile.matches))],Vector2(22,14),23,UI.GOLD)
-	UI.label(champion,"%s · 装备和收藏随进度保留" % Catalogue.ERAS[Catalogue.era_for_renown(int(GameState.profile.renown))],Vector2(22,55),16,UI.MUTED)
+	var era = Catalogue.era_for_renown(int(GameState.profile.renown))
+	var region = int(GameState.profile.region)
+	var camp = preload("res://scripts/ui/home_camp.gd").new()
+	camp.equipment = GameState.player_stats()
+	camp.banner_color = Catalogue.REGION_COLORS[region]
+	screen.add_child(camp)
+	UI.label(screen,"LANCE  /  LAUREL",Vector2(80,117),17,UI.GOLD)
+	UI.label(screen,"骑枪与桂冠",Vector2(74,155),57,UI.INK)
+	UI.label(screen,"尘土扬起之前，决定这一枪。",Vector2(80,243),23,UI.MUTED)
+	var start = UI.button(screen,"开始游戏",Rect2(78,314,552,76),show_match_setup,true)
+	start.add_theme_font_size_override("font_size",26)
+	UI.label(screen,"选择竞技场或实战，迎向下一位对手。",Vector2(80,407),17,UI.MUTED)
+	UI.button(screen,"军械库",Rect2(78,458,266,72),show_armory)
+	UI.button(screen,"练习场",Rect2(364,458,266,72),func():_begin_match("arena",true))
+	UI.label(screen,"换上你的纹章与装备",Vector2(94,543),16,UI.MUTED)
+	UI.label(screen,"熟悉催马、调枪与防盾",Vector2(380,543),16,UI.MUTED)
+	UI.button(screen,"存档 / 继续进度",Rect2(78,600,552,52),show_saves)
+	UI.button(screen,"历史手记",Rect2(78,672,172,46),show_history)
+	UI.button(screen,"设置",Rect2(268,672,172,46),show_settings)
+	UI.button(screen,"保存并退出",Rect2(458,672,172,46),_save_and_exit)
+	UI.label(screen,"自动保存已启用 · v0.4.37",Vector2(80,750),15,UI.MUTED)
+	UI.label(screen,"你的骑士",Vector2(813,122),16,UI.GOLD)
+	UI.label(screen,Catalogue.REGIONS[region]+" · "+Catalogue.ERA_NAMES[era],Vector2(813,161),25,UI.INK)
+	UI.label(screen,Catalogue.ERAS[era]+"   /   装备、坐骑与纹章随你出战",Vector2(813,205),15,UI.MUTED)
+	UI.button(screen,"角色外观",Rect2(1150,116,220,42),show_character)
+	_add_preview(Vector2(1072,660),1.30)
+	var champion = UI.panel(screen,Rect2(766,690,606,94),Color(.045,.085,.065,.96))
+	var next_era = era+1
+	var journey = "下一时代 · "+Catalogue.ERA_NAMES[next_era] if next_era<Catalogue.ERAS.size() else "历代工坊已开放 · 继续你的收藏"
+	UI.label(champion,journey,Vector2(22,12),18,UI.GOLD)
+	var record_label = UI.label(champion,"%s 胜 / %s 场" % [_short_number(int(GameState.profile.wins)),_short_number(int(GameState.profile.matches))],Vector2(452,14),15,UI.MUTED)
+	record_label.size=Vector2(132,24)
+	record_label.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
+	var progress = ColorRect.new()
+	progress.position=Vector2(22,49)
+	progress.size=Vector2(562,6)
+	progress.color=Color("27362b")
+	progress.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	champion.add_child(progress)
+	var progress_fill=ColorRect.new()
+	var fraction=1.0 if next_era>=Catalogue.ERAS.size() else clampf(float(int(GameState.profile.renown)-Catalogue.ERA_REQUIREMENTS[era])/float(Catalogue.ERA_REQUIREMENTS[next_era]-Catalogue.ERA_REQUIREMENTS[era]),0,1)
+	progress_fill.size=Vector2(562*fraction,6)
+	progress_fill.color=UI.GOLD
+	progress_fill.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	progress.add_child(progress_fill)
+	UI.label(champion,"赢得声望，开启新的时代与工坊。" if next_era<Catalogue.ERAS.size() else "每一件收藏，都有它的来处。",Vector2(22,66),14,UI.MUTED)
 	if not GameState.save_error.is_empty():
-		UI.label(screen,GameState.save_error,Vector2(70,757),14,Color("efb566"),650)
+		UI.label(screen,GameState.save_error,Vector2(80,775),13,Color("efb566"),650)
 	queue_redraw()
 
 func show_character() -> void:
@@ -809,7 +840,7 @@ func show_settings() -> void:
 	page = "settings"
 	_clear_screen()
 	_header("设置 · 让每一次交锋更适合你。")
-	var panel = UI.panel(screen,Rect2(70,123,680,596))
+	var panel = UI.panel(screen,Rect2(70,123,680,656))
 	UI.label(panel,"游戏设置",Vector2(28,24),34,UI.GOLD)
 	UI.check(panel,"显示血腥表现",GameState.profile.settings.blood,Vector2(28,104),func(value):_change_setting("blood",value))
 	UI.label(panel,"关闭只隐藏血迹与伤口；实战依然允许死亡。",Vector2(28,150),16,UI.MUTED)
@@ -828,8 +859,10 @@ func show_settings() -> void:
 	difficulty.selected = int(GameState.profile.settings.difficulty)
 	difficulty.item_selected.connect(func(value):_change_setting("difficulty",value))
 	panel.add_child(difficulty)
-	settings_notice = UI.label(panel,"修改后自动保存",Vector2(28,455),15,UI.MUTED,620)
-	UI.button(panel,"返回营地",Rect2(28,493,620,59),show_home,true)
+	UI.check(panel,"垂直同步 · 撕裂时开启",bool(GameState.profile.settings.get("vsync",false)),Vector2(28,452),func(value):_change_setting("vsync",value))
+	UI.label(panel,"关闭可减少显示等待；游戏仍限制为最高 60 帧。",Vector2(28,499),15,UI.MUTED,620)
+	settings_notice = UI.label(panel,"修改后自动保存",Vector2(28,538),15,UI.MUTED,620)
+	UI.button(panel,"返回营地",Rect2(28,581,620,49),show_home,true)
 	UI.panel(screen,Rect2(810,123,565,596),Color(.055,.10,.08,.95))
 	UI.label(screen,"操作",Vector2(844,150),32,UI.GOLD)
 	UI.label(screen,"移动鼠标　瞄准；大幅改向会失稳\n左键 / 空格　按住催马，松开减速\n1 / 2 / 3　护头 / 护胸 / 护腹（右键循环）\nW / S　　 前倾支撑 / 后仰避头\nH　　　　 显示判定范围\nEsc　　　 暂停与设置\nR 重开　　F11 全屏",Vector2(844,219),22,UI.INK,510)
@@ -840,11 +873,21 @@ func show_settings() -> void:
 
 func _change_setting(key: String, value: Variant) -> void:
 	GameState.set_setting(key,value)
+	if key=="vsync": _apply_display_settings()
 	if page=="settings" and is_instance_valid(settings_notice):
 		var saved = GameState.save_error.is_empty()
 		settings_notice.text = "已保存设置" if saved else "设置已应用，但暂未保存；可回营地重试保存。"
 		settings_notice.add_theme_color_override("font_color",UI.MUTED if saved else Color("efb566"))
 		settings_notice.tooltip_text = GameState.save_error
+
+func _apply_display_settings() -> void:
+	# Keep the independent 60 FPS cap in WindowActivity. On this Windows/GL
+	# setup swap synchronization stalled isolated rendering far below budget.
+	# Players can restore sync if tearing is visible; no quality or RAM change.
+	if DisplayServer.get_name()=="headless": return
+	var requested = DisplayServer.VSYNC_ENABLED if bool(GameState.profile.settings.get("vsync",false)) else DisplayServer.VSYNC_DISABLED
+	if DisplayServer.window_get_vsync_mode()!=requested:
+		DisplayServer.window_set_vsync_mode(requested)
 
 func show_history() -> void:
 	page = "history"

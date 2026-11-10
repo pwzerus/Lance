@@ -50,6 +50,8 @@ var tail_bends = PackedFloat64Array()
 var limb_name = ""
 var hind_weights: Array[PackedFloat32Array] = []
 var fore_weights: Array[PackedFloat32Array] = []
+var hind_influences: Array[PackedInt32Array] = []
+var fore_influences: Array[PackedInt32Array] = []
 
 func _init(limb: String = "") -> void:
 	limb_name = limb
@@ -81,6 +83,8 @@ func _init(limb: String = "") -> void:
 			rest_points.append(rest_point(source))
 			hind_weights.append(_limb_weights(source,HIND))
 			fore_weights.append(_limb_weights(source,FORE))
+			hind_influences.append(_active_influences(hind_weights[-1]))
+			fore_influences.append(_active_influences(fore_weights[-1]))
 			# The tail and the hock are close in the plate but separated by
 			# transparent pixels. A broad X blend incorrectly pinned the back
 			# edge of the hock to the tail, stretching it into a triangular flap.
@@ -172,6 +176,14 @@ static func _limb_weights(source: Vector2, anchors: Array) -> PackedFloat32Array
 	var d = smoothstep(.86,1.04,(source-Vector2(anchors[3])).dot(fourth)/fourth.length_squared())
 	return PackedFloat32Array([(1-a)*(1-b)*(1-c)*(1-d),a*(1-b)*(1-c)*(1-d),b*(1-c)*(1-d),c*(1-d),d])
 
+static func _active_influences(blend: PackedFloat32Array) -> PackedInt32Array:
+	# Source-space weights never change. Preserve summation order while omitting
+	# zero-weight transforms; do not simplify the mesh or animate fewer joints.
+	var active = PackedInt32Array()
+	for index in range(blend.size()):
+		if blend[index]>0.0: active.append(index)
+	return active
+
 static func _bone_transform(source_a: Vector2, source_b: Vector2, a: Vector2, b: Vector2, width: float) -> Transform2D:
 	var source_axis = (source_b-source_a).normalized()
 	var source_side = Vector2(-source_axis.y,source_axis.x)
@@ -219,37 +231,43 @@ static func muzzle_point(body_pose: Dictionary) -> Vector2:
 	return neck_point(MUZZLE,body_pose)
 
 func update(body_pose: Dictionary, hind_pose: Dictionary, fore_pose: Dictionary) -> void:
-	var rigid_pose = Transform2D(float(body_pose.pitch),Vector2.ZERO)
+	var rigid_pose: Transform2D = Transform2D(float(body_pose.pitch),Vector2.ZERO)
 	rigid_pose.origin = PIVOT+Vector2(body_pose.offset)-rigid_pose.basis_xform(PIVOT)
-	var hind = _limb_transforms(HIND,hind_pose)
-	var fore = _limb_transforms(FORE,fore_pose)
+	var hind: Array[Transform2D] = _limb_transforms(HIND,hind_pose)
+	var fore: Array[Transform2D] = _limb_transforms(FORE,fore_pose)
 	# Read pose data once per mesh, not once per neck/tail vertex. Tail bend
 	# weights depend only on source coordinates and are baked in _init.
-	var neck_angle = float(body_pose.neck)
-	var neck_offset = Vector2(body_pose.neck_offset)
-	var tail_angle = float(body_pose.tail)
-	var neck_pivot = rest_point(NECK_BASE)
-	var tail_pivot = rest_point(TAIL_ROOT)
-	var head_pose = head_transform(body_pose)
+	var neck_angle: float = float(body_pose.neck)
+	var neck_offset: Vector2 = Vector2(body_pose.neck_offset)
+	var tail_angle: float = float(body_pose.tail)
+	var neck_pivot: Vector2 = rest_point(NECK_BASE)
+	var tail_pivot: Vector2 = rest_point(TAIL_ROOT)
+	var head_pose: Transform2D = head_transform(body_pose)
 	for i in range(source_points.size()):
-		var source = source_points[i]
-		var weight = weights[i]
-		var rest = rest_points[i]
-		var neck_weight = neck_weights[i]
+		var source: Vector2 = source_points[i]
+		var weight: Vector3 = weights[i]
+		var rest: Vector2 = rest_points[i]
+		var neck_weight: float = neck_weights[i]
 		if neck_weight>0:
 			rest = neck_pivot+(rest-neck_pivot).rotated(neck_angle*neck_weight)+neck_offset*neck_weight
 		if head_weights[i]>0:
 			rest = rest.lerp(head_pose*rest_points[i],head_weights[i])
-		var tail_weight = tail_weights[i]
+		var tail_weight: float = tail_weights[i]
 		if tail_weight>0:
 			rest = rest.lerp(tail_pivot+(rest-tail_pivot).rotated(tail_angle*tail_bends[i]),tail_weight)
-		var point = (rigid_pose*rest)*weight.x
+		var point: Vector2 = (rigid_pose*rest)*weight.x
 		if weight.y>0.0:
 			var blend: PackedFloat32Array = hind_weights[i]
-			point += ((hind[0]*source)*blend[0]+(hind[1]*source)*blend[1]+(hind[2]*source)*blend[2]+(hind[3]*source)*blend[3]+(hind[4]*source)*blend[4])*weight.y
+			var limb: Vector2 = Vector2.ZERO
+			for bone in hind_influences[i]:
+				limb += (hind[bone]*source)*blend[bone]
+			point += limb*weight.y
 		if weight.z>0.0:
 			var blend: PackedFloat32Array = fore_weights[i]
-			point += ((fore[0]*source)*blend[0]+(fore[1]*source)*blend[1]+(fore[2]*source)*blend[2]+(fore[3]*source)*blend[3]+(fore[4]*source)*blend[4])*weight.z
+			var limb: Vector2 = Vector2.ZERO
+			for bone in fore_influences[i]:
+				limb += (fore[bone]*source)*blend[bone]
+			point += limb*weight.z
 		vertices[i] = point
 	# Only the vertex buffer changes. UVs, topology, material and source bitmap
 	# stay fixed; two horses do not allocate thousands of draw calls per frame.

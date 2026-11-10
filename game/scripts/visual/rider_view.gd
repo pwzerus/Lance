@@ -100,10 +100,11 @@ func _process(delta: float) -> void:
 	var landed: Array[int] = []
 	var phase_step = (stride_phase-previous_stride_phase)/TAU
 	var reset_cycles = not moving or phase_step<0 or phase_step>=.5
+	var stability = float(fighter.get("stats",{}).get("stability",1.0))
+	var drive = float(fighter.get("motion_drive",0.0))
+	var leg_body = Gait.body(stride_phase,speed,moving,stability,drive)
 	for index in range(4):
-		var stability = float(fighter.get("stats",{}).get("stability",1.0))
-		var drive = float(fighter.get("motion_drive",0.0))
-		var leg_pose = Gait.leg(index,stride_phase,speed,moving,stability,INF,Vector2.INF,drive)
+		var leg_pose = Gait.leg(index,stride_phase,speed,moving,stability,INF,Vector2.INF,drive,-1,-1,leg_body)
 		var facing = int(fighter.get("direction",1))
 		var cycle = float(leg_pose.cycle)
 		if cycles_initialized and moving and phase_step>=0 and phase_step<.5:
@@ -112,7 +113,7 @@ func _process(delta: float) -> void:
 			var expected = fposmod(float(last_cycles[index])+phase_step,1)
 			var error = wrapf(cycle-expected,-.5,.5)
 			cycle = fposmod(expected+clampf(error,-phase_step*.25,phase_step*.25),1)
-			leg_pose = Gait.leg(index,stride_phase,speed,moving,stability,INF,Vector2.INF,drive,-1,cycle)
+			leg_pose = Gait.leg(index,stride_phase,speed,moving,stability,INF,Vector2.INF,drive,-1,cycle,leg_body)
 		if cycle<float(last_cycles[index])-.5 or reset_cycles:
 			planted_feet[index] = INF
 			early_release[index] = false
@@ -123,7 +124,7 @@ func _process(delta: float) -> void:
 		if moving and leg_pose.contact and not early_release[index]:
 			if not is_finite(planted_feet[index]):
 				planted_feet[index] = position.x+leg_pose.foot.x*facing
-			leg_pose = Gait.leg(index,stride_phase,speed,true,stability,(planted_feet[index]-position.x)*facing,Vector2.INF,drive,-1,cycle)
+			leg_pose = Gait.leg(index,stride_phase,speed,true,stability,(planted_feet[index]-position.x)*facing,Vector2.INF,drive,-1,cycle,leg_body)
 			if not leg_pose.contact:
 				early_release[index] = true
 				release_cycles[index] = cycle
@@ -150,7 +151,7 @@ func _process(delta: float) -> void:
 			var remaining_travel = speed*(1-cycle)/maxf(.1,Gait.frequency(speed))
 			var landing_x = position.x+(target_x+remaining_travel)*facing
 			var foot = Vector2((lerpf(swing_starts[index].x,landing_x,protraction)-position.x)*facing,lerpf(swing_starts[index].y,Gait.GROUND,progress)+trajectory.y)
-			leg_pose = Gait.leg(index,stride_phase,speed,true,stability,INF,foot,drive,progress,cycle)
+			leg_pose = Gait.leg(index,stride_phase,speed,true,stability,INF,foot,drive,progress,cycle,leg_body)
 			leg_pose.contact = false
 		if moving and leg_pose.contact and not previous_contacts[index]:
 			landed.append(index)

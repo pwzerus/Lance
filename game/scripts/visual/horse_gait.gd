@@ -128,20 +128,23 @@ static func body(phase: float, speed: float, moving: bool, stability: float = 1.
  var intensity = smoothstep(0,95,speed)
  var height = 0.0
  var pitch = 0.0
+ var delayed_height = 0.0
+ var delayed_pitch = 0.0
  for i in range(4):
+  # Most frames have one active gait. Skip unused curves, including their
+  # delayed rider samples; this function is shared by many hit/art anchors.
+  if w[i]<=0.0:
+   continue
   height += _cycle(HEIGHTS[i],cycle+HEIGHT_PHASE[i])*w[i]
   pitch += _cycle(PITCHES[i],cycle)*w[i]
+  delayed_height += _cycle(HEIGHTS[i],cycle-.055+HEIGHT_PHASE[i])*w[i]
+  delayed_pitch += _cycle(PITCHES[i],cycle-.04)*w[i]
  var run = w.z+w.w
  # The back remains relatively rigid; the entire trunk rocks. Better horses
  # moderate rider transmission without eliminating their visible stride.
  var transmission = clampf(1.0/stability,.82,1.18)
  # Absorption follows the same back curve, including BOTH diagonal trot
  # beats. A separate single sine made alternate trot beats look detached.
- var delayed_height = 0.0
- var delayed_pitch = 0.0
- for i in range(4):
-  delayed_height += _cycle(HEIGHTS[i],cycle-.055+HEIGHT_PHASE[i])*w[i]
-  delayed_pitch += _cycle(PITCHES[i],cycle-.04)*w[i]
  var rider_lag = (delayed_height-height)*.32*transmission
  var neck_angle = (.075*run-pitch*.90+delayed_pitch*.35+sin(phase-.5)*(.020*w.x+.012*w.y))*intensity
  neck_angle += (.09+.03*sin(phase-.5))*fatigue*intensity
@@ -179,8 +182,10 @@ static func _swing_point(front: bool, t: float, reach: float, lift: float, run: 
  var lift_weight = smoothstep(0,apex,progress) if progress<apex else 1.0-smoothstep(apex,1.0,progress)
  return Vector2(lerpf(-reach,reach,delivered),-lift*lift_weight)
 
-static func leg(index: int, phase: float, speed: float, moving: bool, stability: float = 1.0, planted_x: float = INF, override_foot: Vector2 = Vector2.INF, drive: float = 0.0, actual_swing: float = -1.0, cycle_override: float = -1.0) -> Dictionary:
- var pose = body(phase,speed,moving,stability,drive)
+static func leg(index: int, phase: float, speed: float, moving: bool, stability: float = 1.0, planted_x: float = INF, override_foot: Vector2 = Vector2.INF, drive: float = 0.0, actual_swing: float = -1.0, cycle_override: float = -1.0, body_pose: Dictionary = {}) -> Dictionary:
+ # A renderer may reuse the same pose across its four leg solves this frame.
+ # No persistent cache: rules/tests that modify a fighter still get fresh data.
+ var pose = body(phase,speed,moving,stability,drive) if body_pose.is_empty() else body_pose
  var hip: Vector2 = Vector2(-18,-168)+(HIP_POINTS[index]-Vector2(-18,-168)).rotated(pose.pitch)+pose.offset
  var front = index>=2
  var w = weights(speed)

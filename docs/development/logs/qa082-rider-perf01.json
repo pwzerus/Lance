@@ -1,0 +1,77 @@
+{
+	"comparisons": [
+		{
+			"maximum_error": 0.0,
+			"usec": 190522
+		},
+		{
+			"maximum_error": 0.0,
+			"usec": 191580
+		}
+	],
+	"failures": [],
+	"passed": true,
+	"samples": [
+		{
+			"after": {
+				"maximum_error": 0.0,
+				"usec": 118736
+			},
+			"before": {
+				"maximum_error": 0.0,
+				"usec": 185943
+			}
+		},
+		{
+			"after": {
+				"maximum_error": 0.0,
+				"usec": 118392
+			},
+			"before": {
+				"maximum_error": 0.0,
+				"usec": 186353
+			}
+		},
+		{
+			"after": {
+				"maximum_error": 0.0,
+				"usec": 122310
+			},
+			"before": {
+				"maximum_error": 0.0,
+				"usec": 187971
+			}
+		},
+		{
+			"after": {
+				"maximum_error": 0.0,
+				"usec": 121580
+			},
+			"before": {
+				"maximum_error": 0.0,
+				"usec": 192029
+			}
+		},
+		{
+			"after": {
+				"maximum_error": 0.0,
+				"usec": 120794
+			},
+			"before": {
+				"maximum_error": 0.0,
+				"usec": 185968
+			}
+		},
+		{
+			"after": {
+				"maximum_error": 0.0,
+				"usec": 120640
+			},
+			"before": {
+				"maximum_error": 0.0,
+				"usec": 297039
+			}
+		}
+	],
+	"scope": "Full retained-hoof Rider._process across 12s acceleration/deceleration both directions; CPU timing without renderer, not framerate. Baseline uses same current Gait but does not reuse body pose."
+}

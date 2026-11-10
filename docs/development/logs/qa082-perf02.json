@@ -1,0 +1,70 @@
+{
+	"failures": [],
+	"leg_comparisons": 6144,
+	"maximum_error": 0.0,
+	"passed": true,
+	"pose_comparisons": 2944,
+	"samples": [
+		{
+			"after": {
+				"checksum": -1393.39689211896,
+				"usec": 19377
+			},
+			"before": {
+				"checksum": -1393.39689211896,
+				"usec": 38547
+			}
+		},
+		{
+			"after": {
+				"checksum": -1393.39689211896,
+				"usec": 21721
+			},
+			"before": {
+				"checksum": -1393.39689211896,
+				"usec": 38880
+			}
+		},
+		{
+			"after": {
+				"checksum": -1393.39689211896,
+				"usec": 23222
+			},
+			"before": {
+				"checksum": -1393.39689211896,
+				"usec": 39928
+			}
+		},
+		{
+			"after": {
+				"checksum": -1393.39689211896,
+				"usec": 23713
+			},
+			"before": {
+				"checksum": -1393.39689211896,
+				"usec": 38347
+			}
+		},
+		{
+			"after": {
+				"checksum": -1393.39689211896,
+				"usec": 22205
+			},
+			"before": {
+				"checksum": -1393.39689211896,
+				"usec": 39671
+			}
+		},
+		{
+			"after": {
+				"checksum": -1393.39689211896,
+				"usec": 21435
+			},
+			"before": {
+				"checksum": -1393.39689211896,
+				"usec": 37746
+			}
+		}
+	],
+	"scope": "Same-pose outputs across gait boundaries and reused-body legs, alternating local CPU microbenchmark; not live frame rate."
+}

@@ -1,5 +1,7 @@
 # 任务、审查建议与文件认领
 
+最新交出 **PERF-083 / v0.4.37**：运行2307329/effe298，生产代码与临时诊断编辑已释放；模型等价、实际包菜单、连续比赛及最小化/恢复有证据。常规装备约59.85FPS、后期重装约52.42FPS，未减画质/动作或放松保护。下一轮优先捕获实战偶发多边形告警的实际GPU顶点，再量重装/马衣和切场景尖峰；不能宣称全装备稳定60。详见PERF083_REVIEW与本轮交接。以下旧“最新”和队列为历史。
+
 最新交出 **QA-082 / v0.4.36-r4**：本轮UI、计算优化、测试与版本文件全部释放。基线b5d610b；性能73afced、界面6183afc、最后轮提示0837c9e、诊断cea1179、发布入口4643d5a。后台最终包菜单/焦点/保存/结算/两场比赛通过；切页退出警告已定位并修正旧QA关闭方式，原节奏复验无警告。完整范围见QA082_REVIEW与QA-082交接。下方旧“最新”和认领记录为历史，不代表仍占用。
 
 后续优先队列（未认领）：受保护条件下实际渲染性能（目前约23fps）；FEEL-075偶发多边形告警的有界可回放定位；带变招防守的速度/装备策略比较；按用户反馈再确认自然步态和材质撞击听感。保留500MiB系统余量及所有其他保护，默认后台。没有把真人或历史40GB问题记为已清零。
@@ -100,6 +102,9 @@ DEV-050实施归属记录：root负责fallen_rider、生产镜头/血腥同步�
 
 | 负责人 | 任务 | 占用文件 | 状态 |
 | --- | --- | --- | --- |
+| 已释放 | PERF-083：定位帧率瓶颈，先30再60，改善主菜单 | main.gd、ui/home_camp.gd、tests/*083*、版本/导出/入口；其余曾认领美术/动作文件未作生产修改 | 基线02e3de3，.37交付，常规约59.85/重装约52.42FPS；规则/界面/连续比赛/最小化验证见审查。全部保护与原rules_v045保留 |
+| 已释放 | PERF-083诊断后扩展 | core/game_state.gd、core/joust_match.gd | 显示同步开关和同tick锚点复用已提交；22067步完全等价，120Hz/形状/枪盾移动保持 |
+| 已释放 | PERF-083绘图告警复现追查 | visual/{head_fit,lance_art,shield_art,rider_arm_art,impact_fx,hit_zone_overlay,rider_view}.gd、ui/home_camp.gd；临时visual/probe_dispatch083.gd/.uid | 告警未定位；8个临时插桩文件已按快照逐字节恢复，临时helper及UID删除。独立probe包4场未复现；正式.37包不含探针。保留原失败，不跳绘掩盖 |
 | Codex | QA-082：排错、UI与同输出优化 | main.gd、battle.gd、ui/{ui_factory,combat_report}.gd、visual/{horse_gait,rider_view,horse_skin}.gd、tests/*082*、test_memory_windows_inc059.gd、版本/启动器/QA082与交接文档 | 已完成并释放；实际发布v0.4.36-r4，验证范围和剩余项见本页顶部及交接 |
 | Codex | DEV-050：两阶段已完成，生产文件已释放；仅交接收尾 | battle、visual/{rider_view,impact_fx,horse_skin,horse_art,horse_gait,exchange_director,fallen_rider,sound_bank}、39音效及新整马素材、版本/导出/启动器、tests/*v050*及设计/协作/验证文档 | a4398d5→75153c4运行代码已推送；独立v0.4.10、30局、实际包/解压包/OS验证见交接。后置QA 02:43:17–03:13:17 UTC，结果单独记。旧包/正式档/Claude改动保留；第三四阶段未实施。 |
 | Codex | REQ-050：需求整理完成，文件释放；实施待用户启动 | docs/requirements/IMPACT_FALL_HORSE_TWO_PHASES.md；DESIGN_DECISIONS.md；docs/collaboration/{TASK_BOARD,PROJECT_STATE,WORK_LOG}.md；handoffs/2026-10-29-REQ-050-Codex.md | 基线80ee402，2026-10-29；仅文档与静态核对，没有开发时长授权。不改代码/素材，不导出、不运行游戏。两阶段分别是撞击/完整落马、整马形体/步态；详见REQ-050交接。 |

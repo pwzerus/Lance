@@ -30,6 +30,8 @@ var joints: Dictionary = {}
 var initial_aim = 0.0
 var roll_direction = 1.0
 var landing_count = 0
+var step_remainder = 0.0
+const STEP_SECONDS = 1.0/120.0
 
 func setup(value: Dictionary, event: Dictionary, mounted: RiderView = null) -> void:
 	fighter = value.duplicate(true)
@@ -279,9 +281,14 @@ func _supported_rest_angle(base_angle: float) -> float:
 func advance(delta: float) -> void:
 	if settled or not is_instance_valid(visual):
 		return
-	var remaining = minf(delta,.25)
-	while remaining>.000001:
-		var dt = minf(remaining,1.0/120.0)
+	# Keep the fractional render-time tail for the next call. Integrating an
+	# extra tiny step every frame changed which elbow/boot supported the body
+	# and repeatedly retargeted the ground solver under slow motion. The same
+	# captured hit must settle on the same 120Hz trajectory at variable FPS.
+	step_remainder += clampf(delta,0.0,.25)
+	while step_remainder+0.000000001>=STEP_SECONDS:
+		var dt = STEP_SECONDS
+		step_remainder = maxf(0.0,step_remainder-dt)
 		age += dt
 		_advance_joints(dt)
 		_update_pose()
@@ -313,7 +320,9 @@ func advance(delta: float) -> void:
 			for joint in joints.values():
 				remaining_motion = maxf(remaining_motion,absf(float(joint.velocity)))
 			settled = remaining_motion<.07 and absf(velocity.x)<1.0 and support_gap()<14.0
-		remaining -= dt
+		if settled:
+			step_remainder = 0.0
+			break
 	far_leg.z_index = 0 if age>.23 else (-3 if ground_y>12 else -1)
 	visual.queue_redraw()
 	far_leg.queue_redraw()

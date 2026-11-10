@@ -1,0 +1,4 @@
+START utc=2026-11-10T15:54:24.9416077Z pid=30612 jobMiB=512 executable=E:\GALUMU\tools\godot-4.5.1\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1268
+MEM seconds=1 privateMiB=42.4 workingMiB=92.8 availableRamMiB=1817 availableCommitMiB=4593
+MEM seconds=2 privateMiB=42.4 workingMiB=93.0 availableRamMiB=1856 availableCommitMiB=4547
+EXIT code=0 seconds=2.6

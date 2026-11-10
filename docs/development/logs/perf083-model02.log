@@ -1,0 +1,8 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+MODEL083 baseline loaded
+MODEL083 pair=1 ticks=5517 phase=ended
+MODEL083 pair=2 ticks=11034 phase=ended
+MODEL083 pair=3 ticks=16551 phase=ended
+MODEL083 pair=4 ticks=22067 phase=ended
+MODEL083 {"events":48,"failure":"","matches":4,"passed":true,"scope":"Exact fighter dictionaries, phases and events against frozen v0.4.36 model each 120Hz tick; sinusoidal aim/posture, three shields and variable sprint, arena/war.","ticks":22067}

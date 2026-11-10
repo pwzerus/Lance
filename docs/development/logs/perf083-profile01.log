@@ -1,0 +1,19 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+SCRIPT ERROR: Compile Error: Identifier not found: GameState
+   at: GDScript::reload (res://scripts/battle.gd:114)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://tests/profile_battle083.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://tests/test_profile083.gd:0)
+ERROR: Failed to load script "res://tests/test_profile083.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript.cpp:3041)
+ERROR: Parameter "p_script->implicit_initializer" is null.
+   at: _super_implicit_constructor (modules/gdscript/gdscript.cpp:143)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/test_profile083.gd:23)
+SCRIPT ERROR: Invalid assignment of property or key 'autopilot' with value of type 'bool' on a base object of type 'Node2D (profile_battle083.gd)'.
+   at: run (res://tests/test_profile083.gd:24)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/test_profile083.gd:24)

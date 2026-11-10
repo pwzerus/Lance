@@ -1,0 +1,22 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+PARSE065 OK   res://scripts/core/horse_condition.gd
+PARSE065 OK   res://scripts/core/joust_match.gd
+PARSE065 OK   res://scripts/visual/horse_gait.gd
+PARSE065 OK   res://scripts/visual/rider_view.gd
+PARSE065 OK   res://scripts/visual/shield_art.gd
+PARSE065 OK   res://scripts/visual/character_face.gd
+PARSE065 OK   res://scripts/battle.gd
+PARSE065 OK   res://scripts/main.gd
+PARSE065 OK   res://tests/test_armory065.gd
+PARSE065 OK   res://tests/test_horse_stride065.gd
+PARSE065 OK   res://scripts/core/catalogue.gd
+PARSE065 OK   res://scripts/core/game_state.gd
+PARSE065 OK   res://scripts/visual/heraldry.gd
+PARSE065 OK   res://scripts/visual/horse_skin.gd
+PARSE065 OK   res://tools/caparison_v066.gd
+PARSE065 OK   res://tests/test_balance066.gd
+PARSE065 OK   res://tests/test_equip066.gd
+PARSE065 OK   res://tests/test_arm068.gd
+PARSE065 OK   res://tests/test_hud067.gd
+PARSE065_RESULT failed=0

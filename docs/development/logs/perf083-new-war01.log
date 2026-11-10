@@ -1,0 +1,7 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+GALUMU_BUILD v0.4.37
+ERROR: Invalid polygon data, triangulation failed.
+   at: canvas_item_add_polygon (servers/rendering/renderer_canvas_cull.cpp:1713)
+LIVE083 {"fps":59.7755079755181,"frames":8789,"max_ms":54.399,"over_33ms":7,"over_50ms":1,"p50_ms":16.665,"p95_ms":20.221,"p99_ms":24.854} matches=2 sync=0

@@ -254,6 +254,28 @@ func _landing_response() -> void:
 func _process(delta: float) -> void:
 	advance(delta)
 
+func _supported_rest_angle(base_angle: float) -> float:
+	# A fixed flat-body target can leave the whole rider balanced on an
+	# elbow at its anatomical limit. Lower the torso's centre of mass over
+	# the actual contact envelope instead. This only changes a spring target:
+	# joint limits, bone lengths and angular velocity integration stay intact.
+	var points = body_points()
+	var center: Vector2 = visual.detached_pose.torso_transform*Vector2(0,-38)
+	var best_angle = base_angle
+	var best_score = INF
+	for step in range(-8,9):
+		var candidate = base_angle+step*.04
+		var down = Vector2(sin(candidate),cos(candidate))
+		var floor_offset = -INF
+		for point in points: floor_offset = maxf(floor_offset,point.dot(down))
+		# Small orientation cost preserves the regional landing direction,
+		# while permitting the body to roll past an obstructing elbow/boot.
+		var score = floor_offset-center.dot(down)+absf(step*.04)*8.0
+		if score<best_score:
+			best_score = score
+			best_angle = candidate
+	return best_angle
+
 func advance(delta: float) -> void:
 	if settled or not is_instance_valid(visual):
 		return
@@ -276,6 +298,8 @@ func advance(delta: float) -> void:
 			velocity.x *= exp(-6.5*dt)
 			position.x += velocity.x*dt
 			var support_angle = target_rotation-float(joints.spine.angle)*.65
+			if ground_age>.25:
+				support_angle = _supported_rest_angle(support_angle)
 			angular_velocity += (34.0*angle_difference(rotation,support_angle)-10.0*angular_velocity)*dt
 		angular_velocity = clampf(angular_velocity,-5.0,5.0)
 		rotation += angular_velocity*dt

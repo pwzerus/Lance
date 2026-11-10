@@ -1,0 +1,282 @@
+{
+	"failures": [
+		"Visible icons incomplete 2/8"
+	],
+	"passed": false,
+	"rapid_changes": 15,
+	"scope": "Isolated viewport render, scroll state injection, full quality textures, no OS input",
+	"visible_checks": [
+		{
+			"can_draw": true,
+			"details": [
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 1,
+					"id": "mail_basic",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (291.0, 244.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 1,
+					"id": "eng_armor_0",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (702.0, 244.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 1,
+					"id": "eng_armor_1",
+					"loaded": false,
+					"processing": true,
+					"rect": "[P: (291.0, 384.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 1,
+					"id": "fr_armor_0",
+					"loaded": false,
+					"processing": true,
+					"rect": "[P: (702.0, 384.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 1,
+					"id": "fr_armor_1",
+					"loaded": false,
+					"processing": true,
+					"rect": "[P: (291.0, 524.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 1,
+					"id": "de_armor_0",
+					"loaded": false,
+					"processing": true,
+					"rect": "[P: (702.0, 524.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 1,
+					"id": "it_armor_0",
+					"loaded": false,
+					"processing": true,
+					"rect": "[P: (291.0, 664.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 1,
+					"id": "it_armor_1",
+					"loaded": false,
+					"processing": true,
+					"rect": "[P: (702.0, 664.0), S: (152.0, 100.0)]"
+				}
+			],
+			"frame": 1,
+			"loaded": 2,
+			"visible": 8
+		},
+		{
+			"can_draw": true,
+			"details": [
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 1,
+					"id": "mail_basic",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (291.0, 176.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 1,
+					"id": "eng_armor_0",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (702.0, 176.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 1,
+					"id": "eng_armor_1",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (291.0, 316.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 1,
+					"id": "fr_armor_0",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (702.0, 316.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 1,
+					"id": "fr_armor_1",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (291.0, 456.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 1,
+					"id": "de_armor_0",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (702.0, 456.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 1,
+					"id": "it_armor_0",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (291.0, 596.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 1,
+					"id": "it_armor_1",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (702.0, 596.0), S: (152.0, 100.0)]"
+				}
+			],
+			"frame": 46,
+			"loaded": 8,
+			"visible": 8
+		},
+		{
+			"can_draw": true,
+			"details": [
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 47,
+					"id": "helm_nasal",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (291.0, 244.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 47,
+					"id": "eng_helmet_0",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (702.0, 244.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 47,
+					"id": "eng_helmet_1",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (291.0, 384.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 47,
+					"id": "fr_helmet_0",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (702.0, 384.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 47,
+					"id": "fr_helmet_1",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (291.0, 524.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 47,
+					"id": "de_helmet_0",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (702.0, 524.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 47,
+					"id": "it_helmet_0",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (291.0, 664.0), S: (152.0, 100.0)]"
+				}
+			],
+			"frame": 91,
+			"loaded": 7,
+			"visible": 7
+		},
+		{
+			"can_draw": true,
+			"details": [
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 47,
+					"id": "helm_nasal",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (291.0, 176.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 47,
+					"id": "eng_helmet_0",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (702.0, 176.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 47,
+					"id": "eng_helmet_1",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (291.0, 316.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 47,
+					"id": "fr_helmet_0",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (702.0, 316.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 47,
+					"id": "fr_helmet_1",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (291.0, 456.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 47,
+					"id": "de_helmet_0",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (702.0, 456.0), S: (152.0, 100.0)]"
+				},
+				{
+					"clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+					"first_frame": 47,
+					"id": "it_helmet_0",
+					"loaded": true,
+					"processing": false,
+					"rect": "[P: (291.0, 596.0), S: (152.0, 100.0)]"
+				}
+			],
+			"frame": 136,
+			"loaded": 7,
+			"visible": 7
+		}
+	]
+}

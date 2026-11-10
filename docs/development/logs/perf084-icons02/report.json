@@ -1,0 +1,26 @@
+{
+	"failures": [
+		"Visible icons incomplete 2/8"
+	],
+	"passed": false,
+	"rapid_changes": 15,
+	"scope": "Isolated viewport render, scroll state injection, full quality textures, no OS input",
+	"visible_checks": [
+		{
+			"loaded": 2,
+			"visible": 8
+		},
+		{
+			"loaded": 8,
+			"visible": 8
+		},
+		{
+			"loaded": 7,
+			"visible": 7
+		},
+		{
+			"loaded": 7,
+			"visible": 7
+		}
+	]
+}

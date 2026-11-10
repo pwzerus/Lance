@@ -1,0 +1,8 @@
+{
+	"failures": [],
+	"max_area_rounding_error": 0.00930595397949219,
+	"min_triangle_area": 7.81636095046997,
+	"passed": true,
+	"ribbons": 12000,
+	"scope": "All samples/taper/flex preserved; fixed adjacent topology has positive nonoverlapping triangles and equal boundary area. Exact failing GPU case separately rendered before/after."
+}

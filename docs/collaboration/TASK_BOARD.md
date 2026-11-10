@@ -332,3 +332,10 @@ QA-082性能诊断扩展：认领visual/horse_skin.gd及tests/test_skin_perf082.
 QA-082收尾文档认领：HANDOFF.md、PROJECT_STATE.md、WORK_LOG.md、TASK_BOARD.md、QA082_REVIEW.md、本轮QA-082交接，以及上一轮2026-11-09-FEEL-081-Codex.md接收栏；新增test_package082/test_lifecycle082仅诊断实际包规则元数据和正式关闭，测试不进发布PCK。旧内存测试的直接释放路径暂不改，以保留退出警告复现条件。
 
 QA-082退出诊断确认后扩展：认领game/tests/test_memory_windows_inc059.gd。pages-verbose02原节奏复现，具体遗留AudioStreamWAV/AudioStreamPlaybackWAV；测试直接释放并立即quit绕开Main已有120ms停音清理。保留修改前脚本到qa082-baseline/memory_windows_inc059.gd，测试结尾改走生产窗口关闭处理器，再按相同300次/1.5秒节奏复验；不改生产关闭代码。
+
+
+PERF-084 / Codex / 2026-11-10 17:04 UTC：基线dd72c20，本地/远程一致，无新的未提交游戏功能。认领game/scripts/visual/{horse_skin,rider_view,shield_art,heraldry,head_fit,lance_art,rider_arm_art,impact_fx,hit_zone_overlay}.gd、scripts/{main,battle}.gd、ui/home_camp.gd（仅必要诊断）、tests/*084*、版本/导出入口、交接/审查文档。先捕获偶发多边形实际顶点，量重甲/切场景CPU；不减少素材/动作/120Hz判定，不放松全部保护、不接管桌面。原两份V051密文差异和rules_v045保持。
+
+PERF-084扩展认领：game/scripts/ui/equipment_icon.gd（新）、main.gd军械库卡片图标；只延后屏外装备图片加载，完整素材不变，逐帧有界加载，退出取消未开始任务；测试*084*覆盖滚动、快速切页与最终材质。
+
+PERF-084交出（2026-11-10）：v0.4.38运行fb616a1/33669ca/f78bd3a，全部认领文件释放。精确原生绘图故障及实际重甲/切场景/UI/实战/最小化关闭复验完成；详见PERF084_REVIEW。无质量/保护降级，主入口已切.38。后续优先项：首次军械库101ms剩余加载；特定前倾高盾侧击落马4秒安定/支撑旧问题（fall01与fall-old01完全同结果）。真人体验和跨机帧率仍未验。原V051两文档和rules_v045差异未提交，历史未跟踪材料不清理。

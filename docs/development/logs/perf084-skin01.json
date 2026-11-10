@@ -1,0 +1,94 @@
+{
+	"deformed_counts": [
+		1293,
+		570,
+		589
+	],
+	"failures": [],
+	"initialization": [
+		{
+			"new_us": 411,
+			"old_us": 90387
+		},
+		{
+			"new_us": 387,
+			"old_us": 96697
+		},
+		{
+			"new_us": 338,
+			"old_us": 95781
+		},
+		{
+			"new_us": 320,
+			"old_us": 94370
+		},
+		{
+			"new_us": 376,
+			"old_us": 72559
+		},
+		{
+			"new_us": 182,
+			"old_us": 79721
+		},
+		{
+			"new_us": 185,
+			"old_us": 77959
+		},
+		{
+			"new_us": 403,
+			"old_us": 90241
+		},
+		{
+			"new_us": 386,
+			"old_us": 107129
+		},
+		{
+			"new_us": 184,
+			"old_us": 102934
+		},
+		{
+			"new_us": 340,
+			"old_us": 105973
+		},
+		{
+			"new_us": 391,
+			"old_us": 81255
+		}
+	],
+	"maximum_error": 0.0,
+	"passed": true,
+	"samples": [
+		{
+			"after_usec": 1859942,
+			"before_usec": 1995045,
+			"ratio": 0.93228072549742
+		},
+		{
+			"after_usec": 1868167,
+			"before_usec": 2024269,
+			"ratio": 0.922884754941166
+		},
+		{
+			"after_usec": 1833099,
+			"before_usec": 1990147,
+			"ratio": 0.921087236269482
+		},
+		{
+			"after_usec": 1873182,
+			"before_usec": 1919088,
+			"ratio": 0.976079262649759
+		},
+		{
+			"after_usec": 1965374,
+			"before_usec": 2022670,
+			"ratio": 0.971673085575007
+		},
+		{
+			"after_usec": 1976405,
+			"before_usec": 2133772,
+			"ratio": 0.926249383720473
+		}
+	],
+	"scope": "Whole horse plus far hind/fore mesh; same UVs, topology and all submitted vertices. Timings include existing surface update. No frame-rate or visual acceptance claim.",
+	"vertex_comparisons": 749088
+}

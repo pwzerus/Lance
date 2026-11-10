@@ -1,0 +1,326 @@
+{
+	"rows": [
+		{
+			"action": "battle",
+			"cycle": 0,
+			"first_frames_ms": [
+				70.178,
+				16.755,
+				12.882,
+				7.891,
+				12.022,
+				17.616,
+				15.595,
+				17.566
+			],
+			"resources": 92.0,
+			"sync_ms": 10.251
+		},
+		{
+			"action": "home",
+			"cycle": 0,
+			"first_frames_ms": [
+				28.091,
+				5.559,
+				15.691,
+				16.667,
+				16.679,
+				16.668,
+				16.666,
+				16.682
+			],
+			"resources": 92.0,
+			"sync_ms": 10.89
+		},
+		{
+			"action": "armory",
+			"cycle": 0,
+			"first_frames_ms": [
+				101.397,
+				6.62,
+				10.043,
+				16.672,
+				16.667,
+				16.668,
+				16.664,
+				16.669
+			],
+			"resources": 99.0,
+			"sync_ms": 50.243
+		},
+		{
+			"action": "home",
+			"cycle": 0,
+			"first_frames_ms": [
+				27.369,
+				5.913,
+				16.696,
+				16.676,
+				16.664,
+				16.675,
+				16.669,
+				16.715
+			],
+			"resources": 99.0,
+			"sync_ms": 10.954
+		},
+		{
+			"action": "battle",
+			"cycle": 1,
+			"first_frames_ms": [
+				22.01,
+				11.932,
+				16.554,
+				16.774,
+				16.448,
+				16.922,
+				16.445,
+				16.607
+			],
+			"resources": 99.0,
+			"sync_ms": 5.086
+		},
+		{
+			"action": "home",
+			"cycle": 1,
+			"first_frames_ms": [
+				26.72,
+				5.575,
+				16.687,
+				16.681,
+				16.694,
+				16.623,
+				16.675,
+				16.669
+			],
+			"resources": 99.0,
+			"sync_ms": 10.845
+		},
+		{
+			"action": "armory",
+			"cycle": 1,
+			"first_frames_ms": [
+				25.16,
+				8.159,
+				16.711,
+				16.667,
+				16.719,
+				16.673,
+				16.569,
+				16.686
+			],
+			"resources": 99.0,
+			"sync_ms": 18.329
+		},
+		{
+			"action": "home",
+			"cycle": 1,
+			"first_frames_ms": [
+				20.694,
+				12.654,
+				16.645,
+				16.664,
+				16.667,
+				16.666,
+				16.663,
+				16.669
+			],
+			"resources": 99.0,
+			"sync_ms": 9.054
+		},
+		{
+			"action": "battle",
+			"cycle": 2,
+			"first_frames_ms": [
+				35.895,
+				10.949,
+				13.241,
+				8.792,
+				17.605,
+				16.137,
+				16.742,
+				16.398
+			],
+			"resources": 99.0,
+			"sync_ms": 9.051
+		},
+		{
+			"action": "home",
+			"cycle": 2,
+			"first_frames_ms": [
+				25.792,
+				6.882,
+				16.684,
+				16.674,
+				16.66,
+				16.675,
+				16.657,
+				16.665
+			],
+			"resources": 99.0,
+			"sync_ms": 13.167
+		},
+		{
+			"action": "armory",
+			"cycle": 2,
+			"first_frames_ms": [
+				19.183,
+				14.144,
+				16.663,
+				16.685,
+				16.661,
+				16.66,
+				16.686,
+				16.648
+			],
+			"resources": 99.0,
+			"sync_ms": 14.332
+		},
+		{
+			"action": "home",
+			"cycle": 2,
+			"first_frames_ms": [
+				16.646,
+				16.672,
+				16.694,
+				16.678,
+				16.639,
+				16.689,
+				16.649,
+				16.658
+			],
+			"resources": 99.0,
+			"sync_ms": 7.005
+		},
+		{
+			"action": "battle",
+			"cycle": 3,
+			"first_frames_ms": [
+				21.081,
+				12.63,
+				16.832,
+				16.516,
+				16.679,
+				16.647,
+				16.727,
+				16.6
+			],
+			"resources": 99.0,
+			"sync_ms": 5.075
+		},
+		{
+			"action": "home",
+			"cycle": 3,
+			"first_frames_ms": [
+				15.968,
+				16.358,
+				16.661,
+				16.668,
+				16.659,
+				16.666,
+				16.67,
+				16.668
+			],
+			"resources": 99.0,
+			"sync_ms": 5.307
+		},
+		{
+			"action": "armory",
+			"cycle": 3,
+			"first_frames_ms": [
+				24.959,
+				8.351,
+				16.665,
+				16.678,
+				16.659,
+				16.693,
+				16.679,
+				16.664
+			],
+			"resources": 99.0,
+			"sync_ms": 17.215
+		},
+		{
+			"action": "home",
+			"cycle": 3,
+			"first_frames_ms": [
+				17.612,
+				15.679,
+				16.679,
+				16.675,
+				16.656,
+				16.719,
+				16.608,
+				16.685
+			],
+			"resources": 99.0,
+			"sync_ms": 6.875
+		},
+		{
+			"action": "battle",
+			"cycle": 4,
+			"first_frames_ms": [
+				23.06,
+				10.95,
+				16.318,
+				16.69,
+				16.689,
+				16.941,
+				16.899,
+				16.447
+			],
+			"resources": 99.0,
+			"sync_ms": 4.961
+		},
+		{
+			"action": "home",
+			"cycle": 4,
+			"first_frames_ms": [
+				18.498,
+				14.41,
+				16.65,
+				16.665,
+				16.689,
+				16.662,
+				16.661,
+				16.663
+			],
+			"resources": 99.0,
+			"sync_ms": 7.909
+		},
+		{
+			"action": "armory",
+			"cycle": 4,
+			"first_frames_ms": [
+				20.956,
+				12.357,
+				16.675,
+				16.68,
+				16.674,
+				16.655,
+				16.671,
+				16.662
+			],
+			"resources": 99.0,
+			"sync_ms": 16.414
+		},
+		{
+			"action": "home",
+			"cycle": 4,
+			"first_frames_ms": [
+				21.892,
+				11.358,
+				16.698,
+				16.66,
+				16.67,
+				16.66,
+				16.671,
+				16.664
+			],
+			"resources": 99.0,
+			"sync_ms": 7.452
+		}
+	],
+	"scope": "Actual rendering, same external old/new driver, transitions including creation; no OS input.",
+	"version": "0.4.38"
+}

@@ -1,0 +1,55 @@
+{
+  "version": "0.4.38",
+  "pck_sha256": "DBAA20C9908915175ABBE4AA875E964DAB31F3D63EFA6BFEAC8D2BD0830617FB",
+  "runs": [
+    {
+      "run": "perf084-elite-new01",
+      "peak_private_mib": 704.8,
+      "min_available_ram_mib": 3215.0,
+      "exit_zero": true,
+      "desktop_closed": true,
+      "engine_diagnostics": []
+    },
+    {
+      "run": "perf084-transition-package01",
+      "peak_private_mib": 749.1,
+      "min_available_ram_mib": 3253.0,
+      "exit_zero": true,
+      "desktop_closed": true,
+      "engine_diagnostics": []
+    },
+    {
+      "run": "perf084-icons-package01",
+      "peak_private_mib": 683.2,
+      "min_available_ram_mib": 3411.0,
+      "exit_zero": true,
+      "desktop_closed": true,
+      "engine_diagnostics": []
+    },
+    {
+      "run": "perf084-repro-package01",
+      "peak_private_mib": 52.3,
+      "min_available_ram_mib": 3857.0,
+      "exit_zero": true,
+      "desktop_closed": true,
+      "engine_diagnostics": []
+    },
+    {
+      "run": "perf084-war-package01",
+      "peak_private_mib": 657.9,
+      "min_available_ram_mib": 3232.0,
+      "exit_zero": true,
+      "desktop_closed": true,
+      "engine_diagnostics": []
+    },
+    {
+      "run": "perf084-minimized-package01",
+      "peak_private_mib": 624.4,
+      "min_available_ram_mib": 3252.0,
+      "exit_zero": true,
+      "desktop_closed": true,
+      "engine_diagnostics": []
+    }
+  ],
+  "scope": "Serial isolated GPU automation, QA saves, protections unchanged; no OS input/human acceptance."
+}

@@ -1,0 +1,8 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+ERROR: All regional falls land and damp to rest within four game seconds
+   at: push_error (core/variant/variant_utility.cpp:1024)
+ERROR: Settled torso or helmet reaches floor support instead of balancing on one boot
+   at: push_error (core/variant/variant_utility.cpp:1024)
+FALL_V057 false failures=["All regional falls land and damp to rest within four game seconds", "Settled torso or helmet reaches floor support instead of balancing on one boot"]

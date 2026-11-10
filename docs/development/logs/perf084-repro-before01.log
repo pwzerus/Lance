@@ -1,0 +1,9 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+ERROR: Invalid polygon data, triangulation failed.
+   at: canvas_item_add_polygon (servers/rendering/renderer_canvas_cull.cpp:1713)
+   GDScript backtrace (most recent call first):
+       [0] draw (res://scripts/visual/lance_art.gd:61)
+       [1] _draw (res://tests/test_lance_repro084.gd:6)
+REPRO084 original triangulation fails true

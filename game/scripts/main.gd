@@ -109,8 +109,8 @@ func _ready() -> void:
 		OS.alert("Please launch with Play-Latest.cmd (memory protection required).", "Lance & Laurel")
 		get_tree().quit(2)
 		return
-	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.37"
-	print("GALUMU_BUILD v0.4.37")
+	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.38"
+	print("GALUMU_BUILD v0.4.38")
 	get_tree().auto_accept_quit = false
 	add_child(WindowActivity.new())
 	get_window().min_size = Vector2i(960,540)
@@ -130,7 +130,7 @@ func _ready() -> void:
 		smoke_started = Time.get_ticks_msec()
 	show_home()
 	if GameState.qa_input_probe:
-		get_window().title = "Lance & Laurel v0.4.37 QA - Desktop input"
+		get_window().title = "Lance & Laurel v0.4.38 QA - Desktop input"
 		var audit = preload("res://scripts/core/desktop_input_audit.gd").new()
 		audit.main = self
 		add_child(audit)
@@ -209,7 +209,7 @@ func show_home() -> void:
 	UI.button(screen,"历史手记",Rect2(78,672,172,46),show_history)
 	UI.button(screen,"设置",Rect2(268,672,172,46),show_settings)
 	UI.button(screen,"保存并退出",Rect2(458,672,172,46),_save_and_exit)
-	UI.label(screen,"自动保存已启用 · v0.4.37",Vector2(80,750),15,UI.MUTED)
+	UI.label(screen,"自动保存已启用 · v0.4.38",Vector2(80,750),15,UI.MUTED)
 	UI.label(screen,"你的骑士",Vector2(813,122),16,UI.GOLD)
 	UI.label(screen,Catalogue.REGIONS[region]+" · "+Catalogue.ERA_NAMES[era],Vector2(813,161),25,UI.INK)
 	UI.label(screen,Catalogue.ERAS[era]+"   /   装备、坐骑与纹章随你出战",Vector2(813,205),15,UI.MUTED)
@@ -680,7 +680,7 @@ func show_armory() -> void:
 		period.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
 		period.tooltip_text=period.text
 		UI.label(card,"已装备" if equipped else ("已收藏" if owned else ("%d 银币 · 声望 %d" % [item.price,Catalogue.required_renown(item)])),Vector2(14,94),15,UI.GOLD,218)
-		_add_item_icon(card,item,Vector2(236,8),Vector2(152,100))
+		_add_item_icon(card,item,Vector2(236,8),Vector2(152,100),true)
 	if filtered.is_empty():
 		var empty=VBoxContainer.new()
 		empty.custom_minimum_size=Vector2(790,160)
@@ -716,7 +716,7 @@ func _load_summary(stats: Dictionary) -> Dictionary:
 	var color = Color("9fd08a") if ratio<.90 else (UI.GOLD if ratio<1.02 else Color("e08a6a"))
 	return {"text":"整备负重 %d kg（护具 %d kg）/ 马匹舒适承载 %d kg · %s" % [roundi(carried),roundi(Condition.worn_kg(stats)),roundi(capacity),band],"color":color}
 
-func _add_item_icon(parent: Control, item: Dictionary, point: Vector2, dimensions: Vector2) -> Control:
+func _add_item_icon(parent: Control, item: Dictionary, point: Vector2, dimensions: Vector2, deferred_card: bool = false) -> Control:
 	var icon: Control
 	if item.slot=="lance":
 		var lance_icon = LanceIcon.new()
@@ -740,8 +740,13 @@ func _add_item_icon(parent: Control, item: Dictionary, point: Vector2, dimension
 		cloth_icon.coat = str(GameState.player_stats().get("horse_coat","bay"))
 		icon = cloth_icon
 	else:
-		var texture = TextureRect.new()
-		texture.texture = Art.item_icon(item)
+		var texture: TextureRect
+		if deferred_card and item.slot in ["armor","helmet"]:
+			texture = preload("res://scripts/ui/equipment_icon.gd").new()
+			texture.equipment = item
+		else:
+			texture = TextureRect.new()
+			texture.texture = Art.item_icon(item)
 		texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		texture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		texture.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST

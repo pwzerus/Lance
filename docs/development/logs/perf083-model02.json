@@ -1,0 +1,8 @@
+{
+	"events": 48,
+	"failure": "",
+	"matches": 4,
+	"passed": true,
+	"scope": "Exact fighter dictionaries, phases and events against frozen v0.4.36 model each 120Hz tick; sinusoidal aim/posture, three shields and variable sprint, arena/war.",
+	"ticks": 22067
+}

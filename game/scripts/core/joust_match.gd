@@ -185,15 +185,17 @@ static func tip_position(fighter: Dictionary) -> Vector2:
 
 func _cache_pose(fighter: Dictionary) -> void:
 	fighter.prev_x = fighter.x
-	fighter.prev_tip = tip_position(fighter)
 	fighter.prev_hand = hand_position(fighter)
+	# Same immutable sampling instant: reuse the hand/body already evaluated.
+	# No cross-tick cache and no reduced physics rate or sweep resolution.
+	fighter.prev_tip = fighter.prev_hand + Vector2(cos(float(fighter.aim))*int(fighter.direction),sin(float(fighter.aim)))*lance_length(fighter)
 	fighter.prev_aim = fighter.aim
 	fighter.prev_length = lance_length(fighter)
 	fighter.prev_body = body_position(fighter)
 	fighter.prev_head = head_position(fighter)
 	fighter.prev_shield = shield_position(fighter)
 	fighter.prev_shield_angle = shield_angle(fighter)
-	fighter.prev_flank = flank_position(fighter)
+	fighter.prev_flank = fighter.prev_body+Vector2(-6.0*int(fighter.direction),34.0)
 
 func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float, guard: float = -1.0) -> void:
 	var fighter = fighters[index]
@@ -393,7 +395,8 @@ func _detect_contact(index: int, delta: float) -> Dictionary:
 	# Once well past a target, a lance pointing forward cannot hit backwards.
 	if (float(defender.x) - float(attacker.x)) * int(attacker.direction) < -115.0:
 		return {}
-	var current_tip = tip_position(attacker)
+	var current_hand = hand_position(attacker)
+	var current_shield_angle = shield_angle(defender)
 	var targets = [
 		{"zone": "head", "center": head_position(defender), "old": defender.prev_head, "radius": 24.0},
 		{"zone": "body", "center": body_position(defender), "old": defender.prev_body, "radius": 30.0},
@@ -405,9 +408,9 @@ func _detect_contact(index: int, delta: float) -> Dictionary:
 	var found: Dictionary = {}
 	var sweep: Dictionary = {}
 	for target in targets:
-		var candidate = swept_lance(attacker.prev_hand,hand_position(attacker),attacker.prev_aim,attacker.aim,attacker.prev_length,lance_length(attacker),int(attacker.direction),target.old,target.center,target.radius,delta)
+		var candidate = swept_lance(attacker.prev_hand,current_hand,attacker.prev_aim,attacker.aim,attacker.prev_length,lance_length(attacker),int(attacker.direction),target.old,target.center,target.radius,delta)
 		if target.zone=="shield" and not candidate.is_empty():
-			candidate = Shield.sweep(attacker.prev_hand,hand_position(attacker),attacker.prev_aim,attacker.aim,attacker.prev_length,lance_length(attacker),int(attacker.direction),target.old,target.center,float(defender.get("prev_shield_angle",shield_angle(defender))),shield_angle(defender),int(defender.direction),str(defender.stats.get("shield_shape","kite")),delta)
+			candidate = Shield.sweep(attacker.prev_hand,current_hand,attacker.prev_aim,attacker.aim,attacker.prev_length,lance_length(attacker),int(attacker.direction),target.old,target.center,float(defender.get("prev_shield_angle",current_shield_angle)),current_shield_angle,int(defender.direction),str(defender.stats.get("shield_shape","kite")),delta)
 		if not candidate.is_empty() and float(candidate.fraction) < earliest:
 			earliest = candidate.fraction
 			found = target

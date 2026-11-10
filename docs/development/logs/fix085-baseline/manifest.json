@@ -1,0 +1,33 @@
+{
+  "source_head": "70885cae2efecfc18a1ea8bdf33d2ec0ff407c1a",
+  "files": [
+    {
+      "path": "equipment_art.gd",
+      "sha256": "3179103f798d25259e2dc9d2ffdcabf20d65cdbdb9e5595e7a1c7066e8b3a9f7"
+    },
+    {
+      "path": "equipment_icon.gd",
+      "sha256": "3bda9827232c8c31147b70467a41465075cd27c4b5fc2451a6426754c4c8c341"
+    },
+    {
+      "path": "fallen_rider.gd",
+      "sha256": "dce2dbf595f5f69cb4436deed7345210ecaa1d649db2a3dd5d3a5e5ec4f94ca3"
+    },
+    {
+      "path": "horse_gait.gd",
+      "sha256": "38109ae2d2cf7c38039bead1b982047b07481d0683d02ac8f30af3ceba94a31e"
+    },
+    {
+      "path": "main.gd",
+      "sha256": "7cc3bb858abfa6c327dcdb7b63deab0d34354555a193f87c3db504a1f1891e54"
+    },
+    {
+      "path": "rider_view.gd",
+      "sha256": "53a52fc44a50f3cae5ee0882de6e6d729322f1559783cbb70fcf096dcf2ba418"
+    },
+    {
+      "path": "ui_factory.gd",
+      "sha256": "7b511a1ac87094267afc0b0752add690684fe48628372f962964ab95569b6f8d"
+    }
+  ]
+}

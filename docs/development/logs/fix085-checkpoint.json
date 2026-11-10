@@ -1,0 +1,8 @@
+{
+  "tested_fall_pass": true,
+  "fall_cases": 24,
+  "max_settled_time": 3.81666666666666,
+  "max_support_gap": 2.77040481567383,
+  "latest_combined_build_tested": false,
+  "runtime_deferred_by_user": true
+}

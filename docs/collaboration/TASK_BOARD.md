@@ -339,3 +339,10 @@ PERF-084 / Codex / 2026-11-10 17:04 UTC：基线dd72c20，本地/远程一致，
 PERF-084扩展认领：game/scripts/ui/equipment_icon.gd（新）、main.gd军械库卡片图标；只延后屏外装备图片加载，完整素材不变，逐帧有界加载，退出取消未开始任务；测试*084*覆盖滚动、快速切页与最终材质。
 
 PERF-084交出（2026-11-10）：v0.4.38运行fb616a1/33669ca/f78bd3a，全部认领文件释放。精确原生绘图故障及实际重甲/切场景/UI/实战/最小化关闭复验完成；详见PERF084_REVIEW。无质量/保护降级，主入口已切.38。后续优先项：首次军械库101ms剩余加载；特定前倾高盾侧击落马4秒安定/支撑旧问题（fall01与fall-old01完全同结果）。真人体验和跨机帧率仍未验。原V051两文档和rules_v045差异未提交，历史未跟踪材料不清理。
+
+FIX-085 / Codex / 2026-11-10T18:39:36.641844+00:00：基线70885cae2efecfc18a1ea8bdf33d2ec0ff407c1a，本地/远程一致，无新Claude功能。认领game/scripts/main.gd、ui/{equipment_icon,ui_factory}.gd、visual/{equipment_art,horse_gait,rider_view,fallen_rider}.gd、core/joust_match.gd（仅必要统一挂点）、tests/*085*、版本/启动器及交接/设计文档。修军械库首开加载尖峰、极端姿势落马安定，增强与马背同源、随速度增强的骑手吸收动作；不降美术/步态质量，不新增随机偏枪。后台Start-MemoryBound、隔离QA、全部保护保持。三份旧差异和旧包不覆盖。
+
+FIX-085扩展：认领新game/scripts/ui/build_queue.gd，用小额逐帧任务组装军械库可见卡片与详细考据文字，离开页面即随节点释放；不缓存全部素材、不碰存档。
+
+| FIX-085 静态交出 | Codex | main.gd、ui_factory.gd、build_queue.gd、horse_gait.gd、fallen_rider.gd、tests/*085*与本轮文档 | 2026-11-10 | 基线70885ca；本地a36da44/ee2a3ee | 文件释放；任务待动态验证，未完成发布 |
+用户选择先静态后未启动引擎，.38包/入口不动。恢复时须重跑新骑手姿态下落马、分帧首开全过程和实际画面，不能套用旧结果；详见FIX-085交接。

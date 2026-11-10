@@ -1,0 +1,8 @@
+{
+  "date": "2026-11-10",
+  "source": "exec_command return; no child engine process started",
+  "attempt": "fix085-profile-after02",
+  "error": "Insufficient launch budget: need 1780 MiB available RAM and 1280 MiB available commit.",
+  "user_reply": "先继续静态修复",
+  "protections_changed": false
+}

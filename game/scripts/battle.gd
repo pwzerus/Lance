@@ -30,6 +30,7 @@ var pass_label: Label
 var hint: Label
 var intermission: Label
 var pause_panel: Control
+var pause_save_notice: Label
 var paused = false
 var pause_started = 0
 var is_finished = false
@@ -208,6 +209,7 @@ func _ready() -> void:
 		riders[i].stride_phase = i*1.1
 		riders[i].hoof_contact.connect(_on_hoof_contact.bind(i))
 	_build_hud()
+	_update_hud()
 	get_window().focus_exited.connect(_on_focus_lost)
 	_update_views()
 
@@ -681,9 +683,17 @@ func _update_hud() -> void:
 	speed_meter.value = float(f.speed)
 	# HORSE-065: a tired horse can still be urged, but no longer holds the gallop.
 	var tired = float(f.stamina)<Model.Condition.TIRED
-	var pace_text = ("疲惫 · 冲势减弱" if tired else "催马 · 加快逼近") if f.boost else ("收速 · 调整枪盾" if float(f.speed)>Model.TROT_SPEED+20 else "巡航 · 恢复体力")
-	if phase=="ready" and f.boost:
-		pace_text = "保持按住 · 等待起跑"
+	# Match the model's equipment/load-adjusted cruise target. A fast horse
+	# cruising normally must not appear to brake forever in the HUD.
+	var speed_multiplier = float(f.stats.get("speed",1.0))*Model.Condition.load_speed_factor(f.stats)
+	var cruise_target = Model.TROT_SPEED*speed_multiplier
+	var pace_text = ("催马吃力 · 冲势减弱" if tired else "催马 · 加快逼近") if f.boost else ("收速 · 调整枪盾" if float(f.speed)>cruise_target+20 else "巡航 · 恢复体力")
+	if phase=="ready":
+		pace_text = "保持按住 · 等待起跑" if f.boost else "整装待发"
+	elif phase=="turn":
+		pace_text = "回身重整 · 马匹恢复体力"
+	elif phase=="ended":
+		pace_text = "交锋结束"
 	var gait_name = Rider.Gait.NAMES[Rider.Gait.gait_index(float(f.speed))]
 	# Urging is an input, not proof of speed: a tired horse can still be slow.
 	# Keep the actual gait visible through acceleration AND release/coasting.
@@ -694,7 +704,7 @@ func _update_hud() -> void:
 	speed_label.add_theme_color_override("font_color",Color("c2d8ce").lerp(Color("f1bd67"),pace_color))
 	var C = Model.Condition
 	var stamina = float(f.stamina)
-	var rate = -C.drain_rate(f.stats) if bool(f.boost) and phase=="charge" else (C.rest_rate(f.stats) if phase in ["ready","turn"] else C.recovery_rate(f.stats,float(f.speed),Model.GALLOP_SPEED,Model.TROT_SPEED))
+	var rate = -C.drain_rate(f.stats) if bool(f.boost) and phase=="charge" else (C.rest_rate(f.stats) if phase in ["ready","turn"] else C.recovery_rate(f.stats,float(f.speed),Model.GALLOP_SPEED*speed_multiplier,cruise_target))
 	if phase=="ended" or stamina<=0.0 and rate<0.0 or stamina>=100.0 and rate>0.0:
 		rate = 0.0 # Display the clamped change, not impossible gain/loss at a limit.
 	var load_ratio = C.load_kg(f.stats)/maxf(1.0,C.capacity_kg(f.stats))
@@ -718,9 +728,11 @@ func _update_hud() -> void:
 		if float(f.hp)<35: tactics_label.text += "　· 重伤"
 		elif float(f.hp)<70: tactics_label.text += "　· 受伤"
 		if float(f.balance)<40: tactics_label.text += "　· 坐姿失衡"
-		elif float(f.lance_stability)<.65: tactics_label.text += "　· 枪未稳住"
+		elif not f.broken and float(f.lance_stability)<.65: tactics_label.text += "　· 枪未稳住"
+	if f.broken:
+		tactics_label.text += "　· 枪已断"+("，下轮换新枪" if mode=="arena" else "，仅余残柄")
 	if float(f.get("arm",100.0))<40.0:
-		tactics_label.text += "　· 手臂酸软，调枪换盾变慢"
+		tactics_label.text += "　· 手臂酸软"
 	if approach_slow:
 		tactics_label.text += "　· 接近放缓"
 	tactics_label.modulate = Color(1.3,1.2,.7) if Time.get_ticks_msec()<input_flash_until else Color.WHITE
@@ -761,11 +773,17 @@ func _update_hud() -> void:
 func _exchange_hint() -> String:
 	if match_model.phase=="ended":
 		return "本场交锋已定 · 等待结果"
+	if match_model.phase=="ready":
+		return "整装待发 · 先选好防盾位置"
+	if match_model.phase=="turn":
+		return "交锋间隙 · 调整下一轮枪盾"
 	var player: Dictionary = match_model.fighters[0]
 	var opponent: Dictionary = match_model.fighters[1]
-	if match_model.phase=="charge" and float(player.x)<float(opponent.x) and bool(player.acted) and not bool(opponent.acted):
-		return "已经出枪 · 继续防住对方来枪"
-	return "交锋间隙 · 调整下一轮枪盾"
+	if float(player.x)>=float(opponent.x):
+		return "双方已交错 · 等待下一轮"
+	if bool(player.acted):
+		return "双方已出枪 · 保持坐稳" if bool(opponent.acted) else "已经出枪 · 继续防住对方来枪"
+	return "留意来枪 · 枪盾移动需要时间"
 
 func _draw() -> void:
 	if preload("res://scripts/core/window_activity.gd").suspended():
@@ -925,18 +943,25 @@ func _toggle_pause() -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		pause_panel = UI.panel(hud,Rect2(465,185,510,430),Color(.055,.09,.07,.98))
 		UI.label(pause_panel,"暂停 · 调整装备前先喘口气",Vector2(28,24),24,UI.GOLD)
-		UI.check(pause_panel,"显示血腥表现",GameState.profile.settings.blood,Vector2(28,90),func(value):
-			GameState.set_setting("blood",value)
+		var blood_switch = UI.check(pause_panel,"显示血腥表现",GameState.profile.settings.blood,Vector2(28,90),func(value):
+			_pause_setting("blood",value)
 			if not value:
 				effects.clear_blood()
 			_update_views())
-		UI.check(pause_panel,"镜头震动",GameState.profile.settings.shake,Vector2(28,140),func(value):GameState.set_setting("shake",value))
-		UI.button(pause_panel,"继续对冲",Rect2(28,215,454,52),_toggle_pause,true)
-		UI.button(pause_panel,"重新比赛",Rect2(28,280,220,48),func():replay_requested.emit())
-		UI.button(pause_panel,"返回营地",Rect2(262,280,220,48),func():exit_requested.emit())
+		var shake_switch = UI.check(pause_panel,"镜头震动",GameState.profile.settings.shake,Vector2(28,140),func(value):_pause_setting("shake",value))
+		pause_save_notice = UI.label(pause_panel,"",Vector2(28,185),14,Color("efb566"),454)
+		var resume_button = UI.button(pause_panel,"继续对冲",Rect2(28,215,454,52),_toggle_pause,true)
+		var restart_button = UI.button(pause_panel,"重新比赛",Rect2(28,280,220,48),func():replay_requested.emit())
+		var exit_button = UI.button(pause_panel,"返回营地",Rect2(262,280,220,48),func():exit_requested.emit())
 		UI.label(pause_panel,"血腥设置只改变画面，不改变伤害或死亡结果。",Vector2(28,353),15,UI.MUTED,454)
+		UI.focus_actions([blood_switch,shake_switch,resume_button,restart_button,exit_button],2)
 	else:
+		pause_panel.hide()
 		pause_panel.queue_free()
+		# Space belongs to urging the horse again, not activating a previously
+		# focused Pause button when the player releases it after resuming.
+		var focused = get_viewport().gui_get_focus_owner()
+		if is_instance_valid(focused): focused.release_focus()
 		var pause_duration = Time.get_ticks_msec()-pause_started
 		if terminal_at > 0:
 			terminal_at += pause_duration
@@ -946,6 +971,12 @@ func _toggle_pause() -> void:
 		# excluded from presentation just as it is from physics and audio.
 		last_visual_time = Time.get_ticks_msec()
 		Engine.time_scale = float(exchange_state.scale)
+
+func _pause_setting(key: String, value: Variant) -> void:
+	GameState.set_setting(key,value)
+	if is_instance_valid(pause_save_notice):
+		pause_save_notice.text = "" if GameState.save_error.is_empty() else "设置已应用，暂未保存；回营地可重试保存。"
+		pause_save_notice.tooltip_text = GameState.save_error
 
 func _clear_touch() -> void:
 	spur_left = 0

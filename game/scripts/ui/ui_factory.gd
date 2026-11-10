@@ -110,6 +110,22 @@ static func separator(parent: Node, point: Vector2, width: float) -> ColorRect:
 	parent.add_child(node)
 	return node
 
+static func focus_actions(controls: Array, initial: int = 0) -> void:
+	# Explicit modal navigation prevents keyboard focus from escaping to the
+	# dimmed menu or live battle HUD. Paths are relative to each control.
+	if controls.is_empty(): return
+	for index in range(controls.size()):
+		var control: Control = controls[index]
+		var next = control.get_path_to(controls[(index+1)%controls.size()])
+		var previous = control.get_path_to(controls[(index+controls.size()-1)%controls.size()])
+		control.focus_next = next
+		control.focus_previous = previous
+		control.focus_neighbor_left = previous
+		control.focus_neighbor_right = next
+		control.focus_neighbor_top = previous
+		control.focus_neighbor_bottom = next
+	controls[clampi(initial,0,controls.size()-1)].grab_focus()
+
 static func check(parent: Node, text: String, value: bool, point: Vector2, callback: Callable) -> CheckButton:
 	var node = CheckButton.new()
 	node.text = text

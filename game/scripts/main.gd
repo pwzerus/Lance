@@ -93,6 +93,14 @@ var practice_match = false
 var appearance_draft: Dictionary = {}
 var character_options: Dictionary = {}
 var character_face_preview: CharacterFaceCanvas
+var brief_overlay: Control
+var brief_return_focus: Control
+var armory_scroll: ScrollContainer
+var armory_scroll_offset = 0
+var armory_filter_key = ""
+var armory_cards: Dictionary = {}
+var settings_notice: Label
+var save_error_dialog: AcceptDialog
 
 func _ready() -> void:
 	# Windows release must enter the OS Job before any gameplay starts.
@@ -101,8 +109,8 @@ func _ready() -> void:
 		OS.alert("Please launch with Play-Latest.cmd (memory protection required).", "Lance & Laurel")
 		get_tree().quit(2)
 		return
-	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.35"
-	print("GALUMU_BUILD v0.4.35")
+	get_window().title = "骑枪与桂冠 · Lance & Laurel v0.4.36"
+	print("GALUMU_BUILD v0.4.36")
 	get_tree().auto_accept_quit = false
 	add_child(WindowActivity.new())
 	get_window().min_size = Vector2i(960,540)
@@ -122,15 +130,19 @@ func _ready() -> void:
 		smoke_started = Time.get_ticks_msec()
 	show_home()
 	if GameState.qa_input_probe:
-		get_window().title = "Lance & Laurel v0.4.35 QA - Desktop input"
+		get_window().title = "Lance & Laurel v0.4.36 QA - Desktop input"
 		var audit = preload("res://scripts/core/desktop_input_audit.gd").new()
 		audit.main = self
 		add_child(audit)
 
 func _clear_screen() -> void:
 	if screen:
+		# Deferred deletion keeps the old controls alive until frame end.
+		# Hide them immediately so a second queued click cannot hit stale UI.
+		screen.hide()
 		screen.queue_free()
 	if preview:
+		preview.hide()
 		preview.queue_free()
 		preview = null
 	screen = Control.new()
@@ -142,6 +154,9 @@ func _clear_screen() -> void:
 	currency_label = null
 	character_face_preview = null
 	character_options.clear()
+	brief_overlay = null
+	brief_return_focus = null
+	armory_cards.clear()
 
 func _header(subtitle: String) -> void:
 	UI.label(screen,"LANCE & LAUREL",Vector2(52,28),25,UI.GOLD)
@@ -182,7 +197,7 @@ func show_home() -> void:
 	UI.button(screen,"历史手记",Rect2(68,569,247,50),show_history)
 	UI.button(screen,"设置",Rect2(331,569,247,50),show_settings)
 	UI.button(screen,"保存并退出",Rect2(68,645,510,50),_save_and_exit)
-	UI.label(screen,"自动保存已启用 · v0.4.35",Vector2(70,727),16,UI.MUTED)
+	UI.label(screen,"自动保存已启用 · v0.4.36",Vector2(70,727),16,UI.MUTED)
 	UI.label(screen,"你的骑士",Vector2(790,145),20,UI.GOLD)
 	UI.button(screen,"角色外观",Rect2(1010,129,362,54),show_character,true)
 	_add_preview(Vector2(1035,652),1.42)
@@ -299,9 +314,13 @@ func show_match_setup() -> void:
 	region.selected = int(GameState.profile.region)
 	region.item_selected.connect(func(index):
 		GameState.profile.region = index
-		GameState.save_profile())
+		GameState.save_profile()
+		if is_instance_valid(message_label):
+			message_label.text = "地区设置已应用，但暂未保存；回营地可重试保存。" if not GameState.save_error.is_empty() else ""
+			message_label.tooltip_text = GameState.save_error)
 	screen.add_child(region)
 	UI.label(screen,"地区选择只影响装饰偏好，已购装备仍可使用。",Vector2(450,722),17,UI.MUTED,820)
+	message_label = UI.label(screen,"设置已应用，但暂未保存；回营地可重试保存。" if not GameState.save_error.is_empty() else "",Vector2(64,772),14,Color("efb566"),1300)
 	queue_redraw()
 
 func show_saves(notice: String = "") -> void:
@@ -343,7 +362,11 @@ func _save_and_exit() -> void:
 	if GameState.save_profile():
 		_shutdown_and_quit()
 		return
+	if is_instance_valid(save_error_dialog) and not save_error_dialog.is_queued_for_deletion():
+		save_error_dialog.dialog_text = GameState.save_error+"\n游戏尚未退出，请检查磁盘空间或写入权限后重试。"
+		return
 	var dialog = AcceptDialog.new()
+	save_error_dialog = dialog
 	dialog.process_mode = Node.PROCESS_MODE_ALWAYS
 	dialog.title = "保存未成功"
 	dialog.dialog_text = GameState.save_error+"\n游戏尚未退出，请检查磁盘空间或写入权限后重试。"
@@ -376,23 +399,51 @@ func _begin_match(mode: String, practice: bool = false) -> void:
 	if GameState.profile.settings.get("combat_brief_v044",false):
 		_start_match(mode,practice)
 		return
+	if is_instance_valid(brief_overlay):
+		return
+	brief_return_focus = get_viewport().gui_get_focus_owner()
 	var shade = ColorRect.new()
 	shade.color = Color(0,0,0,.70)
 	shade.size = Vector2(1440,810)
+	brief_overlay = shade
 	screen.add_child(shade)
-	var panel = UI.panel(shade,Rect2(315,135,810,540),Color(.045,.085,.065,.99))
-	UI.label(panel,"第一次披挂上场",Vector2(32,24),34,UI.GOLD)
-	UI.label(panel,"你在左侧，马匹会自动前进。",Vector2(32,85),21,UI.INK)
-	UI.label(panel,"左键 / 空格　按住催马，松开立即开始减速；起跑由慢步逐渐提速。\n上下移动鼠标　调枪尖高度；停手压稳，大幅变招会失稳。\n1 / 2 / 3　护头 / 护胸 / 护腹；右键或 Q 循环换盾。\nW 前倾 / S 后仰　后仰避高枪，但削弱攻击并暴露腰腹。\nH 判定范围　Esc 暂停　R 重开　F11 全屏",Vector2(32,139),18,UI.INK,746)
-	UI.separator(panel,Vector2(32,295),746)
-	UI.label(panel,"最多三次对冲；落马提前结束。竞技场三轮后按比武计分：盾 1、胸腹 2、头盔 3（力度不足以穿透护甲只算擦中 1）、断枪 +1，同分比较骑手状态。\n竞技场每轮领取新枪，不会死亡。实战允许死亡，断枪保留，按骑手状态决胜。",Vector2(32,316),18,UI.MUTED,746)
-	UI.label(panel,"枪尖菱形与部位框显示当前枪线；姿态变化会改变实际落点。",Vector2(32,396),17,UI.GOLD,746)
-	UI.button(panel,"明白了，出战",Rect2(32,448,480,58),func():
-		GameState.set_setting("brief_seen",true)
-		GameState.set_setting("combat_brief_v043",true)
-		GameState.set_setting("combat_brief_v044",true)
+	var panel = UI.panel(shade,Rect2(270,95,900,620),Color(.045,.085,.065,.99))
+	UI.label(panel,"上场前 · 四个动作",Vector2(30,24),32,UI.GOLD)
+	UI.label(panel,"你在左侧。马匹自动前进，枪和盾都需要时间移动。",Vector2(30,78),20,UI.INK,840)
+	var controls = [
+		["催马 · 左键 / 空格","按住加速，松手收速；留意马匹体力。"],
+		["瞄准 · 上下移动鼠标","抬枪、压枪有过程；停手稳枪。"],
+		["防盾 · 1 / 2 / 3","护头 / 护胸 / 护腹；右键或Q循环。"],
+		["姿态 · W / S","前倾支撑；后仰避头，同时暴露腰腹。"]]
+	for i in range(controls.size()):
+		var card=UI.panel(panel,Rect2(30+(i%2)*430,124+(i/2)*96,410,82),Color(.10,.16,.12,.95))
+		UI.label(card,controls[i][0],Vector2(15,10),20,UI.GOLD,380)
+		UI.label(card,controls[i][1],Vector2(15,43),16,UI.INK,380)
+	UI.separator(panel,Vector2(30,329),840)
+	var rules = "竞技场 · 最多三轮，落马提前决胜，每轮换新枪；不会死亡。\n盾1 · 胸腹2 · 头盔3；护甲化解1分，擦偏0分，非擦偏断枪+1。"
+	if mode=="war":
+		rules = "实战 · 有效头部重击可致命，头盔、盾牌和入射角仍有作用。\n擦过可存活；断枪跨轮保留。骑手死亡不会丢失收藏。"
+	elif practice:
+		rules = "练习场 · 对手按轮次换盾，最多三次对冲。\n没有金币或声望奖惩，先熟悉加减速、瞄准和防盾。"
+	UI.label(panel,rules,Vector2(30,347),19,UI.INK,840)
+	UI.label(panel,"枪尖颜色与部位框提示当前枪线，并不保证最终命中。",Vector2(30,423),17,UI.GOLD,840)
+	UI.label(panel,"Esc 暂停　R 重开　H 判定范围　F11 全屏",Vector2(30,465),16,UI.MUTED,840)
+	var begin = UI.button(panel,"明白了，出战",Rect2(30,522,540,58),func():
+		for key in ["brief_seen","combat_brief_v043","combat_brief_v044"]:
+			GameState.profile.settings[key]=true
+		GameState.save_profile()
 		_start_match(mode,practice),true)
-	UI.button(panel,"返回选择",Rect2(530,448,248,58),func():shade.queue_free())
+	var cancel = UI.button(panel,"返回选择",Rect2(590,522,280,58),_dismiss_brief)
+	UI.focus_actions([begin,cancel])
+
+func _dismiss_brief() -> void:
+	if is_instance_valid(brief_overlay):
+		brief_overlay.hide()
+		brief_overlay.queue_free()
+	brief_overlay=null
+	if is_instance_valid(brief_return_focus) and brief_return_focus.is_visible_in_tree():
+		brief_return_focus.grab_focus()
+	brief_return_focus=null
 
 func _start_match(mode: String, practice: bool = false) -> void:
 	_close_battle()
@@ -454,7 +505,7 @@ func show_result() -> void:
 	if result.get("reason") == "terminal":
 		explanation = "双方同时失去继续战斗能力" if draw else "落马或失去继续战斗能力"
 	elif result.get("reason") == "score":
-		explanation = "按比武计分决胜：盾 1 · 胸腹 2 · 头盔 3（需穿透护甲，否则擦中 1）· 断枪 +1"
+		explanation = "按比武计分决胜；护甲化解记擦中，擦偏不计分。"
 	elif current_mode=="arena":
 		explanation = "比分相同，按骑手状态决胜"
 	if result.get("player_dead",false) or result.get("enemy_dead",false):
@@ -472,7 +523,15 @@ func show_result() -> void:
 	report_scroll.size = Vector2(706,110)
 	report_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	panel.add_child(report_scroll)
-	UI.label(report_scroll,preload("res://scripts/ui/combat_report.gd").summarize(battle.exchange_log if battle else []),Vector2.ZERO,17,UI.INK,684)
+	var report = preload("res://scripts/ui/combat_report.gd")
+	var contacts: Array = battle.exchange_log if battle else []
+	var report_label = UI.label(report_scroll,report.summarize(contacts,current_mode),Vector2.ZERO,17,UI.INK,684)
+	report_label.name = "ContactSummary"
+	var details = UI.check(panel,"详细数据",false,Vector2(570,16),func(value):
+		report_label.text=report.summarize(contacts,current_mode,value)
+		report_scroll.scroll_vertical=0)
+	details.name = "ShowContactDetails"
+	details.set_deferred("size",Vector2(170,42))
 	var reward_label = UI.label(panel,"银币  +%s           声望  +%s" % [reward.get("coins",0),reward.get("renown",0)],Vector2(35,363),23,UI.GOLD)
 	reward_label.name = "ResultRewards"
 	var next_era = Catalogue.era_for_renown(int(GameState.profile.renown)) + 1
@@ -486,6 +545,12 @@ func show_result() -> void:
 		show_home())
 
 func show_armory() -> void:
+	var filter_key = "%s/%d/%d/%d" % [selected_slot,selected_era,selected_region,selected_quality]
+	if page=="armory" and is_instance_valid(armory_scroll):
+		armory_scroll_offset=armory_scroll.scroll_vertical
+	if filter_key!=armory_filter_key:
+		armory_scroll_offset=0
+	armory_filter_key=filter_key
 	page = "armory"
 	_clear_screen()
 	_header("军械库 · 不同年代，不同用途。")
@@ -538,6 +603,8 @@ func show_armory() -> void:
 		show_armory())
 	screen.add_child(quality_select)
 	var scroll = ScrollContainer.new()
+	scroll.name="ArmoryList"
+	armory_scroll=scroll
 	scroll.position = Vector2(55,236)
 	scroll.size = Vector2(830,478)
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -560,29 +627,49 @@ func show_armory() -> void:
 		var owned = item.id in GameState.profile.owned
 		var equipped = GameState.profile.equipped.get(item.slot) == item.id
 		var card = Button.new()
-		card.custom_minimum_size = Vector2(397,116)
+		card.custom_minimum_size = Vector2(397,126)
 		card.text = ""
 		card.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		card.clip_contents = true
 		card.add_theme_font_size_override("font_size",14)
 		card.tooltip_text = item.description
+		card.toggle_mode = true
+		card.add_theme_stylebox_override("pressed",UI.box(Color("34452f"),UI.GOLD,5))
 		card.pressed.connect(func():
 			selected_item = item_value
 			_update_item_panel())
 		grid.add_child(card)
+		armory_cards[item.id]=card
 		# Wider icon well (was 72x88): equipment differences were too small to see.
-		var title = UI.label(card,("◆ " if equipped else "")+str(item.name),Vector2(14,10),15,UI.INK,218)
+		var title = UI.label(card,("◆ " if equipped else "")+str(item.name),Vector2(14,10),17,UI.INK,218)
 		title.max_lines_visible = 2
-		UI.label(card,"%s · %s" % [item.get("historical_window",Catalogue.ERAS[int(item.era)]),item.get("quality_name","旧藏")],Vector2(14,59),12,UI.MUTED,218)
-		UI.label(card,"已装备" if equipped else ("已收藏" if owned else ("%d 银币 · 声望 %d" % [item.price,Catalogue.required_renown(item)])),Vector2(14,84),14,UI.GOLD,218)
+		var period=UI.label(card,"%s · %s" % [item.get("historical_window",Catalogue.ERAS[int(item.era)]),item.get("quality_name","旧藏")],Vector2(14,65),14,UI.MUTED,218)
+		period.autowrap_mode=TextServer.AUTOWRAP_OFF
+		period.clip_text=true
+		period.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
+		period.tooltip_text=period.text
+		UI.label(card,"已装备" if equipped else ("已收藏" if owned else ("%d 银币 · 声望 %d" % [item.price,Catalogue.required_renown(item)])),Vector2(14,94),15,UI.GOLD,218)
 		_add_item_icon(card,item,Vector2(236,8),Vector2(152,100))
 	if filtered.is_empty():
-		UI.label(grid,"这个时期的该类装备仍在整理中。",Vector2.ZERO,18,UI.MUTED)
+		var empty=VBoxContainer.new()
+		empty.custom_minimum_size=Vector2(790,160)
+		empty.add_theme_constant_override("separation",18)
+		grid.add_child(empty)
+		UI.label(empty,"没有符合当前筛选的装备",Vector2.ZERO,24,UI.GOLD,750)
+		var empty_hint = "马匹与马衣为欧洲共通。" if selected_slot in ["horse","caparison"] else "当前地区、年代或品质下没有匹配项。"
+		UI.label(empty,empty_hint+"试试清除筛选。",Vector2.ZERO,18,UI.INK,750)
+		UI.button(empty,"清除筛选",Rect2(0,0,260,48),func():
+			selected_region=0
+			selected_era=-1
+			selected_quality=0
+			selected_item={}
+			show_armory())
 	info_panel = UI.panel(screen,Rect2(925,229,460,507),Color(.055,.10,.08,.95))
 	info_panel.clip_contents = true
 	if selected_item.is_empty() and not filtered.is_empty():
 		selected_item = filtered[0]
 	_update_item_panel()
+	scroll.set_deferred("scroll_vertical",armory_scroll_offset)
 	message_label = UI.label(screen,"收藏解锁不等于史实复原。每件装备保留来源与改编说明。",Vector2(57,744),16,UI.MUTED,830)
 	queue_redraw()
 
@@ -639,10 +726,14 @@ func _add_item_icon(parent: Control, item: Dictionary, point: Vector2, dimension
 	return icon
 
 func _update_item_panel() -> void:
+	for id in armory_cards:
+		armory_cards[id].set_pressed_no_signal(id==selected_item.get("id",""))
 	for child in info_panel.get_children():
 		child.queue_free()
 	if selected_item.is_empty():
+		info_panel.visible=false
 		return
+	info_panel.visible=true
 	var item = selected_item
 	UI.label(info_panel,item.name,Vector2(22,16),22,UI.GOLD,415)
 	UI.label(info_panel,"%s · %s · %s" % [item.region,item.get("quality_name","旧藏"),item.get("historical_window",Catalogue.ERAS[int(item.era)])],Vector2(22,76),13,UI.MUTED,415)
@@ -690,17 +781,29 @@ func _update_item_panel() -> void:
 	var owned = item.id in GameState.profile.owned
 	var era_unlocked = int(GameState.profile.renown)>=Catalogue.required_renown(item)
 	var equipped = GameState.profile.equipped.get(item.slot) == item.id
-	var action_text = "已装备" if equipped else ("装备" if owned else ("购买 · %d 银币" % item.price if era_unlocked else "需要 %d 声望" % Catalogue.required_renown(item)))
+	var can_afford = int(GameState.profile.coins)>=int(item.price)
+	var action_text = "购买 · %d 银币" % item.price
+	if equipped:
+		action_text = "已装备"
+	elif owned:
+		action_text = "装备"
+	elif not era_unlocked:
+		action_text = "需要 %d 声望" % Catalogue.required_renown(item)
+	elif not can_afford:
+		action_text = "还差 %d 银币" % (int(item.price)-int(GameState.profile.coins))
 	var action = UI.button(info_panel,action_text,Rect2(22,441,412,44),func():
 		if owned:
-			GameState.equip(item.id)
-			show_armory()
+			if GameState.equip(item.id):
+				show_armory()
+				message_label.text="已装备 · "+str(item.name)
+			else:
+				message_label.text="装备未更换 · "+GameState.save_error
 		else:
 			var notice = GameState.purchase(item.id)
 			show_armory()
 			message_label.text = notice
 			sounds.play("click",-12),true)
-	action.disabled = equipped or (not owned and not era_unlocked)
+	action.disabled = equipped or (not owned and (not era_unlocked or not can_afford))
 
 func show_settings() -> void:
 	page = "settings"
@@ -708,13 +811,13 @@ func show_settings() -> void:
 	_header("设置 · 让每一次交锋更适合你。")
 	var panel = UI.panel(screen,Rect2(70,123,680,596))
 	UI.label(panel,"游戏设置",Vector2(28,24),34,UI.GOLD)
-	UI.check(panel,"显示血腥表现",GameState.profile.settings.blood,Vector2(28,104),func(value):GameState.set_setting("blood",value))
+	UI.check(panel,"显示血腥表现",GameState.profile.settings.blood,Vector2(28,104),func(value):_change_setting("blood",value))
 	UI.label(panel,"关闭只隐藏血迹与伤口；实战依然允许死亡。",Vector2(28,150),16,UI.MUTED)
-	UI.check(panel,"镜头震动",GameState.profile.settings.shake,Vector2(28,195),func(value):GameState.set_setting("shake",value))
+	UI.check(panel,"镜头震动",GameState.profile.settings.shake,Vector2(28,195),func(value):_change_setting("shake",value))
 	UI.check(panel,"音乐与音效",GameState.profile.settings.sound,Vector2(28,250),func(value):
-		GameState.set_setting("sound",value)
+		_change_setting("sound",value)
 		sounds.set_enabled(value))
-	UI.check(panel,"纯鼠标姿态控制",GameState.profile.settings.mouse_only,Vector2(28,305),func(value):GameState.set_setting("mouse_only",value))
+	UI.check(panel,"纯鼠标姿态控制",GameState.profile.settings.mouse_only,Vector2(28,305),func(value):_change_setting("mouse_only",value))
 	UI.label(panel,"滚轮前后调倾身，中键回正；鼠标瞄准，左键加速。",Vector2(28,353),16,UI.MUTED,620)
 	UI.label(panel,"AI 难度",Vector2(28,406),19,UI.INK)
 	var difficulty = OptionButton.new()
@@ -723,15 +826,25 @@ func show_settings() -> void:
 	for value in preload("res://scripts/core/opponent_ai.gd").NAMES:
 		difficulty.add_item(value)
 	difficulty.selected = int(GameState.profile.settings.difficulty)
-	difficulty.item_selected.connect(func(value):GameState.set_setting("difficulty",value))
+	difficulty.item_selected.connect(func(value):_change_setting("difficulty",value))
 	panel.add_child(difficulty)
+	settings_notice = UI.label(panel,"修改后自动保存",Vector2(28,455),15,UI.MUTED,620)
 	UI.button(panel,"返回营地",Rect2(28,493,620,59),show_home,true)
+	UI.panel(screen,Rect2(810,123,565,596),Color(.055,.10,.08,.95))
 	UI.label(screen,"操作",Vector2(844,150),32,UI.GOLD)
 	UI.label(screen,"移动鼠标　瞄准；大幅改向会失稳\n左键 / 空格　按住催马，松开减速\n1 / 2 / 3　护头 / 护胸 / 护腹（右键循环）\nW / S　　 前倾支撑 / 后仰避头\nH　　　　 显示判定范围\nEsc　　　 暂停与设置\nR 重开　　F11 全屏",Vector2(844,219),22,UI.INK,510)
 	UI.label(screen,"触控输入已预留：左侧滑动倾身，右侧瞄准，\n右侧额外触点加速；尚未在手机设备验收。",Vector2(844,510),17,UI.MUTED,510)
-	UI.check(screen,"接近时放缓与命中慢动作",GameState.profile.settings.slow_motion,Vector2(844,600),func(value):GameState.set_setting("slow_motion",value))
-	UI.check(screen,"显示枪线颜色与部位提示",GameState.profile.settings.aim_cues,Vector2(844,656),func(value):GameState.set_setting("aim_cues",value))
+	UI.check(screen,"接近时放缓与命中慢动作",GameState.profile.settings.slow_motion,Vector2(844,600),func(value):_change_setting("slow_motion",value))
+	UI.check(screen,"显示枪线颜色与部位提示",GameState.profile.settings.aim_cues,Vector2(844,656),func(value):_change_setting("aim_cues",value))
 	queue_redraw()
+
+func _change_setting(key: String, value: Variant) -> void:
+	GameState.set_setting(key,value)
+	if page=="settings" and is_instance_valid(settings_notice):
+		var saved = GameState.save_error.is_empty()
+		settings_notice.text = "已保存设置" if saved else "设置已应用，但暂未保存；可回营地重试保存。"
+		settings_notice.add_theme_color_override("font_color",UI.MUTED if saved else Color("efb566"))
+		settings_notice.tooltip_text = GameState.save_error
 
 func show_history() -> void:
 	page = "history"
@@ -775,7 +888,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			var fullscreen = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED if fullscreen else DisplayServer.WINDOW_MODE_FULLSCREEN)
 		elif KEY_ESCAPE in keys and page != "battle":
-			show_home()
+			if is_instance_valid(brief_overlay):
+				_dismiss_brief()
+			else:
+				show_home()
 		elif KEY_R in keys and page == "battle" and result_visible:
 			_start_match(current_mode,practice_match)
 

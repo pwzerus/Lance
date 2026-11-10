@@ -17,6 +17,7 @@ func run() -> void:
 	root.add_child(main)
 	current_scene=main
 	main.set_process(false)
+	var resolved: Array = []
 	for mode in ["arena","war"]:
 		main._start_match(mode,true)
 		var b=main.battle
@@ -41,6 +42,9 @@ func run() -> void:
 		main.show_result()
 		for _i in range(3): await process_frame
 		var text=Report.summarize(b.exchange_log,mode)
+		resolved.append({"mode":mode,"result":main.pending_result.duplicate(true),"events":b.exchange_log.duplicate(true),"summary":text})
+		for event in b.exchange_log:
+			if event.get("broke",false): check(text.contains("断枪"),"Broken-lance bonus has no visible explanation")
 		check(text.contains("盾缘受击") and text.contains("胸甲"),"Resolved contact areas missing from result")
 		check(not text.contains("平衡余量") and not text.contains("速度系数"),"Default result shows numeric diagnostics")
 		if mode=="arena": check(text.contains("分"),"Arena hides contact score")
@@ -58,6 +62,6 @@ func run() -> void:
 	main.sounds.stop_all()
 	main.queue_free()
 	await process_frame
-	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"captures":captures,"scope":"Mode-specific results from resolved force fixtures, GPU layout at 960x540, actual engine GUI details toggle; no natural match/win-rate claim."},"\t"))
+	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"captures":captures,"resolved":resolved,"scope":"Mode-specific results from resolved force fixtures, GPU layout at 960x540, actual engine GUI details toggle; no natural match/win-rate claim."},"\t"))
 	print("RESULT082 ",failures)
 	quit(0 if failures.is_empty() else 1)

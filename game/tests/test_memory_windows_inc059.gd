@@ -104,7 +104,8 @@ func run() -> void:
 	main.show_home()
 	await create_timer(10.0,true,false,true).timeout
 	sample(steps)
-	main.queue_free()
-	await process_frame
 	output.close()
-	quit()
+	# QA-082: do not bypass Main's sound-stop/mixer-release interval. Deleting
+	# Main and quitting after one frame left WAV playback objects at teardown
+	# (pages-verbose02). Exercise the same save/close path as the player.
+	main.notification(Node.NOTIFICATION_WM_CLOSE_REQUEST)

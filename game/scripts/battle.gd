@@ -730,7 +730,11 @@ func _update_hud() -> void:
 		if float(f.balance)<40: tactics_label.text += "　· 坐姿失衡"
 		elif not f.broken and float(f.lance_stability)<.65: tactics_label.text += "　· 枪未稳住"
 	if f.broken:
-		tactics_label.text += "　· 枪已断"+("，下轮换新枪" if mode=="arena" else "，仅余残柄")
+		tactics_label.text += "　· 枪已断"
+		if mode=="arena" and match_model.pass_number<match_model.MAX_PASSES:
+			tactics_label.text += "，下轮换新枪"
+		elif mode=="war":
+			tactics_label.text += "，仅余残柄"
 	if float(f.get("arm",100.0))<40.0:
 		tactics_label.text += "　· 手臂酸软"
 	if approach_slow:

@@ -117,6 +117,12 @@ func run() -> void:
 	f.broken=true
 	battle._update_hud()
 	check(battle.tactics_label.text.contains("枪已断"),"Normal HUD hides broken lance state")
+	check(battle.tactics_label.text.contains("下轮换新枪"),"Early arena pass hides the replacement reminder")
+	model.pass_number=model.MAX_PASSES
+	battle._update_hud()
+	check(not battle.tactics_label.text.contains("下轮换新枪"),"Final pass promises a nonexistent next lance")
+	model.pass_number=1
+	battle._update_hud()
 	await capture("combat_states")
 	battle._toggle_pause()
 	await process_frame

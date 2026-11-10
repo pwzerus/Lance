@@ -1,0 +1,69 @@
+{
+	"failures": [],
+	"maximum_error": 0.0,
+	"passed": true,
+	"pose_comparisons": 2944,
+	"samples": [
+		{
+			"after": {
+				"checksum": -1393.39689211896,
+				"usec": 20977
+			},
+			"before": {
+				"checksum": -1393.39689211896,
+				"usec": 39929
+			}
+		},
+		{
+			"after": {
+				"checksum": -1393.39689211896,
+				"usec": 20528
+			},
+			"before": {
+				"checksum": -1393.39689211896,
+				"usec": 38081
+			}
+		},
+		{
+			"after": {
+				"checksum": -1393.39689211896,
+				"usec": 19480
+			},
+			"before": {
+				"checksum": -1393.39689211896,
+				"usec": 37594
+			}
+		},
+		{
+			"after": {
+				"checksum": -1393.39689211896,
+				"usec": 19880
+			},
+			"before": {
+				"checksum": -1393.39689211896,
+				"usec": 37468
+			}
+		},
+		{
+			"after": {
+				"checksum": -1393.39689211896,
+				"usec": 19929
+			},
+			"before": {
+				"checksum": -1393.39689211896,
+				"usec": 38420
+			}
+		},
+		{
+			"after": {
+				"checksum": -1393.39689211896,
+				"usec": 19656
+			},
+			"before": {
+				"checksum": -1393.39689211896,
+				"usec": 37544
+			}
+		}
+	],
+	"scope": "Same-pose outputs across gait boundaries, alternating local CPU microbenchmark; not live frame rate."
+}

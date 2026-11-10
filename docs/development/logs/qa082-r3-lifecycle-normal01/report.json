@@ -1,0 +1,58 @@
+{
+	"exit": "production window-close handler",
+	"recent_click": true,
+	"rows": [
+		{
+			"nodes": 28.0,
+			"resources": 90.0,
+			"step": 2
+		},
+		{
+			"nodes": 28.0,
+			"resources": 90.0,
+			"step": 5
+		},
+		{
+			"nodes": 28.0,
+			"resources": 90.0,
+			"step": 8
+		},
+		{
+			"nodes": 28.0,
+			"resources": 90.0,
+			"step": 11
+		},
+		{
+			"nodes": 28.0,
+			"resources": 90.0,
+			"step": 14
+		},
+		{
+			"nodes": 28.0,
+			"resources": 90.0,
+			"step": 17
+		},
+		{
+			"nodes": 28.0,
+			"resources": 90.0,
+			"step": 20
+		},
+		{
+			"nodes": 28.0,
+			"resources": 90.0,
+			"step": 23
+		},
+		{
+			"nodes": 28.0,
+			"resources": 90.0,
+			"step": 26
+		},
+		{
+			"nodes": 28.0,
+			"resources": 90.0,
+			"step": 29
+		}
+	],
+	"scope": "Actual GPU menus on isolated desktop with QA saves. Process exit and warnings must be read from supervisor/engine logs; no self-certified pass.",
+	"steps": 30
+}

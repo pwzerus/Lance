@@ -1,0 +1,10 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+GALUMU_BUILD v0.4.36
+UI082_CAPTURE keyboard_brief
+UI082_FINDING Pause leaves keyboard focus outside the pause menu
+UI082_FINDING Tab navigation escaped the pause menu
+UI082_CAPTURE keyboard_pause
+UI082_FINDING Enter did not activate the initial Resume action
+MODAL082 ["Pause leaves keyboard focus outside the pause menu", "Tab navigation escaped the pause menu", "Enter did not activate the initial Resume action"]

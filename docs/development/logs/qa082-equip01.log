@@ -1,0 +1,3 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+EQUIP066_RULES {"capacity_kg":130.301712720762,"counts":{"armor":33,"caparison":4,"helmet":31,"lance":79,"shield":25},"failures":[],"heavy":{"accel":0.96416536042238,"agility":0.82,"load_kg":126.2,"seat":1.05326872164704,"speed":1.00629571574328,"worn_kg":34.5},"light":{"accel":1.02287525640352,"agility":1.0525,"load_kg":109.2,"seat":0.965552518854706,"speed":1.03238900284601,"worn_kg":17.5},"passed":true}

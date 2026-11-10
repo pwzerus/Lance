@@ -1,0 +1,22 @@
+{
+  "task": "QA-082",
+  "start_utc": "2026-11-09T23:24:42Z",
+  "planned_end_utc": "2026-11-10T02:24:42Z",
+  "branch": "codex/v0.4",
+  "baseline": "b5d610bd7292c5c2842784da5ae8ae9508a359c2",
+  "runtime_commit": "0837c9e98190de83d718c1f69f5f5e59f80c53f6",
+  "release_entry_commit": "4643d5a1cc1dc6656c71fdd505d97ba6cc62e4e7",
+  "release": "builds/LanceAndLaurel-v0.4.36-r4",
+  "pck_bytes": 34156100,
+  "pck_sha256": "772F192743D02573B04CFB3C93E69B2B72864CB643ABF6F341424896650655C7",
+  "protector_sha256": "E993D317EBACAC1F7C12025E4E3D68EDDCD66919E422790BC33C46E74B31D635",
+  "protector_changed": false,
+  "monitor_samples": 5391,
+  "sampled_peak_private_mib": 789.1,
+  "sampled_minimum_system_available_mib": 1901,
+  "final_runtime": {"matches_completed": 2, "frames": 3445, "sample_seconds": 149.91, "fps": 22.98045, "exit_code": 0, "desktop_closed": true},
+  "reverse_old_control": {"matches_completed": 2, "frames": 3092, "sample_seconds": 149.783, "fps": 20.64319, "exit_code": 0, "desktop_closed": true},
+  "evidence_scope": "Rule simulation, injected viewport input, isolated GPU rendering and supervised runtime. No OS desktop control, human gameplay or hardware listening acceptance.",
+  "limits": ["Not stable 30/60 FPS", "FEEL-075 rare triangulation warning not reproduced or fully diagnosed", "Fixed strategy probes are not balance acceptance", "Historical 40GB incident not claimed fully resolved"],
+  "git_note": "Builds remain local. Final documentation/evidence commit and remote SHA are verified after this manifest; no self-referential future SHA."
+}

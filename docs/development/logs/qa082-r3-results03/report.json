@@ -1,0 +1,375 @@
+{
+	"captures": [
+		{
+			"labels": [
+				{
+					"h": 24.0,
+					"text": "竞技场 · 正规骑士",
+					"w": 136.0,
+					"x": 367.0,
+					"y": 138.0
+				},
+				{
+					"h": 62.0,
+					"text": "此番惜败",
+					"w": 168.0,
+					"x": 367.0,
+					"y": 178.0
+				},
+				{
+					"h": 27.0,
+					"text": "按比武计分决胜；护甲化解记擦中，擦偏不计分。",
+					"w": 706.0,
+					"x": 367.0,
+					"y": 244.0
+				},
+				{
+					"h": 30.0,
+					"text": "比分  1 : 2        骑手状态  89% : 99%",
+					"w": 310.0,
+					"x": 367.0,
+					"y": 315.0
+				},
+				{
+					"h": 81.0,
+					"text": "你的最后一击：盾缘受击 · 盾牌承受冲击 · +1 分\n对手的最后一击：胸甲 / 躯干 · 护甲化解 · 断枪 · +2 分\n调整建议：观察对手护头、护胸或护腹，提前选择另一处空当。",
+					"w": 684.0,
+					"x": 367.0,
+					"y": 358.0
+				},
+				{
+					"h": 34.0,
+					"text": "银币  +55           声望  +1",
+					"w": 233.0,
+					"x": 367.0,
+					"y": 479.0
+				},
+				{
+					"h": 23.0,
+					"text": "下一时代：1300–1400 · 需要 6 声望（当前 0）",
+					"w": 706.0,
+					"x": 367.0,
+					"y": 524.0
+				}
+			],
+			"nodes": 77,
+			"page": "battle",
+			"tag": "arena_compact"
+		},
+		{
+			"labels": [
+				{
+					"h": 24.0,
+					"text": "竞技场 · 正规骑士",
+					"w": 136.0,
+					"x": 367.0,
+					"y": 138.0
+				},
+				{
+					"h": 62.0,
+					"text": "此番惜败",
+					"w": 168.0,
+					"x": 367.0,
+					"y": 178.0
+				},
+				{
+					"h": 27.0,
+					"text": "按比武计分决胜；护甲化解记擦中，擦偏不计分。",
+					"w": 706.0,
+					"x": 367.0,
+					"y": 244.0
+				},
+				{
+					"h": 30.0,
+					"text": "比分  1 : 2        骑手状态  89% : 99%",
+					"w": 310.0,
+					"x": 367.0,
+					"y": 315.0
+				},
+				{
+					"h": 137.0,
+					"text": "你的最后一击：盾缘受击 · 盾牌承受冲击 · +1 分\n  骑手损伤 1 · 平衡余量 91 · 自身速度系数 ×0.60\n对手的最后一击：胸甲 / 躯干 · 护甲化解 · 断枪 · +2 分\n  骑手损伤 11 · 平衡余量 67 · 自身速度系数 ×0.60\n调整建议：观察对手护头、护胸或护腹，提前选择另一处空当。",
+					"w": 684.0,
+					"x": 367.0,
+					"y": 358.0
+				},
+				{
+					"h": 34.0,
+					"text": "银币  +55           声望  +1",
+					"w": 233.0,
+					"x": 367.0,
+					"y": 479.0
+				},
+				{
+					"h": 23.0,
+					"text": "下一时代：1300–1400 · 需要 6 声望（当前 0）",
+					"w": 706.0,
+					"x": 367.0,
+					"y": 524.0
+				}
+			],
+			"nodes": 77,
+			"page": "battle",
+			"tag": "arena_details"
+		},
+		{
+			"labels": [
+				{
+					"h": 24.0,
+					"text": "实战 · 正规骑士",
+					"w": 120.0,
+					"x": 367.0,
+					"y": 138.0
+				},
+				{
+					"h": 62.0,
+					"text": "此番惜败",
+					"w": 168.0,
+					"x": 367.0,
+					"y": 178.0
+				},
+				{
+					"h": 27.0,
+					"text": "三次对冲后的骑手状态决胜",
+					"w": 706.0,
+					"x": 367.0,
+					"y": 244.0
+				},
+				{
+					"h": 30.0,
+					"text": "你的骑手状态  86%        对手  99%",
+					"w": 298.0,
+					"x": 367.0,
+					"y": 315.0
+				},
+				{
+					"h": 81.0,
+					"text": "你的最后一击：盾缘受击 · 盾牌承受冲击\n对手的最后一击：胸甲 / 躯干 · 护甲化解\n调整建议：观察对手护头、护胸或护腹，提前选择另一处空当。",
+					"w": 684.0,
+					"x": 367.0,
+					"y": 358.0
+				},
+				{
+					"h": 34.0,
+					"text": "银币  +85           声望  +1",
+					"w": 233.0,
+					"x": 367.0,
+					"y": 479.0
+				},
+				{
+					"h": 23.0,
+					"text": "下一时代：1300–1400 · 需要 6 声望（当前 0）",
+					"w": 706.0,
+					"x": 367.0,
+					"y": 524.0
+				}
+			],
+			"nodes": 77,
+			"page": "battle",
+			"tag": "war_compact"
+		},
+		{
+			"labels": [
+				{
+					"h": 24.0,
+					"text": "实战 · 正规骑士",
+					"w": 120.0,
+					"x": 367.0,
+					"y": 138.0
+				},
+				{
+					"h": 62.0,
+					"text": "此番惜败",
+					"w": 168.0,
+					"x": 367.0,
+					"y": 178.0
+				},
+				{
+					"h": 27.0,
+					"text": "三次对冲后的骑手状态决胜",
+					"w": 706.0,
+					"x": 367.0,
+					"y": 244.0
+				},
+				{
+					"h": 30.0,
+					"text": "你的骑手状态  86%        对手  99%",
+					"w": 298.0,
+					"x": 367.0,
+					"y": 315.0
+				},
+				{
+					"h": 137.0,
+					"text": "你的最后一击：盾缘受击 · 盾牌承受冲击\n  骑手损伤 1 · 平衡余量 91 · 自身速度系数 ×0.60\n对手的最后一击：胸甲 / 躯干 · 护甲化解\n  骑手损伤 14 · 平衡余量 67 · 自身速度系数 ×0.60\n调整建议：观察对手护头、护胸或护腹，提前选择另一处空当。",
+					"w": 684.0,
+					"x": 367.0,
+					"y": 358.0
+				},
+				{
+					"h": 34.0,
+					"text": "银币  +85           声望  +1",
+					"w": 233.0,
+					"x": 367.0,
+					"y": 479.0
+				},
+				{
+					"h": 23.0,
+					"text": "下一时代：1300–1400 · 需要 6 声望（当前 0）",
+					"w": 706.0,
+					"x": 367.0,
+					"y": 524.0
+				}
+			],
+			"nodes": 77,
+			"page": "battle",
+			"tag": "war_details"
+		}
+	],
+	"failures": [],
+	"passed": true,
+	"resolved": [
+		{
+			"events": [
+				{
+					"attacker": 0,
+					"attaint": false,
+					"balance_left": 90.918857609402,
+					"break_angle": -0.08,
+					"break_direction": 1,
+					"break_hand": "(-2170.0, -189.0)",
+					"break_reach": 247.0,
+					"break_tip": "(-1923.79, -208.7389)",
+					"broke": false,
+					"damage": 1.27566397880413,
+					"dead": false,
+					"defender": 1,
+					"drive": 0.6,
+					"glanced": false,
+					"impulse": 10.3284286623706,
+					"ko": false,
+					"ko_reason": "",
+					"points": 1,
+					"position": "(0.0, 0.0)",
+					"shield_broke": false,
+					"shield_region": "rim",
+					"speed": 800.0,
+					"support": 0.907,
+					"type": "hit",
+					"zone": "shield"
+				},
+				{
+					"attacker": 1,
+					"attaint": false,
+					"balance_left": 66.5132874346698,
+					"break_angle": -0.08,
+					"break_direction": -1,
+					"break_hand": "(2170.0, -252.599)",
+					"break_reach": 247.0,
+					"break_tip": "(1923.79, -272.3379)",
+					"broke": true,
+					"damage": 10.7955894122317,
+					"dead": false,
+					"defender": 0,
+					"drive": 0.6,
+					"glanced": false,
+					"impulse": 38.0860806924917,
+					"ko": false,
+					"ko_reason": "",
+					"points": 2,
+					"position": "(0.0, 0.0)",
+					"shield_broke": false,
+					"speed": 700.0,
+					"support": 0.907,
+					"type": "hit",
+					"zone": "body"
+				}
+			],
+			"mode": "arena",
+			"result": {
+				"enemy_dead": false,
+				"enemy_hp": 98.7243360211959,
+				"enemy_score": 2,
+				"mode": "arena",
+				"passes": 3,
+				"player_dead": false,
+				"player_hp": 89.2044105877683,
+				"player_score": 1,
+				"reason": "score",
+				"winner": 1
+			},
+			"summary": "你的最后一击：盾缘受击 · 盾牌承受冲击 · +1 分\n对手的最后一击：胸甲 / 躯干 · 护甲化解 · 断枪 · +2 分\n调整建议：观察对手护头、护胸或护腹，提前选择另一处空当。"
+		},
+		{
+			"events": [
+				{
+					"attacker": 0,
+					"attaint": false,
+					"balance_left": 90.918857609402,
+					"break_angle": -0.08,
+					"break_direction": 1,
+					"break_hand": "(-2170.0, -189.0)",
+					"break_reach": 247.0,
+					"break_tip": "(-1923.79, -208.7389)",
+					"broke": false,
+					"damage": 1.27566397880413,
+					"dead": false,
+					"defender": 1,
+					"drive": 0.6,
+					"glanced": false,
+					"impulse": 10.3284286623706,
+					"ko": false,
+					"ko_reason": "",
+					"points": 1,
+					"position": "(0.0, 0.0)",
+					"shield_broke": false,
+					"shield_region": "rim",
+					"speed": 800.0,
+					"support": 0.907,
+					"type": "hit",
+					"zone": "shield"
+				},
+				{
+					"attacker": 1,
+					"attaint": false,
+					"balance_left": 66.5132874346698,
+					"break_angle": -0.08,
+					"break_direction": -1,
+					"break_hand": "(2170.0, -252.599)",
+					"break_reach": 247.0,
+					"break_tip": "(1923.79, -272.3379)",
+					"broke": false,
+					"damage": 14.2501780241459,
+					"dead": false,
+					"defender": 0,
+					"drive": 0.6,
+					"glanced": false,
+					"impulse": 38.0860806924917,
+					"ko": false,
+					"ko_reason": "",
+					"points": 1,
+					"position": "(0.0, 0.0)",
+					"shield_broke": false,
+					"speed": 700.0,
+					"support": 0.907,
+					"type": "hit",
+					"zone": "body"
+				}
+			],
+			"mode": "war",
+			"result": {
+				"enemy_dead": false,
+				"enemy_hp": 98.7243360211959,
+				"enemy_score": 1,
+				"mode": "war",
+				"passes": 3,
+				"player_dead": false,
+				"player_hp": 85.7498219758541,
+				"player_score": 1,
+				"reason": "condition",
+				"winner": 1
+			},
+			"summary": "你的最后一击：盾缘受击 · 盾牌承受冲击\n对手的最后一击：胸甲 / 躯干 · 护甲化解\n调整建议：观察对手护头、护胸或护腹，提前选择另一处空当。"
+		}
+	],
+	"scope": "Mode-specific results from resolved force fixtures, GPU layout at 960x540, actual engine GUI details toggle; no natural match/win-rate claim."
+}

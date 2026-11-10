@@ -1,0 +1,848 @@
+{
+	"failures": [],
+	"passed": true,
+	"scope": "Actual GPU frames with scripted poses on isolated desktop, not OS input or human play. Inspect PNGs separately.",
+	"suite": "motion",
+	"trace": [
+		{
+			"coat": "bay",
+			"facing": 1,
+			"phase": 6.38622954621734,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "bay",
+			"facing": 1,
+			"phase": 7.90676039055481,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "bay",
+			"facing": 1,
+			"phase": 9.42729123489227,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "bay",
+			"facing": 1,
+			"phase": 10.9478220792297,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "bay",
+			"facing": 1,
+			"phase": 12.4683529235672,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "bay",
+			"facing": 1,
+			"phase": 18.9735441116004,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "bay",
+			"facing": 1,
+			"phase": 20.4513492958491,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "bay",
+			"facing": 1,
+			"phase": 21.9291544800977,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "bay",
+			"facing": 1,
+			"phase": 23.4069596643463,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "bay",
+			"facing": 1,
+			"phase": 24.8847648485949,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "bay",
+			"facing": 1,
+			"phase": 31.7049530600281,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "bay",
+			"facing": 1,
+			"phase": 33.1475724065565,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "bay",
+			"facing": 1,
+			"phase": 34.590191753085,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "bay",
+			"facing": 1,
+			"phase": 36.0328110996134,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "bay",
+			"facing": 1,
+			"phase": 37.4754304461419,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "bay",
+			"facing": -1,
+			"phase": 7.48622954621735,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "bay",
+			"facing": -1,
+			"phase": 9.00676039055481,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "bay",
+			"facing": -1,
+			"phase": 10.5272912348923,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "bay",
+			"facing": -1,
+			"phase": 12.0478220792297,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "bay",
+			"facing": -1,
+			"phase": 13.5683529235672,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "bay",
+			"facing": -1,
+			"phase": 20.0735441116004,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "bay",
+			"facing": -1,
+			"phase": 21.5513492958491,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "bay",
+			"facing": -1,
+			"phase": 23.0291544800977,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "bay",
+			"facing": -1,
+			"phase": 24.5069596643463,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "bay",
+			"facing": -1,
+			"phase": 25.9847648485949,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "bay",
+			"facing": -1,
+			"phase": 32.8049530600281,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "bay",
+			"facing": -1,
+			"phase": 34.2475724065566,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "bay",
+			"facing": -1,
+			"phase": 35.690191753085,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "bay",
+			"facing": -1,
+			"phase": 37.1328110996134,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "bay",
+			"facing": -1,
+			"phase": 38.5754304461419,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "black",
+			"facing": 1,
+			"phase": 6.38622954621734,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "black",
+			"facing": 1,
+			"phase": 7.90676039055481,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "black",
+			"facing": 1,
+			"phase": 9.42729123489227,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "black",
+			"facing": 1,
+			"phase": 10.9478220792297,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "black",
+			"facing": 1,
+			"phase": 12.4683529235672,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "black",
+			"facing": 1,
+			"phase": 18.9735441116004,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "black",
+			"facing": 1,
+			"phase": 20.4513492958491,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "black",
+			"facing": 1,
+			"phase": 21.9291544800977,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "black",
+			"facing": 1,
+			"phase": 23.4069596643463,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "black",
+			"facing": 1,
+			"phase": 24.8847648485949,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "black",
+			"facing": 1,
+			"phase": 31.7049530600281,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "black",
+			"facing": 1,
+			"phase": 33.1475724065565,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "black",
+			"facing": 1,
+			"phase": 34.590191753085,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "black",
+			"facing": 1,
+			"phase": 36.0328110996134,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "black",
+			"facing": 1,
+			"phase": 37.4754304461419,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "black",
+			"facing": -1,
+			"phase": 7.48622954621735,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "black",
+			"facing": -1,
+			"phase": 9.00676039055481,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "black",
+			"facing": -1,
+			"phase": 10.5272912348923,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "black",
+			"facing": -1,
+			"phase": 12.0478220792297,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "black",
+			"facing": -1,
+			"phase": 13.5683529235672,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "black",
+			"facing": -1,
+			"phase": 20.0735441116004,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "black",
+			"facing": -1,
+			"phase": 21.5513492958491,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "black",
+			"facing": -1,
+			"phase": 23.0291544800977,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "black",
+			"facing": -1,
+			"phase": 24.5069596643463,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "black",
+			"facing": -1,
+			"phase": 25.9847648485949,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "black",
+			"facing": -1,
+			"phase": 32.8049530600281,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "black",
+			"facing": -1,
+			"phase": 34.2475724065566,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "black",
+			"facing": -1,
+			"phase": 35.690191753085,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "black",
+			"facing": -1,
+			"phase": 37.1328110996134,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "black",
+			"facing": -1,
+			"phase": 38.5754304461419,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "grey",
+			"facing": 1,
+			"phase": 6.38622954621734,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "grey",
+			"facing": 1,
+			"phase": 7.90676039055481,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "grey",
+			"facing": 1,
+			"phase": 9.42729123489227,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "grey",
+			"facing": 1,
+			"phase": 10.9478220792297,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "grey",
+			"facing": 1,
+			"phase": 12.4683529235672,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "grey",
+			"facing": 1,
+			"phase": 18.9735441116004,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "grey",
+			"facing": 1,
+			"phase": 20.4513492958491,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "grey",
+			"facing": 1,
+			"phase": 21.9291544800977,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "grey",
+			"facing": 1,
+			"phase": 23.4069596643463,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "grey",
+			"facing": 1,
+			"phase": 24.8847648485949,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "grey",
+			"facing": 1,
+			"phase": 31.7049530600281,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "grey",
+			"facing": 1,
+			"phase": 33.1475724065565,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "grey",
+			"facing": 1,
+			"phase": 34.590191753085,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "grey",
+			"facing": 1,
+			"phase": 36.0328110996134,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "grey",
+			"facing": 1,
+			"phase": 37.4754304461419,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "grey",
+			"facing": -1,
+			"phase": 7.48622954621735,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "grey",
+			"facing": -1,
+			"phase": 9.00676039055481,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "grey",
+			"facing": -1,
+			"phase": 10.5272912348923,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "grey",
+			"facing": -1,
+			"phase": 12.0478220792297,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "grey",
+			"facing": -1,
+			"phase": 13.5683529235672,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "grey",
+			"facing": -1,
+			"phase": 20.0735441116004,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "grey",
+			"facing": -1,
+			"phase": 21.5513492958491,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "grey",
+			"facing": -1,
+			"phase": 23.0291544800977,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "grey",
+			"facing": -1,
+			"phase": 24.5069596643463,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "grey",
+			"facing": -1,
+			"phase": 25.9847648485949,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "grey",
+			"facing": -1,
+			"phase": 32.8049530600281,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "grey",
+			"facing": -1,
+			"phase": 34.2475724065566,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "grey",
+			"facing": -1,
+			"phase": 35.690191753085,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "grey",
+			"facing": -1,
+			"phase": 37.1328110996134,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "grey",
+			"facing": -1,
+			"phase": 38.5754304461419,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": 1,
+			"phase": 6.38622954621734,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": 1,
+			"phase": 7.90676039055481,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": 1,
+			"phase": 9.42729123489227,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": 1,
+			"phase": 10.9478220792297,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": 1,
+			"phase": 12.4683529235672,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": 1,
+			"phase": 18.9735441116004,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": 1,
+			"phase": 20.4513492958491,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": 1,
+			"phase": 21.9291544800977,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": 1,
+			"phase": 23.4069596643463,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": 1,
+			"phase": 24.8847648485949,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": 1,
+			"phase": 31.7049530600281,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": 1,
+			"phase": 33.1475724065565,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": 1,
+			"phase": 34.590191753085,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": 1,
+			"phase": 36.0328110996134,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": 1,
+			"phase": 37.4754304461419,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": -1,
+			"phase": 7.48622954621735,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": -1,
+			"phase": 9.00676039055481,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": -1,
+			"phase": 10.5272912348923,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": -1,
+			"phase": 12.0478220792297,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": -1,
+			"phase": 13.5683529235672,
+			"speed": 110.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": -1,
+			"phase": 20.0735441116004,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": -1,
+			"phase": 21.5513492958491,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": -1,
+			"phase": 23.0291544800977,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": -1,
+			"phase": 24.5069596643463,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": -1,
+			"phase": 25.9847648485949,
+			"speed": 210.0,
+			"stamina": 100.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": -1,
+			"phase": 32.8049530600281,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": -1,
+			"phase": 34.2475724065566,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": -1,
+			"phase": 35.690191753085,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": -1,
+			"phase": 37.1328110996134,
+			"speed": 480.0,
+			"stamina": 15.0
+		},
+		{
+			"coat": "flaxen",
+			"facing": -1,
+			"phase": 38.5754304461419,
+			"speed": 480.0,
+			"stamina": 15.0
+		}
+	]
+}

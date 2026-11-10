@@ -1,0 +1,938 @@
+{
+	"captures": [],
+	"failures": [],
+	"passed": true,
+	"rows": [
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "mail_basic"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "helm_nasal"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "lance_ash"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "horse_bay"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "crest_bend"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "mail_eng"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "mail_fr"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "mail_de"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "mail_it"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "helm_great"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "helm_gilt"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "lance_long"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "lance_stout"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "horse_grey"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "horse_chestnut"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "crest_chevron"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "crest_cross"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "crest_diamond"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "armor_e1"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "helm_e1"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "lance_e1"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "horse_e1"
+		},
+		{
+			"description_bottom": 239.0,
+			"failures": [],
+			"id": "armor_e2"
+		},
+		{
+			"description_bottom": 239.0,
+			"failures": [],
+			"id": "helm_e2"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "lance_e2"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "horse_e2"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "armor_e3"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "helm_e3"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "lance_e3"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "horse_e3"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "armor_e4"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "helm_e4"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "lance_e4"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "horse_e4"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_lance_light_0"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_lance_long_0"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_lance_stout_0"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "eng_armor_0"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "eng_helmet_0"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_shield_0"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_lance_light_1"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_lance_long_1"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_lance_stout_1"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "eng_armor_1"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "eng_helmet_1"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_shield_1"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_lance_light_2"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_lance_long_2"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_lance_stout_2"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "eng_armor_2"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "eng_helmet_2"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_shield_2"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_lance_light_3"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_lance_long_3"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_lance_stout_3"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "eng_armor_3"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "eng_helmet_3"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_shield_3"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_lance_light_4"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_lance_long_4"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_lance_stout_4"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "eng_armor_4"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "eng_helmet_4"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_shield_4"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_lance_light_5"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_lance_long_5"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_lance_stout_5"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "eng_armor_5"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "eng_helmet_5"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "eng_shield_5"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_lance_light_0"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_lance_long_0"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_lance_stout_0"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "fr_armor_0"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "fr_helmet_0"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_shield_0"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_lance_light_1"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_lance_long_1"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_lance_stout_1"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "fr_armor_1"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "fr_helmet_1"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_shield_1"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_lance_light_2"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_lance_long_2"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_lance_stout_2"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "fr_armor_2"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "fr_helmet_2"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_shield_2"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_lance_light_3"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_lance_long_3"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_lance_stout_3"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "fr_armor_3"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "fr_helmet_3"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_shield_3"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_lance_light_4"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_lance_long_4"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_lance_stout_4"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "fr_armor_4"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "fr_helmet_4"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_shield_4"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_lance_light_5"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_lance_long_5"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_lance_stout_5"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "fr_armor_5"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "fr_helmet_5"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "fr_shield_5"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_lance_light_0"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_lance_long_0"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_lance_stout_0"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "de_armor_0"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "de_helmet_0"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_shield_0"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_lance_light_1"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_lance_long_1"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_lance_stout_1"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "de_armor_1"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "de_helmet_1"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_shield_1"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_lance_light_2"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_lance_long_2"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_lance_stout_2"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "de_armor_2"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "de_helmet_2"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_shield_2"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_lance_light_3"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_lance_long_3"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_lance_stout_3"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "de_armor_3"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "de_helmet_3"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_shield_3"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_lance_light_4"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_lance_long_4"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_lance_stout_4"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "de_armor_4"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "de_helmet_4"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_shield_4"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_lance_light_5"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_lance_long_5"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_lance_stout_5"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "de_armor_5"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "de_helmet_5"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "de_shield_5"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_lance_light_0"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_lance_long_0"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_lance_stout_0"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "it_armor_0"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "it_helmet_0"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_shield_0"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_lance_light_1"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_lance_long_1"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_lance_stout_1"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "it_armor_1"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "it_helmet_1"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_shield_1"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_lance_light_2"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_lance_long_2"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_lance_stout_2"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "it_armor_2"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "it_helmet_2"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_shield_2"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_lance_light_3"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_lance_long_3"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_lance_stout_3"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "it_armor_3"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "it_helmet_3"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_shield_3"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_lance_light_4"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_lance_long_4"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_lance_stout_4"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "it_armor_4"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "it_helmet_4"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_shield_4"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_lance_light_5"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_lance_long_5"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_lance_stout_5"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "it_armor_5"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "it_helmet_5"
+		},
+		{
+			"description_bottom": 213.0,
+			"failures": [],
+			"id": "it_shield_5"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "horse_cob"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "horse_courser"
+		},
+		{
+			"description_bottom": 161.0,
+			"failures": [],
+			"id": "horse_steady"
+		},
+		{
+			"description_bottom": 135.0,
+			"failures": [],
+			"id": "shield_basic"
+		},
+		{
+			"description_bottom": 135.0,
+			"failures": [],
+			"id": "caparison_none"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "caparison_linen"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "caparison_wool"
+		},
+		{
+			"description_bottom": 187.0,
+			"failures": [],
+			"id": "caparison_velvet"
+		}
+	],
+	"scope": "Actual GPU/font layout at 960x540 for all equipment descriptions; no mouse or player save."
+}

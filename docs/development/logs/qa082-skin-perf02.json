@@ -1,0 +1,39 @@
+{
+	"failures": [],
+	"maximum_error": 0.0,
+	"passed": true,
+	"samples": [
+		{
+			"after_usec": 222967,
+			"before_usec": 285202,
+			"ratio": 0.781786242733221
+		},
+		{
+			"after_usec": 199310,
+			"before_usec": 268868,
+			"ratio": 0.741293125251053
+		},
+		{
+			"after_usec": 246228,
+			"before_usec": 247585,
+			"ratio": 0.994519054062241
+		},
+		{
+			"after_usec": 221407,
+			"before_usec": 193728,
+			"ratio": 1.14287557813016
+		},
+		{
+			"after_usec": 233171,
+			"before_usec": 231101,
+			"ratio": 1.00895712264335
+		},
+		{
+			"after_usec": 208715,
+			"before_usec": 249335,
+			"ratio": 0.837086650490304
+		}
+	],
+	"scope": "Whole horse plus far hind/fore mesh; same UVs, topology and all submitted vertices. Timings include existing surface update. No frame-rate or visual acceptance claim.",
+	"vertex_comparisons": 749088
+}

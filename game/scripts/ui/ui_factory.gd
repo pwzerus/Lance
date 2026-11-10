@@ -53,6 +53,10 @@ static func box(fill: Color = Color("15221e"), border: Color = Color("57604a"), 
 
 static func label(parent: Node, text: String, point: Vector2, font_size: int = 20, color: Color = INK, width: float = 0) -> Label:
 	var node = Label.new()
+	# Use the final font before text/size triggers minimum-size shaping.
+	# Otherwise cold CJK text is shaped with a system fallback and AGAIN
+	# when the control enters the themed tree (FIX-085).
+	node.theme = theme()
 	node.text = text
 	node.position = point
 	node.add_theme_font_size_override("font_size", font_size)
@@ -73,6 +77,7 @@ static func label(parent: Node, text: String, point: Vector2, font_size: int = 2
 
 static func button(parent: Node, text: String, rect: Rect2, callback: Callable, primary: bool = false) -> Button:
 	var node = Button.new()
+	node.theme = theme()
 	node.text = text
 	node.position = rect.position
 	node.size = rect.size

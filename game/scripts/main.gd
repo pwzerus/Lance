@@ -600,6 +600,7 @@ func show_armory() -> void:
 			show_armory(),selected_slot == slot_value)
 		index += 1
 	var era_select = OptionButton.new()
+	era_select.theme = UI.theme()
 	era_select.position = Vector2(724,169)
 	era_select.size = Vector2(210,43)
 	era_select.add_item("全部年代")
@@ -612,6 +613,7 @@ func show_armory() -> void:
 		show_armory())
 	screen.add_child(era_select)
 	var region_select = OptionButton.new()
+	region_select.theme = UI.theme()
 	region_select.position = Vector2(946,169)
 	region_select.size = Vector2(199,43)
 	for region_name in ["全部地区"]+Catalogue.REGIONS+["欧洲共通"]:
@@ -623,6 +625,7 @@ func show_armory() -> void:
 		show_armory())
 	screen.add_child(region_select)
 	var quality_select = OptionButton.new()
+	quality_select.theme = UI.theme()
 	quality_select.position = Vector2(1157,169)
 	quality_select.size = Vector2(228,43)
 	for quality_name in ["全部品质","新手","初级","中级","中高级","高级","最高级"]:
@@ -635,6 +638,7 @@ func show_armory() -> void:
 	screen.add_child(quality_select)
 	var scroll = ScrollContainer.new()
 	scroll.name="ArmoryList"
+	scroll.follow_focus = true
 	armory_scroll=scroll
 	scroll.position = Vector2(55,236)
 	scroll.size = Vector2(830,478)
@@ -653,10 +657,10 @@ func show_armory() -> void:
 		var quality_match = selected_quality==0 or int(item.get("quality",-1))==selected_quality-1
 		if item.slot == selected_slot and (selected_era<0 or int(item.era) == selected_era) and region_match and quality_match:
 			filtered.append(item)
+	var build_queue = preload("res://scripts/ui/build_queue.gd").new()
+	screen.add_child(build_queue)
 	for item in filtered:
 		var item_value = item
-		var owned = item.id in GameState.profile.owned
-		var equipped = GameState.profile.equipped.get(item.slot) == item.id
 		var card = Button.new()
 		card.custom_minimum_size = Vector2(397,126)
 		card.text = ""
@@ -665,22 +669,14 @@ func show_armory() -> void:
 		card.add_theme_font_size_override("font_size",14)
 		card.tooltip_text = item.description
 		card.toggle_mode = true
+		card.focus_entered.connect(func(): _fill_armory_card(card,item_value))
 		card.add_theme_stylebox_override("pressed",UI.box(Color("34452f"),UI.GOLD,5))
 		card.pressed.connect(func():
 			selected_item = item_value
 			_update_item_panel())
 		grid.add_child(card)
 		armory_cards[item.id]=card
-		# Wider icon well (was 72x88): equipment differences were too small to see.
-		var title = UI.label(card,("◆ " if equipped else "")+str(item.name),Vector2(14,10),17,UI.INK,218)
-		title.max_lines_visible = 2
-		var period=UI.label(card,"%s · %s" % [item.get("historical_window",Catalogue.ERAS[int(item.era)]),item.get("quality_name","旧藏")],Vector2(14,65),14,UI.MUTED,218)
-		period.autowrap_mode=TextServer.AUTOWRAP_OFF
-		period.clip_text=true
-		period.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
-		period.tooltip_text=period.text
-		UI.label(card,"已装备" if equipped else ("已收藏" if owned else ("%d 银币 · 声望 %d" % [item.price,Catalogue.required_renown(item)])),Vector2(14,94),15,UI.GOLD,218)
-		_add_item_icon(card,item,Vector2(236,8),Vector2(152,100),true)
+		build_queue.enqueue(func(): _fill_armory_card(card,item_value),card)
 	if filtered.is_empty():
 		var empty=VBoxContainer.new()
 		empty.custom_minimum_size=Vector2(790,160)
@@ -699,10 +695,28 @@ func show_armory() -> void:
 	info_panel.clip_contents = true
 	if selected_item.is_empty() and not filtered.is_empty():
 		selected_item = filtered[0]
-	_update_item_panel()
+	UI.label(info_panel,"正在整理装备…",Vector2(22,16),22,UI.GOLD,415)
+	build_queue.enqueue(func():
+		if not info_panel.get_meta("details_ready",false): _update_item_panel())
 	scroll.set_deferred("scroll_vertical",armory_scroll_offset)
 	message_label = UI.label(screen,"收藏解锁不等于史实复原。每件装备保留来源与改编说明。",Vector2(57,744),16,UI.MUTED,830)
 	queue_redraw()
+
+func _fill_armory_card(card: Button, item: Dictionary) -> void:
+	if card.get_meta("content_ready",false): return
+	card.set_meta("content_ready",true)
+	var owned = item.id in GameState.profile.owned
+	var equipped = GameState.profile.equipped.get(item.slot) == item.id
+	# Wider icon well (was 72x88): equipment differences were too small to see.
+	var title = UI.label(card,("◆ " if equipped else "")+str(item.name),Vector2(14,10),17,UI.INK,218)
+	title.max_lines_visible = 2
+	var period=UI.label(card,"%s · %s" % [item.get("historical_window",Catalogue.ERAS[int(item.era)]),item.get("quality_name","旧藏")],Vector2(14,65),14,UI.MUTED,218)
+	period.autowrap_mode=TextServer.AUTOWRAP_OFF
+	period.clip_text=true
+	period.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
+	period.tooltip_text=period.text
+	UI.label(card,"已装备" if equipped else ("已收藏" if owned else ("%d 银币 · 声望 %d" % [item.price,Catalogue.required_renown(item)])),Vector2(14,94),15,UI.GOLD,218)
+	_add_item_icon(card,item,Vector2(236,8),Vector2(152,100),true)
 
 func _player_heraldry() -> String:
 	return str(GameState.player_stats().get("heraldry","bend"))
@@ -762,6 +776,7 @@ func _add_item_icon(parent: Control, item: Dictionary, point: Vector2, dimension
 	return icon
 
 func _update_item_panel() -> void:
+	info_panel.set_meta("details_ready",true)
 	for id in armory_cards:
 		armory_cards[id].set_pressed_no_signal(id==selected_item.get("id",""))
 	for child in info_panel.get_children():
@@ -806,10 +821,14 @@ func _update_item_panel() -> void:
 	var paragraphs = VBoxContainer.new()
 	paragraphs.add_theme_constant_override("separation",8)
 	scroll.add_child(paragraphs)
+	var paragraph_queue = preload("res://scripts/ui/build_queue.gd").new()
+	paragraphs.add_child(paragraph_queue)
 	for text_value in [detail,"腿甲花纹只作装饰，不增加防护值。" if item.slot=="armor" else "","制造地："+str(item.manufacture) if item.has("manufacture") else "",str(item.get("use_context","")),"考据："+str(item.source),str(item.historical_note)]:
 		if str(text_value).is_empty():
 			continue
-		UI.label(paragraphs,str(text_value),Vector2.ZERO,14,UI.GOLD if text_value==detail else UI.MUTED,394)
+		var paragraph_text = str(text_value)
+		var paragraph_color = UI.GOLD if text_value==detail else UI.MUTED
+		paragraph_queue.enqueue(func(): UI.label(paragraphs,paragraph_text,Vector2.ZERO,14,paragraph_color,394))
 	if item.has("source_url"):
 		var source_url = str(item.source_url)
 		UI.button(info_panel,"查看馆藏来源 ↗",Rect2(22,397,202,30),func(): OS.shell_open(source_url))

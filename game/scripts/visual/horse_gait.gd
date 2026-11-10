@@ -145,7 +145,16 @@ static func body(phase: float, speed: float, moving: bool, stability: float = 1.
  var transmission = clampf(1.0/stability,.82,1.18)
  # Absorption follows the same back curve, including BOTH diagonal trot
  # beats. A separate single sine made alternate trot beats look detached.
- var rider_lag = (delayed_height-height)*.32*transmission
+ # FIX-085: pelvis follows the actual back, while the bent legs absorb a
+ # small phase lag. Transmission rises with travel speed, not spur input;
+ # use the SAME gait curves rather than an unrelated bouncing sine.
+ var effort = smoothstep(95,500,speed)
+ var rider_lag = (delayed_height-height)*(.40+.18*effort)*transmission
+ # Compression/extension carries through the waist as well as the hips.
+ # This is a deterministic game approximation, not a measured rider model.
+ # It strengthens high-speed follow-through without lifting the horse or
+ # independently moving the visible lance away from its collision anchor.
+ var waist_follow = (height-delayed_height)*(.006+.012*effort)*transmission
  var neck_angle = (.075*run-pitch*.90+delayed_pitch*.35+sin(phase-.5)*(.020*w.x+.012*w.y))*intensity
  neck_angle += (.09+.03*sin(phase-.5))*fatigue*intensity
  # The head counterbalances the SAME trunk loading, instead of bobbing on
@@ -158,7 +167,7 @@ static func body(phase: float, speed: float, moving: bool, stability: float = 1.
   "rider_offset":Vector2(-sin(phase)*run*2.2-drive*1.2,rider_lag*intensity),
   # Sustained forward carriage reads actual travel, not the spur button.
   # Shared by rule anchors and art; no extra vertical bounce or aim jitter.
-  "rider_pitch":delayed_pitch*.58+drive*.060+run*.040+w.w*.025,"gait":gait_index(speed)}
+  "rider_pitch":(delayed_pitch*.90+waist_follow)*intensity+drive*.060+run*.040+w.w*.025,"gait":gait_index(speed)}
 
 static func _swing_point(front: bool, t: float, reach: float, lift: float, run: float) -> Vector2:
  # One C1 trajectory, rather than Catmull-Rom sections with different time

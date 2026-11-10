@@ -14,6 +14,25 @@ extends RefCounted
 const Shield = preload("res://scripts/core/shield_geometry.gd")
 const Heraldry = preload("res://scripts/visual/heraldry.gd")
 
+# The projected face still moves every frame; only equipment-local clipping
+# is immutable. Keep a small bounded cache across battle and armoury views.
+static var _geometry: Dictionary = {}
+const MAX_GEOMETRY = 48
+
+static func geometry(shape: String, design: String, scale: float, facing: int) -> Dictionary:
+	var key = [shape,design,scale,facing]
+	if _geometry.has(key): return _geometry[key]
+	var outline = Shield.outline(shape)
+	var face = _scaled(outline,.87*scale)
+	var planks: Array[PackedVector2Array] = []
+	for x in [-14.0,6.0,24.0]:
+		planks.append_array(Geometry2D.intersect_polyline_with_polygon(PackedVector2Array([Vector2(x,-70)*scale,Vector2(x+3,70)*scale]),face))
+	var result = {"outline":outline,"face":face,"outer":_scaled(outline,scale),"charges":Heraldry.clipped_charges(design,face,scale,facing),"planks":planks}
+	result.make_read_only()
+	if _geometry.size()>=MAX_GEOMETRY: _geometry.erase(_geometry.keys()[0])
+	_geometry[key]=result
+	return result
+
 static func _map(point: Vector2, projected: bool) -> Vector2:
 	return Shield.project(point) if projected else point
 
@@ -24,25 +43,25 @@ static func _mapped(points: PackedVector2Array, center: Vector2, projected: bool
 	return result
 
 static func draw(canvas: CanvasItem, stats: Dictionary, center: Vector2, projected: bool, tint: Color = Color.WHITE, recoil: float = 0.0, scale: float = 1.0, facing: int = 1) -> void:
-	var outline = Shield.outline(str(stats.get("shield_shape","kite")))
+	var shape = str(stats.get("shield_shape","kite"))
 	var quality = int(stats.get("shield_quality",0))
 	var has_arms = stats.has("heraldry")
 	var design = str(stats.get("heraldry","bend"))
+	var prepared = geometry(shape,design,scale,facing)
+	var outline: PackedVector2Array = prepared.outline
 	var field = Heraldry.field_color(design) if has_arms else Color(str(stats.get("shield_color","27568a")))
 	var shift = Vector2(-2.5,0)*recoil
-	var face_local = _scaled(outline,.87*scale)
-	var outer = _mapped(_scaled(outline,scale),center,projected,Vector2.ZERO)
+	var face_local: PackedVector2Array = prepared.face
+	var outer = _mapped(prepared.outer,center,projected,Vector2.ZERO)
 	var inner = _mapped(face_local,center,projected,shift)
 	canvas.draw_colored_polygon(outer,Color("292b25"))
 	canvas.draw_colored_polygon(inner,field*tint)
 	if quality<=1:
 		# Painted planks show through on the cheap shields only.
-		for x in [-14.0,6.0,24.0]:
-			var plank = Geometry2D.intersect_polyline_with_polygon(PackedVector2Array([Vector2(x,-70)*scale,Vector2(x+3,70)*scale]),face_local)
-			for piece in plank:
-				canvas.draw_polyline(_mapped(piece,center,projected,shift),field.darkened(.16)*tint,maxf(1.0,1.2*scale))
+		for piece in prepared.planks:
+			canvas.draw_polyline(_mapped(piece,center,projected,shift),field.darkened(.16)*tint,maxf(1.0,1.2*scale))
 	if has_arms:
-		for piece in Heraldry.clipped_charges(design,face_local,scale,facing):
+		for piece in prepared.charges:
 			var mapped = _mapped(piece,center,projected,shift)
 			canvas.draw_colored_polygon(mapped,Heraldry.charge_color(design)*tint)
 			var edge = mapped.duplicate()

@@ -53,8 +53,20 @@ var fore_weights: Array[PackedFloat32Array] = []
 var hind_influences: Array[PackedInt32Array] = []
 var fore_influences: Array[PackedInt32Array] = []
 
+# Immutable rest geometry has only three variants; animated meshes/vertices
+# remain private to each horse. This avoids rebuilding thousands of weights
+# when returning to camp, opening the armoury, or starting the next match.
+static var _rest_templates: Dictionary = {}
+const REST_FIELDS = ["source_points", "uvs", "indices", "weights", "rest_points", "neck_weights", "head_weights", "tail_weights", "tail_bends", "hind_weights", "fore_weights", "hind_influences", "fore_influences", "deformed_indices"]
+var deformed_indices = PackedInt32Array()
+
 func _init(limb: String = "") -> void:
 	limb_name = limb
+	if _rest_templates.has(limb):
+		for field in REST_FIELDS: set(field,_rest_templates[limb][field])
+		vertices = rest_points.duplicate()
+		_create_mesh()
+		return
 	var bounds = SOURCE_BOUNDS
 	var columns = COLUMNS
 	var rows = ROWS
@@ -127,6 +139,16 @@ func _init(limb: String = "") -> void:
 	# Draw the whole tail behind the near leg. Row-by-row triangle ordering
 	# alternated tail and white sock at crossings, producing a comb pattern.
 	indices = tail_indices+indices
+	for i in range(source_points.size()):
+		if neck_weights[i]>0 or head_weights[i]>0 or tail_weights[i]>0 or weights[i].y>0 or weights[i].z>0:
+			deformed_indices.append(i)
+	if limb in ["","hind","fore"]:
+		var rest: Dictionary = {}
+		for field in REST_FIELDS: rest[field]=get(field)
+		_rest_templates[limb]=rest
+	_create_mesh()
+
+func _create_mesh() -> void:
 	var arrays = []
 	arrays.resize(Mesh.ARRAY_MAX)
 	arrays[Mesh.ARRAY_VERTEX] = vertices
@@ -243,7 +265,10 @@ func update(body_pose: Dictionary, hind_pose: Dictionary, fore_pose: Dictionary)
 	var neck_pivot: Vector2 = rest_point(NECK_BASE)
 	var tail_pivot: Vector2 = rest_point(TAIL_ROOT)
 	var head_pose: Transform2D = head_transform(body_pose)
-	for i in range(source_points.size()):
+	# Native packed-array transform for rigid vertices; full deformation is
+	# still evaluated for every affected vertex at every displayed frame.
+	vertices = rigid_pose*rest_points
+	for i in deformed_indices:
 		var source: Vector2 = source_points[i]
 		var weight: Vector3 = weights[i]
 		var rest: Vector2 = rest_points[i]

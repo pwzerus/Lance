@@ -13,6 +13,10 @@ const SLIM = {
 	"eng_helmet_1":Vector2(.90,.95), "eng_helmet_2":Vector2(.90,.95), "fr_helmet_1":Vector2(.90,.95), "de_helmet_1":Vector2(.90,.95),  # great helms
 	"fr_helmet_0":Vector2(.95,.97)}  # kettle hat: the brim is meant to be wide
 static var _loaded = false
+# Layout depends only on the two equipment art IDs, never on pose/appearance.
+# Bounded shared read-only data; live head/neck transforms still run each frame.
+static var _layouts: Dictionary = {}
+const MAX_LAYOUTS = 64
 
 static func layout(stats: Dictionary) -> Dictionary:
 	if not _loaded:
@@ -20,6 +24,8 @@ static func layout(stats: Dictionary) -> Dictionary:
 		var parsed = JSON.parse_string(FileAccess.get_file_as_string(DATA_PATH))
 		if parsed is Dictionary:
 			_data = parsed
+	var key = str(stats.get("helmet_art",""))+"/"+str(stats.get("armor_art",""))
+	if _layouts.has(key): return _layouts[key]
 	var id = str(stats.get("helmet_art",""))
 	var entry = Art.descriptor(stats,"helmet")
 	var fit: Dictionary = _data.get(id,{})
@@ -36,8 +42,12 @@ static func layout(stats: Dictionary) -> Dictionary:
 	var face_box = Rect2(box.position+Vector2(float(face[0]),float(face[1]))*box.size,Vector2(float(face[2]),float(face[3]))*box.size)
 	var clip: Array = fit.get("face_clip",[-26.0,-144.0,59.0,54.0])
 	var collar: Dictionary = _data.get("_collars",{}).get(str(stats.get("armor_art","")),{"center":[4,-83],"width":26,"lip_y":-83})
-	return {"helmet":box,"face":face_box,"face_clip":Rect2(float(clip[0]),float(clip[1]),float(clip[2]),float(clip[3])),
+	var result = {"helmet":box,"face":face_box,"face_clip":Rect2(float(clip[0]),float(clip[1]),float(clip[2]),float(clip[3])),
 		"collar":collar,"head_offset":float(collar.center[0]),"neck_x":float(fit.get("neck_x",3.0)),"open":bool(entry.get("open_face",false)),"authored":not entry.is_empty()}
+	result.make_read_only()
+	if _layouts.size()>=MAX_LAYOUTS: _layouts.erase(_layouts.keys()[0])
+	_layouts[key]=result
+	return result
 
 static func draw_neck(canvas: CanvasItem, fit: Dictionary, appearance: Dictionary, facing: int) -> void:
 	# Draw in TORSO space. The top turns with the head, while the root stays

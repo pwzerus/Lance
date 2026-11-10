@@ -1,5 +1,9 @@
 # 任务、审查建议与文件认领
 
+最新交出 **QA-082 / v0.4.36-r4**：本轮UI、计算优化、测试与版本文件全部释放。基线b5d610b；性能73afced、界面6183afc、最后轮提示0837c9e、诊断cea1179、发布入口4643d5a。后台最终包菜单/焦点/保存/结算/两场比赛通过；切页退出警告已定位并修正旧QA关闭方式，原节奏复验无警告。完整范围见QA082_REVIEW与QA-082交接。下方旧“最新”和认领记录为历史，不代表仍占用。
+
+后续优先队列（未认领）：受保护条件下实际渲染性能（目前约23fps）；FEEL-075偶发多边形告警的有界可回放定位；带变招防守的速度/装备策略比较；按用户反馈再确认自然步态和材质撞击听感。保留500MiB系统余量及所有其他保护，默认后台。没有把真人或历史40GB问题记为已清零。
+
 RULE-076交出（2026-11-09）：规则确认与实现完成，c9f5f0c / v0.4.31，后台实际包复验通过，全部认领释放。实战规则不再待选择；真人平衡、FEEL-075单次绘图告警及流畅度仍待继续。最新入口以RULE-076为准，以下认领与FEEL-075状态保留历史。
 
 RULE-076 / Codex / 2026-11-09：用户已确认实战有效重击可一击结束、擦碰或头盔抵挡仍可存活；基线93476cde04426d2997c2554c8b949b62a1802cd4，远程相同。认领core/joust_match.gd、必要visual/combat_cues.gd与battle.gd、tests/*076*、版本/导出/启动器、DESIGN_DECISIONS及本轮审查/交接/状态记录。竞技场旧计分/非致死保持；后台保护验证，旧包/正式档/既有rules_v045差异保留。
@@ -96,6 +100,7 @@ DEV-050实施归属记录：root负责fallen_rider、生产镜头/血腥同步�
 
 | 负责人 | 任务 | 占用文件 | 状态 |
 | --- | --- | --- | --- |
+| Codex | QA-082：排错、UI与同输出优化 | main.gd、battle.gd、ui/{ui_factory,combat_report}.gd、visual/{horse_gait,rider_view,horse_skin}.gd、tests/*082*、test_memory_windows_inc059.gd、版本/启动器/QA082与交接文档 | 已完成并释放；实际发布v0.4.36-r4，验证范围和剩余项见本页顶部及交接 |
 | Codex | DEV-050：两阶段已完成，生产文件已释放；仅交接收尾 | battle、visual/{rider_view,impact_fx,horse_skin,horse_art,horse_gait,exchange_director,fallen_rider,sound_bank}、39音效及新整马素材、版本/导出/启动器、tests/*v050*及设计/协作/验证文档 | a4398d5→75153c4运行代码已推送；独立v0.4.10、30局、实际包/解压包/OS验证见交接。后置QA 02:43:17–03:13:17 UTC，结果单独记。旧包/正式档/Claude改动保留；第三四阶段未实施。 |
 | Codex | REQ-050：需求整理完成，文件释放；实施待用户启动 | docs/requirements/IMPACT_FALL_HORSE_TWO_PHASES.md；DESIGN_DECISIONS.md；docs/collaboration/{TASK_BOARD,PROJECT_STATE,WORK_LOG}.md；handoffs/2026-10-29-REQ-050-Codex.md | 基线80ee402，2026-10-29；仅文档与静态核对，没有开发时长授权。不改代码/素材，不导出、不运行游戏。两阶段分别是撞击/完整落马、整马形体/步态；详见REQ-050交接。 |
 | Codex | DEV-049：开发/试玩观察/审查完成，全部文件释放 | visual/{rider_view,horse_skin,exchange_director,impact_fx,sound_bank}.gd、mounted_pixel.gdshader、battle、main版本、core/desktop_input_audit、project/export/Play-Latest、pixel_v049/art_sources及来源、tests/*v049*、设计与协作文档 | 基线c2078b6→8c91088运行代码，ce06849与8c91088已推送核对；4.5小时上限内提前完成。独立v0.4.9实包专项/两模式/OS菜单调枪换盾暂停重开、ZIP解压启动通过；枪盾有限速、QA隔离、旧包/Claude既有改动保留。真人/持续OS长按未验收，见DEV-049交接。 |
@@ -308,3 +313,17 @@ FEEL-081 Codex / 2026-11-09：基线bbf8027，v0.4.34，认领battle.gd、visual
 FEEL-081复验适配：认领tests/test_impact_audio_v056.gd，旧测试仍硬编码已停用的impact_v056目录；将期望更新为已发布FEEL-075的impact_v075，保持PCM/峰值/材质/声部全部检验，不修改旧音频资产。
 
 FEEL-081交出：v0.4.35，实际包双向低高速12场和三轮比赛通过。全部认领释放；未验真人听感/策略胜率，保护及旧包保持。见FEEL081_REVIEW及本轮交接。
+
+QA-082 / Codex / 2026-11-09 23:24:42 UTC：用户授权3小时debug与UI改进，计划至2026-11-10 02:24:42 UTC，最后20分钟收敛交付。基线b5d610bd7292c5c2842784da5ae8ae9508a359c2。认领scripts/main.gd、battle.gd、ui/ui_factory.gd、必要core/game_state.gd、visual/combat_cues.gd、测试*082*、版本/启动器/交接。先复现UI状态、暂停重开、存档/军械库路径，再改实际问题；性能及绘图诊断扩展文件前补登记。后台保护、隔离档、正式档/旧包及遗留rules_v045保持。
+
+QA-082性能排查扩展：认领visual/horse_gait.gd与tests/test_perf082.gd。先保存当前步态基线，测量重复姿态曲线计算；只允许结果一致的计算简化，不降低保护或改变步态。
+
+QA-082性能排查补充：认领visual/rider_view.gd，仅在同一帧四腿求解中复用相同躯干姿态；缓存不跨帧、不进入规则判定。使用独立前后基线逐项比对腿部输出与实际连续低帧率回归。
+
+QA-082 UI复核扩展：认领scripts/ui/combat_report.gd与tests/test_results082.gd。修正实战结算仍展示比武得分、默认明细数字过多的问题；竞技场分数规则不变，默认部位/受力/得分说明，完整数字可展开。
+
+QA-082性能诊断扩展：认领visual/horse_skin.gd及tests/test_skin_perf082.gd；检查零权重骨骼的重复顶点计算，只保留逐点一致且实际节省CPU的改动，不改变拓扑/贴图/关节/保护。已导出的.36候选保持不覆盖，若采用新优化则另出r2。
+
+QA-082收尾文档认领：HANDOFF.md、PROJECT_STATE.md、WORK_LOG.md、TASK_BOARD.md、QA082_REVIEW.md、本轮QA-082交接，以及上一轮2026-11-09-FEEL-081-Codex.md接收栏；新增test_package082/test_lifecycle082仅诊断实际包规则元数据和正式关闭，测试不进发布PCK。旧内存测试的直接释放路径暂不改，以保留退出警告复现条件。
+
+QA-082退出诊断确认后扩展：认领game/tests/test_memory_windows_inc059.gd。pages-verbose02原节奏复现，具体遗留AudioStreamWAV/AudioStreamPlaybackWAV；测试直接释放并立即quit绕开Main已有120ms停音清理。保留修改前脚本到qa082-baseline/memory_windows_inc059.gd，测试结尾改走生产窗口关闭处理器，再按相同300次/1.5秒节奏复验；不改生产关闭代码。

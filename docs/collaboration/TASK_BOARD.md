@@ -359,3 +359,5 @@ FEEL-086扩展认领：game/scripts/ui/combat_report.gd，修正实战结果误�
 FEEL-086交接收尾扩展：HANDOFF.md、PROJECT_STATE.md、WORK_LOG.md、本轮审查/验收/证据账本及2026-11-10-FIX-085-Validation-Codex.md接收栏；源代码6b78f0d/c1e74e4/e54b77a，独立.40-r2正在最终验包，仍不动三份历史差异。
 
 FEEL-086最终交出（2026-11-11 UTC）：v0.4.40-r3运行8fef1dc；所有本轮文件释放。实际包规则、有限输入、满血/累计头伤落马、重甲和实战约60FPS、音库与正常退出验证完成；主入口已切r3，保护和历史差异保持。仍保留真人自然度/听感/平衡、重开约49–51ms尖峰和跨机长期范围，详见2026-11-11-FEEL-086-Codex.md；不把旧候选失败删除或算作最终通过。
+
+COMM-087 / Codex / 2026-11-11 01:13:30 UTC：基线bf83aaac0c2998742658af23283d5e5e910584d8，实际工作区/远程跟踪一致。用户要求至少6小时、最多10小时向可销售品质推进，最早07:13:30收尾、最晚11:13:30。保护与隔离QA保留；默认后台，未把前一任务临时桌面授权扩大为新任务任意接管。本轮先认领：Start-MemoryBound.ps1（原则上复用现有核心，必要时才改）、launcher/（新可分发Windows启动器/构建工具）、game/scripts/{main,battle}.gd、game/scripts/core/{game_state,catalogue,joust_match}.gd、game/scripts/ui/{home_camp,combat_report,ui_factory}.gd及本轮新增引导/发布说明模块、game/tests/*087*、game/project.godot、game/export_presets.cfg、Play-Latest.cmd、README.md、docs/development/COMM087*、交接/任务/状态/工作记录与DESIGN_DECISIONS。先诊断现有不足再原位改进，未来扩展美术/音频文件先追加登记。不覆盖旧包或三份历史差异，不自动上架销售。

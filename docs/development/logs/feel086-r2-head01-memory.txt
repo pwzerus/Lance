@@ -1,0 +1,2 @@
+START utc=2026-11-11T00:20:05.5317354Z pid=4536 jobMiB=512 executable=E:\GALUMU\builds\LanceAndLaurel-v0.4.40-r2\LanceAndLaurel.exe reserveMiB=500 startupMiB=1268
+EXIT code=0 seconds=0.6

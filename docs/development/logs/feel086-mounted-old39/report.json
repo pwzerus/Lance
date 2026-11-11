@@ -1,0 +1,14 @@
+{
+	"cases": [
+		{
+			"coast_end_speed": 217.027320786138,
+			"coat": "bay",
+			"frames": 720,
+			"max_head_step_120hz": 2.52429890632629,
+			"peak_speed": 496.062447511173
+		}
+	],
+	"failures": [],
+	"passed": true,
+	"scope": "Selected coat(s), two directions, light/heavy equipment, real model 120Hz controls/step, 60Hz RiderView and disk captures of 12 game seconds each. Capture cost is not gameplay frame timing. Distant opponents disable contacts; staged views are not Battle camera or OS/human play."
+}

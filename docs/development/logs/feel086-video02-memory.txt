@@ -1,0 +1,20 @@
+START utc=2026-11-10T23:56:37.8632199Z pid=39816 jobMiB=1024 executable=E:\GALUMU\tools\media-qa\imageio_ffmpeg\binaries\ffmpeg-win-x86_64-v9.0.2.exe reserveMiB=500 startupMiB=1780
+MEM seconds=1 privateMiB=21.8 workingMiB=43.0 availableRamMiB=2796 availableCommitMiB=5390
+MEM seconds=2 privateMiB=22.8 workingMiB=44.2 availableRamMiB=2812 availableCommitMiB=5414
+MEM seconds=3 privateMiB=23.2 workingMiB=44.6 availableRamMiB=2812 availableCommitMiB=5409
+MEM seconds=4 privateMiB=26.7 workingMiB=48.1 availableRamMiB=2802 availableCommitMiB=5407
+MEM seconds=5 privateMiB=63.9 workingMiB=85.4 availableRamMiB=2772 availableCommitMiB=5373
+MEM seconds=6 privateMiB=232.1 workingMiB=246.5 availableRamMiB=2555 availableCommitMiB=5210
+MEM seconds=7 privateMiB=228.3 workingMiB=243.4 availableRamMiB=2571 availableCommitMiB=5223
+MEM seconds=8 privateMiB=227.7 workingMiB=242.8 availableRamMiB=2565 availableCommitMiB=5180
+MEM seconds=9 privateMiB=227.7 workingMiB=242.8 availableRamMiB=2523 availableCommitMiB=5188
+MEM seconds=10 privateMiB=228.6 workingMiB=243.6 availableRamMiB=2538 availableCommitMiB=5195
+MEM seconds=11 privateMiB=228.6 workingMiB=244.2 availableRamMiB=2551 availableCommitMiB=5188
+MEM seconds=12 privateMiB=227.9 workingMiB=243.6 availableRamMiB=2564 availableCommitMiB=5191
+MEM seconds=13 privateMiB=227.6 workingMiB=243.4 availableRamMiB=2515 availableCommitMiB=5188
+MEM seconds=14 privateMiB=227.6 workingMiB=243.4 availableRamMiB=2530 availableCommitMiB=5187
+MEM seconds=15 privateMiB=227.7 workingMiB=243.7 availableRamMiB=2548 availableCommitMiB=5179
+MEM seconds=16 privateMiB=227.6 workingMiB=243.6 availableRamMiB=2562 availableCommitMiB=5181
+MEM seconds=17 privateMiB=227.6 workingMiB=243.6 availableRamMiB=2512 availableCommitMiB=5176
+MEM seconds=18 privateMiB=229.1 workingMiB=245.1 availableRamMiB=2548 availableCommitMiB=5199
+EXIT code=0 seconds=19.1

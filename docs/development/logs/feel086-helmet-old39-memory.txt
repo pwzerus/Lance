@@ -1,0 +1,23 @@
+QA_DESKTOP GALUMU_QA_70c0832ab3e0470990ad49ce63e47a25 (not switched to input desktop)
+START utc=2026-11-11T00:33:40.6399002Z pid=38220 jobMiB=1024 executable=E:\GALUMU\builds\LanceAndLaurel-v0.4.39-r2\LanceAndLaurel.exe reserveMiB=500 startupMiB=1780
+MEM seconds=1 privateMiB=52.0 workingMiB=82.4 availableRamMiB=2785 availableCommitMiB=5282
+MEM seconds=2 privateMiB=52.0 workingMiB=82.6 availableRamMiB=2795 availableCommitMiB=5285
+MEM seconds=3 privateMiB=52.0 workingMiB=82.6 availableRamMiB=2789 availableCommitMiB=5285
+MEM seconds=4 privateMiB=92.6 workingMiB=140.3 availableRamMiB=2724 availableCommitMiB=5204
+MEM seconds=5 privateMiB=272.3 workingMiB=306.9 availableRamMiB=2566 availableCommitMiB=5012
+MEM seconds=6 privateMiB=659.9 workingMiB=655.6 availableRamMiB=2218 availableCommitMiB=4640
+MEM seconds=7 privateMiB=686.2 workingMiB=693.7 availableRamMiB=2188 availableCommitMiB=4609
+MEM seconds=8 privateMiB=708.5 workingMiB=714.0 availableRamMiB=2171 availableCommitMiB=4583
+MEM seconds=9 privateMiB=728.8 workingMiB=733.4 availableRamMiB=2149 availableCommitMiB=4558
+MEM seconds=10 privateMiB=745.4 workingMiB=749.1 availableRamMiB=2100 availableCommitMiB=4515
+MEM seconds=11 privateMiB=766.5 workingMiB=769.2 availableRamMiB=2034 availableCommitMiB=4440
+MEM seconds=12 privateMiB=771.4 workingMiB=770.7 availableRamMiB=2037 availableCommitMiB=4437
+MEM seconds=13 privateMiB=765.7 workingMiB=769.1 availableRamMiB=2039 availableCommitMiB=4443
+MEM seconds=14 privateMiB=752.8 workingMiB=766.5 availableRamMiB=2045 availableCommitMiB=4456
+MEM seconds=15 privateMiB=740.0 workingMiB=763.1 availableRamMiB=2049 availableCommitMiB=4470
+MEM seconds=16 privateMiB=739.7 workingMiB=762.8 availableRamMiB=2049 availableCommitMiB=4470
+MEM seconds=17 privateMiB=736.6 workingMiB=759.6 availableRamMiB=2055 availableCommitMiB=4488
+MEM seconds=18 privateMiB=720.8 workingMiB=743.8 availableRamMiB=2072 availableCommitMiB=4505
+MEM seconds=19 privateMiB=720.8 workingMiB=743.8 availableRamMiB=2076 availableCommitMiB=4500
+EXIT code=1 seconds=19.9
+QA_DESKTOP_CLOSED=True

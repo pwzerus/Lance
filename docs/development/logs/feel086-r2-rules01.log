@@ -1,0 +1,39 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+RULES086 case 1 tier 0 always shield false hp 0.0
+RULES086 case 2 tier 0 always shield false hp 0.0
+RULES086 case 3 tier 0 always shield true hp 99.1944360531173
+RULES086 case 4 tier 0 always shield true hp 99.1944360531173
+RULES086 case 5 tier 0 finish shield false hp 0.0
+RULES086 case 6 tier 0 finish shield false hp 0.0
+RULES086 case 7 tier 0 finish shield true hp 82.7774587313999
+RULES086 case 8 tier 0 finish shield true hp 82.7774587313999
+RULES086 case 9 tier 0 coast shield false hp 70.6558304336927
+RULES086 case 10 tier 0 coast shield false hp 70.6558304336927
+RULES086 case 11 tier 0 coast shield true hp 99.1990942590819
+RULES086 case 12 tier 0 coast shield true hp 99.1990942590819
+RULES086 case 13 tier 2 always shield false hp 0.0
+RULES086 case 14 tier 2 always shield false hp 0.0
+RULES086 case 15 tier 2 always shield true hp 99.205192741575
+RULES086 case 16 tier 2 always shield true hp 99.205192741575
+RULES086 case 17 tier 2 finish shield false hp 0.0
+RULES086 case 18 tier 2 finish shield false hp 0.0
+RULES086 case 19 tier 2 finish shield true hp 82.882779524757
+RULES086 case 20 tier 2 finish shield true hp 82.882779524757
+RULES086 case 21 tier 2 coast shield false hp 77.1365969307322
+RULES086 case 22 tier 2 coast shield false hp 77.1365969307322
+RULES086 case 23 tier 2 coast shield true hp 99.218023343717
+RULES086 case 24 tier 2 coast shield true hp 99.218023343717
+RULES086 case 25 tier 5 always shield false hp 71.138874848399
+RULES086 case 26 tier 5 always shield false hp 71.138874848399
+RULES086 case 27 tier 5 always shield true hp 99.1980189535952
+RULES086 case 28 tier 5 always shield true hp 99.1980189535952
+RULES086 case 29 tier 5 finish shield false hp 0.0
+RULES086 case 30 tier 5 finish shield false hp 0.0
+RULES086 case 31 tier 5 finish shield true hp 82.798218081293
+RULES086 case 32 tier 5 finish shield true hp 82.798218081293
+RULES086 case 33 tier 5 coast shield false hp 81.280750408694
+RULES086 case 34 tier 5 coast shield false hp 81.280750408694
+RULES086 case 35 tier 5 coast shield true hp 99.207175313442
+RULES086 case 36 tier 5 coast shield true hp 99.207175313442
+RULES086 recorded 36 normal-geared trials

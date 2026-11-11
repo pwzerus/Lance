@@ -1,0 +1,11 @@
+QA_DESKTOP GALUMU_QA_f5fcedec8f9c4546a4609d41b18bf178 (not switched to input desktop)
+START utc=2026-11-11T00:13:16.0427571Z pid=34904 jobMiB=1024 executable=E:\GALUMU\tools\godot-4.5.1\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1780
+MEM seconds=1 privateMiB=56.3 workingMiB=90.1 availableRamMiB=2616 availableCommitMiB=5282
+MEM seconds=2 privateMiB=56.3 workingMiB=90.2 availableRamMiB=2626 availableCommitMiB=5305
+MEM seconds=3 privateMiB=81.5 workingMiB=128.9 availableRamMiB=2586 availableCommitMiB=5249
+MEM seconds=4 privateMiB=210.0 workingMiB=278.5 availableRamMiB=2414 availableCommitMiB=5093
+MEM seconds=5 privateMiB=344.5 workingMiB=391.8 availableRamMiB=2324 availableCommitMiB=4980
+MEM seconds=6 privateMiB=485.2 workingMiB=484.8 availableRamMiB=2225 availableCommitMiB=4834
+MEM seconds=7 privateMiB=444.3 workingMiB=469.9 availableRamMiB=2245 availableCommitMiB=4891
+EXIT code=0 seconds=7.3
+QA_DESKTOP_CLOSED=True

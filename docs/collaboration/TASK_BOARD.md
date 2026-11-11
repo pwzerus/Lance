@@ -350,3 +350,12 @@ FIX-085扩展：认领新game/scripts/ui/build_queue.gd，用小额逐帧任务�
 FIX-085 恢复验证 / Codex / 2026-11-10：实际HEAD 46036b53f246f9bf38fc395bfcff35997f86cdd3，远程70885ca，无新Claude功能。用户已释放内存并授权恢复后台。重新认领本轮main.gd、ui/{ui_factory,build_queue,equipment_icon}.gd、visual/{horse_gait,fallen_rider,rider_view}.gd、tests/*085*、版本/启动器与本轮文档；三份历史差异保留。保护全部保持，先验证再独立.39发布。
 
 FIX-085最终交出 / Codex / 2026-11-10：v0.4.39-r2完成发布验证，运行4751ef5，修复3e801f4。所有本轮文件占用释放。原任务已完成；保留改进项：首次约23ms/按钮约0.1秒，重开偶发约65ms；真人骑手自然度/跨机显示未验收。无新的已复现阻断bug。详细范围、失败及修复见FIX085_VALIDATION.md。
+
+
+FEEL-086 / Codex / 2026-11-10 23:14 UTC：接手8cd993552ebd341bb74df2a3c7ead41dfbeadccc（本地/远程跟踪一致，仍须交付时ls-remote），无新Claude游戏代码；三份历史差异保留。用户授权六小时开发至2026-11-11 05:14 UTC，并在本任务明确允许接管电脑。先研究并写验收要求，再诊断/修复马与骑手高频颠簸、动作僵硬、实战头部命中伤害与反馈。认领game/scripts/visual/{horse_gait,rider_view,combat_cues,fallen_rider}.gd、game/scripts/core/{joust_match,horse_condition}.gd、game/scripts/{battle,main}.gd、game/tests/*086*、本轮文档及版本/导出/启动器。需要扩展文件先追加登记。保留QA隔离、已有发布包；用户允许暂撤保护，本轮仍先保留硬内存安全网，按实际数据判断。不能以断言数/静态截图宣称真人认可自然度。
+
+FEEL-086扩展认领：game/scripts/ui/combat_report.gd，修正实战结果误套竞技场17伤害门槛的说明，展示实际头伤累积原因；原比分规则不动。
+
+FEEL-086交接收尾扩展：HANDOFF.md、PROJECT_STATE.md、WORK_LOG.md、本轮审查/验收/证据账本及2026-11-10-FIX-085-Validation-Codex.md接收栏；源代码6b78f0d/c1e74e4/e54b77a，独立.40-r2正在最终验包，仍不动三份历史差异。
+
+FEEL-086最终交出（2026-11-11 UTC）：v0.4.40-r3运行8fef1dc；所有本轮文件释放。实际包规则、有限输入、满血/累计头伤落马、重甲和实战约60FPS、音库与正常退出验证完成；主入口已切r3，保护和历史差异保持。仍保留真人自然度/听感/平衡、重开约49–51ms尖峰和跨机长期范围，详见2026-11-11-FEEL-086-Codex.md；不把旧候选失败删除或算作最终通过。

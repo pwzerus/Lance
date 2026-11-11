@@ -1,0 +1,36 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+ERROR: Hold/release / facing 1 / 60Hz: fetlock sink jumped between frames
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy063.gd:23)
+       [1] finish_metrics (res://tests/test_horse_anatomy063.gd:114)
+       [2] transition_trial (res://tests/test_horse_anatomy063.gd:222)
+       [3] run (res://tests/test_horse_anatomy063.gd:245)
+       [4] steady_trial (res://tests/test_horse_anatomy063.gd:204)
+ERROR: Hold/release / facing -1 / 60Hz: fetlock sink jumped between frames
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy063.gd:23)
+       [1] finish_metrics (res://tests/test_horse_anatomy063.gd:114)
+       [2] transition_trial (res://tests/test_horse_anatomy063.gd:222)
+       [3] run (res://tests/test_horse_anatomy063.gd:245)
+       [4] steady_trial (res://tests/test_horse_anatomy063.gd:204)
+ERROR: Hold/release / facing 1 / 120Hz: fetlock sink jumped between frames
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy063.gd:23)
+       [1] finish_metrics (res://tests/test_horse_anatomy063.gd:114)
+       [2] transition_trial (res://tests/test_horse_anatomy063.gd:222)
+       [3] run (res://tests/test_horse_anatomy063.gd:245)
+       [4] steady_trial (res://tests/test_horse_anatomy063.gd:204)
+ERROR: Hold/release / facing -1 / 120Hz: fetlock sink jumped between frames
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy063.gd:23)
+       [1] finish_metrics (res://tests/test_horse_anatomy063.gd:114)
+       [2] transition_trial (res://tests/test_horse_anatomy063.gd:222)
+       [3] run (res://tests/test_horse_anatomy063.gd:245)
+       [4] steady_trial (res://tests/test_horse_anatomy063.gd:204)
+HORSE_ANATOMY_063 false failures=["Hold/release / facing 1 / 60Hz: fetlock sink jumped between frames", "Hold/release / facing -1 / 60Hz: fetlock sink jumped between frames", "Hold/release / facing 1 / 120Hz: fetlock sink jumped between frames", "Hold/release / facing -1 / 120Hz: fetlock sink jumped between frames"]
+SINK086 {"after":{"ankle":"(44.58984, -11.0)","contact":false,"coronet":"(51.17984, 0.11)","cycle":0.205615351416536,"duty":0.26,"foot":"(56.58984, 12.0)","front":true,"hip":"(72.42336, -134.9105)","knee":"(52.7959, -51.18283)","lift":38.0,"maximum_reach":127.586569519043,"nominal_contact":true,"proximal":"(58.02373, -95.88932)","proximal_limited":false,"reach":27.601512381701,"reach_limited":false,"requested_flex":0.046603973954916,"requested_foot":"(56.58984, 12.0)","requested_reach":126.998077392578,"root_offset":"(-1.850235, 6.5)","sink":0.0,"swing":0.0,"toe_angle":0.0},"before":{"ankle":"(46.99943, -9.836894)","contact":true,"coronet":"(55.24076, 0.11)","cycle":0.18169868474987,"duty":0.26,"foot":"(60.65076, 12.0)","front":true,"hip":"(73.23512, -134.6957)","knee":"(56.43262, -49.74948)","lift":38.0,"maximum_reach":127.586569519043,"nominal_contact":true,"proximal":"(64.45061, -94.0407)","proximal_limited":false,"reach":27.4412755312682,"reach_limited":false,"requested_flex":0.103384588773334,"requested_foot":"(60.65076, 12.0)","requested_reach":127.585441589355,"root_offset":"(-0.956833, 6.5)","sink":0.156524176934546,"swing":0.0,"toe_angle":0.0},"drive":1.0,"label":"Hold/release / facing 1 / 120Hz","leg":3,"phase":11.6629453882374,"rate":18.7829012321455,"speed":487.485172526043}

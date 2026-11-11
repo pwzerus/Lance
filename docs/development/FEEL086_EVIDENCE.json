@@ -1,0 +1,1315 @@
+{
+  "baseline": "8cd993552ebd341bb74df2a3c7ead41dfbeadccc",
+  "runtime_commit": "8fef1dc",
+  "version": "0.4.40-r3",
+  "state": "Final package gates completed; see review for per-run success, failure and superseded results.",
+  "pck_sha256": "B6A675EF1A3E03553E6AF4E63BF634D796B9DFB9EA86F8FD942B4578FC316F2E",
+  "scope": "Hashes of retained evidence, not pass assertions. Includes failed and superseded candidates. Raw continuous-frame folders and OS trace remain local; the preview, selected captures and reports are committed.",
+  "files": [
+    {
+      "path": "docs/development/logs/feel086-anatomy-final01-memory.txt",
+      "bytes": 657,
+      "sha256": "BC5A8CC59F6EE9FAD9ED39028E7B80AF8B26207CE063CDEF5EDB730DD9BD6176",
+      "normalized_lf_sha256": "5C9F068F196E83388AB2074F70A36DEB4EA4F167C443494D0F830E5B26E6F38E"
+    },
+    {
+      "path": "docs/development/logs/feel086-anatomy-final01.json",
+      "bytes": 52455,
+      "sha256": "E6E41FC7DB132FE097271DC9D90D88430CAFB695E69DC386B48040F422C78E09",
+      "normalized_lf_sha256": "E6E41FC7DB132FE097271DC9D90D88430CAFB695E69DC386B48040F422C78E09"
+    },
+    {
+      "path": "docs/development/logs/feel086-anatomy-final01.log",
+      "bytes": 129,
+      "sha256": "24B58AEEF55E50B712CB703725CD703D7DE39B1443F747F25A914AA8B1FA80E9",
+      "normalized_lf_sha256": "24B58AEEF55E50B712CB703725CD703D7DE39B1443F747F25A914AA8B1FA80E9"
+    },
+    {
+      "path": "docs/development/logs/feel086-anatomy-old39-memory.txt",
+      "bytes": 470,
+      "sha256": "B7570D1FD1BFB00D55CAAFEF4526F70C976B5666C2D5CAA0EB7DB7859215FF19",
+      "normalized_lf_sha256": "ACE548BB4CCA71DEE8127D6656621EA32F75797438BF07606361348949140DA2"
+    },
+    {
+      "path": "docs/development/logs/feel086-anatomy-old39.json",
+      "bytes": 31286,
+      "sha256": "C943A5319CD7D1BE6BD6A824289CD82F50B29F29057094E2195B454A0FA7DF34",
+      "normalized_lf_sha256": "C943A5319CD7D1BE6BD6A824289CD82F50B29F29057094E2195B454A0FA7DF34"
+    },
+    {
+      "path": "docs/development/logs/feel086-anatomy-old39.log",
+      "bytes": 108,
+      "sha256": "EE93D60D39759775862A858700265F3A21EC66F317D296A316B3CC473352E2AC",
+      "normalized_lf_sha256": "EE93D60D39759775862A858700265F3A21EC66F317D296A316B3CC473352E2AC"
+    },
+    {
+      "path": "docs/development/logs/feel086-anatomy-probe01-memory.txt",
+      "bytes": 563,
+      "sha256": "C08B87462D23FA2A6568A97BDA5B8A43D1CE50ACC07A1206E994871D2DF87F9E",
+      "normalized_lf_sha256": "D00FDCE2568AEA2FE6ED2CB5B601D9AB3A0CACE476776DED0BD92A81FA3B79DD"
+    },
+    {
+      "path": "docs/development/logs/feel086-anatomy-probe01.json",
+      "bytes": 31568,
+      "sha256": "8AF04F288FA701D98CD7C9590CC921140E49DC884E6D92B376C84350EDDDD1E7",
+      "normalized_lf_sha256": "8AF04F288FA701D98CD7C9590CC921140E49DC884E6D92B376C84350EDDDD1E7"
+    },
+    {
+      "path": "docs/development/logs/feel086-anatomy-probe01.log",
+      "bytes": 3719,
+      "sha256": "F001AEC0F06C916622015486004B757CF35FC2FDC60127523A7AA6322B4BA0EE",
+      "normalized_lf_sha256": "F001AEC0F06C916622015486004B757CF35FC2FDC60127523A7AA6322B4BA0EE"
+    },
+    {
+      "path": "docs/development/logs/feel086-anatomy-probe02-memory.txt",
+      "bytes": 563,
+      "sha256": "6F01F50E964E8A2BCA64BA10C6DE27CBFE0F808668B87D92B138263792ED734D",
+      "normalized_lf_sha256": "341CF9D29CCBE10F3475AEF8AF6A4BA84FEA74F64FB3F20A5C44D877230EEF1B"
+    },
+    {
+      "path": "docs/development/logs/feel086-anatomy-probe02.json",
+      "bytes": 31419,
+      "sha256": "E2B3A12ABD4834751F1DFC5332800B67063F8047A1A1AF7856F14E1819F0FB9D",
+      "normalized_lf_sha256": "E2B3A12ABD4834751F1DFC5332800B67063F8047A1A1AF7856F14E1819F0FB9D"
+    },
+    {
+      "path": "docs/development/logs/feel086-anatomy-probe02.log",
+      "bytes": 2579,
+      "sha256": "19174B3ED5188D9AEC6D7DE955E9E1F4B35434449643AF9BAFD471B663FC82B7",
+      "normalized_lf_sha256": "19174B3ED5188D9AEC6D7DE955E9E1F4B35434449643AF9BAFD471B663FC82B7"
+    },
+    {
+      "path": "docs/development/logs/feel086-anatomy-probe03-memory.txt",
+      "bytes": 563,
+      "sha256": "39889E3ACC3FF91F9145C17BFE8723EA6BFFF03B126090860E68C164B573280C",
+      "normalized_lf_sha256": "42580BBB557DBEFDE3166EC8C0892DD0762623A95E4FEA965C9597832E545817"
+    },
+    {
+      "path": "docs/development/logs/feel086-anatomy-probe03.json",
+      "bytes": 31274,
+      "sha256": "3F25EF3EBD2A5B379B3FF118F58F5901E6A2DBF1431AD78755AA635435D8BAF3",
+      "normalized_lf_sha256": "3F25EF3EBD2A5B379B3FF118F58F5901E6A2DBF1431AD78755AA635435D8BAF3"
+    },
+    {
+      "path": "docs/development/logs/feel086-anatomy-probe03.log",
+      "bytes": 1419,
+      "sha256": "C86C356FBB9AE474C8A112AE31D237B5B2BC13879E0DEA21C6FEA1C86585F0E0",
+      "normalized_lf_sha256": "C86C356FBB9AE474C8A112AE31D237B5B2BC13879E0DEA21C6FEA1C86585F0E0"
+    },
+    {
+      "path": "docs/development/logs/feel086-anatomy01-memory.txt",
+      "bytes": 561,
+      "sha256": "C075D713B834800A40A2B60188005ACE16694E4842BFE54E25D1CB129E93D2BF",
+      "normalized_lf_sha256": "498B276F168BA3E5300A7D6C8A783175C2B202352384F28B4DF32706FADD18F1"
+    },
+    {
+      "path": "docs/development/logs/feel086-anatomy01.json",
+      "bytes": 161596,
+      "sha256": "45B797C873F36519BC732CD4AEB734560025CC7023615D6CB5BBA988F57AEE0A",
+      "normalized_lf_sha256": "45B797C873F36519BC732CD4AEB734560025CC7023615D6CB5BBA988F57AEE0A"
+    },
+    {
+      "path": "docs/development/logs/feel086-anatomy01.log",
+      "bytes": 18037,
+      "sha256": "D2269687D5C7E22BE4B4C9C4153EFABCBF867B13986B5E2AA375B599E530308B",
+      "normalized_lf_sha256": "D2269687D5C7E22BE4B4C9C4153EFABCBF867B13986B5E2AA375B599E530308B"
+    },
+    {
+      "path": "docs/development/logs/feel086-anatomy063-01-memory.txt",
+      "bytes": 563,
+      "sha256": "7020D260518EA33D2EBDA7ADC813F4F70ED90EDF7C282410A316FC1B82E34EE3",
+      "normalized_lf_sha256": "483D1357B6D252A4E3DE0AC052D9C53143D1166FA0DA7C9B33BE5B8857B85ECF"
+    },
+    {
+      "path": "docs/development/logs/feel086-anatomy063-01.json",
+      "bytes": 31568,
+      "sha256": "8AF04F288FA701D98CD7C9590CC921140E49DC884E6D92B376C84350EDDDD1E7",
+      "normalized_lf_sha256": "8AF04F288FA701D98CD7C9590CC921140E49DC884E6D92B376C84350EDDDD1E7"
+    },
+    {
+      "path": "docs/development/logs/feel086-anatomy063-01.log",
+      "bytes": 2411,
+      "sha256": "71C9BDE708E56DFC33093EFDC7621BA23960D9994E57D1A8C666E884AC345356",
+      "normalized_lf_sha256": "71C9BDE708E56DFC33093EFDC7621BA23960D9994E57D1A8C666E884AC345356"
+    },
+    {
+      "path": "docs/development/logs/feel086-arm068-01-memory.txt",
+      "bytes": 186,
+      "sha256": "D6BE5BB238AC19688D4B3FFE63FE357C10E0A90A885751179B84BF8E908B0C14",
+      "normalized_lf_sha256": "8A67F2FAEF098B6DED978FDCEF3CC303F0A3F92623E65F81C6D3F388D013A9A1"
+    },
+    {
+      "path": "docs/development/logs/feel086-arm068-01.json",
+      "bytes": 368,
+      "sha256": "9C6BEAAB4D4B158677D0880410521776D7EED1F9156EBE0169817253555D87C9",
+      "normalized_lf_sha256": "9C6BEAAB4D4B158677D0880410521776D7EED1F9156EBE0169817253555D87C9"
+    },
+    {
+      "path": "docs/development/logs/feel086-arm068-01.log",
+      "bytes": 400,
+      "sha256": "C5772F3BEAE555E468BF1C5B44812F541952E27A7D165847DC78CBF4B6954DB9",
+      "normalized_lf_sha256": "C5772F3BEAE555E468BF1C5B44812F541952E27A7D165847DC78CBF4B6954DB9"
+    },
+    {
+      "path": "docs/development/logs/feel086-cumulative-live01-memory.txt",
+      "bytes": 3230,
+      "sha256": "008B25E6118C7ECD25DD078078A538FAB620CF4427D41895D238BDD98E508655",
+      "normalized_lf_sha256": "C663CC7CC08667576182075B6BC4A885A508A25A6FDA439D952715750930805B"
+    },
+    {
+      "path": "docs/development/logs/feel086-cumulative-live01.json",
+      "bytes": 4729388,
+      "sha256": "33280B2E4EA38603B8BF8A7D65E32DC27A5FBDC7A0FBD6708404E4821E299B58",
+      "normalized_lf_sha256": "33280B2E4EA38603B8BF8A7D65E32DC27A5FBDC7A0FBD6708404E4821E299B58"
+    },
+    {
+      "path": "docs/development/logs/feel086-cumulative-live01.log",
+      "bytes": 240,
+      "sha256": "32CFF755D4921D4E3DB74A7DEA0348B038E2379E7863285D982868693D49402A",
+      "normalized_lf_sha256": "32CFF755D4921D4E3DB74A7DEA0348B038E2379E7863285D982868693D49402A"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-final-test_arm068-memory.txt",
+      "bytes": 185,
+      "sha256": "D04709BDBAB073E8BB1AC5D88C040748D8C79049E20EB2EC24B4D38A6EC0C157",
+      "normalized_lf_sha256": "5572E3A7464BF06BE2D814190184A553F73F7B969CAF4B2E1616DD2A4E1E86EA"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-final-test_arm068.json",
+      "bytes": 368,
+      "sha256": "9C6BEAAB4D4B158677D0880410521776D7EED1F9156EBE0169817253555D87C9",
+      "normalized_lf_sha256": "9C6BEAAB4D4B158677D0880410521776D7EED1F9156EBE0169817253555D87C9"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-final-test_arm068.log",
+      "bytes": 400,
+      "sha256": "C5772F3BEAE555E468BF1C5B44812F541952E27A7D165847DC78CBF4B6954DB9",
+      "normalized_lf_sha256": "C5772F3BEAE555E468BF1C5B44812F541952E27A7D165847DC78CBF4B6954DB9"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-final-test_depth086-memory.txt",
+      "bytes": 186,
+      "sha256": "043790D43B1E96A055A85326A4915C651505715A83F04A98945F3AF1AA2007C3",
+      "normalized_lf_sha256": "901E8DB5692B099BDA14A6299542103CB347F14212E84E0F27A614B5C9420344"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-final-test_depth086.json",
+      "bytes": 39511,
+      "sha256": "7595A815B1150DDF5EF21ECBE0B4916CABC5C00D05AB69AABF1CE19D9CFB34E4",
+      "normalized_lf_sha256": "7595A815B1150DDF5EF21ECBE0B4916CABC5C00D05AB69AABF1CE19D9CFB34E4"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-final-test_depth086.log",
+      "bytes": 85,
+      "sha256": "56A1FF107874451201A14069D8D946ABFEB3BC27ECFCB3EB2FA2580EAAAF8615",
+      "normalized_lf_sha256": "56A1FF107874451201A14069D8D946ABFEB3BC27ECFCB3EB2FA2580EAAAF8615"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-final-test_head076-memory.txt",
+      "bytes": 186,
+      "sha256": "13A788542E2DB1FE2A3273AE829ABEC42CD34BD34976B5AAA059579F79226270",
+      "normalized_lf_sha256": "071F4FFEAD512F65D623A60FFE560A309970A6D757953A34C113B6E7288DCCBC"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-final-test_head076.json",
+      "bytes": 19844,
+      "sha256": "C5A8B279F30AE6AE8D3E0255AFC8FB80CCA2650A2BDB94C02C25F6DA4B492DB2",
+      "normalized_lf_sha256": "C5A8B279F30AE6AE8D3E0255AFC8FB80CCA2650A2BDB94C02C25F6DA4B492DB2"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-final-test_head076.log",
+      "bytes": 84,
+      "sha256": "53D1003C367F15F3AB44A879ED70605452328B30D96ABF17A178CE33C86ADBDD",
+      "normalized_lf_sha256": "53D1003C367F15F3AB44A879ED70605452328B30D96ABF17A178CE33C86ADBDD"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-final-test_head086-memory.txt",
+      "bytes": 186,
+      "sha256": "C6F45BAF6F88D81F3D54F6FAF435FA048E40D74D9E541480A0B1B72EF8C522AB",
+      "normalized_lf_sha256": "760AC02D67D68BF32F52419B11FAF3ED6870688A642CB2DB6854E4022C04C984"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-final-test_head086.json",
+      "bytes": 65377,
+      "sha256": "E932D47294D31A61E95CF73AF39EB230CE2DA2D29820ADE12BDA1ED4345A1B0A",
+      "normalized_lf_sha256": "E932D47294D31A61E95CF73AF39EB230CE2DA2D29820ADE12BDA1ED4345A1B0A"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-final-test_head086.log",
+      "bytes": 84,
+      "sha256": "250366951369F2F6BB161ACAC815C2F28C1CDF363F369F8211B1FE9A29B44466",
+      "normalized_lf_sha256": "250366951369F2F6BB161ACAC815C2F28C1CDF363F369F8211B1FE9A29B44466"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-final-test_parse065-memory.txt",
+      "bytes": 280,
+      "sha256": "6036F8C81B8CC36424CEA894A3B34FFD22CDD5BD52A3E60A527556A6E564CB43",
+      "normalized_lf_sha256": "FDFA1C48C81796CF7E03BDDE19E4013AAB43E9D5A86749586ABC0ED5B61BCB45"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-final-test_parse065.log",
+      "bytes": 969,
+      "sha256": "8AC8D331280B959880621C83001366DABA5A044FF270ACCB3A2A714193A621B6",
+      "normalized_lf_sha256": "8AC8D331280B959880621C83001366DABA5A044FF270ACCB3A2A714193A621B6"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-head01-memory.txt",
+      "bytes": 185,
+      "sha256": "A9EEA4F768E4D6B091E7BE15C335EB5BE59ECB5F5B8866A55260F4ABC37605CB",
+      "normalized_lf_sha256": "886D9AE032C5926FDA2C788D636367F40B7C63F7F97FFB0C410EE729869246C7"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-head01.json",
+      "bytes": 65383,
+      "sha256": "857F766757ACBE4BEEB4682BAB4C3E634F7432979DD5F586DF2F0AC9223CB07C",
+      "normalized_lf_sha256": "857F766757ACBE4BEEB4682BAB4C3E634F7432979DD5F586DF2F0AC9223CB07C"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-head01.log",
+      "bytes": 84,
+      "sha256": "250366951369F2F6BB161ACAC815C2F28C1CDF363F369F8211B1FE9A29B44466",
+      "normalized_lf_sha256": "250366951369F2F6BB161ACAC815C2F28C1CDF363F369F8211B1FE9A29B44466"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-helmet01-memory.txt",
+      "bytes": 2279,
+      "sha256": "713655FA9933FC52E497255B6841D44FDA9F9B46C533333410928AE8FB198F37",
+      "normalized_lf_sha256": "CA72EE3D6CC269325D45517AA250E21482705DAD0058D2DAA6B3CA89C2DE923D"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-helmet01.json",
+      "bytes": 1648984,
+      "sha256": "4D2A3B2599B015854B69900801FBE8A60E2A202AAF66A31A5FD5BD25D86ADCAB",
+      "normalized_lf_sha256": "4D2A3B2599B015854B69900801FBE8A60E2A202AAF66A31A5FD5BD25D86ADCAB"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-helmet01.log",
+      "bytes": 241,
+      "sha256": "DFD7D9BE431B21DF09926D0C7B123A86DB4F3686B5767F6D30478D9E12C25CEC",
+      "normalized_lf_sha256": "DFD7D9BE431B21DF09926D0C7B123A86DB4F3686B5767F6D30478D9E12C25CEC"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-old39-memory.txt",
+      "bytes": 190,
+      "sha256": "6D949C9EEF5BED9AC623AF5C50D8B875EF4CDBA7931E1167CC0FF4AA6595B814",
+      "normalized_lf_sha256": "2F322B608F75C969F9002E969C3C5BEF52487E28B7F73EC5D2AE6C37085483B4"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-old39.json",
+      "bytes": 35086,
+      "sha256": "8AC546B584BBE6E1CE385BF069CDC98109E04000EC8194CFB3159E9DF7D284E2",
+      "normalized_lf_sha256": "8AC546B584BBE6E1CE385BF069CDC98109E04000EC8194CFB3159E9DF7D284E2"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-old39.log",
+      "bytes": 722,
+      "sha256": "99CE15DFC452F824141DFA32958B66FC61DD7B273FA4C24A21CCACA0C225E11D",
+      "normalized_lf_sha256": "99CE15DFC452F824141DFA32958B66FC61DD7B273FA4C24A21CCACA0C225E11D"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-rules01-memory.txt",
+      "bytes": 6875,
+      "sha256": "C69F861991596ED3B53F50080B047A6258D4C8B75D82348D823C98EA35A7D9AB",
+      "normalized_lf_sha256": "A7337A56FAE6A3D3EA53A0C3DFF45602C5F32D65223F0E15B674AC7E32D5EDDB"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-rules01.json",
+      "bytes": 255994,
+      "sha256": "8B580428E832E2C01D01B552FDA0E59A10157665CA4903E23CB21659013E7E26",
+      "normalized_lf_sha256": "8B580428E832E2C01D01B552FDA0E59A10157665CA4903E23CB21659013E7E26"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-rules01.log",
+      "bytes": 2196,
+      "sha256": "B70D48E27D5ACC3F5D65A4CEA095232BCA8EE7487095471EA9C617F2D54CF323",
+      "normalized_lf_sha256": "B70D48E27D5ACC3F5D65A4CEA095232BCA8EE7487095471EA9C617F2D54CF323"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-strategy01-memory.txt",
+      "bytes": 4829,
+      "sha256": "C272C314EA48334430ABCAA3F0A366C98BD17B9DAD577C963AE258F9EE2826BF",
+      "normalized_lf_sha256": "C829911F3FC1A28065583B670FBCD919B5B763B244BE796751BE98F93CB0AFC9"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-strategy01.json",
+      "bytes": 105858,
+      "sha256": "D23A68B6CA6709295B56988B24B35B31D98D75AEA97EDE3E5E0507186EA1CD89",
+      "normalized_lf_sha256": "D23A68B6CA6709295B56988B24B35B31D98D75AEA97EDE3E5E0507186EA1CD89"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth-strategy01.log",
+      "bytes": 622,
+      "sha256": "B467B8FD545FABA85EBEEF3FACCCA713EFDCCAB85B18D48B6B0202CEC11C4543",
+      "normalized_lf_sha256": "B467B8FD545FABA85EBEEF3FACCCA713EFDCCAB85B18D48B6B0202CEC11C4543"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth01-memory.txt",
+      "bytes": 185,
+      "sha256": "D41295BD4D95406723571E1CCD302D28F961E3C27E6A0DA498B94BFFDF963A88",
+      "normalized_lf_sha256": "1FAB3A66DAE3DAE2089D68C38F9FE8B01A3E2571334128B787BCB85C6D188953"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth01.json",
+      "bytes": 39754,
+      "sha256": "3BCD353568F85DD3AE560252FFC59B37437960A5921B5E7865E80C797F29547D",
+      "normalized_lf_sha256": "3BCD353568F85DD3AE560252FFC59B37437960A5921B5E7865E80C797F29547D"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth01.log",
+      "bytes": 143,
+      "sha256": "37F2548C2FA56107AA17809DFA5BE20EBFD2E796FFD93FED789A620E282543F2",
+      "normalized_lf_sha256": "37F2548C2FA56107AA17809DFA5BE20EBFD2E796FFD93FED789A620E282543F2"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth02-memory.txt",
+      "bytes": 185,
+      "sha256": "EA9FE40121212D554E586D2E0916CFED33E807E0B945838AA1171D74D4D43A76",
+      "normalized_lf_sha256": "530725753360782E9BD1B359EDC79AF0F8D8E92F57E127C6B258CD2D61E7D6ED"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth02.json",
+      "bytes": 39511,
+      "sha256": "55B35FFBA7F8BA654FC4AA3210D6E836C110B9E156EA430F8A82B7CB80D7B2A8",
+      "normalized_lf_sha256": "55B35FFBA7F8BA654FC4AA3210D6E836C110B9E156EA430F8A82B7CB80D7B2A8"
+    },
+    {
+      "path": "docs/development/logs/feel086-depth02.log",
+      "bytes": 85,
+      "sha256": "56A1FF107874451201A14069D8D946ABFEB3BC27ECFCB3EB2FA2580EAAAF8615",
+      "normalized_lf_sha256": "56A1FF107874451201A14069D8D946ABFEB3BC27ECFCB3EB2FA2580EAAAF8615"
+    },
+    {
+      "path": "docs/development/logs/feel086-export-r3-check-memory.txt",
+      "bytes": 469,
+      "sha256": "3CD30797C05D077522A1020B158D0F35E6DC4BD2437C53B56438EA5384F16804",
+      "normalized_lf_sha256": "1CA347E1028968EB8B8E09186B9456DE6AD423D9A23355C57B5F16376A82FDD4"
+    },
+    {
+      "path": "docs/development/logs/feel086-export-r3-check.log",
+      "bytes": 34412,
+      "sha256": "D57138A990DA99B3731913D4F1A0A585B4A0533535539A0A11976E5D681C8528",
+      "normalized_lf_sha256": "D57138A990DA99B3731913D4F1A0A585B4A0533535539A0A11976E5D681C8528"
+    },
+    {
+      "path": "docs/development/logs/feel086-export-r3-memory.txt",
+      "bytes": 562,
+      "sha256": "DCA9FA2D0E210358E4F8CB1B503F20DDF27B7007652BBE146484A69F2EA72298",
+      "normalized_lf_sha256": "8965770C5088136E57EE75C9E4A6CDD984E5FAC1CC99239B76F12DA5A8DA705A"
+    },
+    {
+      "path": "docs/development/logs/feel086-export-r3.log",
+      "bytes": 35825,
+      "sha256": "7DF3C89260438840EB4E06E0D040C493F505DD132CADD9DEAD577D909B4CD42C",
+      "normalized_lf_sha256": "7DF3C89260438840EB4E06E0D040C493F505DD132CADD9DEAD577D909B4CD42C"
+    },
+    {
+      "path": "docs/development/logs/feel086-export01-memory.txt",
+      "bytes": 562,
+      "sha256": "9E134B5E2BC12680CA3034C3FFEF0BE6777E3BA27C76D9E1BA919C19CF131D7E",
+      "normalized_lf_sha256": "7C3279FDC6559C487E2446C3EA79451AA3C9A9F0FF6C76CD6D4A558C0CD3A07F"
+    },
+    {
+      "path": "docs/development/logs/feel086-export01.log",
+      "bytes": 35199,
+      "sha256": "E060EA795F2EFB85CCA06FFD86CE6ED3864BA38135258977ED72334F5F4C9D9F",
+      "normalized_lf_sha256": "E060EA795F2EFB85CCA06FFD86CE6ED3864BA38135258977ED72334F5F4C9D9F"
+    },
+    {
+      "path": "docs/development/logs/feel086-export02-memory.txt",
+      "bytes": 563,
+      "sha256": "E30EF7F55F3B8ECE9F754A297CB5AE347B72147AC2E15175370BEBB455649599",
+      "normalized_lf_sha256": "42344A30E7398185A8869D5FBEBA8C24767026741E40CA269BB407D858EF0CA1"
+    },
+    {
+      "path": "docs/development/logs/feel086-export02.log",
+      "bytes": 34412,
+      "sha256": "D57138A990DA99B3731913D4F1A0A585B4A0533535539A0A11976E5D681C8528",
+      "normalized_lf_sha256": "D57138A990DA99B3731913D4F1A0A585B4A0533535539A0A11976E5D681C8528"
+    },
+    {
+      "path": "docs/development/logs/feel086-fall-stress01-memory.txt",
+      "bytes": 1329,
+      "sha256": "3F06845E9B014910334358B9F50019A505F889241EFC293AA5BD374067979044",
+      "normalized_lf_sha256": "AB9B85AC72EAABC49147B3FF969F00D9A4412E62AFC77626524A886518734F70"
+    },
+    {
+      "path": "docs/development/logs/feel086-fall-stress01.json",
+      "bytes": 249730,
+      "sha256": "EE0A4861B73F22580A54AF775783AB888D3DCD3CB89114B75F82CEBE1A10BBCD",
+      "normalized_lf_sha256": "EE0A4861B73F22580A54AF775783AB888D3DCD3CB89114B75F82CEBE1A10BBCD"
+    },
+    {
+      "path": "docs/development/logs/feel086-fall-stress01.log",
+      "bytes": 197,
+      "sha256": "27AEA441ED692AAD586EAE4D24FB301770BB704956240C518B85E6BB71547A64",
+      "normalized_lf_sha256": "27AEA441ED692AAD586EAE4D24FB301770BB704956240C518B85E6BB71547A64"
+    },
+    {
+      "path": "docs/development/logs/feel086-fatal01-memory.txt",
+      "bytes": 2943,
+      "sha256": "B2059332682B0AD2ED93E0477C394FBBC4FD1D077FD4AFD277093BC842461AC5",
+      "normalized_lf_sha256": "B1B61415132F25D76A8AC81F3A0E5E89E66BF7426B60F7B42A4D3F5ADD1D8B60"
+    },
+    {
+      "path": "docs/development/logs/feel086-fatal01.json",
+      "bytes": 4217206,
+      "sha256": "C5AD3CFD49897E8B8753A435B14CC1AB9755C1E8BB009EE9E8A41ABA4806159C",
+      "normalized_lf_sha256": "C5AD3CFD49897E8B8753A435B14CC1AB9755C1E8BB009EE9E8A41ABA4806159C"
+    },
+    {
+      "path": "docs/development/logs/feel086-fatal01.log",
+      "bytes": 241,
+      "sha256": "FDB86CACD613F439F5E2F1D77DCBFCC1DC40846F8634DEEF3F71353F47ABACC8",
+      "normalized_lf_sha256": "FDB86CACD613F439F5E2F1D77DCBFCC1DC40846F8634DEEF3F71353F47ABACC8"
+    },
+    {
+      "path": "docs/development/logs/feel086-fourcoats01/report.json",
+      "bytes": 952,
+      "sha256": "04A5618F9F2E36D15C3B6608E0A0FFB26C2AE592DB38F302A3625377BF53128D",
+      "normalized_lf_sha256": "04A5618F9F2E36D15C3B6608E0A0FFB26C2AE592DB38F302A3625377BF53128D"
+    },
+    {
+      "path": "docs/development/logs/feel086-fourcoats01-memory.txt",
+      "bytes": 7979,
+      "sha256": "EA7B73A92FBA8516EB8513C0106FB7903916666C10E12288A9E6E2EA8C9FC8AE",
+      "normalized_lf_sha256": "284F6671DA92D5360E047D09B7E9C65407F8369EDD21D555532A29CCCC0C96F5"
+    },
+    {
+      "path": "docs/development/logs/feel086-fourcoats01.log",
+      "bytes": 184,
+      "sha256": "5941D82AEC8AB85FF1475BDF5D8B493751E6DD8E1699B1008C86FBE13724C2E0",
+      "normalized_lf_sha256": "5941D82AEC8AB85FF1475BDF5D8B493751E6DD8E1699B1008C86FBE13724C2E0"
+    },
+    {
+      "path": "docs/development/logs/feel086-head-release-after-memory.txt",
+      "bytes": 280,
+      "sha256": "F795D4A11B61BBE9C703CF602F38C3385D3FD9BAC0404CD25EE45F601B55895D",
+      "normalized_lf_sha256": "BEE28D881B2A1F4082EE6D725664678C766E0853BF9249B0B1530DE09C2AA002"
+    },
+    {
+      "path": "docs/development/logs/feel086-head-release-after.json",
+      "bytes": 1539,
+      "sha256": "9428454316E1D83D6DBC756B258A9C2F9FF6F185D0B52D437D09CFA0FA593848",
+      "normalized_lf_sha256": "9428454316E1D83D6DBC756B258A9C2F9FF6F185D0B52D437D09CFA0FA593848"
+    },
+    {
+      "path": "docs/development/logs/feel086-head-release-after.log",
+      "bytes": 119,
+      "sha256": "5E48692997849BC5670E11F4DC479B255CBE20104D5FC37628010BAFE9F9D26A",
+      "normalized_lf_sha256": "5E48692997849BC5670E11F4DC479B255CBE20104D5FC37628010BAFE9F9D26A"
+    },
+    {
+      "path": "docs/development/logs/feel086-head-release-before-memory.txt",
+      "bytes": 187,
+      "sha256": "161A19735D5F1CBCA42FCDFB4B679B541ABAABEA25951DB8E8577823BF4AD47D",
+      "normalized_lf_sha256": "2EC2C5CA789E72E8C8A31CF43F6FA2972CA1122051FAF9A89ACD3B312F43AE13"
+    },
+    {
+      "path": "docs/development/logs/feel086-head-release-before.json",
+      "bytes": 2794,
+      "sha256": "BB92335AD61AA2F703304525ED0656E238701288FAB3DD1AE454F3BE866A9C9C",
+      "normalized_lf_sha256": "BB92335AD61AA2F703304525ED0656E238701288FAB3DD1AE454F3BE866A9C9C"
+    },
+    {
+      "path": "docs/development/logs/feel086-head-release-before.log",
+      "bytes": 122,
+      "sha256": "5AF9DE27D527B7F508D2EAA5B35781DA8E1B037449321984C5E57129AAECDDBC",
+      "normalized_lf_sha256": "5AF9DE27D527B7F508D2EAA5B35781DA8E1B037449321984C5E57129AAECDDBC"
+    },
+    {
+      "path": "docs/development/logs/feel086-head076-01-memory.txt",
+      "bytes": 185,
+      "sha256": "C9541B56AF6D497D3D46EEC66C79B1A5355679FBA9EF155856F343E282208796",
+      "normalized_lf_sha256": "69E42CB7E47A749BB3E6932E91A4E97EDCFE6979716A20A8158B563C24114883"
+    },
+    {
+      "path": "docs/development/logs/feel086-head076-01.json",
+      "bytes": 17794,
+      "sha256": "A6C4FA358F8D740A3727D5CAF6FA20579B552B7570B9C29ED44139751B86E0D1",
+      "normalized_lf_sha256": "A6C4FA358F8D740A3727D5CAF6FA20579B552B7570B9C29ED44139751B86E0D1"
+    },
+    {
+      "path": "docs/development/logs/feel086-head076-01.log",
+      "bytes": 84,
+      "sha256": "53D1003C367F15F3AB44A879ED70605452328B30D96ABF17A178CE33C86ADBDD",
+      "normalized_lf_sha256": "53D1003C367F15F3AB44A879ED70605452328B30D96ABF17A178CE33C86ADBDD"
+    },
+    {
+      "path": "docs/development/logs/feel086-head086-01.json",
+      "bytes": 58917,
+      "sha256": "1CB0E5F7B2E31661FF8E4316D8DC74389A2255F9AD5BF66DE08863830705494E",
+      "normalized_lf_sha256": "1CB0E5F7B2E31661FF8E4316D8DC74389A2255F9AD5BF66DE08863830705494E"
+    },
+    {
+      "path": "docs/development/logs/feel086-head086-02-memory.txt",
+      "bytes": 372,
+      "sha256": "C3D6DEBB696328159A367321B9FED9A30888D1DAE40DA0C64E90D404223EFDAA",
+      "normalized_lf_sha256": "11A9D9A3603FB6B4A9C512C53A626004F8773ED2E9D16BF5B5F97A688D92E1DC"
+    },
+    {
+      "path": "docs/development/logs/feel086-head086-02.json",
+      "bytes": 58917,
+      "sha256": "1CB0E5F7B2E31661FF8E4316D8DC74389A2255F9AD5BF66DE08863830705494E",
+      "normalized_lf_sha256": "1CB0E5F7B2E31661FF8E4316D8DC74389A2255F9AD5BF66DE08863830705494E"
+    },
+    {
+      "path": "docs/development/logs/feel086-head086-02.log",
+      "bytes": 84,
+      "sha256": "250366951369F2F6BB161ACAC815C2F28C1CDF363F369F8211B1FE9A29B44466",
+      "normalized_lf_sha256": "250366951369F2F6BB161ACAC815C2F28C1CDF363F369F8211B1FE9A29B44466"
+    },
+    {
+      "path": "docs/development/logs/feel086-helmet-old39-memory.txt",
+      "bytes": 2092,
+      "sha256": "F106892F9CC7053C88ECE4C50DAD2265E62164885686B82495BFC48FC2015D9D",
+      "normalized_lf_sha256": "4574CF476086505B55B77953C78276BABBD373A0DC87415EDA22F91221ECC290"
+    },
+    {
+      "path": "docs/development/logs/feel086-helmet-old39.json",
+      "bytes": 1680110,
+      "sha256": "CE5383052F8D2F0494F75C962BDF9FE7D77FF8B6BE8E2733FD350091E381DE43",
+      "normalized_lf_sha256": "CE5383052F8D2F0494F75C962BDF9FE7D77FF8B6BE8E2733FD350091E381DE43"
+    },
+    {
+      "path": "docs/development/logs/feel086-helmet-old39.log",
+      "bytes": 417,
+      "sha256": "B8A4106F67D888EF98CAD0BF9E872E4593D4CE60C1ED49E7C556E520144A2DBC",
+      "normalized_lf_sha256": "B8A4106F67D888EF98CAD0BF9E872E4593D4CE60C1ED49E7C556E520144A2DBC"
+    },
+    {
+      "path": "docs/development/logs/feel086-helmet-probe01-memory.txt",
+      "bytes": 4458,
+      "sha256": "A807D64434A8D847397358C74D091F972549CDE74A3C8597E151B3398057CF7A",
+      "normalized_lf_sha256": "303A2978DAFD20565C2CEE4101B89A4706FFA3207D1FCADCC4BB62314F537B10"
+    },
+    {
+      "path": "docs/development/logs/feel086-helmet-probe01.json",
+      "bytes": 94887,
+      "sha256": "4EA52DC7B1967EBA3552298A1DCD97CE0E357F814A684D0DBA455C9E315CB9B7",
+      "normalized_lf_sha256": "4EA52DC7B1967EBA3552298A1DCD97CE0E357F814A684D0DBA455C9E315CB9B7"
+    },
+    {
+      "path": "docs/development/logs/feel086-helmet-probe01.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "normalized_lf_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "docs/development/logs/feel086-helmet-probe02-memory.txt",
+      "bytes": 375,
+      "sha256": "8B8F04EA74EEC25785C8D51ECB91456CC7E018A2E59D8E0308018682A2C2142C",
+      "normalized_lf_sha256": "37AB5A8D7E7B3E4AA6870E144559914747302F71DC7ED3D5E56BB0DE4163BB37"
+    },
+    {
+      "path": "docs/development/logs/feel086-helmet-probe02.json",
+      "bytes": 95714,
+      "sha256": "489CBB210369573200A92ECB8652264A17AC5E11F273C00A808E478963B76D0E",
+      "normalized_lf_sha256": "489CBB210369573200A92ECB8652264A17AC5E11F273C00A808E478963B76D0E"
+    },
+    {
+      "path": "docs/development/logs/feel086-helmet-probe02.log",
+      "bytes": 97,
+      "sha256": "898DFCF6B811DA41852AAE784498382362ABEF545C5AA0E025CCAE4C9099EFCA",
+      "normalized_lf_sha256": "898DFCF6B811DA41852AAE784498382362ABEF545C5AA0E025CCAE4C9099EFCA"
+    },
+    {
+      "path": "docs/development/logs/feel086-hud01/report.json",
+      "bytes": 899,
+      "sha256": "E1061FAAD905D8E57353476C5C4F468E60A91267C6BD8414B8E5F565F8881FAD",
+      "normalized_lf_sha256": "E1061FAAD905D8E57353476C5C4F468E60A91267C6BD8414B8E5F565F8881FAD"
+    },
+    {
+      "path": "docs/development/logs/feel086-hud01-memory.txt",
+      "bytes": 857,
+      "sha256": "6594F5D5CCC0A4DE308AB62DE64587937AF5268949004DEF88CD76978744471F",
+      "normalized_lf_sha256": "47162F31DC54432FE2AFA6C68BD1C0F60F9ACCDDF4063DEF252207F4ADAD5CB8"
+    },
+    {
+      "path": "docs/development/logs/feel086-hud01.log",
+      "bytes": 204,
+      "sha256": "BC1521C0BD6CB416034BDA55A4DA3549F208674AAB529F808FE6BF1A7AC00A28",
+      "normalized_lf_sha256": "BC1521C0BD6CB416034BDA55A4DA3549F208674AAB529F808FE6BF1A7AC00A28"
+    },
+    {
+      "path": "docs/development/logs/feel086-hud02/report.json",
+      "bytes": 1047,
+      "sha256": "793793EAB38C935A824467416696EE0695B785B16D73DBB49FA33022ECE8E031",
+      "normalized_lf_sha256": "793793EAB38C935A824467416696EE0695B785B16D73DBB49FA33022ECE8E031"
+    },
+    {
+      "path": "docs/development/logs/feel086-hud02/war-injured.png",
+      "bytes": 914102,
+      "sha256": "545C380F4CA7597A9E37C61FD6B9FC94F43B75E144DB0466BCE64D6BF133C046"
+    },
+    {
+      "path": "docs/development/logs/feel086-hud02/war-terminal.png",
+      "bytes": 863020,
+      "sha256": "4CA419474530AE6D346D80716B39F7F3FB6F4AF587380CC08FD8308E7B7D40EA"
+    },
+    {
+      "path": "docs/development/logs/feel086-hud02-memory.txt",
+      "bytes": 951,
+      "sha256": "1E2C197C96193E755CD1DA1693AC6D19B0895D0EF783A9E60A704403010AEC6C",
+      "normalized_lf_sha256": "6542AF3731C3EF9C10603999CCF8778EB3B71BCE7B2322877735DBE05195EE2D"
+    },
+    {
+      "path": "docs/development/logs/feel086-hud02.log",
+      "bytes": 204,
+      "sha256": "BC1521C0BD6CB416034BDA55A4DA3549F208674AAB529F808FE6BF1A7AC00A28",
+      "normalized_lf_sha256": "BC1521C0BD6CB416034BDA55A4DA3549F208674AAB529F808FE6BF1A7AC00A28"
+    },
+    {
+      "path": "docs/development/logs/feel086-input01-memory.txt",
+      "bytes": 1995,
+      "sha256": "4708519A52D42CD02C57E0E25C47F91AD8D659EDF532FD06E8E2C944D2448D0D",
+      "normalized_lf_sha256": "9F0563FEB81A465D91616510E21F2522FC9D96A1DC0F243A51A799D1CFEAE87D"
+    },
+    {
+      "path": "docs/development/logs/feel086-input01.json",
+      "bytes": 597419,
+      "sha256": "00A29D8187DBA0F9463C027643075C2AFF2EF7941CB6E7AB78E21612F3BDE714",
+      "normalized_lf_sha256": "00A29D8187DBA0F9463C027643075C2AFF2EF7941CB6E7AB78E21612F3BDE714"
+    },
+    {
+      "path": "docs/development/logs/feel086-input01.log",
+      "bytes": 586,
+      "sha256": "2235509318995B1217716B2E10AD58839B8E813ED8D60E7B6D0F111F699316F8",
+      "normalized_lf_sha256": "2235509318995B1217716B2E10AD58839B8E813ED8D60E7B6D0F111F699316F8"
+    },
+    {
+      "path": "docs/development/logs/feel086-manual-baseline01-memory.txt",
+      "bytes": 10540,
+      "sha256": "DDCDF34DABED1E161D408C7A6886E1583D4A58580A3B802C3A19403C00FD600C",
+      "normalized_lf_sha256": "6974084F6523E5823E087E37FB5EBB91C1109D0C9D37FCAF72B139DB63F787E5"
+    },
+    {
+      "path": "docs/development/logs/feel086-manual-baseline01.log",
+      "bytes": 194,
+      "sha256": "87F7668FEE875C1EA0F3131915C704BE749D7240618533F4B01751E277FECAA8",
+      "normalized_lf_sha256": "87F7668FEE875C1EA0F3131915C704BE749D7240618533F4B01751E277FECAA8"
+    },
+    {
+      "path": "docs/development/logs/feel086-motion01-memory.txt",
+      "bytes": 187,
+      "sha256": "DA48142F0A3D25105FB733F3470F431F76CDA45FAC99F7B6F0539897A2238D25",
+      "normalized_lf_sha256": "3A2F924C55ACD01A74FAC46171E4813ABEAAE0AE428A4920D62994642343EF0B"
+    },
+    {
+      "path": "docs/development/logs/feel086-motion01.json",
+      "bytes": 281,
+      "sha256": "B2317452A795AB5E733F8DE2C4B9C0D62A54E8780582E798D292F2F29C768F07",
+      "normalized_lf_sha256": "B2317452A795AB5E733F8DE2C4B9C0D62A54E8780582E798D292F2F29C768F07"
+    },
+    {
+      "path": "docs/development/logs/feel086-motion01.log",
+      "bytes": 102,
+      "sha256": "C7C84D481CA448570624D85BD1263574F28D51F8D8E2D723DB3A3F3B57272F6E",
+      "normalized_lf_sha256": "C7C84D481CA448570624D85BD1263574F28D51F8D8E2D723DB3A3F3B57272F6E"
+    },
+    {
+      "path": "docs/development/logs/feel086-mounted-new01/report.json",
+      "bytes": 506,
+      "sha256": "5BA1ECF8EE358A42ECE5F15475CDDBEE445F62D1C80C66E29490467629B75FB7",
+      "normalized_lf_sha256": "5BA1ECF8EE358A42ECE5F15475CDDBEE445F62D1C80C66E29490467629B75FB7"
+    },
+    {
+      "path": "docs/development/logs/feel086-mounted-new01-memory.txt",
+      "bytes": 9593,
+      "sha256": "20EC685237A03D1081942FA73471CEB419269B124D30D684ED990B119E8F48CF",
+      "normalized_lf_sha256": "CB3896054200D5DBC56B523CFB6FEE32F49CCA0F8EEC212C9CC57D486887089C"
+    },
+    {
+      "path": "docs/development/logs/feel086-mounted-new01.log",
+      "bytes": 184,
+      "sha256": "37422C2E4B45382CF3E32033F27032400EE5A2A6F92F886E5D8CB9881A303C85",
+      "normalized_lf_sha256": "37422C2E4B45382CF3E32033F27032400EE5A2A6F92F886E5D8CB9881A303C85"
+    },
+    {
+      "path": "docs/development/logs/feel086-mounted-old39/report.json",
+      "bytes": 506,
+      "sha256": "D80E4F3E5041AAE4B1358E98BE3751B703179963E75A42C255C61102C82D57E8",
+      "normalized_lf_sha256": "D80E4F3E5041AAE4B1358E98BE3751B703179963E75A42C255C61102C82D57E8"
+    },
+    {
+      "path": "docs/development/logs/feel086-mounted-old39-memory.txt",
+      "bytes": 9028,
+      "sha256": "6CD8B0E061C58393B24D0D1AA7B1FCF5E921BB69F562594D2DFE7B390D32AA0E",
+      "normalized_lf_sha256": "4503E5AEADB3F2E6B814A7FCB56FE113EAEF3571F6BF2ED2994BD46747929699"
+    },
+    {
+      "path": "docs/development/logs/feel086-mounted-old39.log",
+      "bytes": 184,
+      "sha256": "37422C2E4B45382CF3E32033F27032400EE5A2A6F92F886E5D8CB9881A303C85",
+      "normalized_lf_sha256": "37422C2E4B45382CF3E32033F27032400EE5A2A6F92F886E5D8CB9881A303C85"
+    },
+    {
+      "path": "docs/development/logs/feel086-package-heavy01/report.json",
+      "bytes": 116428,
+      "sha256": "CF929C2179C4D85E7FD7CD3AE3E6C74888CF8948894C4C652CCF2D5D39A31FAF",
+      "normalized_lf_sha256": "CF929C2179C4D85E7FD7CD3AE3E6C74888CF8948894C4C652CCF2D5D39A31FAF"
+    },
+    {
+      "path": "docs/development/logs/feel086-package-heavy01-memory.txt",
+      "bytes": 12189,
+      "sha256": "B361B96F061EF89C204E4A725EEBB1E3217B921769CD11B560057B4F5EDC1736",
+      "normalized_lf_sha256": "C708C6AE5044A9D8ACA313E8A1C0E2FEB35CAA66A33E19102C88104C87AABB17"
+    },
+    {
+      "path": "docs/development/logs/feel086-package-heavy01.log",
+      "bytes": 350,
+      "sha256": "0211E461939F9C6BFB97A1FC04F65EBA5BD8EC89B39EACE117DECE501157ECFE",
+      "normalized_lf_sha256": "0211E461939F9C6BFB97A1FC04F65EBA5BD8EC89B39EACE117DECE501157ECFE"
+    },
+    {
+      "path": "docs/development/logs/feel086-parse065-01-memory.txt",
+      "bytes": 280,
+      "sha256": "FC57D025753979C70F0DABC8C2EE9C44E72AB5820FE1A3D2CDE6B43D4A183D7B",
+      "normalized_lf_sha256": "A064F7625D77F3D7463DA4F73876C67D5447AEE6550C71E8688DFA540E717635"
+    },
+    {
+      "path": "docs/development/logs/feel086-parse065-01.log",
+      "bytes": 969,
+      "sha256": "8AC8D331280B959880621C83001366DABA5A044FF270ACCB3A2A714193A621B6",
+      "normalized_lf_sha256": "8AC8D331280B959880621C83001366DABA5A044FF270ACCB3A2A714193A621B6"
+    },
+    {
+      "path": "docs/development/logs/feel086-r2-cumulative01-memory.txt",
+      "bytes": 3044,
+      "sha256": "2B26DBD56A371154462DF9D3ED3904DF5A17AB69AEFF95D81787DCEBC3260C37",
+      "normalized_lf_sha256": "354E158BC52415E02DF80F5EBDAAB76BFE25782ECE4A90C96A412BD2EEFEF12F"
+    },
+    {
+      "path": "docs/development/logs/feel086-r2-cumulative01.json",
+      "bytes": 4750568,
+      "sha256": "C3FB39AE3534ACACB0F3F21488F768DB263765B57A567B692F2A71FA3F444D2B",
+      "normalized_lf_sha256": "C3FB39AE3534ACACB0F3F21488F768DB263765B57A567B692F2A71FA3F444D2B"
+    },
+    {
+      "path": "docs/development/logs/feel086-r2-cumulative01.log",
+      "bytes": 240,
+      "sha256": "70DC4F01F4232C3D7905BE32E9813CCC0E0878000036072EEF2B7DB3C7C50934",
+      "normalized_lf_sha256": "70DC4F01F4232C3D7905BE32E9813CCC0E0878000036072EEF2B7DB3C7C50934"
+    },
+    {
+      "path": "docs/development/logs/feel086-r2-fit01/fit-de.png",
+      "bytes": 955190,
+      "sha256": "A5FD60A6A3B2A1B1D8ACADCF2713533D84F10F51209AD6C1147A8EF86A229354"
+    },
+    {
+      "path": "docs/development/logs/feel086-r2-fit01/fit-eng.png",
+      "bytes": 936237,
+      "sha256": "D1F2F48CDDFE316E9EEE96D82700809205D58E80DE806230276E5D5D989CC56F"
+    },
+    {
+      "path": "docs/development/logs/feel086-r2-fit01/report.json",
+      "bytes": 192,
+      "sha256": "4CBBDAF8A39A5D3FFB903BF1D57D669A1B572E5C0763ADCF8EF0E723B7D56276",
+      "normalized_lf_sha256": "4CBBDAF8A39A5D3FFB903BF1D57D669A1B572E5C0763ADCF8EF0E723B7D56276"
+    },
+    {
+      "path": "docs/development/logs/feel086-r2-fit01-memory.txt",
+      "bytes": 954,
+      "sha256": "6F6887276396DB97BB2E562A44A74A602D2CE48BE771E5999E52EC5754B1B703",
+      "normalized_lf_sha256": "524623A1547F1E8070C26B00D0F80E752F276CA5458388AA01C10F575642FA41"
+    },
+    {
+      "path": "docs/development/logs/feel086-r2-fit01.log",
+      "bytes": 196,
+      "sha256": "F3FB6C3AE30696B43ED2E160208E73B1254CD2C88A2ECEDF661C1A79707F3F98",
+      "normalized_lf_sha256": "F3FB6C3AE30696B43ED2E160208E73B1254CD2C88A2ECEDF661C1A79707F3F98"
+    },
+    {
+      "path": "docs/development/logs/feel086-r2-head01-memory.txt",
+      "bytes": 189,
+      "sha256": "90425D56C0C7478CBE04CE00A59021E4CD91AC5A9CF82BA0FC393B7876879509",
+      "normalized_lf_sha256": "93045CB409009337303ABAB2952E931350B02B72BADC612D59E4FFB518FC1C5C"
+    },
+    {
+      "path": "docs/development/logs/feel086-r2-head01.json",
+      "bytes": 58917,
+      "sha256": "1CB0E5F7B2E31661FF8E4316D8DC74389A2255F9AD5BF66DE08863830705494E",
+      "normalized_lf_sha256": "1CB0E5F7B2E31661FF8E4316D8DC74389A2255F9AD5BF66DE08863830705494E"
+    },
+    {
+      "path": "docs/development/logs/feel086-r2-head01.log",
+      "bytes": 84,
+      "sha256": "250366951369F2F6BB161ACAC815C2F28C1CDF363F369F8211B1FE9A29B44466",
+      "normalized_lf_sha256": "250366951369F2F6BB161ACAC815C2F28C1CDF363F369F8211B1FE9A29B44466"
+    },
+    {
+      "path": "docs/development/logs/feel086-r2-helmet01-memory.txt",
+      "bytes": 2474,
+      "sha256": "EA2E85D4477248648AEBDE940E5113A52786BE6EED30FC36A4083B0B6A0356FA",
+      "normalized_lf_sha256": "AD2F592528C311732212D17643E8C0F4E728545A56ABB2F4B880FEA7BE8F5A05"
+    },
+    {
+      "path": "docs/development/logs/feel086-r2-helmet01.json",
+      "bytes": 2612516,
+      "sha256": "1DDB277672BDA2A1313F047B198F7290491C01892196D399952B7A6957557450",
+      "normalized_lf_sha256": "1DDB277672BDA2A1313F047B198F7290491C01892196D399952B7A6957557450"
+    },
+    {
+      "path": "docs/development/logs/feel086-r2-helmet01.log",
+      "bytes": 655,
+      "sha256": "49EE0F5F5FAD2031FCAFE10DF835E003E41E97AA5D827590B3183ECDFCA0338B",
+      "normalized_lf_sha256": "49EE0F5F5FAD2031FCAFE10DF835E003E41E97AA5D827590B3183ECDFCA0338B"
+    },
+    {
+      "path": "docs/development/logs/feel086-r2-manual01-memory.txt",
+      "bytes": 25808,
+      "sha256": "9EF6D864BBC2FB712A81F8D8F2BFC8C09AA39A284DC7C28875855197321C4C23",
+      "normalized_lf_sha256": "3A5EB4259E495BE61BE60596DC75AC6D35E0AD286F9337C5B5728E1E2E9506C5"
+    },
+    {
+      "path": "docs/development/logs/feel086-r2-manual01.log",
+      "bytes": 194,
+      "sha256": "54459A1288356E2F490FAD08276F25A92A685296777B1A1A115835D0BE8F8741",
+      "normalized_lf_sha256": "54459A1288356E2F490FAD08276F25A92A685296777B1A1A115835D0BE8F8741"
+    },
+    {
+      "path": "docs/development/logs/feel086-r2-rules01-memory.txt",
+      "bytes": 5762,
+      "sha256": "4C58A4AFAE22E5CEF6EFE002D19B19CB99455271CF5F24062A196F4AA802500C",
+      "normalized_lf_sha256": "01A494DB576AB8C076F4030D11EF569C9789780FC1CFFEA58B9BCFC3C1CB6CDA"
+    },
+    {
+      "path": "docs/development/logs/feel086-r2-rules01.json",
+      "bytes": 236572,
+      "sha256": "15136E9988B6DFA885D68173BB0C20F09440E66A8909021102FACDBD7F84ADFB",
+      "normalized_lf_sha256": "15136E9988B6DFA885D68173BB0C20F09440E66A8909021102FACDBD7F84ADFB"
+    },
+    {
+      "path": "docs/development/logs/feel086-r2-rules01.log",
+      "bytes": 2236,
+      "sha256": "C31D67F09096AE84CFB83BF3ED27DCF426879C329DEB1B278E7654AFE6407CFC",
+      "normalized_lf_sha256": "C31D67F09096AE84CFB83BF3ED27DCF426879C329DEB1B278E7654AFE6407CFC"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-audio-leak01-memory.txt",
+      "bytes": 281,
+      "sha256": "A7BFC5E69238100C567DAEA194959B5873F42DC15E008182FB031A942AC56D97",
+      "normalized_lf_sha256": "00E41C2CC9396B7F6996814D5C70EE869E2C51660643516504D806584CE20E1A"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-audio-leak01.json",
+      "bytes": 13315,
+      "sha256": "463C4C78275E9D18921816E7AB6FCA0B60CCECA27D270D69BC531981F3B5ACC0",
+      "normalized_lf_sha256": "463C4C78275E9D18921816E7AB6FCA0B60CCECA27D270D69BC531981F3B5ACC0"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-audio-leak01.log",
+      "bytes": 10214,
+      "sha256": "49EC66447B50F3EF9982BB9EB767352DC9556EABDC050C6219C7E11D4A0C3048",
+      "normalized_lf_sha256": "49EC66447B50F3EF9982BB9EB767352DC9556EABDC050C6219C7E11D4A0C3048"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-audio01-memory.txt",
+      "bytes": 282,
+      "sha256": "1A848FAF9EFFC8E7AE2C29A4D2932DEDF4BF09002F8FD300DDE8839DCEBD4CAD",
+      "normalized_lf_sha256": "99E91D42F8A20764DE18EDB927FBB33789FA4063B6CCFC09A7D1927B83EDCADC"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-audio01.json",
+      "bytes": 13315,
+      "sha256": "96CFB84C5B1CBE45AEAAE9BDB7CF72EB6EA7C22ECB5578075034DD8CE9ED752F",
+      "normalized_lf_sha256": "96CFB84C5B1CBE45AEAAE9BDB7CF72EB6EA7C22ECB5578075034DD8CE9ED752F"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-audio01.log",
+      "bytes": 267,
+      "sha256": "03AB620A478821E1F8C0FB00EE520F48BAA418704DDE21D67C58A27114D66DFD",
+      "normalized_lf_sha256": "03AB620A478821E1F8C0FB00EE520F48BAA418704DDE21D67C58A27114D66DFD"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-audio02-memory.txt",
+      "bytes": 282,
+      "sha256": "BD6909356FBDEFDD5791ECCF360C2376C904EE7BBCC91FC8F01B0EDBFD764213",
+      "normalized_lf_sha256": "54B7A40FD3A3CECE71AD3775E3F1EF8935BD965331240D7187BA768380A3D526"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-audio02.json",
+      "bytes": 13514,
+      "sha256": "CE72F6CB491F5B6ADA229643A3FD6B5D6CD9730F879E47917CDA0032B3D4A8B8",
+      "normalized_lf_sha256": "CE72F6CB491F5B6ADA229643A3FD6B5D6CD9730F879E47917CDA0032B3D4A8B8"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-audio02.log",
+      "bytes": 9042,
+      "sha256": "0588A0755277B11D3E525BC738AC200D4527E015DEE632259AB1E477742DFE97",
+      "normalized_lf_sha256": "0588A0755277B11D3E525BC738AC200D4527E015DEE632259AB1E477742DFE97"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-cumulative01-memory.txt",
+      "bytes": 3423,
+      "sha256": "A25611FA7405048130118DD6ADA537AC1CBCF6786F91F52422F068070220C551",
+      "normalized_lf_sha256": "519C7E2CDC0AADF7C51174127DD4354DFAAAAA3E4022ECDA598CCA1A6B5F6628"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-cumulative01.json",
+      "bytes": 5069028,
+      "sha256": "D4F768EE4DFA70B2C6EBE06CF643AD59FA7C20DF6D2410C796D26933DCC8BFC3",
+      "normalized_lf_sha256": "D4F768EE4DFA70B2C6EBE06CF643AD59FA7C20DF6D2410C796D26933DCC8BFC3"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-cumulative01.log",
+      "bytes": 240,
+      "sha256": "18A05E41146FC1681845A1BBAAFF2FD86B44C3521357E0B54DC850FF60AFBE39",
+      "normalized_lf_sha256": "18A05E41146FC1681845A1BBAAFF2FD86B44C3521357E0B54DC850FF60AFBE39"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-fatal01-memory.txt",
+      "bytes": 3612,
+      "sha256": "E5BD09EE87CF6B99809B1F632F03A4B56CAC2B78E822E1E557F8D1E1A5646175",
+      "normalized_lf_sha256": "31DB026E40DC1F6A752679F77627CF303F415439C3502A43834E54F9F95A3DB5"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-fatal01.json",
+      "bytes": 5774559,
+      "sha256": "35779E02DEA3B050B6F2EC11F109B72B7EE28EE1423481580C77FD01FAF2124B",
+      "normalized_lf_sha256": "35779E02DEA3B050B6F2EC11F109B72B7EE28EE1423481580C77FD01FAF2124B"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-fatal01.log",
+      "bytes": 241,
+      "sha256": "69B930DBF254E9B42841FA7675C5CC704B6BBEF1ABF9908DA0E314EF7000ABF5",
+      "normalized_lf_sha256": "69B930DBF254E9B42841FA7675C5CC704B6BBEF1ABF9908DA0E314EF7000ABF5"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-heavy01/report.json",
+      "bytes": 173951,
+      "sha256": "8FB1E39709D54D558D28455B06D627B9FD28B45AB471DDFC31B66DD21F4E375F",
+      "normalized_lf_sha256": "8FB1E39709D54D558D28455B06D627B9FD28B45AB471DDFC31B66DD21F4E375F"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-heavy01-memory.txt",
+      "bytes": 17856,
+      "sha256": "95E45B26DA1542E83A96EA490BD66FEAE6673717EFEA56E9CF1A0A2D7709DE92",
+      "normalized_lf_sha256": "C78C43ABC735128679702CD4F3D7EB22980934C574344813C53BE23944F5D4D4"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-heavy01.log",
+      "bytes": 351,
+      "sha256": "25250440AFEF82933ECEE7334DF7378C83E4C36E802EAE4CEF56B668BAB77406",
+      "normalized_lf_sha256": "25250440AFEF82933ECEE7334DF7378C83E4C36E802EAE4CEF56B668BAB77406"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-input01-memory.txt",
+      "bytes": 1999,
+      "sha256": "B7BAC88929D9FB5B961AFA6A2F3DEE07FA07BCC9176FF367BEF7F37F4A80956B",
+      "normalized_lf_sha256": "DD6FADE916D68F0C03BA4598347C2A478224926D287B4E91DA365BECFD0B128C"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-input01.json",
+      "bytes": 597630,
+      "sha256": "3D4BCFD130E316F740657343F1E4C580D1C76A69D2C051651DD19CEFE7CE7521",
+      "normalized_lf_sha256": "3D4BCFD130E316F740657343F1E4C580D1C76A69D2C051651DD19CEFE7CE7521"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-input01.log",
+      "bytes": 586,
+      "sha256": "3EBF88D0ED0D281CA7A808B625D2FCCB052972CBDBABC368E93B995616DF77B8",
+      "normalized_lf_sha256": "3EBF88D0ED0D281CA7A808B625D2FCCB052972CBDBABC368E93B995616DF77B8"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-test_depth086-memory.txt",
+      "bytes": 190,
+      "sha256": "6C69F5B3BDC088DDD93CC5A90507CDE9DB1B61B3759292FD25E03ACD28F96CA4",
+      "normalized_lf_sha256": "A2E8272B5C976E1243BD3EB087CC5E3394E10B9241F57E3494B5B048D61A0983"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-test_depth086.json",
+      "bytes": 39511,
+      "sha256": "7595A815B1150DDF5EF21ECBE0B4916CABC5C00D05AB69AABF1CE19D9CFB34E4",
+      "normalized_lf_sha256": "7595A815B1150DDF5EF21ECBE0B4916CABC5C00D05AB69AABF1CE19D9CFB34E4"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-test_depth086.log",
+      "bytes": 85,
+      "sha256": "56A1FF107874451201A14069D8D946ABFEB3BC27ECFCB3EB2FA2580EAAAF8615",
+      "normalized_lf_sha256": "56A1FF107874451201A14069D8D946ABFEB3BC27ECFCB3EB2FA2580EAAAF8615"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-test_head076-memory.txt",
+      "bytes": 190,
+      "sha256": "17AFD7D40AF1AD4B4A1965079A5E4465329C14EAE022A464152C9D237F27ED36",
+      "normalized_lf_sha256": "CA4D67DE982ADDE2FB324D842B0087186607983C4E1F03A55962A87FEEB3849C"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-test_head076.json",
+      "bytes": 19844,
+      "sha256": "C5A8B279F30AE6AE8D3E0255AFC8FB80CCA2650A2BDB94C02C25F6DA4B492DB2",
+      "normalized_lf_sha256": "C5A8B279F30AE6AE8D3E0255AFC8FB80CCA2650A2BDB94C02C25F6DA4B492DB2"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-test_head076.log",
+      "bytes": 84,
+      "sha256": "53D1003C367F15F3AB44A879ED70605452328B30D96ABF17A178CE33C86ADBDD",
+      "normalized_lf_sha256": "53D1003C367F15F3AB44A879ED70605452328B30D96ABF17A178CE33C86ADBDD"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-test_head086-memory.txt",
+      "bytes": 190,
+      "sha256": "7C7593EF1BAF94A311AD4490B37A42F2A345032503173DF3DEA9763C6CD59690",
+      "normalized_lf_sha256": "703A173B318FA6985CCDFCBB72507D7A8DBE84D89C7E4DFD6B7E018A65174ACF"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-test_head086.json",
+      "bytes": 65377,
+      "sha256": "E932D47294D31A61E95CF73AF39EB230CE2DA2D29820ADE12BDA1ED4345A1B0A",
+      "normalized_lf_sha256": "E932D47294D31A61E95CF73AF39EB230CE2DA2D29820ADE12BDA1ED4345A1B0A"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-test_head086.log",
+      "bytes": 84,
+      "sha256": "250366951369F2F6BB161ACAC815C2F28C1CDF363F369F8211B1FE9A29B44466",
+      "normalized_lf_sha256": "250366951369F2F6BB161ACAC815C2F28C1CDF363F369F8211B1FE9A29B44466"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-war01/report.json",
+      "bytes": 87328,
+      "sha256": "726F888B683A7CF2846596BF7F449488CE6072DB7B81D84961DA07E777C54C68",
+      "normalized_lf_sha256": "726F888B683A7CF2846596BF7F449488CE6072DB7B81D84961DA07E777C54C68"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-war01-memory.txt",
+      "bytes": 9314,
+      "sha256": "7BDB59E08F115B01B13F0668B0C32C3F145CE3A01D13C084CA5161A1DCB2DC29",
+      "normalized_lf_sha256": "6BCA356CC7E7C85A53E393BB76AD10A310A1AE75221624BBC6CED8F160EF7E07"
+    },
+    {
+      "path": "docs/development/logs/feel086-r3-war01.log",
+      "bytes": 349,
+      "sha256": "73460231B36222AA2DE2C747977547628C243F9E24A4BCA1C71D2CAE845C5200",
+      "normalized_lf_sha256": "73460231B36222AA2DE2C747977547628C243F9E24A4BCA1C71D2CAE845C5200"
+    },
+    {
+      "path": "docs/development/logs/feel086-rider064-01-memory.txt",
+      "bytes": 281,
+      "sha256": "0293FAA160B0BB5569AAFA89136D07CFF2BAF47AD140E8734F2274E330D8EEA9",
+      "normalized_lf_sha256": "F60572DD059A7E361EE90AA8E4215A160A74B492D71DD826194B94E38C5819A4"
+    },
+    {
+      "path": "docs/development/logs/feel086-rider064-01.json",
+      "bytes": 1610,
+      "sha256": "D06D46B9AA5468BDABBA64C25DBED46D741B911389EA275A43CF7615156C7212",
+      "normalized_lf_sha256": "D06D46B9AA5468BDABBA64C25DBED46D741B911389EA275A43CF7615156C7212"
+    },
+    {
+      "path": "docs/development/logs/feel086-rider064-01.log",
+      "bytes": 1247,
+      "sha256": "D62F7F9DFEDD44EE51D337A634831F65B8C70531B11B0FAE80341126DB1D50F6",
+      "normalized_lf_sha256": "D62F7F9DFEDD44EE51D337A634831F65B8C70531B11B0FAE80341126DB1D50F6"
+    },
+    {
+      "path": "docs/development/logs/feel086-rules-baseline01-memory.txt",
+      "bytes": 5758,
+      "sha256": "F20336D8AABD71BFCB6B051436EAE439E878733C6D902A8F3F859A097D4F444B",
+      "normalized_lf_sha256": "081A7BE38E97B0A419EB215258B01C52F26AB85FC09A5C40B94C10B595EA4B1A"
+    },
+    {
+      "path": "docs/development/logs/feel086-rules-baseline01.log",
+      "bytes": 73,
+      "sha256": "2B6560EB96B2BF0EE7D4C27AC570F44412326F93A49EB4CBED384EC89F8AB334",
+      "normalized_lf_sha256": "2B6560EB96B2BF0EE7D4C27AC570F44412326F93A49EB4CBED384EC89F8AB334"
+    },
+    {
+      "path": "docs/development/logs/feel086-rules-baseline02-memory.txt",
+      "bytes": 3992,
+      "sha256": "21975090959690FEEFC7A4CB64B1415B612C9A557010AF41F92AEC0AD5A73D65",
+      "normalized_lf_sha256": "A7156BAD69C68BDC63B6F330E0ECC3D677B45DAB071600D2F70B37682662E86A"
+    },
+    {
+      "path": "docs/development/logs/feel086-rules-baseline02.json",
+      "bytes": 112280,
+      "sha256": "C27F432C4B02543CE9E0B237CC77E57BF1A1311597988814FFBA5629623DD4D2",
+      "normalized_lf_sha256": "C27F432C4B02543CE9E0B237CC77E57BF1A1311597988814FFBA5629623DD4D2"
+    },
+    {
+      "path": "docs/development/logs/feel086-rules-baseline02.log",
+      "bytes": 1207,
+      "sha256": "F943721349CE030183BECCB63817C1505A07D5FD4D5CA2805443363D68461D5A",
+      "normalized_lf_sha256": "F943721349CE030183BECCB63817C1505A07D5FD4D5CA2805443363D68461D5A"
+    },
+    {
+      "path": "docs/development/logs/feel086-rules-new01-memory.txt",
+      "bytes": 7153,
+      "sha256": "10FC4BDE61C6BEC0A8EDFA9DBAC8C863427460EBD47143D3D5D844CEA7FBEC7C",
+      "normalized_lf_sha256": "8DF02D22E9D7CF65035FE2C5AE91FDD2949F98E407C61A91F9E11ADF585E737C"
+    },
+    {
+      "path": "docs/development/logs/feel086-rules-new01.json",
+      "bytes": 216840,
+      "sha256": "BAEF7AB7E9C5D5555C62CC99FEA7753E4D3423D7F01ABEAE3C1531DD756AE779",
+      "normalized_lf_sha256": "BAEF7AB7E9C5D5555C62CC99FEA7753E4D3423D7F01ABEAE3C1531DD756AE779"
+    },
+    {
+      "path": "docs/development/logs/feel086-rules-new01.log",
+      "bytes": 2318,
+      "sha256": "CF5FF4121D6E0E5D4874E2ABA080BC2B3014F6059DEFA3F7DCAE8DA5614C41A6",
+      "normalized_lf_sha256": "CF5FF4121D6E0E5D4874E2ABA080BC2B3014F6059DEFA3F7DCAE8DA5614C41A6"
+    },
+    {
+      "path": "docs/development/logs/feel086-rules-old39-pointer01-memory.txt",
+      "bytes": 6878,
+      "sha256": "98C321CFA34492092DBEDA4CAFDF5B987E13BA6EFE5660E472AF2DE060E25AFF",
+      "normalized_lf_sha256": "46E4ED156489AF2E5C72F15D16BEB96D72FAFD2B07F60D7369D9EAA1CC9F57FE"
+    },
+    {
+      "path": "docs/development/logs/feel086-rules-old39-pointer01.json",
+      "bytes": 240400,
+      "sha256": "19903E3507AE225403084061C211F19B9C73793069D1E559ECCB173D9566232B",
+      "normalized_lf_sha256": "19903E3507AE225403084061C211F19B9C73793069D1E559ECCB173D9566232B"
+    },
+    {
+      "path": "docs/development/logs/feel086-rules-old39-pointer01.log",
+      "bytes": 2352,
+      "sha256": "49990068093C52FFCC46F984A8CD808B26BD75002AE9FA5082AB5E9945E669CF",
+      "normalized_lf_sha256": "49990068093C52FFCC46F984A8CD808B26BD75002AE9FA5082AB5E9945E669CF"
+    },
+    {
+      "path": "docs/development/logs/feel086-rules-pointer02-memory.txt",
+      "bytes": 6689,
+      "sha256": "9BF11E43AFB22629E8A2423556748AA38EFF91E1427F80B22EAE7FDA10169489",
+      "normalized_lf_sha256": "0A03A78DD79A3369358F65EDFD6150AC1D2E08D1FD957602D0E1975088C7427C"
+    },
+    {
+      "path": "docs/development/logs/feel086-rules-pointer02.json",
+      "bytes": 236572,
+      "sha256": "15136E9988B6DFA885D68173BB0C20F09440E66A8909021102FACDBD7F84ADFB",
+      "normalized_lf_sha256": "15136E9988B6DFA885D68173BB0C20F09440E66A8909021102FACDBD7F84ADFB"
+    },
+    {
+      "path": "docs/development/logs/feel086-rules-pointer02.log",
+      "bytes": 2236,
+      "sha256": "C31D67F09096AE84CFB83BF3ED27DCF426879C329DEB1B278E7654AFE6407CFC",
+      "normalized_lf_sha256": "C31D67F09096AE84CFB83BF3ED27DCF426879C329DEB1B278E7654AFE6407CFC"
+    },
+    {
+      "path": "docs/development/logs/feel086-strategy-back01-memory.txt",
+      "bytes": 4829,
+      "sha256": "4F6EBA8671EA9A5371AB7A2AC2E5B0BD5182B0A5E590F73C867C6A43EC5BF24A",
+      "normalized_lf_sha256": "B35DD2E33BCF2B03878B4ACB181F408C587C861E8EDD482E7A36311647FB6BB9"
+    },
+    {
+      "path": "docs/development/logs/feel086-strategy-back01.json",
+      "bytes": 96305,
+      "sha256": "54C02010480326A46B5FBA6BB96A338F7BD7F18D3AEDDCB6FCE16ECFC44D0751",
+      "normalized_lf_sha256": "54C02010480326A46B5FBA6BB96A338F7BD7F18D3AEDDCB6FCE16ECFC44D0751"
+    },
+    {
+      "path": "docs/development/logs/feel086-strategy-back01.log",
+      "bytes": 622,
+      "sha256": "97A679D3D87E1682ED1585DE3C04FBBEA23022340A766B33FFEA78553D93B4F0",
+      "normalized_lf_sha256": "97A679D3D87E1682ED1585DE3C04FBBEA23022340A766B33FFEA78553D93B4F0"
+    },
+    {
+      "path": "docs/development/logs/feel086-strategy-react01-memory.txt",
+      "bytes": 4829,
+      "sha256": "8BAFBA9523A188D93EA017940526FF418DB2318650D92834D30D319B11113472",
+      "normalized_lf_sha256": "2E57C16F9A852C006A6CC84361D3B17593F6F446D2B5DFC255E456B0CD45DBE2"
+    },
+    {
+      "path": "docs/development/logs/feel086-strategy-react01.json",
+      "bytes": 96856,
+      "sha256": "7801C1D8B5B1698AF4D5274ADB1A60778C8A23BCEB2D46D0222A4344F4254EBA",
+      "normalized_lf_sha256": "7801C1D8B5B1698AF4D5274ADB1A60778C8A23BCEB2D46D0222A4344F4254EBA"
+    },
+    {
+      "path": "docs/development/logs/feel086-strategy-react01.log",
+      "bytes": 622,
+      "sha256": "408F4EADDB538B61367F1639FE1D7BC561EFB5AD2A73C7A5A728D1FFCA0861E9",
+      "normalized_lf_sha256": "408F4EADDB538B61367F1639FE1D7BC561EFB5AD2A73C7A5A728D1FFCA0861E9"
+    },
+    {
+      "path": "docs/development/logs/feel086-strategy01-memory.txt",
+      "bytes": 6131,
+      "sha256": "40C84AFEC2AFEB34BD60F42722D354196EF20E928BC9E41D8C22573D5AD11641",
+      "normalized_lf_sha256": "3D1764F199F5118194C2BA07CD6B82BAFE20810CF6717674023DC7A7A3EEDEA5"
+    },
+    {
+      "path": "docs/development/logs/feel086-strategy01.json",
+      "bytes": 147796,
+      "sha256": "E066DEA8D69A0F0C8F01E67938227E1DFD4E648CA9DD549A2161E0806A30FBE5",
+      "normalized_lf_sha256": "E066DEA8D69A0F0C8F01E67938227E1DFD4E648CA9DD549A2161E0806A30FBE5"
+    },
+    {
+      "path": "docs/development/logs/feel086-strategy01.log",
+      "bytes": 1180,
+      "sha256": "FCE94C375F8961CEB364966D00A30B4C081690E00A542FF12516F1F7A440EA21",
+      "normalized_lf_sha256": "FCE94C375F8961CEB364966D00A30B4C081690E00A542FF12516F1F7A440EA21"
+    },
+    {
+      "path": "docs/development/logs/feel086-stride01-memory.txt",
+      "bytes": 950,
+      "sha256": "6E33C567AD558D7824AA9CEDB6D44515573EDF49BB10CAC6CF2F2BDBAD388E1F",
+      "normalized_lf_sha256": "F9E1D2AD61A0FA5B27C4830B018274190F793D83CE9B948F53F1A6FADFCA58A9"
+    },
+    {
+      "path": "docs/development/logs/feel086-stride01.log",
+      "bytes": 234,
+      "sha256": "11A302CD1B41819916AC983701A83E54ED7B799C36CBC678E71F5E9ABE0AF365",
+      "normalized_lf_sha256": "11A302CD1B41819916AC983701A83E54ED7B799C36CBC678E71F5E9ABE0AF365"
+    },
+    {
+      "path": "docs/development/logs/feel086-video02-memory.txt",
+      "bytes": 1899,
+      "sha256": "97C3B9895C7210B371252CC124FEA909F71B1E468F2015C3C8D471FCB3E7607E",
+      "normalized_lf_sha256": "210C4E6B1D7E4F116501BC715BCA9996A8A7D1BD3F96BAAFD2117DB3F79CD424"
+    },
+    {
+      "path": "docs/development/logs/feel086-wave-baseline01.json",
+      "bytes": 1375,
+      "sha256": "D84251E58823C005112028B2CA6FF66C1429B0FB55182E894D6E84A4EE2BE657",
+      "normalized_lf_sha256": "5132F065D679FFB0B5592455E58B1056391E7341F3E3FE732CDD4F089F7CFB51"
+    },
+    {
+      "path": "docs/development/logs/feel086-wave01-memory.txt",
+      "bytes": 186,
+      "sha256": "72B9570E0AFD56DFFE3AA5FD77703A8B745254BCBCE9F10E00F8CEEF66604883",
+      "normalized_lf_sha256": "92D73EEBDBD5B33EEA185878B762456AEB7ECC9930B1FBB7845F7A5F002D8F7A"
+    },
+    {
+      "path": "docs/development/logs/feel086-wave01.json",
+      "bytes": 1896,
+      "sha256": "03B4158EA8BEA28235F3BBC800EB2D3D9EB962D8208DB5654B543A3DA2834630",
+      "normalized_lf_sha256": "03B4158EA8BEA28235F3BBC800EB2D3D9EB962D8208DB5654B543A3DA2834630"
+    },
+    {
+      "path": "docs/development/logs/feel086-wave01.log",
+      "bytes": 84,
+      "sha256": "9071FE703948C23AD5BAF493D6D8FC06A9BD5F8F1A4E2AB07E2305539CCD6519",
+      "normalized_lf_sha256": "9071FE703948C23AD5BAF493D6D8FC06A9BD5F8F1A4E2AB07E2305539CCD6519"
+    },
+    {
+      "path": "docs/development/previews/feel086/gait-comparison.mp4",
+      "bytes": 6472679,
+      "sha256": "6390355683662E502E0D7EDE4EF5D00FCC6A9259F38A36C8AD6C098A656515FC"
+    },
+    {
+      "path": "docs/development/screenshots/feel086/depth-helmet01/arena_mounted_0_head_slow_loaded_hold.png",
+      "bytes": 912540,
+      "sha256": "76468D8C1AE2FC80B23B0370ACC88F2EB3F4515704B51068F23EA9051E818241"
+    },
+    {
+      "path": "docs/development/screenshots/feel086/depth-helmet01/arena_mounted_1_head_slow_loaded_hold.png",
+      "bytes": 916994,
+      "sha256": "4046B3DEBF43403456A7075F85B91D03AE1C8A7FC4CF591F1C6C16C53FE1F0F4"
+    },
+    {
+      "path": "docs/development/screenshots/feel086/r3-cumulative01/war_fatal_0_head_slow_airborne.png",
+      "bytes": 904330,
+      "sha256": "BD159BB7D342345E64C2E5AD13E729D27012137AA3B40E7AE90724894821D5B2"
+    },
+    {
+      "path": "docs/development/screenshots/feel086/r3-cumulative01/war_fatal_1_head_slow_landed.png",
+      "bytes": 896443,
+      "sha256": "B627B981D96AC6635240628FEC4E228858126551D2B6DC997C1F36E99CEF525F"
+    },
+    {
+      "path": "docs/development/screenshots/feel086/r3-fatal01/war_fatal_1_head_slow_settled.png",
+      "bytes": 1028260,
+      "sha256": "4097D94962F749106DD8579C0AADC7E74D52DE012D2354B751E086ACC51BBE37"
+    }
+  ],
+  "hash_note": "sha256 is the original local file bytes. Text files also have normalized_lf_sha256 for Git line-ending conversion; raw engine log whitespace is preserved."
+}

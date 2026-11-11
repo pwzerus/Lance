@@ -1,0 +1,132 @@
+{
+	"failures": [
+		"Head pose snapped at zero-time mount/fall handover: 1/-1.0/0.0",
+		"Head pose snapped at zero-time mount/fall handover: 1/-1.0/210.0",
+		"Head pose snapped at zero-time mount/fall handover: 1/-1.0/480.0",
+		"Head pose snapped at zero-time mount/fall handover: 1/0.0/210.0",
+		"Head pose snapped at zero-time mount/fall handover: 1/0.0/480.0",
+		"Head pose snapped at zero-time mount/fall handover: 1/1.0/0.0",
+		"Head pose snapped at zero-time mount/fall handover: 1/1.0/210.0",
+		"Head pose snapped at zero-time mount/fall handover: 1/1.0/480.0",
+		"Head pose snapped at zero-time mount/fall handover: -1/-1.0/0.0",
+		"Head pose snapped at zero-time mount/fall handover: -1/-1.0/210.0",
+		"Head pose snapped at zero-time mount/fall handover: -1/-1.0/480.0",
+		"Head pose snapped at zero-time mount/fall handover: -1/0.0/210.0",
+		"Head pose snapped at zero-time mount/fall handover: -1/0.0/480.0",
+		"Head pose snapped at zero-time mount/fall handover: -1/1.0/0.0",
+		"Head pose snapped at zero-time mount/fall handover: -1/1.0/210.0",
+		"Head pose snapped at zero-time mount/fall handover: -1/1.0/480.0"
+	],
+	"maximum_zero_time_head_error": 9.89429569244385,
+	"passed": false,
+	"rows": [
+		{
+			"error": 8.83334255218506,
+			"facing": 1,
+			"lean": -1.0,
+			"speed": 0.0
+		},
+		{
+			"error": 8.93358707427979,
+			"facing": 1,
+			"lean": -1.0,
+			"speed": 210.0
+		},
+		{
+			"error": 6.89307737350464,
+			"facing": 1,
+			"lean": -1.0,
+			"speed": 480.0
+		},
+		{
+			"error": 0.0,
+			"facing": 1,
+			"lean": 0.0,
+			"speed": 0.0
+		},
+		{
+			"error": 0.101057082414627,
+			"facing": 1,
+			"lean": 0.0,
+			"speed": 210.0
+		},
+		{
+			"error": 1.95062351226807,
+			"facing": 1,
+			"lean": 0.0,
+			"speed": 480.0
+		},
+		{
+			"error": 4.91524696350098,
+			"facing": 1,
+			"lean": 1.0,
+			"speed": 0.0
+		},
+		{
+			"error": 4.81439018249512,
+			"facing": 1,
+			"lean": 1.0,
+			"speed": 210.0
+		},
+		{
+			"error": 6.86015129089355,
+			"facing": 1,
+			"lean": 1.0,
+			"speed": 480.0
+		},
+		{
+			"error": 9.78311729431152,
+			"facing": -1,
+			"lean": -1.0,
+			"speed": 0.0
+		},
+		{
+			"error": 9.89429569244385,
+			"facing": -1,
+			"lean": -1.0,
+			"speed": 210.0
+		},
+		{
+			"error": 7.63445949554443,
+			"facing": -1,
+			"lean": -1.0,
+			"speed": 480.0
+		},
+		{
+			"error": 0.0,
+			"facing": -1,
+			"lean": 0.0,
+			"speed": 0.0
+		},
+		{
+			"error": 0.111994475126266,
+			"facing": -1,
+			"lean": 0.0,
+			"speed": 210.0
+		},
+		{
+			"error": 2.16045594215393,
+			"facing": -1,
+			"lean": 0.0,
+			"speed": 480.0
+		},
+		{
+			"error": 5.44391012191772,
+			"facing": -1,
+			"lean": 1.0,
+			"speed": 0.0
+		},
+		{
+			"error": 5.33240032196045,
+			"facing": -1,
+			"lean": 1.0,
+			"speed": 210.0
+		},
+		{
+			"error": 7.59795618057251,
+			"facing": -1,
+			"lean": 1.0,
+			"speed": 480.0
+		}
+	]
+}

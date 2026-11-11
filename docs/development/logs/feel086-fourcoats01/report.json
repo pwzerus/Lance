@@ -1,0 +1,35 @@
+{
+	"cases": [
+		{
+			"coast_end_speed": 217.027320786138,
+			"coat": "bay",
+			"frames": 180,
+			"max_head_step_120hz": 1.89643681049347,
+			"peak_speed": 496.062447511173
+		},
+		{
+			"coast_end_speed": 217.027320786138,
+			"coat": "grey",
+			"frames": 180,
+			"max_head_step_120hz": 1.89643681049347,
+			"peak_speed": 496.062447511173
+		},
+		{
+			"coast_end_speed": 212.837045857288,
+			"coat": "black",
+			"frames": 180,
+			"max_head_step_120hz": 1.62545585632324,
+			"peak_speed": 486.48467624523
+		},
+		{
+			"coast_end_speed": 212.837045857288,
+			"coat": "flaxen",
+			"frames": 180,
+			"max_head_step_120hz": 1.62545585632324,
+			"peak_speed": 486.48467624523
+		}
+	],
+	"failures": [],
+	"passed": true,
+	"scope": "Four coats, two directions, light/heavy equipment, real model 120Hz controls/step, 60Hz RiderView, 15Hz disk captures of 12 game seconds each. Distant opponents disable contacts; staged views are not Battle camera or OS/human play."
+}

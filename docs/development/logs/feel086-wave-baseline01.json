@@ -1,0 +1,74 @@
+[
+  {
+    "gait": "walk",
+    "part": "height",
+    "range": 3.0,
+    "peaks_per_stride": 2
+  },
+  {
+    "gait": "walk",
+    "part": "pitch",
+    "range": 0.024009735999999993,
+    "peaks_per_stride": 3
+  },
+  {
+    "gait": "walk",
+    "part": "rider_pitch",
+    "range": 0.04802891040000001,
+    "peaks_per_stride": 4
+  },
+  {
+    "gait": "trot",
+    "part": "height",
+    "range": 4.0076288,
+    "peaks_per_stride": 2
+  },
+  {
+    "gait": "trot",
+    "part": "pitch",
+    "range": 0.020150272000000004,
+    "peaks_per_stride": 2
+  },
+  {
+    "gait": "trot",
+    "part": "rider_pitch",
+    "range": 0.06462062640000005,
+    "peaks_per_stride": 2
+  },
+  {
+    "gait": "canter",
+    "part": "height",
+    "range": 6.1988444,
+    "peaks_per_stride": 2
+  },
+  {
+    "gait": "canter",
+    "part": "pitch",
+    "range": 0.032295876,
+    "peaks_per_stride": 2
+  },
+  {
+    "gait": "canter",
+    "part": "rider_pitch",
+    "range": 0.077332068,
+    "peaks_per_stride": 2
+  },
+  {
+    "gait": "gallop",
+    "part": "height",
+    "range": 6.696000000000001,
+    "peaks_per_stride": 2
+  },
+  {
+    "gait": "gallop",
+    "part": "pitch",
+    "range": 0.049350016,
+    "peaks_per_stride": 2
+  },
+  {
+    "gait": "gallop",
+    "part": "rider_pitch",
+    "range": 0.08825698800000013,
+    "peaks_per_stride": 2
+  }
+]

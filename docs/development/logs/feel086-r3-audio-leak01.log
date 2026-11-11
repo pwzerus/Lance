@@ -1,0 +1,118 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Unrecognized output string "misc2" in mapping:
+030000000d0f00000202000000000000,Horipad O Nintendo Switch 2 Controller,a:b1,b:b0,back:b8,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,dpup:h0.1,guide:b12,leftshoulder:b4,leftstick:b10,lefttrigger:b6,leftx:a0,lefty:a1,misc1:b13,misc2:b14,rightshoulder:b5,rightstick:b11,righttrigger:b7,rightx:a2,righty:a3,start:b9,x:b3,y:b2,platform:Windows,
+Unrecognized output string "misc2" in mapping:
+030000000d0f00009601000000000000,Horipad Steam,a:b0,b:b1,back:b10,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,dpup:h0.1,guide:b12,leftshoulder:b6,leftstick:b13,lefttrigger:b8,leftx:a0,lefty:a1,misc2:b2,paddle1:b5,paddle2:b15,paddle3:b18,paddle4:b19,rightshoulder:b7,rightstick:b14,righttrigger:b9,rightx:a3,righty:a4,start:b11,x:b3,y:b4,platform:Windows,
+Unrecognized output string "misc2" in mapping:
+030000007e0500006920000000000000,Nintendo Switch 2 Pro Controller,a:b0,b:b1,back:b14,dpdown:b8,dpleft:b10,dpright:b9,dpup:b11,guide:b16,leftshoulder:b12,leftstick:b15,lefttrigger:b13,leftx:a0,lefty:a1~,misc1:b17,misc2:b20,paddle1:b18,paddle2:b19,rightshoulder:b4,rightstick:b7,righttrigger:b5,rightx:a2,righty:a3~,start:b6,x:b2,y:b3,platform:Windows,
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 0
+EDITOR API HASH: 0
+Loading resource: E:/GALUMU/game/tests/test_impact_audio_v050.gd
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/core/game_state.gdc
+Loaded system CA certificates
+Loading resource: res://assets/audio/impact_v075/contact_helmet_solid_0.wav
+Loading resource: res://.godot/imported/contact_helmet_solid_0.wav-4be668f5d3417af33cad719f8df45ed3.sample
+Loading resource: res://assets/audio/impact_v075/contact_helmet_solid_1.wav
+Loading resource: res://.godot/imported/contact_helmet_solid_1.wav-3ac1a7c741c7582e3898a45e1f1422be.sample
+Loading resource: res://assets/audio/impact_v075/contact_helmet_solid_2.wav
+Loading resource: res://.godot/imported/contact_helmet_solid_2.wav-61314073372a2514bff880a49c5bd69c.sample
+Loading resource: res://assets/audio/impact_v075/contact_helmet_glance_0.wav
+Loading resource: res://.godot/imported/contact_helmet_glance_0.wav-d0809f8341b0e29b69bccbc54d253919.sample
+Loading resource: res://assets/audio/impact_v075/contact_helmet_glance_1.wav
+Loading resource: res://.godot/imported/contact_helmet_glance_1.wav-a9f578f7e2f12e322264a93d5a22e6a1.sample
+Loading resource: res://assets/audio/impact_v075/contact_helmet_glance_2.wav
+Loading resource: res://.godot/imported/contact_helmet_glance_2.wav-e8d9deab394e62aab628ad9bdb184976.sample
+Loading resource: res://assets/audio/impact_v075/contact_plate_solid_0.wav
+Loading resource: res://.godot/imported/contact_plate_solid_0.wav-b2d6ad808f9d2f2561c547e3d5090c60.sample
+Loading resource: res://assets/audio/impact_v075/contact_plate_solid_1.wav
+Loading resource: res://.godot/imported/contact_plate_solid_1.wav-436794ca5f725413f3001f4f555be1c0.sample
+Loading resource: res://assets/audio/impact_v075/contact_plate_solid_2.wav
+Loading resource: res://.godot/imported/contact_plate_solid_2.wav-bc8f4cb65381332a0e2c13844c4cd253.sample
+Loading resource: res://assets/audio/impact_v075/contact_plate_glance_0.wav
+Loading resource: res://.godot/imported/contact_plate_glance_0.wav-eab379339eea5f4907225166b9a8eabf.sample
+Loading resource: res://assets/audio/impact_v075/contact_plate_glance_1.wav
+Loading resource: res://.godot/imported/contact_plate_glance_1.wav-048f200295e248f88c05624d224e1efe.sample
+Loading resource: res://assets/audio/impact_v075/contact_plate_glance_2.wav
+Loading resource: res://.godot/imported/contact_plate_glance_2.wav-07109f2fb384655e0ea1d4505dc32787.sample
+Loading resource: res://assets/audio/impact_v075/contact_mail_solid_0.wav
+Loading resource: res://.godot/imported/contact_mail_solid_0.wav-4b092311bc6b80575cd092b07b26b5df.sample
+Loading resource: res://assets/audio/impact_v075/contact_mail_solid_1.wav
+Loading resource: res://.godot/imported/contact_mail_solid_1.wav-5ec4c1be2e5239803fe7bbcbec2d9d4c.sample
+Loading resource: res://assets/audio/impact_v075/contact_mail_solid_2.wav
+Loading resource: res://.godot/imported/contact_mail_solid_2.wav-ce951aeba228e2bc5153c1fd8fec2c2b.sample
+Loading resource: res://assets/audio/impact_v075/contact_mail_glance_0.wav
+Loading resource: res://.godot/imported/contact_mail_glance_0.wav-3b9431b8ac7e942e626a8a87e066eafb.sample
+Loading resource: res://assets/audio/impact_v075/contact_mail_glance_1.wav
+Loading resource: res://.godot/imported/contact_mail_glance_1.wav-5c44aeacbded5e226e75e6553d6d3779.sample
+Loading resource: res://assets/audio/impact_v075/contact_mail_glance_2.wav
+Loading resource: res://.godot/imported/contact_mail_glance_2.wav-806ef8be70b5afef300385a8d878163c.sample
+Loading resource: res://assets/audio/impact_v075/contact_padded_solid_0.wav
+Loading resource: res://.godot/imported/contact_padded_solid_0.wav-a4978722fd55c123e0dbdf58cd1c9068.sample
+Loading resource: res://assets/audio/impact_v075/contact_padded_solid_1.wav
+Loading resource: res://.godot/imported/contact_padded_solid_1.wav-26f4e50bfce47a441a136685bf3054a9.sample
+Loading resource: res://assets/audio/impact_v075/contact_padded_solid_2.wav
+Loading resource: res://.godot/imported/contact_padded_solid_2.wav-194fe74bfd7756975020975a6cc7f0ef.sample
+Loading resource: res://assets/audio/impact_v075/contact_padded_glance_0.wav
+Loading resource: res://.godot/imported/contact_padded_glance_0.wav-c64addeeda5124222fdb1c14a5d51278.sample
+Loading resource: res://assets/audio/impact_v075/contact_padded_glance_1.wav
+Loading resource: res://.godot/imported/contact_padded_glance_1.wav-743f4e75fd146ff985782e08901e429a.sample
+Loading resource: res://assets/audio/impact_v075/contact_padded_glance_2.wav
+Loading resource: res://.godot/imported/contact_padded_glance_2.wav-d2d0a97226efcf3010277e1c54bc97d8.sample
+Loading resource: res://assets/audio/impact_v075/contact_shield_wood_solid_0.wav
+Loading resource: res://.godot/imported/contact_shield_wood_solid_0.wav-2f4022f09a780311877d0d3d79805dd5.sample
+Loading resource: res://assets/audio/impact_v075/contact_shield_wood_solid_1.wav
+Loading resource: res://.godot/imported/contact_shield_wood_solid_1.wav-4ca56df89f558ea392b103131c393113.sample
+Loading resource: res://assets/audio/impact_v075/contact_shield_wood_solid_2.wav
+Loading resource: res://.godot/imported/contact_shield_wood_solid_2.wav-33ed8fd99e165dd200cc6bea13360274.sample
+Loading resource: res://assets/audio/impact_v075/contact_shield_wood_glance_0.wav
+Loading resource: res://.godot/imported/contact_shield_wood_glance_0.wav-3fd1e00a5a0ceed6de329ac2132ca8c2.sample
+Loading resource: res://assets/audio/impact_v075/contact_shield_wood_glance_1.wav
+Loading resource: res://.godot/imported/contact_shield_wood_glance_1.wav-81559ef17dc15505abb7728273d7530a.sample
+Loading resource: res://assets/audio/impact_v075/contact_shield_wood_glance_2.wav
+Loading resource: res://.godot/imported/contact_shield_wood_glance_2.wav-8d1dd869329e8acd06ca8efb890a42bf.sample
+Loading resource: res://assets/audio/impact_v075/contact_brigandine_solid_0.wav
+Loading resource: res://.godot/imported/contact_brigandine_solid_0.wav-a0a8d60d2ca59b27b115db19a1140950.sample
+Loading resource: res://assets/audio/impact_v075/contact_brigandine_solid_1.wav
+Loading resource: res://.godot/imported/contact_brigandine_solid_1.wav-b8c633388ef956e7f680bdab563287da.sample
+Loading resource: res://assets/audio/impact_v075/contact_brigandine_solid_2.wav
+Loading resource: res://.godot/imported/contact_brigandine_solid_2.wav-4a49960dc11addf31debe4b198b23f4e.sample
+Loading resource: res://assets/audio/impact_v075/contact_brigandine_glance_0.wav
+Loading resource: res://.godot/imported/contact_brigandine_glance_0.wav-0abf9390cbc8f8caa8b034b359e8d26e.sample
+Loading resource: res://assets/audio/impact_v075/contact_brigandine_glance_1.wav
+Loading resource: res://.godot/imported/contact_brigandine_glance_1.wav-179217754bd96fbe0bf60b327fa3b133.sample
+Loading resource: res://assets/audio/impact_v075/contact_brigandine_glance_2.wav
+Loading resource: res://.godot/imported/contact_brigandine_glance_2.wav-8fa02988e31312b65195a4e021034587.sample
+Loading resource: res://assets/audio/impact_v075/lance_break_0.wav
+Loading resource: res://.godot/imported/lance_break_0.wav-7f3b7e2b719434340d0afb7fe47cb92a.sample
+Loading resource: res://assets/audio/impact_v075/lance_break_1.wav
+Loading resource: res://.godot/imported/lance_break_1.wav-d6310912b7e8cd0286b36f6efa22b13d.sample
+Loading resource: res://assets/audio/impact_v075/lance_break_2.wav
+Loading resource: res://.godot/imported/lance_break_2.wav-c2dc3cfa3be3d9aa4a840c58e22855b4.sample
+IMPACT_AUDIO_V050 {"failures":[],"generation_ms":525.625,"passed":true}
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2514)
+Leaked instance: AudioStreamWAV:9223372062406477094 - Resource path: 
+Leaked instance: AudioStreamPlaybackWAV:9223372068949591411
+Leaked instance: AudioStreamPlaybackWAV:9223372068999923062
+Leaked instance: AudioStreamPlaybackWAV:9223372069050254713
+Leaked instance: AudioStreamPlaybackWAV:9223372069100586364
+Leaked instance: AudioStreamPlaybackWAV:9223372069117363581
+Leaked instance: AudioStreamPlaybackWAV:9223372069134140798
+Leaked instance: AudioStreamPlaybackWAV:9223372069150918015
+Leaked instance: AudioStreamPlaybackWAV:9223372069167695232
+Leaked instance: AudioStreamPlaybackWAV:9223372069184472449
+Leaked instance: AudioStreamPlaybackWAV:9223372069201249666
+Leaked instance: AudioStreamPlaybackWAV:9223372069218026883
+Leaked instance: AudioStreamPlaybackWAV:9223372069234804100
+Hint: Leaked instances typically happen when nodes are removed from the scene tree (with `remove_child()`) but not freed (with `free()` or `queue_free()`).
+Orphan StringName: Master (static: 0, total: 24)
+StringName: 1 unclaimed string names at exit.

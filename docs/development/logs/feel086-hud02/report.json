@@ -1,0 +1,39 @@
+{
+	"failures": [],
+	"passed": true,
+	"rows": [
+		{
+			"available_width": 895.0,
+			"case": "war-fresh",
+			"text": "护头 · 下身较易暴露",
+			"text_width": 152.0
+		},
+		{
+			"available_width": 895.0,
+			"case": "war-injured",
+			"text": "护头 · 下身较易暴露　· 头部重创，谨防再中　· 坐姿失衡　· 枪已断，仅余残柄　· 手臂酸软　· 接近放缓",
+			"text_width": 794.0
+		},
+		{
+			"case": "war-terminal",
+			"text": "骑手阵亡"
+		},
+		{
+			"available_width": 895.0,
+			"case": "arena-fresh",
+			"text": "护头 · 下身较易暴露",
+			"text_width": 152.0
+		},
+		{
+			"available_width": 895.0,
+			"case": "arena-injured",
+			"text": "护头 · 下身较易暴露　· 坐姿失衡　· 枪已断，下轮换新枪　· 手臂酸软　· 接近放缓",
+			"text_width": 630.0
+		},
+		{
+			"case": "arena-terminal",
+			"text": "骑手落马 · 无法继续交锋"
+		}
+	],
+	"scope": "Staged production injury HUD, both modes, max overlapping statuses, actual GPU. No OS input or player approval."
+}

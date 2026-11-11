@@ -1,0 +1,115 @@
+{
+	"failures": [],
+	"maximum_zero_time_head_error": 0.000244140625,
+	"passed": true,
+	"rows": [
+		{
+			"error": 0.000244140625,
+			"facing": 1,
+			"lean": -1.0,
+			"speed": 0.0
+		},
+		{
+			"error": 0.0,
+			"facing": 1,
+			"lean": -1.0,
+			"speed": 210.0
+		},
+		{
+			"error": 0.0,
+			"facing": 1,
+			"lean": -1.0,
+			"speed": 480.0
+		},
+		{
+			"error": 0.0,
+			"facing": 1,
+			"lean": 0.0,
+			"speed": 0.0
+		},
+		{
+			"error": 0.000030517578125,
+			"facing": 1,
+			"lean": 0.0,
+			"speed": 210.0
+		},
+		{
+			"error": 0.000244140625,
+			"facing": 1,
+			"lean": 0.0,
+			"speed": 480.0
+		},
+		{
+			"error": 0.0,
+			"facing": 1,
+			"lean": 1.0,
+			"speed": 0.0
+		},
+		{
+			"error": 0.0,
+			"facing": 1,
+			"lean": 1.0,
+			"speed": 210.0
+		},
+		{
+			"error": 0.0,
+			"facing": 1,
+			"lean": 1.0,
+			"speed": 480.0
+		},
+		{
+			"error": 0.0,
+			"facing": -1,
+			"lean": -1.0,
+			"speed": 0.0
+		},
+		{
+			"error": 0.0,
+			"facing": -1,
+			"lean": -1.0,
+			"speed": 210.0
+		},
+		{
+			"error": 0.000244140625,
+			"facing": -1,
+			"lean": -1.0,
+			"speed": 480.0
+		},
+		{
+			"error": 0.0,
+			"facing": -1,
+			"lean": 0.0,
+			"speed": 0.0
+		},
+		{
+			"error": 0.0,
+			"facing": -1,
+			"lean": 0.0,
+			"speed": 210.0
+		},
+		{
+			"error": 0.0,
+			"facing": -1,
+			"lean": 0.0,
+			"speed": 480.0
+		},
+		{
+			"error": 0.000244140625,
+			"facing": -1,
+			"lean": 1.0,
+			"speed": 0.0
+		},
+		{
+			"error": 0.000244140625,
+			"facing": -1,
+			"lean": 1.0,
+			"speed": 210.0
+		},
+		{
+			"error": 0.0,
+			"facing": -1,
+			"lean": 1.0,
+			"speed": 480.0
+		}
+	]
+}

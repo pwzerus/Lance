@@ -1,0 +1,1146 @@
+{
+	"failures": [
+		"Hold/release / facing 1 / 120Hz: fetlock sink jumped between frames",
+		"Hold/release / facing -1 / 120Hz: fetlock sink jumped between frames"
+	],
+	"passed": false,
+	"rest": [
+		{
+			"distal_flex_deg": 48.8214340362533,
+			"front": false,
+			"index": 0,
+			"points": [
+				"(-93.0, -150.0)",
+				"(-82.64493, -105.3036)",
+				"(-129.2827, -57.92294)",
+				"(-126.0, -14.0)",
+				"(-116.24, -0.43)",
+				"(-113.0, 12.0)"
+			]
+		},
+		{
+			"distal_flex_deg": 48.8214135456858,
+			"front": false,
+			"index": 1,
+			"points": [
+				"(-99.0, -148.0)",
+				"(-85.99999, -104.0)",
+				"(-134.0, -58.0)",
+				"(-132.0, -14.0)",
+				"(-122.24, -0.43)",
+				"(-119.0, 12.0)"
+			]
+		},
+		{
+			"distal_flex_deg": 2.67004282274599,
+			"front": true,
+			"index": 2,
+			"points": [
+				"(66.0, -136.0)",
+				"(51.93068, -96.85854)",
+				"(50.34896, -51.87523)",
+				"(47.0, -11.0)",
+				"(53.59, 0.11)",
+				"(59.0, 12.0)"
+			]
+		},
+		{
+			"distal_flex_deg": 2.67048721192886,
+			"front": true,
+			"index": 3,
+			"points": [
+				"(72.0, -134.0)",
+				"(53.00002, -96.99999)",
+				"(54.00011, -52.0)",
+				"(53.0, -11.0)",
+				"(59.59, 0.11)",
+				"(65.0, 12.0)"
+			]
+		}
+	],
+	"scope": "Six-joint horse limbs in the real RiderView at 30/60/120Hz, both facings, four steady gaits and model hold/release. v050 bone, branch, support, slide and velocity bounds plus flat supporting hoof, fetlock sink bounded/continuous/zero in swing and present at gallop. Geometry only; not a render, OS input or human approval of natural motion.",
+	"steady": [
+		{
+			"facing": 1,
+			"flight_frames": 0,
+			"hz": 30,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.22294408082962,
+				"hind_femur_local_max": 1.83259577385245,
+				"hind_femur_local_min": 0.872664548286903,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.380828976631165,
+				"maximum_hoof_velocity": 663.597793579102,
+				"maximum_local_joint_velocity": 565.338535308838,
+				"maximum_reference_joint_velocity": 675.187911987305,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.0999998482183867,
+				"maximum_sink_step_rad": 0.0256058716560017,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.00390625,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 3.12658289951176,
+				"reach_releases": 4
+			},
+			"minimum_support": 2,
+			"speed": 110.0,
+			"support_frames": [
+				44,
+				42,
+				38,
+				42
+			]
+		},
+		{
+			"facing": 1,
+			"flight_frames": 6,
+			"hz": 30,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.225661888718605,
+				"hind_femur_local_max": 1.83259587896146,
+				"hind_femur_local_min": 0.872664569297807,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.436412692070007,
+				"maximum_hoof_velocity": 688.67036819458,
+				"maximum_local_joint_velocity": 595.207786560059,
+				"maximum_reference_joint_velocity": 804.990577697754,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.199586895162329,
+				"maximum_sink_step_rad": 0.0820794606353866,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.0,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 4.93217905861773,
+				"reach_releases": 2
+			},
+			"minimum_support": 0,
+			"speed": 210.0,
+			"support_frames": [
+				17,
+				16,
+				16,
+				17
+			]
+		},
+		{
+			"facing": 1,
+			"flight_frames": 5,
+			"hz": 30,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.228765159845352,
+				"hind_femur_local_max": 1.83259587363108,
+				"hind_femur_local_min": 0.872664539205435,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.546365976333618,
+				"maximum_hoof_velocity": 951.16189956665,
+				"maximum_local_joint_velocity": 744.632892608643,
+				"maximum_reference_joint_velocity": 1082.81169891357,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.259641514471107,
+				"maximum_sink_step_rad": 0.202166785985318,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.00390625,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 6.71854462485889,
+				"reach_releases": 3
+			},
+			"minimum_support": 0,
+			"speed": 340.0,
+			"support_frames": [
+				10,
+				8,
+				8,
+				9
+			]
+		},
+		{
+			"facing": 1,
+			"flight_frames": 8,
+			"hz": 30,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.231886997818947,
+				"hind_femur_local_max": 1.83259588886208,
+				"hind_femur_local_min": 0.87266452002986,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.529354095458984,
+				"maximum_hoof_velocity": 1250.76496124268,
+				"maximum_local_joint_velocity": 774.321441650391,
+				"maximum_reference_joint_velocity": 1253.0407333374,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.291971408862388,
+				"maximum_sink_step_rad": 0.272516675266752,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.0,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 7.52353603489199,
+				"reach_releases": 2
+			},
+			"minimum_support": 0,
+			"speed": 480.0,
+			"support_frames": [
+				5,
+				5,
+				6,
+				6
+			]
+		},
+		{
+			"facing": -1,
+			"flight_frames": 0,
+			"hz": 30,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.22294408082962,
+				"hind_femur_local_max": 1.83259577385245,
+				"hind_femur_local_min": 0.872664548286903,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.380828976631165,
+				"maximum_hoof_velocity": 663.597793579102,
+				"maximum_local_joint_velocity": 565.338535308838,
+				"maximum_reference_joint_velocity": 675.187911987305,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.0999998482183867,
+				"maximum_sink_step_rad": 0.0256058716560017,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.00390625,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 3.12658289951176,
+				"reach_releases": 4
+			},
+			"minimum_support": 2,
+			"speed": 110.0,
+			"support_frames": [
+				44,
+				42,
+				38,
+				42
+			]
+		},
+		{
+			"facing": -1,
+			"flight_frames": 6,
+			"hz": 30,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.225661888718605,
+				"hind_femur_local_max": 1.83259587896146,
+				"hind_femur_local_min": 0.872664569297807,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.436412692070007,
+				"maximum_hoof_velocity": 688.67036819458,
+				"maximum_local_joint_velocity": 595.207786560059,
+				"maximum_reference_joint_velocity": 804.990577697754,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.199586895162329,
+				"maximum_sink_step_rad": 0.0820794606353866,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.0,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 4.93217905861773,
+				"reach_releases": 2
+			},
+			"minimum_support": 0,
+			"speed": 210.0,
+			"support_frames": [
+				17,
+				16,
+				16,
+				17
+			]
+		},
+		{
+			"facing": -1,
+			"flight_frames": 5,
+			"hz": 30,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.228765159845352,
+				"hind_femur_local_max": 1.83259587363108,
+				"hind_femur_local_min": 0.872664539205435,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.546365976333618,
+				"maximum_hoof_velocity": 951.16189956665,
+				"maximum_local_joint_velocity": 744.632892608643,
+				"maximum_reference_joint_velocity": 1082.81169891357,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.259641514471107,
+				"maximum_sink_step_rad": 0.202166785985318,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.00390625,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 6.71854462485889,
+				"reach_releases": 3
+			},
+			"minimum_support": 0,
+			"speed": 340.0,
+			"support_frames": [
+				10,
+				8,
+				8,
+				9
+			]
+		},
+		{
+			"facing": -1,
+			"flight_frames": 8,
+			"hz": 30,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.231886997818947,
+				"hind_femur_local_max": 1.83259588886208,
+				"hind_femur_local_min": 0.87266452002986,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.529354095458984,
+				"maximum_hoof_velocity": 1250.76496124268,
+				"maximum_local_joint_velocity": 774.321441650391,
+				"maximum_reference_joint_velocity": 1253.0407333374,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.291971408862388,
+				"maximum_sink_step_rad": 0.272516675266752,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.0,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 7.52353603489199,
+				"reach_releases": 2
+			},
+			"minimum_support": 0,
+			"speed": 480.0,
+			"support_frames": [
+				5,
+				5,
+				6,
+				6
+			]
+		},
+		{
+			"facing": 1,
+			"flight_frames": 0,
+			"hz": 60,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.222944185137749,
+				"hind_femur_local_max": 1.83259588691082,
+				"hind_femur_local_min": 0.872664548242347,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.220256447792053,
+				"maximum_hoof_velocity": 667.074222564697,
+				"maximum_local_joint_velocity": 604.182472229004,
+				"maximum_reference_joint_velocity": 713.778820037842,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.0999998482183866,
+				"maximum_sink_step_rad": 0.0131000253332183,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.00390625,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 3.18530787875615,
+				"reach_releases": 6
+			},
+			"minimum_support": 2,
+			"speed": 110.0,
+			"support_frames": [
+				86,
+				86,
+				76,
+				84
+			]
+		},
+		{
+			"facing": 1,
+			"flight_frames": 13,
+			"hz": 60,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.225661888718605,
+				"hind_femur_local_max": 1.83259587896146,
+				"hind_femur_local_min": 0.872664521542778,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.267326474189758,
+				"maximum_hoof_velocity": 693.320732116699,
+				"maximum_local_joint_velocity": 733.099937438965,
+				"maximum_reference_joint_velocity": 943.053302764893,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.199586895162331,
+				"maximum_sink_step_rad": 0.0498695900389752,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.0,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 5.00443320820863,
+				"reach_releases": 4
+			},
+			"minimum_support": 0,
+			"speed": 210.0,
+			"support_frames": [
+				32,
+				32,
+				32,
+				32
+			]
+		},
+		{
+			"facing": 1,
+			"flight_frames": 10,
+			"hz": 60,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.228841468691826,
+				"hind_femur_local_max": 1.83259587470381,
+				"hind_femur_local_min": 0.872664539205435,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.339245915412903,
+				"maximum_hoof_velocity": 958.842372894287,
+				"maximum_local_joint_velocity": 933.411655426025,
+				"maximum_reference_joint_velocity": 1271.45622253418,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.259962512706534,
+				"maximum_sink_step_rad": 0.131754579082774,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.00390625,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 6.78743165117874,
+				"reach_releases": 6
+			},
+			"minimum_support": 0,
+			"speed": 340.0,
+			"support_frames": [
+				19,
+				16,
+				16,
+				18
+			]
+		},
+		{
+			"facing": 1,
+			"flight_frames": 14,
+			"hz": 60,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.232372060418129,
+				"hind_femur_local_max": 1.83259588886208,
+				"hind_femur_local_min": 0.87266452002986,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.407713294029236,
+				"maximum_hoof_velocity": 1254.40567016602,
+				"maximum_local_joint_velocity": 1120.03921508789,
+				"maximum_reference_joint_velocity": 1597.51773834229,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.299988156630572,
+				"maximum_sink_step_rad": 0.173557212758064,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.0,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 7.69917505900359,
+				"reach_releases": 6
+			},
+			"minimum_support": 0,
+			"speed": 480.0,
+			"support_frames": [
+				11,
+				11,
+				12,
+				12
+			]
+		},
+		{
+			"facing": -1,
+			"flight_frames": 0,
+			"hz": 60,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.222944185137749,
+				"hind_femur_local_max": 1.83259588691082,
+				"hind_femur_local_min": 0.872664548242347,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.220256447792053,
+				"maximum_hoof_velocity": 667.074222564697,
+				"maximum_local_joint_velocity": 604.182472229004,
+				"maximum_reference_joint_velocity": 713.778820037842,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.0999998482183866,
+				"maximum_sink_step_rad": 0.0131000253332183,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.00390625,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 3.18530787875615,
+				"reach_releases": 6
+			},
+			"minimum_support": 2,
+			"speed": 110.0,
+			"support_frames": [
+				86,
+				86,
+				76,
+				84
+			]
+		},
+		{
+			"facing": -1,
+			"flight_frames": 13,
+			"hz": 60,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.225661888718605,
+				"hind_femur_local_max": 1.83259587896146,
+				"hind_femur_local_min": 0.872664521542778,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.267326474189758,
+				"maximum_hoof_velocity": 693.320732116699,
+				"maximum_local_joint_velocity": 733.099937438965,
+				"maximum_reference_joint_velocity": 943.053302764893,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.199586895162331,
+				"maximum_sink_step_rad": 0.0498695900389752,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.0,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 5.00443320820863,
+				"reach_releases": 4
+			},
+			"minimum_support": 0,
+			"speed": 210.0,
+			"support_frames": [
+				32,
+				32,
+				32,
+				32
+			]
+		},
+		{
+			"facing": -1,
+			"flight_frames": 10,
+			"hz": 60,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.228841468691826,
+				"hind_femur_local_max": 1.83259587470381,
+				"hind_femur_local_min": 0.872664539205435,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.339245915412903,
+				"maximum_hoof_velocity": 958.842372894287,
+				"maximum_local_joint_velocity": 933.411655426025,
+				"maximum_reference_joint_velocity": 1271.45622253418,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.259962512706534,
+				"maximum_sink_step_rad": 0.131754579082774,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.00390625,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 6.78743165117874,
+				"reach_releases": 6
+			},
+			"minimum_support": 0,
+			"speed": 340.0,
+			"support_frames": [
+				19,
+				16,
+				16,
+				18
+			]
+		},
+		{
+			"facing": -1,
+			"flight_frames": 14,
+			"hz": 60,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.232372060418129,
+				"hind_femur_local_max": 1.83259588886208,
+				"hind_femur_local_min": 0.87266452002986,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.407713294029236,
+				"maximum_hoof_velocity": 1254.40567016602,
+				"maximum_local_joint_velocity": 1120.03921508789,
+				"maximum_reference_joint_velocity": 1597.51773834229,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.299988156630572,
+				"maximum_sink_step_rad": 0.173557212758064,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.0,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 7.69917505900359,
+				"reach_releases": 6
+			},
+			"minimum_support": 0,
+			"speed": 480.0,
+			"support_frames": [
+				11,
+				11,
+				12,
+				12
+			]
+		},
+		{
+			"facing": 1,
+			"flight_frames": 0,
+			"hz": 120,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.222945749759674,
+				"hind_femur_local_max": 1.83259588691082,
+				"hind_femur_local_min": 0.872664483660531,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.116238832473755,
+				"maximum_hoof_velocity": 669.505405426025,
+				"maximum_local_joint_velocity": 637.948951721191,
+				"maximum_reference_joint_velocity": 746.940078735352,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.0999998482183867,
+				"maximum_sink_step_rad": 0.00660113268291052,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.00390625,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 3.19799244139618,
+				"reach_releases": 10
+			},
+			"minimum_support": 2,
+			"speed": 110.0,
+			"support_frames": [
+				170,
+				170,
+				152,
+				170
+			]
+		},
+		{
+			"facing": 1,
+			"flight_frames": 28,
+			"hz": 120,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.22567293047905,
+				"hind_femur_local_max": 1.83259587896146,
+				"hind_femur_local_min": 0.872664521542777,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.137918472290039,
+				"maximum_hoof_velocity": 694.11111831665,
+				"maximum_local_joint_velocity": 758.071060180664,
+				"maximum_reference_joint_velocity": 968.048858642578,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.19999953029879,
+				"maximum_sink_step_rad": 0.0261729799331183,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.0,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 5.02261523192641,
+				"reach_releases": 10
+			},
+			"minimum_support": 0,
+			"speed": 210.0,
+			"support_frames": [
+				63,
+				63,
+				62,
+				63
+			]
+		},
+		{
+			"facing": 1,
+			"flight_frames": 19,
+			"hz": 120,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.228914618492126,
+				"hind_femur_local_max": 1.83259589124,
+				"hind_femur_local_min": 0.872664539205436,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.187077522277832,
+				"maximum_hoof_velocity": 942.693157196045,
+				"maximum_local_joint_velocity": 1032.90264129639,
+				"maximum_reference_joint_velocity": 1372.5707244873,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.259995438076202,
+				"maximum_sink_step_rad": 0.0693282770056315,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.00390625,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 6.75753598270764,
+				"reach_releases": 9
+			},
+			"minimum_support": 0,
+			"speed": 340.0,
+			"support_frames": [
+				38,
+				34,
+				34,
+				36
+			]
+		},
+		{
+			"facing": 1,
+			"flight_frames": 26,
+			"hz": 120,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.232677072286606,
+				"hind_femur_local_max": 1.83259588886208,
+				"hind_femur_local_min": 0.872664497637638,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.216323018074036,
+				"maximum_hoof_velocity": 1259.61227416992,
+				"maximum_local_joint_velocity": 1194.06646728516,
+				"maximum_reference_joint_velocity": 1672.94494628906,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.299990461430175,
+				"maximum_sink_step_rad": 0.100079281082342,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.0,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 7.73688288346674,
+				"reach_releases": 13
+			},
+			"minimum_support": 0,
+			"speed": 480.0,
+			"support_frames": [
+				21,
+				23,
+				23,
+				26
+			]
+		},
+		{
+			"facing": -1,
+			"flight_frames": 0,
+			"hz": 120,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.222945749759674,
+				"hind_femur_local_max": 1.83259588691082,
+				"hind_femur_local_min": 0.872664483660531,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.116238832473755,
+				"maximum_hoof_velocity": 669.505405426025,
+				"maximum_local_joint_velocity": 637.948951721191,
+				"maximum_reference_joint_velocity": 746.940078735352,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.0999998482183867,
+				"maximum_sink_step_rad": 0.00660113268291052,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.00390625,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 3.19799244139618,
+				"reach_releases": 10
+			},
+			"minimum_support": 2,
+			"speed": 110.0,
+			"support_frames": [
+				170,
+				170,
+				152,
+				170
+			]
+		},
+		{
+			"facing": -1,
+			"flight_frames": 28,
+			"hz": 120,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.22567293047905,
+				"hind_femur_local_max": 1.83259587896146,
+				"hind_femur_local_min": 0.872664521542777,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.137918472290039,
+				"maximum_hoof_velocity": 694.11111831665,
+				"maximum_local_joint_velocity": 758.071060180664,
+				"maximum_reference_joint_velocity": 968.048858642578,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.19999953029879,
+				"maximum_sink_step_rad": 0.0261729799331183,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.0,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 5.02261523192641,
+				"reach_releases": 10
+			},
+			"minimum_support": 0,
+			"speed": 210.0,
+			"support_frames": [
+				63,
+				63,
+				62,
+				63
+			]
+		},
+		{
+			"facing": -1,
+			"flight_frames": 19,
+			"hz": 120,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.228914618492126,
+				"hind_femur_local_max": 1.83259589124,
+				"hind_femur_local_min": 0.872664539205436,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.187077522277832,
+				"maximum_hoof_velocity": 942.693157196045,
+				"maximum_local_joint_velocity": 1032.90264129639,
+				"maximum_reference_joint_velocity": 1372.5707244873,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.259995438076202,
+				"maximum_sink_step_rad": 0.0693282770056315,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.00390625,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 6.75753598270764,
+				"reach_releases": 9
+			},
+			"minimum_support": 0,
+			"speed": 340.0,
+			"support_frames": [
+				38,
+				34,
+				34,
+				36
+			]
+		},
+		{
+			"facing": -1,
+			"flight_frames": 26,
+			"hz": 120,
+			"landings": [
+				2,
+				2,
+				2,
+				2
+			],
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.232677072286606,
+				"hind_femur_local_max": 1.83259588886208,
+				"hind_femur_local_min": 0.872664497637638,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.216323018074036,
+				"maximum_hoof_velocity": 1259.61227416992,
+				"maximum_local_joint_velocity": 1194.06646728516,
+				"maximum_reference_joint_velocity": 1672.94494628906,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.299990461430175,
+				"maximum_sink_step_rad": 0.100079281082342,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.0,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 7.73688288346674,
+				"reach_releases": 13
+			},
+			"minimum_support": 0,
+			"speed": 480.0,
+			"support_frames": [
+				21,
+				23,
+				23,
+				26
+			]
+		}
+	],
+	"transitions": [
+		{
+			"facing": 1,
+			"hz": 30,
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.232677057385445,
+				"hind_femur_local_max": 1.83259589189558,
+				"hind_femur_local_min": 0.87266450088353,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.759988069534302,
+				"maximum_hoof_velocity": 1366.56120300293,
+				"maximum_local_joint_velocity": 1020.29777526855,
+				"maximum_reference_joint_velocity": 1378.29093933105,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.299981803059625,
+				"maximum_sink_step_rad": 0.282213475109209,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.00390625,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 9.96049608675577,
+				"reach_releases": 69
+			}
+		},
+		{
+			"facing": -1,
+			"hz": 30,
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.232677057385445,
+				"hind_femur_local_max": 1.83259589189558,
+				"hind_femur_local_min": 0.87266450088353,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.759988069534302,
+				"maximum_hoof_velocity": 1366.56120300293,
+				"maximum_local_joint_velocity": 1020.29777526855,
+				"maximum_reference_joint_velocity": 1378.29093933105,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.299981803059625,
+				"maximum_sink_step_rad": 0.282213475109209,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.00390625,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 9.96049608675577,
+				"reach_releases": 69
+			}
+		},
+		{
+			"facing": 1,
+			"hz": 60,
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.232598945498466,
+				"hind_femur_local_max": 1.83259589163863,
+				"hind_femur_local_min": 0.872664435115239,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.428332686424255,
+				"maximum_hoof_velocity": 1299.24121856689,
+				"maximum_local_joint_velocity": 1170.59795379639,
+				"maximum_reference_joint_velocity": 1615.60752868652,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.299950586324244,
+				"maximum_sink_step_rad": 0.174039742563832,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.00390625,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 10.2722591423722,
+				"reach_releases": 129
+			}
+		},
+		{
+			"facing": -1,
+			"hz": 60,
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.232598945498466,
+				"hind_femur_local_max": 1.83259589163863,
+				"hind_femur_local_min": 0.872664435115239,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.428332686424255,
+				"maximum_hoof_velocity": 1299.24121856689,
+				"maximum_local_joint_velocity": 1170.59795379639,
+				"maximum_reference_joint_velocity": 1615.60752868652,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.299950586324244,
+				"maximum_sink_step_rad": 0.174039742563832,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.00390625,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 10.2722591423722,
+				"reach_releases": 129
+			}
+		},
+		{
+			"facing": 1,
+			"hz": 120,
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.232675611972809,
+				"hind_femur_local_max": 1.83259589202878,
+				"hind_femur_local_min": 0.872664425079128,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.240319490432739,
+				"maximum_hoof_velocity": 1308.80310058594,
+				"maximum_local_joint_velocity": 1321.56475067139,
+				"maximum_reference_joint_velocity": 1769.010887146,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.299998970649383,
+				"maximum_sink_step_rad": 0.102156588095123,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.00390625,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 10.208158905678,
+				"reach_releases": 245
+			}
+		},
+		{
+			"facing": -1,
+			"hz": 120,
+			"metrics": {
+				"fore_support_wrist_flex_max": 0.232675611972809,
+				"hind_femur_local_max": 1.83259589202878,
+				"hind_femur_local_min": 0.872664425079128,
+				"maximum_bone_error": 0.0000152587890625,
+				"maximum_bone_turn_rad": 0.240319490432739,
+				"maximum_hoof_velocity": 1308.80310058594,
+				"maximum_local_joint_velocity": 1321.56475067139,
+				"maximum_reference_joint_velocity": 1769.010887146,
+				"maximum_root_error": 0.0,
+				"maximum_scapula_x": 8.5,
+				"maximum_scapula_y": 6.5,
+				"maximum_sink_rad": 0.299998970649383,
+				"maximum_sink_step_rad": 0.102156588095123,
+				"maximum_support_hoof_tilt_rad": 0.000000416142398762531,
+				"maximum_support_slide": 0.00390625,
+				"maximum_swing_sink_rad": 0.0,
+				"maximum_toe_velocity_rad_s": 10.208158905678,
+				"reach_releases": 245
+			}
+		}
+	]
+}

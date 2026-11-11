@@ -1,0 +1,79 @@
+{
+	"failures": [],
+	"passed": true,
+	"rows": [
+		{
+			"back_peaks_per_stride": 2,
+			"back_range": 3.0,
+			"head_x_acceleration_rms": 244.120967959451,
+			"pitch_range": 0.029128552720439,
+			"speed": 110.0,
+			"torso_reversals": 8,
+			"version": "old"
+		},
+		{
+			"back_peaks_per_stride": 2,
+			"back_range": 2.0,
+			"head_x_acceleration_rms": 37.6016705559361,
+			"pitch_range": 0.0145035595176346,
+			"speed": 110.0,
+			"torso_reversals": 4,
+			"version": "new"
+		},
+		{
+			"back_peaks_per_stride": 2,
+			"back_range": 4.0076287984848,
+			"head_x_acceleration_rms": 757.185818854669,
+			"pitch_range": 0.0104954535499873,
+			"speed": 210.0,
+			"torso_reversals": 12,
+			"version": "old"
+		},
+		{
+			"back_peaks_per_stride": 2,
+			"back_range": 4.0,
+			"head_x_acceleration_rms": 198.70433010709,
+			"pitch_range": 0.0130414942746105,
+			"speed": 210.0,
+			"torso_reversals": 4,
+			"version": "new"
+		},
+		{
+			"back_peaks_per_stride": 2,
+			"back_range": 6.19884431362152,
+			"head_x_acceleration_rms": 2044.55111015151,
+			"pitch_range": 0.0632709258550966,
+			"speed": 340.0,
+			"torso_reversals": 4,
+			"version": "old"
+		},
+		{
+			"back_peaks_per_stride": 1,
+			"back_range": 5.99999976158142,
+			"head_x_acceleration_rms": 185.946236775219,
+			"pitch_range": 0.0309395089020681,
+			"speed": 340.0,
+			"torso_reversals": 2,
+			"version": "new"
+		},
+		{
+			"back_peaks_per_stride": 2,
+			"back_range": 6.69599986076355,
+			"head_x_acceleration_rms": 4147.45268641415,
+			"pitch_range": 0.0879578550867925,
+			"speed": 480.0,
+			"torso_reversals": 4,
+			"version": "old"
+		},
+		{
+			"back_peaks_per_stride": 1,
+			"back_range": 6.79999971389771,
+			"head_x_acceleration_rms": 239.532666760369,
+			"pitch_range": 0.0314300649074642,
+			"speed": 480.0,
+			"torso_reversals": 2,
+			"version": "new"
+		}
+	],
+	"scope": "Pure curve metrics; continuous rendering and player judgment are separate"
+}

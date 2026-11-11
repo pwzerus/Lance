@@ -1,0 +1,20 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+ERROR: Hold/release / facing 1 / 120Hz: fetlock sink jumped between frames
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy063.gd:23)
+       [1] finish_metrics (res://tests/test_horse_anatomy063.gd:114)
+       [2] transition_trial (res://tests/test_horse_anatomy063.gd:222)
+       [3] run (res://tests/test_horse_anatomy063.gd:245)
+       [4] steady_trial (res://tests/test_horse_anatomy063.gd:204)
+ERROR: Hold/release / facing -1 / 120Hz: fetlock sink jumped between frames
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/test_horse_anatomy063.gd:23)
+       [1] finish_metrics (res://tests/test_horse_anatomy063.gd:114)
+       [2] transition_trial (res://tests/test_horse_anatomy063.gd:222)
+       [3] run (res://tests/test_horse_anatomy063.gd:245)
+       [4] steady_trial (res://tests/test_horse_anatomy063.gd:204)
+HORSE_ANATOMY_063 false failures=["Hold/release / facing 1 / 120Hz: fetlock sink jumped between frames", "Hold/release / facing -1 / 120Hz: fetlock sink jumped between frames"]
+SINK086 {"after":{"ankle":"(35.71978, -10.51412)","contact":true,"coronet":"(43.06745, 0.11)","cycle":0.20634874288214,"duty":0.26,"foot":"(48.47745, 12.0)","front":true,"hip":"(68.10651, -131.3961)","knee":"(44.68002, -50.53554)","lift":38.0,"maximum_reach":127.586569519043,"nominal_contact":true,"proximal":"(47.12955, -95.47995)","proximal_limited":false,"reach":28.1331663763066,"reach_limited":false,"requested_flex":0.088870595158287,"requested_foot":"(48.47745, 12.0)","requested_reach":125.145286560059,"root_offset":"(-3.634962, 6.5)","sink":0.0696933320428068,"swing":0.0,"toe_angle":0.0},"before":{"ankle":"(38.81527, -9.709426)","contact":true,"coronet":"(47.20807, 0.11)","cycle":0.187215409548807,"duty":0.26,"foot":"(52.61807, 12.0)","front":true,"hip":"(68.9329, -130.807)","knee":"(46.97443, -49.90182)","lift":38.0,"maximum_reach":127.586569519043,"nominal_contact":true,"proximal":"(47.93581, -94.90266)","proximal_limited":false,"reach":28.1331663763066,"reach_limited":false,"requested_flex":0.100531592083128,"requested_foot":"(52.61807, 12.0)","requested_reach":124.786598205566,"root_offset":"(-2.724024, 6.5)","sink":0.171849920137929,"swing":0.0,"toe_angle":0.0},"drive":0.0,"label":"Hold/release / facing 1 / 120Hz","leg":3,"phase":17.1929862165964,"rate":12.2587905714147,"speed":496.875}

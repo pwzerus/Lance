@@ -32,6 +32,14 @@ internal static class Launcher {
         return "游戏未能正常启动。请确认已完整解压，并有权写入自己的用户文件夹。\n\n" + message;
     }
 
+    internal static string ExitMessage(int code) {
+        // 125 is shared by the child's private-memory budget, system RAM
+        // reserve and commit reserve. It does not prove other apps caused it.
+        return code == 125
+            ? "游戏触发内存保护，已停止运行。\n可能是游戏达到用量上限，或系统可用内存不足。请保留下面的记录以便排查。"
+            : "游戏意外退出（代码 " + code + "）。\n请保留以下运行记录以便排查。";
+    }
+
     static void RetainRecentLogs(string directory) {
         // Only our own bounded diagnostic files in the per-user log directory.
         var files = new DirectoryInfo(directory).GetFiles("session-*.log*");
@@ -90,10 +98,7 @@ internal static class Launcher {
             string commandLine = String.Join(" ", forwarded.ConvertAll(Quote).ToArray());
             int code = MemoryBound.Run(executable, commandLine, timeout, log, false, false, isolated, false, false);
             if (code != 0 && !quiet) {
-                string reason = code == 125
-                    ? "系统内存压力过高，保护器已结束游戏。\n请关闭不需要的程序后重试。"
-                    : "游戏意外退出（代码 " + code + "）。\n请保留以下运行记录以便排查。";
-                MessageBox.Show(reason + "\n\n记录：" + log, "骑枪与桂冠", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ExitMessage(code) + "\n\n记录：" + log, "骑枪与桂冠", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             return code;
         } catch (Exception error) {

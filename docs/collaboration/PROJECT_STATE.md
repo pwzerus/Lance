@@ -1,5 +1,7 @@
 # 当前实现与接手地图
 
+COMM-087进行中（2026-11-11 UTC）：基线bf83aaa；01:13:30开工，至少6小时、最多10小时。启动器阶段e7c4879已提交：随包原生WinExe复用Start-MemoryBound核心，无Codex路径依赖。存档阶段新增profile_save_pending、load_notice、recovery_required、2MiB读取/写入预算；双重不可读必须明确恢复/新旅程并保留原文件，手动槽不清除当前奖励未保存状态。当前发布仍.40-r3，未导出新正式候选。后台QA与保护持续开启；详见COMM-087交接及COMM087_REVIEW，文件认领未释放。
+
 FEEL-086推送回执（2026-11-11 01:11 UTC）：完整交付`510ef2c86214aaa0e89dde30ac22eae66d7cce9e`已推送origin codex/v0.4，ls-remote与本地相同。本回执随后单独提交并再次推送核对；运行包仍为8fef1dc的v0.4.40-r3，不重新导出、不覆盖。
 
 

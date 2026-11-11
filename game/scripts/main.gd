@@ -101,13 +101,14 @@ var armory_filter_key = ""
 var armory_cards: Dictionary = {}
 var settings_notice: Label
 var save_error_dialog: AcceptDialog
+var slot_dialog: ConfirmationDialog
 var build_version = str(ProjectSettings.get_setting("application/config/version","unknown"))
 
 func _ready() -> void:
 	# Windows release must enter the OS Job before any gameplay starts.
 	# This is a safety interlock, not a security boundary against manual bypass.
 	if OS.get_name()=="Windows" and not OS.has_feature("editor") and OS.get_environment("GALUMU_MEMORY_BOUND")!="1024":
-		OS.alert("Please launch with Play-Latest.cmd (memory protection required).", "Lance & Laurel")
+		OS.alert("请从发布包最外层的 LanceAndLaurel.exe 启动，以启用内存保护。开发目录也可使用 Play-Latest.cmd。", "骑枪与桂冠")
 		get_tree().quit(2)
 		return
 	get_window().title = "骑枪与桂冠 · Lance & Laurel v"+build_version
@@ -186,6 +187,9 @@ func _add_preview(point: Vector2, preview_scale: float = 1.0, stats: Dictionary 
 	add_child(preview)
 
 func show_home() -> void:
+	if GameState.recovery_required:
+		show_save_recovery()
+		return
 	page = "home"
 	_apply_display_settings()
 	_clear_screen()
@@ -236,8 +240,35 @@ func show_home() -> void:
 	progress_fill.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	progress.add_child(progress_fill)
 	UI.label(champion,"赢得声望，开启新的时代与工坊。" if next_era<Catalogue.ERAS.size() else "每一件收藏，都有它的来处。",Vector2(22,66),14,UI.MUTED)
-	if not GameState.save_error.is_empty():
-		UI.label(screen,GameState.save_error,Vector2(80,775),13,Color("efb566"),650)
+	if GameState.profile_save_pending:
+		UI.label(screen,"进度尚未保存 · 请到存档页重试",Vector2(80,775),13,Color("efb566"),650)
+	elif not GameState.load_notice.is_empty():
+		UI.label(screen,"存档恢复提示 · 详情见存档页",Vector2(80,775),13,Color("efb566"),650)
+	queue_redraw()
+
+func show_save_recovery(notice: String = "") -> void:
+	page = "recovery"
+	_clear_screen()
+	_header("存档恢复 · 原文件保持不动")
+	currency_label.text = "等待选择恢复方式"
+	UI.label(screen,"先保住你的旅程",Vector2(100,152),42,UI.GOLD)
+	UI.label(screen,GameState.load_notice,Vector2(104,226),23,UI.INK,1210)
+	UI.label(screen,"选择恢复或开始新旅程时，游戏会先保留损坏文件副本；保留失败就不会替换原文件。",Vector2(104,312),19,UI.MUTED,1210)
+	for slot in range(1,4):
+		var data = GameState.read_slot(slot)
+		var card = UI.panel(screen,Rect2(104+(slot-1)*412,380,390,150))
+		UI.label(card,"手动存档 %d" % slot,Vector2(18,12),23,UI.GOLD)
+		UI.label(card,"没有可用的手动存档" if data.is_empty() else "%s · %s 场比赛" % [data.saved_at,_short_number(int(data.profile.matches))],Vector2(18,50),16,UI.MUTED,354)
+		var button = UI.button(card,"恢复此存档",Rect2(18,91,354,42),func():_confirm_slot_operation(slot,true))
+		button.disabled = data.is_empty()
+	UI.button(screen,"保留损坏文件，开始新旅程",Rect2(104,590,780,65),func():
+		if GameState.start_new_after_recovery():
+			sounds.set_enabled(GameState.profile.settings.sound)
+			show_home()
+		else: show_save_recovery(GameState.save_error),true)
+	UI.button(screen,"退出，稍后处理",Rect2(910,590,408,65),_shutdown_and_quit)
+	UI.label(screen,notice,Vector2(104,694),18,Color("efb566"),1210)
+	UI.button(screen,"打开存档文件夹",Rect2(104,748,250,38),func():OS.shell_open(ProjectSettings.globalize_path(GameState.save_path).get_base_dir()))
 	queue_redraw()
 
 func show_character() -> void:
@@ -362,7 +393,7 @@ func show_saves(notice: String = "") -> void:
 	UI.label(screen,"保留你的骑士旅程",Vector2(60,112),38,UI.INK)
 	UI.button(screen,"返回营地",Rect2(1208,105,175,48),show_home)
 	var auto_card = UI.panel(screen,Rect2(60,191,1320,137))
-	UI.label(auto_card,"当前进度 · 自动保存",Vector2(24,18),25,UI.GOLD)
+	UI.label(auto_card,"当前进度 · 尚未保存" if GameState.profile_save_pending else "当前进度 · 自动保存",Vector2(24,18),25,UI.GOLD)
 	UI.label(auto_card,"银币 %s  ·  声望 %s  ·  %s 场比赛" % [_short_number(int(GameState.profile.coins)),_short_number(int(GameState.profile.renown)),_short_number(int(GameState.profile.matches))],Vector2(24,65),20,UI.INK)
 	UI.button(auto_card,"立即保存",Rect2(896,43,180,50),func():show_saves("已保存当前进度" if GameState.save_profile() else GameState.save_error))
 	UI.button(auto_card,"继续游戏",Rect2(1100,43,194,50),show_match_setup,true)
@@ -376,20 +407,53 @@ func show_saves(notice: String = "") -> void:
 		else:
 			UI.label(card,data.saved_at+(" · 备份恢复" if data.recovered else ""),Vector2(24,75),16,UI.MUTED,382)
 			UI.label(card,"银币 %s  ·  声望 %s\n%s · %s 场比赛" % [_short_number(int(data.profile.coins)),_short_number(int(data.profile.renown)),Catalogue.REGIONS[int(data.profile.region)],_short_number(int(data.profile.matches))],Vector2(24,112),19,UI.INK,382)
-		UI.button(card,"保存到此槽" if data.is_empty() else "覆盖此槽",Rect2(24,211,184,53),func():show_saves("已保存到存档 %d" % slot if GameState.save_slot(slot) else GameState.save_error))
-		var load_button = UI.button(card,"读取进度",Rect2(223,211,183,53),func():
-			if GameState.load_slot(slot):
-				sounds.set_enabled(GameState.profile.settings.sound)
-				show_saves("已读取存档 %d；原自动存档保留为备份" % slot)
-			else:
-				show_saves(GameState.save_error))
+		UI.button(card,"保存到此槽" if data.is_empty() else "覆盖此槽",Rect2(24,211,184,53),func():_confirm_slot_operation(slot,false))
+		var load_button = UI.button(card,"读取进度",Rect2(223,211,183,53),func():_confirm_slot_operation(slot,true))
 		load_button.disabled = data.is_empty()
 	UI.label(screen,"存档保留收藏、装备与设置；对冲从新比赛开始，不保存战斗中的位置。",Vector2(64,692),18,UI.MUTED,1290)
-	UI.label(screen,notice,Vector2(64,739),20,UI.GOLD,1290)
+	var status_notice = notice
+	if status_notice.is_empty():
+		status_notice = "当前进度尚未保存，请点击「立即保存」重试。" if GameState.profile_save_pending else GameState.load_notice
+	UI.label(screen,status_notice,Vector2(64,739),18,UI.GOLD,1290)
 	queue_redraw()
+
+func _confirm_slot_operation(slot: int, loading: bool) -> void:
+	if is_instance_valid(slot_dialog) and not slot_dialog.is_queued_for_deletion(): return
+	if not loading and GameState.read_slot(slot).is_empty():
+		_perform_slot_operation(slot,false)
+		return
+	slot_dialog = ConfirmationDialog.new()
+	slot_dialog.theme = UI.theme()
+	slot_dialog.title = "读取存档 %d" % slot if loading else "覆盖存档 %d" % slot
+	slot_dialog.dialog_text = ("这会用所选手动存档替换当前进度。\n原自动存档会保留为备份；尚未保存的进度会先尝试保存。" if loading else "这会将当前收藏和进度写入此槽。\n该槽上一次可用记录会保留为备份。")
+	if GameState.recovery_required:
+		slot_dialog.dialog_text = "这会从手动存档恢复旅程。\n游戏会先保留损坏的自动存档与备份文件。"
+	slot_dialog.ok_button_text = "确认读取" if loading else "确认覆盖"
+	slot_dialog.cancel_button_text = "取消"
+	var dialog = slot_dialog
+	add_child(dialog)
+	dialog.confirmed.connect(func():
+		dialog.hide()
+		dialog.queue_free()
+		_perform_slot_operation(slot,loading))
+	dialog.canceled.connect(dialog.queue_free)
+	dialog.popup_centered(Vector2i(690,220))
+
+func _perform_slot_operation(slot: int, loading: bool) -> void:
+	var success = GameState.load_slot(slot) if loading else GameState.save_slot(slot)
+	if GameState.recovery_required:
+		show_save_recovery(GameState.save_error)
+		return
+	if loading and success:
+		sounds.set_enabled(GameState.profile.settings.sound)
+		_apply_display_settings()
+	show_saves(("已读取存档 %d；原自动存档保留为备份" if loading else "已保存到存档 %d") % slot if success else GameState.save_error)
 
 func _save_and_exit() -> void:
 	if shutting_down:
+		return
+	if GameState.recovery_required:
+		_shutdown_and_quit()
 		return
 	if GameState.save_profile():
 		_shutdown_and_quit()
@@ -569,8 +633,11 @@ func show_result() -> void:
 	var next_era = Catalogue.era_for_renown(int(GameState.profile.renown)) + 1
 	var progress = "全部时期已开放；继续收集工坊与纹章。" if next_era >= Catalogue.ERAS.size() else "下一时代：%s · 需要 %d 声望（当前 %d）" % [Catalogue.ERAS[next_era],Catalogue.ERA_REQUIREMENTS[next_era],GameState.profile.renown]
 	UI.label(panel,progress,Vector2(35,408),15,UI.MUTED,706)
-	if not GameState.save_error.is_empty():
-		UI.label(panel,"进度暂未写入磁盘，请回营地重试保存。",Vector2(35,441),16,Color("efb566"),706)
+	if GameState.profile_save_pending:
+		var save_status = UI.label(panel,"奖励已记入当前进度，但还未保存。",Vector2(35,439),16,Color("efb566"),490)
+		save_status.name = "PendingRewardSave"
+		UI.button(panel,"重试保存",Rect2(550,432,190,32),func():
+			save_status.text = "奖励与进度已保存。" if GameState.save_profile() else "仍未保存，请检查磁盘空间或写入权限。")
 	UI.button(panel,"再次对冲  R",Rect2(35,470,344,56),func():_start_match(current_mode,practice_match),true)
 	UI.button(panel,"返回营地",Rect2(397,470,344,56),func():
 		_close_battle()

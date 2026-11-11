@@ -1,5 +1,9 @@
 # GALUMU 开发交接入口
 
+## 进行中：COMM-087（2026-11-11 UTC）
+
+用户新授权至少6小时、最多10小时完善可销售候选版，01:13:30 UTC开工。首阶段完成可分发的内存保护启动器及存档损坏/失败恢复，尚未切换发布入口。实际进度见 `docs/collaboration/handoffs/2026-11-11-COMM-087-Codex.md` 和 `docs/development/COMM087_REVIEW.md`。本轮文件仍由Codex认领；以下FEEL-086是上一版交付，不代表本轮完成。
+
 FEEL-086推送回执（2026-11-11 01:11 UTC）：完整交付`510ef2c86214aaa0e89dde30ac22eae66d7cce9e`已推送origin codex/v0.4，ls-remote与本地相同。本回执随后单独提交并再次推送核对；运行包仍为8fef1dc的v0.4.40-r3，不重新导出、不覆盖。
 
 

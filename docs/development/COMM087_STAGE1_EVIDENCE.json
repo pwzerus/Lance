@@ -1,0 +1,180 @@
+{
+  "baseline": "bf83aaac0c2998742658af23283d5e5e910584d8",
+  "portable_checks": [
+    {
+      "name": "relocated-arguments",
+      "code": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "argument:--literal=two words",
+      "passed": true
+    },
+    {
+      "name": "argument:--literal=quote\"and\\end\\",
+      "passed": true
+    },
+    {
+      "name": "argument:--literal=尾部 空格\\",
+      "passed": true
+    },
+    {
+      "name": "isolated-save-and-guard",
+      "passed": true
+    },
+    {
+      "name": "duplicate-blocked",
+      "code": 2,
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "name": "first-unaffected",
+      "code": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "finite-timeout",
+      "code": 124,
+      "expected": 124,
+      "passed": true
+    },
+    {
+      "name": "mutex-and-desktop-released",
+      "code": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "invalid-timeout-rejected",
+      "code": 2,
+      "expected": 2,
+      "passed": true
+    }
+  ],
+  "rendered_package": "v0.4.40-r3 (relocated; game code unchanged for this launcher check)",
+  "rendered_run": {
+    "all_frame_summary": {
+      "fps": 59.9668751335799,
+      "frames": 5398,
+      "max_ms": 74.139,
+      "over_33ms": 1,
+      "over_50ms": 1,
+      "p50_ms": 16.666,
+      "p95_ms": 17.597,
+      "p99_ms": 18.479
+    },
+    "elite": true,
+    "executable": "E:/GALUMU/builds/COMM087 移动测试 01/runtime/LanceAndLaurel.exe",
+    "frame_summary": {
+      "fps": 60.0101264106555,
+      "frames": 5283,
+      "max_ms": 22.209,
+      "over_33ms": 0,
+      "over_50ms": 0,
+      "p50_ms": 16.666,
+      "p95_ms": 17.584,
+      "p99_ms": 18.407
+    },
+    "matches": 1,
+    "mode": "arena"
+  },
+  "peak_private_mib": 693.7,
+  "min_available_ram_mib": 2035.0,
+  "save_fault_evidence": [
+    {
+      "run": "save-before",
+      "passed": false,
+      "failures": [
+        "manual-slot-success-must-not-hide-unsaved-current-progress",
+        "backup-restoration-shown-to-player",
+        "two-broken-copies-require-choice",
+        "automatic-save-refuses-to-replace-broken-pair",
+        "broken-originals-unchanged-before-consent",
+        "explicit-recovery-operation-missing"
+      ],
+      "checks": 15,
+      "sha256": "eb4da79f63c631f9cc83a889444bebd7dd6e854ec6710728252f01173e25a58b"
+    },
+    {
+      "run": "save-after01",
+      "passed": true,
+      "failures": [],
+      "checks": 17,
+      "sha256": "440e9cdee0d9ad592e83631cc32c05db000b5dadf4b1221ff2a7568d308b54a4"
+    },
+    {
+      "run": "save-after02",
+      "passed": true,
+      "failures": [],
+      "checks": 23,
+      "sha256": "a20e283a51a6eea4027c91620e693ce463b63a9c239b2c22d2414d246fa3cad8"
+    },
+    {
+      "run": "save-after03",
+      "passed": true,
+      "failures": [],
+      "checks": 25,
+      "sha256": "8cd8314f0e11f8c05d79bde56037d8790fbe2e5f112795b315f4fd3ff1512632"
+    },
+    {
+      "run": "save-after04",
+      "passed": true,
+      "failures": [],
+      "checks": 28,
+      "sha256": "d72e4ff49c8171cbede278e9bd75bdcd8c2bda058b7f19b16b7b3035bb2fabca"
+    }
+  ],
+  "licenses": {
+    "copyright_components": 95,
+    "license_types": 17,
+    "font_copyright_matches_OFL": true
+  },
+  "scope": "Background isolated desktop + engine scripts/UI callbacks. No OS input or player subjective acceptance.",
+  "guard_observation": {
+    "observed": {
+      "passed": true,
+      "pid": 28876,
+      "job_mib": 1024,
+      "job_flags": 8704,
+      "cpu_flags": 5,
+      "cpu_rate": 2500
+    },
+    "exit_code_propagated": true,
+    "child_exited_with_owner": true,
+    "restart_after_owner_exit": true,
+    "scope": "Native QA child queries real Job limits; no large allocation. Actual packaged engine tested separately."
+  },
+  "ui_runs": {
+    "save-ui01": {
+      "passed": true,
+      "failures": [],
+      "captures": [
+        "01_recovery_choice",
+        "02_recovery_confirmation",
+        "03_recovered_saves",
+        "04_overwrite_confirmation",
+        "05_pending_current_progress",
+        "06_recovered_camp"
+      ],
+      "sha256": "6229c5f0c2ffc6ea348e6518cf31b6f6fb1bb12a7ad288e851f2de6b84d61bb8"
+    },
+    "save-ui02": {
+      "passed": true,
+      "failures": [],
+      "captures": [
+        "01_recovery_choice",
+        "02_recovery_confirmation",
+        "03_recovered_saves",
+        "04_overwrite_confirmation",
+        "05_pending_current_progress",
+        "06_pending_reward_result",
+        "07_reward_saved",
+        "08_recovered_camp"
+      ],
+      "sha256": "e21e94aab773e18686d820c2554c069e8ff6667c24e53f06e285c6274f91eefa"
+    }
+  }
+}

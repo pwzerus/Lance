@@ -36,6 +36,7 @@ static func theme() -> Theme:
 	result.set_stylebox("panel", "PopupMenu", box(Color("1b2923"), GOLD, 5))
 	result.set_color("font_color", "PopupMenu", INK)
 	result.set_font_size("font_size", "PopupMenu", 18)
+	result.set_stylebox("panel", "AcceptDialog", box(Color("15221e"), GOLD, 5))
 	_shared_theme = result
 	return result
 

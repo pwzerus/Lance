@@ -9,7 +9,13 @@ var reading: Dictionary = {"zone":"miss","point":Vector2.ZERO}
 
 static func contact_name(event: Dictionary) -> String:
 	if event.zone=="head" and event.has("head_outcome"):
-		return {"fatal":"头部 · 致命重击","helmet_block":"头盔抵挡重击","glance":"头盔 / 头部","solid":"头盔 / 头部"}.get(str(event.head_outcome),"头盔 / 头部")
+		var outcome = str(event.head_outcome)
+		if outcome=="fatal": return "头部 · 致命重击"
+		if outcome=="cumulative_fatal": return "头部 · 累积重创"
+		if outcome=="helmet_block": return "头盔抵挡 · 已受重创"
+		if outcome=="glance": return "头盔擦过"
+		if float(event.get("head_load",0.0))>=Model.WAR_HEAD_LOAD_LIMIT*.5: return "头部重创 · 再中危险"
+		return {"broken":"头部命中 · 残枪冲力弱","unsteady":"头部命中 · 枪未稳","low_speed":"头部命中 · 冲力不足","solid":"头部 · 正面受创"}.get(str(event.get("head_reason","solid")),"头部命中")
 	if event.zone=="shield":
 		return {"center":"盾心受击","face":"盾面受击","rim":"盾缘受击"}.get(str(event.get("shield_region","face")),"盾面受击")
 	return {"head":"头盔 / 头部","body":"胸甲 / 躯干","flank":"腰腹"}.get(str(event.zone),str(event.zone))

@@ -11,6 +11,10 @@ const WAR_HEAD_DAMAGE = 50.0
 const WAR_HEAD_SPEED = 820.0
 const WAR_HEAD_INCIDENCE = .82
 const WAR_HEAD_STABILITY = .80
+# Cumulative in-match trauma is a gameplay severity budget, not medical data.
+# An intact helmet may save the first blow; it is not immunity to repeated
+# clean, supported head strikes. Glances and shield hits do not fill it.
+const WAR_HEAD_LOAD_LIMIT = 60.0
 const START_X = 2200.0
 const EXIT_X = 850.0
 const TROT_SPEED = 210.0
@@ -46,7 +50,7 @@ func _init(match_mode: String = "arena", player_stats: Dictionary = {}, opponent
 
 func _make_fighter(x: float, direction: int, stats: Dictionary) -> Dictionary:
 	return {"x": x, "prev_x": x, "direction": direction, "speed": TROT_SPEED, "stamina": 100.0,
-		"hp": 100.0, "shield": float(stats.get("shield_capacity",78.0)), "lean": 0.0, "aim": -0.08, "boost": false,
+		"hp": 100.0, "head_load": 0.0, "shield": float(stats.get("shield_capacity",78.0)), "lean": 0.0, "aim": -0.08, "boost": false,
 		"broken": false, "durability": float(stats.get("durability", 100.0)), "acted": false,
 		"ko": false, "dead": false, "stats": stats.duplicate(true), "prev_tip": Vector2.ZERO,
 		"prev_head": Vector2.ZERO, "prev_body": Vector2.ZERO, "prev_shield": Vector2.ZERO,
@@ -486,8 +490,23 @@ func _apply_contact(contact: Dictionary) -> void:
 	if mode=="war" and zone=="head":
 		var committed = contact.has("head_incidence") and float(contact.head_incidence)>=WAR_HEAD_INCIDENCE and speed>=WAR_HEAD_SPEED and float(attacker.get("lance_stability",1.0))>=WAR_HEAD_STABILITY and not attacker.broken
 		contact["head_severity"] = damage
+		var load_before = float(defender.get("head_load",0.0))
+		var load_quality = 0.0
+		if contact.has("head_incidence") and not attacker.broken:
+			# Continuous transfer avoids an all-or-nothing injury jump for a
+			# one-pixel change near the edge or a tiny change in arm stability.
+			load_quality = smoothstep(.60,.90,float(contact.head_incidence))*smoothstep(.45,.80,float(attacker.get("lance_stability",1.0)))
+		var load_added = (damage+impulse*.40)*load_quality
+		defender.head_load = load_before+load_added
+		contact["head_load_before"] = load_before
+		contact["head_load_added"] = load_added
+		contact["head_load"] = defender.head_load
+		contact["head_reason"] = "glance" if glanced else ("broken" if attacker.broken else ("unsteady" if float(attacker.get("lance_stability",1.0))<.65 else ("low_speed" if speed<600.0 else "solid")))
 		if committed and damage>=WAR_HEAD_DAMAGE:
 			head_outcome = "fatal"
+			damage = maxf(damage,float(defender.hp))
+		elif load_before>0.0 and load_added>=12.0 and float(defender.head_load)>=WAR_HEAD_LOAD_LIMIT:
+			head_outcome = "cumulative_fatal"
 			damage = maxf(damage,float(defender.hp))
 		elif committed and unarmoured_head_damage*head_angle_factor>=WAR_HEAD_DAMAGE and damage<WAR_HEAD_DAMAGE:
 			head_outcome = "helmet_block"

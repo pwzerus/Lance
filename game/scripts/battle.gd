@@ -443,7 +443,7 @@ func _handle_event(event: Dictionary) -> void:
 				hit_text += " · 擦偏"
 			if event.ko:
 				hit_text += " · 击落！"
-			elif event.zone!="shield":
+			elif event.zone!="shield" and (not event.has("head_outcome") or training_zones):
 				hit_text += (" · 重击" if float(event.impulse)>=70.0 else " · 命中") if not training_zones else " · 冲击 %d" % roundi(event.impulse)
 				if float(event.get("support",1.0))<.70:
 					hit_text += " · 失稳"
@@ -725,7 +725,9 @@ func _update_hud() -> void:
 	tactics_label.text = "%s　|　枪稳 %d%%　|　平衡 %d%%　|　盾 %d%%　|　臂力 %d%%" % [guard_text,roundi(float(f.lance_stability)*100),roundi(f.balance),roundi(float(f.shield)/float(f.stats.get("shield_capacity",78.0))*100),roundi(float(f.get("arm",100.0)))]
 	if not training_zones:
 		tactics_label.text = guard_text
-		if float(f.hp)<35: tactics_label.text += "　· 重伤"
+		if mode=="war" and float(f.get("head_load",0.0))>=Model.WAR_HEAD_LOAD_LIMIT*.5:
+			tactics_label.text += "　· 头部重创，谨防再中"
+		elif float(f.hp)<35: tactics_label.text += "　· 重伤"
 		elif float(f.hp)<70: tactics_label.text += "　· 受伤"
 		if float(f.balance)<40: tactics_label.text += "　· 坐姿失衡"
 		elif not f.broken and float(f.lance_stability)<.65: tactics_label.text += "　· 枪未稳住"
@@ -739,6 +741,9 @@ func _update_hud() -> void:
 		tactics_label.text += "　· 手臂酸软"
 	if approach_slow:
 		tactics_label.text += "　· 接近放缓"
+	if not training_zones and bool(f.ko):
+		# Once unhorsed, further defensive advice is no longer actionable.
+		tactics_label.text = "骑手阵亡" if bool(f.dead) else "骑手落马 · 无法继续交锋"
 	tactics_label.modulate = Color(1.3,1.2,.7) if Time.get_ticks_msec()<input_flash_until else Color.WHITE
 	if practice:
 		hint.text = "练习 · 催马%s　调枪%s　防盾%s　俯仰%s" % ["✓" if learned.boost else "·","✓" if learned.aim else "·","✓" if learned.guard else "·","✓" if learned.posture else "·"]

@@ -315,7 +315,7 @@ func show_match_setup() -> void:
 	_header("出战 · 选择模式与对手")
 	UI.label(screen,"选择你的交锋",Vector2(60,115),38,UI.INK)
 	UI.button(screen,"返回营地",Rect2(1208,105,175,48),show_home)
-	var descriptions = ["非致死比武 · 每轮领取新枪\n最多三次对冲，落马可提前决胜。","头部有效重击可致命，头盔可抵挡\n断枪跨轮保留，收藏不会丢失。","熟悉催马、枪线和三档盾位\n对手按轮次换盾，不计胜负奖励。"]
+	var descriptions = ["非致死比武 · 每轮领取新枪\n最多三次对冲，落马可提前决胜。","重击与连续头伤可致命，头盔可救命\n断枪跨轮保留，收藏不会丢失。","熟悉催马、枪线和三档盾位\n对手按轮次换盾，不计胜负奖励。"]
 	for i in range(3):
 		var card = UI.panel(screen,Rect2(60+i*449,200,430,260))
 		UI.label(card,["竞技场","实战","练习场"][i],Vector2(24,22),30,UI.GOLD)
@@ -453,7 +453,7 @@ func _begin_match(mode: String, practice: bool = false) -> void:
 	UI.separator(panel,Vector2(30,329),840)
 	var rules = "竞技场 · 最多三轮，落马提前决胜，每轮换新枪；不会死亡。\n盾1 · 胸腹2 · 头盔3；护甲化解1分，擦偏0分，非擦偏断枪+1。"
 	if mode=="war":
-		rules = "实战 · 有效头部重击可致命，头盔、盾牌和入射角仍有作用。\n擦过可存活；断枪跨轮保留。骑手死亡不会丢失收藏。"
+		rules = "实战 · 头部重击可致命；连续正面受创会累积，头盔不能无限抵挡。\n盾挡与擦过可存活；断枪跨轮保留，死亡不会丢失收藏。"
 	elif practice:
 		rules = "练习场 · 对手按轮次换盾，最多三次对冲。\n没有金币或声望奖惩，先熟悉加减速、瞄准和防盾。"
 	UI.label(panel,rules,Vector2(30,347),19,UI.INK,840)

@@ -18,7 +18,12 @@ static func summarize(events: Array, mode: String = "arena", detailed: bool = fa
 		var hit: Dictionary = latest[attacker]
 		var note = "擦偏" if hit.get("glanced",false) else "盾牌承受冲击"
 		if hit.zone!="shield" and not hit.get("glanced",false):
-			note = "实击" if hit.get("attaint",false) else "护甲化解"
+			if mode=="war":
+				note = "骑手受创" if float(hit.get("damage",0.0))>0.0 else "护具抵挡"
+				if hit.zone=="head" and float(hit.get("head_load_added",0.0))>0.0 and not hit.get("dead",false):
+					note = "头部伤势累积"
+			else:
+				note = "实击" if hit.get("attaint",false) else "护甲化解"
 		if hit.get("broke",false):
 			note += " · 断枪"
 		if hit.get("shield_broke",false): note += " · 盾已破损"

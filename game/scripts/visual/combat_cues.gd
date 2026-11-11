@@ -1,6 +1,7 @@
 extends Node2D
 ## Read-only projection of the current tip height. It neither aims nor predicts AI decisions.
 const Model = preload("res://scripts/core/joust_match.gd")
+const WindowActivity = preload("res://scripts/core/window_activity.gd")
 const COLORS = {"head":Color("f18d83"),"body":Color("7bd9e3"),"flank":Color("efb566"),"shield":Color("f4dc82"),"miss":Color("a8ad9b")}
 const NAMES = {"head":"头部","body":"胸部","flank":"腰腹","shield":"盾牌格挡","miss":"偏离骑手"}
 var match_model: JoustMatch
@@ -65,11 +66,17 @@ static func project(model: JoustMatch, attacker_index: int = 0) -> Dictionary:
 	return result
 
 func _process(_delta: float) -> void:
+	# A finished battle keeps processing behind its result panel. Hidden
+	# windows must not enqueue canvas work; WindowActivity redraws on restore.
+	if WindowActivity.suspended():
+		return
 	if match_model:
 		reading = project(match_model)
 	queue_redraw()
 
 func _draw() -> void:
+	if WindowActivity.suspended():
+		return
 	if not enabled or not reading.get("active",false):
 		return
 	var color = COLORS[reading.zone]

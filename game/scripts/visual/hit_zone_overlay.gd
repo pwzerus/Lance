@@ -1,13 +1,20 @@
 extends Node2D
 
 const Model = preload("res://scripts/core/joust_match.gd")
+const WindowActivity = preload("res://scripts/core/window_activity.gd")
 var match_model: JoustMatch
 
 func _process(_delta: float) -> void:
+	if WindowActivity.suspended():
+		return
 	if visible:
 		queue_redraw()
 
 func _draw() -> void:
+	# _draw may already be queued when minimizing. Do not rebuild geometry
+	# while the render window cannot consume it, even on the results screen.
+	if WindowActivity.suspended():
+		return
 	if not match_model:
 		return
 	for f in match_model.fighters:

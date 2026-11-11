@@ -9,6 +9,7 @@ const Art = preload("res://scripts/visual/equipment_art.gd")
 const Appearance = preload("res://scripts/core/character_appearance.gd")
 const WindowActivity = preload("res://scripts/core/window_activity.gd")
 const PracticeGuide = preload("res://scripts/core/practice_guide.gd")
+const AudioMix = preload("res://scripts/core/audio_mix.gd")
 const BACKGROUND = preload("res://assets/art/pixel_v03/tournament_field.png")
 
 class CharacterFaceCanvas extends Node2D:
@@ -104,6 +105,10 @@ var armory_cards: Dictionary = {}
 var settings_notice: Label
 var save_error_dialog: AcceptDialog
 var slot_dialog: ConfirmationDialog
+var audio_save_timer: Timer
+var audio_save_pending = false
+var audio_preview_notice: Label
+var audio_preview_until = 0
 var build_version = str(ProjectSettings.get_setting("application/config/version","unknown"))
 
 func _ready() -> void:
@@ -120,6 +125,13 @@ func _ready() -> void:
 	get_window().min_size = Vector2i(960,540)
 	ui_layer = CanvasLayer.new()
 	add_child(ui_layer)
+	AudioMix.apply(GameState.profile.settings)
+	audio_save_timer = Timer.new()
+	audio_save_timer.one_shot = true
+	audio_save_timer.ignore_time_scale = true
+	audio_save_timer.process_mode = Node.PROCESS_MODE_ALWAYS
+	audio_save_timer.timeout.connect(_flush_audio_settings)
+	add_child(audio_save_timer)
 	sounds = SoundBank.new()
 	sounds.enabled = GameState.profile.settings.sound
 	add_child(sounds)
@@ -140,6 +152,7 @@ func _ready() -> void:
 		add_child(audit)
 
 func _clear_screen() -> void:
+	_flush_audio_settings()
 	if screen:
 		# Deferred deletion keeps the old controls alive until frame end.
 		# Hide them immediately so a second queued click cannot hit stale UI.
@@ -265,7 +278,7 @@ func show_save_recovery(notice: String = "") -> void:
 		button.disabled = data.is_empty()
 	UI.button(screen,"保留损坏文件，开始新旅程",Rect2(104,590,780,65),func():
 		if GameState.start_new_after_recovery():
-			sounds.set_enabled(GameState.profile.settings.sound)
+			_apply_audio_settings()
 			show_home()
 		else: show_save_recovery(GameState.save_error),true)
 	UI.button(screen,"退出，稍后处理",Rect2(910,590,408,65),_shutdown_and_quit)
@@ -471,7 +484,7 @@ func _perform_slot_operation(slot: int, loading: bool) -> void:
 		show_save_recovery(GameState.save_error)
 		return
 	if loading and success:
-		sounds.set_enabled(GameState.profile.settings.sound)
+		_apply_audio_settings()
 		_apply_display_settings()
 	show_saves(("已读取存档 %d；原自动存档保留为备份" if loading else "已保存到存档 %d") % slot if success else GameState.save_error)
 
@@ -1009,9 +1022,7 @@ func show_settings() -> void:
 	UI.check(panel,"显示血腥表现",GameState.profile.settings.blood,Vector2(28,104),func(value):_change_setting("blood",value))
 	UI.label(panel,"关闭只隐藏血迹与伤口；实战依然允许死亡。",Vector2(28,150),16,UI.MUTED)
 	UI.check(panel,"镜头震动",GameState.profile.settings.shake,Vector2(28,195),func(value):_change_setting("shake",value))
-	UI.check(panel,"音乐与音效",GameState.profile.settings.sound,Vector2(28,250),func(value):
-		_change_setting("sound",value)
-		sounds.set_enabled(value))
+	UI.check(panel,"声音总开关",GameState.profile.settings.sound,Vector2(28,250),func(value):_change_setting("sound",value))
 	UI.check(panel,"纯鼠标姿态控制",GameState.profile.settings.mouse_only,Vector2(28,305),func(value):_change_setting("mouse_only",value))
 	UI.label(panel,"滚轮前后调倾身，中键回正；鼠标瞄准，左键加速。",Vector2(28,353),16,UI.MUTED,620)
 	UI.label(panel,"AI 难度",Vector2(28,406),19,UI.INK)
@@ -1029,16 +1040,91 @@ func show_settings() -> void:
 	UI.button(panel,"返回营地",Rect2(28,581,620,49),show_home,true)
 	UI.panel(screen,Rect2(810,123,565,596),Color(.055,.10,.08,.95))
 	UI.label(screen,"操作",Vector2(844,150),32,UI.GOLD)
+	UI.button(screen,"音量与材质试听",Rect2(1105,150,235,45),show_sound_settings)
 	UI.label(screen,"移动鼠标　瞄准；大幅改向会失稳\n左键 / 空格　按住催马，松开减速\n1 / 2 / 3　护头 / 护胸 / 护腹（右键循环）\nW / S　　 前倾支撑 / 后仰避头\nH　　　　 显示判定范围\nEsc　　　 暂停与设置\nR 重开　　F11 全屏",Vector2(844,219),22,UI.INK,510)
 	UI.label(screen,"触控输入已预留：左侧滑动倾身，右侧瞄准，\n右侧额外触点加速；尚未在手机设备验收。",Vector2(844,510),17,UI.MUTED,510)
 	UI.check(screen,"接近时放缓与命中慢动作",GameState.profile.settings.slow_motion,Vector2(844,600),func(value):_change_setting("slow_motion",value))
 	UI.check(screen,"显示枪线颜色与部位提示",GameState.profile.settings.aim_cues,Vector2(844,656),func(value):_change_setting("aim_cues",value))
 	queue_redraw()
 
+func show_sound_settings() -> void:
+	page = "sound_settings"
+	_clear_screen()
+	_header("声音 · 音乐、蹄声与撞击，各有位置。")
+	var panel = UI.panel(screen,Rect2(70,123,680,656))
+	UI.label(panel,"声音设置",Vector2(28,24),34,UI.GOLD)
+	UI.check(panel,"声音总开关",GameState.profile.settings.sound,Vector2(28,91),func(value):
+		_change_setting("sound",value)
+		if is_instance_valid(audio_preview_notice):
+			audio_preview_notice.text = "声音已开启，可点击下方按钮试听。" if value else "声音已关闭；下方试听不会发声。")
+	var rows = [["master_volume","总音量"],["music_volume","营地音乐"],["effects_volume","撞击、马蹄与操作"],["ambience_volume","冲锋风声"]]
+	for i in range(rows.size()):
+		var key: String = rows[i][0]
+		var y = 159.0+i*85.0
+		UI.label(panel,rows[i][1],Vector2(28,y),21,UI.INK)
+		var value_label = UI.label(panel,"%d%%" % roundi(AudioMix.volume(GameState.profile.settings,key)*100),Vector2(550,y),21,UI.GOLD,88)
+		var slider = HSlider.new()
+		slider.name = key
+		slider.position = Vector2(32,y+33)
+		slider.size = Vector2(593,30)
+		slider.min_value = 0; slider.max_value = 100; slider.step = 5
+		slider.value = AudioMix.volume(GameState.profile.settings,key)*100
+		slider.tooltip_text = rows[i][1]+"：左右方向键每次调整 5%，0 为静音。"
+		slider.value_changed.connect(func(value):
+			value_label.text = "%d%%" % roundi(value)
+			_preview_audio_volume(key,float(value)/100.0))
+		panel.add_child(slider)
+	settings_notice = UI.label(panel,"调整立即生效，停手后自动保存。",Vector2(28,522),17,UI.MUTED,620)
+	UI.button(panel,"返回设置",Rect2(28,581,302,49),show_settings,true)
+	UI.button(panel,"返回营地",Rect2(348,581,302,49),show_home)
+	var samples = UI.panel(screen,Rect2(810,123,565,656),Color(.055,.10,.08,.95))
+	UI.label(samples,"听清这一次接触",Vector2(28,24),30,UI.GOLD)
+	UI.label(samples,"以下为相同冲速下的实击示例。\n实际交锋还会随擦碰、断枪与来势变化。",Vector2(28,86),21,UI.INK,510)
+	audio_preview_notice = UI.label(samples,"点击材质试听；使用当前音量。" if AudioMix.effects_audible(GameState.profile.settings) else "音效已静音；先开启声音并调高总音量和音效。",Vector2(28,174),18,UI.MUTED,510)
+	UI.button(samples,"试听 · 钢制头盔",Rect2(28,270,510,57),func():_preview_material("head","钢制头盔"))
+	UI.button(samples,"试听 · 板甲胸甲",Rect2(28,343,510,57),func():_preview_material("body","板甲胸甲"))
+	UI.button(samples,"试听 · 木芯盾牌",Rect2(28,416,510,57),func():_preview_material("shield","木芯盾牌"))
+	UI.label(samples,"想突出蹄声与碰撞，可以降低音乐和风声。\n0% 会完全静音；设置会保留在当前存档中。",Vector2(28,520),20,UI.MUTED,510)
+	queue_redraw()
+
+func _preview_audio_volume(key: String, value: float) -> void:
+	if key not in AudioMix.VOLUMES: return
+	GameState.profile.settings[key] = clampf(value,0.0,1.0)
+	AudioMix.apply(GameState.profile.settings)
+	audio_save_pending = true
+	audio_save_timer.start(.3)
+	if is_instance_valid(settings_notice): settings_notice.text = "正在调整；停手后自动保存。"
+
+func _flush_audio_settings() -> void:
+	if not audio_save_pending: return
+	audio_save_pending = false
+	if is_instance_valid(audio_save_timer): audio_save_timer.stop()
+	GameState.save_profile()
+	GameState.profile_changed.emit()
+	_settings_save_notice()
+
+func _apply_audio_settings() -> void:
+	AudioMix.apply(GameState.profile.settings)
+	if is_instance_valid(sounds): sounds.set_enabled(GameState.profile.settings.sound)
+
+func _preview_material(zone: String, title: String) -> void:
+	if not AudioMix.effects_audible(GameState.profile.settings):
+		audio_preview_notice.text = "音效已静音；先开启声音并调高总音量和音效。"
+		return
+	if Time.get_ticks_msec()<audio_preview_until: return
+	audio_preview_until = Time.get_ticks_msec()+650
+	var cue = sounds.impact_cue({"type":"hit","zone":zone,"impulse":60.0,"speed":800.0,"glanced":false},{"helmet_material":"steel","armor_material":"plate","shield_material":"wood"})
+	for limited in sounds.limit_contact_group([cue]): sounds.play(limited.cue,limited.db,limited.pitch)
+	audio_preview_notice.text = "试听示例："+title+" · 实击。"
+
 func _change_setting(key: String, value: Variant) -> void:
 	GameState.set_setting(key,value)
 	if key=="vsync": _apply_display_settings()
-	if page=="settings" and is_instance_valid(settings_notice):
+	if key=="sound": _apply_audio_settings()
+	_settings_save_notice()
+
+func _settings_save_notice() -> void:
+	if page in ["settings","sound_settings"] and is_instance_valid(settings_notice):
 		var saved = GameState.save_error.is_empty()
 		settings_notice.text = "已保存设置" if saved else "设置已应用，但暂未保存；可回营地重试保存。"
 		settings_notice.add_theme_color_override("font_color",UI.MUTED if saved else Color("efb566"))

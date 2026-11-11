@@ -1,6 +1,8 @@
 class_name SoundBank
 extends Node
 
+const Mix = preload("res://scripts/core/audio_mix.gd")
+
 var enabled = true
 var music: AudioStreamPlayer
 var streams: Dictionary = {}
@@ -77,7 +79,9 @@ var _music_start_on_resume = false
 var _impact_counters: Dictionary = {}
 
 func _ready() -> void:
+	Mix.ensure_buses()
 	music = AudioStreamPlayer.new()
+	music.bus = Mix.MUSIC
 	if shared_streams.is_empty():
 		for sound_name in ["impact","shield","break","hoof","click","horn","win","lose","lute_loop","wind_loop"]:
 			shared_streams[sound_name] = _synthesize(sound_name)
@@ -154,6 +158,7 @@ func play(sound: String, volume_db: float = -5.0, pitch: float = 1.0) -> void:
 	if not player:
 		if voices.size() < MAX_VOICES:
 			player = AudioStreamPlayer.new()
+			player.bus = Mix.EFFECTS
 			voices.append(player)
 			add_child(player)
 		else:

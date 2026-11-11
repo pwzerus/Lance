@@ -208,6 +208,7 @@ func _ready() -> void:
 			for limited in sound.limit_contact_group([cue]):
 				sound.play(limited.cue,limited.db,limited.pitch))
 	wind = AudioStreamPlayer.new()
+	wind.bus = preload("res://scripts/core/audio_mix.gd").AMBIENCE
 	wind.stream = sound.streams.wind_loop
 	wind.volume_db = -50
 	add_child(wind)

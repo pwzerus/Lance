@@ -1,0 +1,72 @@
+[
+  {
+    "path": "logs/comm087/audio-ui01/report.json",
+    "sha256": "4ac6322b43fda919bb4075c832356880a28c691ef31df6a8a591db68026094b1",
+    "passed": true,
+    "failures": [],
+    "scope": "Actual background GPU and audio buses; viewport keyboard slider plus production callbacks. Master muted, no OS input/listening. Isolated file failure is intentional.",
+    "driver": null
+  },
+  {
+    "path": "logs/comm087/audio-ui02/report.json",
+    "sha256": "59784f21cbbafe6bce6887fcaf3aac5708cfbfbeebda4c950671cf88863ec65c",
+    "passed": true,
+    "failures": [],
+    "scope": "Actual background GPU and audio buses; viewport keyboard slider plus production callbacks. Master muted, no OS input/listening. Isolated file failure is intentional.",
+    "driver": null
+  },
+  {
+    "path": "logs/comm087/mix02/report.json",
+    "sha256": "a859b51ffe820817a53404549008e50155d8bf2cf8746d15caaf1d0d9322b1d7",
+    "passed": true,
+    "failures": [],
+    "scope": "Real AudioEffectRecord before final Master mute. Actual routed PCM checks, no OS audio, microphone or human listening; not a subjective quality assessment.",
+    "driver": "Dummy",
+    "channels": [
+      {
+        "case": "01_effects_full",
+        "peak": 0.340789794921875
+      },
+      {
+        "case": "02_effects_half",
+        "peak": 0.170379638671875
+      },
+      {
+        "case": "03_effects_muted",
+        "peak": 0.0
+      },
+      {
+        "case": "04_music_independent",
+        "peak": 0.340789794921875
+      },
+      {
+        "case": "05_music_muted",
+        "peak": 0.0
+      },
+      {
+        "case": "06_ambience_independent",
+        "peak": 0.340789794921875
+      },
+      {
+        "case": "07_ambience_muted",
+        "peak": 0.0
+      },
+      {
+        "case": "08_master_half",
+        "peak": 0.170379638671875
+      },
+      {
+        "case": "09_sound_off",
+        "peak": 0.0
+      }
+    ]
+  },
+  {
+    "path": "logs/comm087/audio-regression01.json",
+    "sha256": "84a7a2669cb43f57ae89668ca93bae0ce97d66960dabf1206fc5ac9c23586be1",
+    "passed": true,
+    "failures": [],
+    "scope": "Real catalogue material fallback and explicit material fixtures, speed-aware contact strength distinct from damage, pure cue selection, bounded variants, original-event immutability, actual PCM/headroom and simultaneous/staggered contact-group peak budget, optional fixed-gain audition WAVs, live long-voice pause/resume, mute and bounded pool. No claim of human listening, whole-Master mix measurement, hardware loudness, real recorded material or player impact satisfaction.",
+    "driver": "Dummy"
+  }
+]

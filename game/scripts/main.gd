@@ -580,7 +580,15 @@ func _shutdown_and_quit() -> void:
 		sounds.set_enabled(false)
 		sounds.stop_all()
 	_close_battle()
-	await get_tree().create_timer(.12,true,false,true).timeout
+	# A timer created after a slow save/render can consume that entire frame's
+	# delta immediately: the intended 120ms was only 16ms in exit QA. Audio
+	# removal needs mixer work plus main-thread cleanup, so wait actual time
+	# and at least two process boundaries without blocking either thread.
+	var quit_after = Time.get_ticks_msec()+120
+	var closing_frames = 0
+	while Time.get_ticks_msec()<quit_after or closing_frames<2:
+		await get_tree().process_frame
+		closing_frames += 1
 	get_tree().quit()
 
 func _notification(what: int) -> void:

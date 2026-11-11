@@ -8,6 +8,7 @@ const DT=1.0/120.0
 var failures: Array=[]
 var rows: Array=[]
 var path=""
+var reactive_guard=false
 func _initialize() -> void: call_deferred("run")
 func urge(style: String, gap: float) -> bool:
 	if style=="hold": return true
@@ -21,15 +22,29 @@ func trial(stats: Dictionary, kit: String, mode: String, style: String, zone: St
 	var tick=0
 	var hits: Array=[]
 	var aim=0.0
+	var guard=.43
+	var observed_tips: Array=[]
 	var min_stamina=100.0
 	var invariant=true
 	while model.phase!="ended" and tick<120*100:
 		var f: Dictionary=model.fighters[0]
+		# Optional diagnostic: 250 ms old incoming tip, guard decisions only
+		# every 300 ms, and the ordinary finite shield motor. This separates
+		# horse-control policy from the legacy bot's fixed chest-only defense.
+		observed_tips.append(Model.tip_position(model.fighters[1]).y)
+		if observed_tips.size()>30:
+			var incoming=float(observed_tips.pop_front())
+			if reactive_guard and tick%36==0:
+				var heights=[Model.head_position(f).y,Model.body_position(f).y,Model.flank_position(f).y]
+				var nearest=0
+				for i in range(1,3):
+					if absf(heights[i]-incoming)<absf(heights[nearest]-incoming):nearest=i
+				guard=[1.0,.43,0.0][nearest]
 		if tick%36==0:
 			var target=Model.head_position(model.fighters[1]) if zone=="head" else Model.body_position(model.fighters[1])
 			var hand=Model.hand_position(f)
 			aim=asin(clampf((target.y-hand.y)/Model.lance_length(f),-.629,.548))
-		model.set_controls(0,aim,.15,urge(style,absf(model.fighters[1].x-f.x)),DT,.43)
+		model.set_controls(0,aim,.15,urge(style,absf(model.fighters[1].x-f.x)),DT,guard)
 		brain.update(model,1,1,DT,rng)
 		model.step(DT)
 		for event in model.drain_events():
@@ -45,11 +60,12 @@ func trial(stats: Dictionary, kit: String, mode: String, style: String, zone: St
 	if not invariant: failures.append(id+" violated numeric/mode invariant")
 	return {"id":id,"kit":kit,"mode":mode,"style":style,"target":zone,"seed":seed_value,"duration":tick*DT,"result":model.result,"hits":hits,"minimum_player_stamina":min_stamina,"finished":model.phase=="ended","invariants":invariant}
 func save(complete: bool) -> void:
-	FileAccess.open(path,FileAccess.WRITE).store_string(JSON.stringify({"passed":complete and failures.is_empty(),"complete":complete,"failures":failures,"rows":rows,"scope":"Production 120Hz rules and normal delayed AI, same equipment both sides; scripted player samples target every .3s and holds chest guard. Strategy observations, not human skill/win-rate proof."},"\t"))
+	FileAccess.open(path,FileAccess.WRITE).store_string(JSON.stringify({"passed":complete and failures.is_empty(),"complete":complete,"failures":failures,"rows":rows,"reactive_guard":reactive_guard,"scope":"Production 120Hz rules and normal delayed AI, same equipment both sides; scripted attack samples every .3s. Guard is fixed chest by default; optional reactive guard samples a 250ms-old tip every .3s and uses the production motor. Strategy observations, not human skill/win-rate proof."},"\t"))
 func run() -> void:
 	var kit="starter"
 	var budget=360.0
 	for arg in OS.get_cmdline_user_args():
+		if arg=="--reactive-guard":reactive_guard=true
 		if arg.begins_with("--report="): path=arg.trim_prefix("--report=")
 		if arg.begins_with("--kit="): kit=arg.trim_prefix("--kit=")
 		if arg.begins_with("--budget="): budget=float(arg.trim_prefix("--budget="))

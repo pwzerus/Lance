@@ -19,13 +19,14 @@ func observe(tag:String,expected_mode:int)->void:
 	await wall_wait(.3)
 	check(Engine.get_frames_drawn()>before,"Visible window stopped presenting: "+tag)
 	await RenderingServer.frame_post_draw
+	var texture_reported_size=root.get_texture().get_size()
 	var picture=root.get_texture().get_image()
 	var colors={}
 	for y in range(3,30):
 		for x in range(3,30):colors[picture.get_pixel(picture.get_width()*x/32,picture.get_height()*y/32).to_rgba32()]=true
 	check(colors.size()>35,"Output appears blank: "+tag)
 	check(picture.save_png(folder+"/"+tag+".png")==OK,"Cannot save render evidence: "+tag)
-	windows.append({"tag":tag,"mode":DisplayServer.window_get_mode(),"window_size":str(DisplayServer.window_get_size()),"viewport_rect":str(root.get_visible_rect()),"image_size":str(picture.get_size()),"sampled_colors":colors.size(),"page":main.page,"paused":main.battle.paused if is_instance_valid(main.battle) else false})
+	windows.append({"tag":tag,"mode":DisplayServer.window_get_mode(),"window_size":str(DisplayServer.window_get_size()),"root_size":str(root.size),"content_scale_size":str(root.content_scale_size),"content_scale_factor":root.content_scale_factor,"viewport_rect":str(root.get_visible_rect()),"texture_reported_size":str(texture_reported_size),"image_size":str(picture.get_size()),"sampled_colors":colors.size(),"page":main.page,"paused":main.battle.paused if is_instance_valid(main.battle) else false})
 
 func run()->void:
 	for arg in OS.get_cmdline_user_args():

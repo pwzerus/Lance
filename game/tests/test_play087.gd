@@ -28,10 +28,12 @@ func run()->void:
 		if a.begins_with("--kit="):kit=a.trim_prefix("--kit=")
 		if a=="--blood":blood=true
 	var state=root.get_node("GameState")
-	if folder.is_empty() or DirAccess.dir_exists_absolute(folder) or not state.save_path.contains("qa_") or OS.get_environment("GALUMU_MEMORY_BOUND")!="1024" or DisplayServer.get_name()=="headless" or mode not in ["arena","war"]:quit(2);return
+	if folder.is_empty() or DirAccess.dir_exists_absolute(folder) or not state.save_path.contains("qa_") or OS.get_environment("GALUMU_MEMORY_BOUND")!="1024" or DisplayServer.get_name()=="headless" or mode not in ["arena","war"] or kit not in ["starter","heavy","steady","french_light","italian_plate","english_late"]:quit(2);return
 	DirAccess.make_dir_recursive_absolute(folder)
 	state.save_path=folder+"/qa_profile.json";state.backup_path=folder+"/qa_backup.json";state.load_profile()
 	state.profile.settings.sound=true;state.profile.settings.blood=blood;state.profile.settings.difficulty=difficulty
+	state.profile.settings.slow_motion=not "--no-slow" in OS.get_cmdline_user_args()
+	state.profile.settings.shake=not "--no-shake" in OS.get_cmdline_user_args()
 	AudioServer.set_bus_mute(0,true)
 	if kit=="heavy":
 		state.profile.renown=60;state.profile.region=2
@@ -39,11 +41,21 @@ func run()->void:
 	elif kit=="steady":
 		state.profile.renown=32;state.profile.equipped.horse="horse_steady"
 		state.profile.equipped.armor="eng_armor_2";state.profile.equipped.helmet="eng_helmet_2";state.profile.equipped.caparison="caparison_wool"
+	elif kit=="french_light":
+		state.profile.renown=16;state.profile.region=1
+		state.profile.equipped.merge({"armor":"fr_armor_1","helmet":"fr_helmet_1","shield":"fr_shield_1","lance":"fr_lance_long_1","horse":"horse_cob","caparison":"caparison_linen"},true)
+	elif kit=="italian_plate":
+		state.profile.renown=60;state.profile.region=3
+		state.profile.equipped.merge({"armor":"it_armor_5","helmet":"it_helmet_5","shield":"it_shield_5","lance":"it_lance_long_5","horse":"horse_courser","caparison":"caparison_velvet"},true)
+	elif kit=="english_late":
+		state.profile.renown=60;state.profile.region=0
+		state.profile.equipped.merge({"armor":"eng_armor_5","helmet":"eng_helmet_5","shield":"eng_shield_5","lance":"eng_lance_stout_5","horse":"horse_grey","caparison":"caparison_wool"},true)
 	for id in state.profile.equipped.values():
 		check(not load("res://scripts/core/catalogue.gd").find(state.items,id).is_empty(),"Unknown test loadout item "+str(id))
 		if id not in state.profile.owned:state.profile.owned.append(id)
 	if not failures.is_empty():print(failures);quit(2);return
 	root.size=Vector2i(1280,720)
+	if "--fullscreen" in OS.get_cmdline_user_args():DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	var main=load("res://scenes/main.tscn").instantiate();root.add_child(main);current_scene=main
 	# Wall-clock warmup is explicit; the boot frame cannot consume a timer.
 	var warm=Time.get_ticks_usec()
@@ -89,6 +101,17 @@ func run()->void:
 	var saved=state._read_save(state.save_path)
 	check(not saved.is_empty() and saved.matches==state.profile.matches and saved.coins==state.profile.coins,"Actual disk progress differs from current rewards")
 	var output={"passed":failures.is_empty(),"failures":failures,"mode":mode,"difficulty":difficulty,"kit":kit,"blood":blood,"wall_seconds":(Time.get_ticks_usec()-start)/1000000.0,"version":ProjectSettings.get_setting("application/config/version"),"executable":OS.get_executable_path(),"equipped":equipped,"matches":rows,"samples":samples,"all_frames":stats(frame_ms),"phases":summaries,"scope":"Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates."}
+	output.settings=state.profile.settings.duplicate(true)
+	# ViewportTexture.get_size includes the canvas stretch transform in 4.5.1;
+	# it is not the pixel size returned by a rendered image readback. Keep both
+	# meanings distinct, and perform optional capture only AFTER frame timing.
+	output.window={"mode":DisplayServer.window_get_mode(),"size":str(DisplayServer.window_get_size()),"texture_reported_size":str(root.get_texture().get_size())}
+	if "--capture-render" in OS.get_cmdline_user_args():
+		await RenderingServer.frame_post_draw
+		var final_picture=root.get_texture().get_image()
+		output.window.image_size=str(final_picture.get_size())
+		check(final_picture.save_png(folder+"/after_timing.png")==OK,"Could not save post-timing render evidence")
+		output.passed=failures.is_empty()
 	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify(output,"\t"))
 	print("PLAY087 results=",rows.size()," failures=",failures)
 	main.notification(Node.NOTIFICATION_WM_CLOSE_REQUEST)

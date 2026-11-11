@@ -363,3 +363,7 @@ FEEL-086最终交出（2026-11-11 UTC）：v0.4.40-r3运行8fef1dc；所有本�
 COMM-087 / Codex / 2026-11-11 01:13:30 UTC：基线bf83aaac0c2998742658af23283d5e5e910584d8，实际工作区/远程跟踪一致。用户要求至少6小时、最多10小时向可销售品质推进，最早07:13:30收尾、最晚11:13:30。保护与隔离QA保留；默认后台，未把前一任务临时桌面授权扩大为新任务任意接管。本轮先认领：Start-MemoryBound.ps1（原则上复用现有核心，必要时才改）、launcher/（新可分发Windows启动器/构建工具）、game/scripts/{main,battle}.gd、game/scripts/core/{game_state,catalogue,joust_match}.gd、game/scripts/ui/{home_camp,combat_report,ui_factory}.gd及本轮新增引导/发布说明模块、game/tests/*087*、game/project.godot、game/export_presets.cfg、Play-Latest.cmd、README.md、docs/development/COMM087*、交接/任务/状态/工作记录与DESIGN_DECISIONS。先诊断现有不足再原位改进，未来扩展美术/音频文件先追加登记。不覆盖旧包或三份历史差异，不自动上架销售。
 
 COMM-087 声音/设置扩展（02:40 UTC）：Codex认领game/scripts/visual/sound_bank.gd、新core/audio_mix.gd（有限共享音频总线）、既有main/battle/game_state内声音设置、tests/*087*；检查主音量/音乐/效果分别控制、默认音量不变、静音和暂停/存档切换一致。现有素材和接触伤害不改，除非实际证据指向问题。
+
+COMM-087 发布说明扩展（02:52 UTC）：Codex持有新game/scripts/ui/help_pages.gd、game/tools/build_icon087.gd（仅将既有SVG图标转为Windows图标）、launcher/内玩家指南和构建元数据、README与本轮测试。原始SVG不改；不新增生成美术、不更换马或骑手素材。
+
+COMM-087 连续运行扩展（03:05 UTC）：Codex认领tests/test_live084.gd，仅增加可选--blood测试参数与报告字段，原默认/时长/性能统计不变，用于真实实战落马和血腥开关负载。

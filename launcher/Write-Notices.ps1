@@ -4,6 +4,11 @@ $repo = Split-Path -Parent $PSScriptRoot
 $licenseData = Get-Content -LiteralPath $EngineLicenseJson -Raw -Encoding utf8 | ConvertFrom-Json
 if (!$licenseData.godot -or !$licenseData.licenses -or !$licenseData.copyright) { throw 'Incomplete engine license evidence.' }
 $output = [IO.Path]::GetFullPath($OutputDirectory)
+$allowed = [IO.Path]::GetFullPath((Join-Path $repo 'builds')) + [IO.Path]::DirectorySeparatorChar
+if (!$output.StartsWith($allowed, [StringComparison]::OrdinalIgnoreCase)) { throw 'License output must be inside workspace builds.' }
+if ((Test-Path -LiteralPath $output) -and @(Get-ChildItem -LiteralPath $output -Force).Count -gt 0) {
+    throw 'Refusing to overwrite existing license attachments. Use a new bundle folder.'
+}
 New-Item -ItemType Directory -Path $output -Force | Out-Null
 $utf8 = [Text.UTF8Encoding]::new($false)
 [IO.File]::WriteAllText((Join-Path $output 'GODOT-LICENSE.txt'), $licenseData.godot, $utf8)

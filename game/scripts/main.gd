@@ -230,6 +230,7 @@ func show_home() -> void:
 	UI.button(screen,"设置",Rect2(268,672,172,46),show_settings)
 	UI.button(screen,"保存并退出",Rect2(458,672,172,46),_save_and_exit)
 	UI.label(screen,"自动保存已启用 · v"+build_version,Vector2(80,750),15,UI.MUTED)
+	UI.button(screen,"玩法与制作说明",Rect2(384,742,246,36),show_help)
 	UI.label(screen,"你的骑士",Vector2(813,122),16,UI.GOLD)
 	UI.label(screen,Catalogue.REGIONS[region]+" · "+Catalogue.ERA_NAMES[era],Vector2(813,161),25,UI.INK)
 	UI.label(screen,Catalogue.ERAS[era]+"   /   装备、坐骑与纹章随你出战",Vector2(813,205),15,UI.MUTED)
@@ -1151,7 +1152,7 @@ func show_history() -> void:
 		["钢铁并不等于僵硬", "合身战场甲与专用比武甲需要分别理解。后者可能集中保护来枪方向，前者还要兼顾多方向威胁与活动。", "Wallace · Armour A23", "https://wallacelive.wallacecollection.org/eMP/eMuseumPlus?module=collection&objectId=60514&service=ExternalInterface"],
 		["马匹不只比巨大", "英格兰考古研究提醒：中世纪马匹的体格、性情、训练与用途要结合看待，不能把现代巨型挽马作为唯一模板。", "University of Exeter", "https://news-archive.exeter.ac.uk/2022/january/articles/medievalwarhorsesweresurp.html"],
 		["装饰有结构和年代", "盾徽、头饰、绘画、蚀刻和镀金丰富了骑士形象。收藏可以跨时代，拼装却不应被宣传成同代原装复原。", "Met · Decoration of Armor", "https://www.metmuseum.org/essays/the-decoration-of-european-armor"],
-		["我们的规则与历史边界", "竞技场绝不死亡、实战低断枪倾向、固定隔栏分道、三轮与 HP 决胜，均属于本作游戏规则。史实不提供可照抄的统一断枪率。", "项目考据档案 · 38 项来源", ""]]
+		["我们的规则与历史边界", "竞技场非致死、先计分；实战允许致命伤。固定分道、最多三轮与平分决胜方式都是游戏改编，史实不存在统一的全欧洲计分或断枪率。", "项目考据档案 · 规则与器物分别说明", ""]]
 	for i in range(entries.size()):
 		var entry = entries[i]
 		var card = UI.panel(screen,Rect2(56+(i%3)*449,180+(i/3)*271,430,250))
@@ -1162,6 +1163,16 @@ func show_history() -> void:
 			var url = str(entry[3])
 			UI.button(card,"查阅来源 ↗",Rect2(255,207,150,31),func():OS.shell_open(url))
 	UI.label(screen,"这里是历史启发的游戏，装备数值与奖励属于设计；更多注释在项目 docs 中。",Vector2(56,750),16,UI.MUTED)
+	queue_redraw()
+
+func show_help(credits: bool = false) -> void:
+	page = "help"
+	_clear_screen()
+	_header("玩法与制作说明 · 清楚规则，也保留器物的来处。")
+	var license_path = ""
+	if not OS.has_feature("editor"):
+		license_path = OS.get_executable_path().get_base_dir().get_base_dir().path_join("licenses")
+	preload("res://scripts/ui/help_pages.gd").build(screen,credits,func():show_help(false),func():show_help(true),show_home,license_path)
 	queue_redraw()
 
 func _draw() -> void:

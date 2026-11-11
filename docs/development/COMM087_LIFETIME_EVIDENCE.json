@@ -1,0 +1,347 @@
+[
+  {
+    "run": "long-heavy01",
+    "report_sha256": "ad1ece4156474e1cca94d2615306c460770b15e3a144e7b52c83306f2b80edff",
+    "scope": "1280x720, CPU25%/memory protection, isolated rendering, ordinary autopilot. Warmed percentiles exclude first second after creation; all_frame_summary retains transitions. Check executable/launch command for source engine vs EXE/PCK. No OS input/human/foreground acceptance.",
+    "version_label": "0.4.40-r3",
+    "executable": "E:/GALUMU/tools/godot-4.5.1/Godot_v4.5.1-stable_win64.exe",
+    "matches": 9,
+    "memory_peak_mib": 690.9,
+    "minimum_available_ram_mib": 1849,
+    "normal_exit": true,
+    "isolated_desktop_closed": true,
+    "frame_summary": {
+      "fps": 59.887888596301,
+      "frames": 28155,
+      "max_ms": 30.191,
+      "over_33ms": 0,
+      "over_50ms": 0,
+      "p50_ms": 16.728,
+      "p95_ms": 19.619,
+      "p99_ms": 21.732
+    },
+    "all_frame_summary": {
+      "fps": 59.8758271883757,
+      "frames": 28741,
+      "max_ms": 47.08,
+      "over_33ms": 9,
+      "over_50ms": 0,
+      "p50_ms": 16.726,
+      "p95_ms": 19.614,
+      "p99_ms": 21.743
+    },
+    "equipped": {
+      "armor": "de_armor_5",
+      "caparison": "caparison_velvet",
+      "crest": "crest_bend",
+      "helmet": "de_helmet_5",
+      "horse": "horse_courser",
+      "lance": "de_lance_stout_5",
+      "shield": "de_shield_5"
+    },
+    "sound": true,
+    "mode": "arena",
+    "practice": false,
+    "source": "f772473; actual source engine, no new PCK exported"
+  },
+  {
+    "run": "lifetime01",
+    "report_sha256": "226d75de3e968fb3ba8953cd46c4152b6e0bc74eec2f57985be2d601b81b1ec3",
+    "scope": "Real-time source or packaged Main, actual GPU, audio mixing muted at Master, three 75-second hidden intervals including pending armoury jobs and charge. Engine window-mode and menu calls on isolated desktop, no OS user input. Private memory/exit authority is external guard log.",
+    "version_label": "0.4.40-r3",
+    "executable": "E:/GALUMU/tools/godot-4.5.1/Godot_v4.5.1-stable_win64.exe",
+    "matches": 2,
+    "memory_peak_mib": 779.6,
+    "minimum_available_ram_mib": 1870,
+    "normal_exit": true,
+    "isolated_desktop_closed": true,
+    "passed": true,
+    "failures": [],
+    "wall_seconds": 400.825,
+    "stable_home_nodes": [
+      40,
+      40,
+      40
+    ],
+    "marks": [
+      {
+        "bus_count": 5,
+        "can_draw": true,
+        "fps_cap": 60,
+        "frames_drawn": 704,
+        "label": "home_warm-end",
+        "nodes": 40.0,
+        "page": "home",
+        "resources": 93.0,
+        "seconds": 12.007
+      },
+      {
+        "bus_count": 5,
+        "can_draw": true,
+        "fps_cap": 60,
+        "frames_drawn": 1064,
+        "label": "armory_warm-end",
+        "nodes": 120.0,
+        "page": "armory",
+        "resources": 100.0,
+        "seconds": 18.043
+      },
+      {
+        "bus_count": 5,
+        "can_draw": false,
+        "fps_cap": 10,
+        "frames_drawn": 1064,
+        "label": "armory_loading_hidden-start",
+        "nodes": 69.0,
+        "page": "armory",
+        "resources": 100.0,
+        "seconds": 19.143
+      },
+      {
+        "bus_count": 5,
+        "can_draw": false,
+        "fps_cap": 10,
+        "frames_drawn": 1064,
+        "label": "armory_loading_hidden-end",
+        "nodes": 69.0,
+        "page": "armory",
+        "resources": 100.0,
+        "seconds": 94.143
+      },
+      {
+        "bus_count": 5,
+        "can_draw": true,
+        "fps_cap": 60,
+        "frames_drawn": 1496,
+        "label": "armory_restored-end",
+        "nodes": 114.0,
+        "page": "armory",
+        "resources": 103.0,
+        "seconds": 101.364
+      },
+      {
+        "icons": {
+          "can_draw": true,
+          "details": [
+            {
+              "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+              "first_frame": 1826,
+              "id": "helm_nasal",
+              "loaded": true,
+              "processing": false,
+              "rect": "[P: (291.0, 244.0), S: (152.0, 100.0)]"
+            },
+            {
+              "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+              "first_frame": 1827,
+              "id": "eng_helmet_0",
+              "loaded": true,
+              "processing": false,
+              "rect": "[P: (702.0, 244.0), S: (152.0, 100.0)]"
+            },
+            {
+              "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+              "first_frame": 1827,
+              "id": "eng_helmet_1",
+              "loaded": true,
+              "processing": false,
+              "rect": "[P: (291.0, 384.0), S: (152.0, 100.0)]"
+            },
+            {
+              "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+              "first_frame": 1828,
+              "id": "fr_helmet_0",
+              "loaded": true,
+              "processing": false,
+              "rect": "[P: (702.0, 384.0), S: (152.0, 100.0)]"
+            },
+            {
+              "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+              "first_frame": 1829,
+              "id": "fr_helmet_1",
+              "loaded": true,
+              "processing": false,
+              "rect": "[P: (291.0, 524.0), S: (152.0, 100.0)]"
+            },
+            {
+              "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+              "first_frame": 1830,
+              "id": "de_helmet_0",
+              "loaded": true,
+              "processing": false,
+              "rect": "[P: (702.0, 524.0), S: (152.0, 100.0)]"
+            },
+            {
+              "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+              "first_frame": 1831,
+              "id": "it_helmet_0",
+              "loaded": true,
+              "processing": false,
+              "rect": "[P: (291.0, 664.0), S: (152.0, 100.0)]"
+            }
+          ],
+          "frame": 2257,
+          "loaded": 7,
+          "visible": 7
+        }
+      },
+      {
+        "bus_count": 5,
+        "can_draw": true,
+        "fps_cap": 60,
+        "frames_drawn": 5978,
+        "label": "competitive_with_audio-end",
+        "nodes": 69.0,
+        "page": "battle",
+        "paused": false,
+        "phase": "charge",
+        "resources": 105.0,
+        "seconds": 176.507,
+        "time_scale": 0.397421248099029,
+        "x": -302.978793880964
+      },
+      {
+        "bus_count": 5,
+        "can_draw": true,
+        "fps_cap": 60,
+        "frames_drawn": 6279,
+        "label": "charge_before_hide-end",
+        "nodes": 69.0,
+        "page": "battle",
+        "paused": false,
+        "phase": "charge",
+        "resources": 105.0,
+        "seconds": 181.524,
+        "time_scale": 1.0,
+        "x": -1679.52698675542
+      },
+      {
+        "bus_count": 5,
+        "can_draw": false,
+        "fps_cap": 10,
+        "frames_drawn": 6279,
+        "label": "battle_hidden-start",
+        "nodes": 78.0,
+        "page": "battle",
+        "paused": true,
+        "phase": "charge",
+        "resources": 105.0,
+        "seconds": 182.621,
+        "time_scale": 1.0,
+        "x": -1679.52698675542
+      },
+      {
+        "bus_count": 5,
+        "can_draw": false,
+        "fps_cap": 10,
+        "frames_drawn": 6279,
+        "label": "battle_hidden-end",
+        "nodes": 78.0,
+        "page": "battle",
+        "paused": true,
+        "phase": "charge",
+        "resources": 105.0,
+        "seconds": 257.621,
+        "time_scale": 1.0,
+        "x": -1679.52698675542
+      },
+      {
+        "bus_count": 5,
+        "can_draw": true,
+        "fps_cap": 60,
+        "frames_drawn": 6830,
+        "label": "restored_still_paused-end",
+        "nodes": 78.0,
+        "page": "battle",
+        "paused": true,
+        "phase": "charge",
+        "resources": 105.0,
+        "seconds": 266.849,
+        "time_scale": 1.0,
+        "x": -1679.52698675542
+      },
+      {
+        "bus_count": 5,
+        "can_draw": true,
+        "fps_cap": 60,
+        "frames_drawn": 9521,
+        "label": "explicitly_resumed-end",
+        "nodes": 62.0,
+        "page": "battle",
+        "paused": false,
+        "phase": "ready",
+        "resources": 105.0,
+        "seconds": 312.084,
+        "time_scale": 1.0,
+        "x": -2200.0
+      },
+      {
+        "bus_count": 5,
+        "can_draw": false,
+        "fps_cap": 10,
+        "frames_drawn": 9521,
+        "label": "home_hidden-start",
+        "nodes": 40.0,
+        "page": "home",
+        "resources": 105.0,
+        "seconds": 313.184
+      },
+      {
+        "bus_count": 5,
+        "can_draw": false,
+        "fps_cap": 10,
+        "frames_drawn": 9521,
+        "label": "home_hidden-end",
+        "nodes": 40.0,
+        "page": "home",
+        "resources": 105.0,
+        "seconds": 388.184
+      },
+      {
+        "bus_count": 5,
+        "can_draw": true,
+        "fps_cap": 60,
+        "frames_drawn": 9771,
+        "label": "home_restored-end",
+        "nodes": 40.0,
+        "page": "home",
+        "resources": 105.0,
+        "seconds": 392.404
+      },
+      {
+        "bus_count": 5,
+        "can_draw": true,
+        "fps_cap": 60,
+        "frames_drawn": 9935,
+        "label": "menu_cycle_0",
+        "nodes": 40.0,
+        "page": "home",
+        "resources": 105.0,
+        "seconds": 395.388
+      },
+      {
+        "bus_count": 5,
+        "can_draw": true,
+        "fps_cap": 60,
+        "frames_drawn": 10098,
+        "label": "menu_cycle_1",
+        "nodes": 40.0,
+        "page": "home",
+        "resources": 105.0,
+        "seconds": 398.105
+      },
+      {
+        "bus_count": 5,
+        "can_draw": true,
+        "fps_cap": 60,
+        "frames_drawn": 10261,
+        "label": "menu_cycle_2",
+        "nodes": 40.0,
+        "page": "home",
+        "resources": 105.0,
+        "seconds": 400.821
+      }
+    ],
+    "source": "f772473 plus HelpPages/Main help entry, prior to commercial docs checkpoint; no gameplay-rule edits"
+  }
+]

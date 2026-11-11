@@ -9,6 +9,7 @@ func run() -> void:
 	var mode="arena"
 	var practice=true
 	var sound=false
+	var blood=false
 	var geometry_only=false
 	var elite=false
 	for arg in OS.get_cmdline_user_args():
@@ -18,6 +19,7 @@ func run() -> void:
 		if arg=="--war": mode="war"
 		if arg=="--competitive": practice=false
 		if arg=="--sound": sound=true
+		if arg=="--blood": blood=true
 		if arg=="--geometry-only": geometry_only=true
 		if arg=="--elite": elite=true
 	var state=root.get_node("GameState")
@@ -28,6 +30,7 @@ func run() -> void:
 	state.backup_path=folder+"/qa_backup.json"
 	state.profile=state.default_profile()
 	state.profile.settings.sound=sound
+	state.profile.settings.blood=blood
 	if elite:
 		state.profile.region=2
 		state.profile.renown=60
@@ -92,6 +95,7 @@ func run() -> void:
 	result.executable=OS.get_executable_path()
 	result.equipped=state.profile.equipped.duplicate()
 	result.elite=elite
+	result.blood=blood
 	result.scope="1280x720, CPU25%/memory protection, isolated rendering, ordinary autopilot. Warmed percentiles exclude first second after creation; all_frame_summary retains transitions. Check executable/launch command for source engine vs EXE/PCK. No OS input/human/foreground acceptance."
 	if geometry_only:
 		result.scope="HEADLESS GEOMETRY ONLY. No GPU/frame-rate acceptance. Ordinary match with polygon probe."

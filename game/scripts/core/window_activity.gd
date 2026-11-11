@@ -11,6 +11,16 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	process_priority = -100
 
+func _unhandled_input(event: InputEvent) -> void:
+	# Window controls remain available while the game and its Main node pause.
+	# Keep one owner so an unpaused press cannot toggle twice.
+	if get_parent().shutting_down:
+		return
+	if event is InputEventKey and event.pressed and not event.echo and KEY_F11 in [event.keycode,event.physical_keycode]:
+		var fullscreen = DisplayServer.window_get_mode()==DisplayServer.WINDOW_MODE_FULLSCREEN
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED if fullscreen else DisplayServer.WINDOW_MODE_FULLSCREEN)
+		get_viewport().set_input_as_handled()
+
 func _process(_delta: float) -> void:
 	var hidden = suspended()
 	Engine.max_fps = 10 if hidden else 60

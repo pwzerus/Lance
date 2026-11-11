@@ -79,6 +79,7 @@ func run() -> void:
 	main.selected_slot="helmet";main.selected_item={};main.show_armory()
 	await hide_and_check("armory_loading_hidden",75)
 	await watch("armory_restored",6)
+	await prepare_details(main)
 	marks.append({"icons":visible_icons(main)})
 	await capture("01_armory_restored")
 	start_battle();await watch("competitive_with_audio",75,true)

@@ -4,7 +4,7 @@ extends RefCounted
 const BASE = preload("res://assets/art/pixel_v03/rider_atlas.png")
 const ERAS = preload("res://assets/art/pixel_v03/equipment_eras.png")
 const NASAL = preload("res://assets/art/pixel_v041/nasal_head.png")
-const HorseArt = preload("res://scripts/visual/horse_art.gd")
+const HorseSkin = preload("res://scripts/visual/horse_skin.gd")
 const SHIELDS = preload("res://assets/art/pixel_v03/shield_fields.png")
 const TORSOS = [Rect2(46,33,392,457),Rect2(494,37,385,461),Rect2(913,30,384,466),Rect2(1345,37,386,459)]
 const HEADS = [Rect2(122,500,304,356),Rect2(554,510,281,348),Rect2(911,510,382,354),Rect2(1409,503,298,363)]
@@ -86,5 +86,7 @@ static func item_icon(item: Dictionary) -> Texture2D:
 		"helmet": return helmet_for(item.stats)
 		"crest": return shield(str(item.stats.get("heraldry","bend")))
 		"shield": return shield({"英格兰":"bend","法兰西":"chevron","德意志":"cross","意大利":"diamond"}.get(str(item.get("region","")),"bend"))
-		"horse": return region(HorseArt.ATLAS,HorseArt.PARTS.head)
+		# Use the coat actually equipped in battle; the old atlas head made
+		# grey/black/flaxen horses all appear bay in the shop.
+		"horse": return HorseSkin.coat_texture(str(item.stats.get("horse_coat","bay")))
 	return region(BASE,Rect2(935,1048,298,87))

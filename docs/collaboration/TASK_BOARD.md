@@ -367,3 +367,9 @@ COMM-087 声音/设置扩展（02:40 UTC）：Codex认领game/scripts/visual/sou
 COMM-087 发布说明扩展（02:52 UTC）：Codex持有新game/scripts/ui/help_pages.gd、game/tools/build_icon087.gd（仅将既有SVG图标转为Windows图标）、launcher/内玩家指南和构建元数据、README与本轮测试。原始SVG不改；不新增生成美术、不更换马或骑手素材。
 
 COMM-087 连续运行扩展（03:05 UTC）：Codex认领tests/test_live084.gd，仅增加可选--blood测试参数与报告字段，原默认/时长/性能统计不变，用于真实实战落马和血腥开关负载。
+
+COMM-087 装备决策扩展（03:18 UTC）：Codex认领新game/scripts/ui/equipment_comparison.gd及main.gd军械库详情，新增tests/test_compare087.gd；基于当前实际整套装备计算换装取舍，默认简短文字，保留完整数值和馆藏来源。没有改装备平衡、马匹规则或贴图；旧ProvenanceScroll仍保存完整考据，延后加载和离页取消保留。
+
+COMM-087 军械库测试适配（03:18 UTC）：新取舍/考据页签延后创建隐藏考据；认领tests/test_icons085.gd及test_soak087.gd，使旧完整段落断言前实际打开数值与考据页签、等待队列，不删减原文本完整性断言。
+
+COMM-087 坐骑图标修复（03:21 UTC）：Codex认领game/scripts/visual/equipment_art.gd，仅修复item_icon(horse)硬编码旧棕色头部图集，改用实际horse_coat对应的现有连续马皮。复用已存在的四纹理缓存，不生成或改变位图，不修改比赛马匹动画。

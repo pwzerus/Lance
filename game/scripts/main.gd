@@ -10,6 +10,7 @@ const Appearance = preload("res://scripts/core/character_appearance.gd")
 const WindowActivity = preload("res://scripts/core/window_activity.gd")
 const PracticeGuide = preload("res://scripts/core/practice_guide.gd")
 const AudioMix = preload("res://scripts/core/audio_mix.gd")
+const EquipmentComparison = preload("res://scripts/ui/equipment_comparison.gd")
 const BACKGROUND = preload("res://assets/art/pixel_v03/tournament_field.png")
 
 class CharacterFaceCanvas extends Node2D:
@@ -965,13 +966,45 @@ func _update_item_panel() -> void:
 	if item.slot=="caparison":
 		detail += "不提供防护"
 	elif item.slot=="armor" or item.slot=="helmet":
-		detail += "越重越护身，但马更易累、调枪换盾更慢"
+		detail += "重量影响马匹负担和操控；防护以本件属性为准"
+	var comparison = EquipmentComparison.summarize(GameState.items,GameState.profile.equipped,item)
+	var overview = ScrollContainer.new()
+	overview.name = "ComparisonScroll"
+	overview.position = Vector2(22,281)
+	overview.size = Vector2(416,108)
+	overview.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	info_panel.add_child(overview)
+	var comparison_rows = VBoxContainer.new()
+	comparison_rows.add_theme_constant_override("separation",5)
+	overview.add_child(comparison_rows)
+	var comparison_title = UI.label(comparison_rows,"当前已装备" if comparison.same else "对比："+comparison.current_name,Vector2.ZERO,14,UI.MUTED,394)
+	comparison_title.tooltip_text = comparison_title.text
+	var comparison_queue = preload("res://scripts/ui/build_queue.gd").new()
+	comparison_rows.add_child(comparison_queue)
+	for line in comparison.lines:
+		var line_text = str(line)
+		comparison_queue.enqueue(func(): UI.label(comparison_rows,line_text,Vector2.ZERO,16,UI.INK,394))
 	var scroll = ScrollContainer.new()
 	scroll.name = "ProvenanceScroll"
-	scroll.position = Vector2(22,246)
-	scroll.size = Vector2(416,143)
+	scroll.position = Vector2(22,281)
+	scroll.size = Vector2(416,108)
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	info_panel.add_child(scroll)
+	scroll.visible = false
+	var compare_button = UI.button(info_panel,"换装取舍",Rect2(22,242,200,31),func():
+		overview.visible=true
+		scroll.visible=false)
+	compare_button.name = "CompareTab"
+	var details_button = UI.button(info_panel,"数值与考据",Rect2(234,242,200,31),func():
+		overview.visible=false
+		scroll.visible=true)
+	details_button.name = "DetailsTab"
+	compare_button.toggle_mode=true
+	details_button.toggle_mode=true
+	var detail_tabs = ButtonGroup.new()
+	compare_button.button_group=detail_tabs
+	details_button.button_group=detail_tabs
+	compare_button.button_pressed=true
 	var paragraphs = VBoxContainer.new()
 	paragraphs.add_theme_constant_override("separation",8)
 	scroll.add_child(paragraphs)

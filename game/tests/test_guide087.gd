@@ -47,6 +47,14 @@ func forward(value: bool) -> void:
 		Input.parse_input_event(event)
 func guard_slot(slot: int) -> void:
 	if main.battle.guard_slot==slot:return
+	if mouse_only:
+		var button:Button=main.battle.guard_buttons[slot]
+		var click=InputEventMouseButton.new()
+		click.button_index=MOUSE_BUTTON_LEFT;click.pressed=true
+		click.position=button.get_global_rect().get_center()
+		root.push_input(click,true)
+		click=click.duplicate();click.pressed=false;root.push_input(click,true)
+		return
 	var event=InputEventKey.new()
 	event.keycode=KEY_1+slot;event.physical_keycode=KEY_1+slot;event.pressed=true
 	root.push_input(event,true)

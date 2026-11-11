@@ -343,5 +343,38 @@
       }
     ],
     "source": "f772473 plus HelpPages/Main help entry, prior to commercial docs checkpoint; no gameplay-rule edits"
+  },
+  {
+    "run": "long-war01",
+    "source": "cd38904 gameplay baseline; source engine, not a new PCK",
+    "report_sha256": "dc67b89cc74b95b9c51518cae2ab9455e02f79a14f5bd881782eb121d7b6124b",
+    "mode": "war",
+    "matches": 11,
+    "blood": true,
+    "sound": true,
+    "frame_summary": {
+      "fps": 59.78161919338,
+      "frames": 27986,
+      "max_ms": 44.686,
+      "over_33ms": 6,
+      "over_50ms": 0,
+      "p50_ms": 16.697,
+      "p95_ms": 19.169,
+      "p99_ms": 21.902
+    },
+    "all_frame_summary": {
+      "fps": 59.7696234965379,
+      "frames": 28690,
+      "max_ms": 113.237,
+      "over_33ms": 12,
+      "over_50ms": 2,
+      "p50_ms": 16.695,
+      "p95_ms": 19.157,
+      "p99_ms": 21.918
+    },
+    "memory_peak_mib": 656.1,
+    "minimum_available_ram_mib": 1899.0,
+    "normal_exit": true,
+    "scope": "1280x720, CPU25%/memory protection, isolated rendering, ordinary autopilot. Warmed percentiles exclude first second after creation; all_frame_summary retains transitions. Check executable/launch command for source engine vs EXE/PCK. No OS input/human/foreground acceptance."
   }
 ]

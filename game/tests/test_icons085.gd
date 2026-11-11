@@ -4,6 +4,13 @@ func _initialize() -> void: call_deferred("run")
 func settle(seconds: float) -> void:
 	var until=Time.get_ticks_usec()+int(seconds*1000000)
 	while Time.get_ticks_usec()<until: await process_frame
+func prepare_details(main) -> void:
+	# COMM-087 retains provenance behind an explicit tab. Open it before the
+	# original complete-paragraph checks; hidden deferred jobs should NOT run.
+	var tab=main.info_panel.get_node_or_null("DetailsTab")
+	if tab!=null:
+		tab.pressed.emit()
+		await settle(.35)
 func visible_icons(main) -> Dictionary:
 	var visible_cards=0
 	var ready_cards=0
@@ -59,12 +66,14 @@ func run() -> void:
 		main.selected_item={}
 		main.show_armory()
 		await settle(.8)
+		await prepare_details(main)
 		rows.append(visible_icons(main))
 		await RenderingServer.frame_post_draw
 		root.get_texture().get_image().save_png(folder+"/"+slot+"_top.png")
 		main.armory_scroll.scroll_vertical=99999
 		main.armory_cards.values()[-1].grab_focus()
 		await settle(.8)
+		await prepare_details(main)
 		rows.append(visible_icons(main))
 		await RenderingServer.frame_post_draw
 		root.get_texture().get_image().save_png(folder+"/"+slot+"_bottom.png")

@@ -423,11 +423,19 @@ func _detect_contact(index: int, delta: float) -> Dictionary:
 		return {}
 	var tip_velocity = Vector2(sweep.velocity)
 	var target_velocity = (Vector2(found.center) - Vector2(found.old)) / maxf(delta, 0.0001)
-	var shaft = Vector2(cos(float(attacker.aim))*int(attacker.direction),sin(float(attacker.aim)))
-	# A sideways flick must not manufacture the axial force of a full charge.
-	var relative_speed = clampf((tip_velocity-target_velocity).dot(shaft),30.0,1050.0)
+	# lane_y is drawing depth, not a hill the near rider must climb. Remove
+	# that projected lane offset from elevation for axial force only. Keep
+	# the visible shaft/sweep/contact point untouched, so aiming stays exact.
+	var reach = maxf(1.0,lerpf(float(attacker.prev_length),lance_length(attacker),float(sweep.fraction)))
+	var visual_angle = lerpf(float(attacker.prev_aim),float(attacker.aim),float(sweep.fraction))
+	var elevation = asin(clampf((sin(visual_angle)*reach-float(defender.get("lane_y",0.0))+float(attacker.get("lane_y",0.0)))/reach,-1.0,1.0))
+	var shaft = Vector2(cos(elevation)*int(attacker.direction),sin(elevation))
+	# Rotation contributes to the swept hit and incidence below. Its velocity
+	# is perpendicular to the real shaft, so it cannot create axial thrust.
+	var hand_velocity = (current_hand-Vector2(attacker.prev_hand))/maxf(delta,0.0001)
+	var relative_speed = clampf((hand_velocity-target_velocity).dot(shaft),30.0,1050.0)
 	var event = {"attacker": index, "defender": 1 - index, "zone": found.zone, "speed": relative_speed,
-		"position": sweep.point, "type": "hit"}
+		"position": sweep.point, "type": "hit", "combat_elevation":elevation,"shaft_alignment":clampf(cos(elevation),.4,1.0)}
 	if found.zone=="shield":
 		event.contact_local = sweep.contact_local
 		event.merge(Shield.contact_region(sweep.contact_local,sweep.local_incoming,str(defender.stats.get("shield_shape","kite"))))
@@ -449,7 +457,7 @@ func _apply_contact(contact: Dictionary) -> void:
 	var power = float(attacker.stats.get("power",1.0))*(.66 if attacker.broken else 1.0)*(1.0+maxf(float(attacker.lean),0)*.08-maxf(-float(attacker.lean),0)*.28)*support
 	power *= Condition.drive(float(attacker.speed),GALLOP_SPEED)
 	contact["drive"] = Condition.drive(float(attacker.speed),GALLOP_SPEED)
-	var alignment = clampf(cos(float(attacker.aim)), 0.4, 1.0)
+	var alignment = clampf(float(contact.get("shaft_alignment",cos(float(attacker.aim)))), 0.4, 1.0)
 	var impulse = speed * 0.085 * power * alignment
 	var damage = 19.0 * pow(speed / 620.0, 1.25) * power * alignment
 	var zone = str(contact.zone)
@@ -480,7 +488,7 @@ func _apply_contact(contact: Dictionary) -> void:
 		damage *= 1.0 - float(defender.stats.get("armor", 0.10))
 		impulse *= 1.28 if zone=="flank" else 1.18
 	else:
-		var angle_difference = absf(float(attacker.aim) - float(defender.lean) * 0.38)
+		var angle_difference = absf(float(contact.get("combat_elevation",attacker.aim)) - float(defender.lean) * 0.38)
 		glanced = angle_difference > 0.16 or absf(float(defender.lean))>.35
 		defender.shield = maxf(0.0, float(defender.shield) - damage * (0.7 if glanced else 1.15))
 		damage *= 0.035 if glanced else 0.09

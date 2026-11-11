@@ -607,26 +607,32 @@ func _begin_match(mode: String, practice: bool = false) -> void:
 		["瞄准 · 上下移动鼠标","抬枪、压枪有过程；停手稳枪。"],
 		["防盾 · 1 / 2 / 3","护头 / 护胸 / 护腹；右键或Q循环。"],
 		["姿态 · W / S","前倾支撑；后仰避头，同时暴露腰腹。"]]
+	if GameState.profile.settings.get("mouse_only",false):
+		controls[2]=["防盾 · 点击三个盾位","护头 / 护胸 / 护腹；右键循环。"]
+		controls[3]=["姿态 · 滚轮 / 中键","滚轮倾身，中键回正；后仰会暴露腰腹。"]
 	for i in range(controls.size()):
 		var card=UI.panel(panel,Rect2(30+(i%2)*430,124+(i/2)*96,410,82),Color(.10,.16,.12,.95))
 		UI.label(card,controls[i][0],Vector2(15,10),20,UI.GOLD,380)
 		UI.label(card,controls[i][1],Vector2(15,43),16,UI.INK,380)
 	UI.separator(panel,Vector2(30,329),840)
-	var rules = "竞技场 · 最多三轮，落马提前决胜，每轮换新枪；不会死亡。\n盾1 · 胸腹2 · 头盔3；护甲化解1分，擦偏0分，非擦偏断枪+1。"
+	var rules = "竞技场 · 最多三轮，落马提前决胜，每轮换新枪；不会死亡。\n盾1 · 胸腹2 · 头盔3；轻触1分，擦偏0分，非擦偏断枪+1。"
 	if mode=="war":
 		rules = "实战 · 头部重击可致命；连续正面受创会累积，头盔不能无限抵挡。\n盾挡与擦过可存活；断枪跨轮保留，死亡不会丢失收藏。"
 	elif practice:
-		rules = "练习场 · 对手按轮次换盾，最多三次对冲。\n没有金币或声望奖惩，先熟悉加减速、瞄准和防盾。"
+		rules = "练习场 · 对手按轮次换盾，最多三次对冲。\n不计胜负与奖励，先熟悉加减速、瞄准和防盾。"
 	UI.label(panel,rules,Vector2(30,347),19,UI.INK,840)
 	UI.label(panel,"枪尖颜色与部位框提示当前枪线，并不保证最终命中。",Vector2(30,423),17,UI.GOLD,840)
 	UI.label(panel,"Esc 暂停　R 重开　H 判定范围　F11 全屏",Vector2(30,465),16,UI.MUTED,840)
-	var begin = UI.button(panel,"明白了，出战",Rect2(30,522,540,58),func():
+	var begin = UI.button(panel,"明白了，出战",Rect2(30,522,330,58),func():
 		for key in ["brief_seen","combat_brief_v043","combat_brief_v044"]:
 			GameState.profile.settings[key]=true
 		GameState.save_profile()
-		_start_match(mode,practice),true)
-	var cancel = UI.button(panel,"返回选择",Rect2(590,522,280,58),_dismiss_brief)
-	UI.focus_actions([begin,cancel])
+		_start_match(mode,practice))
+	var lesson = UI.button(panel,"先做分步练习",Rect2(380,522,260,58),func():
+		_dismiss_brief()
+		show_practice_setup(),true)
+	var cancel = UI.button(panel,"返回选择",Rect2(660,522,210,58),_dismiss_brief)
+	UI.focus_actions([lesson,begin,cancel])
 
 func _dismiss_brief() -> void:
 	if is_instance_valid(brief_overlay):

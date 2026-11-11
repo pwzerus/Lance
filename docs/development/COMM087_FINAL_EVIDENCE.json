@@ -1,0 +1,1859 @@
+{
+  "status": "Completed timeboxed engineering milestone. Documented checks pass; human feel, cross-machine compatibility and storefront approval remain open.",
+  "version": "0.4.41-r6",
+  "source_revision": "eb6074c59c5279cbebacf36777a9fa26bc8da324",
+  "package": "builds/LanceAndLaurel-v0.4.41-r6",
+  "pck": {
+    "path": "runtime/LanceAndLaurel.pck",
+    "bytes": 34198660,
+    "sha256": "670623C304264CE5C0058ABF93540638150F2CADBDA8AC1D4EE95C7A0F26DE73"
+  },
+  "functional_file_bytes": 131073344,
+  "signed": false,
+  "guard_sha256": "e993d317ebacac1f7c12025e4e3d68eddcd66919e422790bc33c46e74b31d635",
+  "scope": "Full UI/save/lifecycle/performance matrix on r5. Production game scripts/assets/data unchanged from r5 source31d0c04 to r6 sourceeb6074c; r6 changes launcher error wording and version metadata only. r6 ZIP independently verified with five rule suites, portable launch cases, compiled Unicode message and normal-entry GPU smoke. QA saves, isolated desktop, no OS input or human subjective acceptance.",
+  "tests": [
+    {
+      "path": "logs/comm087/r5-resume01/suite.json",
+      "sha256": "20e2ecf501cff3a592687dbbe94116979808f5f510cd40126b55b856b1691122",
+      "result": {
+        "passed": true,
+        "complete": true,
+        "tests": [
+          {
+            "name": "legacy-r3-import",
+            "passed": true,
+            "exit_code": 0,
+            "source_sha256": "27EC8DE0768ED0F076FD9EFFF54C3DF3E2416592275C0D6886F5735DB939CB70",
+            "source_unchanged": true,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-resume01\\legacy-r3\\report-import.json",
+            "failures": [],
+            "unexpected_engine_messages": [],
+            "close_ms": 141.065,
+            "music_released": true
+          },
+          {
+            "name": "legacy-r3-reopen",
+            "passed": true,
+            "exit_code": 0,
+            "source_sha256": "27EC8DE0768ED0F076FD9EFFF54C3DF3E2416592275C0D6886F5735DB939CB70",
+            "source_unchanged": true,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-resume01\\legacy-r3\\report-reopen.json",
+            "failures": [],
+            "unexpected_engine_messages": [],
+            "close_ms": 152.571,
+            "music_released": true
+          },
+          {
+            "name": "earned-rewards-import",
+            "passed": true,
+            "exit_code": 0,
+            "source_sha256": "AE3B3C9A209D0EFD6A36BD13CE026D5CCE381BB311727AC2C31814F5E4D7F0FD",
+            "source_unchanged": true,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-resume01\\earned-rewards\\report-import.json",
+            "failures": [],
+            "unexpected_engine_messages": [],
+            "close_ms": 153.575,
+            "music_released": true
+          },
+          {
+            "name": "earned-rewards-reopen",
+            "passed": true,
+            "exit_code": 0,
+            "source_sha256": "AE3B3C9A209D0EFD6A36BD13CE026D5CCE381BB311727AC2C31814F5E4D7F0FD",
+            "source_unchanged": true,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-resume01\\earned-rewards\\report-reopen.json",
+            "failures": [],
+            "unexpected_engine_messages": [],
+            "close_ms": 152.452,
+            "music_released": true
+          },
+          {
+            "name": "learned-controls-import",
+            "passed": true,
+            "exit_code": 0,
+            "source_sha256": "8F17F2F6AAEA49E5F41024F9992782495CD12446FDDC3744494BF3257941E937",
+            "source_unchanged": true,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-resume01\\learned-controls\\report-import.json",
+            "failures": [],
+            "unexpected_engine_messages": [],
+            "close_ms": 140.239,
+            "music_released": true
+          },
+          {
+            "name": "learned-controls-reopen",
+            "passed": true,
+            "exit_code": 0,
+            "source_sha256": "8F17F2F6AAEA49E5F41024F9992782495CD12446FDDC3744494BF3257941E937",
+            "source_unchanged": true,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-resume01\\learned-controls\\report-reopen.json",
+            "failures": [],
+            "unexpected_engine_messages": [],
+            "close_ms": 143.901,
+            "music_released": true
+          },
+          {
+            "name": "audio-settings-import",
+            "passed": true,
+            "exit_code": 0,
+            "source_sha256": "1A2E136C5D972A694A84C15BF884A4E87F3D1009CA461831F4274398CC6DD186",
+            "source_unchanged": true,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-resume01\\audio-settings\\report-import.json",
+            "failures": [],
+            "unexpected_engine_messages": [],
+            "close_ms": 152.674,
+            "music_released": true
+          },
+          {
+            "name": "audio-settings-reopen",
+            "passed": true,
+            "exit_code": 0,
+            "source_sha256": "1A2E136C5D972A694A84C15BF884A4E87F3D1009CA461831F4274398CC6DD186",
+            "source_unchanged": true,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-resume01\\audio-settings\\report-reopen.json",
+            "failures": [],
+            "unexpected_engine_messages": [],
+            "close_ms": 152.774,
+            "music_released": true
+          },
+          {
+            "name": "earned-journey-import",
+            "passed": true,
+            "exit_code": 0,
+            "source_sha256": "B20FCE7371FBE1CC7F4E0F2F557A0C75D1DD799B0DA6B567F03CD67E51A49BDD",
+            "source_unchanged": true,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-resume01\\earned-journey\\report-import.json",
+            "failures": [],
+            "unexpected_engine_messages": [],
+            "close_ms": 153.298,
+            "music_released": true
+          },
+          {
+            "name": "earned-journey-reopen",
+            "passed": true,
+            "exit_code": 0,
+            "source_sha256": "B20FCE7371FBE1CC7F4E0F2F557A0C75D1DD799B0DA6B567F03CD67E51A49BDD",
+            "source_unchanged": true,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-resume01\\earned-journey\\report-reopen.json",
+            "failures": [],
+            "unexpected_engine_messages": [],
+            "close_ms": 140.96,
+            "music_released": true
+          }
+        ],
+        "scope": "Two separate actual engine processes per copied prior QA save. Native protected launcher, restricted PATH, isolated desktop and normal shutdown. No formal player save or OS input."
+      }
+    },
+    {
+      "path": "logs/comm087/r5-matches01/suite.json",
+      "sha256": "291eb354271afe487b7eaf642f368cc7e88c9361692f4ae7096f58dcff3fe95d",
+      "result": {
+        "suite": "Matches",
+        "version": "0.4.41-r5",
+        "source_revision": "31d0c043f3e95aa7eea375adefb951a1b7417ed3",
+        "bundle": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.41-r5",
+        "tests": [
+          {
+            "name": "italian-war-hard",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 487.3308168,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-matches01\\italian-war-hard\\report.json",
+            "report_sha256": "40045BD76C748CE30A4A93DB0F4E55AF31276233D1F217EBA268EA705984D9D1",
+            "intentional_file_fault": false,
+            "failures": [],
+            "unexpected_engine_messages": []
+          },
+          {
+            "name": "english-arena-easy",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 487.5749635,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-matches01\\english-arena-easy\\report.json",
+            "report_sha256": "E9FE7BD5D9BA314DC0B0D50DA6DBC88C64DEA1647A43C4D945E45F9D4EBFE25A",
+            "intentional_file_fault": false,
+            "failures": [],
+            "unexpected_engine_messages": []
+          }
+        ],
+        "passed": true,
+        "complete": true,
+        "scope": "Serial actual EXE/PCK through native protected launcher; restricted PATH, separate QA saves, no foreground or OS input. Expected file-fault cases are identified."
+      }
+    },
+    {
+      "path": "logs/comm087/r5-ui02/suite.json",
+      "sha256": "5c0dc59ddaf2e6d8705d4f451e49a46195336a5f50ac3feb40cf2d5a16bbdd65",
+      "result": {
+        "suite": "UI",
+        "version": "0.4.41-r5",
+        "source_revision": "31d0c043f3e95aa7eea375adefb951a1b7417ed3",
+        "bundle": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.41-r5",
+        "tests": [
+          {
+            "name": "intro",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 6.0390007,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-ui02\\intro\\report.json",
+            "report_sha256": "801DECB7E9EFA6CDED0BE032DA0186B45E57F41F164A1E362A99EB92E54EF5BC",
+            "intentional_file_fault": false,
+            "failures": [],
+            "unexpected_engine_messages": []
+          },
+          {
+            "name": "guide",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 40.0775334,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-ui02\\guide\\report.json",
+            "report_sha256": "420C54CBE9A3F2A9861C23DAD97E2B601A15757EC8A35FBDB9761870D4254F67",
+            "intentional_file_fault": false,
+            "failures": [],
+            "unexpected_engine_messages": []
+          },
+          {
+            "name": "compare",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 18.4804218,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-ui02\\compare\\report.json",
+            "report_sha256": "5566902901F99D60397918F3C1DB1D9377AF4A706B5D9CF682B5CF214EAEE0AC",
+            "intentional_file_fault": false,
+            "failures": [],
+            "unexpected_engine_messages": []
+          },
+          {
+            "name": "saves",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 6.364005,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-ui02\\saves\\report.json",
+            "report_sha256": "CB789D475E31B9AF859DA8CF9D07852E2B20034C976B890306AB60BAE608D03C",
+            "intentional_file_fault": true,
+            "failures": [],
+            "unexpected_engine_messages": []
+          },
+          {
+            "name": "audio",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 9.0531221,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-ui02\\audio\\report.json",
+            "report_sha256": "59784F21CBBAFE6BCE6887FCAF3AAC5708CFBFBEEBDA4C950671CF88863EC65C",
+            "intentional_file_fault": true,
+            "failures": [],
+            "unexpected_engine_messages": []
+          },
+          {
+            "name": "help",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 5.6813802,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-ui02\\help\\report.json",
+            "report_sha256": "93BFEBF2048858E2703AB49FB362CD80CF342BD209E3E555EC20F70816646624",
+            "intentional_file_fault": false,
+            "failures": [],
+            "unexpected_engine_messages": []
+          },
+          {
+            "name": "exit-retry",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 5.4479631,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-ui02\\exit-retry\\report.json",
+            "report_sha256": "60DCA08D7E2F24795AE172206F4255425BA5F1CBA168051C9C43B8A8300E921F",
+            "intentional_file_fault": true,
+            "failures": [],
+            "unexpected_engine_messages": []
+          },
+          {
+            "name": "exit-discard",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 5.5271055,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-ui02\\exit-discard\\report.json",
+            "report_sha256": "9BDA53C38E69FB772D7259829BC07D46DC2F0CF8785DAB0A31A8B1D0484B9993",
+            "intentional_file_fault": true,
+            "failures": [],
+            "unexpected_engine_messages": []
+          }
+        ],
+        "passed": true,
+        "complete": true,
+        "scope": "Serial actual EXE/PCK through native protected launcher; restricted PATH, separate QA saves, no foreground or OS input. Expected file-fault cases are identified."
+      }
+    },
+    {
+      "path": "logs/comm087/r5-rules01/suite.json",
+      "sha256": "6f2aec8e2143b47286b54ecbaea38ded47605a35aee382eeecfa7b9f13f6f492",
+      "result": {
+        "suite": "Rules",
+        "version": "0.4.41-r5",
+        "source_revision": "31d0c043f3e95aa7eea375adefb951a1b7417ed3",
+        "bundle": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.41-r5",
+        "tests": [
+          {
+            "name": "inventory",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 0.6997041,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-rules01\\inventory\\report.json",
+            "report_sha256": "E91143844AF2788C9817622721756374D1F445CDB7150C60A246E2C85BFA806D",
+            "intentional_file_fault": false,
+            "failures": [],
+            "unexpected_engine_messages": []
+          },
+          {
+            "name": "head",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 0.342016,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-rules01\\head\\report.json",
+            "report_sha256": "E932D47294D31A61E95CF73AF39EB230CE2DA2D29820ADE12BDA1ED4345A1B0A",
+            "intentional_file_fault": false,
+            "failures": [],
+            "unexpected_engine_messages": []
+          },
+          {
+            "name": "depth",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 0.3379922,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-rules01\\depth\\report.json",
+            "report_sha256": "7595A815B1150DDF5EF21ECBE0B4916CABC5C00D05AB69AABF1CE19D9CFB34E4",
+            "intentional_file_fault": false,
+            "failures": [],
+            "unexpected_engine_messages": []
+          },
+          {
+            "name": "head-handover",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 0.7682945,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-rules01\\head-handover\\report.json",
+            "report_sha256": "9428454316E1D83D6DBC756B258A9C2F9FF6F185D0B52D437D09CFA0FA593848",
+            "intentional_file_fault": false,
+            "failures": [],
+            "unexpected_engine_messages": []
+          },
+          {
+            "name": "sound-bank",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 1.9128255,
+            "report": "E:\\GALUMU\\logs\\comm087\\r5-rules01\\sound-bank\\report.json",
+            "report_sha256": "B21C2517F36BB8450F58EE33C30DAEAFF76B45C2CEE0193034B1A0AE60528B73",
+            "intentional_file_fault": false,
+            "failures": [],
+            "unexpected_engine_messages": []
+          }
+        ],
+        "passed": true,
+        "complete": true,
+        "scope": "Serial actual EXE/PCK through native protected launcher; restricted PATH, separate QA saves, no foreground or OS input. Expected file-fault cases are identified."
+      }
+    },
+    {
+      "path": "logs/comm087/r5-hidden-result01/report.json",
+      "sha256": "12e3b0f2c78333ed129156cf9abe0cb331355852d488aa345dfaacd7caaa9869",
+      "result": {
+        "after": {
+          "cues": 3018,
+          "rider0": 3018,
+          "rider1": 3018,
+          "zones": 3018
+        },
+        "before": {
+          "cues": 3018,
+          "rider0": 3018,
+          "rider1": 3018,
+          "zones": 3018
+        },
+        "failures": [],
+        "hidden_seconds": 90.0,
+        "passed": true,
+        "scope": "Normal Main/autoplay match and result, bounded truly minimized interval on isolated desktop, individual CanvasItem draw signal counters. H overlay enabled. Engine window modes and viewport return click, no OS input or human play.",
+        "version": "0.4.41-r5",
+        "wall_seconds": 143.535
+      },
+      "private_peak_mib": 648.3,
+      "system_available_min_mib": 1890,
+      "unexpected_engine_messages": []
+    },
+    {
+      "path": "logs/comm087/r5-window01/report.json",
+      "sha256": "398f840ab3b19ee522903101cb28955dccdb4209407065dfe779838aeed43ecf",
+      "result": {
+        "failures": [],
+        "passed": true,
+        "scope": "Actual protected package, eight isolated render-window states, F11/Escape through Input.parse_input_event, engine maximize/resize, actual paused/resumed practice. No OS input, desktop switch, multi-monitor or multi-DPI certification.",
+        "version": "0.4.41-r5",
+        "windows": [
+          {
+            "content_scale_factor": 1.0,
+            "content_scale_size": "(1440, 810)",
+            "image_size": "(960, 540)",
+            "mode": 0,
+            "page": "home",
+            "paused": false,
+            "root_size": "(960, 540)",
+            "sampled_colors": 542,
+            "tag": "01_minimum",
+            "texture_reported_size": "(640.0, 360.0)",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(960, 540)"
+          },
+          {
+            "content_scale_factor": 1.0,
+            "content_scale_size": "(1440, 810)",
+            "image_size": "(1920, 1080)",
+            "mode": 3,
+            "page": "home",
+            "paused": false,
+            "root_size": "(1920, 1200)",
+            "sampled_colors": 549,
+            "tag": "02_fullscreen",
+            "texture_reported_size": "(2560.0, 1440.0)",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(1920, 1200)"
+          },
+          {
+            "content_scale_factor": 1.0,
+            "content_scale_size": "(1440, 810)",
+            "image_size": "(960, 540)",
+            "mode": 0,
+            "page": "home",
+            "paused": false,
+            "root_size": "(960, 540)",
+            "sampled_colors": 543,
+            "tag": "03_returned",
+            "texture_reported_size": "(640.0, 360.0)",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(960, 540)"
+          },
+          {
+            "content_scale_factor": 1.0,
+            "content_scale_size": "(1440, 810)",
+            "image_size": "(1920, 1080)",
+            "mode": 2,
+            "page": "home",
+            "paused": false,
+            "root_size": "(1920, 1111)",
+            "sampled_colors": 548,
+            "tag": "04_maximized",
+            "texture_reported_size": "(2560.0, 1440.0)",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(1920, 1111)"
+          },
+          {
+            "content_scale_factor": 1.0,
+            "content_scale_size": "(1440, 810)",
+            "image_size": "(1024, 576)",
+            "mode": 0,
+            "page": "settings",
+            "paused": false,
+            "root_size": "(1024, 768)",
+            "sampled_colors": 163,
+            "tag": "05_square_settings",
+            "texture_reported_size": "(729.0, 410.0)",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(1024, 768)"
+          },
+          {
+            "content_scale_factor": 1.0,
+            "content_scale_size": "(1440, 810)",
+            "image_size": "(1920, 1080)",
+            "mode": 3,
+            "page": "battle",
+            "paused": true,
+            "root_size": "(1920, 1200)",
+            "sampled_colors": 435,
+            "tag": "06_paused_fullscreen",
+            "texture_reported_size": "(2560.0, 1440.0)",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(1920, 1200)"
+          },
+          {
+            "content_scale_factor": 1.0,
+            "content_scale_size": "(1440, 810)",
+            "image_size": "(1024, 576)",
+            "mode": 0,
+            "page": "battle",
+            "paused": true,
+            "root_size": "(1024, 768)",
+            "sampled_colors": 446,
+            "tag": "07_paused_return",
+            "texture_reported_size": "(729.0, 410.0)",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(1024, 768)"
+          },
+          {
+            "content_scale_factor": 1.0,
+            "content_scale_size": "(1440, 810)",
+            "image_size": "(1024, 576)",
+            "mode": 0,
+            "page": "battle",
+            "paused": false,
+            "root_size": "(1024, 768)",
+            "sampled_colors": 622,
+            "tag": "08_playing",
+            "texture_reported_size": "(729.0, 410.0)",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(1024, 768)"
+          }
+        ]
+      },
+      "private_peak_mib": 711.9,
+      "system_available_min_mib": 1887,
+      "unexpected_engine_messages": []
+    },
+    {
+      "path": "logs/comm087/r5-mix01/report.json",
+      "sha256": "0a93bda5a0a5ec246670b4fe52ecc8b6e399c08925ddb4b91efdd9e56358b232",
+      "result": {
+        "driver": "Dummy",
+        "failures": [],
+        "passed": true,
+        "rows": [
+          {
+            "case": "01_effects_full",
+            "channel": "GALUMU Effects",
+            "metrics": {
+              "bits": 16,
+              "channels": 2,
+              "clipped_samples": 0,
+              "duration": 1.20743764172336,
+              "frames": 53248,
+              "near_full_scale_samples": 0,
+              "peak": 0.340789794921875,
+              "peak_channels": [
+                0.340789794921875,
+                0.340789794921875
+              ],
+              "peak_dbfs": -9.35026837643278,
+              "rate": 44100,
+              "rms": 0.0274567151180968,
+              "sha256": "09c6a624e46bd3d320043b462be284f9fb3ddd4e5fed566f0c6ac3e7dd400709",
+              "valid": true
+            },
+            "settings": {
+              "ambience_volume": 1.0,
+              "effects_volume": 1.0,
+              "master_volume": 1.0,
+              "music_volume": 1.0,
+              "sound": true
+            }
+          },
+          {
+            "case": "02_effects_half",
+            "channel": "GALUMU Effects",
+            "metrics": {
+              "bits": 16,
+              "channels": 2,
+              "clipped_samples": 0,
+              "duration": 1.30031746031746,
+              "frames": 57344,
+              "near_full_scale_samples": 0,
+              "peak": 0.170379638671875,
+              "peak_channels": [
+                0.170379638671875,
+                0.170379638671875
+              ],
+              "peak_dbfs": -15.3716461421858,
+              "rate": 44100,
+              "rms": 0.0132268525641304,
+              "sha256": "ed723fbeeaf372d1676cbb6da2876edff74af00d0c6cab8fff6bf4757c245ab2",
+              "valid": true
+            },
+            "settings": {
+              "ambience_volume": 1.0,
+              "effects_volume": 0.5,
+              "master_volume": 1.0,
+              "music_volume": 1.0,
+              "sound": true
+            }
+          },
+          {
+            "case": "03_effects_muted",
+            "channel": "GALUMU Effects",
+            "metrics": {
+              "bits": 16,
+              "channels": 2,
+              "clipped_samples": 0,
+              "duration": 1.20743764172336,
+              "frames": 53248,
+              "near_full_scale_samples": 0,
+              "peak": 0.0,
+              "peak_channels": [
+                0.0,
+                0.0
+              ],
+              "peak_dbfs": -140.0,
+              "rate": 44100,
+              "rms": 0.0,
+              "sha256": "4783e14e9f93622438b0a404b15762e573f331045b6b5e31ffe852b29993fb12",
+              "valid": true
+            },
+            "settings": {
+              "ambience_volume": 1.0,
+              "effects_volume": 0,
+              "master_volume": 1.0,
+              "music_volume": 1.0,
+              "sound": true
+            }
+          },
+          {
+            "case": "04_music_independent",
+            "channel": "GALUMU Music",
+            "metrics": {
+              "bits": 16,
+              "channels": 2,
+              "clipped_samples": 0,
+              "duration": 1.20743764172336,
+              "frames": 53248,
+              "near_full_scale_samples": 0,
+              "peak": 0.340789794921875,
+              "peak_channels": [
+                0.340789794921875,
+                0.340789794921875
+              ],
+              "peak_dbfs": -9.35026837643278,
+              "rate": 44100,
+              "rms": 0.0388295095961426,
+              "sha256": "1c1c2fc67887b76ad7218b63479122b83118f9142142e8564dc74961bc988920",
+              "valid": true
+            },
+            "settings": {
+              "ambience_volume": 1.0,
+              "effects_volume": 0,
+              "master_volume": 1.0,
+              "music_volume": 1.0,
+              "sound": true
+            }
+          },
+          {
+            "case": "05_music_muted",
+            "channel": "GALUMU Music",
+            "metrics": {
+              "bits": 16,
+              "channels": 2,
+              "clipped_samples": 0,
+              "duration": 1.20743764172336,
+              "frames": 53248,
+              "near_full_scale_samples": 0,
+              "peak": 0.0,
+              "peak_channels": [
+                0.0,
+                0.0
+              ],
+              "peak_dbfs": -140.0,
+              "rate": 44100,
+              "rms": 0.0,
+              "sha256": "4783e14e9f93622438b0a404b15762e573f331045b6b5e31ffe852b29993fb12",
+              "valid": true
+            },
+            "settings": {
+              "ambience_volume": 1.0,
+              "effects_volume": 0,
+              "master_volume": 1.0,
+              "music_volume": 0,
+              "sound": true
+            }
+          },
+          {
+            "case": "06_ambience_independent",
+            "channel": "GALUMU Ambience",
+            "metrics": {
+              "bits": 16,
+              "channels": 2,
+              "clipped_samples": 0,
+              "duration": 1.20743764172336,
+              "frames": 53248,
+              "near_full_scale_samples": 0,
+              "peak": 0.340789794921875,
+              "peak_channels": [
+                0.340789794921875,
+                0.340789794921875
+              ],
+              "peak_dbfs": -9.35026837643278,
+              "rate": 44100,
+              "rms": 0.0274567151180968,
+              "sha256": "09c6a624e46bd3d320043b462be284f9fb3ddd4e5fed566f0c6ac3e7dd400709",
+              "valid": true
+            },
+            "settings": {
+              "ambience_volume": 1.0,
+              "effects_volume": 0,
+              "master_volume": 1.0,
+              "music_volume": 0,
+              "sound": true
+            }
+          },
+          {
+            "case": "07_ambience_muted",
+            "channel": "GALUMU Ambience",
+            "metrics": {
+              "bits": 16,
+              "channels": 2,
+              "clipped_samples": 0,
+              "duration": 1.20743764172336,
+              "frames": 53248,
+              "near_full_scale_samples": 0,
+              "peak": 0.0,
+              "peak_channels": [
+                0.0,
+                0.0
+              ],
+              "peak_dbfs": -140.0,
+              "rate": 44100,
+              "rms": 0.0,
+              "sha256": "4783e14e9f93622438b0a404b15762e573f331045b6b5e31ffe852b29993fb12",
+              "valid": true
+            },
+            "settings": {
+              "ambience_volume": 0,
+              "effects_volume": 0,
+              "master_volume": 1.0,
+              "music_volume": 0,
+              "sound": true
+            }
+          },
+          {
+            "case": "08_master_half",
+            "channel": "GALUMU Effects",
+            "metrics": {
+              "bits": 16,
+              "channels": 2,
+              "clipped_samples": 0,
+              "duration": 1.30031746031746,
+              "frames": 57344,
+              "near_full_scale_samples": 0,
+              "peak": 0.170379638671875,
+              "peak_channels": [
+                0.170379638671875,
+                0.170379638671875
+              ],
+              "peak_dbfs": -15.3716461421858,
+              "rate": 44100,
+              "rms": 0.0132268525641304,
+              "sha256": "ed723fbeeaf372d1676cbb6da2876edff74af00d0c6cab8fff6bf4757c245ab2",
+              "valid": true
+            },
+            "settings": {
+              "ambience_volume": 0,
+              "effects_volume": 1.0,
+              "master_volume": 0.5,
+              "music_volume": 0,
+              "sound": true
+            }
+          },
+          {
+            "case": "09_sound_off",
+            "channel": "GALUMU Effects",
+            "metrics": {
+              "bits": 16,
+              "channels": 2,
+              "clipped_samples": 0,
+              "duration": 1.20743764172336,
+              "frames": 53248,
+              "near_full_scale_samples": 0,
+              "peak": 0.0,
+              "peak_channels": [
+                0.0,
+                0.0
+              ],
+              "peak_dbfs": -140.0,
+              "rate": 44100,
+              "rms": 0.0,
+              "sha256": "4783e14e9f93622438b0a404b15762e573f331045b6b5e31ffe852b29993fb12",
+              "valid": true
+            },
+            "settings": {
+              "ambience_volume": 0,
+              "effects_volume": 1.0,
+              "master_volume": 0.5,
+              "music_volume": 0,
+              "sound": false
+            }
+          }
+        ],
+        "scope": "Real AudioEffectRecord before final Master mute. Actual routed PCM checks, no OS audio, microphone or human listening; not a subjective quality assessment."
+      },
+      "unexpected_engine_messages": []
+    },
+    {
+      "path": "logs/comm087/r5-render-window01/report.json",
+      "sha256": "3e7a6261734f86882b584e2273b48cdb0b299237319ee9dc9c1784fdb45ccc5b",
+      "result": {
+        "all_frames": {
+          "fps": 59.9882293096057,
+          "frames": 3600,
+          "max_ms": 48.923,
+          "over_33ms": 1,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 17.744,
+          "p99_ms": 18.539
+        },
+        "blood": false,
+        "difficulty": 2,
+        "equipped": {
+          "armor": "it_armor_5",
+          "caparison": "caparison_velvet",
+          "crest": "crest_bend",
+          "helmet": "it_helmet_5",
+          "horse": "horse_courser",
+          "lance": "it_lance_long_5",
+          "shield": "it_shield_5"
+        },
+        "executable": "E:/GALUMU/builds/LanceAndLaurel-v0.4.41-r5/runtime/LanceAndLaurel.exe",
+        "failures": [],
+        "kit": "italian_plate",
+        "mode": "war",
+        "passed": true,
+        "phases": {
+          "charge": {
+            "fps": 59.9973389330205,
+            "frames": 2481,
+            "max_ms": 19.722,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.667,
+            "p95_ms": 17.752,
+            "p99_ms": 18.469
+          },
+          "contact": {
+            "fps": 60.0252979346568,
+            "frames": 165,
+            "max_ms": 27.053,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.68,
+            "p95_ms": 17.946,
+            "p99_ms": 19.507
+          },
+          "ended": {
+            "fps": 60.0556708833466,
+            "frames": 166,
+            "max_ms": 19.331,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.696,
+            "p95_ms": 18.058,
+            "p99_ms": 19.135
+          },
+          "ready": {
+            "fps": 59.9032243055879,
+            "frames": 515,
+            "max_ms": 48.923,
+            "over_33ms": 1,
+            "over_50ms": 0,
+            "p50_ms": 16.661,
+            "p95_ms": 17.287,
+            "p99_ms": 18.033
+          },
+          "result": {
+            "fps": 60.0007800101401,
+            "frames": 80,
+            "max_ms": 28.459,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.664,
+            "p95_ms": 16.719,
+            "p99_ms": 16.804
+          },
+          "turn": {
+            "fps": 60.0034820673532,
+            "frames": 193,
+            "max_ms": 19.157,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.65,
+            "p95_ms": 17.218,
+            "p99_ms": 18.114
+          }
+        },
+        "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+        "settings": {
+          "aim_cues": true,
+          "ambience_volume": 1.0,
+          "blood": false,
+          "brief_seen": false,
+          "combat_brief_v03": false,
+          "combat_brief_v043": false,
+          "combat_brief_v044": false,
+          "difficulty": 2,
+          "effects_volume": 1.0,
+          "guided_practice_v087": false,
+          "master_volume": 1.0,
+          "mouse_only": false,
+          "music_volume": 1.0,
+          "shake": true,
+          "slow_motion": true,
+          "sound": true,
+          "vsync": false
+        },
+        "version": "0.4.41-r5",
+        "wall_seconds": 60.012733,
+        "window": {
+          "image_size": "(1280, 720)",
+          "mode": 0,
+          "size": "(1280, 720)",
+          "texture_reported_size": "(1138.0, 640.0)"
+        },
+        "matches_completed": 1
+      },
+      "unexpected_engine_messages": []
+    },
+    {
+      "path": "logs/comm087/r5-render-full01/report.json",
+      "sha256": "edaf4e23009f4ba94d6ba65b5c6595a66e588aa7bb145388529cab4698ed3b42",
+      "result": {
+        "all_frames": {
+          "fps": 59.9884242337369,
+          "frames": 3600,
+          "max_ms": 47.511,
+          "over_33ms": 2,
+          "over_50ms": 0,
+          "p50_ms": 16.663,
+          "p95_ms": 17.628,
+          "p99_ms": 18.394
+        },
+        "blood": false,
+        "difficulty": 0,
+        "equipped": {
+          "armor": "eng_armor_5",
+          "caparison": "caparison_wool",
+          "crest": "crest_bend",
+          "helmet": "eng_helmet_5",
+          "horse": "horse_grey",
+          "lance": "eng_lance_stout_5",
+          "shield": "eng_shield_5"
+        },
+        "executable": "E:/GALUMU/builds/LanceAndLaurel-v0.4.41-r5/runtime/LanceAndLaurel.exe",
+        "failures": [],
+        "kit": "english_late",
+        "mode": "arena",
+        "passed": true,
+        "phases": {
+          "charge": {
+            "fps": 60.0007187758961,
+            "frames": 2531,
+            "max_ms": 21.309,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.664,
+            "p95_ms": 17.721,
+            "p99_ms": 18.394
+          },
+          "contact": {
+            "fps": 59.9913632268809,
+            "frames": 121,
+            "max_ms": 19.179,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.699,
+            "p95_ms": 17.809,
+            "p99_ms": 18.78
+          },
+          "ended": {
+            "fps": 60.029108454477,
+            "frames": 159,
+            "max_ms": 17.171,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.663,
+            "p95_ms": 16.861,
+            "p99_ms": 17.026
+          },
+          "ready": {
+            "fps": 59.913849457861,
+            "frames": 516,
+            "max_ms": 47.511,
+            "over_33ms": 1,
+            "over_50ms": 0,
+            "p50_ms": 16.658,
+            "p95_ms": 17.174,
+            "p99_ms": 17.875
+          },
+          "result": {
+            "fps": 59.9721906730657,
+            "frames": 81,
+            "max_ms": 34.022,
+            "over_33ms": 1,
+            "over_50ms": 0,
+            "p50_ms": 16.664,
+            "p95_ms": 16.724,
+            "p99_ms": 17.07
+          },
+          "turn": {
+            "fps": 59.9983875433348,
+            "frames": 192,
+            "max_ms": 18.738,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.655,
+            "p95_ms": 17.388,
+            "p99_ms": 17.819
+          }
+        },
+        "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+        "settings": {
+          "aim_cues": true,
+          "ambience_volume": 1.0,
+          "blood": false,
+          "brief_seen": false,
+          "combat_brief_v03": false,
+          "combat_brief_v043": false,
+          "combat_brief_v044": false,
+          "difficulty": 0,
+          "effects_volume": 1.0,
+          "guided_practice_v087": false,
+          "master_volume": 1.0,
+          "mouse_only": false,
+          "music_volume": 1.0,
+          "shake": true,
+          "slow_motion": true,
+          "sound": true,
+          "vsync": false
+        },
+        "version": "0.4.41-r5",
+        "wall_seconds": 60.012602,
+        "window": {
+          "image_size": "(1920, 1080)",
+          "mode": 3,
+          "size": "(1920, 1200)",
+          "texture_reported_size": "(2560.0, 1440.0)"
+        },
+        "matches_completed": 1
+      },
+      "unexpected_engine_messages": []
+    },
+    {
+      "path": "logs/comm087/r5-zip-lifetime01/report.json",
+      "sha256": "ed7bfc59368a635f1823400cd1604b777ef569ba3ac218cd28512f8463436929",
+      "result": {
+        "equipped": {
+          "armor": "de_armor_5",
+          "caparison": "caparison_velvet",
+          "crest": "crest_bend",
+          "helmet": "de_helmet_5",
+          "horse": "horse_courser",
+          "lance": "de_lance_stout_5",
+          "shield": "de_shield_5"
+        },
+        "executable": "E:/GALUMU/builds/COMM087-zip-r5-check/LanceAndLaurel-v0.4.41-r5/runtime/LanceAndLaurel.exe",
+        "failures": [],
+        "marks": [
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 714,
+            "label": "home_warm-end",
+            "nodes": 41.0,
+            "page": "home",
+            "resources": 98.0,
+            "seconds": 12.014
+          },
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 1076,
+            "label": "armory_warm-end",
+            "nodes": 127.0,
+            "page": "armory",
+            "resources": 105.0,
+            "seconds": 18.047
+          },
+          {
+            "bus_count": 5,
+            "can_draw": false,
+            "fps_cap": 10,
+            "frames_drawn": 1076,
+            "label": "armory_loading_hidden-start",
+            "nodes": 69.0,
+            "page": "armory",
+            "resources": 105.0,
+            "seconds": 19.147
+          },
+          {
+            "bus_count": 5,
+            "can_draw": false,
+            "fps_cap": 10,
+            "frames_drawn": 1076,
+            "label": "armory_loading_hidden-end",
+            "nodes": 69.0,
+            "page": "armory",
+            "resources": 105.0,
+            "seconds": 94.248
+          },
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 1509,
+            "label": "armory_restored-end",
+            "nodes": 122.0,
+            "page": "armory",
+            "resources": 106.0,
+            "seconds": 101.464
+          },
+          {
+            "icons": {
+              "can_draw": true,
+              "details": [
+                {
+                  "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+                  "first_frame": 1839,
+                  "id": "helm_nasal",
+                  "loaded": true,
+                  "processing": false,
+                  "rect": "[P: (291.0, 244.0), S: (152.0, 100.0)]"
+                },
+                {
+                  "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+                  "first_frame": 1840,
+                  "id": "eng_helmet_0",
+                  "loaded": true,
+                  "processing": false,
+                  "rect": "[P: (702.0, 244.0), S: (152.0, 100.0)]"
+                },
+                {
+                  "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+                  "first_frame": 1841,
+                  "id": "eng_helmet_1",
+                  "loaded": true,
+                  "processing": false,
+                  "rect": "[P: (291.0, 384.0), S: (152.0, 100.0)]"
+                },
+                {
+                  "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+                  "first_frame": 1842,
+                  "id": "fr_helmet_0",
+                  "loaded": true,
+                  "processing": false,
+                  "rect": "[P: (702.0, 384.0), S: (152.0, 100.0)]"
+                },
+                {
+                  "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+                  "first_frame": 1843,
+                  "id": "fr_helmet_1",
+                  "loaded": true,
+                  "processing": false,
+                  "rect": "[P: (291.0, 524.0), S: (152.0, 100.0)]"
+                },
+                {
+                  "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+                  "first_frame": 1844,
+                  "id": "de_helmet_0",
+                  "loaded": true,
+                  "processing": false,
+                  "rect": "[P: (702.0, 524.0), S: (152.0, 100.0)]"
+                },
+                {
+                  "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+                  "first_frame": 1845,
+                  "id": "it_helmet_0",
+                  "loaded": true,
+                  "processing": false,
+                  "rect": "[P: (291.0, 664.0), S: (152.0, 100.0)]"
+                }
+              ],
+              "frame": 2293,
+              "loaded": 7,
+              "visible": 7
+            }
+          },
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 6030,
+            "label": "competitive_with_audio-end",
+            "nodes": 69.0,
+            "page": "battle",
+            "paused": false,
+            "phase": "charge",
+            "resources": 106.0,
+            "seconds": 176.957,
+            "time_scale": 0.381961228719593,
+            "x": -298.582197567718
+          },
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 6331,
+            "label": "charge_before_hide-end",
+            "nodes": 69.0,
+            "page": "battle",
+            "paused": false,
+            "phase": "charge",
+            "resources": 106.0,
+            "seconds": 181.979,
+            "time_scale": 1.0,
+            "x": -1679.52698675542
+          },
+          {
+            "bus_count": 5,
+            "can_draw": false,
+            "fps_cap": 10,
+            "frames_drawn": 6331,
+            "label": "battle_hidden-start",
+            "nodes": 78.0,
+            "page": "battle",
+            "paused": true,
+            "phase": "charge",
+            "resources": 106.0,
+            "seconds": 183.076,
+            "time_scale": 1.0,
+            "x": -1679.52698675542
+          },
+          {
+            "bus_count": 5,
+            "can_draw": false,
+            "fps_cap": 10,
+            "frames_drawn": 6331,
+            "label": "battle_hidden-end",
+            "nodes": 78.0,
+            "page": "battle",
+            "paused": true,
+            "phase": "charge",
+            "resources": 106.0,
+            "seconds": 258.076,
+            "time_scale": 1.0,
+            "x": -1679.52698675542
+          },
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 6881,
+            "label": "restored_still_paused-end",
+            "nodes": 78.0,
+            "page": "battle",
+            "paused": true,
+            "phase": "charge",
+            "resources": 106.0,
+            "seconds": 267.288,
+            "time_scale": 1.0,
+            "x": -1679.52698675542
+          },
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 9580,
+            "label": "explicitly_resumed-end",
+            "nodes": 62.0,
+            "page": "battle",
+            "paused": false,
+            "phase": "ready",
+            "resources": 106.0,
+            "seconds": 312.518,
+            "time_scale": 1.0,
+            "x": -2200.0
+          },
+          {
+            "bus_count": 5,
+            "can_draw": false,
+            "fps_cap": 10,
+            "frames_drawn": 9580,
+            "label": "home_hidden-start",
+            "nodes": 41.0,
+            "page": "home",
+            "resources": 106.0,
+            "seconds": 313.617
+          },
+          {
+            "bus_count": 5,
+            "can_draw": false,
+            "fps_cap": 10,
+            "frames_drawn": 9580,
+            "label": "home_hidden-end",
+            "nodes": 41.0,
+            "page": "home",
+            "resources": 106.0,
+            "seconds": 388.717
+          },
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 9831,
+            "label": "home_restored-end",
+            "nodes": 41.0,
+            "page": "home",
+            "resources": 106.0,
+            "seconds": 392.944
+          },
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 9996,
+            "label": "menu_cycle_0",
+            "nodes": 41.0,
+            "page": "home",
+            "resources": 106.0,
+            "seconds": 395.872
+          },
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 10158,
+            "label": "menu_cycle_1",
+            "nodes": 41.0,
+            "page": "home",
+            "resources": 106.0,
+            "seconds": 398.572
+          },
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 10320,
+            "label": "menu_cycle_2",
+            "nodes": 41.0,
+            "page": "home",
+            "resources": 106.0,
+            "seconds": 401.272
+          }
+        ],
+        "matches": 2,
+        "passed": true,
+        "scope": "Real-time source or packaged Main, actual GPU, audio mixing muted at Master, three 75-second hidden intervals including pending armoury jobs and charge. Engine window-mode and menu calls on isolated desktop, no OS user input. Private memory/exit authority is external guard log.",
+        "stable_home_nodes": [
+          41,
+          41,
+          41
+        ],
+        "version": "0.4.41-r5",
+        "wall_seconds": 401.277
+      },
+      "private_peak_mib": 731.7,
+      "system_available_min_mib": 1938,
+      "unexpected_engine_messages": []
+    }
+  ],
+  "continuous_matches": [
+    {
+      "name": "italian-war-hard",
+      "seconds": 480.016247,
+      "matches": 10,
+      "frames": {
+        "fps": 59.9843833106966,
+        "frames": 28793,
+        "max_ms": 45.079,
+        "over_33ms": 6,
+        "over_50ms": 0,
+        "p50_ms": 16.665,
+        "p95_ms": 17.936,
+        "p99_ms": 19.219
+      },
+      "phases": {
+        "charge": {
+          "fps": 59.9938706401621,
+          "frames": 19359,
+          "max_ms": 21.667,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 17.875,
+          "p99_ms": 18.884
+        },
+        "contact": {
+          "fps": 59.5243665821179,
+          "frames": 1253,
+          "max_ms": 29.26,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.68,
+          "p95_ms": 19.898,
+          "p99_ms": 23.783
+        },
+        "ended": {
+          "fps": 60.1985339089284,
+          "frames": 1688,
+          "max_ms": 23.919,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.717,
+          "p95_ms": 18.868,
+          "p99_ms": 20.524
+        },
+        "ready": {
+          "fps": 59.9697997830081,
+          "frames": 3760,
+          "max_ms": 45.079,
+          "over_33ms": 5,
+          "over_50ms": 0,
+          "p50_ms": 16.662,
+          "p95_ms": 17.389,
+          "p99_ms": 18.04
+        },
+        "result": {
+          "fps": 60.0149565363592,
+          "frames": 801,
+          "max_ms": 39.834,
+          "over_33ms": 1,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 16.874,
+          "p99_ms": 17.232
+        },
+        "turn": {
+          "fps": 60.0192844570493,
+          "frames": 1932,
+          "max_ms": 19.624,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 17.587,
+          "p99_ms": 18.32
+        }
+      },
+      "reported_window": {
+        "mode": 0,
+        "render_size": "(1138.0, 640.0)",
+        "size": "(1280, 720)"
+      },
+      "private_peak_mib": 662.9,
+      "system_available_min_mib": 1947,
+      "report": "logs/comm087/r5-matches01/italian-war-hard/report.json",
+      "sha256": "40045bd76c748ce30a4a93db0f4e55af31276233d1f217eba268ea705984d9d1",
+      "scope": "Production autoplay and replay clicks through normal Main; no OS input, screenshots or compilation during timing. Original render_size is ViewportTexture.get_size (stretch-adjusted), not image dimensions; see render_size_audit."
+    },
+    {
+      "name": "english-arena-easy",
+      "seconds": 480.020536,
+      "matches": 8,
+      "frames": {
+        "fps": 59.9736735822527,
+        "frames": 28788,
+        "max_ms": 48.71,
+        "over_33ms": 5,
+        "over_50ms": 0,
+        "p50_ms": 16.663,
+        "p95_ms": 17.851,
+        "p99_ms": 19.062
+      },
+      "phases": {
+        "charge": {
+          "fps": 59.9594518258958,
+          "frames": 20791,
+          "max_ms": 24.244,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.665,
+          "p95_ms": 17.99,
+          "p99_ms": 19.257
+        },
+        "contact": {
+          "fps": 60.1640812486663,
+          "frames": 1090,
+          "max_ms": 20.962,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.659,
+          "p95_ms": 17.933,
+          "p99_ms": 18.851
+        },
+        "ended": {
+          "fps": 60.0310649090791,
+          "frames": 1286,
+          "max_ms": 23.699,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 16.962,
+          "p99_ms": 17.429
+        },
+        "ready": {
+          "fps": 59.9525035759036,
+          "frames": 3245,
+          "max_ms": 48.71,
+          "over_33ms": 5,
+          "over_50ms": 0,
+          "p50_ms": 16.657,
+          "p95_ms": 17.322,
+          "p99_ms": 18.066
+        },
+        "result": {
+          "fps": 60.0044140747104,
+          "frames": 640,
+          "max_ms": 26.737,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 16.923,
+          "p99_ms": 17.439
+        },
+        "turn": {
+          "fps": 60.0106719439185,
+          "frames": 1736,
+          "max_ms": 21.619,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.657,
+          "p95_ms": 17.598,
+          "p99_ms": 18.473
+        }
+      },
+      "reported_window": {
+        "mode": 3,
+        "render_size": "(2560.0, 1440.0)",
+        "size": "(1920, 1200)"
+      },
+      "private_peak_mib": 676.7,
+      "system_available_min_mib": 1911,
+      "report": "logs/comm087/r5-matches01/english-arena-easy/report.json",
+      "sha256": "e9fe7bd5d9ba314dc0b0d50da6dbc88c64dea1647a43c4d945e45f9d4ebfe25a",
+      "scope": "Production autoplay and replay clicks through normal Main; no OS input, screenshots or compilation during timing. Original render_size is ViewportTexture.get_size (stretch-adjusted), not image dimensions; see render_size_audit."
+    }
+  ],
+  "render_size_audit": {
+    "finding": "ViewportTexture.get_size includes the root stretch transform, whereas get_image returns the actual texture. Former render_size fields are API-reported dimensions and must not be called physical pixels.",
+    "engine_source": "https://github.com/godotengine/godot/blob/4.5.1-stable/scene/main/viewport.cpp",
+    "evidence": "logs/comm087/r5-window01/report.json",
+    "actual_readbacks": [
+      "960x540",
+      "1920x1080 content inside 1920x1200 fullscreen",
+      "1024x576 content inside 1024x768 window"
+    ],
+    "game_resolution_quality_changed": false
+  },
+  "portable": {
+    "path": "logs/comm087/r6-portable01/results.json",
+    "sha256": "c8565d3e16072c286ae6e22de0be8c249da278c5ec83439d163af4bd076f0e51",
+    "cases": [
+      {
+        "name": "relocated-arguments",
+        "code": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "name": "argument:--literal=two words",
+        "passed": true
+      },
+      {
+        "name": "argument:--literal=quote\"and\\end\\",
+        "passed": true
+      },
+      {
+        "name": "argument:--literal=尾部 空格\\",
+        "passed": true
+      },
+      {
+        "name": "isolated-save-and-guard",
+        "passed": true
+      },
+      {
+        "name": "duplicate-blocked",
+        "code": 2,
+        "expected": 2,
+        "passed": true
+      },
+      {
+        "name": "first-unaffected",
+        "code": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "name": "finite-timeout",
+        "code": 124,
+        "expected": 124,
+        "passed": true
+      },
+      {
+        "name": "mutex-and-desktop-released",
+        "code": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "name": "invalid-timeout-rejected",
+        "code": 2,
+        "expected": 2,
+        "passed": true
+      }
+    ],
+    "restricted_path": true,
+    "working_directory": "Windows",
+    "formal_profile_touched": false
+  },
+  "normal_entry": {
+    "log": "logs/comm087/r6-native-smoke01-engine.log",
+    "sha256": "d9a7c9e378c51848d35430323160aedfdcaacbd6992e90d511d3034ba7acf73a",
+    "memory_log": "logs/comm087/r6-native-smoke01-memory.log",
+    "memory_sha256": "fe1b1dbe4640e871d094522a63c7dc3d60a52e33e00d93daeb6da74bf1c45ddb",
+    "passed": true,
+    "wall_seconds": 91.6,
+    "screenshots": 9,
+    "private_peak_mib": 675.3,
+    "system_available_min_mib": 1877,
+    "scope": "Actual extracted r6 ZIP native launcher with restricted PATH and Windows working directory, no external --script; normal production smoke QA menu/armory/history/both modes/results. Screenshots perturb timing; not a performance benchmark. No OS input or human play."
+  },
+  "archive": {
+    "path": "builds/LanceAndLaurel-v0.4.41-r6-Windows.zip",
+    "bytes": 68407181,
+    "sha256": "20d2a0b21c4210d1a234efc54e984dd073c5104d92355d3de1d89a1848a56941",
+    "extracted_path": "builds/COMM087-r6-解压 验收/LanceAndLaurel-v0.4.41-r6",
+    "manifest_verification": "Both original and extracted nine-file package reverified after runtime; exact sizes/SHA256/launcher version, no unexpected files.",
+    "runtime_scope": "r6 normal entry GPU smoke and rule/portable checks; the longer mixed lifecycle matrix remains r5 evidence, not repeated or relabelled."
+  },
+  "tactical_audit": {
+    "path": "docs/development/COMM087_TACTICAL_AUDIT.json",
+    "sha256": "c39e4c8e47f677d0618458c28cea1188e353ffee35caf2d10b560841afc576e7",
+    "cases": 144,
+    "production_changes": false,
+    "scope": "144 complete production 120Hz rule cases; 3 fixed seeds per cell. Identical equipment each side, normal AI, scripted attack resampled every300ms. Fixed guard or 250ms-old tip observed every300ms, production finite shield motor. Not rendering, real input, human win rates, statistical balance proof or realistic horse fatigue measurement.",
+    "finding": "Holding urge exhausts stamina; reserve policy reaches own contacts faster in these cases. Defense changes outcomes. No tested policy or head-only aim wins all cells. Do not tune production balance solely to make these bots win."
+  },
+  "full_matrix_candidate": {
+    "version": "0.4.41-r5",
+    "source_revision": "31d0c043f3e95aa7eea375adefb951a1b7417ed3",
+    "package": "builds/LanceAndLaurel-v0.4.41-r5",
+    "pck": {
+      "path": "runtime/LanceAndLaurel.pck",
+      "bytes": 34198660,
+      "sha256": "00B2D994D1C08D9001C05AB298D502C19582C283716BD0ACF7DF3B150721395A"
+    },
+    "functional_file_bytes": 131073185,
+    "normal_entry": {
+      "log": "logs/comm087/r5-native-smoke01-engine.log",
+      "sha256": "7e45782e3c6d2cf9a1b8b10c1907a1f44f1b0db010d77f60c8a527f13afef21a",
+      "passed": true,
+      "wall_seconds": 91.4,
+      "screenshots": 9,
+      "private_peak_mib": 689.3,
+      "system_available_min_mib": 1900,
+      "scope": "Relocated native launcher, restricted PATH, no --script; production smoke QA path exercises menu/armory/history/both modes/results and restores prior QA state. Screenshots are taken, so FPS log is not a performance benchmark. No OS input or human play."
+    },
+    "archive": {
+      "path": "builds/LanceAndLaurel-v0.4.41-r5-Windows.zip",
+      "bytes": 68407056,
+      "sha256": "977d314acf71d61813b5a626f4b1118a1d54e3390418de805147f4c886c0d749",
+      "extracted_path": "builds/COMM087-zip-r5-check/LanceAndLaurel-v0.4.41-r5",
+      "manifest_verification": "All nine required files match sizes and SHA256; no unexpected files",
+      "extracted_lifecycle": "Passed 401.277s actual GPU/audio mixing, three 75s hidden intervals, menu cycles, normal close; see r5-zip-lifetime01"
+    },
+    "portable": {
+      "path": "logs/comm087/r5-portable01/results.json",
+      "sha256": "c8565d3e16072c286ae6e22de0be8c249da278c5ec83439d163af4bd076f0e51",
+      "cases": [
+        {
+          "name": "relocated-arguments",
+          "code": 0,
+          "expected": 0,
+          "passed": true
+        },
+        {
+          "name": "argument:--literal=two words",
+          "passed": true
+        },
+        {
+          "name": "argument:--literal=quote\"and\\end\\",
+          "passed": true
+        },
+        {
+          "name": "argument:--literal=尾部 空格\\",
+          "passed": true
+        },
+        {
+          "name": "isolated-save-and-guard",
+          "passed": true
+        },
+        {
+          "name": "duplicate-blocked",
+          "code": 2,
+          "expected": 2,
+          "passed": true
+        },
+        {
+          "name": "first-unaffected",
+          "code": 0,
+          "expected": 0,
+          "passed": true
+        },
+        {
+          "name": "finite-timeout",
+          "code": 124,
+          "expected": 124,
+          "passed": true
+        },
+        {
+          "name": "mutex-and-desktop-released",
+          "code": 0,
+          "expected": 0,
+          "passed": true
+        },
+        {
+          "name": "invalid-timeout-rejected",
+          "code": 2,
+          "expected": 2,
+          "passed": true
+        }
+      ],
+      "location": "builds/COMM087-portable-r5/骑枪与桂冠 验收",
+      "restricted_path": true,
+      "working_directory": "Windows",
+      "formal_profile_touched": false
+    }
+  },
+  "tests_version": "0.4.41-r5",
+  "continuous_matches_version": "0.4.41-r5",
+  "r6_targeted_tests": [
+    {
+      "path": "logs/comm087/r6-rules01/suite.json",
+      "sha256": "b37ec5c84999d9f2bb177b4d185647309917b8d7c3d10529fc8d5bb708bd30bb",
+      "result": {
+        "suite": "Rules",
+        "version": "0.4.41-r6",
+        "source_revision": "eb6074c59c5279cbebacf36777a9fa26bc8da324",
+        "bundle": "E:\\GALUMU\\builds\\COMM087-r6-解压 验收\\LanceAndLaurel-v0.4.41-r6",
+        "tests": [
+          {
+            "name": "inventory",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 1.1863708,
+            "report": "E:\\GALUMU\\logs\\comm087\\r6-rules01\\inventory\\report.json",
+            "report_sha256": "5F74806710C93FF1BA26216EE0A22FBBE1C389FE00BAB1A62599B4F3C4D678C7",
+            "intentional_file_fault": false,
+            "failures": [],
+            "unexpected_engine_messages": []
+          },
+          {
+            "name": "head",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 0.3762697,
+            "report": "E:\\GALUMU\\logs\\comm087\\r6-rules01\\head\\report.json",
+            "report_sha256": "E932D47294D31A61E95CF73AF39EB230CE2DA2D29820ADE12BDA1ED4345A1B0A",
+            "intentional_file_fault": false,
+            "failures": [],
+            "unexpected_engine_messages": []
+          },
+          {
+            "name": "depth",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 0.4138978,
+            "report": "E:\\GALUMU\\logs\\comm087\\r6-rules01\\depth\\report.json",
+            "report_sha256": "7595A815B1150DDF5EF21ECBE0B4916CABC5C00D05AB69AABF1CE19D9CFB34E4",
+            "intentional_file_fault": false,
+            "failures": [],
+            "unexpected_engine_messages": []
+          },
+          {
+            "name": "head-handover",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 0.8212169,
+            "report": "E:\\GALUMU\\logs\\comm087\\r6-rules01\\head-handover\\report.json",
+            "report_sha256": "9428454316E1D83D6DBC756B258A9C2F9FF6F185D0B52D437D09CFA0FA593848",
+            "intentional_file_fault": false,
+            "failures": [],
+            "unexpected_engine_messages": []
+          },
+          {
+            "name": "sound-bank",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 2.2293187,
+            "report": "E:\\GALUMU\\logs\\comm087\\r6-rules01\\sound-bank\\report.json",
+            "report_sha256": "91CDB240FF4A8C2A3B8597F44EBBD8A5F624B472E829999C3FDB5879E452BB6D",
+            "intentional_file_fault": false,
+            "failures": [],
+            "unexpected_engine_messages": []
+          }
+        ],
+        "passed": true,
+        "complete": true,
+        "scope": "Serial actual EXE/PCK through native protected launcher; restricted PATH, separate QA saves, no foreground or OS input. Expected file-fault cases are identified."
+      }
+    },
+    {
+      "path": "logs/comm087/r6-portable01/results.json",
+      "sha256": "c8565d3e16072c286ae6e22de0be8c249da278c5ec83439d163af4bd076f0e51",
+      "result": [
+        {
+          "name": "relocated-arguments",
+          "code": 0,
+          "expected": 0,
+          "passed": true
+        },
+        {
+          "name": "argument:--literal=two words",
+          "passed": true
+        },
+        {
+          "name": "argument:--literal=quote\"and\\end\\",
+          "passed": true
+        },
+        {
+          "name": "argument:--literal=尾部 空格\\",
+          "passed": true
+        },
+        {
+          "name": "isolated-save-and-guard",
+          "passed": true
+        },
+        {
+          "name": "duplicate-blocked",
+          "code": 2,
+          "expected": 2,
+          "passed": true
+        },
+        {
+          "name": "first-unaffected",
+          "code": 0,
+          "expected": 0,
+          "passed": true
+        },
+        {
+          "name": "finite-timeout",
+          "code": 124,
+          "expected": 124,
+          "passed": true
+        },
+        {
+          "name": "mutex-and-desktop-released",
+          "code": 0,
+          "expected": 0,
+          "passed": true
+        },
+        {
+          "name": "invalid-timeout-rejected",
+          "code": 2,
+          "expected": 2,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "path": "logs/comm087/r6-message-final.json",
+      "sha256": "532449c216bc919f1b2476e6dc63c718f5c128e96b4bf09793decade43fbd4a4",
+      "result": {
+        "passed": true,
+        "text": "游戏触发内存保护，已停止运行。\n可能是游戏达到用量上限，或系统可用内存不足。请保留下面的记录以便排查。",
+        "launcher_sha256": "C2EA099C469822A735A3C2C97D3487A7382378C405FB227504D9DD50F3469357",
+        "scope": "Read actual packaged compiled Unicode message by reflection; no desktop dialog, memory stress or game process."
+      }
+    }
+  ],
+  "milestone": {
+    "started_utc": "2026-11-11T01:13:30Z",
+    "closeout_started_utc": "2026-11-11T07:12:42.677082+00:00",
+    "minimum_hours": 6,
+    "maximum_hours": 10,
+    "not_six_hour_single_process": true
+  }
+}

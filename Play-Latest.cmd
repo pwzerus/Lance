@@ -1,6 +1,9 @@
 @echo off
-"%USERPROFILE%\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\powershell\pwsh.exe" -NoProfile -File "%~dp0Start-MemoryBound.ps1" -Executable "%~dp0builds\LanceAndLaurel-v0.4.40-r3\LanceAndLaurel.exe" -TimeoutSeconds 0
-if errorlevel 1 (
- echo Game stopped or launch refused by the resource protector. See the message above.
+setlocal
+set "GALUMU_LAUNCH=%~dp0builds\LanceAndLaurel-v0.4.41-r6\LanceAndLaurel.exe"
+if not exist "%GALUMU_LAUNCH%" (
+ echo The latest game package is missing. Restore the complete v0.4.41-r6 folder in builds.
  pause
+ exit /b 2
 )
+start "" "%GALUMU_LAUNCH%"

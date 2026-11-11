@@ -1,5 +1,5 @@
 {
-  "evidence": "COMM087 candidate checkpoint; first three actual v0.4.41; exit/save source after candidate",
+  "evidence": "COMM087 ongoing exact candidate checkpoints. Each item retains its actual package/source/version; source tests are not package evidence.",
   "tests": [
     {
       "path": "logs/comm087/package-guide01/report.json",
@@ -180,6 +180,1854 @@
       },
       "peak_private_mib": null,
       "exit_0": true
+    },
+    {
+      "path": "logs/comm087/r2-war-hard-heavy01/report.json",
+      "sha256": "df179a353a1d7bdd9e4285236a1fe5b653070dbb0cce1cfe9295881b5af233c0",
+      "result": {
+        "all_frames": {
+          "fps": 59.8420427563883,
+          "frames": 28725,
+          "max_ms": 55.602,
+          "over_33ms": 11,
+          "over_50ms": 1,
+          "p50_ms": 16.667,
+          "p95_ms": 18.096,
+          "p99_ms": 20.119
+        },
+        "blood": true,
+        "difficulty": 2,
+        "executable": "E:/GALUMU/builds/LanceAndLaurel-v0.4.41-r2/runtime/LanceAndLaurel.exe",
+        "failures": [],
+        "kit": "heavy",
+        "mode": "war",
+        "passed": true,
+        "phases": {
+          "charge": {
+            "fps": 59.9485122115571,
+            "frames": 19591,
+            "max_ms": 25.466,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.666,
+            "p95_ms": 18.02,
+            "p99_ms": 19.296
+          },
+          "contact": {
+            "fps": 58.9257228136917,
+            "frames": 1212,
+            "max_ms": 33.388,
+            "over_33ms": 1,
+            "over_50ms": 0,
+            "p50_ms": 16.696,
+            "p95_ms": 20.287,
+            "p99_ms": 26.193
+          },
+          "ended": {
+            "fps": 58.672408042326,
+            "frames": 1593,
+            "max_ms": 34.302,
+            "over_33ms": 4,
+            "over_50ms": 0,
+            "p50_ms": 16.689,
+            "p95_ms": 20.648,
+            "p99_ms": 28.232
+          },
+          "ready": {
+            "fps": 59.9540257615548,
+            "frames": 3666,
+            "max_ms": 55.602,
+            "over_33ms": 6,
+            "over_50ms": 1,
+            "p50_ms": 16.659,
+            "p95_ms": 17.307,
+            "p99_ms": 17.948
+          },
+          "result": {
+            "fps": 60.1363405707907,
+            "frames": 801,
+            "max_ms": 32.624,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.665,
+            "p95_ms": 16.891,
+            "p99_ms": 18.452
+          },
+          "turn": {
+            "fps": 60.0045348217723,
+            "frames": 1862,
+            "max_ms": 21.858,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.661,
+            "p95_ms": 17.625,
+            "p99_ms": 18.355
+          }
+        },
+        "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+        "version": "0.4.41-r2",
+        "wall_seconds": 480.02053,
+        "completed_matches": 10
+      },
+      "peak_private_mib": 666.4,
+      "exit_0": true
+    },
+    {
+      "path": "logs/comm087/r2-ui01/suite.json",
+      "sha256": "8f1632433f5717ebfd640ba53d38e232f6703fbb9345e00e92dbb3857a19f39b",
+      "result": {
+        "suite": "UI",
+        "version": "0.4.41-r2",
+        "source_revision": "347033ad3f2694acadcde0d46ad4ab6ba827bc85",
+        "bundle": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.41-r2",
+        "tests": [
+          {
+            "name": "guide",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 40.1262244,
+            "report": "E:\\GALUMU\\logs\\comm087\\r2-ui01\\guide\\report.json",
+            "report_sha256": "5EEC8E044D03E148DB43060A9104D85F2D3B79E8F81767B2B77664601414AFC4",
+            "intentional_file_fault": false,
+            "failures": []
+          },
+          {
+            "name": "compare",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 18.3284112,
+            "report": "E:\\GALUMU\\logs\\comm087\\r2-ui01\\compare\\report.json",
+            "report_sha256": "5566902901F99D60397918F3C1DB1D9377AF4A706B5D9CF682B5CF214EAEE0AC",
+            "intentional_file_fault": false,
+            "failures": []
+          },
+          {
+            "name": "saves",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 6.2785215,
+            "report": "E:\\GALUMU\\logs\\comm087\\r2-ui01\\saves\\report.json",
+            "report_sha256": "D760FF80A160D937278E04CBF5DDF00E1FEF0D52B6F1FED51AF7BBFB8005F28E",
+            "intentional_file_fault": true,
+            "failures": []
+          },
+          {
+            "name": "audio",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 8.7236079,
+            "report": "E:\\GALUMU\\logs\\comm087\\r2-ui01\\audio\\report.json",
+            "report_sha256": "59784F21CBBAFE6BCE6887FCAF3AAC5708CFBFBEEBDA4C950671CF88863EC65C",
+            "intentional_file_fault": true,
+            "failures": []
+          },
+          {
+            "name": "help",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 5.4106524,
+            "report": "E:\\GALUMU\\logs\\comm087\\r2-ui01\\help\\report.json",
+            "report_sha256": "61CAC05730EB43FCEB89E713B88966D1700EF83460E9C0CB0D03AD0B7E39A252",
+            "intentional_file_fault": false,
+            "failures": []
+          },
+          {
+            "name": "exit-retry",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 5.1495125,
+            "report": "E:\\GALUMU\\logs\\comm087\\r2-ui01\\exit-retry\\report.json",
+            "report_sha256": "60DCA08D7E2F24795AE172206F4255425BA5F1CBA168051C9C43B8A8300E921F",
+            "intentional_file_fault": true,
+            "failures": []
+          },
+          {
+            "name": "exit-discard",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 5.4138752,
+            "report": "E:\\GALUMU\\logs\\comm087\\r2-ui01\\exit-discard\\report.json",
+            "report_sha256": "9BDA53C38E69FB772D7259829BC07D46DC2F0CF8785DAB0A31A8B1D0484B9993",
+            "intentional_file_fault": true,
+            "failures": []
+          }
+        ],
+        "passed": true,
+        "complete": true,
+        "scope": "Serial actual EXE/PCK through native protected launcher; restricted PATH, separate QA saves, no foreground or OS input. Expected file-fault cases are identified."
+      }
+    },
+    {
+      "path": "logs/comm087/r2-rules01/suite.json",
+      "sha256": "9e0ea5154ee3c8f1d17ceb8484fc73ab498fbbbd9b68fa35a05e6b7365ebbeeb",
+      "result": {
+        "suite": "Rules",
+        "version": "0.4.41-r2",
+        "source_revision": "347033ad3f2694acadcde0d46ad4ab6ba827bc85",
+        "bundle": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.41-r2",
+        "tests": [
+          {
+            "name": "inventory",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 0.7094607,
+            "report": "E:\\GALUMU\\logs\\comm087\\r2-rules01\\inventory\\report.json",
+            "report_sha256": "2E7EA3173BC2F558213B113EA9B5A4152CB18D580FB43E1105534E1DE98DA5CE",
+            "intentional_file_fault": false,
+            "failures": []
+          },
+          {
+            "name": "head",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 0.3464096,
+            "report": "E:\\GALUMU\\logs\\comm087\\r2-rules01\\head\\report.json",
+            "report_sha256": "E932D47294D31A61E95CF73AF39EB230CE2DA2D29820ADE12BDA1ED4345A1B0A",
+            "intentional_file_fault": false,
+            "failures": []
+          },
+          {
+            "name": "depth",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 0.3439104,
+            "report": "E:\\GALUMU\\logs\\comm087\\r2-rules01\\depth\\report.json",
+            "report_sha256": "7595A815B1150DDF5EF21ECBE0B4916CABC5C00D05AB69AABF1CE19D9CFB34E4",
+            "intentional_file_fault": false,
+            "failures": []
+          },
+          {
+            "name": "head-handover",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 0.7016488,
+            "report": "E:\\GALUMU\\logs\\comm087\\r2-rules01\\head-handover\\report.json",
+            "report_sha256": "9428454316E1D83D6DBC756B258A9C2F9FF6F185D0B52D437D09CFA0FA593848",
+            "intentional_file_fault": false,
+            "failures": []
+          },
+          {
+            "name": "sound-bank",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 2.0074559,
+            "report": "E:\\GALUMU\\logs\\comm087\\r2-rules01\\sound-bank\\report.json",
+            "report_sha256": "2F8841BD592DCAD5FEECB623ACCB5F4F72C3753DD142431127037D1701E574E7",
+            "intentional_file_fault": false,
+            "failures": []
+          }
+        ],
+        "passed": true,
+        "complete": true,
+        "scope": "Serial actual EXE/PCK through native protected launcher; restricted PATH, separate QA saves, no foreground or OS input. Expected file-fault cases are identified."
+      }
+    },
+    {
+      "path": "logs/comm087/intro-source01/report.json",
+      "sha256": "65c0fe941448d32feede658c2ab22b66fa777f1e4db7b0dd017d2c9c995aea68",
+      "result": {
+        "failures": [],
+        "passed": true,
+        "scope": "Actual background GPU and viewport mouse/Escape injection at minimum window; first-run choices, controls, cancel and direct start. No OS input or human learning assessment."
+      },
+      "peak_private_mib": 468.7,
+      "exit_0": true
+    },
+    {
+      "path": "logs/comm087/r2-war-medium-steady01/report.json",
+      "sha256": "e251d93f1d8c91d12c0f3f2d59aa612f363eb484e861c916604641d255349696",
+      "result": {
+        "all_frames": {
+          "fps": 59.9985315359405,
+          "frames": 28800,
+          "max_ms": 43.656,
+          "over_33ms": 5,
+          "over_50ms": 0,
+          "p50_ms": 16.661,
+          "p95_ms": 17.727,
+          "p99_ms": 18.546
+        },
+        "blood": false,
+        "difficulty": 1,
+        "executable": "E:/GALUMU/builds/LanceAndLaurel-v0.4.41-r2/runtime/LanceAndLaurel.exe",
+        "failures": [],
+        "kit": "steady",
+        "mode": "war",
+        "passed": true,
+        "phases": {
+          "charge": {
+            "fps": 59.9967088755342,
+            "frames": 19977,
+            "max_ms": 22.853,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.661,
+            "p95_ms": 17.77,
+            "p99_ms": 18.507
+          },
+          "contact": {
+            "fps": 59.8268077561001,
+            "frames": 517,
+            "max_ms": 26.913,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.666,
+            "p95_ms": 18.476,
+            "p99_ms": 22.085
+          },
+          "ended": {
+            "fps": 60.0936394062947,
+            "frames": 1814,
+            "max_ms": 21.937,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.663,
+            "p95_ms": 18.193,
+            "p99_ms": 19.5
+          },
+          "ready": {
+            "fps": 59.9812545429265,
+            "frames": 3763,
+            "max_ms": 43.656,
+            "over_33ms": 4,
+            "over_50ms": 0,
+            "p50_ms": 16.66,
+            "p95_ms": 17.285,
+            "p99_ms": 17.901
+          },
+          "result": {
+            "fps": 59.9887320289074,
+            "frames": 799,
+            "max_ms": 36.073,
+            "over_33ms": 1,
+            "over_50ms": 0,
+            "p50_ms": 16.664,
+            "p95_ms": 16.859,
+            "p99_ms": 17.172
+          },
+          "turn": {
+            "fps": 60.0120366110737,
+            "frames": 1930,
+            "max_ms": 21.328,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.659,
+            "p95_ms": 17.499,
+            "p99_ms": 18.144
+          }
+        },
+        "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+        "settings": {
+          "aim_cues": true,
+          "ambience_volume": 1.0,
+          "blood": false,
+          "brief_seen": false,
+          "combat_brief_v03": false,
+          "combat_brief_v043": false,
+          "combat_brief_v044": false,
+          "difficulty": 1,
+          "effects_volume": 1.0,
+          "guided_practice_v087": false,
+          "master_volume": 1.0,
+          "mouse_only": false,
+          "music_volume": 1.0,
+          "shake": false,
+          "slow_motion": false,
+          "sound": true,
+          "vsync": false
+        },
+        "version": "0.4.41-r2",
+        "wall_seconds": 480.021515,
+        "completed_matches": 10
+      },
+      "peak_private_mib": 664.2,
+      "exit_0": true
+    },
+    {
+      "path": "logs/comm087/r2-hud-edges01/report.json",
+      "sha256": "a2e6de740c6254bf2279b0047f48ffc29efcd8064e469a7ed797c57e1b821784",
+      "result": {
+        "edges": [
+          {
+            "actual_window": [
+              960,
+              540
+            ],
+            "expected_content_rect": [
+              0.0,
+              0.0,
+              960.0,
+              540.0
+            ],
+            "guard_button_physical_height": 29.3333333333333,
+            "logical_viewport": [
+              1440.0,
+              810.0
+            ],
+            "minimum_hint_font_physical_px": 9.33333333333333,
+            "physical_scale": 0.666666666666667,
+            "probes": [
+              {
+                "aim_after": 0.00311372464726261,
+                "aim_before": -0.08,
+                "battle_aim_pointer_matches_observed_event": true,
+                "battle_urged_during_press": true,
+                "delivered_logical_point": [
+                  719.999938964844,
+                  404.999969482422
+                ],
+                "embedder_mapping_matches_content_math": true,
+                "expected_content_logical_point": [
+                  720.0,
+                  405.0
+                ],
+                "expected_letterbox": false,
+                "observer_received_mouse_event": true,
+                "physical_embedder_point": [
+                  480.0,
+                  270.0
+                ],
+                "source": "engine_embedder_injection_not_OS",
+                "tag": "content_center"
+              }
+            ],
+            "requested_window": [
+              960,
+              540
+            ]
+          },
+          {
+            "actual_window": [
+              1024,
+              768
+            ],
+            "expected_content_rect": [
+              0.0,
+              96.0,
+              1024.0,
+              576.0
+            ],
+            "guard_button_physical_height": 31.2888888888889,
+            "logical_viewport": [
+              1440.0,
+              810.0
+            ],
+            "minimum_hint_font_physical_px": 9.95555555555556,
+            "physical_scale": 0.711111111111111,
+            "probes": [
+              {
+                "aim_after": 0.00311384820080946,
+                "aim_before": -0.08,
+                "battle_aim_pointer_matches_observed_event": true,
+                "battle_urged_during_press": true,
+                "delivered_logical_point": [
+                  720.0,
+                  405.0
+                ],
+                "embedder_mapping_matches_content_math": true,
+                "expected_content_logical_point": [
+                  720.0,
+                  405.0
+                ],
+                "expected_letterbox": false,
+                "observer_received_mouse_event": true,
+                "physical_embedder_point": [
+                  512.0,
+                  384.0
+                ],
+                "source": "engine_embedder_injection_not_OS",
+                "tag": "content_center"
+              },
+              {
+                "aim_after": 0.00311384820080946,
+                "aim_before": 0.00311384820080946,
+                "battle_aim_pointer_matches_observed_event": true,
+                "battle_urged_during_press": false,
+                "delivered_logical_point": [
+                  720.0,
+                  -67.5
+                ],
+                "embedder_mapping_matches_content_math": true,
+                "expected_content_logical_point": [
+                  720.0,
+                  -67.5
+                ],
+                "expected_letterbox": true,
+                "observer_received_mouse_event": true,
+                "physical_embedder_point": [
+                  512.0,
+                  48.0
+                ],
+                "source": "engine_embedder_injection_not_OS",
+                "tag": "top_letterbox"
+              }
+            ],
+            "requested_window": [
+              1024,
+              768
+            ]
+          },
+          {
+            "actual_window": [
+              1920,
+              800
+            ],
+            "expected_content_rect": [
+              248.888854980469,
+              0.0,
+              1422.22229003906,
+              800.0
+            ],
+            "guard_button_physical_height": 43.4567901234568,
+            "logical_viewport": [
+              1440.0,
+              810.0
+            ],
+            "minimum_hint_font_physical_px": 13.8271604938272,
+            "physical_scale": 0.987654320987654,
+            "probes": [
+              {
+                "aim_after": 0.00311397175435634,
+                "aim_before": -0.08,
+                "battle_aim_pointer_matches_observed_event": true,
+                "battle_urged_during_press": true,
+                "delivered_logical_point": [
+                  720.0,
+                  405.000030517578
+                ],
+                "embedder_mapping_matches_content_math": true,
+                "expected_content_logical_point": [
+                  720.0,
+                  405.0
+                ],
+                "expected_letterbox": false,
+                "observer_received_mouse_event": true,
+                "physical_embedder_point": [
+                  960.0,
+                  400.0
+                ],
+                "source": "engine_embedder_injection_not_OS",
+                "tag": "content_center"
+              },
+              {
+                "aim_after": 0.00311397175435634,
+                "aim_before": 0.00311397175435634,
+                "battle_aim_pointer_matches_observed_event": true,
+                "battle_urged_during_press": false,
+                "delivered_logical_point": [
+                  -126.132225036621,
+                  405.000030517578
+                ],
+                "embedder_mapping_matches_content_math": true,
+                "expected_content_logical_point": [
+                  -125.999984741211,
+                  405.0
+                ],
+                "expected_letterbox": true,
+                "observer_received_mouse_event": true,
+                "physical_embedder_point": [
+                  124.444427490234,
+                  400.0
+                ],
+                "source": "engine_embedder_injection_not_OS",
+                "tag": "left_letterbox"
+              },
+              {
+                "aim_after": 0.00311397175435634,
+                "aim_before": 0.00311397175435634,
+                "battle_aim_pointer_matches_observed_event": true,
+                "battle_urged_during_press": false,
+                "delivered_logical_point": [
+                  1566.13220214844,
+                  405.000030517578
+                ],
+                "embedder_mapping_matches_content_math": true,
+                "expected_content_logical_point": [
+                  1566.00012207031,
+                  405.0
+                ],
+                "expected_letterbox": true,
+                "observer_received_mouse_event": true,
+                "physical_embedder_point": [
+                  1795.55554199219,
+                  400.0
+                ],
+                "source": "engine_embedder_injection_not_OS",
+                "tag": "right_letterbox"
+              }
+            ],
+            "requested_window": [
+              1920,
+              800
+            ]
+          }
+        ],
+        "failures": [],
+        "observed_non_test_event_count": 0,
+        "passed": true,
+        "scope": "Three rendered window-edge fixtures using production keep-aspect stretch, formal high-shield near view, HUD and figure geometry. Synthetic Viewport embedder input is labelled and actual delivered coordinates recorded; passive unlabelled events are observations, not automatically OS black-bar acceptance. No direct _input calls, no OS injection, no human readability rating."
+      },
+      "peak_private_mib": 476.3,
+      "exit_0": true
+    },
+    {
+      "path": "logs/comm087/r2-mounted-black01/report.json",
+      "sha256": "24229c9f7ebd59a041c76b7a2849f4c6cd3938d2bd869b82f142eaec62aad072",
+      "result": {
+        "cases": [
+          {
+            "coast_end_speed": 212.837045857288,
+            "coat": "black",
+            "frames": 720,
+            "max_head_step_120hz": 1.62545585632324,
+            "peak_speed": 486.48467624523
+          }
+        ],
+        "failures": [],
+        "passed": true,
+        "scope": "Selected coat(s), two directions, light/heavy equipment, real model 120Hz controls/step, 60Hz RiderView and disk captures of 12 game seconds each. Capture cost is not gameplay frame timing. Distant opponents disable contacts; staged views are not Battle camera or OS/human play."
+      },
+      "peak_private_mib": 497.5,
+      "exit_0": true
+    },
+    {
+      "path": "logs/comm087/r2-mounted-grey01/report.json",
+      "sha256": "b20d719cc080329d6650df2206c7704a3d40a0e205aef3c01c7a6c45c74aec5e",
+      "result": {
+        "cases": [
+          {
+            "coast_end_speed": 217.027320786138,
+            "coat": "grey",
+            "frames": 720,
+            "max_head_step_120hz": 1.89643681049347,
+            "peak_speed": 496.062447511173
+          }
+        ],
+        "failures": [],
+        "passed": true,
+        "scope": "Selected coat(s), two directions, light/heavy equipment, real model 120Hz controls/step, 60Hz RiderView and disk captures of 12 game seconds each. Capture cost is not gameplay frame timing. Distant opponents disable contacts; staged views are not Battle camera or OS/human play."
+      },
+      "peak_private_mib": 502.3,
+      "exit_0": true
+    },
+    {
+      "path": "logs/comm087/r2-cumulative01/report.json",
+      "sha256": "fdbdb1de35cf833f5fdf588792706017606c521407be1af4febd228cdc3f7dbc",
+      "result": {
+        "cases": [
+          {
+            "airborne_joint_travel_rad": 3.51588345716154,
+            "attacker": 0.0,
+            "contact_max_head_response_px": 45.1158256530762,
+            "fatal_fixture": true,
+            "grounded_joint_travel_rad": 6.8752126372406,
+            "low_durability_break_fixture": false,
+            "max_lance_compression": 5.84156633040996,
+            "max_shield_compression": 0.0,
+            "name": "war_fatal_0_head_slow",
+            "slow_motion": true,
+            "solid_shield_fixture": false,
+            "zone": "head"
+          },
+          {
+            "airborne_joint_travel_rad": 3.63833219805921,
+            "attacker": 0.0,
+            "contact_max_head_response_px": 49.9662971496582,
+            "fatal_fixture": true,
+            "grounded_joint_travel_rad": 6.65048208847217,
+            "low_durability_break_fixture": false,
+            "max_lance_compression": 7.01426300042094,
+            "max_shield_compression": 0.0,
+            "name": "war_fatal_0_body_slow",
+            "slow_motion": true,
+            "solid_shield_fixture": false,
+            "zone": "body"
+          },
+          {
+            "airborne_joint_travel_rad": 3.62577269747933,
+            "attacker": 1.0,
+            "contact_max_head_response_px": 39.510383605957,
+            "fatal_fixture": true,
+            "grounded_joint_travel_rad": 6.4763794890121,
+            "low_durability_break_fixture": false,
+            "max_lance_compression": 5.84689242945065,
+            "max_shield_compression": 0.0,
+            "name": "war_fatal_1_head_slow",
+            "slow_motion": true,
+            "solid_shield_fixture": false,
+            "zone": "head"
+          },
+          {
+            "airborne_joint_travel_rad": 3.68313278428895,
+            "attacker": 1.0,
+            "contact_max_head_response_px": 46.3940124511719,
+            "fatal_fixture": true,
+            "grounded_joint_travel_rad": 7.03508203515599,
+            "low_durability_break_fixture": false,
+            "max_lance_compression": 7.05821929520083,
+            "max_shield_compression": 0.0,
+            "name": "war_fatal_1_body_slow",
+            "slow_motion": true,
+            "solid_shield_fixture": false,
+            "zone": "body"
+          }
+        ],
+        "failures": [],
+        "passed": true,
+        "project_version": "0.4.41-r2",
+        "scope": "Two finite-control head sweeps with normal power1 and helmet.41, first HP/injury retained, second actual cumulative fatal event feeds live Battle fall/camera/audio. Approach restaged; not a whole match or OS input. Inherited chest 1HP fixtures remain presentation-only.",
+        "suite": "fatal"
+      },
+      "peak_private_mib": 774.4,
+      "exit_0": true
+    },
+    {
+      "path": "logs/comm087/r2-solid01/report.json",
+      "sha256": "aa0363124a897939b54e0312c985aa553ffce24ead820cd0d95e942b604873c5",
+      "result": {
+        "cases": [],
+        "failures": [
+          "Could not stage genuine swept arena_mounted_0_shield_slow_solid",
+          "Could not stage genuine swept arena_mounted_1_shield_slow_solid_break"
+        ],
+        "passed": false,
+        "project_version": "0.4.41-r2",
+        "scope": "Real Model 120Hz finite-command sweeps staged at contact; actual Battle normal process/physics afterwards. Default: six left/right helmet/chest/shield nonterminal and four left/right head/chest fatal 1HP fixtures, plus slow-off shield. Optional fatal suite runs only the four left/right head/chest fatal fixtures and captures the actual first settled frame. Optional solid suite: two genuine non-glancing high-speed shield sweeps in opposite directions, one initial 1-durability lance; neither glanced nor broke event is forced. GPU snapshots saved after live timing avoid PNG stalls. High stability, 1HP and low durability are explicit presentation fixtures, not balance or manual/OS play. Numerical checks verify continuous force transfer; human screenshot/motion/audio review remains required.",
+        "suite": "solid"
+      },
+      "peak_private_mib": 304.5,
+      "exit_0": false
+    },
+    {
+      "path": "logs/comm087/r2-shield-probe01/report.json",
+      "sha256": "e55bc9e418dfe527296923c97d55463c8cb2ce3d9c8edce988c6a2bed88d9a2d",
+      "result": {
+        "scope": "Diagnostic fixed approach; real finite controls and sweeps. Not a performance or human acceptance test.",
+        "diagnostic_rows": 36
+      },
+      "peak_private_mib": 85.2,
+      "exit_0": true
+    },
+    {
+      "path": "logs/comm087/r2-solid-fixed01/report.json",
+      "sha256": "362e2e48dddf7baeb37195b45652f75157d1f49c3af69fd8598557e65741d663",
+      "result": {
+        "cases": [
+          {
+            "airborne_joint_travel_rad": 0.0,
+            "attacker": 0.0,
+            "contact_max_head_response_px": 14.9297027587891,
+            "fatal_fixture": false,
+            "grounded_joint_travel_rad": 0.0,
+            "low_durability_break_fixture": false,
+            "max_lance_compression": 5.25410559303108,
+            "max_shield_compression": 11.5071672144278,
+            "name": "arena_mounted_0_shield_slow_solid",
+            "slow_motion": true,
+            "solid_shield_fixture": true,
+            "zone": "shield"
+          },
+          {
+            "airborne_joint_travel_rad": 0.0,
+            "attacker": 1.0,
+            "contact_max_head_response_px": 14.2735757827759,
+            "fatal_fixture": false,
+            "grounded_joint_travel_rad": 0.0,
+            "low_durability_break_fixture": true,
+            "max_lance_compression": 5.26067724784073,
+            "max_shield_compression": 11.5734965279235,
+            "name": "arena_mounted_1_shield_slow_solid_break",
+            "slow_motion": true,
+            "solid_shield_fixture": true,
+            "zone": "shield"
+          }
+        ],
+        "failures": [],
+        "passed": true,
+        "project_version": "0.4.41-r2",
+        "scope": "COMM087 corrected legacy solid-shield staging after FEEL086 lane-depth fix: same chest guard .43 both directions, normal live sweeps and finite commands, actual Battle FX and audio selection. One 1-durability lance isolates genuine break continuity. Not a normal match, balance trial, FPS test or OS input.",
+        "suite": "solid"
+      },
+      "peak_private_mib": 682.0,
+      "exit_0": true
+    },
+    {
+      "path": "logs/comm087/r2-lifetime01/report.json",
+      "sha256": "57e20b8301dc15674188c63dbfb6f999eb37c6b1927b0749a00c49effa580392",
+      "result": {
+        "executable": "E:/GALUMU/builds/LanceAndLaurel-v0.4.41-r2/runtime/LanceAndLaurel.exe",
+        "failures": [],
+        "marks": [
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 714,
+            "label": "home_warm-end",
+            "nodes": 41.0,
+            "page": "home",
+            "resources": 98.0,
+            "seconds": 12.002
+          },
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 1075,
+            "label": "armory_warm-end",
+            "nodes": 127.0,
+            "page": "armory",
+            "resources": 105.0,
+            "seconds": 18.039
+          },
+          {
+            "bus_count": 5,
+            "can_draw": false,
+            "fps_cap": 10,
+            "frames_drawn": 1075,
+            "label": "armory_loading_hidden-start",
+            "nodes": 69.0,
+            "page": "armory",
+            "resources": 105.0,
+            "seconds": 19.139
+          },
+          {
+            "bus_count": 5,
+            "can_draw": false,
+            "fps_cap": 10,
+            "frames_drawn": 1075,
+            "label": "armory_loading_hidden-end",
+            "nodes": 69.0,
+            "page": "armory",
+            "resources": 105.0,
+            "seconds": 94.139
+          },
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 1508,
+            "label": "armory_restored-end",
+            "nodes": 122.0,
+            "page": "armory",
+            "resources": 106.0,
+            "seconds": 101.356
+          },
+          {
+            "icons": {
+              "can_draw": true,
+              "details": [
+                {
+                  "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+                  "first_frame": 1837,
+                  "id": "helm_nasal",
+                  "loaded": true,
+                  "processing": false,
+                  "rect": "[P: (291.0, 244.0), S: (152.0, 100.0)]"
+                },
+                {
+                  "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+                  "first_frame": 1837,
+                  "id": "eng_helmet_0",
+                  "loaded": true,
+                  "processing": false,
+                  "rect": "[P: (702.0, 244.0), S: (152.0, 100.0)]"
+                },
+                {
+                  "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+                  "first_frame": 1838,
+                  "id": "eng_helmet_1",
+                  "loaded": true,
+                  "processing": false,
+                  "rect": "[P: (291.0, 384.0), S: (152.0, 100.0)]"
+                },
+                {
+                  "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+                  "first_frame": 1839,
+                  "id": "fr_helmet_0",
+                  "loaded": true,
+                  "processing": false,
+                  "rect": "[P: (702.0, 384.0), S: (152.0, 100.0)]"
+                },
+                {
+                  "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+                  "first_frame": 1840,
+                  "id": "fr_helmet_1",
+                  "loaded": true,
+                  "processing": false,
+                  "rect": "[P: (291.0, 524.0), S: (152.0, 100.0)]"
+                },
+                {
+                  "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+                  "first_frame": 1840,
+                  "id": "de_helmet_0",
+                  "loaded": true,
+                  "processing": false,
+                  "rect": "[P: (702.0, 524.0), S: (152.0, 100.0)]"
+                },
+                {
+                  "clip": "[P: (55.0, 236.0), S: (830.0, 478.0)]",
+                  "first_frame": 1841,
+                  "id": "it_helmet_0",
+                  "loaded": true,
+                  "processing": false,
+                  "rect": "[P: (291.0, 664.0), S: (152.0, 100.0)]"
+                }
+              ],
+              "frame": 2291,
+              "loaded": 7,
+              "visible": 7
+            }
+          },
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 6030,
+            "label": "competitive_with_audio-end",
+            "nodes": 69.0,
+            "page": "battle",
+            "paused": false,
+            "phase": "charge",
+            "resources": 106.0,
+            "seconds": 176.865,
+            "time_scale": 0.373520962963377,
+            "x": -295.918365260848
+          },
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 6331,
+            "label": "charge_before_hide-end",
+            "nodes": 69.0,
+            "page": "battle",
+            "paused": false,
+            "phase": "charge",
+            "resources": 106.0,
+            "seconds": 181.889,
+            "time_scale": 1.0,
+            "x": -1677.18614505817
+          },
+          {
+            "bus_count": 5,
+            "can_draw": false,
+            "fps_cap": 10,
+            "frames_drawn": 6331,
+            "label": "battle_hidden-start",
+            "nodes": 78.0,
+            "page": "battle",
+            "paused": true,
+            "phase": "charge",
+            "resources": 106.0,
+            "seconds": 182.988,
+            "time_scale": 1.0,
+            "x": -1677.18614505817
+          },
+          {
+            "bus_count": 5,
+            "can_draw": false,
+            "fps_cap": 10,
+            "frames_drawn": 6331,
+            "label": "battle_hidden-end",
+            "nodes": 78.0,
+            "page": "battle",
+            "paused": true,
+            "phase": "charge",
+            "resources": 106.0,
+            "seconds": 257.988,
+            "time_scale": 1.0,
+            "x": -1677.18614505817
+          },
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 6882,
+            "label": "restored_still_paused-end",
+            "nodes": 78.0,
+            "page": "battle",
+            "paused": true,
+            "phase": "charge",
+            "resources": 106.0,
+            "seconds": 267.217,
+            "time_scale": 1.0,
+            "x": -1677.18614505817
+          },
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 9584,
+            "label": "explicitly_resumed-end",
+            "nodes": 62.0,
+            "page": "battle",
+            "paused": false,
+            "phase": "ready",
+            "resources": 106.0,
+            "seconds": 312.451,
+            "time_scale": 1.0,
+            "x": -2200.0
+          },
+          {
+            "bus_count": 5,
+            "can_draw": false,
+            "fps_cap": 10,
+            "frames_drawn": 9584,
+            "label": "home_hidden-start",
+            "nodes": 41.0,
+            "page": "home",
+            "resources": 106.0,
+            "seconds": 313.55
+          },
+          {
+            "bus_count": 5,
+            "can_draw": false,
+            "fps_cap": 10,
+            "frames_drawn": 9584,
+            "label": "home_hidden-end",
+            "nodes": 41.0,
+            "page": "home",
+            "resources": 106.0,
+            "seconds": 388.55
+          },
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 9835,
+            "label": "home_restored-end",
+            "nodes": 41.0,
+            "page": "home",
+            "resources": 106.0,
+            "seconds": 392.773
+          },
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 9998,
+            "label": "menu_cycle_0",
+            "nodes": 41.0,
+            "page": "home",
+            "resources": 106.0,
+            "seconds": 395.674
+          },
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 10160,
+            "label": "menu_cycle_1",
+            "nodes": 41.0,
+            "page": "home",
+            "resources": 106.0,
+            "seconds": 398.374
+          },
+          {
+            "bus_count": 5,
+            "can_draw": true,
+            "fps_cap": 60,
+            "frames_drawn": 10322,
+            "label": "menu_cycle_2",
+            "nodes": 41.0,
+            "page": "home",
+            "resources": 106.0,
+            "seconds": 401.074
+          }
+        ],
+        "matches": 2,
+        "passed": true,
+        "scope": "Real-time source or packaged Main, actual GPU, audio mixing muted at Master, three 75-second hidden intervals including pending armoury jobs and charge. Engine window-mode and menu calls on isolated desktop, no OS user input. Private memory/exit authority is external guard log.",
+        "stable_home_nodes": [
+          41,
+          41,
+          41
+        ],
+        "version": "0.4.41-r2",
+        "wall_seconds": 401.102
+      },
+      "peak_private_mib": 720.5,
+      "exit_0": true
+    },
+    {
+      "path": "logs/comm087/r3-ui01/suite.json",
+      "sha256": "fb0aa5fcae5d97a0cb94710c7968a5e683016880959b18d5d4493d4b6b39951a",
+      "result": {
+        "suite": "UI",
+        "version": "0.4.41-r3",
+        "source_revision": "2f7df9f27256904b445ae15ad60146a3050fce5a",
+        "bundle": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.41-r3",
+        "tests": [
+          {
+            "name": "intro",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 6.6780479,
+            "report": "E:\\GALUMU\\logs\\comm087\\r3-ui01\\intro\\report.json",
+            "report_sha256": "801DECB7E9EFA6CDED0BE032DA0186B45E57F41F164A1E362A99EB92E54EF5BC",
+            "intentional_file_fault": false,
+            "failures": []
+          },
+          {
+            "name": "guide",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 40.037619,
+            "report": "E:\\GALUMU\\logs\\comm087\\r3-ui01\\guide\\report.json",
+            "report_sha256": "ED558ADA5A32D2CA654A0F246B0A362374F4DC13E8F1812720B149C3D2B8E9CA",
+            "intentional_file_fault": false,
+            "failures": []
+          },
+          {
+            "name": "compare",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 18.271689,
+            "report": "E:\\GALUMU\\logs\\comm087\\r3-ui01\\compare\\report.json",
+            "report_sha256": "5566902901F99D60397918F3C1DB1D9377AF4A706B5D9CF682B5CF214EAEE0AC",
+            "intentional_file_fault": false,
+            "failures": []
+          },
+          {
+            "name": "saves",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 6.3726096,
+            "report": "E:\\GALUMU\\logs\\comm087\\r3-ui01\\saves\\report.json",
+            "report_sha256": "B5D571F41ECB576901F3D1BB6BE51C93860514B438DD50A882BA8D530FDC01EB",
+            "intentional_file_fault": true,
+            "failures": []
+          },
+          {
+            "name": "audio",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 9.1938003,
+            "report": "E:\\GALUMU\\logs\\comm087\\r3-ui01\\audio\\report.json",
+            "report_sha256": "59784F21CBBAFE6BCE6887FCAF3AAC5708CFBFBEEBDA4C950671CF88863EC65C",
+            "intentional_file_fault": true,
+            "failures": []
+          },
+          {
+            "name": "help",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 5.6556833,
+            "report": "E:\\GALUMU\\logs\\comm087\\r3-ui01\\help\\report.json",
+            "report_sha256": "48AE67560A2F68106BA43BD43F82297048FB2A85BC08877B18C306267A9D4E57",
+            "intentional_file_fault": false,
+            "failures": []
+          },
+          {
+            "name": "exit-retry",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 5.7311862,
+            "report": "E:\\GALUMU\\logs\\comm087\\r3-ui01\\exit-retry\\report.json",
+            "report_sha256": "60DCA08D7E2F24795AE172206F4255425BA5F1CBA168051C9C43B8A8300E921F",
+            "intentional_file_fault": true,
+            "failures": []
+          },
+          {
+            "name": "exit-discard",
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 5.4481066,
+            "report": "E:\\GALUMU\\logs\\comm087\\r3-ui01\\exit-discard\\report.json",
+            "report_sha256": "9BDA53C38E69FB772D7259829BC07D46DC2F0CF8785DAB0A31A8B1D0484B9993",
+            "intentional_file_fault": true,
+            "failures": []
+          }
+        ],
+        "passed": true,
+        "complete": true,
+        "scope": "Serial actual EXE/PCK through native protected launcher; restricted PATH, separate QA saves, no foreground or OS input. Expected file-fault cases are identified."
+      }
+    },
+    {
+      "path": "logs/comm087/r3-resume02/suite.json",
+      "sha256": "31da5a76fbe17f7bf873568bcd00356d4471c4b3a117226ecccb16a71419fd83",
+      "result": {
+        "passed": true,
+        "complete": true,
+        "tests": [
+          {
+            "name": "legacy-r3-import",
+            "passed": true,
+            "exit_code": 0,
+            "source_sha256": "27EC8DE0768ED0F076FD9EFFF54C3DF3E2416592275C0D6886F5735DB939CB70",
+            "source_unchanged": true,
+            "report": "E:\\GALUMU\\logs\\comm087\\r3-resume02\\legacy-r3\\report-import.json",
+            "failures": []
+          },
+          {
+            "name": "legacy-r3-reopen",
+            "passed": true,
+            "exit_code": 0,
+            "source_sha256": "27EC8DE0768ED0F076FD9EFFF54C3DF3E2416592275C0D6886F5735DB939CB70",
+            "source_unchanged": true,
+            "report": "E:\\GALUMU\\logs\\comm087\\r3-resume02\\legacy-r3\\report-reopen.json",
+            "failures": []
+          },
+          {
+            "name": "earned-rewards-import",
+            "passed": true,
+            "exit_code": 0,
+            "source_sha256": "AE3B3C9A209D0EFD6A36BD13CE026D5CCE381BB311727AC2C31814F5E4D7F0FD",
+            "source_unchanged": true,
+            "report": "E:\\GALUMU\\logs\\comm087\\r3-resume02\\earned-rewards\\report-import.json",
+            "failures": []
+          },
+          {
+            "name": "earned-rewards-reopen",
+            "passed": true,
+            "exit_code": 0,
+            "source_sha256": "AE3B3C9A209D0EFD6A36BD13CE026D5CCE381BB311727AC2C31814F5E4D7F0FD",
+            "source_unchanged": true,
+            "report": "E:\\GALUMU\\logs\\comm087\\r3-resume02\\earned-rewards\\report-reopen.json",
+            "failures": []
+          },
+          {
+            "name": "learned-controls-import",
+            "passed": true,
+            "exit_code": 0,
+            "source_sha256": "8F17F2F6AAEA49E5F41024F9992782495CD12446FDDC3744494BF3257941E937",
+            "source_unchanged": true,
+            "report": "E:\\GALUMU\\logs\\comm087\\r3-resume02\\learned-controls\\report-import.json",
+            "failures": []
+          },
+          {
+            "name": "learned-controls-reopen",
+            "passed": true,
+            "exit_code": 0,
+            "source_sha256": "8F17F2F6AAEA49E5F41024F9992782495CD12446FDDC3744494BF3257941E937",
+            "source_unchanged": true,
+            "report": "E:\\GALUMU\\logs\\comm087\\r3-resume02\\learned-controls\\report-reopen.json",
+            "failures": []
+          },
+          {
+            "name": "audio-settings-import",
+            "passed": true,
+            "exit_code": 0,
+            "source_sha256": "1A2E136C5D972A694A84C15BF884A4E87F3D1009CA461831F4274398CC6DD186",
+            "source_unchanged": true,
+            "report": "E:\\GALUMU\\logs\\comm087\\r3-resume02\\audio-settings\\report-import.json",
+            "failures": []
+          },
+          {
+            "name": "audio-settings-reopen",
+            "passed": true,
+            "exit_code": 0,
+            "source_sha256": "1A2E136C5D972A694A84C15BF884A4E87F3D1009CA461831F4274398CC6DD186",
+            "source_unchanged": true,
+            "report": "E:\\GALUMU\\logs\\comm087\\r3-resume02\\audio-settings\\report-reopen.json",
+            "failures": []
+          }
+        ],
+        "scope": "Eight separate actual engine processes; four copied prior QA saves. Native protected launcher, restricted PATH, isolated desktop and normal shutdown. No formal player save or OS input."
+      },
+      "qualification": "Functional save assertions passed, but later log audit found ObjectDB exit warnings in legacy-r3-import and earned-rewards-import. Do not treat as zero-warning release gate; fixed and superseded by r5-resume01."
+    },
+    {
+      "path": "logs/comm087/r3-arena-france01/report.json",
+      "sha256": "c6577b083922148f55dd80c448ea24a4d7309b0a7eb15f80b3acb7fb382295e7",
+      "result": {
+        "all_frames": {
+          "fps": 59.9984494150731,
+          "frames": 28800,
+          "max_ms": 42.965,
+          "over_33ms": 6,
+          "over_50ms": 0,
+          "p50_ms": 16.662,
+          "p95_ms": 17.615,
+          "p99_ms": 18.413
+        },
+        "blood": false,
+        "difficulty": 1,
+        "equipped": {
+          "armor": "fr_armor_1",
+          "caparison": "caparison_linen",
+          "crest": "crest_bend",
+          "helmet": "fr_helmet_1",
+          "horse": "horse_cob",
+          "lance": "fr_lance_long_1",
+          "shield": "fr_shield_1"
+        },
+        "executable": "E:/GALUMU/builds/LanceAndLaurel-v0.4.41-r3/runtime/LanceAndLaurel.exe",
+        "failures": [],
+        "kit": "french_light",
+        "mode": "arena",
+        "passed": true,
+        "phases": {
+          "charge": {
+            "fps": 59.9984518631563,
+            "frames": 20431,
+            "max_ms": 25.155,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.662,
+            "p95_ms": 17.705,
+            "p99_ms": 18.51
+          },
+          "contact": {
+            "fps": 60.0264016123091,
+            "frames": 1080,
+            "max_ms": 21.068,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.665,
+            "p95_ms": 17.722,
+            "p99_ms": 18.507
+          },
+          "ended": {
+            "fps": 60.0314479207682,
+            "frames": 1431,
+            "max_ms": 27.61,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.663,
+            "p95_ms": 16.968,
+            "p99_ms": 17.386
+          },
+          "ready": {
+            "fps": 59.9717095197006,
+            "frames": 3398,
+            "max_ms": 42.965,
+            "over_33ms": 6,
+            "over_50ms": 0,
+            "p50_ms": 16.659,
+            "p95_ms": 17.252,
+            "p99_ms": 17.837
+          },
+          "result": {
+            "fps": 60.0020345613388,
+            "frames": 719,
+            "max_ms": 25.94,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.665,
+            "p95_ms": 16.877,
+            "p99_ms": 17.076
+          },
+          "turn": {
+            "fps": 60.0047142129869,
+            "frames": 1741,
+            "max_ms": 23.43,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.658,
+            "p95_ms": 17.472,
+            "p99_ms": 18.094
+          }
+        },
+        "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+        "settings": {
+          "aim_cues": true,
+          "ambience_volume": 1.0,
+          "blood": false,
+          "brief_seen": false,
+          "combat_brief_v03": false,
+          "combat_brief_v043": false,
+          "combat_brief_v044": false,
+          "difficulty": 1,
+          "effects_volume": 1.0,
+          "guided_practice_v087": false,
+          "master_volume": 1.0,
+          "mouse_only": false,
+          "music_volume": 1.0,
+          "shake": true,
+          "slow_motion": true,
+          "sound": true,
+          "vsync": false
+        },
+        "version": "0.4.41-r3",
+        "wall_seconds": 480.02329,
+        "completed_matches": 9
+      },
+      "peak_private_mib": 653.8
+    },
+    {
+      "path": "logs/comm087/r3-hidden-result-before02/report.json",
+      "sha256": "de8b0f335a848aa2b3ef022bb82d27a21d097eaa0b65489e0815fc80e18616f0",
+      "result": {
+        "after": {
+          "cues": 3180,
+          "rider0": 3017,
+          "rider1": 3017,
+          "zones": 3180
+        },
+        "before": {
+          "cues": 3030,
+          "rider0": 3017,
+          "rider1": 3017,
+          "zones": 3030
+        },
+        "failures": [
+          "Hidden finished battle kept redrawing zones",
+          "Hidden finished battle kept redrawing cues"
+        ],
+        "passed": false,
+        "scope": "Normal Main/autoplay match and result, 90 seconds truly minimized on isolated desktop, individual CanvasItem draw signal counters. H overlay enabled. Engine window modes and viewport return click, no OS input or human play.",
+        "version": "0.4.41-r3",
+        "wall_seconds": 68.484,
+        "hidden_seconds": 15,
+        "scope_note": "The original scope string incorrectly said 90; actual fixture used --hidden-seconds=15, counts and wall time retained."
+      },
+      "peak_private_mib": 832.0,
+      "exit_0": true,
+      "objectdb_exit_warning": false
+    },
+    {
+      "path": "logs/comm087/hidden-result-after01/report.json",
+      "sha256": "6d2bd239cd20f610ee2705d43d4dce0b38680e247370aa4fdab08eae70d8796c",
+      "result": {
+        "after": {
+          "cues": 2996,
+          "rider0": 2996,
+          "rider1": 2996,
+          "zones": 2996
+        },
+        "before": {
+          "cues": 2996,
+          "rider0": 2996,
+          "rider1": 2996,
+          "zones": 2996
+        },
+        "failures": [],
+        "passed": true,
+        "scope": "Normal Main/autoplay match and result, 90 seconds truly minimized on isolated desktop, individual CanvasItem draw signal counters. H overlay enabled. Engine window modes and viewport return click, no OS input or human play.",
+        "version": "0.4.41-r3",
+        "wall_seconds": 143.479
+      },
+      "peak_private_mib": 671.0,
+      "exit_0": true,
+      "objectdb_exit_warning": true
+    },
+    {
+      "path": "logs/comm087/r4-hidden-result01/report.json",
+      "sha256": "c472f7997a3a08c73267bb0b388b44030a158629823da6ebd87bb755cb674c8d",
+      "result": {
+        "after": {
+          "cues": 3018,
+          "rider0": 3018,
+          "rider1": 3018,
+          "zones": 3018
+        },
+        "before": {
+          "cues": 3018,
+          "rider0": 3018,
+          "rider1": 3018,
+          "zones": 3018
+        },
+        "failures": [],
+        "hidden_seconds": 90.0,
+        "passed": true,
+        "scope": "Normal Main/autoplay match and result, bounded truly minimized interval on isolated desktop, individual CanvasItem draw signal counters. H overlay enabled. Engine window modes and viewport return click, no OS input or human play.",
+        "version": "0.4.41-r4",
+        "wall_seconds": 143.523
+      },
+      "peak_private_mib": 652.0,
+      "exit_0": true,
+      "objectdb_exit_warning": true
+    },
+    {
+      "path": "logs/comm087/r4-journey01/report.json",
+      "sha256": "f3e519ba44712a914435ccdb44752a1b92a1d57d8d4538ecb0930ddca475ee61",
+      "result": {
+        "executable": "E:/GALUMU/builds/LanceAndLaurel-v0.4.41-r4/runtime/LanceAndLaurel.exe",
+        "failures": [],
+        "final_profile": {
+          "appearance": {
+            "beard": 0,
+            "brows": 0,
+            "eyes": 0,
+            "face_shape": 0,
+            "hair": 0,
+            "skin": 0
+          },
+          "coins": 680,
+          "equipped": {
+            "armor": "eng_armor_0",
+            "caparison": "caparison_linen",
+            "crest": "crest_chevron",
+            "helmet": "fr_helmet_0",
+            "horse": "horse_cob",
+            "lance": "fr_lance_light_0",
+            "shield": "eng_shield_0"
+          },
+          "matches": 9,
+          "owned": [
+            "mail_basic",
+            "helm_nasal",
+            "lance_ash",
+            "horse_bay",
+            "crest_bend",
+            "shield_basic",
+            "caparison_none",
+            "eng_lance_light_0",
+            "eng_helmet_0",
+            "eng_armor_0",
+            "eng_shield_0",
+            "caparison_linen",
+            "horse_cob",
+            "crest_chevron",
+            "fr_lance_light_0",
+            "fr_helmet_0"
+          ],
+          "region": 0,
+          "renown": 21,
+          "settings": {
+            "aim_cues": true,
+            "ambience_volume": 1.0,
+            "blood": false,
+            "brief_seen": true,
+            "combat_brief_v03": false,
+            "combat_brief_v043": true,
+            "combat_brief_v044": true,
+            "difficulty": 0,
+            "effects_volume": 1.0,
+            "guided_practice_v087": false,
+            "master_volume": 1.0,
+            "mouse_only": false,
+            "music_volume": 1.0,
+            "shake": true,
+            "slow_motion": true,
+            "sound": true,
+            "vsync": false
+          },
+          "version": 1,
+          "wins": 5
+        },
+        "passed": true,
+        "purchases": [
+          {
+            "after_match": 1,
+            "coins_after": 610,
+            "coins_before": 700,
+            "item": "eng_lance_light_0",
+            "price": 90.0,
+            "renown": 3,
+            "required_renown": 0
+          },
+          {
+            "after_match": 2,
+            "coins_after": 705,
+            "coins_before": 790,
+            "item": "eng_helmet_0",
+            "price": 85.0,
+            "renown": 6,
+            "required_renown": 0
+          },
+          {
+            "after_match": 3,
+            "coins_after": 650,
+            "coins_before": 760,
+            "item": "eng_armor_0",
+            "price": 110.0,
+            "renown": 7,
+            "required_renown": 0
+          },
+          {
+            "after_match": 4,
+            "coins_after": 635,
+            "coins_before": 705,
+            "item": "eng_shield_0",
+            "price": 70.0,
+            "renown": 8,
+            "required_renown": 0
+          },
+          {
+            "after_match": 5,
+            "coins_after": 725,
+            "coins_before": 815,
+            "item": "caparison_linen",
+            "price": 90.0,
+            "renown": 11,
+            "required_renown": 0
+          },
+          {
+            "after_match": 6,
+            "coins_after": 685,
+            "coins_before": 905,
+            "item": "horse_cob",
+            "price": 220.0,
+            "renown": 15,
+            "required_renown": 0
+          },
+          {
+            "after_match": 7,
+            "coins_after": 745,
+            "coins_before": 865,
+            "item": "crest_chevron",
+            "price": 120.0,
+            "renown": 19,
+            "required_renown": 0
+          },
+          {
+            "after_match": 8,
+            "coins_after": 710,
+            "coins_before": 800,
+            "item": "fr_lance_light_0",
+            "price": 90.0,
+            "renown": 20,
+            "required_renown": 0
+          },
+          {
+            "after_match": 9,
+            "coins_after": 680,
+            "coins_before": 765,
+            "item": "fr_helmet_0",
+            "price": 85.0,
+            "renown": 21,
+            "required_renown": 0
+          }
+        ],
+        "scope": "Fresh normal profile, real Main results/rewards, normal AI and production autoplay; real viewport first-run, purchase, equip and next-match controls. No injected funds, renown, gear or hit/results. Not human learning, enjoyment, win-rate or FPS evidence.",
+        "version": "0.4.41-r4",
+        "wall_seconds": 480.222,
+        "completed_matches": 9
+      },
+      "qualification": "Gameplay/purchase/save assertions passed; ObjectDB Music playback exit warning remains in this r4 run. Actual earned profile preserved and later r5 cross-process restart passed."
+    },
+    {
+      "path": "logs/comm087/r4-resume-timing01/suite.json",
+      "sha256": "e1c6904292da526a5ae437b74044ae2234817b8c2443f2e95088e787d3fc00e8",
+      "result": {
+        "passed": false,
+        "complete": false,
+        "tests": [
+          {
+            "name": "legacy-r3-import",
+            "passed": true,
+            "exit_code": 0,
+            "source_sha256": "27EC8DE0768ED0F076FD9EFFF54C3DF3E2416592275C0D6886F5735DB939CB70",
+            "source_unchanged": true,
+            "report": "E:\\GALUMU\\logs\\comm087\\r4-resume-timing01\\legacy-r3\\report-import.json",
+            "failures": [],
+            "unexpected_engine_messages": []
+          },
+          {
+            "name": "legacy-r3-reopen",
+            "passed": false,
+            "exit_code": 0,
+            "source_sha256": "27EC8DE0768ED0F076FD9EFFF54C3DF3E2416592275C0D6886F5735DB939CB70",
+            "source_unchanged": true,
+            "report": "E:\\GALUMU\\logs\\comm087\\r4-resume-timing01\\legacy-r3\\report-reopen.json",
+            "failures": [],
+            "unexpected_engine_messages": [
+              "WARNING: ObjectDB instances leaked at exit (run with --verbose for details)."
+            ]
+          }
+        ],
+        "scope": "Two separate actual engine processes per copied prior QA save. Native protected launcher, restricted PATH, isolated desktop and normal shutdown. No formal player save or OS input."
+      }
+    },
+    {
+      "path": "logs/comm087/exit-clock-stall01/report-import.json",
+      "sha256": "7a569dc48fe4ee02fa43059c6400906feb82347fc15e9977f64d4f3c1e43578e",
+      "result": {
+        "close_milliseconds": 140.998,
+        "coins": 680,
+        "executable": "E:/GALUMU/tools/godot-4.5.1/Godot_v4.5.1-stable_win64.exe",
+        "failures": [],
+        "guided_practice": false,
+        "matches": 9,
+        "music_released": true,
+        "passed": true,
+        "profile_source": "E:/GALUMU/logs/comm087/r4-journey01/qa_profile.json",
+        "saved_sha256": "b20fce7371fbe1cc7f4e0f2f557a0c75d1dd799b0da6b567f03cd67e51a49bdd",
+        "scope": "Separate actual engine process, copied prior QA save, real load/sanitize/save and rendered camp/settings/practice. No player's formal files, OS input, fabricated match result or compatibility claim beyond these profiles.",
+        "source_sha256": "b20fce7371fbe1cc7f4e0f2f557a0c75d1dd799b0da6b567f03cd67e51a49bdd",
+        "stage": "import",
+        "version": "0.4.41-r4"
+      }
+    },
+    {
+      "path": "logs/comm087/window-source01/report.json",
+      "sha256": "5b1d71719583402fbf7ac1562b63ce3b5a697a37e64739003f10f55186129cec",
+      "result": {
+        "failures": [
+          "Window mode did not apply: 06_paused_fullscreen"
+        ],
+        "passed": false,
+        "scope": "Actual protected package, eight isolated render-window states, F11/Escape through Input.parse_input_event, engine maximize/resize, actual paused/resumed practice. No OS input, desktop switch, multi-monitor or multi-DPI certification.",
+        "version": "0.4.41-r4",
+        "windows": [
+          {
+            "image_size": "(960, 540)",
+            "mode": 0,
+            "page": "home",
+            "paused": false,
+            "sampled_colors": 542,
+            "tag": "01_minimum",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(960, 540)"
+          },
+          {
+            "image_size": "(1920, 1080)",
+            "mode": 3,
+            "page": "home",
+            "paused": false,
+            "sampled_colors": 550,
+            "tag": "02_fullscreen",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(1920, 1200)"
+          },
+          {
+            "image_size": "(960, 540)",
+            "mode": 0,
+            "page": "home",
+            "paused": false,
+            "sampled_colors": 543,
+            "tag": "03_returned",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(960, 540)"
+          },
+          {
+            "image_size": "(1920, 1080)",
+            "mode": 2,
+            "page": "home",
+            "paused": false,
+            "sampled_colors": 548,
+            "tag": "04_maximized",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(1920, 1111)"
+          },
+          {
+            "image_size": "(1024, 576)",
+            "mode": 0,
+            "page": "settings",
+            "paused": false,
+            "sampled_colors": 163,
+            "tag": "05_square_settings",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(1024, 768)"
+          },
+          {
+            "image_size": "(1024, 576)",
+            "mode": 0,
+            "page": "battle",
+            "paused": true,
+            "sampled_colors": 446,
+            "tag": "06_paused_fullscreen",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(1024, 768)"
+          },
+          {
+            "image_size": "(1024, 576)",
+            "mode": 0,
+            "page": "battle",
+            "paused": true,
+            "sampled_colors": 446,
+            "tag": "07_paused_return",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(1024, 768)"
+          },
+          {
+            "image_size": "(1024, 576)",
+            "mode": 0,
+            "page": "battle",
+            "paused": false,
+            "sampled_colors": 622,
+            "tag": "08_playing",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(1024, 768)"
+          }
+        ]
+      }
+    },
+    {
+      "path": "logs/comm087/window-source02/report.json",
+      "sha256": "e96a6ba224782fcf0998cfd80f4a77576181d2174da38c6cc0f52077509c4aaa",
+      "result": {
+        "failures": [],
+        "passed": true,
+        "scope": "Actual protected package, eight isolated render-window states, F11/Escape through Input.parse_input_event, engine maximize/resize, actual paused/resumed practice. No OS input, desktop switch, multi-monitor or multi-DPI certification.",
+        "version": "0.4.41-r4",
+        "windows": [
+          {
+            "image_size": "(960, 540)",
+            "mode": 0,
+            "page": "home",
+            "paused": false,
+            "sampled_colors": 542,
+            "tag": "01_minimum",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(960, 540)"
+          },
+          {
+            "image_size": "(1920, 1080)",
+            "mode": 3,
+            "page": "home",
+            "paused": false,
+            "sampled_colors": 550,
+            "tag": "02_fullscreen",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(1920, 1200)"
+          },
+          {
+            "image_size": "(960, 540)",
+            "mode": 0,
+            "page": "home",
+            "paused": false,
+            "sampled_colors": 543,
+            "tag": "03_returned",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(960, 540)"
+          },
+          {
+            "image_size": "(1920, 1080)",
+            "mode": 2,
+            "page": "home",
+            "paused": false,
+            "sampled_colors": 548,
+            "tag": "04_maximized",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(1920, 1111)"
+          },
+          {
+            "image_size": "(1024, 576)",
+            "mode": 0,
+            "page": "settings",
+            "paused": false,
+            "sampled_colors": 163,
+            "tag": "05_square_settings",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(1024, 768)"
+          },
+          {
+            "image_size": "(1920, 1080)",
+            "mode": 3,
+            "page": "battle",
+            "paused": true,
+            "sampled_colors": 435,
+            "tag": "06_paused_fullscreen",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(1920, 1200)"
+          },
+          {
+            "image_size": "(1024, 576)",
+            "mode": 0,
+            "page": "battle",
+            "paused": true,
+            "sampled_colors": 446,
+            "tag": "07_paused_return",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(1024, 768)"
+          },
+          {
+            "image_size": "(1024, 576)",
+            "mode": 0,
+            "page": "battle",
+            "paused": false,
+            "sampled_colors": 623,
+            "tag": "08_playing",
+            "viewport_rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+            "window_size": "(1024, 768)"
+          }
+        ]
+      }
     }
   ]
 }

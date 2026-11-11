@@ -89,8 +89,7 @@ func _accept_recovery(recovered: Dictionary) -> bool:
 			return false
 		var error = DirAccess.copy_absolute(ProjectSettings.globalize_path(path),ProjectSettings.globalize_path(archive))
 		if error != OK or FileAccess.get_sha256(path) != FileAccess.get_sha256(archive):
-			save_error = "无法保留损坏文件，原进度未被替换："+str(error)
-			return false
+			return _storage_failure("无法保留损坏文件，原进度未被替换",ERR_FILE_CORRUPT if error==OK else error)
 		recovery_archives.append(archive)
 	recovery_required = false
 	profile = sanitize(recovered)
@@ -137,6 +136,12 @@ func save_profile() -> bool:
 	profile_save_error = "" if saved else save_error
 	return saved
 
+func _storage_failure(message: String, error: int) -> bool:
+	# Keep actionable Chinese in the player flow and diagnostic codes in logs.
+	save_error = message+"。请检查磁盘空间和存档文件夹的写入权限。"
+	push_warning("SAVE_IO: "+message+" ["+str(error)+": "+error_string(error)+"]")
+	return false
+
 func _write_save(path: String, backup: String, data: Dictionary) -> bool:
 	if recovery_required:
 		save_error = "请先选择存档恢复方式；原损坏文件尚未替换。"
@@ -148,15 +153,13 @@ func _write_save(path: String, backup: String, data: Dictionary) -> bool:
 	var temp_path = path + ".tmp"
 	var file = FileAccess.open(temp_path, FileAccess.WRITE)
 	if file == null:
-		save_error = "无法写入存档：" + str(FileAccess.get_open_error())
-		return false
+		return _storage_failure("无法写入存档",FileAccess.get_open_error())
 	file.store_buffer(encoded)
 	file.flush()
 	var write_error = file.get_error()
 	file.close()
 	if write_error != OK:
-		save_error = "存档写入未完成：" + str(write_error)
-		return false
+		return _storage_failure("存档写入未完成",write_error)
 	# The active profile may be an isolated absolute QA path. Do not open
 	# user:// just to rename an unrelated file: that directory may be
 	# unavailable while the selected save directory is writable.
@@ -168,12 +171,10 @@ func _write_save(path: String, backup: String, data: Dictionary) -> bool:
 		if not _read_save(path,data.has("format")).is_empty():
 			var backup_error = DirAccess.copy_absolute(absolute_path, absolute_backup)
 			if backup_error!=OK:
-				save_error = "无法备份原进度："+str(backup_error)
-				return false
+				return _storage_failure("无法备份原进度",backup_error)
 	var error = DirAccess.rename_absolute(absolute_temp, absolute_path)
 	if error != OK:
-		save_error = "无法保存进度：" + str(error)
-		return false
+		return _storage_failure("无法保存进度",error)
 	save_error = ""
 	return true
 

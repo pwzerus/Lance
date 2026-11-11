@@ -85,10 +85,10 @@ func instruction(mouse_only: bool = false) -> String:
 		"按住左键或空格，等马匹逐步提速。",
 		"松开催马，让马匹自然收速。",
 		"上下移动鼠标调枪，再停手等枪线稳住。",
-		"按 1 或点击「护头」，等盾牌抬到头部。",
+		"点击「护头」，等盾牌抬到头部。" if mouse_only else "按 1 或点击「护头」，等盾牌抬到头部。",
 		"滚轮向上前倾，再按中键回正。" if mouse_only else "按住 W 前倾，再松开回正。",
 		"按住催马并稳住枪线，向盾或胸完成接触。",
-		"下一轮教练瞄胸出枪：按 2 护胸，等盾实际挡住。"
+		"下一轮教练瞄胸出枪：点击「护胸」，等盾实际挡住。" if mouse_only else "下一轮教练瞄胸出枪：按 2 护胸，等盾实际挡住。"
 	][step]
 	if step==1 and peak_speed<cruise+55.0: text = "先再次催马提速，再松手感受收速。"
 	return "练习 %d/%d · %s" % [step+1,TITLES.size(),text]

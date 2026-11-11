@@ -1,0 +1,185 @@
+{
+  "evidence": "COMM087 candidate checkpoint; first three actual v0.4.41; exit/save source after candidate",
+  "tests": [
+    {
+      "path": "logs/comm087/package-guide01/report.json",
+      "sha256": "710ff3802285daf97ca89843c149719c5d77fff3fa06c1ee7cdf00f1bab7bf39",
+      "result": {
+        "compact": true,
+        "elite": true,
+        "failures": [],
+        "mouse_only": true,
+        "passed": true,
+        "pause_test": true,
+        "resumed": true,
+        "scope": "Real-time background Battle; viewport mouse/guard events and Input.parse_input_event keyboard. No OS input, forced hit or pose changes.",
+        "wall_seconds": 34.74
+      },
+      "peak_private_mib": 662.7,
+      "exit_0": true
+    },
+    {
+      "path": "logs/comm087/package-arena-easy01/report.json",
+      "sha256": "848ea6252932fea807579c6b5874ad8ae0f9d3c6b0b3c89683aaeeda7bf28765",
+      "result": {
+        "all_frames": {
+          "fps": 59.9947345680014,
+          "frames": 25198,
+          "max_ms": 48.421,
+          "over_33ms": 7,
+          "over_50ms": 0,
+          "p50_ms": 16.663,
+          "p95_ms": 17.64,
+          "p99_ms": 18.462
+        },
+        "blood": false,
+        "difficulty": 0,
+        "executable": "E:/GALUMU/builds/LanceAndLaurel-v0.4.41/runtime/LanceAndLaurel.exe",
+        "failures": [],
+        "kit": "starter",
+        "mode": "arena",
+        "passed": true,
+        "phases": {
+          "charge": {
+            "fps": 59.9950530798285,
+            "frames": 17740,
+            "max_ms": 41.077,
+            "over_33ms": 1,
+            "over_50ms": 0,
+            "p50_ms": 16.664,
+            "p95_ms": 17.726,
+            "p99_ms": 18.515
+          },
+          "contact": {
+            "fps": 60.0501231650452,
+            "frames": 964,
+            "max_ms": 19.533,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.666,
+            "p95_ms": 17.916,
+            "p99_ms": 18.773
+          },
+          "ended": {
+            "fps": 60.027040482859,
+            "frames": 1272,
+            "max_ms": 21.416,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.663,
+            "p95_ms": 16.939,
+            "p99_ms": 17.292
+          },
+          "ready": {
+            "fps": 59.9576474340685,
+            "frames": 3037,
+            "max_ms": 48.421,
+            "over_33ms": 5,
+            "over_50ms": 0,
+            "p50_ms": 16.661,
+            "p95_ms": 17.266,
+            "p99_ms": 18.093
+          },
+          "result": {
+            "fps": 59.9918429840992,
+            "frames": 640,
+            "max_ms": 34.691,
+            "over_33ms": 1,
+            "over_50ms": 0,
+            "p50_ms": 16.665,
+            "p95_ms": 16.869,
+            "p99_ms": 17.172
+          },
+          "turn": {
+            "fps": 60.0041129032728,
+            "frames": 1545,
+            "max_ms": 19.281,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.656,
+            "p95_ms": 17.411,
+            "p99_ms": 18.133
+          }
+        },
+        "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+        "version": "0.4.41",
+        "wall_seconds": 420.013062,
+        "completed_matches": 8
+      },
+      "peak_private_mib": 642.9,
+      "exit_0": true
+    },
+    {
+      "path": "logs/comm087/package-inventory01/report.json",
+      "sha256": "eeb071e36b6dcc3c5ea61d87945b173b088b7d03a97d83c732dd4fc3040b1179",
+      "result": {
+        "armor_and_helmets": 48,
+        "catalogue_count": 186,
+        "executable": "E:/GALUMU/builds/LanceAndLaurel-v0.4.41/runtime/LanceAndLaurel.exe",
+        "failures": [],
+        "horse_cloths": 15,
+        "horse_coats": 4,
+        "lances": 72,
+        "passed": true,
+        "pck_sha256": "12039f2c3cea72d1876acd3b642833487fb8c59c87920fb4faec80134b3d1e85",
+        "scope": "Actual release engine/PCK load and inventory, no source project or GPU animation acceptance. Separate external script is excluded from distribution.",
+        "version": "0.4.41"
+      },
+      "peak_private_mib": null,
+      "exit_0": true
+    },
+    {
+      "path": "logs/comm087/exit-retry01/report.json",
+      "sha256": "60dca08d7e2f24795ae172206f4255425ba5f1cba168051c9c43b8a8300e921f",
+      "result": {
+        "discard": false,
+        "failures": [],
+        "passed": true,
+        "saved_coins": 700.0,
+        "scope": "Actual isolated GPU and file write failure; normal modal callbacks and asynchronous shutdown, no OS input. Guard exit log proves final process exit.",
+        "shutting_down": true
+      },
+      "peak_private_mib": 369.0,
+      "exit_0": true
+    },
+    {
+      "path": "logs/comm087/exit-discard01/report.json",
+      "sha256": "9bda53c38e69fb772d7259829bc07d46dc2f0cf8785dab0a31a8b1d0484b9993",
+      "result": {
+        "discard": true,
+        "failures": [],
+        "passed": true,
+        "saved_coins": 520.0,
+        "scope": "Actual isolated GPU and file write failure; normal modal callbacks and asynchronous shutdown, no OS input. Guard exit log proves final process exit.",
+        "shutting_down": true
+      },
+      "peak_private_mib": 352.8,
+      "exit_0": true
+    },
+    {
+      "path": "logs/comm087/exit-retry02/report.json",
+      "sha256": "60dca08d7e2f24795ae172206f4255425ba5f1cba168051c9c43b8a8300e921f",
+      "result": {
+        "discard": false,
+        "failures": [],
+        "passed": true,
+        "saved_coins": 700.0,
+        "scope": "Actual isolated GPU and file write failure; normal modal callbacks and asynchronous shutdown, no OS input. Guard exit log proves final process exit.",
+        "shutting_down": true
+      },
+      "peak_private_mib": 372.1,
+      "exit_0": true
+    },
+    {
+      "path": "logs/comm087/save-after-exit01/report.json",
+      "sha256": "d72e4ff49c8171cbede278e9bd75bdcd8c2bda058b7f19b16b7b3035bb2fabca",
+      "result": {
+        "failures": [],
+        "passed": true,
+        "scope": "Real file failures in a fresh isolated QA folder. No player saves touched."
+      },
+      "peak_private_mib": null,
+      "exit_0": true
+    }
+  ]
+}

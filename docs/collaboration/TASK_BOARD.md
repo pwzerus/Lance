@@ -375,3 +375,5 @@ COMM-087 军械库测试适配（03:18 UTC）：新取舍/考据页签延后创�
 COMM-087 坐骑图标修复（03:21 UTC）：Codex认领game/scripts/visual/equipment_art.gd，仅修复item_icon(horse)硬编码旧棕色头部图集，改用实际horse_coat对应的现有连续马皮。复用已存在的四纹理缓存，不生成或改变位图，不修改比赛马匹动画。
 
 COMM-087 对手素材预备（03:41 UTC）：在已认领main.gd内复用BuildQueue，仅预备下一对手的胸盔、马皮、马衣四项，沿用Art/HorseSkin已有缓存，不新建纹理常驻池、不改draw、材质、动作或数值。新增tests/profile_*087、test_startup087、test_transition087及no_prewarm_main087诊断；原084保留作历史，087使用墙钟测量预热，避免启动帧delta吞掉Timer。
+
+COMM-087 退出恢复与教程提示扩展：Codex继续持有main.gd，新增tests/test_exit087.gd；在保存长期失败时提供重试、返回及二次确认后放弃未保存内容退出。所有旧存档保持。另修已认领core/practice_guide.gd的纯鼠标防守提示，使用实际护盾按钮文字；不改教学条件或战斗规则。当前.41候选保留，生产修改验证后另导出候选修订目录。

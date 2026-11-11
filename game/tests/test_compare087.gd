@@ -1,4 +1,4 @@
-extends "res://tests/test_icons085.gd"
+extends "test_icons085.gd"
 const Compare=preload("res://scripts/ui/equipment_comparison.gd")
 const Catalogue=preload("res://scripts/core/catalogue.gd")
 var folder=""

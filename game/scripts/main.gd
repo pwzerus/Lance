@@ -513,24 +513,59 @@ func _perform_slot_operation(slot: int, loading: bool) -> void:
 func _save_and_exit() -> void:
 	if shutting_down:
 		return
+	if is_instance_valid(save_error_dialog) and not save_error_dialog.is_queued_for_deletion():
+		# Repeated close requests must not duplicate a modal or turn a discard
+		# confirmation back into a retry dialog underneath the player's click.
+		save_error_dialog.grab_focus()
+		return
 	if GameState.recovery_required:
 		_shutdown_and_quit()
 		return
 	if GameState.save_profile():
 		_shutdown_and_quit()
 		return
-	if is_instance_valid(save_error_dialog) and not save_error_dialog.is_queued_for_deletion():
-		save_error_dialog.dialog_text = GameState.save_error+"\n游戏尚未退出，请检查磁盘空间或写入权限后重试。"
-		return
-	var dialog = AcceptDialog.new()
+	if is_instance_valid(battle) and not battle.paused and not battle.is_finished:
+		battle._toggle_pause()
+	var dialog = ConfirmationDialog.new()
 	save_error_dialog = dialog
 	dialog.process_mode = Node.PROCESS_MODE_ALWAYS
+	dialog.theme = UI.theme()
 	dialog.title = "保存未成功"
-	dialog.dialog_text = GameState.save_error+"\n游戏尚未退出，请检查磁盘空间或写入权限后重试。"
+	dialog.dialog_text = GameState.save_error+"\n游戏尚未退出，磁盘上的旧进度仍保留。\n你可以重试保存，或先返回游戏。"
+	dialog.ok_button_text = "重试保存并退出"
+	dialog.cancel_button_text = "返回游戏"
+	var discard_button = dialog.add_button("不保存退出…",true,"discard")
 	add_child(dialog)
-	dialog.confirmed.connect(dialog.queue_free)
+	dialog.confirmed.connect(func():
+		save_error_dialog = null
+		dialog.hide()
+		dialog.queue_free()
+		_save_and_exit.call_deferred())
 	dialog.canceled.connect(dialog.queue_free)
-	dialog.popup_centered(Vector2i(610,180))
+	dialog.custom_action.connect(func(action):
+		if action!="discard":return
+		save_error_dialog = null
+		dialog.hide()
+		dialog.queue_free()
+		_confirm_discard_and_exit.call_deferred())
+	dialog.popup_centered(Vector2i(720,230))
+	UI.focus_actions([dialog.get_cancel_button(),dialog.get_ok_button(),discard_button])
+
+func _confirm_discard_and_exit() -> void:
+	if shutting_down or (is_instance_valid(save_error_dialog) and not save_error_dialog.is_queued_for_deletion()):return
+	var dialog = ConfirmationDialog.new()
+	save_error_dialog = dialog
+	dialog.process_mode = Node.PROCESS_MODE_ALWAYS
+	dialog.theme = UI.theme()
+	dialog.title = "放弃未保存的改动？"
+	dialog.dialog_text = "上次成功保存之后的奖励、装备或设置改动会丢失。\n磁盘上的旧进度不会被替换。\n确定要不保存就退出吗？"
+	dialog.ok_button_text = "放弃改动并退出"
+	dialog.cancel_button_text = "返回游戏"
+	add_child(dialog)
+	dialog.confirmed.connect(_shutdown_and_quit)
+	dialog.canceled.connect(dialog.queue_free)
+	dialog.popup_centered(Vector2i(720,230))
+	UI.focus_actions([dialog.get_cancel_button(),dialog.get_ok_button()])
 
 func _shutdown_and_quit() -> void:
 	if shutting_down:

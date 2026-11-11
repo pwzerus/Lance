@@ -1,0 +1,102 @@
+[
+  {
+    "passed": true,
+    "failures": [],
+    "wall_seconds": 59.385,
+    "mouse_only": false,
+    "compact": false,
+    "elite": null,
+    "resumed": null,
+    "pause_test": null,
+    "scope": "Real-time background Battle; viewport mouse/guard events and Input.parse_input_event keyboard. No OS input, forced hit or pose changes.",
+    "run": "guide-live01",
+    "report_sha256": "9e1241c34601fcdf3f5e056a74e1a806051164a5d05a37a01fb5e0e7d73462d5",
+    "outgoing": {
+      "zone": "shield",
+      "shield_region": "center",
+      "speed": 425.707489013672,
+      "impulse": 7.62927773760276
+    },
+    "incoming": {
+      "zone": "shield",
+      "shield_region": "face",
+      "speed": 425.370483398438,
+      "impulse": 7.5807814613987
+    }
+  },
+  {
+    "passed": true,
+    "failures": [],
+    "wall_seconds": 59.578,
+    "mouse_only": true,
+    "compact": true,
+    "elite": true,
+    "resumed": true,
+    "pause_test": true,
+    "scope": "Real-time background Battle; viewport mouse/guard events and Input.parse_input_event keyboard. No OS input, forced hit or pose changes.",
+    "run": "guide-live02",
+    "report_sha256": "86644d06179d85b346e1e4c542d7fae16da3d611ee065f86d56854c1fb83e4e2",
+    "outgoing": {
+      "zone": "shield",
+      "shield_region": "center",
+      "speed": 473.343780517578,
+      "impulse": 10.6755528401328
+    },
+    "incoming": {
+      "zone": "shield",
+      "shield_region": "face",
+      "speed": 483.843475341797,
+      "impulse": 10.8555159669303
+    }
+  },
+  {
+    "passed": true,
+    "failures": [],
+    "wall_seconds": 29.632,
+    "mouse_only": false,
+    "compact": false,
+    "elite": false,
+    "resumed": false,
+    "pause_test": false,
+    "scope": "Real-time background Battle; viewport mouse/guard events and Input.parse_input_event keyboard. No OS input, forced hit or pose changes.",
+    "run": "guide-live03",
+    "report_sha256": "b51718a3dbf51140d2ea9026d9c3c25f1ca1598cba58cdddab8d51cacc122142",
+    "outgoing": {
+      "zone": "shield",
+      "shield_region": "center",
+      "speed": 761.677551269531,
+      "impulse": 16.6542723160543
+    },
+    "incoming": {
+      "zone": "shield",
+      "shield_region": "face",
+      "speed": 439.614593505859,
+      "impulse": 7.82610917006919
+    }
+  },
+  {
+    "passed": true,
+    "failures": [],
+    "wall_seconds": 34.913,
+    "mouse_only": true,
+    "compact": true,
+    "elite": true,
+    "resumed": true,
+    "pause_test": true,
+    "scope": "Real-time background Battle; viewport mouse/guard events and Input.parse_input_event keyboard. No OS input, forced hit or pose changes.",
+    "run": "guide-live04",
+    "report_sha256": "67219120cbd82cbe934c72e6eadc97f6fc0215bcdf7958cbcf02a3604087d4ac",
+    "outgoing": {
+      "zone": "shield",
+      "shield_region": "center",
+      "speed": 586.769287109375,
+      "impulse": 13.7920651700616
+    },
+    "incoming": {
+      "zone": "shield",
+      "shield_region": "face",
+      "speed": 460.850860595703,
+      "impulse": 10.3525620147484
+    }
+  }
+]

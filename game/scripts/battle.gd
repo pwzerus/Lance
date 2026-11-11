@@ -4,6 +4,8 @@ extends Node2D
 signal finished(result: Dictionary)
 signal exit_requested
 signal replay_requested
+signal lesson_completed
+signal lesson_exit_requested
 
 const Model = preload("res://scripts/core/joust_match.gd")
 const Rider = preload("res://scripts/visual/rider_view.gd")
@@ -12,6 +14,7 @@ const Cues = preload("res://scripts/visual/combat_cues.gd")
 const Exchange = preload("res://scripts/visual/exchange_director.gd")
 const UI = preload("res://scripts/ui/ui_factory.gd")
 const Catalogue = preload("res://scripts/core/catalogue.gd")
+const Guide = preload("res://scripts/core/practice_guide.gd")
 const BACKGROUND = preload("res://assets/art/pixel_v03/tournament_field.png")
 const WAR_BACKGROUND = preload("res://assets/art/pixel_v03/campaign_field.png")
 
@@ -101,6 +104,10 @@ var runup_panel: Control
 var contact_panel: Control
 var practice = false
 var learned = {"boost":false,"aim":false,"guard":false,"posture":false}
+var practice_guide: Guide
+var aim_revision = 0
+var lesson_reported = false
+var lesson_result_button: Button
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -114,6 +121,7 @@ func _ready() -> void:
 	var player_stats = GameState.player_stats()
 	var enemy_stats = Catalogue.opponent_stats(GameState.items,Catalogue.era_for_renown(int(GameState.profile.renown)))
 	match_model = Model.new(mode, player_stats, enemy_stats, demo_seed if demo_seed else int(Time.get_ticks_usec()))
+	if practice_guide: practice_guide.begin_attempt(match_model.fighters[0])
 	match_model.fighters[0].guard = GUARD_VALUES[guard_slot]
 	match_model.fighters[0].guard_target = GUARD_VALUES[guard_slot]
 	match_model._cache_pose(match_model.fighters[0])
@@ -225,12 +233,16 @@ func _build_hud() -> void:
 	# rectangle belongs to the riders, including raised shields and hooves.
 	var top = UI.panel(hud,Rect2(0,0,1440,58),Color(.045,.08,.065,.96))
 	UI.label(top,"LANCE & LAUREL",Vector2(20,12),22,UI.GOLD)
-	UI.label(top,"练习场 · 无奖励" if practice else (("竞技场" if mode=="arena" else "实战")+" · "+ai_controller.NAMES[int(GameState.profile.settings.difficulty)]),Vector2(290,17),17)
+	UI.label(top,"上马练习 · 教练" if practice_guide else ("练习场 · 无奖励" if practice else (("竞技场" if mode=="arena" else "实战")+" · "+ai_controller.NAMES[int(GameState.profile.settings.difficulty)])),Vector2(290,17),17)
 	pass_label = UI.label(top,"PASS  01 / 03",Vector2(1065,16),20,UI.GOLD)
+	if practice_guide:
+		lesson_result_button = UI.button(top,"查看练习小结",Rect2(1045,8,210,42),func():lesson_exit_requested.emit())
+		lesson_result_button.visible = false
+		lesson_result_button.focus_mode = Control.FOCUS_NONE
 	var pause_button = UI.button(top,"暂停 Esc",Rect2(1275,8,145,42),_toggle_pause)
 	pause_button.focus_mode = Control.FOCUS_NONE
 	var status = UI.panel(hud,Rect2(0,58,1440,40),Color(.045,.08,.065,.94))
-	tactics_label = UI.label(status,"",Vector2(18,8),16,UI.INK,895)
+	tactics_label = UI.label(status,"",Vector2(18,6),18,UI.INK,895)
 	speed_label = UI.label(status,"",Vector2(930,8),16,UI.GOLD,490)
 	ready_panel = UI.panel(hud,Rect2(0,98,1440,46),Color(.045,.08,.065,.90))
 	runup_panel = UI.panel(hud,Rect2(0,98,1440,46),Color(.045,.08,.065,.90))
@@ -247,7 +259,7 @@ func _build_hud() -> void:
 		label.clip_text = true
 		label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	var bottom = UI.panel(hud,Rect2(0,720,1440,90),Color(.045,.08,.065,.96))
-	UI.label(bottom,"防盾落点 · 右键 / Q 循环",Vector2(18,7),14,UI.MUTED)
+	UI.label(bottom,"防盾落点 · 右键 / Q 循环",Vector2(18,5),16,UI.MUTED)
 	guard_buttons.clear()
 	for i in range(3):
 		var slot = i
@@ -259,7 +271,7 @@ func _build_hud() -> void:
 		guard_buttons.append(button)
 	var aim_panel = UI.panel(bottom,Rect2(390,8,510,72),Color(.045,.08,.065,0))
 	aim_label = UI.label(aim_panel,"",Vector2(12,6),18,UI.INK,486)
-	UI.label(aim_panel,"连续调枪 · 以实际接触为准",Vector2(12,37),14,UI.MUTED,486)
+	UI.label(aim_panel,"连续调枪 · 以实际接触为准",Vector2(12,35),16,UI.MUTED,486)
 	speed_meter = ProgressBar.new()
 	speed_meter.position = Vector2(950,744)
 	speed_meter.size = Vector2(470,10)
@@ -293,9 +305,9 @@ func _build_hud() -> void:
 	stamina_bar.size = Vector2(468,10)
 	stamina_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	stamina_back.add_child(stamina_bar)
-	fatigue_label = UI.label(bottom,"",Vector2(950,2),14,UI.INK,470)
+	fatigue_label = UI.label(bottom,"",Vector2(950,0),18,UI.INK,470)
 	fatigue_label.autowrap_mode = TextServer.AUTOWRAP_OFF
-	hint = UI.label(bottom,"鼠标调枪 · 左键/空格催马 · W/S俯仰",Vector2(950,63),13,UI.MUTED,470)
+	hint = UI.label(bottom,"鼠标调枪 · 左键/空格催马 · W/S俯仰",Vector2(950,61),16,UI.MUTED,470)
 
 func combat_safe_rect() -> Rect2:
 	return COMBAT_SAFE_RECT
@@ -332,6 +344,7 @@ func _physics_process(delta: float) -> void:
 	if absf(lean)>.3:
 		learned.posture = true
 	var boost = (not ui_pointer_held and (mouse_held or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT))) or Input.is_physical_key_pressed(KEY_SPACE) or touch_roles.values().has("boost")
+	if boost: learned.boost = true
 	if autoplay:
 		var target = Model.head_position(match_model.fighters[1])
 		aim = asin(clampf((target.y-hand.y)/Model.lance_length(fighter),-.629,.548))
@@ -341,7 +354,13 @@ func _physics_process(delta: float) -> void:
 	_update_ai(delta)
 	match_model.time_effect_active = bool(exchange_state.impact_active)
 	match_model.step(delta)
-	_consume_events(match_model.drain_events())
+	var events = match_model.drain_events()
+	if practice_guide:
+		practice_guide.observe(fighter,match_model.phase,delta,{"boost":boost,"aim":aim,"aim_revision":aim_revision,"guard":guard_slot,"lean":lean},events)
+		if practice_guide.complete() and not lesson_reported:
+			lesson_reported = true
+			lesson_completed.emit()
+	_consume_events(events)
 	_update_views()
 
 func _exchange_context() -> Dictionary:
@@ -415,6 +434,13 @@ func _on_hoof_contact(leg_index: int, rider_index: int) -> void:
 	sound.play("hoof",lerpf(-27,-12,pace)-(5 if rider_index==1 else 0),(.88 if leg_index<2 else 1.06)*lerpf(1.04,.94,pace))
 
 func _update_ai(delta: float) -> void:
+	if practice_guide and practice_guide.step<6:
+		# An explicit non-attacking coach in guided practice only. The real
+		# lance rises with its ordinary motor; competitive stats stay unchanged.
+		match_model.set_controls(ai_fighter_index,-.68,0.0,practice_guide.step==5,delta,.43)
+		match_model.fighters[ai_fighter_index].acted = true
+		ai_guard = .43
+		return
 	var difficulty = 0 if practice else int(GameState.profile.settings.difficulty)
 	var decision = ai_controller.update(match_model,ai_fighter_index,difficulty,delta,ai_rng,practice)
 	ai_zone = decision.zone
@@ -747,6 +773,12 @@ func _update_hud() -> void:
 	tactics_label.modulate = Color(1.3,1.2,.7) if Time.get_ticks_msec()<input_flash_until else Color.WHITE
 	if practice:
 		hint.text = "练习 · 催马%s　调枪%s　防盾%s　俯仰%s" % ["✓" if learned.boost else "·","✓" if learned.aim else "·","✓" if learned.guard else "·","✓" if learned.posture else "·"]
+	if practice_guide:
+		tactics_label.text = practice_guide.instruction(bool(GameState.profile.settings.mouse_only))
+		hint.text = "教练收枪 · 先专心练动作" if practice_guide.step<6 else "教练开始出枪 · 留意实际格挡回报"
+		if practice_guide.complete(): hint.text = "七项完成 · 可查看小结或继续对冲"
+		lesson_result_button.visible = practice_guide.complete() and not is_finished
+		pass_label.visible = not lesson_result_button.visible
 	var hud_now = pause_started if paused else Time.get_ticks_msec()
 	contact_label.visible = hud_now<contact_until and phase in ["charge","ended"]
 	enemy_contact_label.visible = contact_label.visible
@@ -767,6 +799,8 @@ func _update_hud() -> void:
 		callout.text = ""
 		var gap = float(match_model.fighters[1].x)-float(f.x)
 		subcallout.text = "对手在前方 · 按住催马，松手减速" if gap>2000 else ""
+		if practice_guide and not practice_guide.complete():
+			subcallout.text = "教练收枪 · 先按上方提示练动作" if practice_guide.step<6 else "教练瞄准胸口 · 提前把盾移到护胸"
 	elif phase == "turn":
 		callout.text = "回身重整"
 		subcallout.text = "下一次对冲即将开始"
@@ -937,6 +971,7 @@ func _set_pointer_aim(point: Vector2) -> void:
 	pointer_aim = asin(clampf(difference.y/Model.lance_length(match_model.fighters[0]),-.629,.548))
 	if absf(pointer_aim-previous)>.025:
 		learned.aim = true
+		aim_revision += 1
 
 func _toggle_pause() -> void:
 	if is_finished:

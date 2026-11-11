@@ -8,6 +8,7 @@ const Battle = preload("res://scripts/battle.gd")
 const Art = preload("res://scripts/visual/equipment_art.gd")
 const Appearance = preload("res://scripts/core/character_appearance.gd")
 const WindowActivity = preload("res://scripts/core/window_activity.gd")
+const PracticeGuide = preload("res://scripts/core/practice_guide.gd")
 const BACKGROUND = preload("res://assets/art/pixel_v03/tournament_field.png")
 
 class CharacterFaceCanvas extends Node2D:
@@ -90,6 +91,7 @@ var smoke_original_profile: Dictionary = {}
 var smoke_contacts: Array = []
 var smoke_last_report = 0
 var practice_match = false
+var active_guide: PracticeGuide
 var appearance_draft: Dictionary = {}
 var character_options: Dictionary = {}
 var character_face_preview: CharacterFaceCanvas
@@ -207,9 +209,9 @@ func show_home() -> void:
 	start.add_theme_font_size_override("font_size",26)
 	UI.label(screen,"选择竞技场或实战，迎向下一位对手。",Vector2(80,407),17,UI.MUTED)
 	UI.button(screen,"军械库",Rect2(78,458,266,72),show_armory)
-	UI.button(screen,"练习场",Rect2(364,458,266,72),func():_begin_match("arena",true))
+	UI.button(screen,"练习场",Rect2(364,458,266,72),show_practice_setup)
 	UI.label(screen,"换上你的纹章与装备",Vector2(94,543),16,UI.MUTED)
-	UI.label(screen,"熟悉催马、调枪与防盾",Vector2(380,543),16,UI.MUTED)
+	UI.label(screen,"分步上手与自由对冲",Vector2(380,543),16,UI.MUTED)
 	UI.button(screen,"存档 / 继续进度",Rect2(78,600,552,52),show_saves)
 	UI.button(screen,"历史手记",Rect2(78,672,172,46),show_history)
 	UI.button(screen,"设置",Rect2(268,672,172,46),show_settings)
@@ -353,7 +355,9 @@ func show_match_setup() -> void:
 		UI.label(card,["竞技场","实战","练习场"][i],Vector2(24,22),30,UI.GOLD)
 		UI.label(card,descriptions[i],Vector2(24,83),19,UI.INK,382)
 		var selected = i
-		UI.button(card,["进入竞技场","进入实战","开始练习"][i],Rect2(24,182,382,54),func():_begin_match("war" if selected==1 else "arena",selected==2),i==0)
+		UI.button(card,["进入竞技场","进入实战","开始练习"][i],Rect2(24,182,382,54),func():
+			if selected==2: show_practice_setup()
+			else: _begin_match("war" if selected==1 else "arena"),i==0)
 	UI.label(screen,"对手难度",Vector2(64,494),22,UI.GOLD)
 	var ai_names = preload("res://scripts/core/opponent_ai.gd").NAMES
 	var ai_notes = ["反应较慢，压枪更早，留出观察时间。","会判断来枪与暴露部位，有反应延迟。","更晚收招，会变招与记住上一轮的来枪。"]
@@ -384,6 +388,28 @@ func show_match_setup() -> void:
 	screen.add_child(region)
 	UI.label(screen,"地区选择只影响装饰偏好，已购装备仍可使用。",Vector2(450,722),17,UI.MUTED,820)
 	message_label = UI.label(screen,"设置已应用，但暂未保存；回营地可重试保存。" if not GameState.save_error.is_empty() else "",Vector2(64,772),14,Color("efb566"),1300)
+	queue_redraw()
+
+func show_practice_setup() -> void:
+	page = "practice_setup"
+	_clear_screen()
+	_header("练习场 · 先把动作变成直觉")
+	UI.label(screen,"从容上马，再迎向对手",Vector2(60,116),38,UI.INK)
+	UI.button(screen,"返回营地",Rect2(1208,105,175,48),show_home)
+	var guided = UI.panel(screen,Rect2(60,220,648,326))
+	UI.label(guided,"分步上马练习",Vector2(28,24),31,UI.GOLD)
+	UI.label(guided,"催马、收速、稳枪、防盾与姿态，逐步完成。\n教练先收枪，最后一项瞄胸出枪，让你实际练习格挡。",Vector2(28,88),21,UI.INK,592)
+	var continuing = active_guide!=null and active_guide.step>0 and not active_guide.complete()
+	var guide_caption = "继续练习 · 已完成 %d / 7" % active_guide.step if continuing else ("重温分步练习" if GameState.profile.settings.get("guided_practice_v087",false) else "第一次上马 · 开始引导")
+	UI.button(guided,guide_caption,Rect2(28,234,592,62),func():
+		var lesson = active_guide if continuing else PracticeGuide.new()
+		_start_match("arena",true,lesson),true)
+	var free = UI.panel(screen,Rect2(730,220,648,326))
+	UI.label(free,"自由对冲练习",Vector2(28,24),31,UI.GOLD)
+	UI.label(free,"完整的三轮对冲，对手会出枪并按轮次换盾。\n适合比较不同装备，练习提前瞄准和最后防守。",Vector2(28,88),21,UI.INK,592)
+	UI.button(free,"进入自由练习",Rect2(28,234,592,62),func():_begin_match("arena",true))
+	UI.label(screen,"两种练习都不计胜负奖励，不消耗银币或装备。随时按 Esc 暂停并返回营地。",Vector2(64,594),21,UI.MUTED,1290)
+	UI.label(screen,"枪盾仍需要时间移动；练习进度按真实速度、姿态和接触判断，不会自动命中。",Vector2(64,650),18,UI.MUTED,1290)
 	queue_redraw()
 
 func show_saves(notice: String = "") -> void:
@@ -541,8 +567,9 @@ func _dismiss_brief() -> void:
 		brief_return_focus.grab_focus()
 	brief_return_focus=null
 
-func _start_match(mode: String, practice: bool = false) -> void:
+func _start_match(mode: String, practice: bool = false, guide: PracticeGuide = null) -> void:
 	_close_battle()
+	active_guide = guide if practice and mode=="arena" else null
 	practice_match = practice
 	current_mode = mode
 	page = "battle"
@@ -556,14 +583,31 @@ func _start_match(mode: String, practice: bool = false) -> void:
 	battle = Battle.new()
 	battle.mode = mode
 	battle.practice = practice
+	battle.practice_guide = active_guide
 	battle.autoplay = smoke_mode
 	battle.demo_seed = 271828 if smoke_mode else 0
 	battle.finished.connect(_on_match_finished)
+	battle.lesson_completed.connect(_on_lesson_completed)
+	battle.lesson_exit_requested.connect(_finish_lesson)
 	battle.exit_requested.connect(func():
 		_close_battle()
 		show_home())
-	battle.replay_requested.connect(func():_start_match(current_mode,practice_match))
+	battle.replay_requested.connect(func():_start_match(current_mode,practice_match,active_guide))
 	add_child(battle)
+	queue_redraw()
+
+func _on_lesson_completed() -> void:
+	if GameState.profile.settings.get("guided_practice_v087",false): return
+	GameState.profile.settings.combat_brief_v044 = true
+	GameState.set_setting("guided_practice_v087",true)
+
+func _finish_lesson() -> void:
+	if active_guide==null or not active_guide.complete(): return
+	_close_battle()
+	page = "lesson_result"
+	_clear_screen()
+	result_visible = true
+	_show_lesson_result()
 	queue_redraw()
 
 func _close_battle() -> void:
@@ -590,6 +634,9 @@ func _process(_delta: float) -> void:
 
 func show_result() -> void:
 	result_visible = true
+	if active_guide:
+		_show_lesson_result()
+		return
 	var result = pending_result
 	var won = int(result.get("winner",-1)) == 0
 	var draw = int(result.get("winner",-1)) == -1
@@ -638,8 +685,33 @@ func show_result() -> void:
 		save_status.name = "PendingRewardSave"
 		UI.button(panel,"重试保存",Rect2(550,432,190,32),func():
 			save_status.text = "奖励与进度已保存。" if GameState.save_profile() else "仍未保存，请检查磁盘空间或写入权限。")
-	UI.button(panel,"再次对冲  R",Rect2(35,470,344,56),func():_start_match(current_mode,practice_match),true)
+	UI.button(panel,"再次对冲  R",Rect2(35,470,344,56),func():_start_match(current_mode,practice_match,active_guide),true)
 	UI.button(panel,"返回营地",Rect2(397,470,344,56),func():
+		_close_battle()
+		show_home())
+
+func _show_lesson_result() -> void:
+	var lesson = active_guide
+	var panel = UI.panel(screen,Rect2(270,110,900,590),Color(.045,.085,.065,.99))
+	UI.label(panel,"七项练习已完成" if lesson.complete() else "练习小结 · 一步一步来",Vector2(30,25),34,UI.GOLD)
+	UI.label(panel,"已完成 %d / 7 · 这次对冲不计胜负与奖励" % mini(lesson.step,7),Vector2(30,81),20,UI.INK,840)
+	for i in range(PracticeGuide.TITLES.size()):
+		var done = i<lesson.step
+		UI.label(panel,("完成 · " if done else "待练 · ")+PracticeGuide.TITLES[i],Vector2(30+(i%2)*430,135+(i/2)*52),21,UI.GOLD if done else UI.MUTED,410)
+	var contact_text = "完成接触后，这里会显示实际碰到的部位。"
+	var names = preload("res://scripts/visual/combat_cues.gd")
+	if not lesson.last_contact.is_empty():
+		contact_text = "你的一枪："+names.contact_name(lesson.last_contact)+(" · 擦过" if lesson.last_contact.get("glanced",false) else " · 已接触")
+	if not lesson.last_block.is_empty(): contact_text += "\n你的格挡："+names.contact_name(lesson.last_block)+" · 盾牌实际承受了来枪"
+	UI.label(panel,contact_text,Vector2(30,352),19,UI.INK,840)
+	var reminder = "下一步可进入竞技场：真实对手会选择空当并反击。" if lesson.complete() else "继续练习会保留已完成步骤；枪盾动作与命中仍按正常规则。"
+	UI.label(panel,reminder,Vector2(30,416),17,UI.MUTED,840)
+	if GameState.profile_save_pending:
+		UI.label(panel,"进度尚未保存，请返回营地后到存档页重试。",Vector2(30,447),16,Color("efb566"),840)
+	UI.button(panel,"进入竞技场" if lesson.complete() else "继续本次练习",Rect2(30,486,540,60),func():
+		if lesson.complete(): _begin_match("arena")
+		else: _start_match("arena",true,lesson),true)
+	UI.button(panel,"返回营地",Rect2(590,486,280,60),func():
 		_close_battle()
 		show_home())
 
@@ -1028,7 +1100,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			else:
 				show_home()
 		elif KEY_R in keys and page == "battle" and result_visible:
-			_start_match(current_mode,practice_match)
+			_start_match(current_mode,practice_match,active_guide)
 
 func _run_smoke() -> void:
 	if Time.get_ticks_msec()-smoke_last_report>5000:

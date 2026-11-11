@@ -11,6 +11,7 @@ const WindowActivity = preload("res://scripts/core/window_activity.gd")
 const PracticeGuide = preload("res://scripts/core/practice_guide.gd")
 const AudioMix = preload("res://scripts/core/audio_mix.gd")
 const EquipmentComparison = preload("res://scripts/ui/equipment_comparison.gd")
+const HorseSkin = preload("res://scripts/visual/horse_skin.gd")
 const BACKGROUND = preload("res://assets/art/pixel_v03/tournament_field.png")
 
 class CharacterFaceCanvas extends Node2D:
@@ -261,6 +262,7 @@ func show_home() -> void:
 		UI.label(screen,"进度尚未保存 · 请到存档页重试",Vector2(80,775),13,Color("efb566"),650)
 	elif not GameState.load_notice.is_empty():
 		UI.label(screen,"存档恢复提示 · 详情见存档页",Vector2(80,775),13,Color("efb566"),650)
+	_queue_opponent_assets()
 	queue_redraw()
 
 func show_save_recovery(notice: String = "") -> void:
@@ -403,6 +405,7 @@ func show_match_setup() -> void:
 	screen.add_child(region)
 	UI.label(screen,"地区选择只影响装饰偏好，已购装备仍可使用。",Vector2(450,722),17,UI.MUTED,820)
 	message_label = UI.label(screen,"设置已应用，但暂未保存；回营地可重试保存。" if not GameState.save_error.is_empty() else "",Vector2(64,772),14,Color("efb566"),1300)
+	_queue_opponent_assets()
 	queue_redraw()
 
 func show_practice_setup() -> void:
@@ -425,7 +428,24 @@ func show_practice_setup() -> void:
 	UI.button(free,"进入自由练习",Rect2(28,234,592,62),func():_begin_match("arena",true))
 	UI.label(screen,"两种练习都不计胜负奖励，不消耗银币或装备。随时按 Esc 暂停并返回营地。",Vector2(64,594),21,UI.MUTED,1290)
 	UI.label(screen,"枪盾仍需要时间移动；练习进度按真实速度、姿态和接触判断，不会自动命中。",Vector2(64,650),18,UI.MUTED,1290)
+	_queue_opponent_assets()
 	queue_redraw()
+
+func _queue_opponent_assets() -> void:
+	# COMM-087: a cold opponent coat/cloth cost ~18ms in its first draw.
+	# Prepare only the next opponent using the existing bounded queue slices.
+	# No worker threads, extra persistent texture cache, quality loss or input
+	# delay. Page deletion cancels jobs that have not started; hidden pages stop.
+	var opponent = Catalogue.opponent_stats(GameState.items,Catalogue.era_for_renown(int(GameState.profile.renown)))
+	var preparation = preload("res://scripts/ui/build_queue.gd").new()
+	preparation.name = "OpponentArtPreparation"
+	screen.add_child(preparation)
+	preparation.enqueue(func(): Art.torso_for(opponent))
+	preparation.enqueue(func(): Art.helmet_for(opponent))
+	preparation.enqueue(func(): HorseSkin.coat_texture(str(opponent.get("horse_coat","bay"))))
+	var design = str(opponent.get("heraldry","bend"))
+	var cloth_design = design+"_l" if design=="bend" else design
+	preparation.enqueue(func(): HorseSkin.caparison_texture(str(opponent.get("caparison_style","none")),cloth_design))
 
 func show_saves(notice: String = "") -> void:
 	page = "saves"

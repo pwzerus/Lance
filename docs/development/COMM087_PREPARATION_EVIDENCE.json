@@ -1,0 +1,250 @@
+{
+  "evidence": "COMM-087 bounded opponent preparation and bundle verification",
+  "source_at_test": "ecba1e004a3af3045fc4ca1cff69aa1c20d18978 plus uncommitted main prewarm change",
+  "tests": [
+    {
+      "path": "logs/comm087/transition-control03/report.json",
+      "sha256": "b23f13d052e3361ee41181a1eb0771a3cc104f71c0810d601bd90dd99a343daf",
+      "result": {
+        "warm_seconds": 2.000067,
+        "battle_transitions": [
+          {
+            "action": "battle",
+            "cycle": 0,
+            "first_frames_ms": [
+              101.872,
+              15.338,
+              16.365,
+              19.037,
+              12.014,
+              17.463,
+              14.61,
+              17.486
+            ],
+            "resources": 98.0,
+            "sync_ms": 15.412
+          },
+          {
+            "action": "battle",
+            "cycle": 1,
+            "first_frames_ms": [
+              46.371,
+              17.119,
+              13.633,
+              14.526,
+              11.317,
+              10.244,
+              16.788,
+              16.876
+            ],
+            "resources": 105.0,
+            "sync_ms": 13.208
+          },
+          {
+            "action": "battle",
+            "cycle": 2,
+            "first_frames_ms": [
+              32.555,
+              11.338,
+              11.678,
+              11.553,
+              17.535,
+              15.916,
+              16.575,
+              16.689
+            ],
+            "resources": 105.0,
+            "sync_ms": 10.915
+          },
+          {
+            "action": "battle",
+            "cycle": 3,
+            "first_frames_ms": [
+              30.823,
+              11.873,
+              9.934,
+              14.821,
+              16.661,
+              17.422,
+              19.183,
+              13.177
+            ],
+            "resources": 105.0,
+            "sync_ms": 8.924
+          },
+          {
+            "action": "battle",
+            "cycle": 4,
+            "first_frames_ms": [
+              29.416,
+              9.509,
+              11.513,
+              16.818,
+              16.551,
+              16.682,
+              16.6,
+              16.758
+            ],
+            "resources": 105.0,
+            "sync_ms": 7.515
+          }
+        ],
+        "scope": "Actual rendering, same external old/new driver, transitions including creation; no OS input."
+      }
+    },
+    {
+      "path": "logs/comm087/transition-final03/report.json",
+      "sha256": "afe688f6d079c93fa0df9e9e2fd0a82d64dafe9e8caac286be30f57fc5e151b4",
+      "result": {
+        "warm_seconds": 2.000075,
+        "battle_transitions": [
+          {
+            "action": "battle",
+            "cycle": 0,
+            "first_frames_ms": [
+              69.976,
+              17.081,
+              14.121,
+              12.324,
+              13.156,
+              10.839,
+              17.413,
+              15.675
+            ],
+            "resources": 97.0,
+            "sync_ms": 13.655
+          },
+          {
+            "action": "battle",
+            "cycle": 1,
+            "first_frames_ms": [
+              39.241,
+              12.48,
+              10.584,
+              11.654,
+              14.645,
+              16.487,
+              17.19,
+              16.867
+            ],
+            "resources": 104.0,
+            "sync_ms": 12.89
+          },
+          {
+            "action": "battle",
+            "cycle": 2,
+            "first_frames_ms": [
+              32.045,
+              14.79,
+              11.407,
+              10.968,
+              14.986,
+              16.41,
+              17.019,
+              16.658
+            ],
+            "resources": 104.0,
+            "sync_ms": 7.944
+          },
+          {
+            "action": "battle",
+            "cycle": 3,
+            "first_frames_ms": [
+              26.641,
+              14.518,
+              16.52,
+              13.695,
+              16.828,
+              15.576,
+              13.382,
+              17.069
+            ],
+            "resources": 104.0,
+            "sync_ms": 6.623
+          },
+          {
+            "action": "battle",
+            "cycle": 4,
+            "first_frames_ms": [
+              27.724,
+              10.581,
+              12.057,
+              17.123,
+              16.308,
+              17.157,
+              17.46,
+              15.487
+            ],
+            "resources": 104.0,
+            "sync_ms": 7.145
+          }
+        ],
+        "scope": "Actual rendering, same external old/new driver, transitions including creation; no OS input."
+      }
+    },
+    {
+      "path": "logs/comm087/prewarm-hidden01/report.json",
+      "sha256": "9b14b7f463fbed1bfb997627937f8d67a411d8cfeef10f29d9bf3d26c818d88f",
+      "result": {
+        "cloths": 1,
+        "coats": 2,
+        "failures": [],
+        "hidden_pending": 4,
+        "passed": true,
+        "retired_queues": 24,
+        "scope": "Actual isolated GPU and window minimization, monotonic waits; bounded queue stops hidden, resumes and is freed on page departure. No OS input."
+      }
+    },
+    {
+      "path": "logs/comm087/package-integrity01/report.json",
+      "sha256": "d12baf976ccd7312320cc89f04ef25a877270b34c1fa9d7e23ec8776c32fb3b2",
+      "result": {
+        "scope": "Actual bundle hashes, files and launcher PE metadata. QA fixture restored byte-for-byte; gameplay is separate.",
+        "cases": [
+          {
+            "case": "valid",
+            "passed": true
+          },
+          {
+            "message": "Bundle file differs: LanceAndLaurel.exe",
+            "passed": true,
+            "case": "wrong-hash"
+          },
+          {
+            "message": "Bundle file differs: LanceAndLaurel.exe",
+            "passed": true,
+            "case": "truncated-size"
+          },
+          {
+            "message": "Unsafe manifest path.",
+            "passed": true,
+            "case": "escaped-path"
+          },
+          {
+            "message": "Duplicate or escaped manifest path.",
+            "passed": true,
+            "case": "duplicate"
+          },
+          {
+            "message": "Unexpected bundle file: LanceAndLaurel.exe",
+            "passed": true,
+            "case": "missing-entry"
+          },
+          {
+            "message": "Bundle file differs: PLAYER-GUIDE.txt",
+            "passed": true,
+            "case": "actual-file-corruption"
+          }
+        ],
+        "passed": true
+      }
+    }
+  ],
+  "limitations": [
+    "Transitions still exceed a 60 FPS frame budget.",
+    "Source GPU, not final candidate PCK.",
+    "Packaging fixture uses unchanged v0.4.40-r3 runtime; gameplay validation is separate.",
+    "Earlier Timer-based warmups are diagnostic only: the boot frame consumed the timer; final03 uses monotonic clock.",
+    "Material sharing experiment was rejected; no rider, material, horse or animation quality edits."
+  ]
+}

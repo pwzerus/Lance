@@ -373,3 +373,5 @@ COMM-087 装备决策扩展（03:18 UTC）：Codex认领新game/scripts/ui/equip
 COMM-087 军械库测试适配（03:18 UTC）：新取舍/考据页签延后创建隐藏考据；认领tests/test_icons085.gd及test_soak087.gd，使旧完整段落断言前实际打开数值与考据页签、等待队列，不删减原文本完整性断言。
 
 COMM-087 坐骑图标修复（03:21 UTC）：Codex认领game/scripts/visual/equipment_art.gd，仅修复item_icon(horse)硬编码旧棕色头部图集，改用实际horse_coat对应的现有连续马皮。复用已存在的四纹理缓存，不生成或改变位图，不修改比赛马匹动画。
+
+COMM-087 对手素材预备（03:41 UTC）：在已认领main.gd内复用BuildQueue，仅预备下一对手的胸盔、马皮、马衣四项，沿用Art/HorseSkin已有缓存，不新建纹理常驻池、不改draw、材质、动作或数值。新增tests/profile_*087、test_startup087、test_transition087及no_prewarm_main087诊断；原084保留作历史，087使用墙钟测量预热，避免启动帧delta吞掉Timer。

@@ -35,21 +35,23 @@ const FETLOCK_SINK = [.10,.20,.26,.30]
 const UPPER = 66.48308055437865
 const LOWER = 44.04543109109048
 const NAMES = ["慢步","小跑","跑步","疾驰"]
-# Cyclic back-height / pitch studies: compression, hind drive, fore support,
-# collection and flight are separate poses instead of four pendulum legs.
-const HEIGHTS = [
- [0.0,-1.0,-2.0,-1.0,0.0,1.0,0.0,-1.0,-2.0,-1.0,0.0,1.0],
- [0.5,-1.0,-2.8,-1.5,.3,1.2,.5,-1.0,-2.8,-1.5,.3,1.2],
- [.5,1.4,.6,-.8,-1.0,0.0,1.0,0.0,-2.0,-4.0,-4.7,-2.0],
- [.5,1.8,.6,-.5,-.3,.8,1.5,.5,-1.6,-4.0,-4.8,-2.0]]
-# Trot is spring-like: back LOW at midstance, HIGH around suspension.
-# Keep the authored vertical curve aligned with the diagonal footfalls.
-const HEIGHT_PHASE = [0.0,.21,0.0,0.0]
-const PITCHES = [
- [-.008,-.012,-.007,0.0,.008,.012,.008,.012,.007,0.0,-.008,-.012],
- [-.006,-.010,-.004,.007,.010,.004,-.006,-.010,-.004,.007,.010,.004],
- [-.008,-.014,-.004,.010,.018,.013,-.004,-.014,-.010,0.0,.006,0.0],
- [-.010,-.020,-.007,.016,.027,.020,-.005,-.022,-.014,0.0,.009,0.0]]
+# FEEL-086: trunk follows one load/release wave in canter and gallop.
+# The old 12-knot tables had two height peaks plus repeated pitch reversals;
+# differencing those knots for the rider amplified the short secondary nods.
+# Walk/trot retain their paired support beats. Game-space curves, not mocap.
+static func back_height(gait: int, cycle: float) -> float:
+ match gait:
+  0: return -.5+1.0*cos(TAU*2.0*(cycle-.20))
+  1: return -.8+2.0*cos(TAU*2.0*(cycle-.205))
+  2: return -1.2+3.0*cos(TAU*(cycle-.43))
+  _: return -1.3+3.4*cos(TAU*(cycle-.38))
+
+static func back_pitch(gait: int, cycle: float) -> float:
+ match gait:
+  0: return .009*sin(TAU*(cycle-.08))
+  1: return .006*sin(TAU*2.0*(cycle-.10))
+  2: return .021*sin(TAU*(cycle-.20))
+  _: return .025*sin(TAU*(cycle-.20))
 
 static func rest_foot(index: int) -> Vector2:
  return REST_FEET[index]
@@ -106,16 +108,6 @@ static func frequency(speed: float) -> float:
  # only stretched the legs across the ground while their rhythm stayed flat.
  return (.88*w.x+1.40*w.y+1.72*w.z+2.05*w.w)*clampf(speed/100.0,.10,1.12)
 
-static func _cycle(values: Array, cycle: float) -> float:
- var p = fposmod(cycle,1.0)*values.size()
- var i = int(p)
- var t = p-i
- var a = float(values[posmod(i-1,values.size())])
- var b = float(values[i])
- var c = float(values[(i+1)%values.size()])
- var d = float(values[(i+2)%values.size()])
- return .5*((2*b)+(-a+c)*t+(2*a-5*b+4*c-d)*t*t+(-a+3*b-3*c+d)*t*t*t)
-
 static func body(phase: float, speed: float, moving: bool, stability: float = 1.0, drive: float = 0.0, fatigue: float = 0.0) -> Dictionary:
  # HORSE-065: fatigue (0 fresh .. 1 spent) lowers the neck and deepens the
  # head nod of a labouring horse. It changes ONLY neck/head, never the saddle
@@ -135,10 +127,10 @@ static func body(phase: float, speed: float, moving: bool, stability: float = 1.
   # delayed rider samples; this function is shared by many hit/art anchors.
   if w[i]<=0.0:
    continue
-  height += _cycle(HEIGHTS[i],cycle+HEIGHT_PHASE[i])*w[i]
-  pitch += _cycle(PITCHES[i],cycle)*w[i]
-  delayed_height += _cycle(HEIGHTS[i],cycle-.055+HEIGHT_PHASE[i])*w[i]
-  delayed_pitch += _cycle(PITCHES[i],cycle-.04)*w[i]
+  height += back_height(i,cycle)*w[i]
+  pitch += back_pitch(i,cycle)*w[i]
+  delayed_height += back_height(i,cycle-.045)*w[i]
+  delayed_pitch += back_pitch(i,cycle-.035)*w[i]
  var run = w.z+w.w
  # The back remains relatively rigid; the entire trunk rocks. Better horses
  # moderate rider transmission without eliminating their visible stride.
@@ -154,7 +146,7 @@ static func body(phase: float, speed: float, moving: bool, stability: float = 1.
  # This is a deterministic game approximation, not a measured rider model.
  # It strengthens high-speed follow-through without lifting the horse or
  # independently moving the visible lance away from its collision anchor.
- var waist_follow = (height-delayed_height)*(.006+.012*effort)*transmission
+ var waist_follow = (height-delayed_height)*(.005+.006*effort)*transmission
  var neck_angle = (.075*run-pitch*.90+delayed_pitch*.35+sin(phase-.5)*(.020*w.x+.012*w.y))*intensity
  neck_angle += (.09+.03*sin(phase-.5))*fatigue*intensity
  # The head counterbalances the SAME trunk loading, instead of bobbing on
@@ -167,7 +159,7 @@ static func body(phase: float, speed: float, moving: bool, stability: float = 1.
   "rider_offset":Vector2(-sin(phase)*run*2.2-drive*1.2,rider_lag*intensity),
   # Sustained forward carriage reads actual travel, not the spur button.
   # Shared by rule anchors and art; no extra vertical bounce or aim jitter.
-  "rider_pitch":(delayed_pitch*.90+waist_follow)*intensity+drive*.060+run*.040+w.w*.025,"gait":gait_index(speed)}
+  "rider_pitch":(delayed_pitch*.72+waist_follow)*intensity+drive*.060+run*.040+w.w*.025,"gait":gait_index(speed)}
 
 static func _swing_point(front: bool, t: float, reach: float, lift: float, run: float) -> Vector2:
  # One C1 trajectory, rather than Catmull-Rom sections with different time
@@ -262,6 +254,13 @@ static func leg(index: int, phase: float, speed: float, moving: bool, stability:
  if moving and contact:
   var wanted = fetlock_sink(cycle,duty,speed)
   var coronet_probe = foot-hoof
+  # Unload BEFORE a planted chain exhausts its reach. Previously the binary
+  # clamp permitted a deeply loaded fetlock right up to full extension;
+  # the next frame released the hoof and zeroed that flex in one step.
+  # Keep the hoof locked and flat, tapering spring travel over the final
+  # 7 game units of extension, rather than stretching the limb or snapping.
+  var extension_room = maximum_reach-(coronet_probe-bone-hip).length()
+  wanted *= smoothstep(.35,7.0,extension_room)
   if wanted>0.0 and (coronet_probe-bone.rotated(-wanted)-hip).length()>maximum_reach:
    var low = 0.0
    var high = wanted

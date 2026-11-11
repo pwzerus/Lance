@@ -40,6 +40,9 @@ func setup(value: Dictionary, event: Dictionary, mounted: RiderView = null) -> v
 	strength = clampf(float(event.get("impulse",70.0))/110.0,.15,1.0)
 	initial_aim = float(fighter.get("aim",0.0))
 	initial_pose = Rider.arm_pose(fighter).duplicate(true)
+	# Capture the mounted neck/gaze registration before the detached head
+	# gains its own hinge. Zero hinge angle must preserve the exact old pose.
+	initial_pose["head_base_transform"] = Rider._head_hinge(initial_pose,fighter)
 	position = initial_pose.torso_transform.origin
 	initial_position = position
 	ground_y = float(fighter.get("lane_y",0.0))+12.0

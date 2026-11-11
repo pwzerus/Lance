@@ -592,6 +592,11 @@ static func _head_hinge(pose: Dictionary, value: Dictionary) -> Transform2D:
 	var pivot = Vector2(float(fit.collar.center[0]),float(fit.collar.center[1])+2.0)
 	var hinge = Transform2D(angle,Vector2.ZERO)
 	hinge.origin = pivot-hinge.basis_xform(pivot)
+	if pose.has("head_base_transform"):
+		# Fall articulation is relative to the captured mounted head, not the
+		# upright source sprite. Otherwise the first physics tick erases lean
+		# and gaze stabilization and visibly snaps the helmet/neck junction.
+		return hinge*Transform2D(pose.head_base_transform)
 	if not pose.has("head_rotation"):
 		# RIDER-064, mounted only: the head keeps ~30% of a deliberate lean out
 		# of its orientation so the rider keeps looking at the opponent. It
@@ -599,7 +604,11 @@ static func _head_hinge(pose: Dictionary, value: Dictionary) -> Transform2D:
 		# visible helmet stays on the head hit target; the neck bridge stretches.
 		var lean = float(value.get("lean",0.0))
 		var lean_angle = lean*(deg_to_rad(25.0) if lean>=0.0 else deg_to_rad(45.0))
-		var counter = Transform2D((-.30*lean_angle+float(value.get("reaction_neck",0.0)))*int(value.get("direction",1)),Vector2.ZERO)
+		# The neck absorbs the smooth mounted stride as well as deliberate lean.
+		# Rotate about the SAME head target: gaze stabilizes without moving the
+		# helmet off its collision centre or detaching its collar bridge.
+		var gait_counter = -.65*clampf(float(Model.gait_pose(value).rider_pitch),-.12,.20)
+		var counter = Transform2D((-.30*lean_angle+gait_counter+float(value.get("reaction_neck",0.0)))*int(value.get("direction",1)),Vector2.ZERO)
 		var anchor = Vector2(0,-111)
 		counter.origin = anchor-counter.basis_xform(anchor)
 		hinge = counter*hinge

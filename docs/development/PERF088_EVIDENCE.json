@@ -1004,5 +1004,11 @@
     "signed": false,
     "github_binary_release": false
   },
-  "latest_launch_entry": "builds/LanceAndLaurel-v0.4.42-r2/LanceAndLaurel.exe"
+  "latest_launch_entry": "builds/LanceAndLaurel-v0.4.42-r2/LanceAndLaurel.exe",
+  "delivery_push_verified": {
+    "branch": "codex/v0.4",
+    "sha": "42dfdc365be007903f142929aa61c25589849a08",
+    "method": "git push followed by git ls-remote; local HEAD matched",
+    "note": "Receipt-only commit follows; shipped source remains c1e5f0a."
+  }
 }

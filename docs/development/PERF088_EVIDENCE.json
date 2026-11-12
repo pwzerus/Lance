@@ -1,0 +1,1008 @@
+{
+  "status": "Final v0.4.42-r2 native package validated in background. Residual 43–48ms occasional frames remain; not locked 60 FPS or human acceptance.",
+  "baseline": "3b6b04dbb48bf4156bf735fe0f803088cc7ce5b9",
+  "candidate_source": "c1e5f0acd7914cf30ca6b76e6a8e9daa75016b65",
+  "guard_sha256": "e993d317ebacac1f7c12025e4e3d68eddcd66919e422790bc33c46e74b31d635",
+  "reports": [
+    {
+      "name": "baseline01",
+      "report": "logs/perf088/baseline01/report.json",
+      "sha256": "d64c0898539f593f1b93007089a0bbe022f2b9cf9a8942381cd56239e995a9c6",
+      "unexpected": [],
+      "functional_pass": null,
+      "version": "0.4.41-r6",
+      "scope": "Actual rendering, same external old/new driver, transitions including creation; no OS input.",
+      "rows": [
+        {
+          "cycle": 0,
+          "sync_ms": 16.689,
+          "max_frame_ms": 57.805,
+          "until_ready_ms": null
+        },
+        {
+          "cycle": 1,
+          "sync_ms": 4.905,
+          "max_frame_ms": 31.364,
+          "until_ready_ms": null
+        },
+        {
+          "cycle": 2,
+          "sync_ms": 5.16,
+          "max_frame_ms": 31.819,
+          "until_ready_ms": null
+        },
+        {
+          "cycle": 3,
+          "sync_ms": 5.133,
+          "max_frame_ms": 25.747,
+          "until_ready_ms": null
+        },
+        {
+          "cycle": 4,
+          "sync_ms": 8.359,
+          "max_frame_ms": 25.591,
+          "until_ready_ms": null
+        }
+      ]
+    },
+    {
+      "name": "profile01",
+      "report": "logs/perf088/profile01/report.json",
+      "sha256": "04dc7383df94db6c414621c40d2f6235ff922944e064b79428af9bd1f5d7290d",
+      "unexpected": [],
+      "functional_pass": null,
+      "version": "0.4.41-r6",
+      "scope": "Actual rendering, same external old/new driver, transitions including creation; no OS input.",
+      "rows": [
+        {
+          "cycle": 0,
+          "sync_ms": 11.392,
+          "max_frame_ms": 82.617,
+          "until_ready_ms": null
+        },
+        {
+          "cycle": 1,
+          "sync_ms": 14.124,
+          "max_frame_ms": 45.829,
+          "until_ready_ms": null
+        },
+        {
+          "cycle": 2,
+          "sync_ms": 7.047,
+          "max_frame_ms": 27.525,
+          "until_ready_ms": null
+        }
+      ]
+    },
+    {
+      "name": "staged01",
+      "report": "logs/perf088/staged01/report.json",
+      "sha256": "c4f698256fce395885f8431104d9f83ab96ee8c99317f220efb43feae2d0e85d",
+      "unexpected": [
+        "SCRIPT ERROR: Out of bounds get index '0' (on base: 'Array')"
+      ],
+      "functional_pass": null,
+      "version": "0.4.41-r6",
+      "scope": "Actual rendering, same external old/new driver, transitions including creation; no OS input.",
+      "rows": [
+        {
+          "cycle": 0,
+          "sync_ms": 4.458,
+          "max_frame_ms": 27.839,
+          "until_ready_ms": 88.614
+        },
+        {
+          "cycle": 1,
+          "sync_ms": 2.249,
+          "max_frame_ms": 22.104,
+          "until_ready_ms": 67.136
+        },
+        {
+          "cycle": 2,
+          "sync_ms": 1.514,
+          "max_frame_ms": 23.546,
+          "until_ready_ms": 67.0
+        },
+        {
+          "cycle": 3,
+          "sync_ms": 1.512,
+          "max_frame_ms": 22.201,
+          "until_ready_ms": 66.838
+        },
+        {
+          "cycle": 4,
+          "sync_ms": 2.198,
+          "max_frame_ms": 28.434,
+          "until_ready_ms": 72.452
+        }
+      ]
+    },
+    {
+      "name": "lifecycle01",
+      "report": "logs/perf088/lifecycle01/report.json",
+      "sha256": "7b298d094c2ab5ddf086ae79a519b01779489553d94961699447053014033be1",
+      "unexpected": [
+        "SCRIPT ERROR: Out of bounds get index '0' (on base: 'Array')",
+        "ERROR: 4 RID allocations of type 'P12GodotShape2D' were leaked at exit.",
+        "WARNING: ObjectDB instances leaked at exit (run with --verbose for details)."
+      ],
+      "functional_pass": true,
+      "version": null,
+      "scope": "Actual GPU staging, 5 cancellation boundaries, minimized preparation/explicit resume and 12 real replay events; isolated QA, no OS input.",
+      "rows": [
+        {
+          "cancel_after_frames": 0,
+          "released": true
+        },
+        {
+          "cancel_after_frames": 1,
+          "released": true
+        },
+        {
+          "cancel_after_frames": 2,
+          "released": true
+        },
+        {
+          "cancel_after_frames": 3,
+          "released": true
+        },
+        {
+          "cancel_after_frames": 4,
+          "released": true
+        },
+        {
+          "buses": 5,
+          "replays": 12,
+          "resources": 91.0
+        }
+      ]
+    },
+    {
+      "name": "lifecycle02",
+      "report": "logs/perf088/lifecycle02/report.json",
+      "sha256": "7b298d094c2ab5ddf086ae79a519b01779489553d94961699447053014033be1",
+      "unexpected": [
+        "ERROR: 4 RID allocations of type 'P12GodotShape2D' were leaked at exit.",
+        "WARNING: ObjectDB instances leaked at exit (run with --verbose for details)."
+      ],
+      "functional_pass": true,
+      "version": null,
+      "scope": "Actual GPU staging, 5 cancellation boundaries, minimized preparation/explicit resume and 12 real replay events; isolated QA, no OS input.",
+      "rows": [
+        {
+          "cancel_after_frames": 0,
+          "released": true
+        },
+        {
+          "cancel_after_frames": 1,
+          "released": true
+        },
+        {
+          "cancel_after_frames": 2,
+          "released": true
+        },
+        {
+          "cancel_after_frames": 3,
+          "released": true
+        },
+        {
+          "cancel_after_frames": 4,
+          "released": true
+        },
+        {
+          "buses": 5,
+          "replays": 12,
+          "resources": 91.0
+        }
+      ]
+    },
+    {
+      "name": "lifecycle03",
+      "report": "logs/perf088/lifecycle03/report.json",
+      "sha256": "7b298d094c2ab5ddf086ae79a519b01779489553d94961699447053014033be1",
+      "unexpected": [
+        "WARNING: ObjectDB instances leaked at exit (run with --verbose for details)."
+      ],
+      "functional_pass": true,
+      "version": null,
+      "scope": "Actual GPU staging, 5 cancellation boundaries, minimized preparation/explicit resume and 12 real replay events; isolated QA, no OS input.",
+      "rows": [
+        {
+          "cancel_after_frames": 0,
+          "released": true
+        },
+        {
+          "cancel_after_frames": 1,
+          "released": true
+        },
+        {
+          "cancel_after_frames": 2,
+          "released": true
+        },
+        {
+          "cancel_after_frames": 3,
+          "released": true
+        },
+        {
+          "cancel_after_frames": 4,
+          "released": true
+        },
+        {
+          "buses": 5,
+          "replays": 12,
+          "resources": 91.0
+        }
+      ]
+    },
+    {
+      "name": "lifecycle04",
+      "report": "logs/perf088/lifecycle04/report.json",
+      "sha256": "7b298d094c2ab5ddf086ae79a519b01779489553d94961699447053014033be1",
+      "unexpected": [],
+      "functional_pass": true,
+      "version": null,
+      "scope": "Actual GPU staging, 5 cancellation boundaries, minimized preparation/explicit resume and 12 real replay events; isolated QA, no OS input.",
+      "rows": [
+        {
+          "cancel_after_frames": 0,
+          "released": true
+        },
+        {
+          "cancel_after_frames": 1,
+          "released": true
+        },
+        {
+          "cancel_after_frames": 2,
+          "released": true
+        },
+        {
+          "cancel_after_frames": 3,
+          "released": true
+        },
+        {
+          "cancel_after_frames": 4,
+          "released": true
+        },
+        {
+          "buses": 5,
+          "replays": 12,
+          "resources": 91.0
+        }
+      ]
+    },
+    {
+      "name": "lifecycle05",
+      "report": "logs/perf088/lifecycle05/report.json",
+      "sha256": "7b298d094c2ab5ddf086ae79a519b01779489553d94961699447053014033be1",
+      "unexpected": [],
+      "functional_pass": true,
+      "version": null,
+      "scope": "Actual GPU staging, 5 cancellation boundaries, minimized preparation/explicit resume and 12 real replay events; isolated QA, no OS input.",
+      "rows": [
+        {
+          "cancel_after_frames": 0,
+          "released": true
+        },
+        {
+          "cancel_after_frames": 1,
+          "released": true
+        },
+        {
+          "cancel_after_frames": 2,
+          "released": true
+        },
+        {
+          "cancel_after_frames": 3,
+          "released": true
+        },
+        {
+          "cancel_after_frames": 4,
+          "released": true
+        },
+        {
+          "buses": 5,
+          "replays": 12,
+          "resources": 91.0
+        }
+      ]
+    },
+    {
+      "name": "old-package01",
+      "report": "logs/perf088/old-package01/report.json",
+      "sha256": "97973bd7e644b4d7d94a5ced34a74df19417b5b5187f7736c8f2de885a22de34",
+      "unexpected": [],
+      "functional_pass": null,
+      "version": "0.4.41-r6",
+      "scope": "Actual rendering, same external old/new driver, transitions including creation; no OS input.",
+      "rows": [
+        {
+          "cycle": 0,
+          "sync_ms": 22.31,
+          "max_frame_ms": 62.169,
+          "until_ready_ms": 62.169
+        },
+        {
+          "cycle": 1,
+          "sync_ms": 5.439,
+          "max_frame_ms": 28.601,
+          "until_ready_ms": 28.601
+        },
+        {
+          "cycle": 2,
+          "sync_ms": 8.743,
+          "max_frame_ms": 41.319,
+          "until_ready_ms": 41.319
+        },
+        {
+          "cycle": 3,
+          "sync_ms": 6.11,
+          "max_frame_ms": 29.644,
+          "until_ready_ms": 29.644
+        },
+        {
+          "cycle": 4,
+          "sync_ms": 8.811,
+          "max_frame_ms": 26.029,
+          "until_ready_ms": 26.029
+        }
+      ]
+    },
+    {
+      "name": "new-package01",
+      "report": "logs/perf088/new-package01/report.json",
+      "sha256": "63aa0988f9893c4cd03bf9f785d5d852aeb0c34a163935f1e85adaab7a238c1b",
+      "unexpected": [],
+      "functional_pass": null,
+      "version": "0.4.42",
+      "scope": "Actual rendering, same external old/new driver, transitions including creation; no OS input.",
+      "rows": [
+        {
+          "cycle": 0,
+          "sync_ms": 4.789,
+          "max_frame_ms": 42.392,
+          "until_ready_ms": 101.157
+        },
+        {
+          "cycle": 1,
+          "sync_ms": 1.929,
+          "max_frame_ms": 17.897,
+          "until_ready_ms": 84.449
+        },
+        {
+          "cycle": 2,
+          "sync_ms": 1.474,
+          "max_frame_ms": 20.112,
+          "until_ready_ms": 83.735
+        },
+        {
+          "cycle": 3,
+          "sync_ms": 1.547,
+          "max_frame_ms": 17.774,
+          "until_ready_ms": 83.946
+        },
+        {
+          "cycle": 4,
+          "sync_ms": 1.8,
+          "max_frame_ms": 19.689,
+          "until_ready_ms": 85.09
+        }
+      ]
+    },
+    {
+      "name": "staged02",
+      "report": "logs/perf088/staged02/report.json",
+      "sha256": "de39e6b19fe52186acc795ad80becadfc60d63168bb60c62e6ddd78b383ad174",
+      "unexpected": [],
+      "functional_pass": null,
+      "version": "0.4.42",
+      "scope": "Actual rendering, same external old/new driver, transitions including creation; no OS input.",
+      "rows": [
+        {
+          "cycle": 0,
+          "sync_ms": 4.135,
+          "max_frame_ms": 43.79,
+          "until_ready_ms": 123.662
+        },
+        {
+          "cycle": 1,
+          "sync_ms": 3.206,
+          "max_frame_ms": 21.04,
+          "until_ready_ms": 100.517
+        },
+        {
+          "cycle": 2,
+          "sync_ms": 4.324,
+          "max_frame_ms": 18.317,
+          "until_ready_ms": 100.474
+        },
+        {
+          "cycle": 3,
+          "sync_ms": 2.207,
+          "max_frame_ms": 20.212,
+          "until_ready_ms": 100.622
+        },
+        {
+          "cycle": 4,
+          "sync_ms": 2.46,
+          "max_frame_ms": 17.568,
+          "until_ready_ms": 100.895
+        }
+      ]
+    }
+  ],
+  "unexecuted": [
+    "OS desktop input",
+    "Human gameplay/subjective motion and hardware listening",
+    "Cross-machine/DPI validation",
+    "Dedicated new fatal-fall posture matrix (production fall code unchanged)"
+  ],
+  "old_launch_entry": "builds/LanceAndLaurel-v0.4.41-r6/LanceAndLaurel.exe",
+  "intermediate_bundle": {
+    "version": "0.4.42",
+    "source": "914d1ba2a989b48dec4d5b6904c3b1fe1ffa0772",
+    "pck": {
+      "path": "runtime/LanceAndLaurel.pck",
+      "bytes": 34200884,
+      "sha256": "35390ADAF6EDC6DDCC141E59C91EED2900F86FD9A0241248405A5D5FD66DE65E"
+    },
+    "status": "Intermediate performance candidate only; not latest playable entry."
+  },
+  "final_reports": [
+    {
+      "name": "r2-lifecycle01",
+      "report": "logs/perf088/r2-lifecycle01/report.json",
+      "sha256": "208965042973e3eb69c61e1bd363bf9007b5ca6cbd05d36e5429eb6a31530b24",
+      "passed": true,
+      "exit": 0,
+      "unexpected": null,
+      "seconds": 14.2263792,
+      "peak_private_mib": 635.7,
+      "minimum_available_ram_mib": 2040.0,
+      "scope": "Actual GPU staging, 6 cancellation boundaries, minimized preparation/explicit resume and 12 real replay events; isolated QA, no OS input.",
+      "failures": []
+    },
+    {
+      "name": "r2-transition01",
+      "report": "logs/perf088/r2-transition01/report.json",
+      "sha256": "dd7dbd3881443a112f58ba0333b9cae2efbf1cee40a7b95ddbc1aebe74ec3051",
+      "passed": true,
+      "exit": 0,
+      "unexpected": null,
+      "seconds": 20.9064558,
+      "peak_private_mib": 654.5,
+      "minimum_available_ram_mib": 1891.0,
+      "scope": "Actual rendering, same external old/new driver, transitions including creation; no OS input.",
+      "failures": [],
+      "battles": [
+        {
+          "cycle": 0,
+          "sync_ms": 3.359,
+          "max_frame_ms": 25.458,
+          "until_ready_ms": 100.473
+        },
+        {
+          "cycle": 1,
+          "sync_ms": 1.521,
+          "max_frame_ms": 19.124,
+          "until_ready_ms": 100.811
+        },
+        {
+          "cycle": 2,
+          "sync_ms": 1.555,
+          "max_frame_ms": 17.894,
+          "until_ready_ms": 100.675
+        },
+        {
+          "cycle": 3,
+          "sync_ms": 2.243,
+          "max_frame_ms": 17.663,
+          "until_ready_ms": 100.957
+        },
+        {
+          "cycle": 4,
+          "sync_ms": 2.101,
+          "max_frame_ms": 17.555,
+          "until_ready_ms": 100.916
+        }
+      ]
+    },
+    {
+      "name": "r2-war01",
+      "report": "logs/perf088/r2-war01/report.json",
+      "sha256": "449b6b7ba64960b20f7271d266c328bc6568badb4a5daac171a8d1ccd54be043",
+      "passed": true,
+      "exit": 0,
+      "unexpected": null,
+      "seconds": 187.9535641,
+      "peak_private_mib": 657.5,
+      "minimum_available_ram_mib": 1660.0,
+      "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+      "failures": [],
+      "frames": {
+        "fps": 59.7106699156056,
+        "frames": 10748,
+        "max_ms": 48.32,
+        "over_33ms": 8,
+        "over_50ms": 0,
+        "p50_ms": 16.685,
+        "p95_ms": 19.025,
+        "p99_ms": 21.683
+      },
+      "phases": {
+        "charge": {
+          "fps": 59.8767217933258,
+          "frames": 7361,
+          "max_ms": 26.36,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.693,
+          "p95_ms": 18.888,
+          "p99_ms": 21.237
+        },
+        "contact": {
+          "fps": 59.3808257449697,
+          "frames": 446,
+          "max_ms": 27.972,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.741,
+          "p95_ms": 20.21,
+          "p99_ms": 22.229
+        },
+        "ended": {
+          "fps": 57.9682867387964,
+          "frames": 478,
+          "max_ms": 25.083,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.725,
+          "p95_ms": 21.911,
+          "p99_ms": 23.643
+        },
+        "ready": {
+          "fps": 60.0329432310565,
+          "frames": 1467,
+          "max_ms": 23.897,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.67,
+          "p95_ms": 17.492,
+          "p99_ms": 18.637
+        },
+        "result": {
+          "fps": 60.0415208293004,
+          "frames": 241,
+          "max_ms": 33.244,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 16.893,
+          "p99_ms": 18.526
+        },
+        "turn": {
+          "fps": 58.7173669483908,
+          "frames": 755,
+          "max_ms": 48.32,
+          "over_33ms": 8,
+          "over_50ms": 0,
+          "p50_ms": 16.669,
+          "p95_ms": 19.8,
+          "p99_ms": 32.854
+        }
+      },
+      "matches": 3
+    },
+    {
+      "name": "r2-motion01",
+      "report": "logs/perf088/r2-motion01/report.json",
+      "sha256": "d5c13d3bbaf7d09cb7d43f46f63e31f8585e96d31cad3ad2c633811c7915f480",
+      "passed": true,
+      "exit": 0,
+      "unexpected": null,
+      "seconds": 136.2536714,
+      "peak_private_mib": 530.7,
+      "minimum_available_ram_mib": 1717.0,
+      "scope": "Selected coat(s), two directions, light/heavy equipment, real model 120Hz controls/step, 60Hz RiderView with disk captures every fourth visual frame (15fps) of 12 game seconds each. Capture cost is not gameplay frame timing. Distant opponents disable contacts; staged views are not Battle camera or OS/human play.",
+      "failures": [],
+      "cases": [
+        {
+          "coast_end_speed": 217.027320786138,
+          "coat": "bay",
+          "max_head_step_120hz": 1.89643681049347,
+          "peak_speed": 496.062447511173,
+          "render_frames": 720,
+          "screenshots": 180
+        },
+        {
+          "coast_end_speed": 217.027320786138,
+          "coat": "grey",
+          "max_head_step_120hz": 1.89643681049347,
+          "peak_speed": 496.062447511173,
+          "render_frames": 720,
+          "screenshots": 180
+        },
+        {
+          "coast_end_speed": 212.837045857288,
+          "coat": "black",
+          "max_head_step_120hz": 1.62545585632324,
+          "peak_speed": 486.48467624523,
+          "render_frames": 720,
+          "screenshots": 180
+        },
+        {
+          "coast_end_speed": 212.837045857288,
+          "coat": "flaxen",
+          "max_head_step_120hz": 1.62545585632324,
+          "peak_speed": 486.48467624523,
+          "render_frames": 720,
+          "screenshots": 180
+        }
+      ]
+    },
+    {
+      "name": "r2-feedback01",
+      "report": "logs/perf088/r2-feedback01/report.json",
+      "sha256": "a9ea3215302af9fc1d6184bc7482f6cba1b15548f40299e417477083230f74e0",
+      "passed": false,
+      "exit": 1,
+      "unexpected": [
+        "ERROR: Could not stage genuine swept arena_mounted_0_shield_slow_solid",
+        "ERROR: Could not stage genuine swept arena_mounted_1_shield_slow_solid",
+        "ERROR: Could not stage genuine swept arena_mounted_0_shield_off_solid"
+      ],
+      "seconds": 13.5477603,
+      "peak_private_mib": 678.9,
+      "minimum_available_ram_mib": 1509.0,
+      "scope": "PERF-088 waits for the normal staged Main presentation before configuring the inherited genuine Model sweeps and live Battle/GPU contact sequence from v057. Default: body, opposite-facing head, both solid shield directions, slow-off solid shield. --suite=solid selects the two shield directions. V058 records pre-hit versus contact/read zoom, logical screen-space shake, common-canvas tip/head/shield/grips, full mounted vertical HUD envelope and finite aim/guard travel. Batch/pause helper probe is separate synthetic mirrored metadata, not a simultaneous rule hit. --shake-off requires exact zero displayed offsets in every observed frame. PNG files written after live timing. No OS/human play, audio listening, physical-pixel alpha collision or subjective-feel approval.",
+      "failures": [
+        "Could not stage genuine swept arena_mounted_0_shield_slow_solid",
+        "Could not stage genuine swept arena_mounted_1_shield_slow_solid",
+        "Could not stage genuine swept arena_mounted_0_shield_off_solid"
+      ]
+    },
+    {
+      "name": "r2-shield-probe01",
+      "report": "logs/perf088/r2-shield-probe01/report.json",
+      "sha256": "d2043dc95cc8816eae3889645c335c9ba1ac081298a3e37d32b4b570abcfb019",
+      "passed": false,
+      "exit": 1,
+      "unexpected": [
+        "ERROR: Could not stage genuine swept arena_mounted_0_shield_slow_solid",
+        "ERROR: Could not stage genuine swept arena_mounted_1_shield_slow_solid"
+      ],
+      "seconds": 8.021731,
+      "peak_private_mib": 399.4,
+      "minimum_available_ram_mib": 1680.0,
+      "scope": "PERF-088 waits for the normal staged Main presentation before configuring the inherited genuine Model sweeps and live Battle/GPU contact sequence from v057. Default: body, opposite-facing head, both solid shield directions, slow-off solid shield. --suite=solid selects the two shield directions. V058 records pre-hit versus contact/read zoom, logical screen-space shake, common-canvas tip/head/shield/grips, full mounted vertical HUD envelope and finite aim/guard travel. Batch/pause helper probe is separate synthetic mirrored metadata, not a simultaneous rule hit. --shake-off requires exact zero displayed offsets in every observed frame. PNG files written after live timing. No OS/human play, audio listening, physical-pixel alpha collision or subjective-feel approval.",
+      "failures": [
+        "Could not stage genuine swept arena_mounted_0_shield_slow_solid",
+        "Could not stage genuine swept arena_mounted_1_shield_slow_solid"
+      ]
+    },
+    {
+      "name": "r2-feedback02",
+      "report": "logs/perf088/r2-feedback02/report.json",
+      "sha256": "574c63257c68272e2e3dd351644b3194029c0eb8c3debdf4c50ceab192ea10d2",
+      "passed": true,
+      "exit": 0,
+      "unexpected": null,
+      "seconds": 21.1064828,
+      "peak_private_mib": 734.3,
+      "minimum_available_ram_mib": 1325.0,
+      "scope": "PERF-088 waits for the normal staged Main presentation before configuring the inherited genuine Model sweeps and live Battle/GPU contact sequence from v057. Default: body, opposite-facing head, both solid shield directions, slow-off solid shield. --suite=solid selects the two shield directions. V058 records pre-hit versus contact/read zoom, logical screen-space shake, common-canvas tip/head/shield/grips, full mounted vertical HUD envelope and finite aim/guard travel. Batch/pause helper probe is separate synthetic mirrored metadata, not a simultaneous rule hit. --shake-off requires exact zero displayed offsets in every observed frame. PNG files written after live timing. No OS/human play, audio listening, physical-pixel alpha collision or subjective-feel approval.",
+      "failures": [],
+      "cases": [
+        {
+          "name": "arena_mounted_0_body_slow",
+          "feedback": {
+            "actual_contact_strength": 1.0,
+            "contact_read_peak_zoom": 1.18181729316711,
+            "max_render_interval_seconds": 0.034,
+            "peak_shake_screen_px": 29.7279891967773,
+            "pre_contact_zoom": 0.920227289199829,
+            "read_duration_seconds": 0.279,
+            "read_max_scale": 0.28,
+            "read_min_scale": 0.28,
+            "read_observed_end": 0.45,
+            "read_observed_start": 0.171,
+            "restored_scale_one": true,
+            "shake_disabled": false,
+            "zoom_gain_fraction": 0.284266731749226
+          },
+          "head_response_px": 53.1322784423828,
+          "shield_compression": 0.0
+        },
+        {
+          "name": "arena_mounted_1_head_slow",
+          "feedback": {
+            "actual_contact_strength": 0.82838463248672,
+            "contact_read_peak_zoom": 1.18181705474854,
+            "max_render_interval_seconds": 0.024,
+            "peak_shake_screen_px": 25.8102283477783,
+            "pre_contact_zoom": 0.920227289199829,
+            "read_duration_seconds": 0.276,
+            "read_max_scale": 0.28,
+            "read_min_scale": 0.28,
+            "read_observed_end": 0.437851538974602,
+            "read_observed_start": 0.161851538974602,
+            "restored_scale_one": true,
+            "shake_disabled": false,
+            "zoom_gain_fraction": 0.284266472662605
+          },
+          "head_response_px": 44.2130546569824,
+          "shield_compression": 0.0
+        },
+        {
+          "name": "arena_mounted_0_shield_slow_solid",
+          "feedback": {
+            "actual_contact_strength": 0.75,
+            "contact_read_peak_zoom": 1.18181574344635,
+            "max_render_interval_seconds": 0.028,
+            "peak_shake_screen_px": 24.3127212524414,
+            "pre_contact_zoom": 0.920227289199829,
+            "read_duration_seconds": 0.285,
+            "read_max_scale": 0.28,
+            "read_min_scale": 0.28,
+            "read_observed_end": 0.42055,
+            "read_observed_start": 0.13555,
+            "restored_scale_one": true,
+            "shake_disabled": false,
+            "zoom_gain_fraction": 0.284265047686188
+          },
+          "head_response_px": 15.442964553833,
+          "shield_compression": 11.5071672144278
+        },
+        {
+          "name": "arena_mounted_1_shield_slow_solid",
+          "feedback": {
+            "actual_contact_strength": 0.75,
+            "contact_read_peak_zoom": 1.18181598186493,
+            "max_render_interval_seconds": 0.025,
+            "peak_shake_screen_px": 24.3127212524414,
+            "pre_contact_zoom": 0.920227289199829,
+            "read_duration_seconds": 0.279,
+            "read_max_scale": 0.28,
+            "read_min_scale": 0.28,
+            "read_observed_end": 0.41455,
+            "read_observed_start": 0.13555,
+            "restored_scale_one": true,
+            "shake_disabled": false,
+            "zoom_gain_fraction": 0.284265306772809
+          },
+          "head_response_px": 15.4416828155518,
+          "shield_compression": 11.5062018276058
+        },
+        {
+          "name": "arena_mounted_0_shield_off_solid",
+          "feedback": {
+            "actual_contact_strength": 0.75,
+            "contact_read_peak_zoom": 1.1802796125412,
+            "max_render_interval_seconds": 0.027,
+            "peak_shake_screen_px": 24.3127212524414,
+            "pre_contact_zoom": 0.920227289199829,
+            "read_duration_seconds": -1.0,
+            "read_max_scale": 0.0,
+            "read_min_scale": 1.0,
+            "read_observed_end": -1.0,
+            "read_observed_start": -1.0,
+            "restored_scale_one": true,
+            "shake_disabled": false,
+            "zoom_gain_fraction": 0.282595752585749
+          },
+          "head_response_px": 14.9297027587891,
+          "shield_compression": 11.5071672144278
+        }
+      ]
+    },
+    {
+      "name": "r2-turn-probe01",
+      "report": "logs/perf088/r2-turn-probe01/report.json",
+      "sha256": "b648118428cdef6b7e1001666b94e15dedeeeca1dec0f1d8e96f1025943d6d5b",
+      "passed": true,
+      "exit": 0,
+      "unexpected": null,
+      "seconds": 127.7576346,
+      "peak_private_mib": 653.2,
+      "minimum_available_ram_mib": 1389.0,
+      "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+      "failures": [],
+      "frames": {
+        "fps": 58.0284536239541,
+        "frames": 6964,
+        "max_ms": 43.502,
+        "over_33ms": 20,
+        "over_50ms": 0,
+        "p50_ms": 16.811,
+        "p95_ms": 23.047,
+        "p99_ms": 27.721
+      },
+      "phases": {
+        "charge": {
+          "fps": 58.344004176524,
+          "frames": 4813,
+          "max_ms": 35.488,
+          "over_33ms": 1,
+          "over_50ms": 0,
+          "p50_ms": 16.851,
+          "p95_ms": 22.983,
+          "p99_ms": 25.834
+        },
+        "contact": {
+          "fps": 55.4381475541736,
+          "frames": 265,
+          "max_ms": 38.549,
+          "over_33ms": 2,
+          "over_50ms": 0,
+          "p50_ms": 17.161,
+          "p95_ms": 25.349,
+          "p99_ms": 30.937
+        },
+        "ended": {
+          "fps": 49.5056262598227,
+          "frames": 272,
+          "max_ms": 43.502,
+          "over_33ms": 16,
+          "over_50ms": 0,
+          "p50_ms": 17.293,
+          "p95_ms": 33.537,
+          "p99_ms": 40.073
+        },
+        "ready": {
+          "fps": 59.5201118397418,
+          "frames": 984,
+          "max_ms": 26.914,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.722,
+          "p95_ms": 20.907,
+          "p99_ms": 23.363
+        },
+        "result": {
+          "fps": 58.9624401792458,
+          "frames": 158,
+          "max_ms": 35.066,
+          "over_33ms": 1,
+          "over_50ms": 0,
+          "p50_ms": 16.666,
+          "p95_ms": 21.762,
+          "p99_ms": 23.761
+        },
+        "turn": {
+          "fps": 58.7774977821457,
+          "frames": 472,
+          "max_ms": 28.074,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.746,
+          "p95_ms": 21.484,
+          "p99_ms": 24.066
+        }
+      },
+      "matches": 2
+    },
+    {
+      "name": "r2-audio01",
+      "report": "logs/perf088/r2-audio01/report.json",
+      "sha256": "2c8ef45d10cd253bf25d6a1f81408d477f202b5bc85edc9647ffb94fbba590f2",
+      "passed": true,
+      "exit": 0,
+      "unexpected": null,
+      "seconds": 2.2608794,
+      "peak_private_mib": 34.6,
+      "minimum_available_ram_mib": 2060.0,
+      "scope": "Real catalogue material fallback and explicit material fixtures, speed-aware contact strength distinct from damage, pure cue selection, bounded variants, original-event immutability, actual PCM/headroom and simultaneous/staggered contact-group peak budget, optional fixed-gain audition WAVs, live long-voice pause/resume, mute and bounded pool. No claim of human listening, whole-Master mix measurement, hardware loudness, real recorded material or player impact satisfaction.",
+      "failures": []
+    },
+    {
+      "name": "r2-zip-inventory01",
+      "report": "logs/perf088/r2-zip-inventory01/report.json",
+      "sha256": "2484fb182ec6fdfcbf1465a2c95d7119617239241ff202db3a141e81e0d0f979",
+      "passed": true,
+      "exit": 0,
+      "unexpected": null,
+      "seconds": 1.2982471,
+      "peak_private_mib": null,
+      "minimum_available_ram_mib": null,
+      "scope": "Actual release engine/PCK load and inventory, no source project or GPU animation acceptance. Separate external script is excluded from distribution.",
+      "failures": []
+    },
+    {
+      "name": "r2-zip-guide01",
+      "report": "logs/perf088/r2-zip-guide01/report.json",
+      "sha256": "bf0dbdd8b1479ee85cdd6a2802e0e29ba8b0c14b4ad4cde772fe7f89498b2d42",
+      "passed": false,
+      "exit": 1,
+      "unexpected": null,
+      "seconds": 185.7517875,
+      "peak_private_mib": 657.4,
+      "minimum_available_ram_mib": 1581.0,
+      "scope": "Real-time background Battle; viewport mouse/guard events and Input.parse_input_event keyboard. No OS input, forced hit or pose changes.",
+      "failures": [
+        "Guided practice did not complete within 180 real seconds",
+        "Completed lesson was not saved",
+        "Lesson completion flag missing from actual saved file",
+        "Completion lacked actual outgoing contact or shield interception"
+      ]
+    },
+    {
+      "name": "r2-zip-guide02",
+      "report": "logs/perf088/r2-zip-guide02/report.json",
+      "sha256": "32ece84becd853cfb1bbbe8c4a548785fa500c25d941e3b28f4497a5720dd5a0",
+      "passed": true,
+      "exit": 0,
+      "unexpected": null,
+      "seconds": 42.0224156,
+      "peak_private_mib": 658.4,
+      "minimum_available_ram_mib": 1740.0,
+      "scope": "Real-time background Battle; viewport mouse/guard events and Input.parse_input_event keyboard. No OS input, forced hit or pose changes.",
+      "failures": [],
+      "compact": true,
+      "elite": true,
+      "resumed": true,
+      "pause_test": true,
+      "wall_seconds": 35.083
+    }
+  ],
+  "final_bundle": {
+    "directory": "builds/LanceAndLaurel-v0.4.42-r2",
+    "version": "0.4.42-r2",
+    "source": "c1e5f0acd7914cf30ca6b76e6a8e9daa75016b65",
+    "manifest_sha256": "edd73f36cae127e591a1ef5ffa43a6b447b2e75706b160e523e01f111718ce22",
+    "files": [
+      {
+        "path": "LanceAndLaurel.exe",
+        "bytes": 44544,
+        "sha256": "A8F8AC72FBB969868B0FFDE469E4EACCEEDB7F60E85BD25B861D1FB96A980F1B"
+      },
+      {
+        "path": "licenses/ASSET-NOTICES.txt",
+        "bytes": 1590,
+        "sha256": "F4B6EBA3D37BAC1A552E7BB9D70DF068F0267120658D691E0AF591F9324A72D5"
+      },
+      {
+        "path": "licenses/GODOT-LICENSE.txt",
+        "bytes": 1149,
+        "sha256": "B0435E3B3E4E55238F05F4B306F30524A1B2E20147810D436EAA554FA6855C80"
+      },
+      {
+        "path": "licenses/GODOT-THIRD-PARTY.txt",
+        "bytes": 91338,
+        "sha256": "25EFD44DF9346C7469B21AE5CB0488CF6FFF63854D4473A6AF95E08508A87B17"
+      },
+      {
+        "path": "licenses/NOTO-SANS-SC-OFL.txt",
+        "bytes": 4388,
+        "sha256": "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9"
+      },
+      {
+        "path": "PLAYER-GUIDE.txt",
+        "bytes": 3566,
+        "sha256": "A48414CE48FA98BDE5FCFBD227DBC090CAF045422930249DDBD6E1EDD33B6D12"
+      },
+      {
+        "path": "RELEASE-NOTES.txt",
+        "bytes": 1036,
+        "sha256": "99C6B2863D31D60C6687E03B43F83041D5FB3E5C20A0631B27CBA32D3590AD32"
+      },
+      {
+        "path": "runtime/LanceAndLaurel.exe",
+        "bytes": 96725504,
+        "sha256": "78CCC576E8F8BFFD7EF6AD6F36EBD72A41E609A1052225A55B3407C96EA84065"
+      },
+      {
+        "path": "runtime/LanceAndLaurel.pck",
+        "bytes": 34201204,
+        "sha256": "08D04F2731BC8EC86528771547513899F52329C3D5063B639C7679E917983AD2"
+      }
+    ],
+    "zip": {
+      "path": "builds/LanceAndLaurel-v0.4.42-r2-Windows.zip",
+      "bytes": 67332346,
+      "sha256": "74afaa0c9770975ead9d4bd8ccd256f2499e5d1b44eb027f54860b3969ac178b"
+    },
+    "zip_check": "logs/perf088/portable01/骑枪 新版/LanceAndLaurel-v0.4.42-r2",
+    "signed": false,
+    "github_binary_release": false
+  },
+  "latest_launch_entry": "builds/LanceAndLaurel-v0.4.42-r2/LanceAndLaurel.exe"
+}

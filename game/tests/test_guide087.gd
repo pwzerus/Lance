@@ -126,6 +126,9 @@ func run() -> void:
 			await capture("08_lesson_result")
 			break
 		var battle=main.battle
+		# PERF-088: the preparation cover intentionally rejects viewport clicks.
+		# Do not mark a held bot press as delivered before the full view is ready.
+		if "presentation_ready" in battle and not battle.presentation_ready:continue
 		var fighter:Dictionary=battle.match_model.fighters[0]
 		if resume_test and guide.step==1 and not resumed:
 			resumed=true

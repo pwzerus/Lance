@@ -7,11 +7,38 @@ var shake_off = false
 var prior_feedback: Dictionary = {}
 var boundary_result: Dictionary = {}
 
-func create_battle(mode_name: String, slow: bool):
-	var battle = super.create_battle(mode_name,slow)
+var prepared_battle
+
+func prepare_feedback_battle(mode_name: String, slow: bool) -> void:
+	root.get_node("GameState").profile.settings.slow_motion = slow
 	root.get_node("GameState").profile.settings.shake = not shake_off
+	main._start_match(mode_name,true)
+	prepared_battle = main.battle
+	# Production now constructs the view over frames. The old fixture assumed
+	# synchronous Main startup; wait for the actual view, then stage contacts.
+	var started = Time.get_ticks_msec()
+	while not prepared_battle.presentation_ready and Time.get_ticks_msec()-started<5000:
+		await process_frame
+	check(prepared_battle.presentation_ready,"Feedback preparation timed out")
+	configure(prepared_battle)
+
+func create_battle(_mode_name: String, _slow: bool):
+	var battle = prepared_battle
+	prepared_battle = null
 	prior_feedback.clear()
 	return battle
+
+func stage_model(model, attacker: int, zone: String, fatal: bool, phase: float, solid: bool = false, broken_fixture: bool = false) -> void:
+	super.stage_model(model,attacker,zone,fatal,phase,solid,broken_fixture)
+	if solid:
+		# FEEL-086 removed lane-depth bias from real thrust elevation. Legacy
+		# v057 used opposite extreme guard heights to cancel that old bias.
+		# A true center strike now uses the same neutral chest guard on both sides.
+		for fighter in model.fighters:
+			fighter.guard = .43
+			fighter.guard_target = .43
+		model.fighters[attacker].aim = aim_for(model,attacker,zone)
+		for fighter in model.fighters: model._cache_pose(fighter)
 
 func observe(battle, actor, elapsed: float) -> Dictionary:
 	var row = super.observe(battle,actor,elapsed)
@@ -111,6 +138,7 @@ func summarize_feedback(summary: Dictionary) -> void:
 
 func live_case(attacker: int, zone: String, fatal: bool, slow: bool, solid: bool = false, broken_fixture: bool = false) -> void:
 	var old_size = cases.size()
+	await prepare_feedback_battle("war" if fatal else "arena",slow)
 	await super.live_case(attacker,zone,fatal,slow,solid,broken_fixture)
 	if cases.size()>old_size: summarize_feedback(cases[-1])
 
@@ -221,6 +249,7 @@ func run() -> void:
 		if case_limit>0 and cases.size()>=case_limit: break
 		await live_case(job[0],job[1],job[2],job[3],job[4],job[5])
 	if not cases.is_empty() and not cases[0].actual_events.is_empty():
+		await prepare_feedback_battle("arena",true)
 		await batch_and_pause_probe(cases[0].actual_events[0])
 	main.sounds.set_enabled(false)
 	main.sounds.stop_all()
@@ -232,7 +261,7 @@ func run() -> void:
 		check(error==OK,"Failed to save feedback screenshot",{"path":item.path,"error":error})
 	images.clear()
 	AudioServer.set_bus_volume_db(0,original_master_db)
-	var report = {"passed":failures.is_empty(),"failures":failures,"examples":examples,"suite":suite,"shake_disabled":shake_off,"cases":cases,"captures":captures,"boundary_probe":boundary_result,"project_version":ProjectSettings.get_setting("application/config/version","unknown"),"scope":"Inherits genuine Model sweeps and live Battle/GPU contact sequence from v057. Default: body, opposite-facing head, both solid shield directions, slow-off solid shield. --suite=solid selects the two shield directions. V058 records pre-hit versus contact/read zoom, logical screen-space shake, common-canvas tip/head/shield/grips, full mounted vertical HUD envelope and finite aim/guard travel. Batch/pause helper probe is separate synthetic mirrored metadata, not a simultaneous rule hit. --shake-off requires exact zero displayed offsets in every observed frame. PNG files written after live timing. No OS/human play, audio listening, physical-pixel alpha collision or subjective-feel approval."}
+	var report = {"passed":failures.is_empty(),"failures":failures,"examples":examples,"suite":suite,"shake_disabled":shake_off,"cases":cases,"captures":captures,"boundary_probe":boundary_result,"project_version":ProjectSettings.get_setting("application/config/version","unknown"),"scope":"PERF-088 waits for the normal staged Main presentation before configuring the inherited genuine Model sweeps and live Battle/GPU contact sequence from v057. Default: body, opposite-facing head, both solid shield directions, slow-off solid shield. --suite=solid selects the two shield directions. V058 records pre-hit versus contact/read zoom, logical screen-space shake, common-canvas tip/head/shield/grips, full mounted vertical HUD envelope and finite aim/guard travel. Batch/pause helper probe is separate synthetic mirrored metadata, not a simultaneous rule hit. --shake-off requires exact zero displayed offsets in every observed frame. PNG files written after live timing. No OS/human play, audio listening, physical-pixel alpha collision or subjective-feel approval."}
 	var file = FileAccess.open(report_path,FileAccess.WRITE)
 	file.store_string(JSON.stringify(report,"\t"))
 	file.close()

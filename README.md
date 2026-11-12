@@ -1,12 +1,14 @@
 # 骑枪与桂冠 · Lance & Laurel
 
-Godot 4.5.1 + GDScript 的 Windows 单机骑枪游戏，当前开发分支为 `codex/v0.4`。当前独立分发候选为 **v0.4.41-r6**，尚未上架商店。源码、实际发布包和验收范围分别记录在 [HANDOFF.md](HANDOFF.md) 与 [最终证据](docs/development/COMM087_FINAL_EVIDENCE.json)，不将自动验证等同真人手感认可。
+Godot 4.5.1 + GDScript 的 Windows 单机骑枪游戏，当前开发分支为 `codex/v0.4`。当前独立分发候选为 **v0.4.42-r2**，尚未上架商店。源码、实际发布包和验收范围分别记录在 [HANDOFF.md](HANDOFF.md) 与 [最终证据](docs/development/PERF088_EVIDENCE.json)，不将自动验证等同真人手感认可。
 
+
+本次重点修复首次入场与重开：完整骑手及HUD按帧准备，倒计时在就绪后开始；保留原有美术与连续动作。本机同条件首次最长帧62.2→25.5ms、后续41.3→19.1ms；仍有少量场间/终局长帧，不能承诺全程锁60FPS。
 ## 开始游戏
 
 本工作区使用根目录 `Play-Latest.cmd`。新版独立包完整解压后，双击最外层 `LanceAndLaurel.exe`；保留旁边的 `runtime` 和 `licenses` 文件夹。外层程序同时启用内存保护，不需要安装 Godot、Codex 或 PowerShell。不要单独搬走 EXE，也不要绕过外层启动 `runtime` 中的游戏。
 
-本地压缩包为 `builds/LanceAndLaurel-v0.4.41-r6-Windows.zip`，约65 MiB；完整解压约125 MiB。GitHub分支保存源码和验收文档，未自动上传二进制Release。上一可运行版本及中间候选保留，只有本根入口指向本次最终候选。
+本地压缩包为 `builds/LanceAndLaurel-v0.4.42-r2-Windows.zip`，约64 MiB；完整解压约125 MiB。GitHub分支保存源码和验收文档，未自动上传二进制Release。上一可运行版本及中间候选保留，只有本根入口指向本次最终候选。
 
 第一次进入建议选择「练习场 → 分步练习」。七项练习依次教会催马、收速、稳定枪线、举盾、前倾回正、观察实际接触和挡住来枪。教练先收枪，再在防守步骤出枪；完成后可直接看小结。自由练习也保留，练习不计战绩、不发奖励。
 

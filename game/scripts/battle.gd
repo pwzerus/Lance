@@ -133,6 +133,7 @@ func _ready() -> void:
 	match_model.fighters[0].guard = GUARD_VALUES[guard_slot]
 	match_model.fighters[0].guard_target = GUARD_VALUES[guard_slot]
 	match_model._cache_pose(match_model.fighters[0])
+	get_window().focus_exited.connect(_on_focus_lost)
 	_build_field()
 	if staged_startup:
 		_show_preparation()
@@ -140,6 +141,8 @@ func _ready() -> void:
 		return
 	for i in range(2): _build_rider(i)
 	_build_battle_details()
+	_build_hud()
+	_update_hud()
 	_finish_presentation()
 
 func _build_rider(i: int) -> void:
@@ -192,13 +195,11 @@ func _build_battle_details() -> void:
 	for i in range(riders.size()):
 		riders[i].stride_phase = i*1.1
 		riders[i].hoof_contact.connect(_on_hoof_contact.bind(i))
-	_build_hud()
-	_update_hud()
 
 func _finish_presentation() -> void:
-	get_window().focus_exited.connect(_on_focus_lost)
 	_update_views()
 	presentation_ready = true
+	queue_redraw() # Restore shadows in the first fully revealed frame.
 	last_visual_time = Time.get_ticks_msec()
 	for rider in riders: rider.set_process(true)
 	if is_instance_valid(preparation_layer):
@@ -216,8 +217,13 @@ func _advance_preparation() -> void:
 	# resources when the player closes/restarts part-way through preparation.
 	match preparation_stage:
 		0, 1: _build_rider(preparation_stage)
-		2: _build_battle_details()
-		3: _finish_presentation()
+		2:
+			_build_battle_details()
+			_build_hud_top()
+		3:
+			_build_hud_bottom()
+			_update_hud()
+		4: _finish_presentation()
 	preparation_stage += 1
 
 func _build_field() -> void:
@@ -275,13 +281,18 @@ func _show_preparation() -> void:
 	var image = TextureRect.new()
 	image.texture = WAR_BACKGROUND if mode=="war" else BACKGROUND
 	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	image.size = Vector2(1440,810)
-	image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	image.size = backdrop.size
+	image.position = backdrop.position
+	image.mouse_filter = Control.MOUSE_FILTER_STOP
 	preparation_layer.add_child(image)
-	var panel = UI.panel(image,Rect2(540,350,360,86),Color(.045,.08,.065,.96))
+	var panel = UI.panel(preparation_layer,Rect2(540,350,360,86),Color(.045,.08,.065,.96))
 	UI.label(panel,"整装待发…",Vector2(35,25),22,UI.GOLD)
 
 func _build_hud() -> void:
+	_build_hud_top()
+	_build_hud_bottom()
+
+func _build_hud_top() -> void:
 	var layer = CanvasLayer.new()
 	add_child(layer)
 	hud = Control.new()
@@ -318,6 +329,8 @@ func _build_hud() -> void:
 		label.autowrap_mode = TextServer.AUTOWRAP_OFF
 		label.clip_text = true
 		label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+
+func _build_hud_bottom() -> void:
 	var bottom = UI.panel(hud,Rect2(0,720,1440,90),Color(.045,.08,.065,.96))
 	UI.label(bottom,"防盾落点 · 右键 / Q 循环",Vector2(18,5),16,UI.MUTED)
 	guard_buttons.clear()
@@ -929,7 +942,11 @@ func _draw_track() -> void:
 		track.draw_polyline(PackedVector2Array([Vector2(x,83),Vector2(x-4,76),Vector2(x+1,80),Vector2(x+4,73)]),Color("777445"),2)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if not presentation_ready: return
+	if not presentation_ready:
+		if event is InputEventKey and event.pressed and not event.echo and KEY_ESCAPE in [event.keycode,event.physical_keycode]:
+			preparation_pause_requested = true
+			get_viewport().set_input_as_handled()
+		return
 	if event is InputEventKey and event.pressed and not event.echo:
 		var keys = [event.keycode,event.physical_keycode]
 		if KEY_ESCAPE in keys:
@@ -1106,7 +1123,6 @@ func _clear_touch() -> void:
 	touch_aim = Vector2.ZERO
 
 func _on_focus_lost() -> void:
-	if not presentation_ready: return
 	if not is_inside_tree():
 		return
 	_clear_touch()

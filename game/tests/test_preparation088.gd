@@ -22,7 +22,7 @@ func run()->void:
  main=load("res://scenes/main.tscn").instantiate();main.smoke_mode=true;root.add_child(main);current_scene=main;main.set_process(false)
  await settle()
  var rows=[]
- for frames in range(5):
+ for frames in range(6):
   main._start_match("arena",false)
   var old=weakref(main.battle)
   for i in range(frames):await process_frame
@@ -30,6 +30,16 @@ func run()->void:
   main._close_battle();main.show_home();await settle()
   check(old.get_ref()==null,"Cancelled preparation retained battle at slice "+str(frames))
   rows.append({"cancel_after_frames":frames,"released":old.get_ref()==null})
+ # Focus loss and Esc must already work before the HUD exists.
+ for trigger in ["focus","escape"]:
+  main._start_match("arena",false)
+  main.battle.autoplay=false
+  if trigger=="focus":main.battle._on_focus_lost()
+  else:
+   var key=InputEventKey.new();key.keycode=KEY_ESCAPE;key.physical_keycode=KEY_ESCAPE;key.pressed=true;root.push_input(key,true)
+  await prepared()
+  check(main.battle.paused and paused,"Preparation lost pause request: "+trigger)
+  main.battle._toggle_pause();main._close_battle();main.show_home();await settle()
  # Hidden construction must stop, then require explicit Resume after restoring.
  main._start_match("war",false)
  DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MINIMIZED)
@@ -58,6 +68,6 @@ func run()->void:
  for ref in references:check(ref.get_ref()==null,"Restart retained old battle")
  check(state.profile.matches==0,"Cancelled/restarted matches gave rewards")
  rows.append({"replays":references.size(),"buses":AudioServer.bus_count,"resources":Performance.get_monitor(Performance.OBJECT_RESOURCE_COUNT)})
- FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"rows":rows,"scope":"Actual GPU staging, 5 cancellation boundaries, minimized preparation/explicit resume and 12 real replay events; isolated QA, no OS input."},"\t"))
+ FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"rows":rows,"scope":"Actual GPU staging, 6 cancellation boundaries, minimized preparation/explicit resume and 12 real replay events; isolated QA, no OS input."},"\t"))
  print("PREPARATION088 ",failures)
  main.notification(Node.NOTIFICATION_WM_CLOSE_REQUEST)

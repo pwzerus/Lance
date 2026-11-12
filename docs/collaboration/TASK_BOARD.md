@@ -389,3 +389,6 @@ COMM-087 策略审查扩展（06:46 UTC）：Codex认领game/tests/test_tactics0
 
 
 COMM-087交出 / 2026-11-11 07:14:13 UTC：01:13:30以来所有本轮认领（含test_tactics082.gd）释放；没有正在运行的测试留给下一位。保留三份历史差异；下一人先核对实际HEAD和未提交归属，不恢复旧快照。
+
+
+PERF-088 / Codex / 2026-11-12 09:27 America/New_York：接手本地/远程3b6b04dbb48bf4156bf735fe0f803088cc7ce5b9，v0.4.41-r6；仅三份原历史差异，归属已知且保留，无新Claude生产改动。用户要求修首次对局/重开卡顿，再重点验马步与撞击，不降画质/动作、后台、保护不变，导出独立新版并推送。认领game/scripts/main.gd、battle.gd、ui/build_queue.gd、visual/rider_view.gd（仅定位需要，修改前说明证据）、tests/*088*、本轮docs/development/PERF088*、交接/状态/工作/任务文档、project.godot、export_presets.cfg、Play-Latest.cmd、README.md、launcher/RELEASE-NOTES-v0.4.42.txt。暂不改运动或伤害公式，优先度量原实现。引擎串行、QA隔离，不修改内存保护，不覆盖旧包。

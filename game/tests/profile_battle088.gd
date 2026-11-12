@@ -1,0 +1,15 @@
+extends "res://scripts/battle.gd"
+var cost={}
+func note(key:String,start:int)->void:cost[key]=float(cost.get(key,0))+(Time.get_ticks_usec()-start)/1000.0
+func _ready()->void:
+ var start=Time.get_ticks_usec();super._ready();note("ready",start)
+func _build_hud()->void:
+ var start=Time.get_ticks_usec();super._build_hud();note("hud_build",start)
+func _update_hud()->void:
+ var start=Time.get_ticks_usec();super._update_hud();note("hud_update",start)
+func _update_views()->void:
+ var start=Time.get_ticks_usec();super._update_views();note("views",start)
+func _draw_track()->void:
+ var start=Time.get_ticks_usec();super._draw_track();note("track",start)
+func _draw_rail()->void:
+ var start=Time.get_ticks_usec();super._draw_rail();note("rail",start)

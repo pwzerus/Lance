@@ -665,6 +665,7 @@ func _start_match(mode: String, practice: bool = false, guide: PracticeGuide = n
 	reward = {}
 	result_visible = false
 	battle = Battle.new()
+	battle.staged_startup = true
 	battle.mode = mode
 	battle.practice = practice
 	battle.practice_guide = active_guide

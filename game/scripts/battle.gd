@@ -18,6 +18,14 @@ const Guide = preload("res://scripts/core/practice_guide.gd")
 const BACKGROUND = preload("res://assets/art/pixel_v03/tournament_field.png")
 const WAR_BACKGROUND = preload("res://assets/art/pixel_v03/campaign_field.png")
 
+# Main stages first rendering across frames; standalone rule fixtures retain
+# synchronous construction. Gameplay never advances before the full view exists.
+var staged_startup = false
+var presentation_ready = false
+var preparation_pause_requested = false
+var preparation_stage = 0
+var preparation_frame = 0
+var preparation_layer: CanvasLayer
 var match_model: JoustMatch
 var mode = "arena"
 var world: Node2D
@@ -125,6 +133,94 @@ func _ready() -> void:
 	match_model.fighters[0].guard = GUARD_VALUES[guard_slot]
 	match_model.fighters[0].guard_target = GUARD_VALUES[guard_slot]
 	match_model._cache_pose(match_model.fighters[0])
+	_build_field()
+	if staged_startup:
+		_show_preparation()
+		preparation_frame = Engine.get_process_frames()
+		return
+	for i in range(2): _build_rider(i)
+	_build_battle_details()
+	_finish_presentation()
+
+func _build_rider(i: int) -> void:
+	var rider = Rider.new()
+	rider.fighter = match_model.fighters[i]
+	rider.red = i == 1 or int(GameState.profile.region) == 1
+	rider.mode = mode
+	rider.blood_enabled = GameState.profile.settings.blood
+	rider.z_index = 0 if i == 1 else 2
+	match_model.fighters[i]["red"] = rider.red
+	rider.position = Vector2(float(rider.fighter.x),float(rider.fighter.get("lane_y",0.0)))
+	rider.set_process(false)
+	world.add_child(rider)
+	riders.append(rider)
+
+func _build_battle_details() -> void:
+	# A detached rider keeps its mount's effective Z. Draw its main body
+	# after that mount so the near thigh does not vanish at the handover.
+	# The separate far leg stays at its lower Z; the rail still splits lanes.
+	world.move_child(effects,world.get_child_count()-1)
+	rail = Node2D.new()
+	rail.z_index = 1
+	rail.draw.connect(_draw_rail)
+	world.add_child(rail)
+	zone_overlay = preload("res://scripts/visual/hit_zone_overlay.gd").new()
+	zone_overlay.match_model = match_model
+	zone_overlay.z_index = 20
+	zone_overlay.visible = false
+	world.add_child(zone_overlay)
+	combat_cues = Cues.new()
+	combat_cues.match_model = match_model
+	combat_cues.z_index = 19
+	world.add_child(combat_cues)
+	sound = SoundBank.new()
+	sound.enabled = GameState.profile.settings.sound
+	add_child(sound)
+	sound.music.stop()
+	effects.rider_landed.connect(func(impact_speed: float):
+		var cue = sound.landing_cue(impact_speed)
+		if not cue.is_empty():
+			for limited in sound.limit_contact_group([cue]):
+				sound.play(limited.cue,limited.db,limited.pitch))
+	wind = AudioStreamPlayer.new()
+	wind.bus = preload("res://scripts/core/audio_mix.gd").AMBIENCE
+	wind.stream = sound.streams.wind_loop
+	wind.volume_db = -50
+	add_child(wind)
+	if sound.enabled:
+		wind.play()
+	for i in range(riders.size()):
+		riders[i].stride_phase = i*1.1
+		riders[i].hoof_contact.connect(_on_hoof_contact.bind(i))
+	_build_hud()
+	_update_hud()
+
+func _finish_presentation() -> void:
+	get_window().focus_exited.connect(_on_focus_lost)
+	_update_views()
+	presentation_ready = true
+	last_visual_time = Time.get_ticks_msec()
+	for rider in riders: rider.set_process(true)
+	if is_instance_valid(preparation_layer):
+		preparation_layer.hide()
+		preparation_layer.queue_free()
+		preparation_layer = null
+	if preparation_pause_requested: _toggle_pause()
+
+func _advance_preparation() -> void:
+	if not staged_startup or preload("res://scripts/core/window_activity.gd").suspended(): return
+	var frame = Engine.get_process_frames()
+	if frame<=preparation_frame: return
+	preparation_frame = frame
+	# Explicit frame stages have no suspended coroutine stacks to retain
+	# resources when the player closes/restarts part-way through preparation.
+	match preparation_stage:
+		0, 1: _build_rider(preparation_stage)
+		2: _build_battle_details()
+		3: _finish_presentation()
+	preparation_stage += 1
+
+func _build_field() -> void:
 	world = Node2D.new()
 	world.process_mode = Node.PROCESS_MODE_PAUSABLE
 	world.position = Vector2(720,645)
@@ -171,56 +267,19 @@ func _ready() -> void:
 		lane_shape.shape = rectangle.duplicate()
 		lane_ground.add_child(lane_shape)
 		world.add_child(lane_ground)
-	for i in range(2):
-		var rider = Rider.new()
-		rider.fighter = match_model.fighters[i]
-		rider.red = i == 1 or int(GameState.profile.region) == 1
-		rider.mode = mode
-		rider.blood_enabled = GameState.profile.settings.blood
-		rider.z_index = 0 if i == 1 else 2
-		match_model.fighters[i]["red"] = rider.red
-		world.add_child(rider)
-		riders.append(rider)
-	# A detached rider keeps its mount's effective Z. Draw its main body
-	# after that mount so the near thigh does not vanish at the handover.
-	# The separate far leg stays at its lower Z; the rail still splits lanes.
-	world.move_child(effects,world.get_child_count()-1)
-	rail = Node2D.new()
-	rail.z_index = 1
-	rail.draw.connect(_draw_rail)
-	world.add_child(rail)
-	zone_overlay = preload("res://scripts/visual/hit_zone_overlay.gd").new()
-	zone_overlay.match_model = match_model
-	zone_overlay.z_index = 20
-	zone_overlay.visible = false
-	world.add_child(zone_overlay)
-	combat_cues = Cues.new()
-	combat_cues.match_model = match_model
-	combat_cues.z_index = 19
-	world.add_child(combat_cues)
-	sound = SoundBank.new()
-	sound.enabled = GameState.profile.settings.sound
-	add_child(sound)
-	sound.music.stop()
-	effects.rider_landed.connect(func(impact_speed: float):
-		var cue = sound.landing_cue(impact_speed)
-		if not cue.is_empty():
-			for limited in sound.limit_contact_group([cue]):
-				sound.play(limited.cue,limited.db,limited.pitch))
-	wind = AudioStreamPlayer.new()
-	wind.bus = preload("res://scripts/core/audio_mix.gd").AMBIENCE
-	wind.stream = sound.streams.wind_loop
-	wind.volume_db = -50
-	add_child(wind)
-	if sound.enabled:
-		wind.play()
-	for i in range(riders.size()):
-		riders[i].stride_phase = i*1.1
-		riders[i].hoof_contact.connect(_on_hoof_contact.bind(i))
-	_build_hud()
-	_update_hud()
-	get_window().focus_exited.connect(_on_focus_lost)
-	_update_views()
+
+func _show_preparation() -> void:
+	preparation_layer = CanvasLayer.new()
+	preparation_layer.layer = 30
+	add_child(preparation_layer)
+	var image = TextureRect.new()
+	image.texture = WAR_BACKGROUND if mode=="war" else BACKGROUND
+	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	image.size = Vector2(1440,810)
+	image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	preparation_layer.add_child(image)
+	var panel = UI.panel(image,Rect2(540,350,360,86),Color(.045,.08,.065,.96))
+	UI.label(panel,"整装待发…",Vector2(35,25),22,UI.GOLD)
 
 func _build_hud() -> void:
 	var layer = CanvasLayer.new()
@@ -318,6 +377,7 @@ func _pointer_over_hud(point: Vector2) -> bool:
 	return point.x<0.0 or point.x>=1440.0 or point.y<COMBAT_SAFE_RECT.position.y or point.y>=720.0 or (paused and is_instance_valid(pause_panel) and pause_panel.get_global_rect().has_point(point))
 
 func _physics_process(delta: float) -> void:
+	if not presentation_ready: return
 	if preload("res://scripts/core/window_activity.gd").suspended():
 		return
 	if paused or is_finished:
@@ -499,6 +559,9 @@ func _handle_event(event: Dictionary) -> void:
 				rider.visible = true
 
 func _process(delta: float) -> void:
+	if not presentation_ready:
+		_advance_preparation()
+		return
 	var now = Time.get_ticks_msec()
 	if preload("res://scripts/core/window_activity.gd").suspended():
 		last_visual_time = now
@@ -830,6 +893,7 @@ func _exchange_hint() -> String:
 	return "留意来枪 · 枪盾移动需要时间"
 
 func _draw() -> void:
+	if not presentation_ready: return
 	if preload("res://scripts/core/window_activity.gd").suspended():
 		return
 	for i in range(2):
@@ -865,6 +929,7 @@ func _draw_track() -> void:
 		track.draw_polyline(PackedVector2Array([Vector2(x,83),Vector2(x-4,76),Vector2(x+1,80),Vector2(x+4,73)]),Color("777445"),2)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not presentation_ready: return
 	if event is InputEventKey and event.pressed and not event.echo:
 		var keys = [event.keycode,event.physical_keycode]
 		if KEY_ESCAPE in keys:
@@ -923,6 +988,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			_set_pointer_aim(event.position)
 
 func _input(event: InputEvent) -> void:
+	if not presentation_ready: return
 	# Godot supplies viewport coordinates after stretch/DPI conversion. Keep
 	# aiming on this event path rather than polling an OS cursor every tick;
 	# it also supports deterministic replay and injected input verification.
@@ -975,6 +1041,13 @@ func _set_pointer_aim(point: Vector2) -> void:
 		aim_revision += 1
 
 func _toggle_pause() -> void:
+	if not presentation_ready:
+		# Minimize/focus loss can arrive between construction slices. Remember
+		# explicit Resume without touching HUD/audio nodes that do not exist yet.
+		preparation_pause_requested = true
+		if wind: wind.stream_paused = true
+		if sound: sound.set_paused(true)
+		return
 	if is_finished:
 		return
 	paused = not paused
@@ -1033,6 +1106,7 @@ func _clear_touch() -> void:
 	touch_aim = Vector2.ZERO
 
 func _on_focus_lost() -> void:
+	if not presentation_ready: return
 	if not is_inside_tree():
 		return
 	_clear_touch()

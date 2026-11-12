@@ -154,8 +154,9 @@ func _build_rider(i: int) -> void:
 	rider.z_index = 0 if i == 1 else 2
 	match_model.fighters[i]["red"] = rider.red
 	rider.position = Vector2(float(rider.fighter.x),float(rider.fighter.get("lane_y",0.0)))
-	rider.set_process(false)
 	world.add_child(rider)
+	# Godot enables overridden _process during READY; disable after attaching.
+	rider.set_process(false)
 	riders.append(rider)
 
 func _build_battle_details() -> void:

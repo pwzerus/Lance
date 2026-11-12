@@ -25,8 +25,11 @@ func run()->void:
  for frames in range(6):
   main._start_match("arena",false)
   var old=weakref(main.battle)
+  var initial_phase_time=main.battle.match_model.phase_time
   for i in range(frames):await process_frame
-  if not main.battle.presentation_ready:check(main.battle.match_model.phase=="ready","Match advanced during preparation")
+  if not main.battle.presentation_ready:
+   check(main.battle.match_model.phase=="ready" and is_equal_approx(main.battle.match_model.phase_time,initial_phase_time),"Countdown advanced during preparation")
+   for rider in main.battle.riders:check(not rider.is_processing(),"Rider animation enabled before presentation was ready")
   main._close_battle();main.show_home();await settle()
   check(old.get_ref()==null,"Cancelled preparation retained battle at slice "+str(frames))
   rows.append({"cancel_after_frames":frames,"released":old.get_ref()==null})

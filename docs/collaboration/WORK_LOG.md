@@ -1,6 +1,6 @@
 # 开发与交接记录
 
-SYNC-098（2026-11-14，Codex）：按用户要求接收并同步 Claude ART-090 至 FEEL-097 的八批已释放工作。开工实际 HEAD 与远程同为 62f277c；未 reset/stash/pull，未覆盖他人实现。核对候选 .50-c1、213 张 PNG CRC、2 份 JSON、48 个直接资源依赖、UTF-8 与冲突标记；本轮未启动 Godot/游戏，未接管屏幕，保护与旧包不动。八份接收栏已回填，明确区分 Claude 运行证据与 Codex 静态检查；候选不替代 .42-r2 正式入口。历史三份差异与无关 QA 保留。提交及推送结果见 handoffs/2026-11-14-SYNC-098-Codex.md。
+SYNC-098（2026-11-14，Codex）：按用户要求接收并同步 Claude ART-090 至 FEEL-097 的八批已释放工作。开工实际 HEAD 与远程同为 62f277c；未 reset/stash/pull，未覆盖他人实现。核对候选 .50-c1、213 张 PNG CRC、2 份 JSON、48 个直接资源依赖、UTF-8 与冲突标记；本轮未启动 Godot/游戏，未接管屏幕，保护与旧包不动。八份接收栏已回填，明确区分 Claude 运行证据与 Codex 静态检查；候选不替代 .42-r2 正式入口。历史三份差异与无关 QA 保留。已形成 e9d6da0（资源）、350c86d（代码/候选）、24965f5（测试）、ef84ba4（交接）四笔提交；ef84ba4 已推送且 ls-remote 一致，本回执另提交推送。详见 handoffs/2026-11-14-SYNC-098-Codex.md。
 
 FEEL-086推送回执（2026-11-11 01:11 UTC）：完整交付`510ef2c86214aaa0e89dde30ac22eae66d7cce9e`已推送origin codex/v0.4，ls-remote与本地相同。本回执随后单独提交并再次推送核对；运行包仍为8fef1dc的v0.4.40-r3，不重新导出、不覆盖。
 

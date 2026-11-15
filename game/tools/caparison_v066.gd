@@ -14,7 +14,6 @@ extends SceneTree
 ## --out=<new absolute dir> [--install]
 const Coat = preload("res://tools/horse_coat_v063.gd")
 const Heraldry = preload("res://scripts/visual/heraldry.gd")
-const Shield = preload("res://scripts/core/shield_geometry.gd")
 const INSTALL_DIR = "res://assets/art/caparison066"
 const RUNTIME_SIZE = Vector2i(1024,683)
 
@@ -26,10 +25,22 @@ const HEM_HALF = [Vector2(240,592),Vector2(470,600),Vector2(560,596),Vector2(620
 # Half cut leaves the neck bare: cloth only behind this withers->chest line.
 const HALF_FRONT = [Vector2(915,230),Vector2(1150,640)]
 const FULL_FRONT = [Vector2(1236,10),Vector2(1290,330)]
-# Escutcheons on the haunch and the shoulder (and the neck on full cuts):
-# [center, scale]. caparison01 used 1.35/1.2: unreadable at battle size.
-const PANELS = [[Vector2(410,458),1.95],[Vector2(1062,505),1.62]]
-const NECK_PANEL = [Vector2(1150,292),1.15]
+# FEEL-094 (user: "why is the shield copied onto the caparison, and shield-
+# shaped too?"). The cloth no longer carries shield-shaped escutcheons. It is
+# dyed in the arms' tinctures as a cloth-wide livery: the charge repeats as a
+# continuous pattern (bend -> diagonal stripes, pale -> vertical stripes,
+# chequy -> checks, roundels/lozenges/lis -> scattered), so the horse reads as
+# the same house as the shield without wearing a copy of it.
+# Pattern tile, in shield-local units (charges are drawn in an 80x104 frame);
+# LIVERY_SCALE source px per unit. Tile centre offset keeps cuts on the seams.
+const LIVERY_SCALE = 2.1
+const LIVERY_ORIGIN = Vector2(735,420)
+const LIVERY_TILES = {"chequy":[Vector2(40,40),Vector2.ZERO],"quarterly":[Vector2(80,80),Vector2(0,-8)]}
+const LIVERY_STAGGER = ["diamond","fleur","roundels"]
+# Diagonal bands run corner to corner; near a tile corner the band belongs to
+# four tiles, so these sample the neighbouring repeats too (feel094-cap01 had
+# notches at the seams). Not for charges that overhang into the next repeat.
+const LIVERY_WRAP = ["bend","saltire"]
 const STYLES = {
 	# hem cut, border colour ("" = charge tincture), dagged edge, gold fringe
 	"linen":{"hem":"half","border":"","dagged":false,"fringe":false,"cloth_shade":.85,"neck":false},
@@ -38,6 +49,7 @@ const STYLES = {
 
 var out_dir = ""
 var install = false
+var only_designs: PackedStringArray = []
 
 func _initialize() -> void:
 	call_deferred("run")
@@ -46,6 +58,8 @@ func run() -> void:
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--out="): out_dir = arg.trim_prefix("--out=")
 		if arg=="--install": install = true
+		# FEEL-093: bake only some arms (comma list); default all.
+		if arg.begins_with("--designs="): only_designs = arg.trim_prefix("--designs=").split(",")
 	if out_dir.is_empty() or OS.get_environment("GALUMU_MEMORY_BOUND")!="1024" or DirAccess.dir_exists_absolute(out_dir):
 		printerr("CAPARISON066 usage: --out=<new dir> [--install], via Start-MemoryBound")
 		quit(2)
@@ -171,13 +185,21 @@ func paint() -> int:
 		var variants: Array = []
 		for key in Heraldry.ARMS:
 			variants.append([key,1])
-		variants.append(["bend",-1])
+		# FEEL-093: every asymmetric design gets a pre-mirrored cloth.
+		for key in Heraldry.ASYMMETRIC:
+			variants.append([key,-1])
 		for variant in variants:
 			var design: String = variant[0]
 			var facing: int = variant[1]
+			if not only_designs.is_empty() and design not in only_designs:
+				continue
 			var field = Heraldry.field_color(design)
 			var charge = Heraldry.charge_color(design)
 			var border = Color(str(config.border)) if str(config.border)!="" else charge
+			var tile = livery_tile(design,facing)
+			var tile_size: Vector2i = tile.size
+			var tile_mask: PackedByteArray = tile.mask
+			var stagger = design in LIVERY_STAGGER
 			var data = PackedByteArray()
 			data.resize(n*4)
 			for i in range(n):
@@ -185,7 +207,11 @@ func paint() -> int:
 					continue
 				var x = i%w
 				var y = i/w
-				var color = field
+				var rx = x-int(LIVERY_ORIGIN.x)
+				var ry = y-int(LIVERY_ORIGIN.y)
+				if stagger and posmod(floori(float(ry)/tile_size.y),2)==1:
+					rx += tile_size.x/2
+				var color = charge if tile_mask[posmod(ry,tile_size.y)*tile_size.x+posmod(rx,tile_size.x)]==1 else field
 				var e = edge[i]
 				# Border trim band along the hem and front edge.
 				if e<14.0:
@@ -210,13 +236,6 @@ func paint() -> int:
 				data[o+1] = int(clampf(final.g,0,1)*255)
 				data[o+2] = int(clampf(final.b,0,1)*255)
 				data[o+3] = 255
-			# Escutcheons bearing the arms.
-			var panels = PANELS.duplicate()
-			if config.neck:
-				panels.append(NECK_PANEL)
-			var rim = Color("e2bf5a") if style=="velvet" else Color("1d1612")
-			for panel in panels:
-				_paint_escutcheon(data,cloth,shade,w,h,panel[0],float(panel[1]),design,rim,facing)
 			var image = Image.create_from_data(w,h,false,Image.FORMAT_RGBA8,data)
 			var name = "%s_%s%s" % [style,design,"_l" if facing<0 else ""]
 			var runtime = image.duplicate()
@@ -250,38 +269,24 @@ static func _is_saddle_pad(r: int, g: int, b: int) -> bool:
 	var c = Color8(r,g,b)
 	return c.s>.60 and c.v>.62 and (c.h<.15 or c.h>.94)
 
-static func _paint_escutcheon(data: PackedByteArray, cloth: PackedByteArray, shade: PackedFloat32Array, w: int, h: int, center: Vector2, scale: float, design: String, rim: Color = Color("1d1612"), facing: int = 1) -> void:
-	var outline = Shield.outline("heater")
-	var face = PackedVector2Array()
-	for point in outline:
-		face.append(point*scale)
-	var inner = PackedVector2Array()
-	for point in outline:
-		inner.append(point*scale*.88)
-	var charges = Heraldry.clipped_charges(design,inner,scale,facing)
-	var field = Heraldry.field_color(design)
-	var charge = Heraldry.charge_color(design)
-	var bounds = Rect2(center+Vector2(-40,-46)*scale,Vector2(80,98)*scale)
-	for y in range(int(bounds.position.y),int(bounds.end.y)+1):
-		for x in range(int(bounds.position.x),int(bounds.end.x)+1):
-			if x<0 or y<0 or x>=w or y>=h:
-				continue
-			var i = y*w+x
-			if cloth[i]==0:
-				continue
-			var local = Vector2(x,y)-center
-			if not Geometry2D.is_point_in_polygon(local,face):
-				continue
-			var color = rim
-			if Geometry2D.is_point_in_polygon(local,inner):
-				color = field
-				for piece in charges:
-					if Geometry2D.is_point_in_polygon(local,piece):
-						color = charge
+## FEEL-094: one repeat of the livery pattern as a 0/1 mask (1 = charge),
+## sampled from the same charge polygons the shield uses (overlays such as the
+## mullets on a chief stay field-coloured).
+static func livery_tile(design: String, facing: int) -> Dictionary:
+	var spec: Array = LIVERY_TILES.get(design,[Vector2(80,104),Vector2.ZERO])
+	var period: Vector2 = spec[0]
+	var offset: Vector2 = spec[1]
+	var size = Vector2i(roundi(period.x*LIVERY_SCALE),roundi(period.y*LIVERY_SCALE))
+	var mask = PackedByteArray()
+	mask.resize(size.x*size.y)
+	for ty in range(size.y):
+		for tx in range(size.x):
+			var local = Vector2((tx+.5)/size.x-.5,(ty+.5)/size.y-.5)*period+offset
+			var hit = Heraldry.charge_contains(design,local,facing)
+			if not hit and design in LIVERY_WRAP:
+				for shift in [Vector2(period.x,period.y),Vector2(-period.x,-period.y),Vector2(period.x,-period.y),Vector2(-period.x,period.y),Vector2(period.x,0),Vector2(-period.x,0),Vector2(0,period.y),Vector2(0,-period.y)]:
+					if Heraldry.charge_contains(design,local+shift,facing):
+						hit = true
 						break
-				color = color*lerpf(.80,1.05,shade[i])
-			var o = i*4
-			data[o] = int(clampf(color.r,0,1)*255)
-			data[o+1] = int(clampf(color.g,0,1)*255)
-			data[o+2] = int(clampf(color.b,0,1)*255)
-			data[o+3] = 255
+			mask[ty*size.x+tx] = 1 if hit else 0
+	return {"size":size,"mask":mask}

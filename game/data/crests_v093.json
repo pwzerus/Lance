@@ -1,0 +1,18 @@
+[
+  {"id":"crest_saltire","name":"银地红斜十字","slot":"crest","era":0,"price":140,"stats":{"heraldry":"saltire"},"region":"虚构纹章",
+   "description":"斜十字贯穿盾面，远处一眼可辨。","source":"S26","appearance":"","historical_note":"虚构纹章；寻常纹样（斜十字）形制参考纹章学，不代表特定家族。","historical_window":"1100–1300 主题窗口"},
+  {"id":"crest_quarterly","name":"蓝金四分","slot":"crest","era":0,"price":150,"stats":{"heraldry":"quarterly"},"region":"虚构纹章",
+   "description":"盾面四分，蓝金对角。朝向改变时保持右上为首位。","source":"S26","appearance":"","historical_note":"虚构纹章；四分法是中世纪常见分割，此处不表示联姻纹章。","historical_window":"1100–1300 主题窗口"},
+  {"id":"crest_pale","name":"赤地金竖带","slot":"crest","era":0,"price":120,"stats":{"heraldry":"pale"},"region":"虚构纹章",
+   "description":"一道金色竖带，简单醒目。","source":"S26","appearance":"","historical_note":"虚构纹章；竖带为基本寻常纹样。","historical_window":"1100–1300 主题窗口"},
+  {"id":"crest_fess","name":"绿地银横带","slot":"crest","era":0,"price":120,"stats":{"heraldry":"fess"},"region":"虚构纹章",
+   "description":"绿底横带，与常见蓝红纹章拉开差别。","source":"S26","appearance":"","historical_note":"虚构纹章；横带为基本寻常纹样。","historical_window":"1100–1300 主题窗口"},
+  {"id":"crest_chequy","name":"蓝银方格","slot":"crest","era":1,"price":220,"stats":{"heraldry":"chequy"},"region":"虚构纹章",
+   "description":"方格铺满盾面，近看繁复，远看仍是鲜明的蓝白。","source":"S26","appearance":"","historical_note":"虚构纹章；方格（chequy）形制参考纹章学。","historical_window":"1300–1400 主题窗口"},
+  {"id":"crest_roundels","name":"金地三红圆","slot":"crest","era":1,"price":200,"stats":{"heraldry":"roundels"},"region":"虚构纹章",
+   "description":"三枚红圆两上一下排列。","source":"S26","appearance":"","historical_note":"虚构纹章；圆饼图形参考纹章学，不代表特定家族。","historical_window":"1300–1400 主题窗口"},
+  {"id":"crest_chief","name":"银地黑首三星","slot":"crest","era":1,"price":240,"stats":{"heraldry":"chief"},"region":"虚构纹章",
+   "description":"黑色盾首上留出三颗银星。","source":"S26","appearance":"","historical_note":"虚构纹章；盾首与星形参考纹章学。","historical_window":"1300–1400 主题窗口"},
+  {"id":"crest_fleur","name":"蓝地金百合","slot":"crest","era":2,"price":320,"stats":{"heraldry":"fleur"},"region":"虚构纹章",
+   "description":"一朵大金百合居中。游戏中为虚构身份，不代表王室纹章。","source":"S26","appearance":"","historical_note":"虚构纹章；单朵百合为常见图形，散布百合的王室纹章不在此列。","historical_window":"1400–1470 主题窗口"}
+]

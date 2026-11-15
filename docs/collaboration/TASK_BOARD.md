@@ -1,5 +1,73 @@
 # 任务、审查建议与文件认领
 
+## SYNC-098 认领（2026-11-14，Codex）
+
+- 用户授权：把目前本地进度同步到 GitHub。
+- 实际基线：codex/v0.4 `62f277c9d0894048d650a394b73c6bd23a0db51a`，加 Claude 已交出的 ART-090 至 FEEL-097 八批未提交工作；开工时远程 SHA 相同。
+- 本轮占用：HANDOFF.md、PROJECT_STATE.md、TASK_BOARD.md、WORK_LOG.md、八份 Claude 交接的接收栏、新 SYNC-098 交接与静态检查记录；Play-Claude-Candidate.cmd 仅纠正过期注释。
+- 同步范围：八批代码、数据、美术、工具、测试、设计记录、候选版本配置。保留同一 codex/v0.4 分支，按类别提交。
+- 本轮不改变玩法、不启动游戏、不接管屏幕、不改资源保护、不覆盖发布包。历史三份差异及无关未跟踪 QA/资源不纳入本轮。
+- 状态：同步中；独立引擎复验、画面与真人验收仍待后续，不能因同步即标记已达发布标准。
+
+FEEL-097 / Claude / 2026-11-14：用户要求：被不同部位冲击、击落下马要有明显的动作反馈；冲击力度也要有反馈和好的物理效果（部位 × 力度的组合）；撞击瞬间的子弹时间再长一点、更有视觉效果，配震动；震动要跟双方冲力走，一快一慢时按现实表现。基线：62f277c（本地 = 远程，Codex 无新改动），加上未提交的 ART-090 至 LEVEL-096（均为 Claude）。认领：visual/{exchange_director,rider_view,fallen_rider,horse_gait,impact_fx}.gd；battle.gd（命中、镜头震动、慢动作接线）；core/joust_match.gd（只加表现用的反应弹簧和事件里的双方速度字段，不改伤害、冲量、落马判定）；新 tests/*097*；test_parse065；版本、导出、候选入口和文档。默认后台运行，开内存保护，用隔离 QA 存档；改动不提交，交 Codex 审核。
+
+FEEL-097 交出（2026-11-14）：
+- 骑乘受击按部位 × 力度：头后甩、小腿甩出马镫、马被撞得后坐（慢马更大），重击明显、轻击几乎不动。
+- 落马按双方动量：等速被截停后向后飞，防守快攻方慢则人落在接触点、马跑远，防守慢攻方快则被带飞；失衡落马随马滑落。
+- 子弹时间随强度变长：轻擦约 0.9 秒、重击约 1.3 秒、击落约 1.7 秒（原一律约 0.68 秒），加暗角和顿帧闪白；震动朝更快的一方，等速时以上下顿挫为主；手柄震动。
+- 伤害、冲量、落马判定、计分不变：同种子 8 局逐击一致。
+- 候选包 v0.4.50-c1（PCK 7639865E…），旧包保留，Play-Latest 未改。认领全部释放，改动未提交。见 handoffs/2026-11-14-FEEL-097-Claude.md。
+
+LEVEL-096 / Claude / 2026-11-13：用户要求 FEEL-095 之后再花 1 小时优化。我理解的范围是：在 FEEL-093/094/095 连续改动之后，用大样本复核关卡难度曲线，并把明显的难度尖峰抹平。基线：62f277c，加上未提交的 ART-090 至 FEEL-095（均为 Claude）。认领：core/campaign.gd、core/opponent_ai.gd（如需要）、tests/test_level_diag094.gd，以及版本、导出、候选入口和文档。默认后台运行，开内存保护，用隔离 QA 存档；改动不提交，交 Codex 审核。
+
+LEVEL-096 交出（2026-11-13）：
+- 曲线复核：17 关 × 12 局。
+- 修改：第 5 关尖峰来自第一章快马线的品质 1 马，品质 0 关卡改用新手马；第 5 关 8 → 11/12。
+- 候选包 v0.4.49-c1（PCK 445ACC24…），旧包保留。
+- 认领全部释放，改动未提交。详见 handoffs/2026-11-13-LEVEL-096-Claude.md。
+
+LEVEL-096 追加（2026-11-14，用户同意放缓终章）：
+- 认领并已释放 core/campaign.gd 以及版本、导出、候选入口。
+- 修改：技巧和意识在 1.5 以上增长放缓；长枪手技巧加成 0.15 → 0.05。
+- 效果：终章合计胜率 62%（原 42%）。
+- 候选包 v0.4.49-c2（PCK 9075092E…），c1 保留；改动未提交。
+
+FEEL-095 / Claude / 2026-11-13：用户同意让老练 AI 平滑瞄准，不再自己晃得重心不稳（FEEL-094 中老练 AI 命中瞬间不稳 p90 0.32）。基线：62f277c，加上未提交的 ART-090、ANIM-091、LEVEL-092、FEEL-093、FEEL-094（含追加），均为 Claude 的改动。认领：core/opponent_ai.gd；新 tests/test_ai_steady095.gd；test_parse065；版本、导出、候选入口和文档。默认后台运行，开内存保护，用隔离 QA 存档；改动不提交，交 Codex 审核。
+
+FEEL-095 交出（2026-11-13）：
+- 改动：
+  - 高技巧 AI 的枪尖改为平滑跟踪。
+  - 换盾增加余量，后仰在一回合内保持。
+  - 普通 AI 不变。
+- 效果：老练 AI 命中瞬间的不稳 p90 从 0.19 降到 0.076，重甲对重甲落马率从 40% 降到 15%，得分基本不变。
+- 候选包 v0.4.48-c1（PCK 0C6B1DF8…），旧包保留。
+- 认领全部释放，改动未提交。详见 handoffs/2026-11-13-FEEL-095-Claude.md。
+
+FEEL-094 / Claude / 2026-11-13：用户反馈马衣上照搬了盾牌图案，而且画成了盾形；要求乱动（频繁改姿态、甩枪、换盾、拉缰踢马）更容易重心不稳和落马，并在动作上表现出来；改完后用新数值重新测试（测试时限 30 分钟）。基线 62f277c + 未提交 ART-090、ANIM-091、LEVEL-092、FEEL-093（同为 Claude）。认领：tools/caparison_v066.gd 与重新烘焙的 caparison066 资源；core/joust_match.gd（重心不稳）；visual/rider_view.gd、visual/horse_gait.gd；battle.gd 与 ui/combat_report.gd（提示）；新 tests/*094*；版本、导出、候选入口与文档。默认后台、内存保护、隔离 QA；改动不提交，交 Codex 审核。
+
+FEEL-094交出（2026-11-13）：马衣改为整块布纹（不再贴盾形纹章，45 张重新烘焙），乱动累积重心不稳（降低落马门槛、增加平衡损失，躯干晃动、颠鞍、甩腿、马甩头，HUD 与战报提示）。候选包 v0.4.47-c1（PCK 213123CC…），用 Play-Claude-Candidate.cmd 启动；旧候选包保留，Play-Latest 未改。全部认领释放，改动未提交。见 handoffs/2026-11-13-FEEL-094-Claude.md。
+
+FEEL-094 追加（2026-11-13，用户同意追查）：查明第 1、10 关变难的原因，并做针对性修正。认领：core/campaign.gd、core/joust_match.gd（新增 QA 用的 `unsteady_scale`）、新 tests/test_level_diag094.gd、test_parse065、版本、导出与候选入口（0.4.47-c2）、文档。
+- 结论：与重心不稳无关。原因是 FEEL-093 的数值下，第一章的强韧枪一击正中胸腹，刚好越过新手套装的落马门槛。
+- 修改：第一章对手改用长杆枪。
+- 交出：候选包 v0.4.47-c2（PCK 0662812A…），c1 保留；认领全部释放，改动未提交。详情见 FEEL-094 交接文档的“追加”一节。
+
+FEEL-093 / Claude / 2026-11-13：用户反馈盾牌花纹太少；伤害偏低，几乎见不到击落下马，全被格挡或盔甲挡住，要求改数值；马腿摆动不自然（快—在后方停一下—再快到前方）。基线 62f277c + 未提交 ART-090、ANIM-091、LEVEL-092（同为 Claude）。认领：visual/{heraldry,shield_art,horse_gait,rider_view}.gd；core/joust_match.gd（伤害、冲击、平衡数值）；core/catalogue.gd（新纹章数据加载）；新 data/crests_v093.json；tools/{battle_sprites_v090,caparison_v066}.gd 与重新烘焙的 battle090/caparison066 资源；新 tests/*093*；版本、导出、候选入口与文档。默认后台、内存保护、隔离 QA；改动不提交，交 Codex 审核。
+
+FEEL-093交出（2026-11-13）：12 种纹章（新增 8 种）与盾面暗纹、击落下马数值（TUNING 表，旧值 TUNING_V092 保留）、马腿摆动时序。候选包 v0.4.46-c1（PCK 139A2FAE…），用 Play-Claude-Candidate.cmd 启动；旧候选包保留，Play-Latest 未改。全部认领释放，改动未提交。见 handoffs/2026-11-13-FEEL-093-Claude.md。
+
+LEVEL-092 / Claude / 2026-11-12：用户要求加 80 个关卡，过关得银币；敌人装甲组合、难度与意识各不相同；现在的“正规骑士”AI 太难。基线 62f277c + 未提交 ART-090、ANIM-091（同为 Claude）。认领：新 core/campaign.gd；core/opponent_ai.gd（连续难度参数、正规档放缓）；core/game_state.gd（关卡进度、奖励、存档字段）；battle.gd（关卡对手与 AI 配置）；main.gd（关卡页、结算）；新 tests/*092*；版本、导出、候选入口与文档。默认后台、内存保护、隔离 QA；改动不提交，交 Codex 审核。
+
+LEVEL-092交出（2026-11-12）：80 关卡挑战（关卡页、解锁、过关银币）、7 种对手原型装备组合、AI 连续难度参数、“正规骑士”放缓。候选包 v0.4.45-c1（PCK 3DD2A5CA…），用 Play-Claude-Candidate.cmd 启动；.43-c1、.44-c1 保留，Play-Latest 未改。全部认领释放，改动未提交。见 handoffs/2026-11-12-LEVEL-092-Claude.md。
+
+ANIM-091 / Claude / 2026-11-12：用户反馈马匹动作僵硬像平移、马腿与马身匹配别扭；加速减速只有腿快慢，马和人都没反馈；要求更精细的人马动作和更真实有趣的反馈。基线 62f277c + 未提交 ART-090（同为 Claude）。认领：visual/{horse_gait,rider_view,impact_fx}.gd；core/joust_match.gd（仅新增骑手座位惯性弹簧，不改伤害与计分）；battle.gd（仅蹄尘调用）；新 tests/*091*；版本、导出、候选入口与文档。默认后台、内存保护、隔离 QA；改动不提交，交 Codex 审核。
+
+ANIM-091交出（2026-11-12）：马匹画面层动作（绕马鞍点起伏、加速后坐、减速坐下、头颈尾、站立小动作）、骑手座位惯性（规则共享，头部最多偏移约 9.6 单位）、马刺后踢、扬尘与缰绳。候选包 v0.4.44-c1（PCK 61806C3B…），用 Play-Claude-Candidate.cmd 启动；.43-c1 保留，Play-Latest 未改。全部认领释放，改动未提交。见 handoffs/2026-11-12-ANIM-091-Claude.md。
+
+ART-090 / Claude / 2026-11-12：用户反馈比赛中盔甲花纹、罩袍纹章看不清；铁桶盔仍太宽；要求不同头盔影响视线；骑枪彼此看不出区别、希望画质更好（参考 Bloody Bastards：同为像素风但武器图案可辨）。基线 62f277c（读 .git 引用；Codex PERF-088 已推送，工作区仅其三份历史差异）。认领：新 tools/battle_sprites_v090.gd 与 assets/art/battle090/；visual/{equipment_art,rider_view,head_fit,lance_art,heraldry}.gd；core/{catalogue,opponent_ai}.gd（头盔视野数据、AI 反应）；battle.gd（视野遮罩）；main.gd（详情文字、版本）；新 data/helmet_vision_v090.json；新 tests/*090*；版本、导出、入口与文档。默认后台、内存保护、隔离 QA；改动不提交，交 Codex 审核。
+
+ART-090交出（2026-11-12）：比赛用精灵（24 盔甲 + 40 罩袍纹章变体 + 24 头盔）、大盔收窄、头盔视野（玩家视缝、AI 延迟、设置开关）、骑枪新画法。候选包 v0.4.43-c1（PCK A06B99D2…），用 Play-Claude-Candidate.cmd 启动；Play-Latest 未改。全部认领释放，改动未提交；正式打包需提交后由 Codex 执行。见 handoffs/2026-11-12-ART-090-Claude.md 与 ART090_REVIEW.md。
+
 PERF-088 交付（2026-11-12，纽约）：当前v0.4.42-r2，运行源码c1e5f0acd7914cf30ca6b76e6a8e9daa75016b65，基线3b6b04d。同机首次入场最长62.172→25.458ms、后续最高41.316→19.124ms，完整准备约0.1秒；准备取消/最小化/暂停及12次重开通过。四马皮双向加减速、头胸/双向盾心反馈、声音预算、实际包重甲比赛、中文空格路径解压与七步练习已后台复验。重甲180秒平均59.711FPS，另120秒带诊断58.028FPS；仍有43–48ms少量长帧，不是锁60。最终画面QA峰值734.3MiB，所有原保护不变；无OS接管/真人试玩/硬件听感结论。根Play-Latest已指向.42-r2，旧包保留；独立ZIP已生成，GitHub只推源码/文档。详见PERF-088交接与PERF088_REVIEW/EVIDENCE。交付42dfdc365be007903f142929aa61c25589849a08已推送origin codex/v0.4并以ls-remote核对；本回执单独提交，接手仍以实际HEAD为准，以下旧交付按原日期保留。
 
 最新交出：COMM-087 / 2026-11-11 07:14:13 UTC / v0.4.41-r6。运行eb6074c，最后交接/入口提交随后同步；本轮全部文件占用已释放，下方COMM-087认领是历史记录。独立ZIP与分发/可靠性工程门槛完成，售前真人体验及跨机未验收。下一步优先新玩家具体体验、第二台机器、首次对局约70ms尖峰；历史23FPS/旧偶发绘图问题不再当作当前未修状态。详细状态以HANDOFF与COMM087最终交接为准。

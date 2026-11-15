@@ -1,0 +1,29 @@
+{
+  "task": "SYNC-098",
+  "date": "2026-11-14",
+  "scope": "source-progress checkpoint, not gameplay acceptance",
+  "baseline": "62f277c9d0894048d650a394b73c6bd23a0db51a",
+  "branch": "codex/v0.4",
+  "selected_file_count": 478,
+  "new_files": 438,
+  "png_crc_checked": 213,
+  "json_parsed": 2,
+  "literal_dependencies_checked": 48,
+  "candidate_pck_sha256": "7639865E7599DA8F8BFF41D33DA897A55FBCEC6803BA605F02FA8448BFD3362F",
+  "candidate_pck_expected_match": true,
+  "preserved_historical_differences": {
+    "docs/development/V051_EXPERIENCE_REVIEW.md": "A3633646BD3E5B7A33D08240D31AE76D35664C88440FE7F4A16E77A8AF9BBC22",
+    "docs/development/V051_HISTORY_REVIEW.md": "F82B14AC1ED4691E94A3A625817F473DFF246D97CF6E824AF13E9B7A627DAB55",
+    "game/tests/rules_v045_results.json": "5887E83BC3D9CCD3B8449D66D9C14A579D66162A323964EDC2EBF25912B8187D"
+  },
+  "runtime_validation_this_task": "not run",
+  "screen_takeover": false,
+  "memory_guard_changed": false,
+  "errors": [],
+  "notes": [
+    "Counts describe the 478-file incoming Claude checkpoint before documentation receipts.",
+    "Direct literal load/preload references checked; computed asset paths are not exhaustively verified.",
+    "PCK hash proves identity with the handoff artifact, not that source and PCK have been independently rebuilt or run.",
+    "Claude historical runtime evidence remains local; no independent runtime validation in SYNC-098."
+  ]
+}

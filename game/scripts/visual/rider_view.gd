@@ -70,6 +70,7 @@ var horse_skin: RefCounted
 var horse_coat_key = ""
 var far_hind_skin: RefCounted
 var far_fore_skin: RefCounted
+var visual_pose: Dictionary = {}
 
 func _init() -> void:
 	var pixel_material = ShaderMaterial.new()
@@ -102,7 +103,11 @@ func _process(delta: float) -> void:
 	var reset_cycles = not moving or phase_step<0 or phase_step>=.5
 	var stability = float(fighter.get("stats",{}).get("stability",1.0))
 	var drive = float(fighter.get("motion_drive",0.0))
-	var leg_body = Gait.body(stride_phase,speed,moving,stability,drive)
+	var inertia = Model.seat_inertia(fighter)
+	# ANIM-091: legs and skin share one presentation pose (rule pose + saddle-
+	# pivoted rock/squat/sit, neck, head and tail), so hooves stay on the body.
+	var leg_body = Gait.visual(Gait.body(stride_phase,speed,moving,stability,drive,Condition.fatigue(float(fighter.get("stamina",100.0))),inertia),stride_phase,speed,moving,drive,inertia,clock,float(fighter.get("unsteady",0.0)),float(fighter.get("reaction_horse",0.0)))
+	visual_pose = leg_body
 	for index in range(4):
 		var leg_pose = Gait.leg(index,stride_phase,speed,moving,stability,INF,Vector2.INF,drive,-1,-1,leg_body)
 		var facing = int(fighter.get("direction",1))
@@ -242,11 +247,12 @@ func _draw() -> void:
 	var head_tier = int(fighter.stats.get("helmet_tier",0))
 	var design = str(fighter.stats.get("heraldry","bend"))
 	var armor_red = bool(fighter.stats.get("armor_red",red))
-	var next_key = "%d/%d/%s/%s/%s/%s/%s" % [tier,head_tier,design,armor_red,fighter.stats.get("gilt",false),fighter.stats.get("armor_art",""),fighter.stats.get("helmet_art","")]
+	var next_key = "%d/%d/%s/%s/%s/%s/%s/%d" % [tier,head_tier,design,armor_red,fighter.stats.get("gilt",false),fighter.stats.get("armor_art",""),fighter.stats.get("helmet_art",""),int(fighter.direction)]
 	if next_key != art_key:
 		art_key = next_key
-		torso_texture = Art.torso_for(fighter.stats,armor_red)
-		head_texture = Art.helmet_for(fighter.stats)
+		# ART-090: battle-size sprites; cloth armours carry the rider's arms.
+		torso_texture = Art.battle_torso_for(fighter.stats,design,int(fighter.direction),armor_red)
+		head_texture = Art.battle_helmet_for(fighter.stats)
 		shield_texture = Art.shield(design)
 	var facing = int(fighter.direction)
 	if not detached_pose.is_empty():
@@ -261,12 +267,11 @@ func _draw() -> void:
 		horse_skin = HorseSkin.new()
 		far_hind_skin = HorseSkin.new("hind")
 		far_fore_skin = HorseSkin.new("fore")
-	var stride = stride_phase
-	var horse_pose = Gait.body(stride,float(fighter.get("speed",0.0)),moving,float(fighter.stats.get("stability",1.0)),float(fighter.get("motion_drive",0.0)),Condition.fatigue(float(fighter.get("stamina",100.0))))
+	var horse_pose = _visual_body()
 	var cloth_style = str(fighter.stats.get("caparison_style","none"))
 	# EQUIP-067: facing left mirrors the horse; the bend uses a pre-mirrored
 	# cloth so it stays dexter chief to sinister base on screen.
-	var cloth_design = design+("_l" if design=="bend" and int(fighter.direction)<0 else "")
+	var cloth_design = preload("res://scripts/visual/heraldry.gd").mirrored_key(design,int(fighter.direction))
 	var coat_key = str(fighter.stats.get("horse_coat","bay"))+"/"+cloth_style+"/"+cloth_design
 	if horse_coat_key!=coat_key:
 		var coat_name = str(fighter.stats.get("horse_coat","bay"))
@@ -293,7 +298,9 @@ func _draw() -> void:
 	var rein_hand = (Model.shield_grip(fighter)-Vector2(fighter.x,fighter.get("lane_y",0)))*Vector2(facing,1)
 	if fighter.get("ko",false) or fighter.get("dead",false):
 		rein_hand = Model.HIP+Vector2(8,20)+horse_pose.offset
-	draw_polyline(PackedVector2Array([muzzle,muzzle.lerp(rein_hand,.55)+Vector2(0,20),rein_hand]),Color("493628"),2.5,true)
+	# Reins give on a driving launch and go taut when the horse is checked.
+	var rein_sag = 20.0+6.0*float(horse_pose.get("push",0.0))-17.0*float(horse_pose.get("brake",0.0))
+	draw_polyline(PackedVector2Array([muzzle,muzzle.lerp(rein_hand,.55)+Vector2(0,rein_sag),rein_hand]),Color("493628"),2.5,true)
 	if bool(fighter.get("ko",false)) or bool(fighter.get("dead",false)):
 		draw_set_transform(Vector2.ZERO)
 		return
@@ -403,8 +410,17 @@ func _draw_horse_leg(index: int, tint: Color, _upper: bool = true, _lower: bool 
 		return
 	var pose = _horse_leg_pose(index)
 	var skin = far_hind_skin if index==0 else far_fore_skin
-	skin.update(Model.gait_pose(fighter),pose,pose)
+	skin.update(_visual_body(),pose,pose)
 	skin.draw(self,tint)
+
+func _visual_body() -> Dictionary:
+	if leg_poses.size()==4 and not visual_pose.is_empty():
+		return visual_pose
+	# Before the first process tick: same construction as _process.
+	var speed = float(fighter.get("speed",0.0))
+	var drive = float(fighter.get("motion_drive",0.0))
+	var inertia = Model.seat_inertia(fighter)
+	return Gait.visual(Gait.body(stride_phase,speed,moving,float(fighter.stats.get("stability",1.0)),drive,Condition.fatigue(float(fighter.get("stamina",100.0))),inertia),stride_phase,speed,moving,drive,inertia,clock,float(fighter.get("unsteady",0.0)),float(fighter.get("reaction_horse",0.0)))
 
 func _horse_leg_pose(index: int) -> Dictionary:
 	if leg_poses.size()==4:
@@ -492,6 +508,28 @@ static func seated_leg_pose(value: Dictionary) -> Dictionary:
 	var lean = clampf(float(value.get("lean",0.0)),-1.0,1.0)
 	var result = {}
 	var reaction_slide = clampf(float(value.get("reaction_shift",0.0)),-6.0,6.0)
+	# ANIM-091: the spur is a visible heel jab. Holding the spur kicks once per
+	# stride (fading as the horse reaches full gallop); the moment the horse
+	# surges ahead of the seat both heels drive back hard. Checking the horse
+	# braces the legs forward, heels down. Legs are art only, not hit targets.
+	var drive = float(value.get("motion_drive",0.0))
+	var inertia = Model.seat_inertia(value)
+	var kick = 0.0
+	if bool(value.get("boost",false)) and activity>0.0:
+		var urge = 1.0-.65*smoothstep(380,480,speed)
+		kick = pow(maxf(0.0,sin(phase-.6)),6.0)*urge
+	kick = clampf(maxf(kick,inertia*1.7),0.0,1.0)
+	var check = clampf(-drive,0.0,1.0)*activity
+	# FEEL-094: an unsteady rider bounces out of the saddle (same lift as the
+	# rule torso) and the lower legs flap instead of hanging quiet.
+	var unsteady = clampf(float(value.get("unsteady",0.0)),0.0,1.0)
+	var lift = Model.seat_lift(value)
+	var flap = Vector2(-sin(phase+.4)*9.0,-absf(sin(phase+.4))*4.0)*unsteady*activity
+	# FEEL-097: a lance blow throws the lower legs forward and up, out of the
+	# stirrups, while the torso is carried back; the spring overshoot swings
+	# them back past the girth before they find the irons again.
+	var fling = clampf(float(value.get("reaction_legs",0.0)),-.6,1.5)
+	var thrown = Vector2(42.0,-38.0)*maxf(fling,0.0)+Vector2(-16.0,6.0)*minf(fling,0.0)
 	for side in ["far","near"]:
 		var far = side=="far"
 		var hip_offset = Vector2(14,-8) if far else Vector2(-11,3)
@@ -499,12 +537,18 @@ static func seated_leg_pose(value: Dictionary) -> Dictionary:
 		var rest_ankle = Vector2(10,78) if far else Vector2(7,82)
 		var hip = pivot+hip_offset
 		hip.x += reaction_slide
+		hip.y -= lift
 		# The stirrup leather swings a little behind the stride; bracing in a
 		# lean pushes the feet forward (more when leaning back) and heels down.
 		var swing = Vector2(-sin(phase-1.1+(.35 if far else 0.0))*(1.4*w.y+2.8*run),
 			cos(phase-1.1)*(.5*w.y+.9*run))*activity
 		var brace = Vector2((3.0 if lean>0.0 else 8.0)*absf(lean),-1.5*absf(lean))
-		var ankle = saddle+(hip_offset+rest_ankle).rotated(pitch*.6)+swing+brace
+		var spur = Vector2(-15.0,-8.0)*kick*(1.0 if far else .9)+Vector2(9.0,3.0)*check
+		var ankle = saddle+(hip_offset+rest_ankle).rotated(pitch*.6)+swing+brace+spur+flap*(1.0 if far else .85)
+		# The iron hangs from its leather and trails only a fraction of a thrown
+		# foot. Without a blow it stays exactly under the boot as before.
+		var free_iron = ankle+thrown*(.30 if far else .26)+Vector2(9,11)
+		ankle += thrown*(.85 if far else 1.0)
 		var thigh = rest_knee.length()
 		var shin = (rest_ankle-rest_knee).length()
 		var reach = ankle-hip
@@ -514,7 +558,8 @@ static func seated_leg_pose(value: Dictionary) -> Dictionary:
 		# Knee in front of the hip-ankle line, the branch of the measured rest pose.
 		var knee = hip+reach.normalized().rotated(-bend)*thigh
 		var bar = saddle+(hip_offset+Vector2(-3,-1)).rotated(pitch)
-		result[side] = {"hip":hip,"knee":knee,"ankle":ankle,"foot":ankle+Vector2(17,8).rotated(pitch*.6),"bar":bar}
+		var stirrup = (ankle+Vector2(9,11)).lerp(free_iron,smoothstep(.05,.35,absf(fling)))
+		result[side] = {"hip":hip,"knee":knee,"ankle":ankle,"foot":ankle+Vector2(17,8).rotated(pitch*.6),"bar":bar,"stirrup":stirrup}
 	return result
 
 func _draw_seated_leg(pose: Dictionary, tint: Color, near: bool) -> void:
@@ -522,7 +567,7 @@ func _draw_seated_leg(pose: Dictionary, tint: Color, near: bool) -> void:
 	# thigh and boot, but give their knee a shared attachment.
 	# The leather hangs from the saddle bar, not from the rider's moving seat.
 	var strap_top: Vector2 = pose.get("bar",pose.hip+Vector2(-3,-1))
-	var stirrup: Vector2 = pose.ankle+Vector2(9,11)
+	var stirrup: Vector2 = pose.get("stirrup",pose.ankle+Vector2(9,11))
 	var stirrup_tint = Color(tint,tint.a*stirrup_alpha)
 	draw_line(strap_top,stirrup,Color("30261d")*stirrup_tint,4)
 	draw_line(strap_top+Vector2(1,0),stirrup+Vector2(1,0),Color("805b34")*stirrup_tint,2)

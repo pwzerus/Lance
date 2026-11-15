@@ -10,7 +10,10 @@ const SLIM = {
 	"fr_helmet_4":Vector2(.84,.95),  # short-tail sallet, 77 px wide
 	"it_helmet_0":Vector2(.87,.94),  # nasal helm over a full mail hood
 	"eng_helmet_4":Vector2(.89,.95), "eng_helmet_5":Vector2(.89,.95),  # Greenwich close helmets
-	"eng_helmet_1":Vector2(.90,.95), "eng_helmet_2":Vector2(.90,.95), "fr_helmet_1":Vector2(.90,.95), "de_helmet_1":Vector2(.90,.95),  # great helms
+	# Great helms ("bucket" helms). ART-090: user still found them too wide at
+	# .90; a great helm sits close over a padded arming cap, about as wide as
+	# the neck-and-shoulder line, so .78 with the lower edge kept in place.
+	"eng_helmet_1":Vector2(.78,.95), "eng_helmet_2":Vector2(.78,.95), "fr_helmet_1":Vector2(.78,.95), "de_helmet_1":Vector2(.78,.95),
 	"fr_helmet_0":Vector2(.95,.97)}  # kettle hat: the brim is meant to be wide
 static var _loaded = false
 # Layout depends only on the two equipment art IDs, never on pose/appearance.

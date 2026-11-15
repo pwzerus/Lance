@@ -57,6 +57,11 @@ var impact_kick = Vector2.ZERO
 var camera_impact_age = 1.0
 var camera_impact_strength = -1.0
 var camera_impact_attacker = 2147483647
+# FEEL-097: momentum direction, ring length and pitch of the current jolt.
+var impact_drift = 0.0
+var impact_life = .48
+var impact_frequency = 6.5
+var impact_grade: Control
 var noise = FastNoiseLite.new()
 var wheel_lean = 0.0
 var touch_lean = 0.0
@@ -113,6 +118,8 @@ var contact_panel: Control
 var practice = false
 var learned = {"boost":false,"aim":false,"guard":false,"posture":false}
 var practice_guide: Guide
+## LEVEL-092: a campaign level supplies the opponent's kit and AI profile.
+var level: Dictionary = {}
 var aim_revision = 0
 var lesson_reported = false
 var lesson_result_button: Button
@@ -128,6 +135,9 @@ func _ready() -> void:
 		ai_rng.seed = demo_seed+431
 	var player_stats = GameState.player_stats()
 	var enemy_stats = Catalogue.opponent_stats(GameState.items,Catalogue.era_for_renown(int(GameState.profile.renown)))
+	if not level.is_empty():
+		enemy_stats = Catalogue.stats(GameState.items,level.equipment)
+		ai_controller.configure(level.ai)
 	match_model = Model.new(mode, player_stats, enemy_stats, demo_seed if demo_seed else int(Time.get_ticks_usec()))
 	if practice_guide: practice_guide.begin_attempt(match_model.fighters[0])
 	match_model.fighters[0].guard = GUARD_VALUES[guard_slot]
@@ -177,6 +187,20 @@ func _build_battle_details() -> void:
 	combat_cues.match_model = match_model
 	combat_cues.z_index = 19
 	world.add_child(combat_cues)
+	# ART-090: helmet sight mask, above the field and below the HUD layer
+	# (added before the HUD's CanvasLayer at the same layer index).
+	var sight_layer = CanvasLayer.new()
+	add_child(sight_layer)
+	var sight = preload("res://scripts/visual/helmet_view.gd").new()
+	sight.battle = self
+	sight_layer.add_child(sight)
+	# FEEL-097: bullet-time grade (edge vignette while the moment is held and
+	# one soft flash on the freeze), above the field and below the HUD.
+	impact_grade = Control.new()
+	impact_grade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	impact_grade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	impact_grade.draw.connect(_draw_impact_grade)
+	sight_layer.add_child(impact_grade)
 	sound = SoundBank.new()
 	sound.enabled = GameState.profile.settings.sound
 	add_child(sound)
@@ -305,7 +329,10 @@ func _build_hud_top() -> void:
 	# rectangle belongs to the riders, including raised shields and hooves.
 	var top = UI.panel(hud,Rect2(0,0,1440,58),Color(.045,.08,.065,.96))
 	UI.label(top,"LANCE & LAUREL",Vector2(20,12),22,UI.GOLD)
-	UI.label(top,"上马练习 · 教练" if practice_guide else ("练习场 · 无奖励" if practice else (("竞技场" if mode=="arena" else "实战")+" · "+ai_controller.NAMES[int(GameState.profile.settings.difficulty)])),Vector2(290,17),17)
+	var title = "上马练习 · 教练" if practice_guide else ("练习场 · 无奖励" if practice else (("竞技场" if mode=="arena" else "实战")+" · "+ai_controller.NAMES[int(GameState.profile.settings.difficulty)]))
+	if not level.is_empty():
+		title = "第 %d 关 · %s · %s" % [int(level.number),str(level.opponent),str(level.archetype_name)]
+	UI.label(top,title,Vector2(290,17),17,UI.INK,740)
 	pass_label = UI.label(top,"PASS  01 / 03",Vector2(1065,16),20,UI.GOLD)
 	if practice_guide:
 		lesson_result_button = UI.button(top,"查看练习小结",Rect2(1045,8,210,42),func():lesson_exit_requested.emit())
@@ -477,22 +504,48 @@ func _load_camera_impulse(events: Array) -> void:
 	for event in events:
 		if event.get("type","")!="hit": continue
 		var strength = clampf(Exchange.contact_strength(event),.15,1.0)
+		# FEEL-097: an unhorsing blow is always the full jolt.
+		if bool(event.get("ko",false)) or bool(event.get("dead",false)):
+			strength = 1.0
 		var attacker = int(event.attacker)
 		if strength<camera_impact_strength or (strength==camera_impact_strength and attacker>=camera_impact_attacker): continue
 		camera_impact_strength = strength
 		camera_impact_attacker = attacker
 		var direction = int(match_model.fighters[attacker].direction)
+		# FEEL-097: the jolt follows both riders' momentum. A symmetric head-on
+		# meeting stops both masses dead: mostly a vertical crunch. When one
+		# rider is much faster, the pair's momentum carries through the blow
+		# and the frame is thrown sideways in the faster rider's direction.
+		var drift = Exchange.momentum(event,direction)
+		var carry = clampf(absf(drift)*1.8,0.0,1.0)
+		var lateral = signf(drift) if absf(drift)>.05 else float(direction)
 		# Logical screen pixels, converted at the current zoom during rendering.
-		shake = lerpf(5.0,16.0,strength)
-		impact_kick = Vector2(direction*lerpf(10.0,29.0,strength),-lerpf(1.0,5.0,strength))
+		shake = lerpf(5.0,20.0,strength)
+		impact_kick = Vector2(lateral*lerpf(10.0,34.0,strength)*lerpf(.45,1.0,carry),-lerpf(2.0,12.0,strength)*(1.0-.6*carry))
+		impact_drift = drift
+		impact_life = lerpf(.48,.80,strength)
+		impact_frequency = lerpf(7.0,4.5,strength)
+		_rumble(strength,carry)
+
+func _rumble(strength: float, carry: float) -> void:
+	# FEEL-097: controller rumble alongside the camera jolt, same switch.
+	if not GameState.profile.settings.shake:
+		return
+	for device in Input.get_connected_joypads():
+		Input.start_joy_vibration(device,lerpf(.15,.55,strength),lerpf(.25,1.0,strength)*lerpf(1.0,.8,carry),lerpf(.14,.34,strength))
 
 func _contact_camera_offset() -> Vector2:
-	if not GameState.profile.settings.shake or camera_impact_age>=.48:
+	if not GameState.profile.settings.shake or camera_impact_age>=impact_life:
 		return Vector2.ZERO
 	var age = camera_impact_age
-	var envelope = exp(-8.0*age)*(1.0-smoothstep(.35,.48,age))
-	var vibration = Vector2(noise.get_noise_1d(age*80.0),noise.get_noise_1d(age*80.0+100.0))*shake*.35
-	var screen_offset = (impact_kick*cos(age*TAU*6.5)+vibration)*envelope
+	var strength = clampf(camera_impact_strength,.15,1.0)
+	# Heavier strikes ring longer and lower; a tap is a short, fine buzz.
+	var envelope = exp(-lerpf(8.0,5.0,strength)*age)*(1.0-smoothstep(impact_life*.72,impact_life,age))
+	var rate = lerpf(85.0,55.0,strength)
+	var vibration = Vector2(noise.get_noise_1d(age*rate),noise.get_noise_1d(age*rate+100.0))*shake*.35
+	var screen_offset = (impact_kick*cos(age*TAU*impact_frequency)+vibration)*envelope
+	# The pair's net momentum then carries the frame a little after the jolt.
+	screen_offset.x += impact_drift*lerpf(6.0,22.0,strength)*smoothstep(0.0,.18,age)*(1.0-smoothstep(impact_life*.6,impact_life,age))
 	return screen_offset/maxf(.01,camera.zoom.x)
 
 func _on_hoof_contact(leg_index: int, rider_index: int) -> void:
@@ -505,7 +558,14 @@ func _on_hoof_contact(leg_index: int, rider_index: int) -> void:
 		pose = riders[rider_index].leg_poses[leg_index]
 	else:
 		pose = riders[rider_index].Gait.leg(leg_index,riders[rider_index].stride_phase,float(fighter.speed),true)
-	effects.dust(Vector2(float(fighter.x)+pose.foot.x*int(fighter.direction),float(fighter.lane_y)+pose.foot.y),int(fighter.direction),pace)
+	# ANIM-091: a driving launch throws more dirt back off the hinds; a check
+	# makes the sitting hind hooves skid, spraying dirt forward.
+	var drive = float(fighter.get("motion_drive",0.0))
+	var hoof_point = Vector2(float(fighter.x)+pose.foot.x*int(fighter.direction),float(fighter.lane_y)+pose.foot.y)
+	var push = clampf(drive,0,1)*(1.0 if leg_index<2 else .4)
+	effects.dust(hoof_point,int(fighter.direction),clampf(pace+.65*push,0,1))
+	if drive<-.35 and leg_index<2:
+		effects.dust(hoof_point,-int(fighter.direction),clampf(-drive,0,1)*.7)
 	sound.play("hoof",lerpf(-27,-12,pace)-(5 if rider_index==1 else 0),(.88 if leg_index<2 else 1.06)*lerpf(1.04,.94,pace))
 
 func _update_ai(delta: float) -> void:
@@ -533,6 +593,16 @@ func _handle_event(event: Dictionary) -> void:
 			riders[index].receive_contact(event)
 			riders[int(event.attacker)].receive_lance_contact(strength)
 			effects.hit(event.position,int(match_model.fighters[int(event.attacker)].direction),event.damage,event.zone=="shield",event.broke,event.zone,strength)
+			# FEEL-097: a horse knocked back onto its haunches skids its hinds,
+			# spraying dirt forward; the slower horse of the pair skids hardest.
+			for jolted in [int(event.attacker),index]:
+				var mount: Dictionary = match_model.fighters[jolted]
+				var skid = clampf(float(mount.get("reaction_horse_velocity",0.0))/10.0,0.0,1.0)
+				if skid>.25:
+					var facing = int(mount.direction)
+					var hinds = Vector2(float(mount.x)-facing*50.0,float(mount.get("lane_y",0.0))+12.0)
+					effects.dust(hinds,-facing,skid)
+					effects.dust(hinds,facing,skid*.6)
 			if event.broke:
 				effects.break_lance(event,mode,match_model.fighters[int(event.attacker)].stats)
 			var now = Time.get_ticks_msec()
@@ -629,7 +699,32 @@ func _process(delta: float) -> void:
 	if match_model and match_model.phase == "ended" and world:
 		_update_views()
 	_update_hud()
+	if is_instance_valid(impact_grade):
+		impact_grade.queue_redraw()
 	queue_redraw()
+
+func _draw_impact_grade() -> void:
+	# FEEL-097: frames the held moment. Edge bands darken the arena while the
+	# exchange is in bullet time (deeper for heavier strikes and an unhorsing),
+	# and the freeze opens with one soft flash. No strobe, HUD left untouched.
+	if not bool(exchange_state.get("impact_active",false)):
+		return
+	var state = str(exchange_state.get("state","runup"))
+	var strength = clampf(float(exchange_state.get("strength",0.0)),0.0,1.0)
+	var weight = 1.0-float(exchange_state.get("release",0.0)) if state=="release" else 1.0
+	var amount = weight*lerpf(.35,1.0,strength)*(1.15 if bool(exchange_state.get("ko",false)) else 1.0)
+	var safe = COMBAT_SAFE_RECT
+	for band in range(7):
+		var r = safe.grow(-band*14.0)
+		var color = Color(.03,.02,.02,.24*amount*(1.0-band/7.0))
+		impact_grade.draw_rect(Rect2(r.position,Vector2(r.size.x,14)),color)
+		impact_grade.draw_rect(Rect2(Vector2(r.position.x,r.end.y-14),Vector2(r.size.x,14)),color)
+		impact_grade.draw_rect(Rect2(r.position+Vector2(0,14),Vector2(14,r.size.y-28)),color)
+		impact_grade.draw_rect(Rect2(Vector2(r.end.x-14,r.position.y+14),Vector2(14,r.size.y-28)),color)
+	if state=="contact":
+		var flash = (1.0-smoothstep(0.0,.09,float(exchange_state.get("stage_elapsed",0.0))))*lerpf(.08,.20,strength)
+		if flash>.002:
+			impact_grade.draw_rect(safe,Color(1.0,.97,.88,flash))
 
 func _safe_camera_offset(offset: Vector2) -> Vector2:
 	# Camera offsets bypass position framing. Bound the final kick as well,
@@ -826,14 +921,16 @@ func _update_hud() -> void:
 	for i in range(guard_buttons.size()):
 		guard_buttons[i].button_pressed = i==guard_slot
 		guard_buttons[i].disabled = float(f.shield)<=0 or is_finished
-	tactics_label.text = "%s　|　枪稳 %d%%　|　平衡 %d%%　|　盾 %d%%　|　臂力 %d%%" % [guard_text,roundi(float(f.lance_stability)*100),roundi(f.balance),roundi(float(f.shield)/float(f.stats.get("shield_capacity",78.0))*100),roundi(float(f.get("arm",100.0)))]
+	tactics_label.text = "%s　|　枪稳 %d%%　|　平衡 %d%%　|　重心 %d%%　|　盾 %d%%　|　臂力 %d%%" % [guard_text,roundi(float(f.lance_stability)*100),roundi(f.balance),roundi((1.0-float(f.get("unsteady",0.0)))*100),roundi(float(f.shield)/float(f.stats.get("shield_capacity",78.0))*100),roundi(float(f.get("arm",100.0)))]
 	if not training_zones:
 		tactics_label.text = guard_text
 		if mode=="war" and float(f.get("head_load",0.0))>=Model.WAR_HEAD_LOAD_LIMIT*.5:
 			tactics_label.text += "　· 头部重创，谨防再中"
 		elif float(f.hp)<35: tactics_label.text += "　· 重伤"
 		elif float(f.hp)<70: tactics_label.text += "　· 受伤"
-		if float(f.balance)<40: tactics_label.text += "　· 坐姿失衡"
+		# FEEL-094: flailing is the one balance problem the player can fix now.
+		if float(f.get("unsteady",0.0))>.45: tactics_label.text += "　· 重心不稳，别乱动"
+		elif float(f.balance)<40: tactics_label.text += "　· 坐姿失衡"
 		elif not f.broken and float(f.lance_stability)<.65: tactics_label.text += "　· 枪未稳住"
 	if f.broken:
 		tactics_label.text += "　· 枪已断"

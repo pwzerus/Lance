@@ -12,6 +12,7 @@ const PracticeGuide = preload("res://scripts/core/practice_guide.gd")
 const AudioMix = preload("res://scripts/core/audio_mix.gd")
 const EquipmentComparison = preload("res://scripts/ui/equipment_comparison.gd")
 const HorseSkin = preload("res://scripts/visual/horse_skin.gd")
+const Campaign = preload("res://scripts/core/campaign.gd")
 const BACKGROUND = preload("res://assets/art/pixel_v03/tournament_field.png")
 
 class CharacterFaceCanvas extends Node2D:
@@ -94,6 +95,10 @@ var smoke_original_profile: Dictionary = {}
 var smoke_contacts: Array = []
 var smoke_last_report = 0
 var practice_match = false
+## LEVEL-092: the campaign level being played (empty for free matches).
+var current_level: Dictionary = {}
+var level_chapter = -1
+var level_selected = 0
 var active_guide: PracticeGuide
 var appearance_draft: Dictionary = {}
 var character_options: Dictionary = {}
@@ -220,9 +225,12 @@ func show_home() -> void:
 	UI.label(screen,"LANCE  /  LAUREL",Vector2(80,117),17,UI.GOLD)
 	UI.label(screen,"骑枪与桂冠",Vector2(74,155),57,UI.INK)
 	UI.label(screen,"尘土扬起之前，决定这一枪。",Vector2(80,243),23,UI.MUTED)
-	var start = UI.button(screen,"开始游戏",Rect2(78,314,552,76),show_match_setup,true)
-	start.add_theme_font_size_override("font_size",26)
-	UI.label(screen,"选择竞技场或实战，迎向下一位对手。",Vector2(80,407),17,UI.MUTED)
+	var cleared = GameState.profile.get("campaign_cleared",[]).size()
+	var campaign = UI.button(screen,"关卡挑战  %d/%d" % [cleared,Campaign.COUNT],Rect2(78,314,266,76),func():show_levels(),true)
+	campaign.add_theme_font_size_override("font_size",24)
+	var start = UI.button(screen,"自由对战",Rect2(364,314,266,76),show_match_setup)
+	start.add_theme_font_size_override("font_size",24)
+	UI.label(screen,"80 关逐级挑战，过关得银币 · 或自由选择竞技场、实战",Vector2(80,407),17,UI.MUTED,560)
 	UI.button(screen,"军械库",Rect2(78,458,266,72),show_armory)
 	UI.button(screen,"练习场",Rect2(364,458,266,72),show_practice_setup)
 	UI.label(screen,"换上你的纹章与装备",Vector2(94,543),16,UI.MUTED)
@@ -360,8 +368,82 @@ func _cancel_character() -> void:
 	appearance_draft.clear()
 	show_home()
 
+func show_levels(chapter: int = -1, notice: String = "") -> void:
+	# LEVEL-092: eight chapters of ten levels. Level n opens when n-1 is cleared.
+	page = "levels"
+	current_level = {}
+	_clear_screen()
+	var levels = Campaign.levels(GameState.items)
+	var frontier = GameState.campaign_frontier()
+	if chapter<0:
+		chapter = level_chapter if level_chapter>=0 else (frontier-1)/Campaign.PER_CHAPTER
+	level_chapter = clampi(chapter,0,Campaign.CHAPTERS.size()-1)
+	if level_selected<1 or (level_selected-1)/Campaign.PER_CHAPTER!=level_chapter:
+		level_selected = clampi(frontier,level_chapter*Campaign.PER_CHAPTER+1,(level_chapter+1)*Campaign.PER_CHAPTER)
+	var cleared: Array = GameState.profile.get("campaign_cleared",[])
+	_header("关卡挑战 · 已通过 %d / %d" % [cleared.size(),Campaign.COUNT])
+	UI.label(screen,"第 %d 章 · %s" % [level_chapter+1,Campaign.CHAPTERS[level_chapter]],Vector2(60,100),34,UI.INK)
+	UI.label(screen,Campaign.CHAPTER_NOTES[level_chapter],Vector2(64,148),17,UI.MUTED,1100)
+	UI.button(screen,"返回营地",Rect2(1208,100,175,48),show_home)
+	for c in range(Campaign.CHAPTERS.size()):
+		var target = c
+		var first = c*Campaign.PER_CHAPTER+1
+		var tab = UI.button(screen,"%d · %s" % [c+1,Campaign.CHAPTERS[c]],Rect2(60+c*166,180,160,40),func():show_levels(target),c==level_chapter)
+		tab.add_theme_font_size_override("font_size",14)
+		tab.disabled = not GameState.campaign_unlocked(first)
+		if tab.disabled:
+			tab.modulate = Color(1,1,1,.45)
+	for i in range(Campaign.PER_CHAPTER):
+		var level: Dictionary = levels[level_chapter*Campaign.PER_CHAPTER+i]
+		var number = int(level.number)
+		var unlocked = GameState.campaign_unlocked(number)
+		var done = number in cleared
+		var card = UI.panel(screen,Rect2(60+(i%5)*266,234+(i/5)*176,254,164),Color(.10,.16,.12,.96) if number==level_selected else Color(.045,.085,.065,.94))
+		UI.label(card,("第 %d 关" % number)+(" · 冠军" if bool(level.boss) else ""),Vector2(14,8),18,UI.GOLD)
+		UI.label(card,"已通过" if done else ("可挑战" if unlocked else "未解锁"),Vector2(170,10),14,Color("9bd28a") if done else (UI.INK if unlocked else UI.MUTED))
+		UI.label(card,str(level.opponent) if unlocked else "？？？",Vector2(14,38),17,UI.INK if unlocked else UI.MUTED,226)
+		UI.label(card,"%s · %s" % [level.archetype_name,"实战" if level.mode=="war" else "竞技场"],Vector2(14,66),15,UI.MUTED,226)
+		UI.label(card,"品质 %d · %s" % [int(level.quality),Campaign.ai_label(level.ai)],Vector2(14,90),13,UI.MUTED,226)
+		var purse = int(level.reward_coins) if not done else Campaign.replay_coins(number,bool(level.boss))
+		UI.label(card,("重玩 %d 银币" if done else "奖励 %d 银币") % purse,Vector2(14,126),15,UI.GOLD,130)
+		var pick = UI.button(card,"选择" if unlocked else "未解锁",Rect2(150,118,92,36),func():
+			level_selected = number
+			show_levels(level_chapter))
+		pick.add_theme_font_size_override("font_size",14)
+		pick.disabled = not unlocked
+	var selected: Dictionary = levels[level_selected-1]
+	var detail = UI.panel(screen,Rect2(60,594,1320,190),Color(.045,.085,.065,.98))
+	UI.label(detail,"第 %d 关 · %s" % [int(selected.number),str(selected.opponent)],Vector2(22,12),24,UI.GOLD,800)
+	UI.label(detail,"%s · %s · %s · 对手来自%s" % [selected.archetype_name,"实战（可致命）" if selected.mode=="war" else "竞技场",Campaign.ai_label(selected.ai),selected.region],Vector2(22,50),17,UI.INK,860)
+	var kit: Array = []
+	for slot in ["armor","helmet","shield","lance","horse"]:
+		var item = Catalogue.find(GameState.items,str(selected.equipment.get(slot,"")))
+		if not item.is_empty():
+			kit.append(str(item.name).split(" · ")[-1])
+	UI.label(detail,"装备：" + " / ".join(kit),Vector2(22,80),15,UI.MUTED,860)
+	UI.label(detail,"对策：" + str(selected.hint),Vector2(22,110),16,UI.INK,860)
+	var first_clear = int(selected.number) not in cleared
+	UI.label(detail,("首次通关 +%d 银币 +%d 声望" % [int(selected.reward_coins),int(selected.reward_renown)]) if first_clear else ("重复通关 +%d 银币" % Campaign.replay_coins(int(selected.number),bool(selected.boss))),Vector2(22,145),18,UI.GOLD,860)
+	var go = UI.button(detail,"出战",Rect2(960,40,330,70),func():_start_level(int(selected.number)),true)
+	go.add_theme_font_size_override("font_size",26)
+	go.disabled = not GameState.campaign_unlocked(int(selected.number))
+	UI.label(detail,"难度只改变对手装备与判断，不加生命或伤害。",Vector2(960,124),14,UI.MUTED,330)
+	message_label = UI.label(screen,notice,Vector2(64,790),14,Color("efb566"),1300)
+	_queue_opponent_assets(Catalogue.stats(GameState.items,selected.equipment))
+	queue_redraw()
+
+func _start_level(number: int) -> void:
+	if not GameState.campaign_unlocked(number):
+		show_levels(-1,"这一关尚未解锁：先通过上一关。")
+		return
+	current_level = Campaign.level(GameState.items,number)
+	level_selected = number
+	level_chapter = (number-1)/Campaign.PER_CHAPTER
+	_begin_match(str(current_level.mode))
+
 func show_match_setup() -> void:
 	page = "setup"
+	current_level = {}
 	_clear_screen()
 	_header("出战 · 选择模式与对手")
 	UI.label(screen,"选择你的交锋",Vector2(60,115),38,UI.INK)
@@ -410,6 +492,7 @@ func show_match_setup() -> void:
 
 func show_practice_setup() -> void:
 	page = "practice_setup"
+	current_level = {}
 	_clear_screen()
 	_header("练习场 · 先把动作变成直觉")
 	UI.label(screen,"从容上马，再迎向对手",Vector2(60,116),38,UI.INK)
@@ -431,20 +514,21 @@ func show_practice_setup() -> void:
 	_queue_opponent_assets()
 	queue_redraw()
 
-func _queue_opponent_assets() -> void:
+func _queue_opponent_assets(level_opponent: Dictionary = {}) -> void:
 	# COMM-087: a cold opponent coat/cloth cost ~18ms in its first draw.
 	# Prepare only the next opponent using the existing bounded queue slices.
 	# No worker threads, extra persistent texture cache, quality loss or input
 	# delay. Page deletion cancels jobs that have not started; hidden pages stop.
-	var opponent = Catalogue.opponent_stats(GameState.items,Catalogue.era_for_renown(int(GameState.profile.renown)))
+	var opponent = level_opponent if not level_opponent.is_empty() else Catalogue.opponent_stats(GameState.items,Catalogue.era_for_renown(int(GameState.profile.renown)))
 	var preparation = preload("res://scripts/ui/build_queue.gd").new()
 	preparation.name = "OpponentArtPreparation"
 	screen.add_child(preparation)
-	preparation.enqueue(func(): Art.torso_for(opponent))
-	preparation.enqueue(func(): Art.helmet_for(opponent))
-	preparation.enqueue(func(): HorseSkin.coat_texture(str(opponent.get("horse_coat","bay"))))
 	var design = str(opponent.get("heraldry","bend"))
-	var cloth_design = design+"_l" if design=="bend" else design
+	# ART-090: the battle uses the baked battle sprites (opponent faces left).
+	preparation.enqueue(func(): Art.battle_torso_for(opponent,design,-1))
+	preparation.enqueue(func(): Art.battle_helmet_for(opponent))
+	preparation.enqueue(func(): HorseSkin.coat_texture(str(opponent.get("horse_coat","bay"))))
+	var cloth_design = preload("res://scripts/visual/heraldry.gd").mirrored_key(design,-1)
 	preparation.enqueue(func(): HorseSkin.caparison_texture(str(opponent.get("caparison_style","none")),cloth_design))
 
 func show_saves(notice: String = "") -> void:
@@ -669,6 +753,9 @@ func _start_match(mode: String, practice: bool = false, guide: PracticeGuide = n
 	battle.mode = mode
 	battle.practice = practice
 	battle.practice_guide = active_guide
+	if practice:
+		current_level = {}
+	battle.level = current_level
 	battle.autoplay = smoke_mode
 	battle.demo_seed = 271828 if smoke_mode else 0
 	battle.finished.connect(_on_match_finished)
@@ -709,7 +796,12 @@ func _close_battle() -> void:
 func _on_match_finished(result: Dictionary) -> void:
 	pending_result = result
 	var outcome = 0 if int(result.winner) == -1 else (1 if int(result.winner)==0 else -1)
-	reward = {"coins":0,"renown":0} if practice_match else GameState.award_match(session_id,outcome,current_mode)
+	if practice_match:
+		reward = {"coins":0,"renown":0}
+	elif not current_level.is_empty():
+		reward = GameState.award_level(session_id,int(current_level.number),outcome)
+	else:
+		reward = GameState.award_match(session_id,outcome,current_mode)
 
 func _process(_delta: float) -> void:
 	if battle and battle.is_finished and not result_visible:
@@ -727,7 +819,10 @@ func show_result() -> void:
 	var draw = int(result.get("winner",-1)) == -1
 	sounds.play("win" if won else "lose",-9)
 	var panel = UI.panel(screen,Rect2(332,116,776,578),Color(.045,.085,.065,.98))
-	UI.label(panel,"练习结束 · 不计输赢与奖励" if practice_match else (("竞技场" if current_mode=="arena" else "实战")+" · "+preload("res://scripts/core/opponent_ai.gd").NAMES[int(GameState.profile.settings.difficulty)]),Vector2(35,22),16,UI.GOLD)
+	var heading = "练习结束 · 不计输赢与奖励" if practice_match else (("竞技场" if current_mode=="arena" else "实战")+" · "+preload("res://scripts/core/opponent_ai.gd").NAMES[int(GameState.profile.settings.difficulty)])
+	if not current_level.is_empty():
+		heading = "第 %d 关 · %s · %s" % [int(current_level.number),str(current_level.opponent),str(current_level.archetype_name)]
+	UI.label(panel,heading,Vector2(35,22),16,UI.GOLD,520)
 	UI.label(panel,"平分秋色" if draw else ("桂冠属于你" if won else "此番惜败"),Vector2(35,62),42,UI.INK)
 	var explanation = "三次对冲后的骑手状态决胜"
 	if result.get("reason") == "terminal":
@@ -760,7 +855,13 @@ func show_result() -> void:
 		report_scroll.scroll_vertical=0)
 	details.name = "ShowContactDetails"
 	details.set_deferred("size",Vector2(170,42))
-	var reward_label = UI.label(panel,"银币  +%s           声望  +%s" % [reward.get("coins",0),reward.get("renown",0)],Vector2(35,363),23,UI.GOLD)
+	var reward_text = "银币  +%s           声望  +%s" % [reward.get("coins",0),reward.get("renown",0)]
+	if not current_level.is_empty():
+		if won:
+			reward_text = ("首次通关 · " if reward.get("first_clear",false) else "重复通关 · ")+reward_text
+		else:
+			reward_text = "未通过 · 没有奖励 · 可换装备或调整打法再来"
+	var reward_label = UI.label(panel,reward_text,Vector2(35,363),23 if won or current_level.is_empty() else 19,UI.GOLD,706)
 	reward_label.name = "ResultRewards"
 	var next_era = Catalogue.era_for_renown(int(GameState.profile.renown)) + 1
 	var progress = "全部时期已开放；继续收集工坊与纹章。" if next_era >= Catalogue.ERAS.size() else "下一时代：%s · 需要 %d 声望（当前 %d）" % [Catalogue.ERAS[next_era],Catalogue.ERA_REQUIREMENTS[next_era],GameState.profile.renown]
@@ -770,6 +871,21 @@ func show_result() -> void:
 		save_status.name = "PendingRewardSave"
 		UI.button(panel,"重试保存",Rect2(550,432,190,32),func():
 			save_status.text = "奖励与进度已保存。" if GameState.save_profile() else "仍未保存，请检查磁盘空间或写入权限。")
+	if not current_level.is_empty():
+		var number = int(current_level.number)
+		if won and number<Campaign.COUNT:
+			UI.button(panel,"下一关",Rect2(35,470,222,56),func():
+				_close_battle()
+				_start_level(number+1),true)
+		else:
+			UI.button(panel,"重新挑战  R",Rect2(35,470,222,56),func():_start_match(current_mode,practice_match,active_guide),true)
+		UI.button(panel,"关卡列表",Rect2(277,470,222,56),func():
+			_close_battle()
+			show_levels())
+		UI.button(panel,"返回营地",Rect2(519,470,222,56),func():
+			_close_battle()
+			show_home())
+		return
 	UI.button(panel,"再次对冲  R",Rect2(35,470,344,56),func():_start_match(current_mode,practice_match,active_guide),true)
 	UI.button(panel,"返回营地",Rect2(397,470,344,56),func():
 		_close_battle()
@@ -1021,6 +1137,9 @@ func _update_item_panel() -> void:
 		match str(key):
 			"armor": detail += "躯干防护  %d%%   " % roundi(float(value)*100)
 			"helmet": detail += "头部防护  %d%%   " % roundi(float(value)*100)
+			"helmet_vision":
+				# ART-090: closed helms protect more but see less.
+				detail += "视野  %d%%%s   " % [roundi(float(value)*100),"（开面）" if float(value)>=.85 else ("（窄眼缝）" if float(value)<.56 else "（面甲眼缝）")]
 			"power": detail += "冲击修正  ×%.2f   " % value
 			"reach": detail += "枪长  %d   " % value
 			"durability": detail += "耐久  %d   " % value
@@ -1146,7 +1265,9 @@ func show_settings() -> void:
 	UI.label(screen,"操作",Vector2(844,150),32,UI.GOLD)
 	UI.button(screen,"音量与材质试听",Rect2(1105,150,235,45),show_sound_settings)
 	UI.label(screen,"移动鼠标　瞄准；大幅改向会失稳\n左键 / 空格　按住催马，松开减速\n1 / 2 / 3　护头 / 护胸 / 护腹（右键循环）\nW / S　　 前倾支撑 / 后仰避头\nH　　　　 显示判定范围\nEsc　　　 暂停与设置\nR 重开　　F11 全屏",Vector2(844,219),22,UI.INK,510)
-	UI.label(screen,"触控输入已预留：左侧滑动倾身，右侧瞄准，\n右侧额外触点加速；尚未在手机设备验收。",Vector2(844,510),17,UI.MUTED,510)
+	UI.label(screen,"触控输入已预留：左侧滑动倾身，右侧瞄准，\n右侧额外触点加速；尚未在手机设备验收。",Vector2(844,468),17,UI.MUTED,510)
+	# ART-090: closed helmets narrow the view during the charge.
+	UI.check(screen,"闭面头盔遮挡视野（眼缝效果）",bool(GameState.profile.settings.get("helmet_view",true)),Vector2(844,544),func(value):_change_setting("helmet_view",value))
 	UI.check(screen,"接近时放缓与命中慢动作",GameState.profile.settings.slow_motion,Vector2(844,600),func(value):_change_setting("slow_motion",value))
 	UI.check(screen,"显示枪线颜色与部位提示",GameState.profile.settings.aim_cues,Vector2(844,656),func(value):_change_setting("aim_cues",value))
 	queue_redraw()

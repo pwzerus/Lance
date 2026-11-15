@@ -50,6 +50,55 @@ static func equipment_texture(stats: Dictionary, slot: String) -> Texture2D:
 		_textures[id] = region(texture,Rect2(Vector2(float(rectangle[0]),float(rectangle[1]))*ratio,Vector2(float(rectangle[2]),float(rectangle[3]))*ratio))
 	return _textures[id]
 
+## ART-090: battle-size pixel sprites baked by tools/battle_sprites_v090.gd.
+## The ~1250 px plates sampled NEAREST at 45-150 screen px read as speckle;
+## these are box-filtered, palette-reduced and edge-lined at 1.25 texels per
+## world unit, with mipmaps for the zoomed-out run-up. Cloth armours come in
+## the rider's arms; "bend_l" is the pre-mirrored bend for riders facing left.
+const BATTLE_DIR = "res://assets/art/battle090/"
+static var _battle: Dictionary = {}
+
+static func _battle_texture(path: String) -> Texture2D:
+	if _battle.has(path):
+		return _battle[path]
+	var result: Texture2D = null
+	if ResourceLoader.exists(path):
+		var source = load(path) as Texture2D
+		var image = source.get_image() if source!=null else null
+		if image!=null and not image.is_empty():
+			image = image.duplicate()
+			if image.is_compressed():
+				image.decompress()
+			image.generate_mipmaps()
+			var canvas = CanvasTexture.new()
+			canvas.diffuse_texture = ImageTexture.create_from_image(image)
+			canvas.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST_WITH_MIPMAPS
+			result = canvas
+	if _battle.size()>=48:
+		_battle.erase(_battle.keys()[0])
+	_battle[path] = result
+	return result
+
+static func battle_torso_for(stats: Dictionary, design: String, facing: int, red: bool = false) -> Texture2D:
+	var id = str(stats.get("armor_art",""))
+	if not id.is_empty():
+		var variant = preload("res://scripts/visual/heraldry.gd").mirrored_key(design,facing)
+		var dressed = _battle_texture(BATTLE_DIR+"armor/%s__%s.png" % [id,variant])
+		if dressed!=null:
+			return dressed
+		var plain = _battle_texture(BATTLE_DIR+"armor/%s.png" % id)
+		if plain!=null:
+			return plain
+	return torso_for(stats,red)
+
+static func battle_helmet_for(stats: Dictionary) -> Texture2D:
+	var id = str(stats.get("helmet_art",""))
+	if not id.is_empty():
+		var sprite = _battle_texture(BATTLE_DIR+"helmet/%s.png" % id)
+		if sprite!=null:
+			return sprite
+	return helmet_for(stats)
+
 static func torso_for(stats: Dictionary, red: bool = false) -> Texture2D:
 	var texture = equipment_texture(stats,"armor")
 	return texture if texture!=null else torso(int(stats.get("armor_tier",0)),red)

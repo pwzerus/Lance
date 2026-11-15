@@ -108,7 +108,71 @@ static func frequency(speed: float) -> float:
  # only stretched the legs across the ground while their rhythm stayed flat.
  return (.88*w.x+1.40*w.y+1.72*w.z+2.05*w.w)*clampf(speed/100.0,.10,1.12)
 
-static func body(phase: float, speed: float, moving: bool, stability: float = 1.0, drive: float = 0.0, fatigue: float = 0.0) -> Dictionary:
+static func _bump(t: float, center: float, width: float) -> float:
+ var x = (t-center)/maxf(.0001,width)
+ return exp(-x*x)
+
+static func _jolt(out: Dictionary, jolt: float) -> void:
+ # FEEL-097: a lance blow (taken or delivered) knocks the horse back onto its
+ # haunches about the saddle pivot: forehand lifts, head flings up, tail
+ # whips. Same art-only channels as a hard check; rider anchors untouched.
+ if absf(jolt)<.0001:
+  return
+ out.pitch = float(out.pitch)-.11*jolt
+ out.neck = float(out.neck)-.20*jolt
+ out.head = float(out.head)+.22*jolt
+ out.neck_offset = Vector2(out.neck_offset)+Vector2(-5.0,-4.0)*jolt
+ out.tail = float(out.tail)+.35*jolt
+
+static func visual(pose: Dictionary, phase: float, speed: float, moving: bool, drive: float = 0.0, inertia: float = 0.0, clock: float = 0.0, unrest: float = 0.0, jolt: float = 0.0) -> Dictionary:
+ # ANIM-091: presentation-only layer on top of the shared rule pose. Extra
+ # trunk pitch turns about the SADDLE (horse_skin PIVOT, leg hip pivot), so
+ # the seat, rider and every hit anchor stay exactly on the rule pose while
+ # the forehand and croup rock, squat on a spurred launch and sit on a stop.
+ # Neck, head and tail are art only. Offsets and rider_* are never touched.
+ var out = pose.duplicate()
+ if not moving:
+  # A standing horse is not a statue: periodic head lift and shake, a lowered
+  # sniff and a tail swish, deterministic from the presentation clock.
+  var lift = _bump(fposmod(clock,5.3),2.0,.35)
+  var sniff = _bump(fposmod(clock+2.4,7.9),4.0,.9)
+  var swish = _bump(fposmod(clock+1.7,4.1),1.0,.32)
+  out.neck = float(pose.neck)-.075*lift+.06*sniff
+  out.head = float(pose.head)+.045*lift*sin(clock*16.0)-.03*sniff
+  out.tail = float(pose.tail)+.30*swish*sin(clock*9.0)
+  _jolt(out,jolt)
+  return out
+ var w = weights(speed)
+ var run = w.z+w.w
+ var cycle = fposmod(phase/TAU,1)
+ var intensity = smoothstep(0,95,speed)
+ # Launch squat shows even from a standstill; a stop needs some travel.
+ var push = clampf(drive,0.0,1.0)*smoothstep(0,60,speed)
+ var brake = clampf(-drive,0.0,1.0)*intensity
+ var surge = clampf(inertia*1.8,0.0,1.0)
+ # Forehand rises while the hinds are planted and drops onto the leading
+ # fore stance: same phase as back_pitch, so feet and trunk stay matched.
+ var rock = (.032*run*sin(TAU*(cycle-.20))+.010*w.y*sin(TAU*2.0*(cycle-.10)))*intensity
+ out.pitch = float(pose.pitch)+rock-.040*push-.048*brake
+ # The head and neck pump down onto the fore stance in canter and gallop.
+ var nod = (.060*run*cos(TAU*(cycle-.50))+.022*w.y*cos(TAU*2.0*(cycle-.25))+.015*w.x*cos(TAU*(cycle-.30)))*intensity
+ out.neck = float(pose.neck)+nod+.075*push-.13*brake-.06*surge
+ out.head = float(pose.head)-nod*.40+.11*brake+.05*surge
+ out.neck_offset = Vector2(pose.neck_offset)+Vector2(6.0*push-3.0*brake,2.0*push-2.5*brake)
+ out.tail = float(pose.tail)+.20*push-.10*brake+.06*run*sin(TAU*(cycle-.60))*intensity
+ # FEEL-094: a flailing rider jerks the reins; the horse tosses its head and
+ # swishes the tail. Art only (neck/head/tail).
+ unrest = clampf(unrest,0.0,1.0)*intensity
+ if unrest>0.0:
+  out.neck = float(out.neck)-.07*unrest*maxf(0.0,sin(clock*5.1))
+  out.head = float(out.head)+.12*unrest*sin(clock*7.3+.6)
+  out.tail = float(out.tail)+.22*unrest*sin(clock*6.1)
+ _jolt(out,jolt)
+ out["push"] = push
+ out["brake"] = brake
+ return out
+
+static func body(phase: float, speed: float, moving: bool, stability: float = 1.0, drive: float = 0.0, fatigue: float = 0.0, inertia: float = 0.0) -> Dictionary:
  # HORSE-065: fatigue (0 fresh .. 1 spent) lowers the neck and deepens the
  # head nod of a labouring horse. It changes ONLY neck/head, never the saddle
  # offset, pitch or rider values that the rule anchors share.
@@ -152,14 +216,30 @@ static func body(phase: float, speed: float, moving: bool, stability: float = 1.
  # The head counterbalances the SAME trunk loading, instead of bobbing on
  # an unrelated large sine. Acceleration loads the hindquarters and carries
  # the seated rider forward; these offsets are shared with the rule anchors.
+ # ANIM-091: the seat is a lagging spring (joust_match seat_drive). When the
+ # horse surges ahead of it the rider is thrown back and the seat slides
+ # rearward, then he settles into the forward drive lean; a sudden check
+ # pitches him forward. Small, shared with rule anchors (seen = hit).
+ inertia = clampf(inertia,-1.0,1.0)
  return {"offset":Vector2(sin(phase-.4)*run*.55+drive*1.3,height*intensity+absf(drive)*.7),"pitch":pitch*intensity-drive*.018,
   "neck":neck_angle,"head":-neck_angle*.55-pitch*.6+sin(phase-.7)*.012*run*intensity,
   "neck_offset":Vector2(run*(2+2*sin(phase-.3))+3*w.w,run*(1+height*.14))*intensity,
   "tail":(.30*run+sin(phase-1.1)*(.04+.10*run))*intensity,
-  "rider_offset":Vector2(-sin(phase)*run*2.2-drive*1.2,rider_lag*intensity),
+  "rider_offset":Vector2(-sin(phase)*run*2.2-drive*1.2-inertia*4.0,rider_lag*intensity),
   # Sustained forward carriage reads actual travel, not the spur button.
   # Shared by rule anchors and art; no extra vertical bounce or aim jitter.
-  "rider_pitch":(delayed_pitch*.72+waist_follow)*intensity+drive*.060+run*.040+w.w*.025,"gait":gait_index(speed)}
+  "rider_pitch":(delayed_pitch*.72+waist_follow)*intensity+drive*.060+run*.040+w.w*.025-inertia*.10,"gait":gait_index(speed)}
+
+## FEEL-093 (user: "fast, then it pauses at the back, then fast to the
+## front"). The old smootherstep (even with HORSE-065's warp) starts with zero
+## velocity AND zero acceleration, so after lift-off the hoof kept sliding
+## back with the ground for ~17-20% of the swing before it came forward, then
+## whipped through mid-swing. Real hooves break over and come forward at once.
+## Velocity profile 12 t (1-t)^2: zero world speed at lift-off but strong
+## initial acceleration, peak at one third of the swing, gentle touchdown.
+static func delivery(t: float) -> float:
+ t = clampf(t,0.0,1.0)
+ return t*t*(6.0-8.0*t+3.0*t*t)
 
 static func _swing_point(front: bool, t: float, reach: float, lift: float, run: float) -> Vector2:
  # One C1 trajectory, rather than Catmull-Rom sections with different time
@@ -167,19 +247,11 @@ static func _swing_point(front: bool, t: float, reach: float, lift: float, run: 
  # Both feet deliver monotonically to the world landing target; hind feet
  # must not overshoot that target and whip backwards before touchdown.
  var progress = clampf(t,0,1)
- # HORSE-065: forward-skewed delivery. The symmetric curve kept the lifted
- # hoof hanging behind the horse for the first third of the swing, which read
- # as a backward kick/bounce. The leg now folds forward under the body soon
- # after lift-off; start and touchdown still have zero world velocity.
- # Deliver earlier than a symmetric swing without concentrating nearly
- # the whole stride in its first half (the old .55 skew looked like a kick).
- var warped = progress*(1.0+.24*(1.0-progress))
- var delivered = warped*warped*warped*(warped*(6.0*warped-15.0)+10.0)
+ var delivered = delivery(progress)
  # Clear the ground early while the trunk advances over the planted foot.
  # A symmetric sin² hump lifted too late and forced a straight-chain clamp.
- # The apex sits nearer mid-swing so the hoof is high under the belly, not
- # high behind it.
- var apex = (.40 if front else .46)-.03*run
+ # FEEL-093: apex follows the earlier delivery (hoof high under the belly).
+ var apex = (.34 if front else .40)-.03*run
  var lift_weight = smoothstep(0,apex,progress) if progress<apex else 1.0-smoothstep(apex,1.0,progress)
  return Vector2(lerpf(-reach,reach,delivered),-lift*lift_weight)
 
@@ -237,7 +309,8 @@ static func leg(index: int, phase: float, speed: float, moving: bool, stability:
  # Faster stride cycles need less distal toe curl: keep the hoof placing
  # forward cleanly rather than flicking through the old deep fold faster.
  var curl = (.28*w.x+.50*w.y+.65*w.z+.66*w.w)*smoothstep(0,85,speed)
- var toe_angle = 0.0 if contact else -sin(PI*smoothstep(0,.83,swing))*curl
+ # FEEL-093: curl and fold peak earlier, with the earlier hoof delivery.
+ var toe_angle = 0.0 if contact else -sin(PI*smoothstep(0,.72,swing))*curl
  var hoof = FORE_HOOF if front else HIND_HOOF
  var bone = pastern_bone(front)
  var lengths = segment_lengths(front)
@@ -306,7 +379,7 @@ static func leg(index: int, phase: float, speed: float, moving: bool, stability:
    var compression = sin(PI*clampf(cycle/maxf(.01,duty),0,1))
    flex += compression*(.025*w.x+.04*w.y+.055*w.z+.07*w.w if front else .045*w.x+.07*w.y+.09*w.z+.11*w.w)*fold_activity
   else:
-   var fold = sin(PI*smoothstep(0.0,.88 if front else .90,swing))
+   var fold = sin(PI*smoothstep(0.0,.76 if front else .80,swing))
    flex += fold*(.60*w.x+1.10*w.y+1.35*w.z+1.50*w.w if front else .36*w.x+.66*w.y+.90*w.z+1.05*w.w)*fold_activity
  var distal_distance = sqrt(maxf(.0001,upper_length*upper_length+lower_length*lower_length+2.0*upper_length*lower_length*cos(flex)))
  var hip_distance = hip_ray.length()

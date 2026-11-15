@@ -15,6 +15,41 @@ const WAR_HEAD_STABILITY = .80
 # An intact helmet may save the first blow; it is not immunity to repeated
 # clean, supported head strikes. Glances and shield hits do not fill it.
 const WAR_HEAD_LOAD_LIMIT = 60.0
+## FEEL-093 (user: "almost never an unhorsing, everything is blocked or the
+## armour is too strong"). Combat constants in one table so the balance test
+## can replay the old values on the same seeds. A square strike on the shield
+## now carries real momentum into the rider (historically the shield was the
+## target and the usual way to unhorse), armour removes a smaller share of a
+## blow, base damage is higher and the seat gives way sooner.
+const TUNING_V092 = {"damage":19.0,"armor_effect":1.0,"shield_impulse":.28,"shield_glance_impulse":.16,
+	"shield_rider_damage":.09,"shield_glance_damage":.035,"balance_loss":.82,"head_balance_loss":.50,"ko_threshold":96.0}
+const TUNING = {"damage":23.0,"armor_effect":.75,"shield_impulse":.70,"shield_glance_impulse":.22,
+	"shield_rider_damage":.12,"shield_glance_damage":.04,"balance_loss":1.25,"head_balance_loss":.95,"ko_threshold":58.0}
+static var tuning: Dictionary = TUNING
+## FEEL-094 (user: "flailing about should make the seat unsteady and a fall
+## more likely, and show it in the motion"). Every abrupt change of the
+## rider's own motion - lean, lance swing, shield swing, spurring/checking -
+## builds "fidget" (velocity changes beyond a free allowance, so one deliberate
+## move costs almost nothing but repeated jerks stack). It fades with a ~.8 s
+## half-life. Unsteadiness (0..1) lowers the seat's unhorse threshold, raises
+## the balance lost to a hit, and drives a visible loose-seat sway that the
+## hit anchors share (the body you see wobbling is the body that gets hit).
+const FIDGET_FREE = {"lean":3.0,"aim":6.0,"guard":10.0}
+const FIDGET_WEIGHT = {"lean":1.6,"aim":1.5,"guard":.6,"drive":1.4}
+const FIDGET_DECAY = .9
+const UNSTEADY_RANGE = Vector2(4.0,13.0)
+const UNSTEADY_THRESHOLD_LOSS = .40
+const UNSTEADY_BALANCE_GAIN = .70
+## QA A/B only (like `tuning`): 0 switches the whole FEEL-094 seat model off
+## (no fidget, no sway kicks) so benches can replay the same seeds without it.
+static var unsteady_scale: float = 1.0
+# FEEL-097 presentation reactions (never read by hit anchors, damage or KO).
+# Leg and horse kicks grow faster than linearly with loading, so a light touch
+# barely stirs them while a full strike throws the feet and checks the horse.
+const NECK_RANGE = Vector2(-.36,.18)
+const HEAD_WHIP = 9.0
+const LEG_KICK = {"head":11.0,"body":15.0,"flank":17.0,"shield":8.0}
+const HORSE_KICK = 13.0
 const START_X = 2200.0
 const EXIT_X = 850.0
 const TROT_SPEED = 210.0
@@ -62,7 +97,9 @@ func _make_fighter(x: float, direction: int, stats: Dictionary) -> Dictionary:
 		"reaction_neck":0.0,"reaction_neck_velocity":0.0,"arm_rest_delay":0.0,
 		"shield_compression":0.0,"shield_compression_velocity":0.0,"lance_compression":0.0,"lance_compression_velocity":0.0,
 		"shield_twist":0.0,"shield_twist_velocity":0.0,
-		"gait_phase":0.0,"gait_moving":false,"acceleration":0.0,"accel_command":0.0,"motion_drive":0.0,"mount_velocity_y":0.0,"lane_y":32.0 if direction==1 else -32.0}
+		"gait_phase":0.0,"gait_moving":false,"acceleration":0.0,"accel_command":0.0,"motion_drive":0.0,"seat_drive":0.0,"seat_drive_velocity":0.0,"mount_velocity_y":0.0,"lane_y":32.0 if direction==1 else -32.0,
+		"fidget":0.0,"unsteady":0.0,"sway":0.0,"sway_velocity":0.0,
+		"reaction_legs":0.0,"reaction_legs_velocity":0.0,"reaction_horse":0.0,"reaction_horse_velocity":0.0}
 
 func _reset_positions() -> void:
 	for i in range(2):
@@ -74,6 +111,8 @@ func _reset_positions() -> void:
 		fighter.acceleration = 0.0
 		fighter.accel_command = 0.0
 		fighter.motion_drive = 0.0
+		fighter.seat_drive = 0.0
+		fighter.seat_drive_velocity = 0.0
 		fighter.mount_velocity_y = 0.0
 		fighter.balance = minf(100.0,float(fighter.balance)+8.0)
 		fighter.acted = false
@@ -84,7 +123,7 @@ func _reset_positions() -> void:
 		fighter.reaction_neck = 0.0
 		fighter.reaction_neck_velocity = 0.0
 		fighter.arm_rest_delay = 0.0
-		for key in ["reaction_angle","reaction_angular_velocity","reaction_shift","reaction_shift_velocity","shield_compression","shield_compression_velocity","lance_compression","lance_compression_velocity","shield_twist","shield_twist_velocity"]:
+		for key in ["reaction_angle","reaction_angular_velocity","reaction_shift","reaction_shift_velocity","shield_compression","shield_compression_velocity","lance_compression","lance_compression_velocity","shield_twist","shield_twist_velocity","fidget","unsteady","sway","sway_velocity","reaction_legs","reaction_legs_velocity","reaction_horse","reaction_horse_velocity"]:
 			fighter[key] = 0.0
 		if mode == "arena":
 			fighter.broken = false
@@ -92,15 +131,74 @@ func _reset_positions() -> void:
 		_cache_pose(fighter)
 
 static func pose_angle(fighter: Dictionary) -> float:
-	return float(fighter.lean)*(deg_to_rad(25.0) if float(fighter.lean)>=0 else deg_to_rad(45.0))+gait_pose(fighter).rider_pitch+float(fighter.get("reaction_angle",0.0))
+	return float(fighter.lean)*(deg_to_rad(25.0) if float(fighter.lean)>=0 else deg_to_rad(45.0))+gait_pose(fighter).rider_pitch+float(fighter.get("reaction_angle",0.0))+float(fighter.get("sway",0.0))
 
 static func rider_origin(fighter: Dictionary) -> Vector2:
-	return mount_origin(fighter)+(HIP+Vector2(float(fighter.get("reaction_shift",0.0)),0))*Vector2(int(fighter.direction),1)
+	return mount_origin(fighter)+(HIP+Vector2(float(fighter.get("reaction_shift",0.0)),-seat_lift(fighter)))*Vector2(int(fighter.direction),1)
+
+static func seat_lift(fighter: Dictionary) -> float:
+	# FEEL-094: an unsteady rider no longer sits the stride; the seat bounces
+	# out of the saddle once per stride. Zero for a steady rider.
+	var unsteady = float(fighter.get("unsteady",0.0))
+	if unsteady<=0.0 or not bool(fighter.get("gait_moving",false)):
+		return 0.0
+	return unsteady*9.0*maxf(0.0,sin(float(fighter.get("gait_phase",0.0))+.4))*smoothstep(0.0,120.0,float(fighter.get("speed",0.0)))
+
+static func add_fidget(fighter: Dictionary, amount: float) -> void:
+	# Heavier riders sit deeper (Condition.seat .90-1.12), so the same jerk
+	# unsettles them a little less.
+	fighter.fidget = float(fighter.get("fidget",0.0))+amount*unsteady_scale/Condition.seat(fighter.stats)
+
+static func advance_unsteady(fighter: Dictionary, delta: float, riding: bool) -> void:
+	var dt_total = clampf(delta,0.0,.25)
+	fighter.fidget = float(fighter.get("fidget",0.0))*exp(-FIDGET_DECAY*dt_total)
+	var unsteady = smoothstep(UNSTEADY_RANGE.x,UNSTEADY_RANGE.y,float(fighter.fidget))
+	fighter.unsteady = unsteady
+	# Badly unsettled at speed, the rider slowly loses balance even unhit, but
+	# flailing alone never throws him: the drain stops at 25.
+	if riding and unsteady>.55 and float(fighter.balance)>25.0:
+		var pace = smoothstep(TROT_SPEED,GALLOP_SPEED,float(fighter.speed))
+		fighter.balance = maxf(25.0,float(fighter.balance)-(unsteady-.55)*5.0*pace*dt_total)
+	# Loose-seat sway: torso pitch driven out of step with the horse's stride
+	# (the rider bounces against the gait instead of with it), plus the kicks
+	# set_controls adds from abrupt lean/lance changes. Spring ~1.3 Hz.
+	var moving = bool(fighter.get("gait_moving",false))
+	var phase = float(fighter.get("gait_phase",0.0))
+	var target = unsteady*(.13*sin(phase+.9) if moving else .03*sin(phase*.5))
+	var remaining = dt_total
+	while remaining>.000001:
+		var dt = minf(remaining,1.0/120.0)
+		var sway = float(fighter.get("sway",0.0))
+		var velocity = float(fighter.get("sway_velocity",0.0))
+		velocity += (70.0*(target-sway)-6.0*velocity)*dt
+		var next = clampf(sway+velocity*dt,-.17,.17)
+		if absf(next)>=.17: velocity = 0.0
+		fighter.sway = next
+		fighter.sway_velocity = velocity
+		remaining -= dt
 
 static func gait_pose(fighter: Dictionary) -> Dictionary:
 	# Fatigue only lowers neck/head carriage; it never moves the saddle, rider
 	# pitch or any hit anchor.
-	return Gait.body(float(fighter.get("gait_phase",0.0)),float(fighter.get("speed",0.0)),bool(fighter.get("gait_moving",false)),float(fighter.stats.get("stability",1.0)),float(fighter.get("motion_drive",0.0)),Condition.fatigue(float(fighter.get("stamina",100.0))))
+	return Gait.body(float(fighter.get("gait_phase",0.0)),float(fighter.get("speed",0.0)),bool(fighter.get("gait_moving",false)),float(fighter.stats.get("stability",1.0)),float(fighter.get("motion_drive",0.0)),Condition.fatigue(float(fighter.get("stamina",100.0))),seat_inertia(fighter))
+
+static func seat_inertia(fighter: Dictionary) -> float:
+	# ANIM-091: how far the horse's drive has run ahead of the rider's seat.
+	return float(fighter.get("motion_drive",0.0))-float(fighter.get("seat_drive",fighter.get("motion_drive",0.0)))
+
+static func advance_seat(fighter: Dictionary, delta: float) -> void:
+	# The seat follows the horse's drive through a damped spring (about 9 rad/s,
+	# damping .55): a spurred launch throws the rider back for ~.2s, a sudden
+	# check pitches him forward, then he settles. Fixed small steps.
+	var remaining = clampf(delta,0.0,.25)
+	while remaining>.000001:
+		var dt = minf(remaining,1.0/120.0)
+		var seat = float(fighter.get("seat_drive",0.0))
+		var velocity = float(fighter.get("seat_drive_velocity",0.0))
+		velocity += (81.0*(float(fighter.get("motion_drive",0.0))-seat)-9.9*velocity)*dt
+		fighter.seat_drive = seat+velocity*dt
+		fighter.seat_drive_velocity = velocity
+		remaining -= dt
 
 static func saddle_offset(fighter: Dictionary) -> Vector2:
 	var pose = gait_pose(fighter)
@@ -160,7 +258,11 @@ static func advance_reaction(fighter: Dictionary, delta: float) -> void:
 			["reaction_shift","reaction_shift_velocity",250.0,20.0,-13.0,3.0],
 			["shield_compression","shield_compression_velocity",330.0,24.0,-3.0,24.0],
 			["shield_twist","shield_twist_velocity",150.0,14.0,-.32,.32],
-			["lance_compression","lance_compression_velocity",360.0,24.0,-2.0,12.0]]:
+			["lance_compression","lance_compression_velocity",360.0,24.0,-2.0,12.0],
+			# FEEL-097 presentation only (no hit anchor reads these): legs thrown
+			# out of the stirrups, and the horse knocked back onto its haunches.
+			["reaction_legs","reaction_legs_velocity",70.0,7.5,-.60,1.50],
+			["reaction_horse","reaction_horse_velocity",55.0,8.5,-.50,1.40]]:
 			var position_key = str(config[0])
 			var velocity_key = str(config[1])
 			var displacement = float(fighter.get(position_key,0.0))
@@ -175,7 +277,12 @@ static func advance_reaction(fighter: Dictionary, delta: float) -> void:
 		# Its centre stays on the shared head collision anchor.
 		var neck_target = clampf(-float(fighter.reaction_angle)*.45,-.18,.18) if trunk_hit else 0.0
 		fighter.reaction_neck_velocity = float(fighter.get("reaction_neck_velocity",0.0))+(45.0*(neck_target-float(fighter.get("reaction_neck",0.0)))-8.0*float(fighter.get("reaction_neck_velocity",0.0)))*dt
-		fighter.reaction_neck = clampf(float(fighter.get("reaction_neck",0.0))+float(fighter.reaction_neck_velocity)*dt,-.18,.18)
+		# FEEL-097: a helm strike whips the head back further than a torso blow
+		# carries it forward. It still turns about the head target's centre.
+		var neck = clampf(float(fighter.get("reaction_neck",0.0))+float(fighter.reaction_neck_velocity)*dt,NECK_RANGE.x,NECK_RANGE.y)
+		if neck==NECK_RANGE.x and float(fighter.reaction_neck_velocity)<0.0 or neck==NECK_RANGE.y and float(fighter.reaction_neck_velocity)>0.0:
+			fighter.reaction_neck_velocity = 0.0
+		fighter.reaction_neck = neck
 		remaining -= dt
 
 static func flank_position(fighter: Dictionary) -> Vector2:
@@ -211,6 +318,7 @@ func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float
 	var committed = phase=="charge" and contact_time<.85 and float(fighters[0].x)<float(fighters[1].x)
 	var pace_load = smoothstep(TROT_SPEED,GALLOP_SPEED,float(fighter.speed))
 	var previous_aim = float(fighter.aim)
+	var previous_rates = Vector3(float(fighter.get("aim_rate",0.0)),float(fighter.get("guard_rate",0.0)),float(fighter.get("lean_velocity",0.0)))
 	# EQUIP-066: armour weight slows lance redirection, guard moves and the
 	# recovery of lance support (light kit = quicker hands, heavy = slower).
 	var agility = Condition.agility(fighter.stats)
@@ -263,6 +371,19 @@ func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float
 	else:
 		fighter.lean = clampf(float(fighter.lean)+float(fighter.lean_velocity)*delta,-1,1)
 	fighter.boost = boost
+	# FEEL-094: abrupt changes of lance, shield and lean build fidget; the
+	# allowance (FIDGET_FREE, per s^2) leaves smooth deliberate moves nearly free.
+	var step_time = maxf(delta,.00001)
+	var aim_jerk = float(fighter.aim_rate)-previous_rates.x
+	var lean_jerk = float(fighter.lean_velocity)-previous_rates.z
+	var jolt = FIDGET_WEIGHT.aim*maxf(0.0,absf(aim_jerk)-FIDGET_FREE.aim*step_time)
+	jolt += FIDGET_WEIGHT.guard*maxf(0.0,absf(float(fighter.guard_rate)-previous_rates.y)-FIDGET_FREE.guard*step_time)
+	jolt += FIDGET_WEIGHT.lean*maxf(0.0,absf(lean_jerk)-FIDGET_FREE.lean*step_time)
+	if jolt>0.0:
+		add_fidget(fighter,jolt*lerpf(.7,1.25,pace_load))
+	# Throwing the weight forward leaves the torso behind for a moment;
+	# dropping the lance pulls it forward. Velocity kicks on the sway spring.
+	fighter.sway_velocity = float(fighter.get("sway_velocity",0.0))+(-.16*lean_jerk+.05*aim_jerk*(1.0+float(fighter.get("unsteady",0.0))))*unsteady_scale
 
 ## Critically damped-ish follower used for lance aim and shield guard:
 ## desired speed shrinks near the target (ease-out) and speed changes at a
@@ -281,6 +402,7 @@ static func eased(value: float, target: float, velocity: float, max_speed: float
 func step(delta: float) -> void:
 	for fighter in fighters:
 		advance_reaction(fighter,delta)
+		advance_unsteady(fighter,delta,phase=="charge")
 	if phase == "ended":
 		return
 	time_elapsed += delta
@@ -338,7 +460,11 @@ func step(delta: float) -> void:
 		var old_speed = float(fighter.speed)
 		fighter.speed = move_toward(old_speed,target_speed,absf(float(fighter.accel_command))*delta)
 		fighter.acceleration = (float(fighter.speed)-old_speed)/maxf(.00001,delta)
-		fighter.motion_drive = move_toward(float(fighter.get("motion_drive",0.0)),clampf(float(fighter.acceleration)/ACCELERATION,-1,1),delta*5)
+		var old_drive = float(fighter.get("motion_drive",0.0))
+		fighter.motion_drive = move_toward(old_drive,clampf(float(fighter.acceleration)/ACCELERATION,-1,1),delta*5)
+		# FEEL-094: pumping the spur on and off jerks the seat as well.
+		add_fidget(fighter,FIDGET_WEIGHT.drive*absf(float(fighter.motion_drive)-old_drive))
+		advance_seat(fighter,delta)
 		fighter.x += int(fighter.direction) * float(fighter.speed) * delta
 		fighter.gait_moving = true
 		fighter.gait_phase += delta*TAU*Gait.frequency(float(fighter.speed))
@@ -459,7 +585,8 @@ func _apply_contact(contact: Dictionary) -> void:
 	contact["drive"] = Condition.drive(float(attacker.speed),GALLOP_SPEED)
 	var alignment = clampf(float(contact.get("shaft_alignment",cos(float(attacker.aim)))), 0.4, 1.0)
 	var impulse = speed * 0.085 * power * alignment
-	var damage = 19.0 * pow(speed / 620.0, 1.25) * power * alignment
+	var damage = float(tuning.damage) * pow(speed / 620.0, 1.25) * power * alignment
+	var armor_effect = float(tuning.armor_effect)
 	var zone = str(contact.zone)
 	if zone=="shield" and not contact.has("shield_region"):
 		var inverse = shield_transform(defender).affine_inverse()
@@ -473,7 +600,7 @@ func _apply_contact(contact: Dictionary) -> void:
 	var shield_before = float(defender.shield)
 	if zone == "head":
 		unarmoured_head_damage = damage*1.38*1.32
-		damage *= 1.38 * (1.0 - float(defender.stats.get("helmet", 0.08)))
+		damage *= 1.38 * (1.0 - float(defender.stats.get("helmet", 0.08))*armor_effect)
 		impulse *= 0.86
 		if mode=="war":
 			# Missing geometry can never award a new critical hit. Legacy synthetic
@@ -485,14 +612,14 @@ func _apply_contact(contact: Dictionary) -> void:
 			impulse *= lerpf(.25,1.0,incidence)
 			head_outcome = "glance" if glanced else "solid"
 	elif zone in ["body","flank"]:
-		damage *= 1.0 - float(defender.stats.get("armor", 0.10))
+		damage *= 1.0 - float(defender.stats.get("armor", 0.10))*armor_effect
 		impulse *= 1.28 if zone=="flank" else 1.18
 	else:
 		var angle_difference = absf(float(contact.get("combat_elevation",attacker.aim)) - float(defender.lean) * 0.38)
 		glanced = angle_difference > 0.16 or absf(float(defender.lean))>.35
 		defender.shield = maxf(0.0, float(defender.shield) - damage * (0.7 if glanced else 1.15))
-		damage *= 0.035 if glanced else 0.09
-		impulse *= 0.16 if glanced else 0.28
+		damage *= float(tuning.shield_glance_damage) if glanced else float(tuning.shield_rider_damage)
+		impulse *= float(tuning.shield_glance_impulse) if glanced else float(tuning.shield_impulse)
 	if mode == "war" and zone != "shield":
 		damage *= 1.32
 	if mode=="war" and zone=="head":
@@ -527,8 +654,11 @@ func _apply_contact(contact: Dictionary) -> void:
 	var brace = 1.0+maxf(float(defender.lean),0)*.14-maxf(-float(defender.lean),0)*.14
 	# EQUIP-066: a heavier armoured rider sits more firmly (more inertia).
 	var seat = Condition.seat(defender.stats)
-	var threshold = 96.0 * float(defender.stats.get("stability", 1.0))*brace*seat
-	defender.balance = maxf(0.0,float(defender.balance)-impulse*(.50 if zone=="head" else .82)/seat)
+	# FEEL-094: a rider caught mid-flail has a weaker seat and loses more balance.
+	var unsteady = float(defender.get("unsteady",0.0))
+	var threshold = float(tuning.ko_threshold) * float(defender.stats.get("stability", 1.0))*brace*seat*(1.0-UNSTEADY_THRESHOLD_LOSS*unsteady)
+	defender.balance = maxf(0.0,float(defender.balance)-impulse*(float(tuning.head_balance_loss) if zone=="head" else float(tuning.balance_loss))/seat*(1.0+UNSTEADY_BALANCE_GAIN*unsteady))
+	contact["unsteady"] = unsteady
 	defender.ko = impulse > threshold or float(defender.balance)<=0 or float(defender.hp) <= 0.0
 	defender.dead = mode == "war" and float(defender.hp) <= 0.0
 	var ko_reason = ""
@@ -567,7 +697,11 @@ func _apply_contact(contact: Dictionary) -> void:
 	attacker.surge = 0.20
 	defender.surge = 0.20
 	contact.merge({"damage": damage, "impulse": impulse, "glanced": glanced, "broke": broke_now, "points": points, "attaint": attaint, "dead": defender.dead, "ko": defender.ko,"ko_reason":ko_reason,"support":support,"balance_left":defender.balance,"shield_broke":shield_before>0 and float(defender.shield)<=0,
-		"break_tip":old_tip,"break_hand":old_hand,"break_reach":old_reach,"break_angle":attacker.aim,"break_direction":attacker.direction})
+		"break_tip":old_tip,"break_hand":old_hand,"break_reach":old_reach,"break_angle":attacker.aim,"break_direction":attacker.direction,
+		# FEEL-097: ground speeds for the presentation of momentum (camera kick,
+		# fall trajectory, horse jolt). Read only by visuals; no rule uses them.
+		"attacker_speed":float(attacker.speed),"defender_speed":float(defender.speed),
+		"attacker_direction":int(attacker.direction),"defender_direction":int(defender.direction)})
 	var loading = reaction_strength(contact)
 	var angular_kick = -11.2 if zone=="head" else (9.0 if zone=="flank" else (-3.6 if zone=="shield" else -10.0))
 	defender.reaction_angular_velocity = clampf(float(defender.get("reaction_angular_velocity",0.0))+angular_kick*loading,-12.0 if zone=="body" else -10.0,9.0 if zone=="flank" else 5.5)
@@ -577,7 +711,25 @@ func _apply_contact(contact: Dictionary) -> void:
 		defender.shield_compression_velocity = minf(760.0,float(defender.get("shield_compression_velocity",0.0))+690.0*loading*lerpf(1.0,.62,eccentricity))
 		defender.shield_twist_velocity = clampf(float(defender.get("shield_twist_velocity",0.0))+6.5*loading*float(contact.get("lever",0.0)),-6.5,6.5)
 	attacker.lance_compression_velocity = minf(360.0,float(attacker.get("lance_compression_velocity",0.0))+320.0*loading)
+	_kick_presentation(attacker,defender,zone,loading)
 	events.append(contact)
+
+static func absorbs(own_speed: float) -> float:
+	# A galloping horse carries momentum through the blow; one at a walk or
+	# standing is shoved back onto its haunches by the same impulse.
+	return lerpf(1.55,.70,smoothstep(0.0,GALLOP_SPEED,own_speed))
+
+func _kick_presentation(attacker: Dictionary, defender: Dictionary, zone: String, loading: float) -> void:
+	# FEEL-097: presentation springs only; geometry, damage and KO are already
+	# settled above. Both riders take the same impulse (the attacker through
+	# his lance rest), but the slower horse is the one visibly knocked back.
+	if zone=="head":
+		defender.reaction_neck_velocity = float(defender.get("reaction_neck_velocity",0.0))-HEAD_WHIP*loading
+	var heavy = pow(loading,1.6)
+	defender.reaction_legs_velocity = minf(16.0,float(defender.get("reaction_legs_velocity",0.0))+float(LEG_KICK.get(zone,8.0))*heavy)
+	defender.reaction_horse_velocity = minf(14.0,float(defender.get("reaction_horse_velocity",0.0))+HORSE_KICK*pow(loading,1.3)*absorbs(float(defender.speed))*(.7 if zone=="shield" else 1.0))
+	attacker.reaction_horse_velocity = minf(14.0,float(attacker.get("reaction_horse_velocity",0.0))+HORSE_KICK*.55*pow(loading,1.3)*absorbs(float(attacker.speed)))
+	attacker.reaction_legs_velocity = minf(16.0,float(attacker.get("reaction_legs_velocity",0.0))+2.5*heavy)
 
 static func break_chance(match_mode: String, impulse: float, durability: float = 100.0) -> float:
 	var quality = clampf(100.0 / maxf(durability, 60.0), 0.55, 1.5)

@@ -35,12 +35,14 @@ func _ready() -> void:
 
 func default_profile() -> Dictionary:
 	return {"version": 1, "coins": 520, "renown": 0, "wins": 0, "matches": 0, "region": 0,
+		# LEVEL-092: cleared campaign level numbers (1..80). Older saves load empty.
+		"campaign_cleared": [],
 		"appearance": Appearance.defaults(),
 		# EQUIP-066: "caparison_none" (bare horse) is owned by everyone, so older
 		# saves without the slot load with an empty caparison slot unchanged.
 		"owned": ["mail_basic", "helm_nasal", "lance_ash", "horse_bay", "crest_bend", "shield_basic", "caparison_none"],
 		"equipped": {"armor": "mail_basic", "helmet": "helm_nasal", "lance": "lance_ash", "horse": "horse_bay", "crest": "crest_bend", "shield":"shield_basic", "caparison":"caparison_none"},
-		"settings": {"blood": false, "shake": true, "sound": true, "master_volume":1.0,"music_volume":1.0,"effects_volume":1.0,"ambience_volume":1.0,"mouse_only": false, "brief_seen":false,"combat_brief_v03":false,"combat_brief_v043":false,"combat_brief_v044":false,"guided_practice_v087":false,"aim_cues":true,"slow_motion":true,"vsync":false, "difficulty": 1}}
+		"settings": {"blood": false, "shake": true, "sound": true, "master_volume":1.0,"music_volume":1.0,"effects_volume":1.0,"ambience_volume":1.0,"mouse_only": false, "brief_seen":false,"combat_brief_v03":false,"combat_brief_v043":false,"combat_brief_v044":false,"guided_practice_v087":false,"aim_cues":true,"slow_motion":true,"vsync":false,"helmet_view":true, "difficulty": 1}}
 
 func load_profile() -> void:
 	save_error = ""
@@ -105,6 +107,13 @@ func sanitize(raw: Dictionary) -> Dictionary:
 	for key in ["coins", "renown", "wins", "matches"]:
 		clean[key] = _safe_integer(raw.get(key), int(clean[key]),0,999999999)
 	clean.region = _safe_integer(raw.get("region"),0,0,3)
+	if raw.get("campaign_cleared") is Array:
+		for value in raw.campaign_cleared:
+			if (value is int or value is float) and is_finite(float(value)):
+				var number = int(value)
+				if number>=1 and number<=preload("res://scripts/core/campaign.gd").COUNT and number not in clean.campaign_cleared:
+					clean.campaign_cleared.append(number)
+		clean.campaign_cleared.sort()
 	clean.appearance = Appearance.sanitize(raw.get("appearance",{}))
 	if raw.get("owned") is Array:
 		for item_id in raw.owned:
@@ -117,7 +126,7 @@ func sanitize(raw: Dictionary) -> Dictionary:
 			if item_id in clean.owned and item.get("slot", "") == slot:
 				clean.equipped[slot] = item_id
 	if raw.get("settings") is Dictionary:
-		for key in ["blood", "shake", "sound", "mouse_only", "brief_seen","combat_brief_v03","combat_brief_v043","combat_brief_v044","guided_practice_v087","aim_cues","slow_motion","vsync"]:
+		for key in ["blood", "shake", "sound", "mouse_only", "brief_seen","combat_brief_v03","combat_brief_v043","combat_brief_v044","guided_practice_v087","aim_cues","slow_motion","vsync","helmet_view"]:
 			if raw.settings.get(key) is bool:
 				clean.settings[key] = raw.settings[key]
 		clean.settings.difficulty = _safe_integer(raw.settings.get("difficulty"),1,0,2)
@@ -305,6 +314,42 @@ func award_match(session_id: String, outcome: int, mode: String) -> Dictionary:
 	save_profile()
 	profile_changed.emit()
 	return {"coins": coins, "renown": renown}
+
+## LEVEL-092: highest level the player may enter (the next uncleared one).
+func campaign_frontier() -> int:
+	var Campaign = preload("res://scripts/core/campaign.gd")
+	var frontier = 1
+	while frontier in profile.get("campaign_cleared",[]) and frontier<Campaign.COUNT:
+		frontier += 1
+	return frontier
+
+func campaign_unlocked(number: int) -> bool:
+	return number>=1 and number<=preload("res://scripts/core/campaign.gd").COUNT and (number<=campaign_frontier() or number in profile.get("campaign_cleared",[]))
+
+## Coins only for passing a level: the full purse and renown the first time,
+## a quarter of the purse on repeat clears. Losses and draws pay nothing.
+func award_level(session_id: String, number: int, outcome: int) -> Dictionary:
+	if session_awarded.has(session_id):
+		return {}
+	session_awarded[session_id] = true
+	var Campaign = preload("res://scripts/core/campaign.gd")
+	var level = Campaign.level(items,number)
+	var result = {"coins":0,"renown":0,"first_clear":false,"level":number}
+	profile.matches += 1
+	if outcome>0 and not level.is_empty():
+		var first = number not in profile.campaign_cleared
+		result.first_clear = first
+		result.coins = int(level.reward_coins) if first else Campaign.replay_coins(number,bool(level.boss))
+		result.renown = int(level.reward_renown) if first else 0
+		if first:
+			profile.campaign_cleared.append(number)
+			profile.campaign_cleared.sort()
+		profile.coins += int(result.coins)
+		profile.renown += int(result.renown)
+		profile.wins += 1
+	save_profile()
+	profile_changed.emit()
+	return result
 
 func player_stats() -> Dictionary:
 	var stats = Catalogue.stats(items, profile.equipped)

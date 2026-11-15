@@ -40,8 +40,13 @@ static func summarize(events: Array, mode: String = "arena", detailed: bool = fa
 		if event.get("ko",false):
 			var who = "你" if int(event.defender)==0 else "对手"
 			cause += ("；" if not cause.is_empty() else "")+who+"落马："+CAUSES.get(event.get("ko_reason",""),"失去战斗能力")
+			# FEEL-094: say when flailing made the fall easier.
+			if float(event.get("unsteady",0.0))>=.25 and str(event.get("ko_reason","")) in ["impact","balance"]:
+				cause += "（受击时重心不稳 %d%%）" % roundi(float(event.unsteady)*100)
 	if not cause.is_empty():
 		lines.append(cause)
+	elif latest.has(1) and float(latest[1].get("unsteady",0.0))>=.35:
+		lines.append("调整建议：接敌前少来回改姿态、甩枪和换盾，重心稳才坐得住。")
 	elif latest.has(0) and float(latest[0].get("support",1.0))<.70:
 		lines.append("调整建议：接近时提前稳住枪线，大幅换目标会损失冲击。")
 	elif latest.has(0) and latest[0].zone=="shield":

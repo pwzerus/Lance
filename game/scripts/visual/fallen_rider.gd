@@ -31,6 +31,8 @@ var initial_aim = 0.0
 var roll_direction = 1.0
 var landing_count = 0
 var step_remainder = 0.0
+var toppled = false
+var stopped = 0.0
 const STEP_SECONDS = 1.0/120.0
 
 func setup(value: Dictionary, event: Dictionary, mounted: RiderView = null) -> void:
@@ -51,20 +53,38 @@ func setup(value: Dictionary, event: Dictionary, mounted: RiderView = null) -> v
 	var relative_hip = (position-mounted_origin)*mirror
 	initial_legs = Rider.seated_leg_pose(fighter).duplicate(true)
 	for side in ["near","far"]:
-		for joint in ["hip","knee","ankle","foot"]:
-			initial_legs[side][joint] -= relative_hip
+		# The saddle bar and iron are drawn in the same torso-relative space as
+		# the boot; leaving them mount-relative put the fading leather off-body.
+		for joint in ["hip","knee","ankle","foot","bar","stirrup"]:
+			if initial_legs[side].has(joint):
+				initial_legs[side][joint] -= relative_hip
 	for side in ["left","right"]:
 		for joint in ["shoulder","elbow","hand"]:
 			initial_pose[side][joint] -= position
 	initial_pose.shield_center -= position
 	initial_pose.shield_grip -= position
 	initial_pose.torso_transform.origin = Vector2.ZERO
-	# Retain some mounted momentum; actual incoming impulse changes its course.
-	# One constrained body replaces six unrelated random rigid-body throws.
-	velocity = Vector2(float(fighter.speed)*int(fighter.direction)*.18+direction*lerpf(110,260 if zone=="head" else 225,strength),-lerpf(65,145 if zone=="head" else 120,strength))
+	# FEEL-097: momentum instead of one fixed throw. The rider leaves with his
+	# horse's ground velocity and the lance carries him toward the attacker's;
+	# the harder the strike, the more of the attacker's motion he takes. Equal
+	# speeds drop him near the contact; a fast rider meeting a slow lance keeps
+	# travelling while his torso is stopped (the horse runs on from under him);
+	# a slow rider met by a fast lance is driven back the way it came. A seat
+	# lost to balance alone slides off with the horse's momentum, slowly.
+	toppled = str(event.get("ko_reason","impact"))=="balance"
+	var own = float(event.get("defender_speed",fighter.speed))*int(fighter.direction)
+	var other = float(event.get("attacker_speed",fighter.speed))*direction
+	var carry = (lerpf(.16,.30,strength) if toppled else lerpf(.42,.80,strength))*float({"head":.85,"flank":.80}.get(zone,1.0))
+	var carried = lerpf(own,other,carry)
+	# How hard the upper body was stopped relative to the horse (facing frame).
+	stopped = clampf((own-carried)*int(fighter.direction)/600.0,-1.0,1.0)
+	var lever = float({"head":1.25,"flank":.55}.get(zone,1.0))
+	var lift = lerpf(10,35,strength) if toppled else lerpf(40,125,strength)*float({"head":1.2,"flank":.55}.get(zone,1.0))+45.0*absf(stopped)*lever
+	velocity = Vector2(carried,-lift)
 	roll_direction = float(direction if zone!="flank" else -direction)
 	target_rotation = roll_direction*PI*.47-float(initial_pose.torso_transform.get_rotation())
-	angular_velocity = roll_direction*lerpf(1.1,3.1 if zone=="head" else 1.8,strength)
+	var spin = lerpf(.55,.95,strength) if toppled else (1.0+1.3*absf(stopped)*lever)*lerpf(.85,1.12,strength)
+	angular_velocity = roll_direction*clampf(spin,.4,4.6)
 	_make_joints()
 	for far_only in [true,false]:
 		var renderer = Rider.new()
@@ -107,7 +127,9 @@ func _hinge(name: String, upper: Vector2, lower: Vector2, velocity_value: float,
 	_joint(name,velocity_value*bend_sign,stiffness,damping,maxf(-1.10,lower_limit),minf(1.10,upper_limit),bend_sign)
 
 func _make_joints() -> void:
-	var load = lerpf(.65,1.0,strength)
+	# FEEL-097: limb loading spans light to full strikes more widely; a topple
+	# keeps the limbs loose rather than whipped.
+	var load = lerpf(.40,.60,strength) if toppled else lerpf(.50,1.20,strength)
 	var spinal_impulse = 2.7 if zone=="body" else (-2.5 if zone=="flank" else 1.4)
 	# The rule reaction has only velocity on the contact frame. Inherit a
 	# small share instead of applying the full mounted reaction twice.
@@ -127,6 +149,9 @@ func _make_joints() -> void:
 		var leg: Dictionary = initial_legs[side]
 		var hip_impulse = 1.25 if side=="near" else -.85
 		if zone=="flank": hip_impulse *= -1.25
+		# The horse carries the legs on while the lance stops the torso: they
+		# swing up over the cantle in proportion to that deceleration.
+		hip_impulse += stopped*(1.1 if side=="near" else .7)
 		_joint(side+"_hip",hip_impulse*load,19.0,4.5,-.85,.85)
 		_hinge(side+"_knee",leg.knee-leg.hip,leg.ankle-leg.knee,(1.9 if zone=="flank" else 1.2)*load,24.0,5.0)
 

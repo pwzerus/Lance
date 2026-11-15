@@ -9,6 +9,7 @@ const ERA_REQUIREMENTS = [0, 6, 16, 30, 48]
 const SLOT_NAMES = {"armor": "胸甲", "helmet": "头盔", "lance": "骑枪", "shield": "盾牌", "horse": "坐骑", "caparison": "马衣", "crest": "纹章"}
 const HISTORY_FILES = ["res://data/history_v051_en_fr.json","res://data/history_v051_de_it.json"]
 const CAPARISON_FILE = "res://data/caparisons_v066.json"
+const CRESTS_FILE = "res://data/crests_v093.json"
 const WEIGHTS_FILE = "res://data/equipment_weights_v066.json"
 const HORSE_COATS = {"horse_bay":"bay","horse_grey":"grey","horse_chestnut":"flaxen",
 	"horse_e1":"grey","horse_e2":"bay","horse_e3":"black","horse_e4":"grey",
@@ -26,16 +27,37 @@ static func load_items() -> Array:
 				items[items.find(previous)] = item
 			else:
 				items.append(item)
-	items.append({"id":"shield_basic","name":"旧式绘饰盾","slot":"shield","era":0,"price":0,"region":"欧洲共通","stats":{"shield_capacity":78.0,"shield_handling":1.0,"shield_quality":0},"description":"已有骑手的基础盾牌。","source":"S33 · 游戏改编","historical_note":"沿用旧版基础防护，新增槽位不删除已有收藏。"})
+	items.append({"id":"shield_basic","name":"旧式绘饰盾","slot":"shield","era":0,"price":0,"region":"欧洲共通","stats":{"shield_capacity":78.0,"shield_handling":1.0,"shield_quality":0,"shield_shape":"kite"},"description":"已有骑手的基础盾牌。","source":"S33 · 游戏改编","historical_note":"沿用旧版基础防护，新增槽位不删除已有收藏。"})
 	var caparisons = JSON.parse_string(FileAccess.get_file_as_string(CAPARISON_FILE)) if FileAccess.file_exists(CAPARISON_FILE) else null
 	if caparisons is Array:
 		items.append_array(caparisons)
+	# FEEL-093: eight more arms for the crest slot.
+	var crests = JSON.parse_string(FileAccess.get_file_as_string(CRESTS_FILE)) if FileAccess.file_exists(CRESTS_FILE) else null
+	if crests is Array:
+		items.append_array(crests)
 	_apply_history(items)
 	for item in items:
 		if item.slot=="horse":
 			item.stats["horse_coat"] = HORSE_COATS.get(str(item.id),"bay")
 	_apply_weights(items)
+	_apply_vision(items)
 	return items
+
+## ART-090: helmets restrict sight. stats.helmet_vision (0-1) and
+## stats.helmet_slit come from data/helmet_vision_v090.json, keyed by the
+## helmet art the item wears (legacy pieces share their matched art). Items
+## without art keep full vision.
+const VISION_FILE = "res://data/helmet_vision_v090.json"
+static func _apply_vision(items: Array) -> void:
+	var table = JSON.parse_string(FileAccess.get_file_as_string(VISION_FILE)) if FileAccess.file_exists(VISION_FILE) else null
+	if not table is Dictionary:
+		return
+	for item in items:
+		if str(item.slot)!="helmet":
+			continue
+		var entry: Dictionary = table.get(str(item.stats.get("helmet_art",item.id)),{})
+		item.stats["helmet_vision"] = float(entry.get("vision",1.0))
+		item.stats["helmet_slit"] = str(entry.get("slit","open"))
 
 ## EQUIP-066: every carried item gets a weight in kg (stats.<slot>_kg) from
 ## data/equipment_weights_v066.json. Body armour and helmets are listed per

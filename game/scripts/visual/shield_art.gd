@@ -27,7 +27,28 @@ static func geometry(shape: String, design: String, scale: float, facing: int) -
 	var planks: Array[PackedVector2Array] = []
 	for x in [-14.0,6.0,24.0]:
 		planks.append_array(Geometry2D.intersect_polyline_with_polygon(PackedVector2Array([Vector2(x,-70)*scale,Vector2(x+3,70)*scale]),face))
-	var result = {"outline":outline,"face":face,"outer":_scaled(outline,scale),"charges":Heraldry.clipped_charges(design,face,scale,facing),"planks":planks}
+	# FEEL-093: painted diaper (damask lattice) in the field of better shields,
+	# a common medieval way of enriching a plain field without changing arms.
+	var diaper: Array[PackedVector2Array] = []
+	var dots = PackedVector2Array()
+	var spacing = 13.0
+	for k in range(-9,10):
+		for slope in [1.0,-1.0]:
+			var line = PackedVector2Array([Vector2(k*spacing-90*slope,-90)*scale,Vector2(k*spacing+90*slope,90)*scale])
+			diaper.append_array(Geometry2D.intersect_polyline_with_polygon(line,face))
+		for j in range(-8,9):
+			var point = Vector2(k*spacing+(spacing*.5 if j%2!=0 else 0.0),j*spacing*.5)*scale
+			if Geometry2D.is_point_in_polygon(point,_scaled(outline,.80*scale)):
+				dots.append(point)
+	var overlays: Array[PackedVector2Array] = []
+	for polygon in Heraldry.overlay_polygons(design):
+		var scaled = PackedVector2Array()
+		for point in polygon:
+			scaled.append(point*scale)
+		for piece in Geometry2D.intersect_polygons(face,scaled):
+			if piece.size()>=3: overlays.append(piece)
+	var result = {"outline":outline,"face":face,"outer":_scaled(outline,scale),"charges":Heraldry.clipped_charges(design,face,scale,facing),"planks":planks,
+		"diaper":diaper,"dots":dots,"overlays":overlays}
 	result.make_read_only()
 	if _geometry.size()>=MAX_GEOMETRY: _geometry.erase(_geometry.keys()[0])
 	_geometry[key]=result
@@ -60,6 +81,14 @@ static func draw(canvas: CanvasItem, stats: Dictionary, center: Vector2, project
 		# Painted planks show through on the cheap shields only.
 		for piece in prepared.planks:
 			canvas.draw_polyline(_mapped(piece,center,projected,shift),field.darkened(.16)*tint,maxf(1.0,1.2*scale))
+	if quality>=2:
+		var lattice = field.darkened(.16) if field.get_luminance()>.35 else field.lightened(.14)
+		for piece in prepared.diaper:
+			canvas.draw_polyline(_mapped(piece,center,projected,shift),lattice*tint,maxf(1.0,1.0*scale))
+		if quality>=4:
+			var dot = Color("e8c862") if quality>=5 else field.lightened(.30)
+			for point in prepared.dots:
+				canvas.draw_rect(Rect2(center+_map(point,projected)+shift-Vector2(1,1)*scale,Vector2(2,2)*scale),dot*tint)
 	if has_arms:
 		for piece in prepared.charges:
 			var mapped = _mapped(piece,center,projected,shift)
@@ -67,6 +96,9 @@ static func draw(canvas: CanvasItem, stats: Dictionary, center: Vector2, project
 			var edge = mapped.duplicate()
 			edge.append(mapped[0])
 			canvas.draw_polyline(edge,Color(0,0,0,.42)*tint,maxf(1.0,1.1*scale))
+		for piece in prepared.overlays:
+			var mapped = _mapped(piece,center,projected,shift)
+			canvas.draw_colored_polygon(mapped,field*tint)
 	if quality>=5:
 		# Thin gilt fillet inside the rim; decoration, not a heraldic bordure.
 		var fillet = _mapped(_scaled(outline,.80*scale),center,projected,shift)

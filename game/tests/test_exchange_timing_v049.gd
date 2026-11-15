@@ -132,7 +132,8 @@ func simultaneous_and_repeat(hz: int) -> void:
 	var hits = [contact(0,80),contact(1,80,"shield")]
 	a.notify_contacts(hits)
 	b.notify_contacts([hits[1],hits[0]])
-	for tick in range(hz):
+	# FEEL-097: impacts may now last up to MAX_IMPACT_DURATION (was under 1s).
+	for tick in range(ceili((Director.MAX_IMPACT_DURATION+.1)*hz)):
 		var sa = a.advance(1.0/hz,context(200))
 		var sb = b.advance(1.0/hz,context(200))
 		close_sample(sa,sb,"Simultaneous-hit order")
@@ -152,7 +153,7 @@ func pause_and_reset(hz: int) -> void:
 		reference.notify_contacts([contact()])
 		var sample = paused_clock.advance(0,context(200))
 		reference.advance(0,context(200))
-		for tick in range(hz):
+		for tick in range(ceili((Director.MAX_IMPACT_DURATION+.1)*hz)):
 			if sample.state==target_state:
 				break
 			sample = paused_clock.advance(dt,context(200))
@@ -203,12 +204,13 @@ func late_release_setting_change(hz: int) -> void:
 	var director = Director.new()
 	director.notify_contacts([contact()])
 	var sample = director.advance(0,context(200))
-	for tick in range(hz):
+	for tick in range(ceili((Director.MAX_IMPACT_DURATION+.1)*hz)):
 		if sample.state=="release":
 			break
 		sample = director.advance(1.0/hz,context(200))
 	check(sample.state=="release","Late-setting fixture reached release",{"hz":hz,"sample":sample})
-	var to_last_twenty_ms = maxf(0.0,Director.RELEASE_DURATION-float(sample.stage_elapsed)-.020)
+	# FEEL-097: an impact release now scales with strength; use the actual one.
+	var to_last_twenty_ms = maxf(0.0,float(sample.get("release_duration",Director.RELEASE_DURATION))-float(sample.stage_elapsed)-.020)
 	sample = director.advance(to_last_twenty_ms,context(200))
 	var before = sample.duplicate(true)
 	var switched = director.advance(0,context(200,"charge",false))

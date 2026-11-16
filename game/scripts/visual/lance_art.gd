@@ -34,6 +34,27 @@ static func strip_indices(samples: int) -> PackedInt32Array:
 
 static var _shaft_indices = strip_indices(25)
 static var _fragment_indices = strip_indices(17)
+static var _pennon_devices: Dictionary = {}
+
+static func pennon_device(design: String) -> Dictionary:
+	# Only the 12 authored families are cache keys. Geometry is authored and
+	# triangulated once; flutter transforms vertices, never re-clips per frame.
+	if not Heraldry.ARMS.has(design): design="bend"
+	if _pennon_devices.has(design): return _pennon_devices[design]
+	var face=PackedVector2Array([Vector2(-40,-50),Vector2(40,-50),Vector2(40,50),Vector2(-40,50)])
+	var charges=Heraldry.clipped_charges(design,face,1.0)
+	var overlays: Array[PackedVector2Array]=[]
+	for polygon in Heraldry.overlay_polygons(design):
+		for piece in Geometry2D.intersect_polygons(face,polygon):
+			if piece.size()>=3: overlays.append(piece)
+	var result={"charges":charges,"overlays":overlays}
+	for part in ["charges","overlays"]:
+		var indices: Array[PackedInt32Array]=[]
+		for piece in result[part]: indices.append(Geometry2D.triangulate_polygon(piece))
+		result[part+"_triangles"]=indices
+	result.make_read_only()
+	_pennon_devices[design]=result
+	return result
 
 static func draw_strip(canvas: CanvasItem, points: PackedVector2Array, triangles: PackedInt32Array, color: Color = WOOD) -> void:
 	# This is an authored ribbon: upper samples followed by reversed lower
@@ -240,12 +261,16 @@ static func _draw_pennon(canvas: CanvasItem, stats: Dictionary, map: Callable, l
 	flag.append(map.call(back,-3.0+wave.call(back)))
 	canvas.draw_colored_polygon(flag,field)
 	if quality>=5:
-		# Charge-coloured stripe through the pennon.
-		var stripe = PackedVector2Array()
-		for i in range(6):
-			var x = lerpf(front,back,float(i)/5.0)
-			stripe.append(map.call(x,-3.0-depth*.5+wave.call(x)))
-		canvas.draw_polyline(stripe,charge,3.0,false)
+		# REQ-098: the family choice should also distinguish two families with
+		# identical colours (bend/fleur/quartered), not just recolour one stripe.
+		var device=pennon_device(str(stats.get("heraldry","bend")))
+		for part in ["charges","overlays"]:
+			for i in range(device[part].size()):
+				var points=PackedVector2Array()
+				for point in device[part][i]:
+					var x=front-20+point.x*.30
+					points.append(map.call(x,-3-depth*.5+point.y*.105+wave.call(x)))
+				RenderingServer.canvas_item_add_triangle_array(canvas.get_canvas_item(),device[part+"_triangles"][i],points,PackedColorArray([charge if part=="charges" else field]))
 	var edge = flag.duplicate()
 	edge.append(flag[0])
 	canvas.draw_polyline(edge,INK,1.4,false)

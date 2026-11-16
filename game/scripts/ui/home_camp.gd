@@ -14,7 +14,11 @@ func _draw() -> void:
 	var points=PackedVector2Array([Vector2(728,142),Vector2(785,142),Vector2(785,260),Vector2(756,246),Vector2(728,267)])
 	draw_colored_polygon(points,banner_color.darkened(.35))
 	draw_polyline(PackedVector2Array([Vector2(731,146),Vector2(781,146),Vector2(781,254)]),Color("bd9c5b"),2)
-	if not equipment.is_empty(): ShieldArt.draw(self,equipment,Vector2(756,198),false,Color.WHITE,0,.42)
+	if not equipment.is_empty():
+		# The camp flies the rider's family identity, not the equipped shield's
+		# fixed device or heavy iron construction.
+		var family={"heraldry":str(equipment.get("heraldry","bend")),"shield_shape":"heater","shield_quality":0}
+		ShieldArt.draw(self,family,Vector2(756,198),false,Color.WHITE,0,.42)
 	# Small dividers make the left column read as a tournament programme.
 	draw_line(Vector2(78,291),Vector2(630,291),Color(.67,.58,.36,.45),1)
 	for x in [78,630]:

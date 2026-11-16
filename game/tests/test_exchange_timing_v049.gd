@@ -1,4 +1,7 @@
 extends SceneTree
+## Historical immediate-freeze expectation retained below. DEV-057 replaced
+## it with continuous contact loading; test_timing_v057 is the current entry
+## and reuses the valid miss/pause/lifecycle contracts from this file.
 ## Pure director contracts + Model bridge. Synthetic contact fixtures here test
 ## presentation timing; actual swept hits belong to test_exchange_scene_v049.
 const Director = preload("res://scripts/visual/exchange_director.gd")

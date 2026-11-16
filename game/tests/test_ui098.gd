@@ -26,6 +26,15 @@ func run() -> void:
 		quit(2)
 		return
 	var state=root.get_node("GameState")
+	var report_script=load("res://scripts/ui/combat_report.gd")
+	for row in [
+		[[{"defender":0,"ko":true},{"defender":1,"ko":true}],"双方落马。"],
+		[[{"defender":0,"dead":true},{"defender":1,"dead":true}],"双方阵亡。"],
+		[[{"defender":0,"dead":true},{"defender":1,"ko":true}],"双方落马，你阵亡了。"],
+		[[{"defender":0,"ko":true},{"defender":1,"dead":true}],"双方落马，对手阵亡。"]]:
+		if report_script.summarize(row[0],"war")!=row[1]: failures.append("simultaneous result description lost a rider")
+		row[0].reverse()
+		if report_script.summarize(row[0],"war")!=row[1]: failures.append("result description depends on event order")
 	if not state.save_path.contains("qa_"):
 		quit(2)
 		return

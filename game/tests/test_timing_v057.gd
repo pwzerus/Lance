@@ -31,6 +31,9 @@ func impact_trial(hz: int, zone: String) -> void:
 	model.fighters[0].x = -300.0
 	model.fighters[1].x = 300.0
 	for fighter in model.fighters:
+		# ANIM-091 reset now starts the horse at rest. This fixture describes a
+		# near-contact moving pass, not two stationary riders 600 units apart.
+		fighter.speed=Model.TROT_SPEED
 		fighter.acted = true
 		fighter.aim = -.68
 		fighter.guard = 0.0
@@ -58,8 +61,11 @@ func impact_trial(hz: int, zone: String) -> void:
 			var old_aim = float(fighter.aim)
 			var old_guard = float(fighter.guard)
 			model.set_controls(index,.58,0.0,true,game_dt,1.0)
-			check(absf(float(fighter.aim)-old_aim)<=.95*game_dt*float(fighter.stats.get("lance_handling",1.0))+.0001,"Near-contact lance movement is limited by scaled game time",{"hz":hz,"state":sample.state,"game_dt":game_dt})
-			check(absf(float(fighter.guard)-old_guard)<=2.8*game_dt*float(fighter.stats.get("shield_handling",1.0))+.0001,"Shield movement is limited by scaled game time",{"hz":hz,"state":sample.state,"game_dt":game_dt})
+			# EQUIP-066 allows light kit up to 115% agility. Retain an independent
+			# upper bound; pace and fatigue can only slow this envelope. The older
+			# 100% bound rejected intentional light-kit handling, not teleporting.
+			check(absf(float(fighter.aim)-old_aim)<=.95*1.15*game_dt*float(fighter.stats.get("lance_handling",1.0))+.000001,"Near-contact lance movement is limited by scaled game time",{"hz":hz,"state":sample.state,"game_dt":game_dt})
+			check(absf(float(fighter.guard)-old_guard)<=2.8*1.15*game_dt*float(fighter.stats.get("shield_handling",1.0))+.000001,"Shield movement is limited by scaled game time",{"hz":hz,"state":sample.state,"game_dt":game_dt})
 		model.step(game_dt)
 		elapsed += dt
 		sample = director.advance(dt,context(200,"ended"))

@@ -7,9 +7,20 @@ const ContactCues = preload("res://scripts/visual/combat_cues.gd")
 
 static func summarize(events: Array, mode: String = "arena", detailed: bool = false) -> String:
 	if not detailed:
+		# Resolve the whole exchange before wording its outcome. Simultaneous
+		# knockouts cannot be described using whichever hit was listed first.
+		var fallen={}
+		var dead={}
 		for event in events:
-			if event.get("dead",false): return "你阵亡了。" if int(event.defender)==0 else "对手阵亡。"
-			if event.get("ko",false): return "你被击落了。" if int(event.defender)==0 else "你击落了对手。"
+			if event.get("dead",false): dead[int(event.defender)]=true
+			if event.get("ko",false) or event.get("dead",false): fallen[int(event.defender)]=true
+		if fallen.size()==2:
+			if dead.size()==2: return "双方阵亡。"
+			if dead.has(0): return "双方落马，你阵亡了。"
+			if dead.has(1): return "双方落马，对手阵亡。"
+			return "双方落马。"
+		if not dead.is_empty(): return "你阵亡了。" if dead.has(0) else "对手阵亡。"
+		if not fallen.is_empty(): return "你被击落了。" if fallen.has(0) else "你击落了对手。"
 		return "盾缘容易卸力，打正才能撼动骑手。"
 	var latest: Dictionary = {}
 	for event in events:

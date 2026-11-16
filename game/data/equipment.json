@@ -79,7 +79,7 @@
       "heraldry": "bend"
     },
     "region": "虚构纹章",
-    "description": "为游戏骑手设计的几何识别图案，不声称属于某个真实家族，也不保证历史上从未出现相同组合。",
+    "description": "金斜带用于罩袍、马衣和枪旗，盾面图案由盾牌决定。",
     "source": "S26 · 纹章结构参考",
     "appearance": "",
     "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
@@ -274,7 +274,7 @@
       "heraldry": "chevron"
     },
     "region": "虚构纹章",
-    "description": "清楚的几何主题，在盾、罩袍与旗帜间呼应；不同于文书蜡封。",
+    "description": "银山形用于衣饰和枪旗，收藏与已装备的盾牌分别保留。",
     "source": "S26",
     "appearance": "",
     "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
@@ -290,7 +290,7 @@
       "heraldry": "cross"
     },
     "region": "虚构纹章",
-    "description": "图案为游戏中的虚构身份，不将十字自动等同特定真实骑士团。",
+    "description": "衣饰上的蓝十字是虚构身份图案，不代表特定真实骑士团。",
     "source": "S26",
     "appearance": "",
     "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",
@@ -306,7 +306,7 @@
       "heraldry": "diamond"
     },
     "region": "虚构纹章",
-    "description": "远看有清楚色块，近看再添加装饰；不附会一套普世颜色寓意。",
+    "description": "金底黑菱形用于衣饰和枪旗，不改变盾纹。",
     "source": "S26",
     "appearance": "",
     "historical_note": "形制与背景参考史料；价格及战斗数值为游戏设计。",

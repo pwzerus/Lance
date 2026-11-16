@@ -315,6 +315,9 @@ func _cache_pose(fighter: Dictionary) -> void:
 	fighter.prev_flank = fighter.prev_body+Vector2(-6.0*int(fighter.direction),34.0)
 
 func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float, guard: float = -1.0) -> void:
+	# A paused/frozen update may sample input but cannot advance a pose. The
+	# near-target convergence tolerances must not move a limb without time.
+	if delta<=0.0: return
 	var fighter = fighters[index]
 	var distance = absf(float(fighters[0].x)-float(fighters[1].x))
 	# Remaining reaction time, not a fixed distance, determines the close pass.
@@ -372,7 +375,7 @@ func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float
 	# 6->9/s^2 build-up; still eased in and out, never an instant snap.
 	var target_velocity = clampf(difference*5.5,-2.3,2.3)
 	fighter.lean_velocity = move_toward(float(fighter.lean_velocity),target_velocity,delta*9.0)
-	if absf(difference)<.004 and absf(float(fighter.lean_velocity))<.06:
+	if absf(difference)<minf(.004,2.3*delta) and absf(float(fighter.lean_velocity))<.06:
 		fighter.lean = clampf(lean,-1,1)
 		fighter.lean_velocity = 0.0
 	else:
@@ -396,13 +399,14 @@ func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float
 ## desired speed shrinks near the target (ease-out) and speed changes at a
 ## limited rate (ease-in). Returns Vector2(new value, new velocity).
 static func eased(value: float, target: float, velocity: float, max_speed: float, delta: float) -> Vector2:
+	if delta<=0.0: return Vector2(value,velocity)
 	var difference = target-value
 	# equip068-arm01: gain 9 made a full sweep ~80% slower than the old linear
 	# motion; 16/14 keeps the ease while staying close to the old response.
 	var desired = clampf(difference*16.0,-max_speed,max_speed)
 	velocity = move_toward(velocity,desired,maxf(.5,max_speed*14.0)*delta)
 	var next = value+velocity*delta
-	if signf(target-next)!=signf(difference) or (absf(target-next)<.0015 and absf(velocity)<.04):
+	if signf(target-next)!=signf(difference) or (absf(target-next)<.0015 and absf(velocity)<.04 and absf(difference)<=max_speed*delta):
 		return Vector2(target,0.0)
 	return Vector2(next,velocity)
 

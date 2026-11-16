@@ -1,6 +1,7 @@
 extends RefCounted
-## EQUIP-066 heraldry: the crest item owns the arms (field tincture + charge),
-## so the shield, the caparison and the armoury icon all show the same arms.
+## Family heraldry: the crest item owns the cloth and pennon arms. REQ-098
+## shields now have independent devices in shield_arms098.gd; these 12 family
+## IDs and their baked cloth assets remain stable for existing saves.
 ## Before, the shield item's regional colour painted the field and the charge
 ## was a fixed-colour line on top, so "赤地银山形" (red field, silver chevron)
 ## appeared on a blue shield, and crest icons were blank coloured shields.

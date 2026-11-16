@@ -26,9 +26,14 @@ func _initialize() -> void:
 					arm_error=maxf(arm_error,absf(arm.hand.distance_to(arm.elbow)-Rider.ARM_LOWER))
 			if arm_error>.05: failures.append("Arm disconnected")
 			if zone=="head" and peak<deg_to_rad(20): failures.append("Full head hit has insufficient torso follow-through")
-			if peak>.481 or absf(f.reaction_angle)>.001: failures.append("Reaction unbounded or does not settle")
+			# FEEL-079 intentionally enlarged body/flank follow-through (bounded
+			# at 0.68 rad); FEEL-075's universal 0.48 bound predates that approval.
+			# Keep settling separate so a wider intended pose cannot hide jitter.
+			var limit=.681 if zone in ["body","flank"] else .481
+			if peak>limit: failures.append("Reaction exceeded its anatomical limit: "+zone)
+			if absf(f.reaction_angle)>.001: failures.append("Reaction does not settle: "+zone)
 			if f.dead: failures.append("Arena became lethal")
-			rows.append({"facing":facing,"zone":zone,"peak_degrees":rad_to_deg(peak),"arm_error":arm_error})
+			rows.append({"facing":facing,"zone":zone,"peak_degrees":rad_to_deg(peak),"settled_angle":f.reaction_angle,"limit":limit,"arm_error":arm_error})
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--report="): FileAccess.open(arg.trim_prefix("--report="),FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"rows":rows},"\t"))
 	print("REACTION075 ",failures)

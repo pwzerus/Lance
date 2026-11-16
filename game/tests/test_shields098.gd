@@ -13,7 +13,7 @@ class Board extends Node2D:
 			for q in range(6):
 				var item=Catalogue.find(items,region+"_shield_"+str(q))
 				var stats=item.stats.duplicate(true)
-				stats.heraldry=stats.get("shield_heraldry","bend")
+				stats.heraldry="bend" # Deliberately common family; shield devices must differ.
 				var at=Vector2(130+q*235,100+row*190)
 				ShieldArt.draw(self,stats,at,false)
 				ShieldArt.draw(self,stats,at+Vector2(-65,0),true,Color.WHITE,0,.65,-1,.25)

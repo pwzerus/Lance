@@ -786,8 +786,8 @@ func _draw_shield(center: Vector2, design: String) -> void:
 	back_rim.append(back[0])
 	draw_polyline(back_rim,Color("8a6240"),3)
 	if fighter.stats.has("shield_shape"):
-		# Shared with the armoury icon. EQUIP-066: the crest's arms (field and
-		# clipped charge) are painted by ShieldArt; quality shows as build.
+		# Shared with the armoury icon. The shield's own device is independent
+		# from the family arms on the surcoat, horse cloth and lance pennon.
 		ShieldArt.draw(self,fighter.stats,center,true,tint,shield_recoil,1.0,int(fighter.direction),ratio)
 		return
 	else:

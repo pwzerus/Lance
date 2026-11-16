@@ -6,7 +6,7 @@ const REGION_COLORS = [Color("416f8e"), Color("a75042"), Color("b39758"), Color(
 const ERAS = ["1100–1300", "1300–1400", "1400–1470", "1470–1530", "1530–1600"]
 const ERA_NAMES = ["锁甲与纹章", "板片的时代", "钢铁的轮廓", "比武的盛世", "宫廷与工坊"]
 const ERA_REQUIREMENTS = [0, 6, 16, 30, 48]
-const SLOT_NAMES = {"armor": "胸甲", "helmet": "头盔", "lance": "骑枪", "shield": "盾牌", "horse": "坐骑", "caparison": "马衣", "crest": "纹章"}
+const SLOT_NAMES = {"armor": "胸甲", "helmet": "头盔", "lance": "骑枪", "shield": "盾牌", "horse": "坐骑", "caparison": "马衣", "crest": "家族纹章"}
 const HISTORY_FILES = ["res://data/history_v051_en_fr.json","res://data/history_v051_de_it.json"]
 const CAPARISON_FILE = "res://data/caparisons_v066.json"
 const CRESTS_FILE = "res://data/crests_v093.json"
@@ -37,6 +37,10 @@ static func load_items() -> Array:
 		items.append_array(crests)
 	_apply_history(items)
 	for item in items:
+		if item.slot=="shield":
+			# Keep the saved item ID. Only presentation metadata is resolved;
+			# family heraldry remains a separate stat, independent of slot order.
+			item.stats["shield_heraldry"]=str(item.id)
 		if item.slot=="horse":
 			item.stats["horse_coat"] = HORSE_COATS.get(str(item.id),"bay")
 	_apply_weights(items)

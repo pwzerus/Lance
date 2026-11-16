@@ -67,7 +67,7 @@ func figure(at: Vector2, hit: Dictionary, scale_value: float=1) -> void:
 	for i in range(shield.size()): shield[i]=at+shield[i]*scale_value
 	draw_colored_polygon(shield,hit_color.darkened(.25) if zone=="shield" else base.darkened(.3))
 	if zone=="shield":
-		var marker=Vector2(-18,2) if str(hit.get("shield_region",""))=="center" else Vector2(-24,8)
+		var marker={"center":Vector2(-18,2),"face":Vector2(-21,-3),"rim":Vector2(-25,10)}.get(str(hit.get("shield_region","face")),Vector2(-21,-3))
 		draw_circle(at+marker*scale_value,3*scale_value,hit_color.lightened(.3))
 
 func _draw() -> void:

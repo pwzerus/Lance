@@ -53,6 +53,29 @@ class ShieldIcon extends Control:
 		var factor = minf(size.x/100.0,size.y/128.0)
 		ShieldArt.draw(self,equipment,size*.5,false,Color.WHITE,0.0,factor)
 
+class FamilyIcon extends Control:
+	const Heraldry=preload("res://scripts/visual/heraldry.gd")
+	var design="bend"
+	func _draw() -> void:
+		var scale_value=minf(size.x/104,size.y/112)
+		var center=size*.5
+		var outline=PackedVector2Array([Vector2(-33,-43),Vector2(33,-43),Vector2(33,40),Vector2(0,27),Vector2(-33,40)])
+		for i in range(outline.size()): outline[i]*=scale_value
+		var outer=outline.duplicate()
+		for i in range(outer.size()): outer[i]+=center
+		draw_colored_polygon(outer,Heraldry.field_color(design))
+		for polygon in Heraldry.clipped_charges(design,outline,scale_value):
+			for i in range(polygon.size()): polygon[i]+=center
+			draw_colored_polygon(polygon,Heraldry.charge_color(design))
+		for polygon in Heraldry.overlay_polygons(design):
+			for i in range(polygon.size()): polygon[i]*=scale_value
+			for piece in Geometry2D.intersect_polygons(outline,polygon):
+				for i in range(piece.size()): piece[i]+=center
+				draw_colored_polygon(piece,Heraldry.field_color(design))
+		outer.append(outer[0])
+		draw_polyline(outer,Color("b69b64"),2)
+		draw_line(center+Vector2(-39,-47)*scale_value,center+Vector2(39,-47)*scale_value,Color("b69b64"),3)
+
 class CaparisonIcon extends Control:
 	## EQUIP-066: the player's own horse coat with the caparison texture on top,
 	## in the player's arms: the same two textures the battle mesh uses.
@@ -822,6 +845,8 @@ func show_result() -> void:
 		_show_lesson_result()
 		return
 	var result = pending_result
+	var contacts: Array = battle.exchange_log if battle else []
+	var report = preload("res://scripts/ui/combat_report.gd")
 	var won = int(result.get("winner",-1)) == 0
 	var draw = int(result.get("winner",-1)) == -1
 	sounds.play("win" if won else "lose",-9)
@@ -840,9 +865,11 @@ func show_result() -> void:
 		explanation = "同分，伤势较轻者胜。"
 	if result.get("player_dead",false) or result.get("enemy_dead",false):
 		explanation = "致命一击结束对局，收藏保留。"
+	if result.get("reason")=="terminal" and not contacts.is_empty():
+		explanation=report.summarize(contacts,current_mode)
+		if result.get("player_dead",false) or result.get("enemy_dead",false): explanation+="收藏保留。"
 	UI.label(panel,explanation,Vector2(35,128),18,UI.MUTED,706)
 	UI.separator(panel,Vector2(35,177),706)
-	var contacts: Array = battle.exchange_log if battle else []
 	result_timeline = Status098.new()
 	result_timeline.history = true
 	result_timeline.position = Vector2(35,192)
@@ -851,7 +878,6 @@ func show_result() -> void:
 	result_timeline.name = "ContactTimeline"
 	panel.add_child(result_timeline)
 	result_timeline.refresh([],contacts,int(result.get("passes",3)))
-	var report = preload("res://scripts/ui/combat_report.gd")
 	result_detail_scroll = ScrollContainer.new()
 	result_detail_scroll.position = Vector2(35,190)
 	result_detail_scroll.size = Vector2(706,157)
@@ -948,11 +974,14 @@ func show_armory() -> void:
 	for slot in Catalogue.SLOT_NAMES:
 		var slot_value = str(slot)
 		# Seven slots (EQUIP-066 added 马衣) share the space the six used.
-		UI.button(screen,Catalogue.SLOT_NAMES[slot],Rect2(56+index*95,169,88,43),func():
+		var slot_button=UI.button(screen,Catalogue.SLOT_NAMES[slot],Rect2(56+index*95,169,88,43),func():
 			selected_slot = slot_value
 			selected_item = {}
 			show_armory(),selected_slot == slot_value)
+		if slot=="crest": slot_button.add_theme_font_size_override("font_size",16)
 		index += 1
+	if selected_slot in ["crest","shield"]:
+		UI.label(screen,"家族纹章用于罩袍、马衣和枪旗；盾纹随盾牌固定。",Vector2(56,215),13,UI.MUTED,810)
 	var era_select = OptionButton.new()
 	era_select.theme = UI.theme()
 	era_select.position = Vector2(724,169)
@@ -1109,18 +1138,17 @@ func _add_item_icon(parent: Control, item: Dictionary, point: Vector2, dimension
 	var icon: Control
 	if item.slot=="lance":
 		var lance_icon = LanceIcon.new()
-		lance_icon.equipment = item.stats
+		lance_icon.equipment = item.stats.duplicate()
+		lance_icon.equipment["heraldry"]=_player_heraldry()
 		icon = lance_icon
 	elif item.slot=="shield" and item.stats.has("shield_shape"):
-		# Shields are shown in the player's own arms: quality reads as build.
+		# The same fixed item device is shown in the shop and on the rider.
 		var shield_icon = ShieldIcon.new()
 		shield_icon.equipment = item.stats.duplicate()
-		shield_icon.equipment["heraldry"] = _player_heraldry()
 		icon = shield_icon
 	elif item.slot=="crest":
-		# A crest card shows the arms themselves (was a blank coloured shield).
-		var crest_icon = ShieldIcon.new()
-		crest_icon.equipment = {"shield_shape":"heater","shield_quality":2,"heraldry":str(item.stats.get("heraldry","bend"))}
+		var crest_icon = FamilyIcon.new()
+		crest_icon.design = str(item.stats.get("heraldry","bend"))
 		icon = crest_icon
 	elif item.slot=="caparison":
 		var cloth_icon = CaparisonIcon.new()

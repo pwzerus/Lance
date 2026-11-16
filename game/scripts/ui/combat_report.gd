@@ -2,10 +2,15 @@ extends RefCounted
 ## Presentation only: explanations come from resolved contacts, never guessed
 ## from a sprite overlap or the opponent's intended target.
 const ZONES = {"head":"头盔 / 头部","body":"胸甲","flank":"腰腹","shield":"盾牌"}
-const CAUSES = {"fatal":"致命伤","health":"骑手状态耗尽","impact":"冲击超过坐稳能力","balance":"连续受击耗尽平衡"}
+const CAUSES = {"fatal":"致命伤","health":"骑手状态耗尽","impact":"被重击掀下马","balance":"连吃重击，没坐稳"}
 const ContactCues = preload("res://scripts/visual/combat_cues.gd")
 
 static func summarize(events: Array, mode: String = "arena", detailed: bool = false) -> String:
+	if not detailed:
+		for event in events:
+			if event.get("dead",false): return "你阵亡了。" if int(event.defender)==0 else "对手阵亡。"
+			if event.get("ko",false): return "你被击落了。" if int(event.defender)==0 else "你击落了对手。"
+		return "盾缘容易卸力，打正才能撼动骑手。"
 	var latest: Dictionary = {}
 	for event in events:
 		latest[int(event.attacker)] = event
@@ -46,12 +51,12 @@ static func summarize(events: Array, mode: String = "arena", detailed: bool = fa
 	if not cause.is_empty():
 		lines.append(cause)
 	elif latest.has(1) and float(latest[1].get("unsteady",0.0))>=.35:
-		lines.append("调整建议：接敌前少来回改姿态、甩枪和换盾，重心稳才坐得住。")
+		lines.append("接近后少扭身、甩枪。坐稳才扛得住。")
 	elif latest.has(0) and float(latest[0].get("support",1.0))<.70:
-		lines.append("调整建议：接近时提前稳住枪线，大幅换目标会损失冲击。")
+		lines.append("接近后少甩枪，稳住枪尖才有力。")
 	elif latest.has(0) and latest[0].zone=="shield":
-		lines.append("调整建议：观察对手护头、护胸或护腹，提前选择另一处空当。")
+		lines.append("看对手挡住哪里，瞄他露出的地方。")
 	else:
-		lines.append("调整建议：留意马力；加速换冲力，收速留出调枪时间。")
+		lines.append("马累了就松开催马，趁机调好枪盾。")
 	return "\n".join(lines)
 

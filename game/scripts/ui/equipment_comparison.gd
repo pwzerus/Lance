@@ -33,15 +33,19 @@ static func summarize(items: Array, equipped: Dictionary, item: Dictionary) -> D
 			"armor": rows.append(_change(changes.armor,"胸腹防护提高","胸腹防护降低","胸腹防护不变"))
 			"helmet": rows.append(_change(changes.helmet,"头部防护提高","头部防护降低","头部防护不变"))
 			"lance":
-				rows.append(_change(changes.reach,"枪更长","枪更短","枪长相同")+" · "+_change(changes.power,"冲击更强","冲击较弱","冲击修正相同"))
-			"shield": rows.append(_change(changes.shield_capacity,"盾牌更耐打","盾牌耐久较低","盾牌耐久相同"))
+				rows.append(_change(changes.reach,"枪更长","枪更短","枪长相同")+"，"+_change(changes.power,"冲击更强","冲击较弱","冲击相同"))
+			"shield":
+				rows.append(_change(changes.shield_capacity,"盾牌更耐打","盾牌耐久较低","盾牌耐久相同"))
+				var leak_before=float(before.get("shield_protection",{}).get("leak",.10))
+				var leak_after=float(after.get("shield_protection",{}).get("leak",.10))
+				rows.append(_change(direction(leak_before,leak_after),"挡住后受伤更多","挡住后受伤更少","挡伤能力相同"))
 			"horse": rows.append(_change(changes.stability,"鞍上更稳定","鞍上稳定性降低","鞍上稳定性相同"))
-			"caparison": rows.append(_change(changes.caparison_renown,"胜场声望增加","胜场声望减少","胜场声望相同")+" · 不提供防护")
+			"caparison": rows.append(_change(changes.caparison_renown,"胜场声望增加","胜场声望减少","胜场声望相同")+"。不提供防护。")
 			"crest": rows.append("只更换纹章，不改变防护与速度。")
 		if slot!="crest":
 			rows.append(_change(changes.fatigue,"催马更易疲劳","催马更耐久","催马消耗相同"))
 			if changes.lance_handling!=0 or changes.shield_handling!=0:
-				rows.append(_change(changes.lance_handling,"调枪更快","调枪更慢","调枪不变")+" · "+_change(changes.shield_handling,"换盾更快","换盾更慢","换盾不变"))
+				rows.append(_change(changes.lance_handling,"调枪更快","调枪更慢","调枪不变")+"，"+_change(changes.shield_handling,"换盾更快","换盾更慢","换盾不变"))
 			if changes.loaded_speed!=0:
 				rows.append(_change(changes.loaded_speed,"满体力冲速提高","满体力冲速降低","满体力冲速不变"))
 	if rows.size()<4:
@@ -50,9 +54,9 @@ static func summarize(items: Array, equipped: Dictionary, item: Dictionary) -> D
 			"helmet": rows.append("有效头部重击仍可能结束实战。")
 			"horse": rows.append("速度与稳定性有取舍，配装越重越易累。")
 			"lance": rows.append("大幅调枪会耗臂力，稳住后再接触。")
-			"shield": rows.append("盾面承力；盾缘命中更容易偏转。")
+			"shield": rows.append("盾心吃力重，盾缘容易把枪滑开。")
 			"caparison": rows.append("装饰也有重量，会计入坐骑负担。")
-	if same: rows.append("可在「数值与考据」查看参数与来源。")
+	if same: rows.append("可在「详细数值与史料」查看参数与来源。")
 	return {"current_name":str(current.get("name","当前同类装备")),"same":same,"lines":rows,"changes":changes,"before":before,"after":after}
 
 static func _change(value: int, higher: String, lower: String, unchanged: String) -> String:

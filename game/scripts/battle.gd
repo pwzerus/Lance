@@ -35,6 +35,9 @@ var track: Node2D
 var backdrop: TextureRect
 var effects: ImpactFX
 var hud: Control
+const Status098 = preload("res://scripts/ui/combat_status098.gd")
+var status_gauges: Control
+var debug_numbers: Label
 var callout: Label
 var subcallout: Label
 var pass_label: Label
@@ -329,9 +332,9 @@ func _build_hud_top() -> void:
 	# rectangle belongs to the riders, including raised shields and hooves.
 	var top = UI.panel(hud,Rect2(0,0,1440,58),Color(.045,.08,.065,.96))
 	UI.label(top,"LANCE & LAUREL",Vector2(20,12),22,UI.GOLD)
-	var title = "上马练习 · 教练" if practice_guide else ("练习场 · 无奖励" if practice else (("竞技场" if mode=="arena" else "实战")+" · "+ai_controller.NAMES[int(GameState.profile.settings.difficulty)]))
+	var title = "跟教练练习" if practice_guide else ("练习场" if practice else (("竞技场" if mode=="arena" else "实战")+" · "+ai_controller.NAMES[int(GameState.profile.settings.difficulty)]))
 	if not level.is_empty():
-		title = "第 %d 关 · %s · %s" % [int(level.number),str(level.opponent),str(level.archetype_name)]
+		title = str(level.opponent)+"  "+str(level.archetype_name)
 	UI.label(top,title,Vector2(290,17),17,UI.INK,740)
 	pass_label = UI.label(top,"PASS  01 / 03",Vector2(1065,16),20,UI.GOLD)
 	if practice_guide:
@@ -351,8 +354,12 @@ func _build_hud_top() -> void:
 	intermission = UI.label(hud,"",Vector2(870,110),16,UI.INK,550)
 	intermission.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	contact_panel = UI.panel(hud,Rect2(0,98,1440,46),Color(.045,.08,.065,.94))
-	contact_label = UI.label(contact_panel,"",Vector2(18,10),18,UI.GOLD,690)
-	enemy_contact_label = UI.label(contact_panel,"",Vector2(735,10),18,UI.GOLD,685)
+	contact_label = UI.label(contact_panel,"",Vector2(18,10),16,UI.GOLD,690)
+	enemy_contact_label = UI.label(contact_panel,"",Vector2(735,10),16,UI.GOLD,685)
+	# Both layouts explicitly assign their width; the original label helper
+	# otherwise keeps its 690px minimum when switched to compact mode.
+	contact_label.custom_minimum_size.x = 0
+	enemy_contact_label.custom_minimum_size.x = 0
 	for label in [contact_label,enemy_contact_label,tactics_label,speed_label,intermission]:
 		label.autowrap_mode = TextServer.AUTOWRAP_OFF
 		label.clip_text = true
@@ -360,11 +367,11 @@ func _build_hud_top() -> void:
 
 func _build_hud_bottom() -> void:
 	var bottom = UI.panel(hud,Rect2(0,720,1440,90),Color(.045,.08,.065,.96))
-	UI.label(bottom,"防盾落点 · 右键 / Q 循环",Vector2(18,5),16,UI.MUTED)
+	UI.label(bottom,"右键或 Q 换盾位",Vector2(18,5),16,UI.MUTED)
 	guard_buttons.clear()
 	for i in range(3):
 		var slot = i
-		var button = UI.button(bottom,"%d  %s" % [i+1,GUARD_NAMES[i]],Rect2(18+i*118,752-720,110,44),func():_select_guard(slot))
+		var button = UI.button(bottom,GUARD_NAMES[i],Rect2(18+i*118,752-720,110,44),func():_select_guard(slot))
 		button.toggle_mode = true
 		button.focus_mode = Control.FOCUS_NONE
 		button.add_theme_stylebox_override("pressed",UI.box(Color("b69a60"),Color("f0d08c"),5))
@@ -372,14 +379,15 @@ func _build_hud_bottom() -> void:
 		guard_buttons.append(button)
 	var aim_panel = UI.panel(bottom,Rect2(390,8,510,72),Color(.045,.08,.065,0))
 	aim_label = UI.label(aim_panel,"",Vector2(12,6),18,UI.INK,486)
-	UI.label(aim_panel,"连续调枪 · 以实际接触为准",Vector2(12,35),16,UI.MUTED,486)
 	speed_meter = ProgressBar.new()
-	speed_meter.position = Vector2(950,744)
-	speed_meter.size = Vector2(470,10)
+	speed_meter.position = Vector2(992,777)
+	speed_meter.size = Vector2(428,10)
 	speed_meter.min_value = 0.0
 	speed_meter.max_value = Model.SURGE_SPEED*float(match_model.fighters[0].stats.get("speed",1.0))
 	speed_meter.show_percentage = false
-	speed_meter.visible = false # Pace is conveyed by motion and the short status.
+	# ProgressBar reserves a font row even when percentages are hidden.
+	speed_meter.add_theme_font_size_override("font_size",1)
+	speed_meter.visible = true
 	var meter_background = UI.box(Color("14251f"),Color("65745b"),2)
 	var meter_fill = UI.box(Color("c6a258"),Color("ead09a"),2)
 	for meter_style in [meter_background,meter_fill]:
@@ -390,6 +398,7 @@ func _build_hud_bottom() -> void:
 	speed_meter.add_theme_stylebox_override("background",meter_background)
 	speed_meter.add_theme_stylebox_override("fill",meter_fill)
 	hud.add_child(speed_meter)
+	speed_meter.size = Vector2(428,10)
 	# EQUIP-067: the horse's condition gets its own gauge and numbers. The old
 	# status line held stamina at the end of a trimmed label, so players never
 	# saw the horse tire. (Diagnostic readout; may be simplified later.)
@@ -408,7 +417,19 @@ func _build_hud_bottom() -> void:
 	stamina_back.add_child(stamina_bar)
 	fatigue_label = UI.label(bottom,"",Vector2(950,0),18,UI.INK,470)
 	fatigue_label.autowrap_mode = TextServer.AUTOWRAP_OFF
-	hint = UI.label(bottom,"鼠标调枪 · 左键/空格催马 · W/S俯仰",Vector2(950,61),16,UI.MUTED,470)
+	hint = UI.label(aim_panel,"按住左键催马，松手收速",Vector2(12,48),13,UI.MUTED,486)
+	hint.autowrap_mode = TextServer.AUTOWRAP_OFF
+	hint.clip_text = true
+	hint.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	UI.label(bottom,"速度",Vector2(950,48),13,UI.MUTED,42)
+	status_gauges = Status098.new()
+	status_gauges.arena = mode=="arena"
+	status_gauges.name = "CombatStatus"
+	status_gauges.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	status_gauges.size = Vector2(1440,810)
+	hud.add_child(status_gauges)
+	debug_numbers = UI.label(hud,"",Vector2(18,60),14,UI.INK,1404)
+	debug_numbers.visible = false
 
 func combat_safe_rect() -> Rect2:
 	return COMBAT_SAFE_RECT
@@ -585,7 +606,9 @@ func _update_ai(delta: float) -> void:
 func _handle_event(event: Dictionary) -> void:
 	match str(event.type):
 		"hit":
-			exchange_log.append(event.duplicate(true))
+			var recorded = event.duplicate(true)
+			recorded["pass"] = match_model.pass_number
+			exchange_log.append(recorded)
 			pass_connected = true
 			var index = int(event.defender)
 			var strength = clampf(Exchange.contact_strength(event),.15,1.0)
@@ -621,10 +644,17 @@ func _handle_event(event: Dictionary) -> void:
 			if event.get("shield_broke",false):
 				hit_text += " · 盾已破损"
 			if now>=contact_until:
-				contact_label.text = ""
-				enemy_contact_label.text = ""
-			var actual_label = contact_label if int(event.attacker)==0 else enemy_contact_label
-			actual_label.text = hit_text
+				for label in [contact_label,enemy_contact_label]:
+					label.text = ""
+					for key in ["debug_hit","compact_hit","display_debug"]:
+						if label.has_meta(key): label.remove_meta(key)
+			# A hit belongs beside the RECEIVING rider's life bar and body map.
+			var actual_label = contact_label if int(event.defender)==0 else enemy_contact_label
+			var debug_hit = hit_text+"  冲击 %.1f  损伤 %.1f" % [float(event.impulse),float(event.damage)]
+			actual_label.set_meta("debug_hit",debug_hit)
+			actual_label.set_meta("compact_hit",Status098.contact_text(event))
+			actual_label.set_meta("display_debug",training_zones)
+			actual_label.text = debug_hit if training_zones else Status098.contact_text(event)
 			actual_label.add_theme_color_override("font_color",Cues.contact_color(event))
 			contact_until = now+2100
 			if bool(event.ko) or bool(event.dead):
@@ -876,7 +906,7 @@ func _update_hud() -> void:
 	subcallout.visible = not is_finished
 	var f = match_model.fighters[0]
 	var projection = Cues.project(match_model)
-	aim_label.text = "◇ 当前枪线："+Cues.NAMES[projection.zone] if projection.active else _exchange_hint()
+	aim_label.text = "枪线指向 "+Cues.NAMES[projection.zone] if projection.active else _exchange_hint()
 	aim_label.add_theme_color_override("font_color",Cues.COLORS[projection.zone])
 	aim_label.get_parent().visible = GameState.profile.settings.get("aim_cues",true)
 	speed_meter.value = float(f.speed)
@@ -886,11 +916,11 @@ func _update_hud() -> void:
 	# cruising normally must not appear to brake forever in the HUD.
 	var speed_multiplier = float(f.stats.get("speed",1.0))*Model.Condition.load_speed_factor(f.stats)
 	var cruise_target = Model.TROT_SPEED*speed_multiplier
-	var pace_text = ("催马吃力 · 冲势减弱" if tired else "催马 · 加快逼近") if f.boost else ("收速 · 调整枪盾" if float(f.speed)>cruise_target+20 else "巡航 · 恢复体力")
+	var pace_text = ("马累了，冲不起来" if tired else "催马冲刺") if f.boost else ("减速调枪" if float(f.speed)>cruise_target+20 else "松缰缓行")
 	if phase=="ready":
-		pace_text = "保持按住 · 等待起跑" if f.boost else "整装待发"
+		pace_text = "按住，准备催马" if f.boost else "整装待发"
 	elif phase=="turn":
-		pace_text = "回身重整 · 马匹恢复体力"
+		pace_text = "回身让马歇口气"
 	elif phase=="ended":
 		pace_text = "交锋结束"
 	var gait_name = Rider.Gait.NAMES[Rider.Gait.gait_index(float(f.speed))]
@@ -915,9 +945,9 @@ func _update_hud() -> void:
 	fatigue_label.add_theme_color_override("font_color",UI.INK if stamina>=C.TIRED else Color("f08a6a"))
 	var guard_text = GUARD_NAMES[guard_slot]+" · "+["下身较易暴露","头腹较易暴露","头胸较易暴露"][guard_slot]
 	if absf(float(f.guard)-GUARD_VALUES[guard_slot])>.08:
-		guard_text = "换盾中 · 留意空隙"
+		guard_text = "正在换盾，留意空隙"
 	if float(f.shield)<=0:
-		guard_text = "盾已破损 · 用姿态避枪"
+		guard_text = "盾碎了，侧身避枪"
 	for i in range(guard_buttons.size()):
 		guard_buttons[i].button_pressed = i==guard_slot
 		guard_buttons[i].disabled = float(f.shield)<=0 or is_finished
@@ -944,7 +974,7 @@ func _update_hud() -> void:
 		tactics_label.text += "　· 接近放缓"
 	if not training_zones and bool(f.ko):
 		# Once unhorsed, further defensive advice is no longer actionable.
-		tactics_label.text = "骑手阵亡" if bool(f.dead) else "骑手落马 · 无法继续交锋"
+		tactics_label.text = "骑手阵亡" if bool(f.dead) else "落马出局"
 	tactics_label.modulate = Color(1.3,1.2,.7) if Time.get_ticks_msec()<input_flash_until else Color.WHITE
 	if practice:
 		hint.text = "练习 · 催马%s　调枪%s　防盾%s　俯仰%s" % ["✓" if learned.boost else "·","✓" if learned.aim else "·","✓" if learned.guard else "·","✓" if learned.posture else "·"]
@@ -960,6 +990,10 @@ func _update_hud() -> void:
 	contact_label.position.y = 10
 	enemy_contact_label.position.y = 10
 	contact_panel.visible = contact_label.visible
+	for label in [contact_label,enemy_contact_label]:
+		if label.has_meta("compact_hit") and bool(label.get_meta("display_debug"))!=training_zones:
+			label.text = str(label.get_meta("debug_hit" if training_zones else "compact_hit"))
+			label.set_meta("display_debug",training_zones)
 	pass_label.text = "PASS  %02d / 03" % match_model.pass_number
 	if match_model.mode=="arena":
 		# EQUIP-067 tournament scoring: shown beside the pass count.
@@ -985,23 +1019,59 @@ func _update_hud() -> void:
 		subcallout.text = ""
 	callout.visible = not is_finished and phase in ["ready","turn","ended"] and not contact_panel.visible
 	subcallout.visible = not is_finished and not contact_panel.visible and not subcallout.text.is_empty()
+	# REQ-098: normal view is a compact readout; H keeps every diagnostic.
+	status_gauges.visible = not training_zones and not is_finished
+	if status_gauges.visible:
+		status_gauges.refresh(match_model.fighters,exchange_log,match_model.pass_number)
+	debug_numbers.visible = training_zones and not is_finished
+	if debug_numbers.visible:
+		var enemy = match_model.fighters[1]
+		debug_numbers.text = "你 HP %d 平衡 %d  |  对手 HP %d 平衡 %d  |  %s\n%s" % [roundi(f.hp),roundi(f.balance),roundi(enemy.hp),roundi(enemy.balance),fatigue_label.text,tactics_label.text]
+	tactics_label.visible = false
+	speed_label.visible = training_zones
+	# Diagnostic pace shares the lower-right horse gauge, leaving the top
+	# contact row unobstructed. Parent is the status strip at y=58.
+	speed_label.position = Vector2(950,663)
+	fatigue_label.visible = not training_zones
+	pass_label.visible = training_zones
+	callout.visible = not training_zones and callout.visible
+	subcallout.visible = false
+	intermission.visible = false
+	callout.position = Vector2(603,104)
+	callout.size = Vector2(234,36)
+	callout.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	if not training_zones:
+		contact_label.position = Vector2(463,12)
+		contact_label.size = Vector2(116,29)
+		enemy_contact_label.position = Vector2(875,12)
+		enemy_contact_label.size = Vector2(116,29)
+		for label in [contact_label,enemy_contact_label]:
+			label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		fatigue_label.text = "马力："+("力竭" if stamina<20 else ("疲惫" if tired else "充沛"))
+		if practice_guide: hint.text = practice_guide.instruction(bool(GameState.profile.settings.mouse_only))
+	else:
+		contact_label.position = Vector2(18,10)
+		contact_label.size = Vector2(690,30)
+		enemy_contact_label.position = Vector2(735,10)
+		enemy_contact_label.size = Vector2(685,30)
+		for label in [contact_label,enemy_contact_label]: label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	if not paused:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _exchange_hint() -> String:
 	if match_model.phase=="ended":
-		return "本场交锋已定 · 等待结果"
+		return "对冲结束"
 	if match_model.phase=="ready":
-		return "整装待发 · 先选好防盾位置"
+		return "准备好，提前举盾"
 	if match_model.phase=="turn":
-		return "交锋间隙 · 调整下一轮枪盾"
+		return "准备下一轮"
 	var player: Dictionary = match_model.fighters[0]
 	var opponent: Dictionary = match_model.fighters[1]
 	if float(player.x)>=float(opponent.x):
-		return "双方已交错 · 等待下一轮"
+		return "准备回身"
 	if bool(player.acted):
-		return "双方已出枪 · 保持坐稳" if bool(opponent.acted) else "已经出枪 · 继续防住对方来枪"
-	return "留意来枪 · 枪盾移动需要时间"
+		return "稳住身体" if bool(opponent.acted) else "举盾防住来枪"
+	return "提前举盾，盯住枪尖"
 
 func _draw() -> void:
 	if not presentation_ready: return
@@ -1175,7 +1245,7 @@ func _toggle_pause() -> void:
 		_clear_touch()
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		pause_panel = UI.panel(hud,Rect2(465,185,510,430),Color(.055,.09,.07,.98))
-		UI.label(pause_panel,"暂停 · 调整装备前先喘口气",Vector2(28,24),24,UI.GOLD)
+		UI.label(pause_panel,"暂停",Vector2(28,24),24,UI.GOLD)
 		var blood_switch = UI.check(pause_panel,"显示血腥表现",GameState.profile.settings.blood,Vector2(28,90),func(value):
 			_pause_setting("blood",value)
 			if not value:

@@ -1,5 +1,6 @@
 class_name FallenRider
 extends Node2D
+const Trace099 = preload("res://scripts/core/frame_trace099.gd")
 ## A single articulated rider, captured from the mounted renderer at contact.
 ## Visual ballistics do not feed back into scoring, damage or death decisions.
 signal landed(point: Vector2, strength: float)
@@ -34,6 +35,8 @@ var step_remainder = 0.0
 var toppled = false
 var stopped = 0.0
 const STEP_SECONDS = 1.0/120.0
+var pose_points099 = PackedVector2Array()
+var support_hull099 = PackedVector2Array()
 
 func setup(value: Dictionary, event: Dictionary, mounted: RiderView = null) -> void:
 	fighter = value.duplicate(true)
@@ -291,11 +294,18 @@ func _process(delta: float) -> void:
 	advance(delta)
 
 func _supported_rest_angle(base_angle: float) -> float:
+	var trace_started=Trace099.begin()
+	var result = _supported_rest_angle_measured099(base_angle)
+	Trace099.measure("fall_support",trace_started)
+	return result
+
+func _supported_rest_angle_measured099(base_angle: float) -> float:
 	# A fixed flat-body target can leave the whole rider balanced on an
 	# elbow at its anatomical limit. Lower the torso's centre of mass over
 	# the actual contact envelope instead. This only changes a spring target:
 	# joint limits, bone lengths and angular velocity integration stay intact.
-	var points = body_points()
+	if support_hull099.is_empty(): support_hull099=Geometry2D.convex_hull(body_points())
+	var points = support_hull099
 	var center: Vector2 = visual.detached_pose.torso_transform*Vector2(0,-38)
 	var best_angle = base_angle
 	var best_score = INF
@@ -313,6 +323,11 @@ func _supported_rest_angle(base_angle: float) -> float:
 	return best_angle
 
 func advance(delta: float) -> void:
+	var trace_started=Trace099.begin()
+	advance_measured099(delta)
+	Trace099.measure("fall_integrate",trace_started)
+
+func advance_measured099(delta: float) -> void:
 	if settled or not is_instance_valid(visual):
 		return
 	# Keep the fractional render-time tail for the next call. Integrating an
@@ -362,6 +377,10 @@ func advance(delta: float) -> void:
 	far_leg.queue_redraw()
 
 func _update_pose() -> void:
+	# The shape is immutable between fixed physics steps. Ground support and
+	# camera framing reuse it; neither pose nor the 120Hz integration changes.
+	pose_points099=PackedVector2Array()
+	support_hull099=PackedVector2Array()
 	var pose = initial_pose.duplicate(true)
 	var legs = initial_legs.duplicate(true)
 	var spine = float(joints.spine.angle)
@@ -399,6 +418,7 @@ func _update_pose() -> void:
 		renderer.fighter.aim = initial_aim+int(fighter.direction)*wrist_turn
 
 func body_points() -> PackedVector2Array:
+	if not pose_points099.is_empty(): return pose_points099
 	var points = PackedVector2Array()
 	var pose: Dictionary = visual.detached_pose
 	var torso: Transform2D = pose.torso_transform
@@ -423,6 +443,7 @@ func body_points() -> PackedVector2Array:
 			# Include the boot/calf silhouette, not only a zero-width skeleton.
 			for offset in [Vector2(radius,0),Vector2(-radius,0),Vector2(0,radius),Vector2(0,-radius)]:
 				points.append(point+offset)
+	pose_points099=points
 	return points
 
 func lowest_core_point() -> float:

@@ -1,5 +1,6 @@
 class_name RiderView
 extends Node2D
+const Trace099 = preload("res://scripts/core/frame_trace099.gd")
 signal hoof_contact(leg_index: int)
 
 const ATLAS = preload("res://assets/art/pixel_v03/rider_atlas.png")
@@ -235,6 +236,11 @@ func draw_part(part: String, destination: Rect2, color: Color = Color.WHITE) -> 
 	draw_texture_rect_region(ATLAS,destination,PARTS[part],color)
 
 func _draw() -> void:
+	var trace_started=Trace099.begin()
+	_draw_measured099()
+	Trace099.measure("rider_draw",trace_started)
+
+func _draw_measured099() -> void:
 	# A redraw queued just before minimization must also be discarded.
 	if WindowActivity.suspended():
 		return

@@ -1,5 +1,6 @@
 extends Node2D
 
+const Trace099 = preload("res://scripts/core/frame_trace099.gd")
 const UI = preload("res://scripts/ui/ui_factory.gd")
 const Catalogue = preload("res://scripts/core/catalogue.gd")
 const Rider = preload("res://scripts/visual/rider_view.gd")
@@ -13,12 +14,14 @@ const AudioMix = preload("res://scripts/core/audio_mix.gd")
 const EquipmentComparison = preload("res://scripts/ui/equipment_comparison.gd")
 const HorseSkin = preload("res://scripts/visual/horse_skin.gd")
 const Status098 = preload("res://scripts/ui/combat_status098.gd")
+const ResultPrewarm099 = preload("res://scripts/ui/result_prewarm099.gd")
 var result_details: Label
 var result_detail_scroll: ScrollContainer
 var result_rewards: Label
 var result_progress: Label
 var result_timeline: Control
 var result_debug = false
+var result_detail_text = ""
 const Campaign = preload("res://scripts/core/campaign.gd")
 const BACKGROUND = preload("res://assets/art/pixel_v03/tournament_field.png")
 
@@ -766,6 +769,7 @@ func _dismiss_brief() -> void:
 	brief_return_focus=null
 
 func _start_match(mode: String, practice: bool = false, guide: PracticeGuide = null) -> void:
+	var trace_started = Trace099.begin()
 	_close_battle()
 	active_guide = guide if practice and mode=="arena" else null
 	practice_match = practice
@@ -796,7 +800,12 @@ func _start_match(mode: String, practice: bool = false, guide: PracticeGuide = n
 		show_home())
 	battle.replay_requested.connect(func():_start_match(current_mode,practice_match,active_guide))
 	add_child(battle)
+	if not ResultPrewarm099.complete:
+		# This CanvasLayer is below Battle's fully opaque preparation layer.
+		# Its label owns its short lifetime even in QA with Main processing off.
+		screen.add_child(ResultPrewarm099.new())
 	queue_redraw()
+	Trace099.end("start_match",trace_started)
 
 func _on_lesson_completed() -> void:
 	if GameState.profile.settings.get("guided_practice_v087",false): return
@@ -813,6 +822,7 @@ func _finish_lesson() -> void:
 	queue_redraw()
 
 func _close_battle() -> void:
+	var trace_started = Trace099.begin()
 	if battle:
 		remove_child(battle)
 		battle.queue_free()
@@ -822,8 +832,10 @@ func _close_battle() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if sounds and sounds.enabled and sounds.music and not sounds.music.playing:
 		sounds.music.play()
+	Trace099.end("close_battle",trace_started)
 
 func _on_match_finished(result: Dictionary) -> void:
+	var trace_started = Trace099.begin()
 	pending_result = result
 	var outcome = 0 if int(result.winner) == -1 else (1 if int(result.winner)==0 else -1)
 	if practice_match:
@@ -832,6 +844,7 @@ func _on_match_finished(result: Dictionary) -> void:
 		reward = GameState.award_level(session_id,int(current_level.number),outcome)
 	else:
 		reward = GameState.award_match(session_id,outcome,current_mode)
+	Trace099.end("award_result",trace_started)
 
 func _process(_delta: float) -> void:
 	if battle and battle.is_finished and not result_visible:
@@ -840,6 +853,7 @@ func _process(_delta: float) -> void:
 		_run_smoke()
 
 func show_result() -> void:
+	var trace_started = Trace099.begin()
 	result_visible = true
 	if active_guide:
 		_show_lesson_result()
@@ -884,7 +898,10 @@ func show_result() -> void:
 	result_detail_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	panel.add_child(result_detail_scroll)
 	var numbers = "比分 %s : %s    生命 %s : %s\n" % [result.get("player_score",0),result.get("enemy_score",0),roundi(float(battle.match_model.fighters[0].hp)),roundi(float(battle.match_model.fighters[1].hp))] if battle else ""
-	result_details = UI.label(result_detail_scroll,numbers+report.summarize(contacts,current_mode,true),Vector2.ZERO,14,UI.INK,680)
+	# Keep the complete report, but defer its hidden text layout until H.
+	# Opening the concise result must not shape an invisible scroll of text.
+	result_detail_text = numbers+report.summarize(contacts,current_mode,true)
+	result_details = UI.label(result_detail_scroll,"",Vector2.ZERO,14,UI.INK,680)
 	result_details.name = "ContactSummary"
 	result_debug = false
 	result_detail_scroll.visible = false
@@ -929,6 +946,7 @@ func show_result() -> void:
 	UI.button(panel,"返回营地",Rect2(397,470,344,56),func():
 		_close_battle()
 		show_home())
+	Trace099.end("show_result",trace_started)
 
 func _show_lesson_result() -> void:
 	var lesson = active_guide
@@ -1475,6 +1493,7 @@ func _draw() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if result_visible and is_instance_valid(result_details) and event is InputEventKey and event.pressed and not event.echo and event.keycode==KEY_H:
 		result_debug = not result_debug
+		if result_debug and result_details.text.is_empty(): result_details.text=result_detail_text
 		result_detail_scroll.visible = result_debug
 		result_rewards.text = result_rewards.get_meta("debug_text" if result_debug else "normal_text")
 		result_progress.text = result_progress.get_meta("debug_text") if result_debug else "回营地挑选装备，准备下一场。"

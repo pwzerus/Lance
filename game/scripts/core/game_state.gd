@@ -2,6 +2,7 @@ extends Node
 
 signal profile_changed
 
+const Trace099 = preload("res://scripts/core/frame_trace099.gd")
 const Catalogue = preload("res://scripts/core/catalogue.gd")
 const Appearance = preload("res://scripts/core/character_appearance.gd")
 const SAVE_PATH = "user://profile_v1.json"
@@ -140,7 +141,9 @@ func _safe_integer(value: Variant, fallback: int, low: int, high: int) -> int:
 	return fallback
 
 func save_profile() -> bool:
+	var trace_started = Trace099.begin()
 	var saved = _write_save(save_path,backup_path,profile)
+	Trace099.end("save_total",trace_started)
 	profile_save_pending = not saved
 	profile_save_error = "" if saved else save_error
 	return saved
@@ -160,6 +163,7 @@ func _write_save(path: String, backup: String, data: Dictionary) -> bool:
 		save_error = "存档内容异常过大，原进度未被替换。"
 		return false
 	var temp_path = path + ".tmp"
+	var trace_io = Trace099.begin()
 	var file = FileAccess.open(temp_path, FileAccess.WRITE)
 	if file == null:
 		return _storage_failure("无法写入存档",FileAccess.get_open_error())
@@ -167,6 +171,7 @@ func _write_save(path: String, backup: String, data: Dictionary) -> bool:
 	file.flush()
 	var write_error = file.get_error()
 	file.close()
+	Trace099.end("save_write_flush",trace_io)
 	if write_error != OK:
 		return _storage_failure("存档写入未完成",write_error)
 	# The active profile may be an isolated absolute QA path. Do not open
@@ -178,10 +183,14 @@ func _write_save(path: String, backup: String, data: Dictionary) -> bool:
 	if FileAccess.file_exists(path):
 		# A corrupt primary must never overwrite the only usable backup.
 		if not _read_save(path,data.has("format")).is_empty():
+			trace_io = Trace099.begin()
 			var backup_error = DirAccess.copy_absolute(absolute_path, absolute_backup)
+			Trace099.end("save_backup",trace_io)
 			if backup_error!=OK:
 				return _storage_failure("无法备份原进度",backup_error)
+	trace_io = Trace099.begin()
 	var error = DirAccess.rename_absolute(absolute_temp, absolute_path)
+	Trace099.end("save_replace",trace_io)
 	if error != OK:
 		return _storage_failure("无法保存进度",error)
 	save_error = ""

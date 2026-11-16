@@ -1,0 +1,1936 @@
+{
+  "generated_utc": "2026-11-16T20:43:18.458469+00:00",
+  "baseline": "c27ce93668802be46f548e719f5c73ed9142657c",
+  "scope": "Protected headless diagnostics and isolated rendered engine injection. No OS input or human play. Screenshot runs excluded from performance claims.",
+  "limits": "Original 93.553ms event has not been reproduced or conclusively attributed. Deep source charge spikes are distinct from result/save. Do not claim all stutter eliminated.",
+  "reports": [
+    {
+      "path": "perf099-before01/report.json",
+      "sha256": "add24f823a4446506d16d619dc482cdbd8e012838e6b6c09f56a038f0a040d5e",
+      "passed": true,
+      "failures": [],
+      "version": "0.4.51-c2",
+      "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+      "all_frames": {
+        "fps": 59.6972616368609,
+        "frames": 14328,
+        "max_ms": 44.358,
+        "over_33ms": 3,
+        "over_50ms": 0,
+        "p50_ms": 16.664,
+        "p95_ms": 17.204,
+        "p99_ms": 20.451
+      },
+      "phases": {
+        "charge": {
+          "fps": 59.8213752021284,
+          "frames": 8768,
+          "max_ms": 44.358,
+          "over_33ms": 1,
+          "over_50ms": 0,
+          "p50_ms": 16.663,
+          "p95_ms": 17.112,
+          "p99_ms": 18.874
+        },
+        "contact": {
+          "fps": 59.481600768438,
+          "frames": 1184,
+          "max_ms": 26.765,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.665,
+          "p95_ms": 18.457,
+          "p99_ms": 21.784
+        },
+        "ended": {
+          "fps": 57.8745496584484,
+          "frames": 1041,
+          "max_ms": 35.397,
+          "over_33ms": 2,
+          "over_50ms": 0,
+          "p50_ms": 16.698,
+          "p95_ms": 21.333,
+          "p99_ms": 24.873
+        },
+        "ready": {
+          "fps": 60.0117352948368,
+          "frames": 2000,
+          "max_ms": 18.6,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 16.957,
+          "p99_ms": 17.231
+        },
+        "result": {
+          "fps": 60.1680208040032,
+          "frames": 562,
+          "max_ms": 30.467,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 16.852,
+          "p99_ms": 17.092
+        },
+        "turn": {
+          "fps": 60.0085160856593,
+          "frames": 773,
+          "max_ms": 18.384,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.661,
+          "p95_ms": 17.009,
+          "p99_ms": 17.232
+        }
+      },
+      "wall_seconds": 240.014442,
+      "executable": "E:/GALUMU/tools/godot-4.5.1/Godot_v4.5.1-stable_win64.exe",
+      "mode": "war",
+      "kit": "italian_plate",
+      "blood": true,
+      "matches": 7
+    },
+    {
+      "path": "perf099-deep01/report.json",
+      "sha256": "d61657417f4be10e602392a3a98b55ebc10568c2f58c2a6093d4c39a46509f80",
+      "passed": true,
+      "failures": [],
+      "version": "0.4.51-c2",
+      "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+      "all_frames": {
+        "fps": 59.4198922707895,
+        "frames": 28522,
+        "max_ms": 71.345,
+        "over_33ms": 80,
+        "over_50ms": 4,
+        "p50_ms": 16.663,
+        "p95_ms": 17.27,
+        "p99_ms": 22.839
+      },
+      "phases": {
+        "charge": {
+          "fps": 59.4359452438536,
+          "frames": 16891,
+          "max_ms": 71.345,
+          "over_33ms": 45,
+          "over_50ms": 4,
+          "p50_ms": 16.663,
+          "p95_ms": 17.209,
+          "p99_ms": 22.583
+        },
+        "contact": {
+          "fps": 59.1253254701219,
+          "frames": 3237,
+          "max_ms": 49.93,
+          "over_33ms": 22,
+          "over_50ms": 0,
+          "p50_ms": 16.662,
+          "p95_ms": 18.128,
+          "p99_ms": 23.231
+        },
+        "ended": {
+          "fps": 59.8295817148981,
+          "frames": 1944,
+          "max_ms": 26.017,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.658,
+          "p95_ms": 17.76,
+          "p99_ms": 20.795
+        },
+        "ready": {
+          "fps": 59.5650372559554,
+          "frames": 3920,
+          "max_ms": 37.978,
+          "over_33ms": 1,
+          "over_50ms": 0,
+          "p50_ms": 16.662,
+          "p95_ms": 17.076,
+          "p99_ms": 22.416
+        },
+        "result": {
+          "fps": 60.046306077041,
+          "frames": 1117,
+          "max_ms": 28.131,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 16.912,
+          "p99_ms": 17.138
+        },
+        "turn": {
+          "fps": 58.4701502434581,
+          "frames": 1413,
+          "max_ms": 39.245,
+          "over_33ms": 12,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 17.334,
+          "p99_ms": 30.48
+        }
+      },
+      "wall_seconds": 480.014226,
+      "executable": "E:/GALUMU/tools/godot-4.5.1/Godot_v4.5.1-stable_win64.exe",
+      "mode": "war",
+      "kit": "italian_plate",
+      "blood": true,
+      "matches": 14
+    },
+    {
+      "path": "perf099-package01/report.json",
+      "sha256": "fb5dc9bde981d0048a80f1d012faa541bf86855988555f0398d4302437f2ff18",
+      "passed": true,
+      "failures": [],
+      "version": "0.4.52-c1",
+      "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+      "all_frames": {
+        "fps": 59.9995743780192,
+        "frames": 28800,
+        "max_ms": 38.041,
+        "over_33ms": 1,
+        "over_50ms": 0,
+        "p50_ms": 16.663,
+        "p95_ms": 17.057,
+        "p99_ms": 17.452
+      },
+      "phases": {
+        "charge": {
+          "fps": 59.9969822045787,
+          "frames": 17050,
+          "max_ms": 38.041,
+          "over_33ms": 1,
+          "over_50ms": 0,
+          "p50_ms": 16.663,
+          "p95_ms": 17.041,
+          "p99_ms": 17.421
+        },
+        "contact": {
+          "fps": 59.9881615311598,
+          "frames": 3279,
+          "max_ms": 26.119,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.66,
+          "p95_ms": 17.188,
+          "p99_ms": 17.723
+        },
+        "ended": {
+          "fps": 60.069082212705,
+          "frames": 1953,
+          "max_ms": 21.026,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 17.119,
+          "p99_ms": 17.603
+        },
+        "ready": {
+          "fps": 60.0002334355587,
+          "frames": 3948,
+          "max_ms": 19.429,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.663,
+          "p95_ms": 17.002,
+          "p99_ms": 17.287
+        },
+        "result": {
+          "fps": 60.0006723935941,
+          "frames": 1119,
+          "max_ms": 23.256,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 16.88,
+          "p99_ms": 17.106
+        },
+        "turn": {
+          "fps": 59.9597703412694,
+          "frames": 1451,
+          "max_ms": 23.542,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 17.021,
+          "p99_ms": 17.663
+        }
+      },
+      "wall_seconds": 480.010314,
+      "executable": "E:/GALUMU/builds/LanceAndLaurel-v0.4.52-c1/runtime/LanceAndLaurel.exe",
+      "mode": "war",
+      "kit": "italian_plate",
+      "blood": true,
+      "matches": 14
+    },
+    {
+      "path": "perf099-result-before/report.json",
+      "sha256": "a81457207b6729a5b2b18c8f097389e818f391353d08e8aaa37d4f7cb5a9ba88",
+      "passed": true,
+      "failures": [],
+      "version": "0.4.51-c2",
+      "scope": "24 shortened real Main result/replay transitions, recorded contacts; no OS input or gameplay balance inference",
+      "row_count": 24,
+      "first_result": {
+        "fps": 60.3178752023162,
+        "frames": 24,
+        "max_ms": 23.185,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "p50_ms": 16.665,
+        "p95_ms": 16.678,
+        "p99_ms": 16.777
+      },
+      "max_result_ms": 23.185,
+      "max_start_ms": 3.112,
+      "resources": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ]
+    },
+    {
+      "path": "perf099-result-after03/report.json",
+      "sha256": "07739e8596eeb8dd3978b850306fa48bf50a784157155d66d528d4d81a95ee75",
+      "passed": true,
+      "failures": [],
+      "version": "0.4.52-c1",
+      "scope": "24 shortened real Main result/replay transitions, recorded contacts; no OS input or gameplay balance inference",
+      "row_count": 24,
+      "first_result": {
+        "fps": 59.3206304794343,
+        "frames": 24,
+        "max_ms": 37.942,
+        "over_33ms": 1,
+        "over_50ms": 0,
+        "p50_ms": 16.665,
+        "p95_ms": 16.69,
+        "p99_ms": 16.812
+      },
+      "max_result_ms": 37.942,
+      "max_start_ms": 2.827,
+      "resources": [
+        101.0,
+        101.0,
+        101.0,
+        101.0,
+        101.0,
+        101.0,
+        101.0,
+        101.0,
+        101.0,
+        101.0,
+        101.0,
+        101.0,
+        101.0,
+        101.0,
+        101.0,
+        101.0,
+        101.0,
+        101.0,
+        101.0,
+        101.0,
+        101.0,
+        101.0,
+        101.0,
+        101.0
+      ]
+    },
+    {
+      "path": "perf099-result-after04/report.json",
+      "sha256": "7f596d6f52340dfc0693a8b40d09ed2a095f537d3beceac25e5bc789cd94a501",
+      "passed": true,
+      "failures": [],
+      "version": "0.4.52-c1",
+      "scope": "24 shortened real Main result/replay transitions, recorded contacts; no OS input or gameplay balance inference",
+      "row_count": 24,
+      "first_result": {
+        "fps": 60.2476177087831,
+        "frames": 24,
+        "max_ms": 31.789,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "p50_ms": 16.661,
+        "p95_ms": 16.681,
+        "p99_ms": 16.854
+      },
+      "max_result_ms": 31.789,
+      "max_start_ms": 3.06,
+      "resources": [
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0
+      ]
+    },
+    {
+      "path": "perf099-result-package01/report.json",
+      "sha256": "b080d00a0faae09bda193c81ea08898b50cabf163c1cc657bb48e2dd46674fdf",
+      "passed": true,
+      "failures": [],
+      "version": "0.4.52-c1",
+      "scope": "24 shortened real Main result/replay transitions, recorded contacts; no OS input or gameplay balance inference",
+      "row_count": 24,
+      "first_result": {
+        "fps": 60.5131515249314,
+        "frames": 24,
+        "max_ms": 28.287,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "p50_ms": 16.666,
+        "p95_ms": 16.68,
+        "p99_ms": 16.684
+      },
+      "max_result_ms": 28.287,
+      "max_start_ms": 3.014,
+      "resources": [
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0,
+        102.0
+      ]
+    },
+    {
+      "path": "perf099-result-old02/report.json",
+      "sha256": "91cd8322e8b346d10061fb7a880350534186cd2b8be6a6f8e8620f4a6805b185",
+      "passed": true,
+      "failures": [],
+      "version": "0.4.51-c2",
+      "scope": "24 shortened real Main result/replay transitions, recorded contacts; no OS input or gameplay balance inference",
+      "row_count": 24,
+      "first_result": {
+        "fps": 60.2415686904487,
+        "frames": 24,
+        "max_ms": 31.743,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "p50_ms": 16.666,
+        "p95_ms": 16.686,
+        "p99_ms": 16.735
+      },
+      "max_result_ms": 31.743,
+      "max_start_ms": 10.43,
+      "resources": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ]
+    },
+    {
+      "path": "perf099-equivalence01.json",
+      "sha256": "c8b2bec6f3582f3ef604ff4f1f7faa54b3744b5f6c6c31b847948e491e864341",
+      "passed": true,
+      "failures": [],
+      "row_count": 24,
+      "max_point_error": 0.0,
+      "old_total_us": 2636595,
+      "new_total_us": 2149009,
+      "integration_cost_reduction_percent": 18.493018457518126
+    },
+    {
+      "path": "perf099-fall72.json",
+      "sha256": "efde8ce04469ce3124bebc7411031b75948272ad4d3bb107679fc4c8e9b68a5d",
+      "passed": true,
+      "failures": [],
+      "scope": "72 captured-pose production integrations: three shield scales, three hit regions, both facings and extreme lean/guard. No OS input or human quality verdict."
+    },
+    {
+      "path": "perf099-timing057.json",
+      "sha256": "dc981895889fe8c1da72176ab285d62ef1db2fca0d99afd3bd3a9c1a2f95537d",
+      "passed": true,
+      "failures": [],
+      "scope": "Production director and Model at30/60/120Hz. Inherits v049 approach, simultaneous/repeated contact, pause/reset, late-toggle and actual swept-miss regressions. Contact first loads continuously, then freezes for total contact duration minus CONTACT_LOAD_DURATION; controls remain limited by scaled game time. No rendered-scene, OS input or human-feel claim.",
+      "row_count": 30
+    },
+    {
+      "path": "perf099-controls.json",
+      "sha256": "e469f7375e244911fc8de07b5409c1e2137c5b098720843bb66b43cac7681105",
+      "passed": true,
+      "failures": [],
+      "row_count": 16
+    },
+    {
+      "path": "feel099-timing01.json",
+      "sha256": "c19e22e4f7f1c0a0e4608abb4f82f5e51c6d1e3604f650ef3d91f11dfc1abf0b",
+      "passed": true,
+      "failures": [],
+      "version": "0.4.52-c1"
+    },
+    {
+      "path": "feel099-camera03.json",
+      "sha256": "db2a7690dc123de29fd4dc2526ce4bac01f2de555288d9009977bebf0843f9ed",
+      "passed": true,
+      "failures": [],
+      "version": "0.4.52-c1",
+      "camera": [
+        {
+          "case": {
+            "att": 480.0,
+            "attacker": 0,
+            "def": 480.0,
+            "gap": 950.0,
+            "ko": true,
+            "name": "right_body",
+            "zone": "body"
+          },
+          "cropped_frames": 0
+        },
+        {
+          "case": {
+            "att": 480.0,
+            "attacker": 1,
+            "def": 480.0,
+            "gap": 950.0,
+            "ko": true,
+            "name": "left_head",
+            "zone": "head"
+          },
+          "cropped_frames": 0
+        },
+        {
+          "case": {
+            "att": 480.0,
+            "attacker": 0,
+            "def": 480.0,
+            "double": true,
+            "gap": 950.0,
+            "ko": true,
+            "name": "double_body",
+            "zone": "body"
+          },
+          "cropped_frames": 0
+        },
+        {
+          "case": {
+            "att": 480.0,
+            "attacker": 1,
+            "def": 150.0,
+            "gap": 950.0,
+            "ko": true,
+            "name": "no_slow",
+            "slow": false,
+            "zone": "body"
+          },
+          "cropped_frames": 0
+        }
+      ]
+    },
+    {
+      "path": "feel099-camera-package01.json",
+      "sha256": "40d7f6426ff608bce951dc47f678f929d5aff99c229b60633b1c939cfb51a512",
+      "passed": true,
+      "failures": [],
+      "version": "0.4.52-c1",
+      "camera": [
+        {
+          "case": {
+            "att": 480.0,
+            "attacker": 0,
+            "def": 480.0,
+            "gap": 950.0,
+            "ko": true,
+            "name": "right_body",
+            "zone": "body"
+          },
+          "cropped_frames": 0
+        },
+        {
+          "case": {
+            "att": 480.0,
+            "attacker": 1,
+            "def": 480.0,
+            "gap": 950.0,
+            "ko": true,
+            "name": "left_head",
+            "zone": "head"
+          },
+          "cropped_frames": 0
+        },
+        {
+          "case": {
+            "att": 480.0,
+            "attacker": 0,
+            "def": 480.0,
+            "double": true,
+            "gap": 950.0,
+            "ko": true,
+            "name": "double_body",
+            "zone": "body"
+          },
+          "cropped_frames": 0
+        },
+        {
+          "case": {
+            "att": 480.0,
+            "attacker": 1,
+            "def": 150.0,
+            "gap": 950.0,
+            "ko": true,
+            "name": "no_slow",
+            "slow": false,
+            "zone": "body"
+          },
+          "cropped_frames": 0
+        }
+      ]
+    },
+    {
+      "path": "feel099-timing-package01.json",
+      "sha256": "c19e22e4f7f1c0a0e4608abb4f82f5e51c6d1e3604f650ef3d91f11dfc1abf0b",
+      "passed": true,
+      "failures": [],
+      "version": "0.4.52-c1"
+    },
+    {
+      "path": "perf099-controls-package01.json",
+      "sha256": "e469f7375e244911fc8de07b5409c1e2137c5b098720843bb66b43cac7681105",
+      "passed": true,
+      "failures": [],
+      "row_count": 16
+    },
+    {
+      "path": "perf099-ui01/report.json",
+      "sha256": "be54241d25322d681ae5283b4f4a765fa1d36e3024527ebd50901679cf3542ac",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "path": "perf099-preparation02/report.json",
+      "sha256": "898d7ade4523f9be3ad856b2a1e80507c70d9439abd0ac51dc28fe2230aa1e2c",
+      "passed": true,
+      "failures": [],
+      "scope": "Actual GPU staging, 6 cancellation boundaries, minimized preparation/explicit resume and 12 real replay events; isolated QA, no OS input.",
+      "row_count": 7
+    }
+  ],
+  "traces": {
+    "perf099-before01": {
+      "sha256": "f98fccb68d20820f901b1161c40fdcffeb20685b5ad53ef217dab63637ab06b9",
+      "stages": {
+        "close_battle": {
+          "count": 9,
+          "max_ms": 0.327,
+          "mean_ms": 0.25244444444444447
+        },
+        "start_match": {
+          "count": 8,
+          "max_ms": 2.713,
+          "mean_ms": 1.88125
+        },
+        "save_write_flush": {
+          "count": 8,
+          "max_ms": 3.178,
+          "mean_ms": 0.810875
+        },
+        "save_replace": {
+          "count": 8,
+          "max_ms": 0.915,
+          "mean_ms": 0.76025
+        },
+        "save_total": {
+          "count": 8,
+          "max_ms": 4.445,
+          "mean_ms": 2.08175
+        },
+        "award_result": {
+          "count": 7,
+          "max_ms": 4.461,
+          "mean_ms": 2.191
+        },
+        "show_result": {
+          "count": 7,
+          "max_ms": 8.969,
+          "mean_ms": 5.082714285714286
+        },
+        "save_backup": {
+          "count": 7,
+          "max_ms": 0.455,
+          "mean_ms": 0.3047142857142857
+        }
+      },
+      "largest_spikes": [
+        {
+          "after": {
+            "draw_calls": 411.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 11351,
+            "frame_to_post_ms": 39.832,
+            "nodes": 75.0,
+            "phase": "charge",
+            "phase_time": -0.00833333333332651,
+            "physics_ms": 1.86,
+            "post_to_next_ms": 4.503,
+            "process_ms": 22.928,
+            "result": false,
+            "scale": 1.0,
+            "us": 196328422
+          },
+          "before": {
+            "draw_calls": 410.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 11350,
+            "frame_to_post_ms": 19.388,
+            "nodes": 75.0,
+            "phase": "charge",
+            "phase_time": -0.00833333333332651,
+            "physics_ms": 1.86,
+            "post_to_next_ms": 4.379,
+            "process_ms": 22.928,
+            "result": false,
+            "scale": 1.0,
+            "us": 196284087
+          },
+          "gap_ms": 44.335
+        },
+        {
+          "after": {
+            "draw_calls": 403.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 8570,
+            "frame_to_post_ms": 25.868,
+            "nodes": 81.0,
+            "phase": "ended",
+            "phase_time": -0.00833333333332984,
+            "physics_ms": 2.977,
+            "post_to_next_ms": 9.52,
+            "process_ms": 13.964,
+            "result": false,
+            "scale": 1.0,
+            "us": 148930255
+          },
+          "before": {
+            "draw_calls": 403.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 8569,
+            "frame_to_post_ms": 19.2,
+            "nodes": 81.0,
+            "phase": "ended",
+            "phase_time": -0.00833333333332984,
+            "physics_ms": 2.977,
+            "post_to_next_ms": 8.617,
+            "process_ms": 13.964,
+            "result": false,
+            "scale": 1.0,
+            "us": 148894867
+          },
+          "gap_ms": 35.388
+        },
+        {
+          "after": {
+            "draw_calls": 403.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 8571,
+            "frame_to_post_ms": 22.052,
+            "nodes": 81.0,
+            "phase": "ended",
+            "phase_time": -0.00833333333332984,
+            "physics_ms": 2.977,
+            "post_to_next_ms": 13.087,
+            "process_ms": 13.964,
+            "result": false,
+            "scale": 1.0,
+            "us": 148965394
+          },
+          "before": {
+            "draw_calls": 403.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 8570,
+            "frame_to_post_ms": 25.868,
+            "nodes": 81.0,
+            "phase": "ended",
+            "phase_time": -0.00833333333332984,
+            "physics_ms": 2.977,
+            "post_to_next_ms": 9.52,
+            "process_ms": 13.964,
+            "result": false,
+            "scale": 1.0,
+            "us": 148930255
+          },
+          "gap_ms": 35.139
+        },
+        {
+          "after": {
+            "draw_calls": 403.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 8572,
+            "frame_to_post_ms": 24.457,
+            "nodes": 81.0,
+            "phase": "ended",
+            "phase_time": -0.00833333333332984,
+            "physics_ms": 2.977,
+            "post_to_next_ms": 7.666,
+            "process_ms": 13.964,
+            "result": false,
+            "scale": 1.0,
+            "us": 148997517
+          },
+          "before": {
+            "draw_calls": 403.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 8571,
+            "frame_to_post_ms": 22.052,
+            "nodes": 81.0,
+            "phase": "ended",
+            "phase_time": -0.00833333333332984,
+            "physics_ms": 2.977,
+            "post_to_next_ms": 13.087,
+            "process_ms": 13.964,
+            "result": false,
+            "scale": 1.0,
+            "us": 148965394
+          },
+          "gap_ms": 32.123
+        },
+        {
+          "after": {
+            "draw_calls": 411.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 11352,
+            "frame_to_post_ms": 25.831,
+            "nodes": 75.0,
+            "phase": "charge",
+            "phase_time": -0.00833333333332651,
+            "physics_ms": 1.86,
+            "post_to_next_ms": 5.2,
+            "process_ms": 22.928,
+            "result": false,
+            "scale": 1.0,
+            "us": 196359453
+          },
+          "before": {
+            "draw_calls": 411.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 11351,
+            "frame_to_post_ms": 39.832,
+            "nodes": 75.0,
+            "phase": "charge",
+            "phase_time": -0.00833333333332651,
+            "physics_ms": 1.86,
+            "post_to_next_ms": 4.503,
+            "process_ms": 22.928,
+            "result": false,
+            "scale": 1.0,
+            "us": 196328422
+          },
+          "gap_ms": 31.031
+        },
+        {
+          "after": {
+            "draw_calls": 434.0,
+            "exchange": "runup",
+            "finished": true,
+            "frame": 1938,
+            "frame_to_post_ms": 30.37,
+            "nodes": 103.0,
+            "phase": "ended",
+            "phase_time": -0.00833333333332984,
+            "physics_ms": 1.798,
+            "post_to_next_ms": 0.104,
+            "process_ms": 12.991,
+            "result": true,
+            "scale": 1.0,
+            "us": 38370136
+          },
+          "before": {
+            "draw_calls": 361.0,
+            "exchange": "runup",
+            "finished": true,
+            "frame": 1937,
+            "frame_to_post_ms": 12.201,
+            "nodes": 86.0,
+            "phase": "ended",
+            "phase_time": -0.00833333333332984,
+            "physics_ms": 1.798,
+            "post_to_next_ms": 2.14,
+            "process_ms": 12.991,
+            "result": false,
+            "scale": 1.0,
+            "us": 38339662
+          },
+          "gap_ms": 30.474
+        }
+      ]
+    },
+    "perf099-deep01": {
+      "sha256": "46a709ea7cc73b6df372158c6ba4d44bd42fc53bf9e260ed788800bf758611ef",
+      "stages": {
+        "close_battle": {
+          "count": 16,
+          "max_ms": 0.517,
+          "mean_ms": 0.2760625
+        },
+        "start_match": {
+          "count": 15,
+          "max_ms": 3.272,
+          "mean_ms": 1.9549999999999998
+        },
+        "save_write_flush": {
+          "count": 15,
+          "max_ms": 0.597,
+          "mean_ms": 0.46973333333333334
+        },
+        "save_replace": {
+          "count": 15,
+          "max_ms": 0.975,
+          "mean_ms": 0.7786000000000001
+        },
+        "save_total": {
+          "count": 15,
+          "max_ms": 1.982,
+          "mean_ms": 1.7540666666666667
+        },
+        "award_result": {
+          "count": 14,
+          "max_ms": 2.005,
+          "mean_ms": 1.8015714285714286
+        },
+        "show_result": {
+          "count": 14,
+          "max_ms": 6.172,
+          "mean_ms": 3.1697857142857138
+        },
+        "save_backup": {
+          "count": 14,
+          "max_ms": 0.336,
+          "mean_ms": 0.2884285714285714
+        }
+      },
+      "largest_spikes": [
+        {
+          "after": {
+            "draw_calls": 404.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 21240,
+            "frame_to_post_ms": 63.719,
+            "hot": {
+              "battle_process": 0.58,
+              "rider_draw": 11.454
+            },
+            "nodes": 75.0,
+            "phase": "charge",
+            "phase_time": -0.00833333333332651,
+            "physics_ms": 1.831,
+            "post_to_next_ms": 7.623,
+            "process_ms": 32.22,
+            "result": false,
+            "scale": 1.0,
+            "us": 360090868
+          },
+          "before": {
+            "draw_calls": 404.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 21239,
+            "frame_to_post_ms": 14.196,
+            "hot": {
+              "battle_process": 0.603,
+              "rider_draw": 7.368
+            },
+            "nodes": 75.0,
+            "phase": "charge",
+            "phase_time": -0.00833333333332651,
+            "physics_ms": 1.831,
+            "post_to_next_ms": 1.661,
+            "process_ms": 32.22,
+            "result": false,
+            "scale": 1.0,
+            "us": 360019526
+          },
+          "gap_ms": 71.342
+        },
+        {
+          "after": {
+            "draw_calls": 293.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 21664,
+            "frame_to_post_ms": 52.698,
+            "hot": {
+              "battle_process": 1.32,
+              "rider_draw": 14.512
+            },
+            "nodes": 75.0,
+            "phase": "charge",
+            "phase_time": -0.00833333333332984,
+            "physics_ms": 1.697,
+            "post_to_next_ms": 17.993,
+            "process_ms": 29.023,
+            "result": false,
+            "scale": 1.0,
+            "us": 370758140
+          },
+          "before": {
+            "draw_calls": 293.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 21663,
+            "frame_to_post_ms": 28.824,
+            "hot": {
+              "battle_process": 1.595,
+              "rider_draw": 15.412
+            },
+            "nodes": 75.0,
+            "phase": "charge",
+            "phase_time": -0.00833333333332984,
+            "physics_ms": 1.697,
+            "post_to_next_ms": 9.473,
+            "process_ms": 29.023,
+            "result": false,
+            "scale": 1.0,
+            "us": 370687449
+          },
+          "gap_ms": 70.691
+        },
+        {
+          "after": {
+            "draw_calls": 293.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 19921,
+            "frame_to_post_ms": 47.457,
+            "hot": {
+              "battle_process": 0.541,
+              "rider_draw": 7.888
+            },
+            "nodes": 75.0,
+            "phase": "charge",
+            "phase_time": -0.00833333333332984,
+            "physics_ms": 1.057,
+            "post_to_next_ms": 6.068,
+            "process_ms": 11.733,
+            "result": false,
+            "scale": 1.0,
+            "us": 337939769
+          },
+          "before": {
+            "draw_calls": 295.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 19920,
+            "frame_to_post_ms": 14.492,
+            "hot": {
+              "battle_process": 0.811,
+              "rider_draw": 6.671
+            },
+            "nodes": 75.0,
+            "phase": "charge",
+            "phase_time": -0.00833333333332984,
+            "physics_ms": 1.057,
+            "post_to_next_ms": 4.18,
+            "process_ms": 11.733,
+            "result": false,
+            "scale": 1.0,
+            "us": 337886244
+          },
+          "gap_ms": 53.525
+        },
+        {
+          "after": {
+            "draw_calls": 404.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 21241,
+            "frame_to_post_ms": 45.233,
+            "hot": {
+              "battle_process": 0.74,
+              "rider_draw": 8.448
+            },
+            "nodes": 75.0,
+            "phase": "charge",
+            "phase_time": -0.00833333333332651,
+            "physics_ms": 1.831,
+            "post_to_next_ms": 5.655,
+            "process_ms": 32.22,
+            "result": false,
+            "scale": 1.0,
+            "us": 360141756
+          },
+          "before": {
+            "draw_calls": 404.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 21240,
+            "frame_to_post_ms": 63.719,
+            "hot": {
+              "battle_process": 0.58,
+              "rider_draw": 11.454
+            },
+            "nodes": 75.0,
+            "phase": "charge",
+            "phase_time": -0.00833333333332651,
+            "physics_ms": 1.831,
+            "post_to_next_ms": 7.623,
+            "process_ms": 32.22,
+            "result": false,
+            "scale": 1.0,
+            "us": 360090868
+          },
+          "gap_ms": 50.888
+        },
+        {
+          "after": {
+            "draw_calls": 414.0,
+            "exchange": "release",
+            "finished": false,
+            "frame": 21372,
+            "frame_to_post_ms": 39.265,
+            "hot": {
+              "battle_process": 1.319,
+              "rider_draw": 22.996
+            },
+            "nodes": 75.0,
+            "phase": "charge",
+            "phase_time": -0.00833333333332651,
+            "physics_ms": 3.596,
+            "post_to_next_ms": 10.675,
+            "process_ms": 34.76,
+            "result": false,
+            "scale": 0.999911186415925,
+            "us": 363122184
+          },
+          "before": {
+            "draw_calls": 415.0,
+            "exchange": "release",
+            "finished": false,
+            "frame": 21371,
+            "frame_to_post_ms": 34.728,
+            "hot": {
+              "battle_process": 1.313,
+              "rider_draw": 20.987
+            },
+            "nodes": 75.0,
+            "phase": "charge",
+            "phase_time": -0.00833333333332651,
+            "physics_ms": 3.596,
+            "post_to_next_ms": 11.216,
+            "process_ms": 34.76,
+            "result": false,
+            "scale": 0.945278839904067,
+            "us": 363072244
+          },
+          "gap_ms": 49.94
+        },
+        {
+          "after": {
+            "draw_calls": 295.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 21668,
+            "frame_to_post_ms": 34.427,
+            "hot": {
+              "battle_process": 1.926,
+              "rider_draw": 18.338
+            },
+            "nodes": 75.0,
+            "phase": "charge",
+            "phase_time": -0.00833333333332984,
+            "physics_ms": 1.697,
+            "post_to_next_ms": 14.572,
+            "process_ms": 29.023,
+            "result": false,
+            "scale": 1.0,
+            "us": 370941247
+          },
+          "before": {
+            "draw_calls": 295.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 21667,
+            "frame_to_post_ms": 31.641,
+            "hot": {
+              "battle_process": 1.5,
+              "rider_draw": 17.913
+            },
+            "nodes": 75.0,
+            "phase": "charge",
+            "phase_time": -0.00833333333332984,
+            "physics_ms": 1.697,
+            "post_to_next_ms": 12.851,
+            "process_ms": 29.023,
+            "result": false,
+            "scale": 1.0,
+            "us": 370892248
+          },
+          "gap_ms": 48.999
+        }
+      ]
+    },
+    "perf099-package01": {
+      "sha256": "495cb2325849eb31ccf0265b775fd576ff1048f616e65b26e759cd01750cf118",
+      "stages": {
+        "close_battle": {
+          "count": 16,
+          "max_ms": 0.484,
+          "mean_ms": 0.22675
+        },
+        "start_match": {
+          "count": 15,
+          "max_ms": 3.06,
+          "mean_ms": 1.7569333333333332
+        },
+        "save_write_flush": {
+          "count": 15,
+          "max_ms": 4.462,
+          "mean_ms": 0.9877333333333334
+        },
+        "save_replace": {
+          "count": 15,
+          "max_ms": 1.006,
+          "mean_ms": 0.7966
+        },
+        "save_total": {
+          "count": 15,
+          "max_ms": 5.747,
+          "mean_ms": 2.3258666666666667
+        },
+        "award_result": {
+          "count": 14,
+          "max_ms": 5.76,
+          "mean_ms": 2.1105
+        },
+        "show_result": {
+          "count": 14,
+          "max_ms": 4.995,
+          "mean_ms": 2.5599285714285713
+        },
+        "save_backup": {
+          "count": 14,
+          "max_ms": 0.439,
+          "mean_ms": 0.31828571428571434
+        }
+      },
+      "largest_spikes": [
+        {
+          "after": {
+            "draw_calls": 408.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 27521,
+            "frame_to_post_ms": 36.681,
+            "hot": {
+              "battle_process": 0.398,
+              "rider_draw": 4.477
+            },
+            "nodes": 75.0,
+            "phase": "charge",
+            "phase_time": -0.00833333333332651,
+            "physics_ms": 1.178,
+            "post_to_next_ms": 1.372,
+            "process_ms": 11.015,
+            "result": false,
+            "scale": 1.0,
+            "us": 463916756
+          },
+          "before": {
+            "draw_calls": 408.0,
+            "exchange": "runup",
+            "finished": false,
+            "frame": 27520,
+            "frame_to_post_ms": 8.908,
+            "hot": {
+              "battle_process": 0.372,
+              "rider_draw": 4.552
+            },
+            "nodes": 75.0,
+            "phase": "charge",
+            "phase_time": -0.00833333333332651,
+            "physics_ms": 1.178,
+            "post_to_next_ms": 7.764,
+            "process_ms": 11.015,
+            "result": false,
+            "scale": 1.0,
+            "us": 463878703
+          },
+          "gap_ms": 38.053
+        }
+      ]
+    }
+  },
+  "guards": [
+    {
+      "path": "feel099-camera-package01-memory.log",
+      "sha256": "d0c343d417146fd3b8fa5fc705c2dc944d40f5a47e8e19d552e18ecf8ec4fb47",
+      "memory_samples": 33,
+      "peak_private_mib": 660.8,
+      "min_system_available_mib": 2366,
+      "start": [
+        "QA_DESKTOP GALUMU_QA_ddc5dfd915744b659b9bc940352e9f1b (not switched to input desktop)"
+      ],
+      "end": [
+        "EXIT code=0 seconds=33.9",
+        "QA_DESKTOP_CLOSED=True"
+      ]
+    },
+    {
+      "path": "feel099-camera01-memory.log",
+      "sha256": "dc0a9269d0f6efdbba4c66d9371dbe19a52ee5b1511a29792ce0250925d8065e",
+      "memory_samples": 34,
+      "peak_private_mib": 672.7,
+      "min_system_available_mib": 2987,
+      "start": [
+        "QA_DESKTOP GALUMU_QA_ded4191723ee4fbc90d63bb372d49df4 (not switched to input desktop)"
+      ],
+      "end": [
+        "EXIT code=1 seconds=34.6",
+        "QA_DESKTOP_CLOSED=True"
+      ]
+    },
+    {
+      "path": "feel099-camera02-memory.log",
+      "sha256": "f65e5062d40d1c75288401ca1c2df0ef9759f964dddf605565007a632be2a467",
+      "memory_samples": 4,
+      "peak_private_mib": 82.5,
+      "min_system_available_mib": 2090,
+      "start": [
+        "QA_DESKTOP GALUMU_QA_bba215dcfe634b24bfe4d81cc68a955e (not switched to input desktop)"
+      ],
+      "end": [
+        "EXIT code=1 seconds=5.1",
+        "QA_DESKTOP_CLOSED=True"
+      ]
+    },
+    {
+      "path": "feel099-camera03-memory.log",
+      "sha256": "b809d4f795c33c7ab4fd153f040db78ac89ff05498f1cec9437ca4b07bbd8e66",
+      "memory_samples": 34,
+      "peak_private_mib": 672.6,
+      "min_system_available_mib": 1423,
+      "start": [
+        "QA_DESKTOP GALUMU_QA_ed87dce1044a45edae1ae79faf309075 (not switched to input desktop)"
+      ],
+      "end": [
+        "EXIT code=0 seconds=35.1",
+        "QA_DESKTOP_CLOSED=True"
+      ]
+    },
+    {
+      "path": "feel099-timing-package01-memory.log",
+      "sha256": "7df1769d44016fa211441c95035bd3dfea143065ffe1c3aca512515e9d84ed35",
+      "memory_samples": 0,
+      "peak_private_mib": null,
+      "min_system_available_mib": null,
+      "start": [
+        "START utc=2026-11-16T20:41:31.5399842Z pid=35324 jobMiB=512 executable=E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.52-c1\\runtime\\LanceAndLaurel.exe reserveMiB=500 startupMiB=1268"
+      ],
+      "end": [
+        "START utc=2026-11-16T20:41:31.5399842Z pid=35324 jobMiB=512 executable=E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.52-c1\\runtime\\LanceAndLaurel.exe reserveMiB=500 startupMiB=1268",
+        "EXIT code=0 seconds=0.5"
+      ]
+    },
+    {
+      "path": "feel099-timing01-memory.log",
+      "sha256": "4ab12b9d40e375951a009b54a8749752069cfa49ef5148c2e2fcb289368a25be",
+      "memory_samples": 0,
+      "peak_private_mib": null,
+      "min_system_available_mib": null,
+      "start": [
+        "START utc=2026-11-16T20:13:03.5804443Z pid=38252 jobMiB=512 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1268"
+      ],
+      "end": [
+        "START utc=2026-11-16T20:13:03.5804443Z pid=38252 jobMiB=512 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1268",
+        "EXIT code=0 seconds=0.7"
+      ]
+    },
+    {
+      "path": "perf099-before01-memory.log",
+      "sha256": "6d1f3f7297674095777d88d9f7024e0a294d9fcff0994cf292871df3a602e32f",
+      "memory_samples": 244,
+      "peak_private_mib": 700.1,
+      "min_system_available_mib": 1654,
+      "start": [
+        "QA_DESKTOP GALUMU_QA_49cc100b5184479ab60579b6f768ff07 (not switched to input desktop)"
+      ],
+      "end": [
+        "EXIT code=0 seconds=248.4",
+        "QA_DESKTOP_CLOSED=True"
+      ]
+    },
+    {
+      "path": "perf099-controls-memory.log",
+      "sha256": "4aaf5a77fe5a906bcc90dc6854d3b13bcc02fea7ae5861b25b2e9988fbab29d3",
+      "memory_samples": 0,
+      "peak_private_mib": null,
+      "min_system_available_mib": null,
+      "start": [
+        "START utc=2026-11-16T20:15:28.9163539Z pid=32060 jobMiB=512 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1268"
+      ],
+      "end": [
+        "START utc=2026-11-16T20:15:28.9163539Z pid=32060 jobMiB=512 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1268",
+        "EXIT code=0 seconds=0.3"
+      ]
+    },
+    {
+      "path": "perf099-controls-package01-memory.log",
+      "sha256": "222cbf6a387122afb00e4cb15d289755ff2a54fa5aae390f2e5f66b866e23052",
+      "memory_samples": 0,
+      "peak_private_mib": null,
+      "min_system_available_mib": null,
+      "start": [
+        "START utc=2026-11-16T20:41:35.6685558Z pid=26756 jobMiB=1024 executable=E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.52-c1\\runtime\\LanceAndLaurel.exe reserveMiB=500 startupMiB=1780"
+      ],
+      "end": [
+        "START utc=2026-11-16T20:41:35.6685558Z pid=26756 jobMiB=1024 executable=E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.52-c1\\runtime\\LanceAndLaurel.exe reserveMiB=500 startupMiB=1780",
+        "EXIT code=0 seconds=0.3"
+      ]
+    },
+    {
+      "path": "perf099-deep01-memory.log",
+      "sha256": "5e2b5e2b61f1b22876c733ad7d691876626765e0ef923de9f7526e3ee3b1dddc",
+      "memory_samples": 480,
+      "peak_private_mib": 707.6,
+      "min_system_available_mib": 768,
+      "start": [
+        "QA_DESKTOP GALUMU_QA_9389be425ead4af7afc68b833fd0c242 (not switched to input desktop)"
+      ],
+      "end": [
+        "EXIT code=0 seconds=488.3",
+        "QA_DESKTOP_CLOSED=True"
+      ]
+    },
+    {
+      "path": "perf099-equivalence01-memory.log",
+      "sha256": "df1c479baf91da230ac98efe66f217a6735d77708ddb9fca3b023b897421d353",
+      "memory_samples": 6,
+      "peak_private_mib": 114.2,
+      "min_system_available_mib": 2012,
+      "start": [
+        "START utc=2026-11-16T20:12:06.5821648Z pid=23384 jobMiB=512 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1268"
+      ],
+      "end": [
+        "MEM seconds=6 privateMiB=114.2 workingMiB=152.4 availableRamMiB=2012 availableCommitMiB=4412",
+        "EXIT code=0 seconds=6.5"
+      ]
+    },
+    {
+      "path": "perf099-export01-memory.log",
+      "sha256": "d5d62ad173c9eff25ad2e43c9db506f5afd45742ef51167fbaf2263a4f1e95e9",
+      "memory_samples": 4,
+      "peak_private_mib": 618.7,
+      "min_system_available_mib": 1340,
+      "start": [
+        "START utc=2026-11-16T20:27:20.8689831Z pid=6200 jobMiB=1024 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1780"
+      ],
+      "end": [
+        "MEM seconds=4 privateMiB=618.7 workingMiB=677.1 availableRamMiB=1340 availableCommitMiB=3999",
+        "EXIT code=0 seconds=5.0"
+      ]
+    },
+    {
+      "path": "perf099-fall72-memory.log",
+      "sha256": "fb8cc9f4c5426c9b92b4d0858e6b7c357481cad8ea0df9fa1762eef2cd6a0f54",
+      "memory_samples": 10,
+      "peak_private_mib": 113.8,
+      "min_system_available_mib": 2087,
+      "start": [
+        "START utc=2026-11-16T20:14:33.1459581Z pid=33060 jobMiB=512 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1268"
+      ],
+      "end": [
+        "MEM seconds=10 privateMiB=113.8 workingMiB=151.6 availableRamMiB=2087 availableCommitMiB=4567",
+        "EXIT code=0 seconds=10.3"
+      ]
+    },
+    {
+      "path": "perf099-import01-memory.log",
+      "sha256": "9d037e416149f37259c1c425e7742da374a5618cdf3342b29568ffa769170843",
+      "memory_samples": 6,
+      "peak_private_mib": 765.2,
+      "min_system_available_mib": 1353,
+      "start": [
+        "START utc=2026-11-16T20:24:45.9741103Z pid=11012 jobMiB=1024 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1780"
+      ],
+      "end": [
+        "MEM seconds=6 privateMiB=663.3 workingMiB=681.0 availableRamMiB=1435 availableCommitMiB=3926",
+        "EXIT code=0 seconds=6.7"
+      ]
+    },
+    {
+      "path": "perf099-package01-memory.log",
+      "sha256": "f75704414fc1ec25bfad8637d2d64969172a1f21153d27fc860b5f68df4593ce",
+      "memory_samples": 480,
+      "peak_private_mib": 684.2,
+      "min_system_available_mib": 2334,
+      "start": [
+        "QA_DESKTOP GALUMU_QA_2045a5571b174769b88dab75ad545c3d (not switched to input desktop)"
+      ],
+      "end": [
+        "EXIT code=0 seconds=487.6",
+        "QA_DESKTOP_CLOSED=True"
+      ]
+    },
+    {
+      "path": "perf099-parse01-memory.log",
+      "sha256": "7761dc244cb23f356e2a45c2f1a83e28e850fb3ef93b9ff50a9b7ce889729a37",
+      "memory_samples": 1,
+      "peak_private_mib": 175.4,
+      "min_system_available_mib": 3555,
+      "start": [
+        "START utc=2026-11-16T19:55:15.0909479Z pid=24308 jobMiB=512 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1268"
+      ],
+      "end": [
+        "MEM seconds=1 privateMiB=175.4 workingMiB=189.5 availableRamMiB=3555 availableCommitMiB=5517",
+        "EXIT code=0 seconds=1.2"
+      ]
+    },
+    {
+      "path": "perf099-parse03-memory.log",
+      "sha256": "a27fdf85b6137ba64902197638bdc30667129865ec244dc4b0f634cf2d1c52a3",
+      "memory_samples": 1,
+      "peak_private_mib": 168.8,
+      "min_system_available_mib": 2027,
+      "start": [
+        "START utc=2026-11-16T20:14:28.2581267Z pid=33460 jobMiB=512 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1268"
+      ],
+      "end": [
+        "MEM seconds=1 privateMiB=168.8 workingMiB=183.6 availableRamMiB=2027 availableCommitMiB=4494",
+        "EXIT code=0 seconds=1.5"
+      ]
+    },
+    {
+      "path": "perf099-preparation01-memory.log",
+      "sha256": "6cbf96c15a9d579c69aad1e15fc3fc13fbf407a00857bcfeb94cc69bce3dc8b2",
+      "memory_samples": 13,
+      "peak_private_mib": 664.7,
+      "min_system_available_mib": 1355,
+      "start": [
+        "QA_DESKTOP GALUMU_QA_96568775c9ea496c8872250e3162634f (not switched to input desktop)"
+      ],
+      "end": [
+        "EXIT code=0 seconds=13.3",
+        "QA_DESKTOP_CLOSED=True"
+      ]
+    },
+    {
+      "path": "perf099-preparation02-memory.log",
+      "sha256": "3f93e556f5ce8858a11ab359d6f62cf42bfb48008a24196beacf1854bf04995b",
+      "memory_samples": 13,
+      "peak_private_mib": 664.6,
+      "min_system_available_mib": 1425,
+      "start": [
+        "QA_DESKTOP GALUMU_QA_0493f0e5470f48d7a40238bf64b91661 (not switched to input desktop)"
+      ],
+      "end": [
+        "EXIT code=0 seconds=13.2",
+        "QA_DESKTOP_CLOSED=True"
+      ]
+    },
+    {
+      "path": "perf099-result-after-memory.log",
+      "sha256": "fd18cd68e8fe49a4ace8a582ca0e0817ce8322700459eb385534c419cbda87f8",
+      "memory_samples": 70,
+      "peak_private_mib": 697.2,
+      "min_system_available_mib": 2808,
+      "start": [
+        "QA_DESKTOP GALUMU_QA_c29ed4d0540c45259a67b6851149e306 (not switched to input desktop)"
+      ],
+      "end": [
+        "EXIT code=4294967295 seconds=71.4",
+        "QA_DESKTOP_CLOSED=True"
+      ]
+    },
+    {
+      "path": "perf099-result-after02-memory.log",
+      "sha256": "f692cd8eba317af2a40b1b619367044e30b526a74f70e88730dea39e2c423c16",
+      "memory_samples": 21,
+      "peak_private_mib": 707.6,
+      "min_system_available_mib": 2786,
+      "start": [
+        "QA_DESKTOP GALUMU_QA_b9f03705fe494ad8a78eefc63a423f52 (not switched to input desktop)"
+      ],
+      "end": [
+        "EXIT code=0 seconds=21.5",
+        "QA_DESKTOP_CLOSED=True"
+      ]
+    },
+    {
+      "path": "perf099-result-after03-memory.log",
+      "sha256": "b3038c9186ec62a9519c32432b6fbf156fb8a62ae56026eec5f1dda25987ec07",
+      "memory_samples": 21,
+      "peak_private_mib": 699.7,
+      "min_system_available_mib": 1062,
+      "start": [
+        "QA_DESKTOP GALUMU_QA_cbaaeda14f8f4ceaaff5a36959ef5086 (not switched to input desktop)"
+      ],
+      "end": [
+        "EXIT code=0 seconds=22.0",
+        "QA_DESKTOP_CLOSED=True"
+      ]
+    },
+    {
+      "path": "perf099-result-after04-memory.log",
+      "sha256": "5c853e4e361edffa0e6a02c5a57f04ef591b528edf2e0e2845533f9e29a9361a",
+      "memory_samples": 22,
+      "peak_private_mib": 700.6,
+      "min_system_available_mib": 1327,
+      "start": [
+        "QA_DESKTOP GALUMU_QA_f0ba0b4f5f124381b91da392040d668e (not switched to input desktop)"
+      ],
+      "end": [
+        "EXIT code=0 seconds=22.5",
+        "QA_DESKTOP_CLOSED=True"
+      ]
+    },
+    {
+      "path": "perf099-result-before-memory.log",
+      "sha256": "432f9d3d84e4cd4390d0b3bd6abb4caa433b673c4d933d3e8165ec22128ad085",
+      "memory_samples": 21,
+      "peak_private_mib": 664.8,
+      "min_system_available_mib": 2947,
+      "start": [
+        "QA_DESKTOP GALUMU_QA_43a2c5637313476090416bf47e70de61 (not switched to input desktop)"
+      ],
+      "end": [
+        "EXIT code=0 seconds=21.8",
+        "QA_DESKTOP_CLOSED=True"
+      ]
+    },
+    {
+      "path": "perf099-result-old02-memory.log",
+      "sha256": "70a3048673d69bc0ca5c628e6058ff71a8f89bbc6d50562685d86ee76a57958a",
+      "memory_samples": 21,
+      "peak_private_mib": 683.6,
+      "min_system_available_mib": 2487,
+      "start": [
+        "QA_DESKTOP GALUMU_QA_b4981ebda337449fb8094f60d97d9cb4 (not switched to input desktop)"
+      ],
+      "end": [
+        "EXIT code=0 seconds=21.6",
+        "QA_DESKTOP_CLOSED=True"
+      ]
+    },
+    {
+      "path": "perf099-result-package01-memory.log",
+      "sha256": "6d5ebc803be2509593b1e196f0fb42873756f2cb6e3959eb49dd7ef050778799",
+      "memory_samples": 21,
+      "peak_private_mib": 689.2,
+      "min_system_available_mib": 2368,
+      "start": [
+        "QA_DESKTOP GALUMU_QA_a3dbbe14de6f4a5f83c863ef03cac4de (not switched to input desktop)"
+      ],
+      "end": [
+        "EXIT code=0 seconds=21.8",
+        "QA_DESKTOP_CLOSED=True"
+      ]
+    },
+    {
+      "path": "perf099-timing057-memory.log",
+      "sha256": "52fb3478030b9a0d09b133cdf60be29edb843c3458498f6b3846de09b2138eea",
+      "memory_samples": 2,
+      "peak_private_mib": 48.6,
+      "min_system_available_mib": 2184,
+      "start": [
+        "START utc=2026-11-16T20:15:22.9114643Z pid=35536 jobMiB=512 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1268"
+      ],
+      "end": [
+        "MEM seconds=2 privateMiB=48.6 workingMiB=97.7 availableRamMiB=2184 availableCommitMiB=4723",
+        "EXIT code=0 seconds=2.3"
+      ]
+    },
+    {
+      "path": "perf099-ui01-memory.log",
+      "sha256": "f6a820aa9b6de62460064f8c04cdaf01a4448ebf7084f57cc0c15284bdcdbfd3",
+      "memory_samples": 60,
+      "peak_private_mib": 730.4,
+      "min_system_available_mib": 1391,
+      "start": [
+        "QA_DESKTOP GALUMU_QA_a3816196a6cb4388b1745fe4323e89b4 (not switched to input desktop)"
+      ],
+      "end": [
+        "EXIT code=0 seconds=61.7",
+        "QA_DESKTOP_CLOSED=True"
+      ]
+    }
+  ],
+  "engine_logs": [
+    {
+      "path": "feel099-camera-package01-engine.log",
+      "sha256": "6666b3a20c1ab3991507f6400f9647ec7a0eb10cc4f726ece47bef506e79ddba",
+      "issues": []
+    },
+    {
+      "path": "feel099-camera01-engine.log",
+      "sha256": "56927a8268126ff50ac32009cc43b5e72d252303003448a28d106f40e00dc7a0",
+      "issues": [
+        "ERROR: Expected fall count: double_body"
+      ]
+    },
+    {
+      "path": "feel099-camera02-engine.log",
+      "sha256": "f2b9b8dcfd83df78546793c1b8a2d7ee68402193e93db9901307ad6bde43dd03",
+      "issues": [
+        "SCRIPT ERROR: Parse Error: Used space character for indentation instead of tab as used before in the file.",
+        "ERROR: Failed to load script \"res://tests/test_cinema099.gd\" with error \"Parse error\"."
+      ]
+    },
+    {
+      "path": "feel099-camera03-engine.log",
+      "sha256": "6666b3a20c1ab3991507f6400f9647ec7a0eb10cc4f726ece47bef506e79ddba",
+      "issues": []
+    },
+    {
+      "path": "feel099-timing-package01-engine.log",
+      "sha256": "33c4981158b5ce5c813c756847eea5d69c1f4426fa0f22c7c7fdfaf406d29a05",
+      "issues": []
+    },
+    {
+      "path": "feel099-timing01-engine.log",
+      "sha256": "33c4981158b5ce5c813c756847eea5d69c1f4426fa0f22c7c7fdfaf406d29a05",
+      "issues": []
+    },
+    {
+      "path": "perf099-before01-engine.log",
+      "sha256": "0259e6ae4d0a6b968febfb5804366854bb1a19153f2ee48b0017ffb36ed810b7",
+      "issues": []
+    },
+    {
+      "path": "perf099-controls-engine.log",
+      "sha256": "f651720bc5810b554b612a9dba7b70e2f760e1fb188c6db1bc46894a5e624796",
+      "issues": []
+    },
+    {
+      "path": "perf099-controls-package01-engine.log",
+      "sha256": "f651720bc5810b554b612a9dba7b70e2f760e1fb188c6db1bc46894a5e624796",
+      "issues": []
+    },
+    {
+      "path": "perf099-deep01-engine.log",
+      "sha256": "6cab1ba1c65a9b5010b82f9c7471534b26bfedc0192b525e17c29055e64798b0",
+      "issues": []
+    },
+    {
+      "path": "perf099-equivalence01-engine.log",
+      "sha256": "b889ab82915cb362b290647f2a47d0ec6678dbd3d9b4806b3557083f9e189da4",
+      "issues": []
+    },
+    {
+      "path": "perf099-export01-engine.log",
+      "sha256": "452b786cedc656db8f393d0900f20817cb76fe16806dbca155983d84bd17d0da",
+      "issues": []
+    },
+    {
+      "path": "perf099-fall72-engine.log",
+      "sha256": "2b6560eb96b2bf0ee7d4c27ac570f44412326f93a49eb4cbed384ec89f8ab334",
+      "issues": []
+    },
+    {
+      "path": "perf099-import01-engine.log",
+      "sha256": "fb2387eb1fb814ccb7f1276e2a8fb3050cc095fca0626518d82289d91d240dcd",
+      "issues": []
+    },
+    {
+      "path": "perf099-package01-engine.log",
+      "sha256": "fb26faffca9c559b6369e3bd625177c05eea181db2c41249b2e3eba88d51f813",
+      "issues": []
+    },
+    {
+      "path": "perf099-parse01-engine.log",
+      "sha256": "bedfced1991d0866b7cbb3c72972c2f8f9581c626b9a65c9b3ce3349c6159965",
+      "issues": []
+    },
+    {
+      "path": "perf099-parse03-engine.log",
+      "sha256": "a8672350c28bdcc61a21054cfa7f9c481f95fe2f29df64cbc7569de314636e48",
+      "issues": []
+    },
+    {
+      "path": "perf099-preparation01-engine.log",
+      "sha256": "664441f808ce020773d1aef41bb68804a6068d4cf4f8f98ba8d403f4c7cad187",
+      "issues": []
+    },
+    {
+      "path": "perf099-preparation02-engine.log",
+      "sha256": "664441f808ce020773d1aef41bb68804a6068d4cf4f8f98ba8d403f4c7cad187",
+      "issues": []
+    },
+    {
+      "path": "perf099-result-after-engine.log",
+      "sha256": "666b85341cf19311a3a74de2bd1e2e083399993b18ff5c71e71f989d4ae05fed",
+      "issues": [
+        "SCRIPT ERROR: Invalid assignment of property or key 'exchange_log' with value of type 'Array' on a base object of type 'Node2D (BattleScene)'."
+      ]
+    },
+    {
+      "path": "perf099-result-after02-engine.log",
+      "sha256": "350aee92bd94484e25cc8378bf1c9b2ed57ef8c20871b12c93df1378e7aa4765",
+      "issues": []
+    },
+    {
+      "path": "perf099-result-after03-engine.log",
+      "sha256": "f6f323ea374688e3f3b8dd4e2760fc73433d8c752771524bcf76f77085374a28",
+      "issues": []
+    },
+    {
+      "path": "perf099-result-after04-engine.log",
+      "sha256": "f6f323ea374688e3f3b8dd4e2760fc73433d8c752771524bcf76f77085374a28",
+      "issues": []
+    },
+    {
+      "path": "perf099-result-before-engine.log",
+      "sha256": "5eaccc2233761cfb60976c689009c8bd5535d314532f3cbad0818ed44691d64a",
+      "issues": []
+    },
+    {
+      "path": "perf099-result-old02-engine.log",
+      "sha256": "5eaccc2233761cfb60976c689009c8bd5535d314532f3cbad0818ed44691d64a",
+      "issues": []
+    },
+    {
+      "path": "perf099-result-package01-engine.log",
+      "sha256": "f6f323ea374688e3f3b8dd4e2760fc73433d8c752771524bcf76f77085374a28",
+      "issues": []
+    },
+    {
+      "path": "perf099-timing057-engine.log",
+      "sha256": "258cbbf58ab4661cfa5cacd6ac633916a90ece5733b4ce38a609bcd323f6a53d",
+      "issues": []
+    },
+    {
+      "path": "perf099-ui01-engine.log",
+      "sha256": "dff4b2170d3652e9c437775da0ac42d95b590041c791c6fb359a0f1900b719e9",
+      "issues": []
+    }
+  ],
+  "package": {
+    "version": "0.4.52-c1",
+    "source_revision": "f33394cdc1870fded43c32749a375b1c7a3aa964",
+    "manifest_sha256": "c9414bff1dc37ee19543ec32460fcdf8fa98ba5b7c6a8e9998f1e4ded94fd7f1",
+    "files": [
+      {
+        "path": "LanceAndLaurel.exe",
+        "bytes": 44544,
+        "sha256": "735953090B7D752B60598264694B66E9729BF23AEE6907544821D010D2538607"
+      },
+      {
+        "path": "licenses/ASSET-NOTICES.txt",
+        "bytes": 1590,
+        "sha256": "F4B6EBA3D37BAC1A552E7BB9D70DF068F0267120658D691E0AF591F9324A72D5"
+      },
+      {
+        "path": "licenses/GODOT-LICENSE.txt",
+        "bytes": 1149,
+        "sha256": "B0435E3B3E4E55238F05F4B306F30524A1B2E20147810D436EAA554FA6855C80"
+      },
+      {
+        "path": "licenses/GODOT-THIRD-PARTY.txt",
+        "bytes": 91338,
+        "sha256": "25EFD44DF9346C7469B21AE5CB0488CF6FFF63854D4473A6AF95E08508A87B17"
+      },
+      {
+        "path": "licenses/NOTO-SANS-SC-OFL.txt",
+        "bytes": 4388,
+        "sha256": "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9"
+      },
+      {
+        "path": "PLAYER-GUIDE.txt",
+        "bytes": 3566,
+        "sha256": "A48414CE48FA98BDE5FCFBD227DBC090CAF045422930249DDBD6E1EDD33B6D12"
+      },
+      {
+        "path": "RELEASE-NOTES.txt",
+        "bytes": 1067,
+        "sha256": "86CAF6D6A908C7719B0B2FD8A8471FD4A8482371FE1F0324A768D1869DE68EAD"
+      },
+      {
+        "path": "runtime/LanceAndLaurel.exe",
+        "bytes": 96725504,
+        "sha256": "78CCC576E8F8BFFD7EF6AD6F36EBD72A41E609A1052225A55B3407C96EA84065"
+      },
+      {
+        "path": "runtime/LanceAndLaurel.pck",
+        "bytes": 38116816,
+        "sha256": "6DC5B1E59B77899DDF590A24823C87C27C1E6078BA47BBDB4D0D7A375572FA35"
+      }
+    ]
+  }
+}

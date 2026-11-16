@@ -1,5 +1,18 @@
 # 任务、审查建议与文件认领
 
+## PERF-099 / FEEL-099 本轮已交出，罕见长帧继续追踪（2026-11-16，Codex）
+
+- 用户授权：定位修复结算/重开偶发93.553ms长帧；增强实际落马特写和更慢的子弹时间，不降低画质与动作质量。后台隔离渲染，原保护保持，不接管屏幕。
+- 基线：codex/v0.4 c27ce93668802be46f548e719f5c73ed9142657c；保留三份历史差异与build_queue.gd.uid，未见新的Claude功能改动。随后已用ls-remote核对基线与远程相同，不pull/reset/stash。
+- Codex认领：game/scripts/main.gd、battle.gd、core/game_state.gd、visual/exchange_director.gd；必要的ui/combat_report.gd、ui/combat_status098.gd、ui/build_queue.gd；game/tests/*099.gd及相关定时/性能测试；DESIGN_DECISIONS、版本/导出/入口和本次交接/审查文档。
+- 验收：有分阶段计时证据和对应修复，结算奖励/保存/重开无回归；双向落马镜头连续且不裁掉身体，暂停/设置/退出恢复时间，实际新包后台复验。未能复现的旧长帧不冒称精确根因。
+- 补充认领：game/scripts/ui/ui_factory.gd，检查文字控件是否在最终字号/换行设置前重复排版；game/scripts/visual/fallen_rider.gd仅限已查明的姿态几何复用，不降低120Hz积分。
+- 诊断补充：visual/rider_view.gd仅加入显式QA开关下的绘制计时；core/frame_trace099.gd有界记录，正常运行不采样。
+- 首次结果页补充认领ui/result_prewarm099.gd：在现有整装遮罩后预先绘制一次大字号结果标题，保留原字体/字号，不把首次字形上传留到结算。
+
+- 收尾：实际.52-c1包480秒14场、24次结算/保存/重开及四种落马特写/时间恢复通过；原93.553ms未复现，仍不能宣布唯一根因已定位。新包结算最高23.256ms，重开夹具最高28.287ms；冲锋另有一帧38.041ms。PERF099_REVIEW/EVIDENCE与新交接记录真实限制。
+- 本轮所有文件占用释放，未降低美术/120Hz动作与资源保护。后续优先任务PERF-099追踪：捕获原约94ms以及绘制区间剩余尖峰；若重新修改battle/rider_view须重新登记认领。FEEL-099自动呈现验收通过，真人手感待反馈。
+
 ## REQ-098 已完成：独立盾纹与45分钟排错（2026-11-16，Codex）
 
 - 用户已明确同意：盾纹独立，家族纹章管罩袍、马衣和枪旗；旧收藏、购买记录与装备选择保留。

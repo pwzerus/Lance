@@ -27,7 +27,7 @@ static func load_items() -> Array:
 				items[items.find(previous)] = item
 			else:
 				items.append(item)
-	items.append({"id":"shield_basic","name":"旧式绘饰盾","slot":"shield","era":0,"price":0,"region":"欧洲共通","stats":{"shield_capacity":78.0,"shield_handling":1.0,"shield_quality":0,"shield_shape":"kite"},"description":"已有骑手的基础盾牌。","source":"S33 · 游戏改编","historical_note":"沿用旧版基础防护，新增槽位不删除已有收藏。"})
+	items.append({"id":"shield_basic","name":"旧式绘饰盾","slot":"shield","era":0,"price":0,"region":"欧洲共通","stats":{"shield_capacity":150.0,"shield_handling":1.0,"shield_quality":0,"shield_shape":"kite","shield_class":"light","shield_line_tier":1,"shield_kg":2.6,"shield_speed":1.0,"shield_protection":{"leak":.10,"absorb":0.0},"shield_scale":.85},"description":"已有骑手的基础盾牌。","source":"S33 · 游戏改编","historical_note":"旧藏按轻盾一档适配，收藏编号与购买记录保留。"})
 	var caparisons = JSON.parse_string(FileAccess.get_file_as_string(CAPARISON_FILE)) if FileAccess.file_exists(CAPARISON_FILE) else null
 	if caparisons is Array:
 		items.append_array(caparisons)
@@ -81,7 +81,7 @@ static func _apply_weights(items: Array) -> void:
 				var kg = table.helmet.get(str(item.id),table.helmet.get(str(stats.get("helmet_art","")),-1.0))
 				stats["helmet_kg"] = float(kg) if float(kg)>=0 else 1.8+.4*float(stats.get("helmet_tier",0))
 			"shield":
-				stats["shield_kg"] = snappedf(float(table.shield.base)+float(table.shield.per_capacity)*float(stats.get("shield_capacity",78.0)),.1)
+				stats["shield_kg"] = float(stats.get("shield_kg",snappedf(float(table.shield.base)+float(table.shield.per_capacity)*float(stats.get("shield_capacity",78.0)),.1)))
 			"lance":
 				var base = float(table.lance.get(str(stats.get("lance_type","standard")),table.lance.standard))
 				stats["lance_kg"] = snappedf(base*float(stats.get("reach",247.0))/247.0,.1)
@@ -164,14 +164,19 @@ static func stats(items: Array, equipped: Dictionary) -> Dictionary:
 		var item = find(items, str(equipped[slot]))
 		for key in item.get("stats", {}):
 			result[key] = item.stats[key]
+	# Table values are final fresh-arm handling multipliers. Compensate the
+	# equipped load's agility here instead of applying shield weight twice.
+	if result.has("shield_speed"):
+		result.shield_handling = float(result.shield_speed)/preload("res://scripts/core/horse_condition.gd").agility(result)
 	return result
 
 static func opponent_stats(items: Array, era: int) -> Dictionary:
-	var equipment = {"armor":"mail_basic","helmet":"helm_nasal","lance":"lance_ash","horse":"horse_bay","crest":"crest_chevron"}
+	var equipment = {"armor":"mail_basic","helmet":"helm_nasal","lance":"lance_ash","horse":"horse_bay","crest":"crest_chevron","shield":"shield_basic"}
 	if era > 0:
 		for slot in ["armor","helmet","lance","horse"]:
 			var prefix = "helm" if slot == "helmet" else slot
 			equipment[slot] = "%s_e%d" % [prefix,clampi(era,1,4)]
 		# Later-era opponents ride under cloth bearing their own arms.
+		equipment["shield"] = "eng_shield_%d" % mini(5,era)
 		equipment["caparison"] = "caparison_velvet" if era>=3 else "caparison_wool"
 	return stats(items,equipment)

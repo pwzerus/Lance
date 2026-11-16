@@ -25,7 +25,7 @@ func _draw() -> void:
 				continue
 			var p = Model.head_position(f) if zone=="head" else (Model.body_position(f) if zone=="body" else (Model.shield_position(f) if zone=="shield" else Model.flank_position(f)))
 			if zone=="shield":
-				var outline = Model.Shield.world_polygon(p,Model.shield_angle(f),int(f.direction),str(f.stats.get("shield_shape","kite")))
+				var outline = Model.Shield.world_polygon(p,Model.shield_angle(f),int(f.direction),str(f.stats.get("shield_shape","kite")),float(f.stats.get("shield_scale",1.0)))
 				draw_colored_polygon(outline,Color(Color("ffe08c"),.10))
 				outline.append(outline[0])
 				draw_polyline(outline,Color("ffe08c"),1.8)

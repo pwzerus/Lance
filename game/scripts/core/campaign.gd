@@ -94,6 +94,10 @@ static func base_quality(n: int) -> int:
 static func _q(value: int) -> int:
 	return clampi(value,0,5)
 
+static func shield_quality(kind: String, quality: int) -> int:
+	var line_tier = clampi(quality/2,0,2)
+	return line_tier*2+(1 if kind in ["heavy","bulwark"] or (kind=="balanced" and quality%2==1) else 0)
+
 static func build(items: Array, n: int) -> Dictionary:
 	var chapter = (n-1)/PER_CHAPTER
 	var position = (n-1)%PER_CHAPTER
@@ -127,7 +131,9 @@ static func build(items: Array, n: int) -> Dictionary:
 	var equipment = {
 		"armor":"%s_armor_%d" % [region,_q(q+int(arche.armor))],
 		"helmet":"%s_helmet_%d" % [region,_q(q+int(arche.helmet))],
-		"shield":"%s_shield_%d" % [region,_q(q+int(arche.shield))],
+		# REQ-098: progression improves a line, it must not alternate a
+		# bulwark between light and heavy just because quality is even/odd.
+		"shield":"%s_shield_%d" % [region,shield_quality(kind,_q(q+int(arche.shield)))],
 		"lance":"%s_lance_%s_%d" % [region,lance_type,_q(q)],
 		"horse":str(horse_line[clampi(q*horse_line.size()/6,0,horse_line.size()-1)]),
 		"crest":str(CRESTS[(n*5+chapter)%CRESTS.size()]),
@@ -145,7 +151,7 @@ static func build(items: Array, n: int) -> Dictionary:
 	var epithets: Array = arche.epithets
 	var opponent = "%s「%s」" % [given[(n*7+chapter*3)%given.size()],epithets[(n+chapter)%epithets.size()]]
 	if boss:
-		opponent = "冠军 · "+opponent
+		opponent = "冠军 "+opponent
 	var war = n>=15 and n%10==5
 	return {"number":n,"chapter":chapter,"chapter_name":CHAPTERS[chapter],"position":position+1,"boss":boss,
 		"opponent":opponent,"region":Catalogue.REGIONS[REGION_KEYS.find(region)],"archetype":kind,"archetype_name":str(arche.name),
@@ -164,11 +170,14 @@ static func ai_label(ai: Dictionary) -> String:
 	var names = ["初学","生疏","正规","熟练","老练"]
 	var skill = names[clampi(roundi(float(ai.get("skill",1.0))*2.0),0,4)]
 	var awareness = names[clampi(roundi(float(ai.get("awareness",1.0))*2.0),0,4)]
-	return "技巧 %s · 意识 %s" % [skill,awareness]
+	return "技巧%s，判断%s" % [skill,awareness]
 
 ## A kit a player could plausibly own when reaching level n with its rewards.
 ## Used only by the benchmark to sketch the difficulty curve.
-static func reference_kit(items: Array, n: int) -> Dictionary:
+static func reference_kit(items: Array, n: int, shield_line: String="mixed") -> Dictionary:
 	var q = clampi((n+2)/16,0,5)
-	return Catalogue.stats(items,{"armor":"eng_armor_%d" % q,"helmet":"eng_helmet_%d" % q,"shield":"eng_shield_%d" % q,
+	var shield_q=q
+	if shield_line in ["light","heavy"]:
+		shield_q=clampi(q/2,0,2)*2+(1 if shield_line=="heavy" else 0)
+	return Catalogue.stats(items,{"armor":"eng_armor_%d" % q,"helmet":"eng_helmet_%d" % q,"shield":"eng_shield_%d" % shield_q,
 		"lance":"eng_lance_long_%d" % q,"horse":["horse_bay","horse_grey","horse_e1","horse_e2","horse_e4","horse_e4"][q],"crest":"crest_bend"})

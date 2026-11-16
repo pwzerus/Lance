@@ -11,26 +11,26 @@ static func outline(shape: String = "kite") -> PackedVector2Array:
 static func project(point: Vector2) -> Vector2:
 	return Vector2(point.x*.62+point.y*.13,point.y)
 
-static func polygon(shape: String = "kite") -> PackedVector2Array:
+static func polygon(shape: String = "kite", scale: float = 1.0) -> PackedVector2Array:
 	var result = PackedVector2Array()
 	for point in outline(shape):
-		result.append(project(point))
+		result.append(project(point)*scale)
 	return result
 
-static func world_polygon(center: Vector2, angle: float, facing: int, shape: String = "kite") -> PackedVector2Array:
+static func world_polygon(center: Vector2, angle: float, facing: int, shape: String = "kite", scale: float = 1.0) -> PackedVector2Array:
 	var result = PackedVector2Array()
-	for point in polygon(shape):
+	for point in polygon(shape,scale):
 		result.append(center+point.rotated(angle)*Vector2(facing,1))
 	return result
 
-static func contact_region(point: Vector2, incoming: Vector2, shape: String = "kite") -> Dictionary:
+static func contact_region(point: Vector2, incoming: Vector2, shape: String = "kite", scale: float = 1.0) -> Dictionary:
 	# Every swept entry is on the silhouette boundary. Radial distance from
 	# that entry would incorrectly call ALL hits rim hits. Classify the line
 	# of force's offset across the projected face, not its entry depth.
 	var ray = incoming.normalized() if incoming.length_squared()>.0001 else Vector2.LEFT
 	var side = Vector2(-ray.y,ray.x)
 	var extent = 1.0
-	for vertex in polygon(shape):
+	for vertex in polygon(shape,scale):
 		extent = maxf(extent,absf(vertex.dot(side)))
 	var eccentricity = clampf(absf(point.dot(side))/extent,0.0,1.0)
 	return {"shield_region":"rim" if eccentricity>.72 else ("center" if eccentricity<.38 else "face"),
@@ -63,7 +63,7 @@ static func segment_fraction(start: Vector2, finish: Vector2, points: PackedVect
 			earliest = minf(earliest,t)
 	return earliest if is_finite(earliest) else -1.0
 
-static func sweep(old_hand: Vector2, hand: Vector2, old_aim: float, aim: float, old_reach: float, reach: float, facing: int, old_center: Vector2, center: Vector2, old_pose: float, pose: float, defender_facing: int, shape: String, delta: float) -> Dictionary:
+static func sweep(old_hand: Vector2, hand: Vector2, old_aim: float, aim: float, old_reach: float, reach: float, facing: int, old_center: Vector2, center: Vector2, old_pose: float, pose: float, defender_facing: int, shape: String, delta: float, scale: float = 1.0) -> Dictionary:
 	# Trace the weapon arc in the moving shield's local frame. Four-pixel
 	# substeps also cover rotating lances, shield turns and short broken grips.
 	var previous = old_hand+Vector2(cos(old_aim)*facing,sin(old_aim))*old_reach
@@ -71,7 +71,7 @@ static func sweep(old_hand: Vector2, hand: Vector2, old_aim: float, aim: float, 
 	var relative_radius = maxf(previous.distance_to(old_center),end_tip.distance_to(center))
 	var travel = absf(aim-old_aim)*maxf(old_reach,reach)+absf(pose-old_pose)*relative_radius
 	var segments = maxi(1,ceili(travel/4))
-	var points = polygon(shape)
+	var points = polygon(shape,scale)
 	var local_previous = ((previous-old_center)*Vector2(defender_facing,1)).rotated(-old_pose)
 	for i in range(segments):
 		var t0 = float(i)/segments

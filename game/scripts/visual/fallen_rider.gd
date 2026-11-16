@@ -201,7 +201,7 @@ func _ground_targets(targets: Dictionary, blend: float) -> void:
 		var margin = 13.0
 		if side=="left" and float(fighter.get("shield",0.0))>0.0:
 			var pose: Dictionary = visual.detached_pose
-			for point in Rider.Shield.polygon(str(fighter.stats.get("shield_shape","kite"))):
+			for point in Rider.Shield.polygon(str(fighter.stats.get("shield_shape","kite")),float(fighter.stats.get("shield_scale",1.0))):
 				var offset: Vector2 = pose.shield_center-pose.left.hand+pose.torso_transform.basis_xform(point.rotated(float(fighter.get("shield_twist",0.0)))*mirror)
 				margin = maxf(margin,offset.rotated(rotation).y+7.0)
 		var solution = _ground_chain(arm.shoulder.rotated(spine),(arm.elbow-arm.shoulder).rotated(spine),(arm.hand-arm.elbow).rotated(spine),side+"_upper",side+"_elbow",1.0,level,roll_direction,margin,true)
@@ -231,15 +231,21 @@ func _ground_chain(origin: Vector2, upper: Vector2, lower: Vector2, upper_key: S
 		var bend = acos(clampf((u.length_squared()+distance*distance-v.length_squared())/(2*u.length()*distance),-1,1))
 		for pole in [-1.0,1.0]:
 			var desired_upper = ray.angle()+bend*pole
-			var ideal_elbow = start+Vector2.from_angle(desired_upper)*u.length()
 			var first = angle_difference(u.angle(),desired_upper)/angle_sign
-			var second = angle_difference(v.angle()+first*angle_sign,(target-ideal_elbow).angle())/angle_sign
 			first = clampf(first,float(upper_joint.minimum),float(upper_joint.maximum))
-			second = clampf(second,float(lower_joint.minimum),float(lower_joint.maximum))
 			var elbow = start+u.rotated(first*angle_sign)
+			# Once a shoulder/hip reaches its limit, solve the lower segment
+			# from that reachable elbow/knee, not the discarded ideal position.
+			var second = angle_difference(v.angle()+first*angle_sign,(target-elbow).angle())/angle_sign
+			second = clampf(second,float(lower_joint.minimum),float(lower_joint.maximum))
 			var end = elbow+v.rotated((first+second)*angle_sign)
 			var below = maxf(0.0,maxf(elbow.y+10.0,end.y+margin)-level)
-			var score = below*40.0+end.distance_to(target)+absf(first)*2.0+absf(second)*2.0+(8.0 if candidate>=3 else 0.0)
+			# Prefer the reachable branch near the current articulation. Tiny
+			# changes in shield support must not select the other elbow solution
+			# late in a landing and inject another large swing. Floor clearance
+			# still dominates; this biases targets, never snaps/freezes a limb.
+			var travel = absf(first-float(upper_joint.angle))+absf(second-float(lower_joint.angle))
+			var score = below*40.0+end.distance_to(target)+absf(first)*2.0+absf(second)*2.0+travel*8.0+(8.0 if candidate>=3 else 0.0)
 			if score<best:
 				best = score
 				result = Vector2(first,second)
@@ -408,7 +414,7 @@ func body_points() -> PackedVector2Array:
 			points.append(pose[side][joint]+Vector2(0,9))
 	var mirror = Vector2(int(fighter.direction),1)
 	if float(fighter.get("shield",0.0))>0.0:
-		for point in Rider.Shield.polygon(str(fighter.stats.get("shield_shape","kite"))):
+		for point in Rider.Shield.polygon(str(fighter.stats.get("shield_shape","kite")),float(fighter.stats.get("shield_scale",1.0))):
 			points.append(pose.shield_center+torso.basis_xform(point.rotated(float(fighter.get("shield_twist",0.0)))*mirror))
 	for side in ["near","far"]:
 		for joint in ["hip","knee","ankle","foot"]:

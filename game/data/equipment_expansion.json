@@ -132,17 +132,26 @@
     "historical_window": "1100–1300 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "eng_shield_0",
-    "name": "英格兰 · 新手绘饰盾",
+    "name": "英格兰 皮边轻盾",
     "slot": "shield",
     "price": 70,
     "stats": {
-      "shield_capacity": 66,
+      "shield_capacity": 150,
       "shield_handling": 1.1,
       "shield_quality": 0,
       "shield_shape": "kite",
-      "shield_color": "416f8e"
+      "shield_color": "416f8e",
+      "shield_class": "light",
+      "shield_line_tier": 1,
+      "shield_kg": 2.6,
+      "shield_speed": 1.0,
+      "shield_protection": {
+        "leak": 0.1,
+        "absorb": 0
+      },
+      "shield_scale": 0.85
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾小，举得快。露出的空当要靠姿态和盾位补上。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=eng; quality=0"
   },
@@ -279,17 +288,26 @@
     "historical_window": "1100–1300 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "eng_shield_1",
-    "name": "英格兰 · 初级绘饰盾",
+    "name": "英格兰 铁箍重盾",
     "slot": "shield",
     "price": 190,
     "stats": {
-      "shield_capacity": 76,
+      "shield_capacity": 300,
       "shield_handling": 1.0550000000000002,
       "shield_quality": 1,
       "shield_shape": "kite",
-      "shield_color": "416f8e"
+      "shield_color": "416f8e",
+      "shield_class": "heavy",
+      "shield_line_tier": 1,
+      "shield_kg": 5.5,
+      "shield_speed": 0.8,
+      "shield_protection": {
+        "leak": 0.05,
+        "absorb": 0.08
+      },
+      "shield_scale": 1.18
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾大，挡得多。举起较慢，也更耗臂力；全速撞正仍可能落马。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=eng; quality=1"
   },
@@ -426,17 +444,26 @@
     "historical_window": "1300–1400 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "eng_shield_2",
-    "name": "英格兰 · 中级绘饰盾",
+    "name": "英格兰 精制轻盾",
     "slot": "shield",
     "price": 380,
     "stats": {
-      "shield_capacity": 86,
+      "shield_capacity": 200,
       "shield_handling": 1.01,
       "shield_quality": 2,
       "shield_shape": "heater",
-      "shield_color": "416f8e"
+      "shield_color": "416f8e",
+      "shield_class": "light",
+      "shield_line_tier": 2,
+      "shield_kg": 2.2,
+      "shield_speed": 1.08,
+      "shield_protection": {
+        "leak": 0.08,
+        "absorb": 0.03
+      },
+      "shield_scale": 0.85
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾小，举得快。露出的空当要靠姿态和盾位补上。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=eng; quality=2"
   },
@@ -573,17 +600,26 @@
     "historical_window": "1400–1470 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "eng_shield_3",
-    "name": "英格兰 · 中高级绘饰盾",
+    "name": "英格兰 铆带重盾",
     "slot": "shield",
     "price": 590,
     "stats": {
-      "shield_capacity": 96,
+      "shield_capacity": 350,
       "shield_handling": 0.9650000000000001,
       "shield_quality": 3,
       "shield_shape": "heater",
-      "shield_color": "416f8e"
+      "shield_color": "416f8e",
+      "shield_class": "heavy",
+      "shield_line_tier": 2,
+      "shield_kg": 4.9,
+      "shield_speed": 0.86,
+      "shield_protection": {
+        "leak": 0.04,
+        "absorb": 0.11
+      },
+      "shield_scale": 1.18
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾大，挡得多。举起较慢，也更耗臂力；全速撞正仍可能落马。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=eng; quality=3"
   },
@@ -720,17 +756,26 @@
     "historical_window": "1470–1530 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "eng_shield_4",
-    "name": "英格兰 · 高级绘饰盾",
+    "name": "英格兰 雕饰轻盾",
     "slot": "shield",
     "price": 820,
     "stats": {
-      "shield_capacity": 106,
+      "shield_capacity": 250,
       "shield_handling": 0.9200000000000002,
       "shield_quality": 4,
       "shield_shape": "targe",
-      "shield_color": "416f8e"
+      "shield_color": "416f8e",
+      "shield_class": "light",
+      "shield_line_tier": 3,
+      "shield_kg": 1.8,
+      "shield_speed": 1.15,
+      "shield_protection": {
+        "leak": 0.06,
+        "absorb": 0.05
+      },
+      "shield_scale": 0.85
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾小，举得快。露出的空当要靠姿态和盾位补上。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=eng; quality=4"
   },
@@ -867,17 +912,26 @@
     "historical_window": "1530–1600 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "eng_shield_5",
-    "name": "英格兰 · 最高级绘饰盾",
+    "name": "英格兰 包铁重盾",
     "slot": "shield",
     "price": 1060,
     "stats": {
-      "shield_capacity": 116,
+      "shield_capacity": 400,
       "shield_handling": 0.8750000000000001,
       "shield_quality": 5,
       "shield_shape": "targe",
-      "shield_color": "416f8e"
+      "shield_color": "416f8e",
+      "shield_class": "heavy",
+      "shield_line_tier": 3,
+      "shield_kg": 4.3,
+      "shield_speed": 0.92,
+      "shield_protection": {
+        "leak": 0.03,
+        "absorb": 0.15
+      },
+      "shield_scale": 1.18
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾大，挡得多。举起较慢，也更耗臂力；全速撞正仍可能落马。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=eng; quality=5"
   },
@@ -1014,17 +1068,26 @@
     "historical_window": "1100–1300 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "fr_shield_0",
-    "name": "法兰西 · 新手绘饰盾",
+    "name": "法兰西 皮边轻盾",
     "slot": "shield",
     "price": 70,
     "stats": {
-      "shield_capacity": 66,
+      "shield_capacity": 150,
       "shield_handling": 1.1,
       "shield_quality": 0,
       "shield_shape": "kite",
-      "shield_color": "a75042"
+      "shield_color": "a75042",
+      "shield_class": "light",
+      "shield_line_tier": 1,
+      "shield_kg": 2.6,
+      "shield_speed": 1.0,
+      "shield_protection": {
+        "leak": 0.1,
+        "absorb": 0
+      },
+      "shield_scale": 0.85
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾小，举得快。露出的空当要靠姿态和盾位补上。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=fr; quality=0"
   },
@@ -1161,17 +1224,26 @@
     "historical_window": "1100–1300 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "fr_shield_1",
-    "name": "法兰西 · 初级绘饰盾",
+    "name": "法兰西 铁箍重盾",
     "slot": "shield",
     "price": 190,
     "stats": {
-      "shield_capacity": 76,
+      "shield_capacity": 300,
       "shield_handling": 1.0550000000000002,
       "shield_quality": 1,
       "shield_shape": "kite",
-      "shield_color": "a75042"
+      "shield_color": "a75042",
+      "shield_class": "heavy",
+      "shield_line_tier": 1,
+      "shield_kg": 5.5,
+      "shield_speed": 0.8,
+      "shield_protection": {
+        "leak": 0.05,
+        "absorb": 0.08
+      },
+      "shield_scale": 1.18
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾大，挡得多。举起较慢，也更耗臂力；全速撞正仍可能落马。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=fr; quality=1"
   },
@@ -1308,17 +1380,26 @@
     "historical_window": "1300–1400 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "fr_shield_2",
-    "name": "法兰西 · 中级绘饰盾",
+    "name": "法兰西 精制轻盾",
     "slot": "shield",
     "price": 380,
     "stats": {
-      "shield_capacity": 86,
+      "shield_capacity": 200,
       "shield_handling": 1.01,
       "shield_quality": 2,
       "shield_shape": "heater",
-      "shield_color": "a75042"
+      "shield_color": "a75042",
+      "shield_class": "light",
+      "shield_line_tier": 2,
+      "shield_kg": 2.2,
+      "shield_speed": 1.08,
+      "shield_protection": {
+        "leak": 0.08,
+        "absorb": 0.03
+      },
+      "shield_scale": 0.85
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾小，举得快。露出的空当要靠姿态和盾位补上。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=fr; quality=2"
   },
@@ -1455,17 +1536,26 @@
     "historical_window": "1400–1470 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "fr_shield_3",
-    "name": "法兰西 · 中高级绘饰盾",
+    "name": "法兰西 铆带重盾",
     "slot": "shield",
     "price": 590,
     "stats": {
-      "shield_capacity": 96,
+      "shield_capacity": 350,
       "shield_handling": 0.9650000000000001,
       "shield_quality": 3,
       "shield_shape": "heater",
-      "shield_color": "a75042"
+      "shield_color": "a75042",
+      "shield_class": "heavy",
+      "shield_line_tier": 2,
+      "shield_kg": 4.9,
+      "shield_speed": 0.86,
+      "shield_protection": {
+        "leak": 0.04,
+        "absorb": 0.11
+      },
+      "shield_scale": 1.18
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾大，挡得多。举起较慢，也更耗臂力；全速撞正仍可能落马。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=fr; quality=3"
   },
@@ -1602,17 +1692,26 @@
     "historical_window": "1470–1530 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "fr_shield_4",
-    "name": "法兰西 · 高级绘饰盾",
+    "name": "法兰西 雕饰轻盾",
     "slot": "shield",
     "price": 820,
     "stats": {
-      "shield_capacity": 106,
+      "shield_capacity": 250,
       "shield_handling": 0.9200000000000002,
       "shield_quality": 4,
       "shield_shape": "targe",
-      "shield_color": "a75042"
+      "shield_color": "a75042",
+      "shield_class": "light",
+      "shield_line_tier": 3,
+      "shield_kg": 1.8,
+      "shield_speed": 1.15,
+      "shield_protection": {
+        "leak": 0.06,
+        "absorb": 0.05
+      },
+      "shield_scale": 0.85
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾小，举得快。露出的空当要靠姿态和盾位补上。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=fr; quality=4"
   },
@@ -1749,17 +1848,26 @@
     "historical_window": "1530–1600 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "fr_shield_5",
-    "name": "法兰西 · 最高级绘饰盾",
+    "name": "法兰西 包铁重盾",
     "slot": "shield",
     "price": 1060,
     "stats": {
-      "shield_capacity": 116,
+      "shield_capacity": 400,
       "shield_handling": 0.8750000000000001,
       "shield_quality": 5,
       "shield_shape": "targe",
-      "shield_color": "a75042"
+      "shield_color": "a75042",
+      "shield_class": "heavy",
+      "shield_line_tier": 3,
+      "shield_kg": 4.3,
+      "shield_speed": 0.92,
+      "shield_protection": {
+        "leak": 0.03,
+        "absorb": 0.15
+      },
+      "shield_scale": 1.18
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾大，挡得多。举起较慢，也更耗臂力；全速撞正仍可能落马。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=fr; quality=5"
   },
@@ -1896,17 +2004,26 @@
     "historical_window": "1100–1300 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "de_shield_0",
-    "name": "德意志 · 新手绘饰盾",
+    "name": "德意志 皮边轻盾",
     "slot": "shield",
     "price": 70,
     "stats": {
-      "shield_capacity": 66,
+      "shield_capacity": 150,
       "shield_handling": 1.1,
       "shield_quality": 0,
       "shield_shape": "kite",
-      "shield_color": "b39758"
+      "shield_color": "b39758",
+      "shield_class": "light",
+      "shield_line_tier": 1,
+      "shield_kg": 2.6,
+      "shield_speed": 1.0,
+      "shield_protection": {
+        "leak": 0.1,
+        "absorb": 0
+      },
+      "shield_scale": 0.85
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾小，举得快。露出的空当要靠姿态和盾位补上。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=de; quality=0"
   },
@@ -2043,17 +2160,26 @@
     "historical_window": "1100–1300 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "de_shield_1",
-    "name": "德意志 · 初级绘饰盾",
+    "name": "德意志 铁箍重盾",
     "slot": "shield",
     "price": 190,
     "stats": {
-      "shield_capacity": 76,
+      "shield_capacity": 300,
       "shield_handling": 1.0550000000000002,
       "shield_quality": 1,
       "shield_shape": "kite",
-      "shield_color": "b39758"
+      "shield_color": "b39758",
+      "shield_class": "heavy",
+      "shield_line_tier": 1,
+      "shield_kg": 5.5,
+      "shield_speed": 0.8,
+      "shield_protection": {
+        "leak": 0.05,
+        "absorb": 0.08
+      },
+      "shield_scale": 1.18
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾大，挡得多。举起较慢，也更耗臂力；全速撞正仍可能落马。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=de; quality=1"
   },
@@ -2190,17 +2316,26 @@
     "historical_window": "1300–1400 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "de_shield_2",
-    "name": "德意志 · 中级绘饰盾",
+    "name": "德意志 精制轻盾",
     "slot": "shield",
     "price": 380,
     "stats": {
-      "shield_capacity": 86,
+      "shield_capacity": 200,
       "shield_handling": 1.01,
       "shield_quality": 2,
       "shield_shape": "heater",
-      "shield_color": "b39758"
+      "shield_color": "b39758",
+      "shield_class": "light",
+      "shield_line_tier": 2,
+      "shield_kg": 2.2,
+      "shield_speed": 1.08,
+      "shield_protection": {
+        "leak": 0.08,
+        "absorb": 0.03
+      },
+      "shield_scale": 0.85
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾小，举得快。露出的空当要靠姿态和盾位补上。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=de; quality=2"
   },
@@ -2337,17 +2472,26 @@
     "historical_window": "1400–1470 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "de_shield_3",
-    "name": "德意志 · 中高级绘饰盾",
+    "name": "德意志 铆带重盾",
     "slot": "shield",
     "price": 590,
     "stats": {
-      "shield_capacity": 96,
+      "shield_capacity": 350,
       "shield_handling": 0.9650000000000001,
       "shield_quality": 3,
       "shield_shape": "heater",
-      "shield_color": "b39758"
+      "shield_color": "b39758",
+      "shield_class": "heavy",
+      "shield_line_tier": 2,
+      "shield_kg": 4.9,
+      "shield_speed": 0.86,
+      "shield_protection": {
+        "leak": 0.04,
+        "absorb": 0.11
+      },
+      "shield_scale": 1.18
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾大，挡得多。举起较慢，也更耗臂力；全速撞正仍可能落马。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=de; quality=3"
   },
@@ -2484,17 +2628,26 @@
     "historical_window": "1470–1530 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "de_shield_4",
-    "name": "德意志 · 高级绘饰盾",
+    "name": "德意志 雕饰轻盾",
     "slot": "shield",
     "price": 820,
     "stats": {
-      "shield_capacity": 106,
+      "shield_capacity": 250,
       "shield_handling": 0.9200000000000002,
       "shield_quality": 4,
       "shield_shape": "targe",
-      "shield_color": "b39758"
+      "shield_color": "b39758",
+      "shield_class": "light",
+      "shield_line_tier": 3,
+      "shield_kg": 1.8,
+      "shield_speed": 1.15,
+      "shield_protection": {
+        "leak": 0.06,
+        "absorb": 0.05
+      },
+      "shield_scale": 0.85
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾小，举得快。露出的空当要靠姿态和盾位补上。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=de; quality=4"
   },
@@ -2631,17 +2784,26 @@
     "historical_window": "1530–1600 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "de_shield_5",
-    "name": "德意志 · 最高级绘饰盾",
+    "name": "德意志 包铁重盾",
     "slot": "shield",
     "price": 1060,
     "stats": {
-      "shield_capacity": 116,
+      "shield_capacity": 400,
       "shield_handling": 0.8750000000000001,
       "shield_quality": 5,
       "shield_shape": "targe",
-      "shield_color": "b39758"
+      "shield_color": "b39758",
+      "shield_class": "heavy",
+      "shield_line_tier": 3,
+      "shield_kg": 4.3,
+      "shield_speed": 0.92,
+      "shield_protection": {
+        "leak": 0.03,
+        "absorb": 0.15
+      },
+      "shield_scale": 1.18
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾大，挡得多。举起较慢，也更耗臂力；全速撞正仍可能落马。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=de; quality=5"
   },
@@ -2778,17 +2940,26 @@
     "historical_window": "1100–1300 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "it_shield_0",
-    "name": "意大利 · 新手绘饰盾",
+    "name": "意大利 皮边轻盾",
     "slot": "shield",
     "price": 70,
     "stats": {
-      "shield_capacity": 66,
+      "shield_capacity": 150,
       "shield_handling": 1.1,
       "shield_quality": 0,
       "shield_shape": "kite",
-      "shield_color": "598077"
+      "shield_color": "598077",
+      "shield_class": "light",
+      "shield_line_tier": 1,
+      "shield_kg": 2.6,
+      "shield_speed": 1.0,
+      "shield_protection": {
+        "leak": 0.1,
+        "absorb": 0
+      },
+      "shield_scale": 0.85
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾小，举得快。露出的空当要靠姿态和盾位补上。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=it; quality=0"
   },
@@ -2925,17 +3096,26 @@
     "historical_window": "1100–1300 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "it_shield_1",
-    "name": "意大利 · 初级绘饰盾",
+    "name": "意大利 铁箍重盾",
     "slot": "shield",
     "price": 190,
     "stats": {
-      "shield_capacity": 76,
+      "shield_capacity": 300,
       "shield_handling": 1.0550000000000002,
       "shield_quality": 1,
       "shield_shape": "kite",
-      "shield_color": "598077"
+      "shield_color": "598077",
+      "shield_class": "heavy",
+      "shield_line_tier": 1,
+      "shield_kg": 5.5,
+      "shield_speed": 0.8,
+      "shield_protection": {
+        "leak": 0.05,
+        "absorb": 0.08
+      },
+      "shield_scale": 1.18
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾大，挡得多。举起较慢，也更耗臂力；全速撞正仍可能落马。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=it; quality=1"
   },
@@ -3072,17 +3252,26 @@
     "historical_window": "1300–1400 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "it_shield_2",
-    "name": "意大利 · 中级绘饰盾",
+    "name": "意大利 精制轻盾",
     "slot": "shield",
     "price": 380,
     "stats": {
-      "shield_capacity": 86,
+      "shield_capacity": 200,
       "shield_handling": 1.01,
       "shield_quality": 2,
       "shield_shape": "heater",
-      "shield_color": "598077"
+      "shield_color": "598077",
+      "shield_class": "light",
+      "shield_line_tier": 2,
+      "shield_kg": 2.2,
+      "shield_speed": 1.08,
+      "shield_protection": {
+        "leak": 0.08,
+        "absorb": 0.03
+      },
+      "shield_scale": 0.85
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾小，举得快。露出的空当要靠姿态和盾位补上。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=it; quality=2"
   },
@@ -3219,17 +3408,26 @@
     "historical_window": "1400–1470 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "it_shield_3",
-    "name": "意大利 · 中高级绘饰盾",
+    "name": "意大利 铆带重盾",
     "slot": "shield",
     "price": 590,
     "stats": {
-      "shield_capacity": 96,
+      "shield_capacity": 350,
       "shield_handling": 0.9650000000000001,
       "shield_quality": 3,
       "shield_shape": "heater",
-      "shield_color": "598077"
+      "shield_color": "598077",
+      "shield_class": "heavy",
+      "shield_line_tier": 2,
+      "shield_kg": 4.9,
+      "shield_speed": 0.86,
+      "shield_protection": {
+        "leak": 0.04,
+        "absorb": 0.11
+      },
+      "shield_scale": 1.18
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾大，挡得多。举起较慢，也更耗臂力；全速撞正仍可能落马。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=it; quality=3"
   },
@@ -3366,17 +3564,26 @@
     "historical_window": "1470–1530 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "it_shield_4",
-    "name": "意大利 · 高级绘饰盾",
+    "name": "意大利 雕饰轻盾",
     "slot": "shield",
     "price": 820,
     "stats": {
-      "shield_capacity": 106,
+      "shield_capacity": 250,
       "shield_handling": 0.9200000000000002,
       "shield_quality": 4,
       "shield_shape": "targe",
-      "shield_color": "598077"
+      "shield_color": "598077",
+      "shield_class": "light",
+      "shield_line_tier": 3,
+      "shield_kg": 1.8,
+      "shield_speed": 1.15,
+      "shield_protection": {
+        "leak": 0.06,
+        "absorb": 0.05
+      },
+      "shield_scale": 0.85
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾小，举得快。露出的空当要靠姿态和盾位补上。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=it; quality=4"
   },
@@ -3513,17 +3720,26 @@
     "historical_window": "1530–1600 主题窗口",
     "historical_note": "地区收藏与六档品质为游戏编排；共享形制不代表四国各自独有。数值、纹饰及自由混搭为改编，非整套文物复原。",
     "id": "it_shield_5",
-    "name": "意大利 · 最高级绘饰盾",
+    "name": "意大利 包铁重盾",
     "slot": "shield",
     "price": 1060,
     "stats": {
-      "shield_capacity": 116,
+      "shield_capacity": 400,
       "shield_handling": 0.8750000000000001,
       "shield_quality": 5,
       "shield_shape": "targe",
-      "shield_color": "598077"
+      "shield_color": "598077",
+      "shield_class": "heavy",
+      "shield_line_tier": 3,
+      "shield_kg": 4.3,
+      "shield_speed": 0.92,
+      "shield_protection": {
+        "leak": 0.03,
+        "absorb": 0.15
+      },
+      "shield_scale": 1.18
     },
-    "description": "更厚实的盾能承受更多损伤，换盾位稍慢。盾面轮廓与边框随年代、品质变化；纹章另行装备。",
+    "description": "盾大，挡得多。举起较慢，也更耗臂力；全速撞正仍可能落马。",
     "source": "S33 / S06 · 绘饰盾与比赛防护主题",
     "appearance": "shield; region=it; quality=5"
   },

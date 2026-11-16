@@ -217,7 +217,7 @@ func _draw_contact_trace(pose: Dictionary, origin: Vector2) -> void:
 		draw_line(point+direction*4,point+direction*10,Color(.08,.10,.09,alpha),5)
 		draw_line(point+direction*4,point+direction*10,color,2.5)
 	if zone=="shield":
-		var outline = Shield.polygon(str(fighter.stats.get("shield_shape","kite")))
+		var outline = Shield.polygon(str(fighter.stats.get("shield_shape","kite")),float(fighter.stats.get("shield_scale",1.0)))
 		var nearest = 0
 		var distance = INF
 		for i in range(outline.size()):
@@ -778,8 +778,9 @@ func _draw_shield(center: Vector2, design: String) -> void:
 	# shield brace toward the opponent instead of reading as a screen decal.
 	var base_outline = Shield.outline(str(fighter.stats.get("shield_shape","kite")))
 	var back = PackedVector2Array()
+	var thickness = 9.0 if str(fighter.stats.get("shield_class",""))=="heavy" else 3.5
 	for point in base_outline:
-		back.append(center+shield_projection(point)+Vector2(-7,3))
+		back.append(center+shield_projection(point*float(fighter.stats.get("shield_scale",1.0)))+Vector2(-thickness,3))
 	draw_colored_polygon(back,Color("30251e"))
 	var back_rim = back.duplicate()
 	back_rim.append(back[0])
@@ -787,9 +788,7 @@ func _draw_shield(center: Vector2, design: String) -> void:
 	if fighter.stats.has("shield_shape"):
 		# Shared with the armoury icon. EQUIP-066: the crest's arms (field and
 		# clipped charge) are painted by ShieldArt; quality shows as build.
-		ShieldArt.draw(self,fighter.stats,center,true,tint,shield_recoil,1.0,int(fighter.direction))
-		if ratio<.54:
-			draw_polyline(PackedVector2Array([center+Vector2(-5,-27),center+Vector2(3,-9),center+Vector2(-4,7),center+Vector2(4,24)]),Color("302d28"),2,true)
+		ShieldArt.draw(self,fighter.stats,center,true,tint,shield_recoil,1.0,int(fighter.direction),ratio)
 		return
 	else:
 		var face = PackedVector2Array()

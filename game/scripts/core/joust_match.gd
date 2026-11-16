@@ -23,8 +23,13 @@ const WAR_HEAD_LOAD_LIMIT = 60.0
 ## blow, base damage is higher and the seat gives way sooner.
 const TUNING_V092 = {"damage":19.0,"armor_effect":1.0,"shield_impulse":.28,"shield_glance_impulse":.16,
 	"shield_rider_damage":.09,"shield_glance_damage":.035,"balance_loss":.82,"head_balance_loss":.50,"ko_threshold":96.0}
-const TUNING = {"damage":23.0,"armor_effect":.75,"shield_impulse":.70,"shield_glance_impulse":.22,
+const TUNING_V097 = {"damage":23.0,"armor_effect":.75,"shield_impulse":.70,"shield_glance_impulse":.22,
 	"shield_rider_damage":.12,"shield_glance_damage":.04,"balance_loss":1.25,"head_balance_loss":.95,"ko_threshold":58.0}
+# REQ-098: fixed-condition targets are game balance, not real injury rates.
+const TUNING = {"damage":52.0,"armor_effect":.60,"impulse":70.0,"full_closing_speed":960.0,
+	"speed_exponent":.95,"shield_damage":100.0,"shield_impulse":1.0,"shield_glance_impulse":.30,
+	"shield_rider_damage":.10,"shield_glance_damage":.02,"balance_loss":1.20,"head_balance_loss":.95,
+	"ko_threshold":64.0,"continuous_shield":true}
 static var tuning: Dictionary = TUNING
 ## FEEL-094 (user: "flailing about should make the seat unsteady and a fall
 ## more likely, and show it in the motion"). Every abrupt change of the
@@ -96,7 +101,7 @@ func _make_fighter(x: float, direction: int, stats: Dictionary) -> Dictionary:
 		"reaction_angle":0.0,"reaction_angular_velocity":0.0,"reaction_shift":0.0,"reaction_shift_velocity":0.0,
 		"reaction_neck":0.0,"reaction_neck_velocity":0.0,"arm_rest_delay":0.0,
 		"shield_compression":0.0,"shield_compression_velocity":0.0,"lance_compression":0.0,"lance_compression_velocity":0.0,
-		"shield_twist":0.0,"shield_twist_velocity":0.0,
+		"shield_twist":0.0,"shield_twist_velocity":0.0,"guard_stun":0.0,
 		"gait_phase":0.0,"gait_moving":false,"acceleration":0.0,"accel_command":0.0,"motion_drive":0.0,"seat_drive":0.0,"seat_drive_velocity":0.0,"mount_velocity_y":0.0,"lane_y":32.0 if direction==1 else -32.0,
 		"fidget":0.0,"unsteady":0.0,"sway":0.0,"sway_velocity":0.0,
 		"reaction_legs":0.0,"reaction_legs_velocity":0.0,"reaction_horse":0.0,"reaction_horse_velocity":0.0}
@@ -123,6 +128,7 @@ func _reset_positions() -> void:
 		fighter.reaction_neck = 0.0
 		fighter.reaction_neck_velocity = 0.0
 		fighter.arm_rest_delay = 0.0
+		fighter.guard_stun = 0.0
 		for key in ["reaction_angle","reaction_angular_velocity","reaction_shift","reaction_shift_velocity","shield_compression","shield_compression_velocity","lance_compression","lance_compression_velocity","shield_twist","shield_twist_velocity","fidget","unsteady","sway","sway_velocity","reaction_legs","reaction_legs_velocity","reaction_horse","reaction_horse_velocity"]:
 			fighter[key] = 0.0
 		if mode == "arena":
@@ -347,7 +353,8 @@ func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float
 	if guard>=0:
 		fighter.guard_target = clampf(guard,0,1)
 	var previous_guard = float(fighter.guard)
-	var guard_motion = eased(previous_guard,float(fighter.guard_target),float(fighter.get("guard_rate",0.0)),2.8*lerpf(1.0,.85,pace_load)*float(fighter.stats.get("shield_handling",1.0))*agility*arm_factor,delta)
+	fighter.guard_stun = maxf(0.0,float(fighter.get("guard_stun",0.0))-delta)
+	var guard_motion = eased(previous_guard,float(fighter.guard_target),float(fighter.get("guard_rate",0.0)),2.8*lerpf(1.0,.85,pace_load)*float(fighter.stats.get("shield_handling",1.0))*agility*arm_factor*(.55 if float(fighter.get("guard_stun",0.0))>0 else 1.0),delta)
 	fighter.guard = guard_motion.x
 	fighter.guard_rate = guard_motion.y
 	# EQUIP-068 arm fatigue: big lance redirects and shield swings tire the arms
@@ -533,14 +540,14 @@ func _detect_contact(index: int, delta: float) -> Dictionary:
 		{"zone":"flank","center":flank_position(defender),"old":defender.prev_flank,"radius":22.0}]
 	if float(defender.shield) > 0.0:
 		# The circle is only a cheap broad phase; the shared outline resolves contact.
-		targets.append({"zone": "shield", "center": shield_position(defender), "old": defender.prev_shield, "radius": 60.0})
+		targets.append({"zone": "shield", "center": shield_position(defender), "old": defender.prev_shield, "radius": 60.0*float(defender.stats.get("shield_scale",1.0))})
 	var earliest = 2.0
 	var found: Dictionary = {}
 	var sweep: Dictionary = {}
 	for target in targets:
 		var candidate = swept_lance(attacker.prev_hand,current_hand,attacker.prev_aim,attacker.aim,attacker.prev_length,lance_length(attacker),int(attacker.direction),target.old,target.center,target.radius,delta)
 		if target.zone=="shield" and not candidate.is_empty():
-			candidate = Shield.sweep(attacker.prev_hand,current_hand,attacker.prev_aim,attacker.aim,attacker.prev_length,lance_length(attacker),int(attacker.direction),target.old,target.center,float(defender.get("prev_shield_angle",current_shield_angle)),current_shield_angle,int(defender.direction),str(defender.stats.get("shield_shape","kite")),delta)
+			candidate = Shield.sweep(attacker.prev_hand,current_hand,attacker.prev_aim,attacker.aim,attacker.prev_length,lance_length(attacker),int(attacker.direction),target.old,target.center,float(defender.get("prev_shield_angle",current_shield_angle)),current_shield_angle,int(defender.direction),str(defender.stats.get("shield_shape","kite")),delta,float(defender.stats.get("shield_scale",1.0)))
 		if not candidate.is_empty() and float(candidate.fraction) < earliest:
 			earliest = candidate.fraction
 			found = target
@@ -564,7 +571,7 @@ func _detect_contact(index: int, delta: float) -> Dictionary:
 		"position": sweep.point, "type": "hit", "combat_elevation":elevation,"shaft_alignment":clampf(cos(elevation),.4,1.0)}
 	if found.zone=="shield":
 		event.contact_local = sweep.contact_local
-		event.merge(Shield.contact_region(sweep.contact_local,sweep.local_incoming,str(defender.stats.get("shield_shape","kite"))))
+		event.merge(Shield.contact_region(sweep.contact_local,sweep.local_incoming,str(defender.stats.get("shield_shape","kite")),float(defender.stats.get("shield_scale",1.0))))
 	elif found.zone=="head":
 		# Outward normal at the actual entry point, with target translation at
 		# the same sweep fraction. Do not use screen position or merely aim height.
@@ -586,13 +593,18 @@ func _apply_contact(contact: Dictionary) -> void:
 	var alignment = clampf(float(contact.get("shaft_alignment",cos(float(attacker.aim)))), 0.4, 1.0)
 	var impulse = speed * 0.085 * power * alignment
 	var damage = float(tuning.damage) * pow(speed / 620.0, 1.25) * power * alignment
+	var energy = pow(speed/float(tuning.get("full_closing_speed",960.0)),float(tuning.get("speed_exponent",.95)))*power*alignment
+	var continuous = bool(tuning.get("continuous_shield",false))
+	if continuous:
+		impulse = float(tuning.impulse)*energy
+		damage = float(tuning.damage)*energy
 	var armor_effect = float(tuning.armor_effect)
 	var zone = str(contact.zone)
 	if zone=="shield" and not contact.has("shield_region"):
 		var inverse = shield_transform(defender).affine_inverse()
 		contact.contact_local = inverse*Vector2(contact.position)
 		var incoming = Vector2(cos(float(attacker.aim))*int(attacker.direction),sin(float(attacker.aim)))
-		contact.merge(Shield.contact_region(contact.contact_local,inverse.basis_xform(incoming),str(defender.stats.get("shield_shape","kite"))))
+		contact.merge(Shield.contact_region(contact.contact_local,inverse.basis_xform(incoming),str(defender.stats.get("shield_shape","kite")),float(defender.stats.get("shield_scale",1.0))))
 	var glanced = false
 	var head_outcome = ""
 	var head_angle_factor = 1.0
@@ -600,26 +612,47 @@ func _apply_contact(contact: Dictionary) -> void:
 	var shield_before = float(defender.shield)
 	if zone == "head":
 		unarmoured_head_damage = damage*1.38*1.32
-		damage *= 1.38 * (1.0 - float(defender.stats.get("helmet", 0.08))*armor_effect)
-		impulse *= 0.86
-		if mode=="war":
+		if continuous:
+			var protection = clampf((float(defender.stats.get("helmet",.08))-.08)/.36,0,1)
+			damage = lerpf(85.0,70.0,protection)*energy
+			impulse *= .95
+		else:
+			damage *= 1.38 * (1.0 - float(defender.stats.get("helmet", 0.08))*armor_effect)
+			impulse *= .86
+		if mode=="war" or continuous:
 			# Missing geometry can never award a new critical hit. Legacy synthetic
 			# events keep their former damage, but actual sweeps always supply it.
 			var incidence = clampf(float(contact.get("head_incidence",1.0)),0,1)
-			head_angle_factor = lerpf(.20,1.0,incidence*incidence)
+			head_angle_factor = lerpf(.22,1.0,smoothstep(.55,.90,incidence)) if continuous else lerpf(.20,1.0,incidence*incidence)
 			glanced = incidence<.60
 			damage *= head_angle_factor
-			impulse *= lerpf(.25,1.0,incidence)
+			impulse *= lerpf(.25,1.0,smoothstep(.60,.90,incidence)) if continuous else lerpf(.25,1.0,incidence)
 			head_outcome = "glance" if glanced else "solid"
 	elif zone in ["body","flank"]:
 		damage *= 1.0 - float(defender.stats.get("armor", 0.10))*armor_effect
 		impulse *= 1.28 if zone=="flank" else 1.18
 	else:
-		var angle_difference = absf(float(contact.get("combat_elevation",attacker.aim)) - float(defender.lean) * 0.38)
-		glanced = angle_difference > 0.16 or absf(float(defender.lean))>.35
-		defender.shield = maxf(0.0, float(defender.shield) - damage * (0.7 if glanced else 1.15))
-		damage *= float(tuning.shield_glance_damage) if glanced else float(tuning.shield_rider_damage)
-		impulse *= float(tuning.shield_glance_impulse) if glanced else float(tuning.shield_impulse)
+		if continuous:
+			var transfer = shield_transfer(float(contact.get("eccentricity",0.0)),float(contact.get("combat_elevation",attacker.aim)),shield_angle(defender))
+			var protection: Dictionary = defender.stats.get("shield_protection",{"leak":.10,"absorb":0.0})
+			var factor = float(transfer.factor)
+			glanced = factor<.55
+			var raw_damage = float(tuning.shield_damage)*energy
+			defender.shield = maxf(0.0,float(defender.shield)-raw_damage*lerpf(.30,1.0,factor))
+			damage = raw_damage*float(protection.get("leak",.10))*pow(factor,1.5)
+			impulse *= factor*(1.0-clampf(float(protection.get("absorb",0.0)),0,.15))
+			contact.merge({"shield_transfer":factor,"position_factor":transfer.position,"angle_factor":transfer.angle,"shield_angle_difference":transfer.deviation})
+			if glanced:
+				defender.guard_stun = maxf(float(defender.get("guard_stun",0.0)),.20)
+				attacker.lance_stability = maxf(.20,float(attacker.lance_stability)-.18*(1.0-factor))
+				# Deflection injects velocity; the shaft never teleports to a new aim.
+				attacker.aim_rate = clampf(float(attacker.get("aim_rate",0.0))+float(contact.get("lever",0.0))*.65,-.9,.9)
+		else:
+			var angle_difference = absf(float(contact.get("combat_elevation",attacker.aim)) - float(defender.lean) * 0.38)
+			glanced = angle_difference > 0.16 or absf(float(defender.lean))>.35
+			defender.shield = maxf(0.0, float(defender.shield) - damage * (0.7 if glanced else 1.15))
+			damage *= float(tuning.shield_glance_damage) if glanced else float(tuning.shield_rider_damage)
+			impulse *= float(tuning.shield_glance_impulse) if glanced else float(tuning.shield_impulse)
 	if mode == "war" and zone != "shield":
 		damage *= 1.32
 	if mode=="war" and zone=="head":
@@ -657,8 +690,14 @@ func _apply_contact(contact: Dictionary) -> void:
 	# FEEL-094: a rider caught mid-flail has a weaker seat and loses more balance.
 	var unsteady = float(defender.get("unsteady",0.0))
 	var threshold = float(tuning.ko_threshold) * float(defender.stats.get("stability", 1.0))*brace*seat*(1.0-UNSTEADY_THRESHOLD_LOSS*unsteady)
+	if continuous:
+		# A nearly stationary mount cannot carry the rider through the same
+		# impulse. At full gallop the table's neutral-seat thresholds stay exact.
+		threshold *= lerpf(.88,1.0,smoothstep(.30,1.0,float(defender.speed)/GALLOP_SPEED))
 	defender.balance = maxf(0.0,float(defender.balance)-impulse*(float(tuning.head_balance_loss) if zone=="head" else float(tuning.balance_loss))/seat*(1.0+UNSTEADY_BALANCE_GAIN*unsteady))
 	contact["unsteady"] = unsteady
+	contact["ko_threshold"] = threshold
+	contact["impulse_ratio"] = impulse/maxf(.001,threshold)
 	defender.ko = impulse > threshold or float(defender.balance)<=0 or float(defender.hp) <= 0.0
 	defender.dead = mode == "war" and float(defender.hp) <= 0.0
 	var ko_reason = ""
@@ -708,11 +747,20 @@ func _apply_contact(contact: Dictionary) -> void:
 	defender.reaction_shift_velocity = maxf(-170.0,float(defender.get("reaction_shift_velocity",0.0))-145.0*loading)
 	if zone=="shield":
 		var eccentricity = float(contact.get("eccentricity",0.0))
-		defender.shield_compression_velocity = minf(760.0,float(defender.get("shield_compression_velocity",0.0))+690.0*loading*lerpf(1.0,.62,eccentricity))
-		defender.shield_twist_velocity = clampf(float(defender.get("shield_twist_velocity",0.0))+6.5*loading*float(contact.get("lever",0.0)),-6.5,6.5)
+		var shield_motion = clampf(sqrt(3.0/maxf(1.0,float(defender.stats.get("shield_kg",3.0)))),.72,1.30)
+		defender.shield_compression_velocity = minf(760.0,float(defender.get("shield_compression_velocity",0.0))+690.0*loading*lerpf(1.0,.62,eccentricity)*shield_motion)
+		defender.shield_twist_velocity = clampf(float(defender.get("shield_twist_velocity",0.0))+6.5*loading*float(contact.get("lever",0.0))*shield_motion,-6.5,6.5)
 	attacker.lance_compression_velocity = minf(360.0,float(attacker.get("lance_compression_velocity",0.0))+320.0*loading)
 	_kick_presentation(attacker,defender,zone,loading)
 	events.append(contact)
+
+static func shield_transfer(eccentricity: float, elevation: float, shield_pose: float) -> Dictionary:
+	# Both angles are in each rider's facing-local coordinates. The incoming
+	# shaft is mirrored at the opposing rider, hence the sum, not subtraction.
+	var deviation = absf(wrapf(elevation+shield_pose,-PI,PI))
+	var position = lerpf(1.0,.30,smoothstep(1.0/3.0,1.0,clampf(eccentricity,0,1)))
+	var angle = lerpf(1.0,.30,smoothstep(deg_to_rad(15.0),deg_to_rad(40.0),deviation))
+	return {"position":position,"angle":angle,"factor":position*angle,"deviation":deviation}
 
 static func absorbs(own_speed: float) -> float:
 	# A galloping horse carries momentum through the blow; one at a walk or

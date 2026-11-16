@@ -16,6 +16,7 @@ var report_path = ""
 var level_filter: Array = [1,5,10,15,20]
 var cases = 10
 var configs: Array = CONFIGS
+var shield_line = "mixed"
 
 func _initialize() -> void:
 	call_deferred("run")
@@ -109,6 +110,7 @@ func run() -> void:
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--report="): report_path = arg.trim_prefix("--report=")
 		if arg.begins_with("--cases="): cases = maxi(1,int(arg.trim_prefix("--cases=")))
+		if arg.begins_with("--shield-line="): shield_line=arg.trim_prefix("--shield-line=")
 		if arg.begins_with("--configs="): configs = Array(arg.trim_prefix("--configs=").split(","))
 		if arg.begins_with("--levels="):
 			level_filter = []
@@ -125,9 +127,9 @@ func run() -> void:
 		var n = int(level.number)
 		if not level_filter.has(n):
 			continue
-		var kit = Campaign.reference_kit(items,n)
+		var kit = Campaign.reference_kit(items,n,shield_line)
 		var enemy_kit = Catalogue.stats(items,level.equipment)
-		var entry = {"archetype":str(level.archetype),"skill":float(level.ai.skill),"awareness":float(level.ai.awareness),"mode":str(level.mode),"configs":{}}
+		var entry = {"archetype":str(level.archetype),"skill":float(level.ai.skill),"awareness":float(level.ai.awareness),"mode":str(level.mode),"shield_line":shield_line,"configs":{}}
 		for config in configs:
 			Model.tuning = Model.TUNING_V092 if config.begins_with("v092") else Model.TUNING
 			Model.unsteady_scale = 1.0 if config.contains("_on") else 0.0

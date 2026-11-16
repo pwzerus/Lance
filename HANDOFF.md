@@ -1,6 +1,12 @@
 # GALUMU 开发交接入口
 
-## REQ-098 阶段候选：v0.4.51-c1（2026-11-16）
+## REQ-098 续接：v0.4.51-c2（2026-11-16）
+
+用户已确认盾纹独立、家族纹章管衣饰。运行源码`8b6135b1b14974f47a83a40f1586ffb4a93b0fb5`已推送并核对。25盾独特图案、12家族衣饰/枪旗、旧收藏兼容、微步长枪盾连续收尾与结算提示已实现。先读[完成交接](docs/collaboration/handoffs/2026-11-16-REQ-098-Completion-Codex.md)、[完成复核](docs/development/REQ098_COMPLETION_REVIEW.md)与[45分钟排错](docs/development/REQ098_DEBUG45.md)。下方c1是历史阶段记录，待确认事项已由本次用户回复解决。
+
+独立c2已导出，实际包规则、72极端落地、300纹章搭配及正常/H界面通过；八分钟重甲竞技场9场，平均60.000FPS、最大29.457ms，三分钟实战5场平均60.003FPS、最大29.523ms。全程后台、隔离QA、保护保持，无OS输入/真人验收。额外排错于18:44:38–19:29:42 UTC完成，45分04秒；[最终证据](docs/development/REQ098_COMPLETION_EVIDENCE.json)。Play-Latest与Play-REQ098-Candidate均指向c2。源码长测的一次93.553ms长帧未在新包复现，仍留作性能追踪，不冒称全部质量问题已解决。
+
+## 历史阶段候选：v0.4.51-c1（2026-11-16）
 
 先读 [REQ-098交接](docs/collaboration/handoffs/2026-11-16-REQ-098-Codex.md)、[需求](docs/requirements/REQ098_DAMAGE_SHIELD_HUD_COPY.md)、[审查](docs/development/REQ098_REVIEW.md) 和 [紧凑证据](docs/development/REQ098_EVIDENCE.json)。从实际a2bf5f3接手Claude新增需求，运行源码45d5080/ddec4c6已保存；伤害、轻重盾、盾心/边缘连续传力、简明HUD和中文文案已实现，另修复新盾尺寸暴露的极端姿势落地迟迟不稳。旧三份工作区差异保留。
 

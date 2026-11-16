@@ -1,5 +1,19 @@
 # 任务、审查建议与文件认领
 
+## REQ-098 已完成：独立盾纹与45分钟排错（2026-11-16，Codex）
+
+- 用户已明确同意：盾纹独立，家族纹章管罩袍、马衣和枪旗；旧收藏、购买记录与装备选择保留。
+- 接手基线：codex/v0.4，ee7fe7bab50eaf97465d413c9787053db6003723；远程相同。无新增Claude功能改动，历史三份差异和build_queue.gd.uid不动。
+- 文件认领：core/catalogue.gd、visual/{shield_art,heraldry,lance_art,rider_view}.gd、main.gd、data/equipment_expansion.json、相关盾纹数据/QA；test_*098.gd、test_parse065.gd、必要的timing/reaction回归与其涉及的有限输入/表现实现；版本、入口、交接/审查/设计文档。
+- 背景GPU验证使用-IsolatedDesktop，全部引擎经Start-MemoryBound和--test-profile；保护不改，不接管屏幕。旧发布包不覆盖。
+- 本阶段开始18:34:49 UTC。功能完成并首次通过后另记45分钟起止，此前时长不计入。新发现问题逐项记录并修复。
+- 具体新增认领：visual/shield_arms098.gd；data/equipment.json和crests_v093.json（只改原家族纹章说明，不动ID/价格）；tests/test_heraldry098.gd及其UID、test_shields098.gd。
+- 补充ui/home_camp.gd：营地身份旗沿用家族纹章，不能被独立盾纹覆盖。
+- 首轮通过后，额外45分钟已于18:44:38 UTC开始，最早19:29:38结束；证据与逐项发现写入docs/development/REQ098_DEBUG45.md。排错中，认领尚未释放。
+- 排错补充认领：ui/combat_status098.gd（偏位/盾缘标记分开）；tests/test_controls098.gd、test_symbols098.gd与UID；test_timing_v057.gd/test_reaction075.gd，v049仅注释历史契约。
+- 继续补充ui/combat_report.gd和test_ui098.gd：双方同时落马/阵亡不能只报告事件队列里第一人的结果。
+- 结束：19:29:42 UTC，额外45分04秒完成；功能/规则/后台GPU/实际c2包复验通过，见REQ098_COMPLETION_EVIDENCE。已释放本轮全部文件占用。历史三份差异和旧QA不提交；旧timing049契约、真人手感和源码实战偶发长帧的限制均明确交接。最终交接/入口提交后推送核对。
+
 ## REQ-098 部分交出，待纹章方案确认（2026-11-16，Codex）
 
 - 用户授权：实现 docs/requirements/REQ098_DAMAGE_SHIELD_HUD_COPY.md 五部分，并在功能完成后追加 45 分钟排错；本需求与已完成的 SYNC-098 不同。

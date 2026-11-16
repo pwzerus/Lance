@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "failures": [],
+  "rows": [
+    {
+      "path": "game/data/equipment.json",
+      "text_changes": 4,
+      "unexpected_noncopy_changes": [],
+      "sha256": "44b0184e734937ec20db60501d5045953229ada8fcb3f1bb7913880694bf21f2"
+    },
+    {
+      "path": "game/data/crests_v093.json",
+      "text_changes": 8,
+      "unexpected_noncopy_changes": [],
+      "sha256": "2ffefc6465ffff5a5d0af35d85afb3f25a1976fa9f6c449315d5eda3945df06d"
+    }
+  ],
+  "scope": "Crest descriptions only: IDs, prices, stats, purchase gates and all other JSON values unchanged from ee7fe7b."
+}

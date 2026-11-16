@@ -1,0 +1,41 @@
+{
+  "medium/d1 vs medium/d1 arena": {
+    "current": {
+      "a_win": 0.3,
+      "avg_passes": 2.93,
+      "b_win": 0.675,
+      "damage_per_hit": 13.5,
+      "decided_by": {
+        "hp": 2,
+        "score": 16,
+        "terminal": 22
+      },
+      "draw": 0.025,
+      "glance_share": 0.045,
+      "hit_zones": {
+        "body": 10,
+        "flank": 12,
+        "head": 67,
+        "shield": 132
+      },
+      "impulse_max": 66.9,
+      "impulse_p50": 32.3,
+      "impulse_p90": 45.9,
+      "ko_reasons": {
+        "balance": 20,
+        "health": 2,
+        "impact": 1
+      },
+      "left_wins": 17,
+      "played": 40,
+      "right_wins": 22,
+      "shield_glance_share": 0.0681818181818182,
+      "shield_glances": 9,
+      "shield_hits": 132,
+      "unhorse_rate": 0.55,
+      "unsteady_at_hit_mean": 0.0,
+      "unsteady_at_hit_p90": 0.0
+    }
+  },
+  "seconds": 149.4
+}

@@ -1,0 +1,760 @@
+{
+  "task": "REQ-098",
+  "status": "completed; human feel not certified",
+  "baseline_revision": "ee7fe7bab50eaf97465d413c9787053db6003723",
+  "runtime_revision": "8b6135b1b14974f47a83a40f1586ffb4a93b0fb5",
+  "additional_debug": {
+    "start_utc": "2026-11-16 18:44:38 UTC",
+    "end_utc": "2026-11-16 19:29:42 UTC",
+    "seconds": 2704.0
+  },
+  "desktop_takeover": false,
+  "os_input": false,
+  "human_play": false,
+  "protection": {
+    "render_job_mib": 1024,
+    "render_early_stop_mib": 900,
+    "headless_diagnostic_job_mib": 512,
+    "system_reserve_mib": 500,
+    "cpu_percent": 25,
+    "isolated_qa": true
+  },
+  "checks": {
+    "req098b-controls098-final.json": {
+      "path": "docs/development/logs/req098b-controls098-final.json",
+      "sha256": "e469f7375e244911fc8de07b5409c1e2137c5b098720843bb66b43cac7681105",
+      "passed": true,
+      "failures": [],
+      "rows_count": 16
+    },
+    "req098b-rules098-final.json": {
+      "path": "docs/development/logs/req098b-rules098-final.json",
+      "sha256": "2ba3a9010dbb035d78e73dade64127bc9bb3ce937c2c946591fc9b79d4b50b43",
+      "passed": true,
+      "failures": [],
+      "rows_count": 20
+    },
+    "req098b-head098-final.json": {
+      "path": "docs/development/logs/req098b-head098-final.json",
+      "sha256": "546bcab73588fb0fbbb800fbf5b2ae4a9da0373f125045a5ef9534783c6d1f2a",
+      "passed": true,
+      "failures": [],
+      "rows_count": 24
+    },
+    "req098b-contact098-final.json": {
+      "path": "docs/development/logs/req098b-contact098-final.json",
+      "sha256": "eaeadbb3c00342065281966233607b927938d316fb6cf017f27e2dfc9d023495",
+      "passed": true,
+      "failures": [],
+      "sweep_pairs": 48,
+      "rows_count": 48
+    },
+    "req098b-fall098-final.json": {
+      "path": "docs/development/logs/req098b-fall098-final.json",
+      "sha256": "efde8ce04469ce3124bebc7411031b75948272ad4d3bb107679fc4c8e9b68a5d",
+      "passed": true,
+      "failures": [],
+      "scope": "72 captured-pose production integrations: three shield scales, three hit regions, both facings and extreme lean/guard. No OS input or human quality verdict.",
+      "cases_count": 72
+    },
+    "req098b-timing_v057-03.json": {
+      "path": "docs/development/logs/req098b-timing_v057-03.json",
+      "sha256": "dc981895889fe8c1da72176ab285d62ef1db2fca0d99afd3bd3a9c1a2f95537d",
+      "passed": true,
+      "failures": [],
+      "scope": "Production director and Model at30/60/120Hz. Inherits v049 approach, simultaneous/repeated contact, pause/reset, late-toggle and actual swept-miss regressions. Contact first loads continuously, then freezes for total contact duration minus CONTACT_LOAD_DURATION; controls remain limited by scaled game time. No rendered-scene, OS input or human-feel claim.",
+      "rows_count": 30
+    },
+    "req098b-reaction075-02.json": {
+      "path": "docs/development/logs/req098b-reaction075-02.json",
+      "sha256": "5d539f25c3fa5a8f009d05226041727950615698700ce1b6003dfa5560ea4f41",
+      "passed": true,
+      "failures": [],
+      "rows_count": 8
+    },
+    "req098b-arm068-02.json": {
+      "path": "docs/development/logs/req098b-arm068-02.json",
+      "sha256": "374e8b1456124e91f91a74dd31cf98f1f9d0dcba693cdc1b463293d519ef5ff8",
+      "passed": true,
+      "failures": []
+    },
+    "req098b-heraldry02/report.json": {
+      "path": "docs/development/logs/req098b-heraldry02/report.json",
+      "sha256": "362a544008d79af3c6d09d2c97a821feefd8d1f3f9406a5d60a002c992042103",
+      "passed": true,
+      "failures": [],
+      "shields": 25,
+      "families": 12,
+      "combinations": 300,
+      "rendered": true,
+      "scope": "Catalogue and old inventory roundtrip; fixed devices, independent family assets, slot order and bounded geometry. Optional actual Main screenshots, no OS input."
+    },
+    "req098b-symbols03/report.json": {
+      "path": "docs/development/logs/req098b-symbols03/report.json",
+      "sha256": "d5b9a20c416f7f3419c17dd27bd7a9721a83d7de930d5aa166d8215fb0d395d8",
+      "shields": 25,
+      "families": 12,
+      "scope": "Actual GPU frames; engine log must also be scanned for drawing errors.",
+      "first_sample": {
+        "cache": 25,
+        "resources": 53.0,
+        "seconds": 0.034
+      },
+      "last_sample": {
+        "cache": 48,
+        "resources": 53.0,
+        "seconds": 12.018
+      }
+    },
+    "req098b-ui01/report.json": {
+      "path": "docs/development/logs/req098b-ui01/report.json",
+      "sha256": "be54241d25322d681ae5283b4f4a765fa1d36e3024527ebd50901679cf3542ac",
+      "passed": true,
+      "failures": []
+    },
+    "req098b-war-soak01/report.json": {
+      "path": "docs/development/logs/req098b-war-soak01/report.json",
+      "sha256": "9db35aea1beafe2785e65e6c7c8036d9d5372d08ea4f5058620c4ce5ec523ebf",
+      "passed": true,
+      "failures": [],
+      "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+      "version": "0.4.51-c2",
+      "mode": "war",
+      "kit": "italian_plate",
+      "wall_seconds": 480.007873,
+      "all_frames": {
+        "fps": 59.8416332550882,
+        "frames": 28724,
+        "max_ms": 93.553,
+        "over_33ms": 10,
+        "over_50ms": 6,
+        "p50_ms": 16.663,
+        "p95_ms": 17.853,
+        "p99_ms": 19.796
+      },
+      "phases": {
+        "charge": {
+          "fps": 59.9793811526324,
+          "frames": 17559,
+          "max_ms": 24.652,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.661,
+          "p95_ms": 17.727,
+          "p99_ms": 19.087
+        },
+        "contact": {
+          "fps": 58.8453578816091,
+          "frames": 2349,
+          "max_ms": 53.292,
+          "over_33ms": 3,
+          "over_50ms": 3,
+          "p50_ms": 16.678,
+          "p95_ms": 19.744,
+          "p99_ms": 23.533
+        },
+        "ended": {
+          "fps": 59.4894245361972,
+          "frames": 2148,
+          "max_ms": 47.59,
+          "over_33ms": 2,
+          "over_50ms": 0,
+          "p50_ms": 16.668,
+          "p95_ms": 18.833,
+          "p99_ms": 21.668
+        },
+        "ready": {
+          "fps": 59.9746250609307,
+          "frames": 4007,
+          "max_ms": 53.763,
+          "over_33ms": 2,
+          "over_50ms": 1,
+          "p50_ms": 16.663,
+          "p95_ms": 17.315,
+          "p99_ms": 18.305
+        },
+        "result": {
+          "fps": 59.7921464115006,
+          "frames": 1115,
+          "max_ms": 93.553,
+          "over_33ms": 3,
+          "over_50ms": 2,
+          "p50_ms": 16.665,
+          "p95_ms": 16.96,
+          "p99_ms": 17.577
+        },
+        "turn": {
+          "fps": 60.0045868965586,
+          "frames": 1546,
+          "max_ms": 22.443,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.663,
+          "p95_ms": 17.397,
+          "p99_ms": 18.093
+        }
+      },
+      "matches_count": 14,
+      "first_sample": {
+        "fps": 60.0,
+        "matches": 0,
+        "nodes": 27.0,
+        "phase": "ready",
+        "resources": 99.0,
+        "seconds": 0.011789
+      },
+      "last_sample": {
+        "fps": 60.0,
+        "matches": 14,
+        "nodes": 75.0,
+        "phase": "ready",
+        "resources": 99.0,
+        "seconds": 480.000268
+      }
+    },
+    "req098b-static01.json": {
+      "path": "docs/development/logs/req098b-static01.json",
+      "sha256": "0ccb81941e773ce1784f2a6914a8d6fa878f90c2ff23a60b26b28227196d9f51",
+      "passed": true,
+      "failures": [],
+      "scope": "Crest descriptions only: IDs, prices, stats, purchase gates and all other JSON values unchanged from ee7fe7b.",
+      "rows_count": 2
+    },
+    "req098b-package-rules098.json": {
+      "path": "docs/development/logs/req098b-package-rules098.json",
+      "sha256": "2ba3a9010dbb035d78e73dade64127bc9bb3ce937c2c946591fc9b79d4b50b43",
+      "passed": true,
+      "failures": [],
+      "rows_count": 20
+    },
+    "req098b-package-head098.json": {
+      "path": "docs/development/logs/req098b-package-head098.json",
+      "sha256": "546bcab73588fb0fbbb800fbf5b2ae4a9da0373f125045a5ef9534783c6d1f2a",
+      "passed": true,
+      "failures": [],
+      "rows_count": 24
+    },
+    "req098b-package-contact098.json": {
+      "path": "docs/development/logs/req098b-package-contact098.json",
+      "sha256": "eaeadbb3c00342065281966233607b927938d316fb6cf017f27e2dfc9d023495",
+      "passed": true,
+      "failures": [],
+      "sweep_pairs": 48,
+      "rows_count": 48
+    },
+    "req098b-package-fall098.json": {
+      "path": "docs/development/logs/req098b-package-fall098.json",
+      "sha256": "efde8ce04469ce3124bebc7411031b75948272ad4d3bb107679fc4c8e9b68a5d",
+      "passed": true,
+      "failures": [],
+      "scope": "72 captured-pose production integrations: three shield scales, three hit regions, both facings and extreme lean/guard. No OS input or human quality verdict.",
+      "cases_count": 72
+    },
+    "req098b-package-controls098.json": {
+      "path": "docs/development/logs/req098b-package-controls098.json",
+      "sha256": "e469f7375e244911fc8de07b5409c1e2137c5b098720843bb66b43cac7681105",
+      "passed": true,
+      "failures": [],
+      "rows_count": 16
+    },
+    "req098b-package-timing_v057.json": {
+      "path": "docs/development/logs/req098b-package-timing_v057.json",
+      "sha256": "dc981895889fe8c1da72176ab285d62ef1db2fca0d99afd3bd3a9c1a2f95537d",
+      "passed": true,
+      "failures": [],
+      "scope": "Production director and Model at30/60/120Hz. Inherits v049 approach, simultaneous/repeated contact, pause/reset, late-toggle and actual swept-miss regressions. Contact first loads continuously, then freezes for total contact duration minus CONTACT_LOAD_DURATION; controls remain limited by scaled game time. No rendered-scene, OS input or human-feel claim.",
+      "rows_count": 30
+    },
+    "req098b-package-arena01/report.json": {
+      "path": "docs/development/logs/req098b-package-arena01/report.json",
+      "sha256": "63327132ba47686e12ee4808bdcb490d5191bcace3fe934092029c9cbdbcaadf",
+      "passed": true,
+      "failures": [],
+      "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+      "version": "0.4.51-c2",
+      "mode": "arena",
+      "kit": "heavy",
+      "wall_seconds": 480.019236,
+      "all_frames": {
+        "fps": 60.0004561959618,
+        "frames": 28801,
+        "max_ms": 29.457,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "p50_ms": 16.664,
+        "p95_ms": 17.022,
+        "p99_ms": 17.369
+      },
+      "phases": {
+        "charge": {
+          "fps": 59.999629472282,
+          "frames": 19396,
+          "max_ms": 22.195,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.663,
+          "p95_ms": 17.03,
+          "p99_ms": 17.355
+        },
+        "contact": {
+          "fps": 60.0084853540264,
+          "frames": 1868,
+          "max_ms": 21.639,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.66,
+          "p95_ms": 17.086,
+          "p99_ms": 17.677
+        },
+        "ended": {
+          "fps": 60.0256019686382,
+          "frames": 1430,
+          "max_ms": 20.798,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 16.915,
+          "p99_ms": 17.209
+        },
+        "ready": {
+          "fps": 59.9900489673201,
+          "frames": 3559,
+          "max_ms": 22.925,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 17.002,
+          "p99_ms": 17.288
+        },
+        "result": {
+          "fps": 60.0012803620495,
+          "frames": 717,
+          "max_ms": 29.457,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.665,
+          "p95_ms": 16.88,
+          "p99_ms": 17.024
+        },
+        "turn": {
+          "fps": 60.001302922886,
+          "frames": 1831,
+          "max_ms": 20.71,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 17.038,
+          "p99_ms": 17.391
+        }
+      },
+      "matches_count": 9,
+      "first_sample": {
+        "fps": 60.0,
+        "matches": 0,
+        "nodes": 27.0,
+        "phase": "ready",
+        "resources": 100.0,
+        "seconds": 0.014253
+      },
+      "last_sample": {
+        "fps": 60.0,
+        "matches": 9,
+        "nodes": 75.0,
+        "phase": "charge",
+        "resources": 101.0,
+        "seconds": 480.013017
+      }
+    },
+    "req098b-package-war01/report.json": {
+      "path": "docs/development/logs/req098b-package-war01/report.json",
+      "sha256": "ad09fccb185b53f71e9bc8f3fd75e7bc94a15c32e87ccf34c3e20e5c7e51d322",
+      "passed": true,
+      "failures": [],
+      "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+      "version": "0.4.51-c2",
+      "mode": "war",
+      "kit": "italian_plate",
+      "wall_seconds": 180.010276,
+      "all_frames": {
+        "fps": 60.0029614275233,
+        "frames": 10801,
+        "max_ms": 29.523,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "p50_ms": 16.662,
+        "p95_ms": 17.049,
+        "p99_ms": 17.428
+      },
+      "phases": {
+        "charge": {
+          "fps": 59.997732529599,
+          "frames": 6596,
+          "max_ms": 21.032,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.661,
+          "p95_ms": 17.036,
+          "p99_ms": 17.354
+        },
+        "contact": {
+          "fps": 59.976200290864,
+          "frames": 874,
+          "max_ms": 23.196,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.651,
+          "p95_ms": 17.222,
+          "p99_ms": 18.096
+        },
+        "ended": {
+          "fps": 60.0719460895189,
+          "frames": 771,
+          "max_ms": 18.327,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.654,
+          "p95_ms": 17.161,
+          "p99_ms": 17.529
+        },
+        "ready": {
+          "fps": 60.0045662752905,
+          "frames": 1579,
+          "max_ms": 20.141,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.662,
+          "p95_ms": 16.962,
+          "p99_ms": 17.277
+        },
+        "result": {
+          "fps": 60.0024901033393,
+          "frames": 400,
+          "max_ms": 29.523,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.665,
+          "p95_ms": 16.859,
+          "p99_ms": 17.026
+        },
+        "turn": {
+          "fps": 60.0071285576817,
+          "frames": 581,
+          "max_ms": 20.602,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.663,
+          "p95_ms": 17.043,
+          "p99_ms": 17.329
+        }
+      },
+      "matches_count": 5,
+      "first_sample": {
+        "fps": 60.0,
+        "matches": 0,
+        "nodes": 27.0,
+        "phase": "ready",
+        "resources": 100.0,
+        "seconds": 0.013858
+      },
+      "last_sample": {
+        "fps": 60.0,
+        "matches": 5,
+        "nodes": 75.0,
+        "phase": "charge",
+        "resources": 100.0,
+        "seconds": 180.007782
+      }
+    },
+    "req098b-package-ui01/report.json": {
+      "path": "docs/development/logs/req098b-package-ui01/report.json",
+      "sha256": "be54241d25322d681ae5283b4f4a765fa1d36e3024527ebd50901679cf3542ac",
+      "passed": true,
+      "failures": []
+    },
+    "req098b-package-heraldry01/report.json": {
+      "path": "docs/development/logs/req098b-package-heraldry01/report.json",
+      "sha256": "362a544008d79af3c6d09d2c97a821feefd8d1f3f9406a5d60a002c992042103",
+      "passed": true,
+      "failures": [],
+      "shields": 25,
+      "families": 12,
+      "combinations": 300,
+      "rendered": true,
+      "scope": "Catalogue and old inventory roundtrip; fixed devices, independent family assets, slot order and bounded geometry. Optional actual Main screenshots, no OS input."
+    },
+    "req098b-package-symbols01/report.json": {
+      "path": "docs/development/logs/req098b-package-symbols01/report.json",
+      "sha256": "0cb62091d877c64d0aea651365544ad556473772fed0e8c3d302a585c4c31ea6",
+      "shields": 25,
+      "families": 12,
+      "scope": "Actual GPU frames; engine log must also be scanned for drawing errors.",
+      "first_sample": {
+        "cache": 25,
+        "resources": 53.0,
+        "seconds": 0.024
+      },
+      "last_sample": {
+        "cache": 48,
+        "resources": 53.0,
+        "seconds": 12.022
+      }
+    }
+  },
+  "current_40_match_balance": {
+    "medium/d1 vs medium/d1 arena": {
+      "current": {
+        "a_win": 0.3,
+        "avg_passes": 2.93,
+        "b_win": 0.675,
+        "damage_per_hit": 13.5,
+        "decided_by": {
+          "hp": 2,
+          "score": 16,
+          "terminal": 22
+        },
+        "draw": 0.025,
+        "glance_share": 0.045,
+        "hit_zones": {
+          "body": 10,
+          "flank": 12,
+          "head": 67,
+          "shield": 132
+        },
+        "impulse_max": 66.9,
+        "impulse_p50": 32.3,
+        "impulse_p90": 45.9,
+        "ko_reasons": {
+          "balance": 20,
+          "health": 2,
+          "impact": 1
+        },
+        "left_wins": 17,
+        "played": 40,
+        "right_wins": 22,
+        "shield_glance_share": 0.0681818181818182,
+        "shield_glances": 9,
+        "shield_hits": 132,
+        "unhorse_rate": 0.55,
+        "unsteady_at_hit_mean": 0.0,
+        "unsteady_at_hit_p90": 0.0
+      }
+    },
+    "seconds": 149.4
+  },
+  "final_engine_logs": {
+    "symbols03": {
+      "path": "docs/development/logs/req098b-symbols03-engine.log",
+      "sha256": "cc67dcf5f5d69b7c3f14ca25f4ed5d6f36cba5c946a0629f572b4dcab6238aa9",
+      "diagnostic_count": 0,
+      "first_diagnostics": []
+    },
+    "war-soak01": {
+      "path": "docs/development/logs/req098b-war-soak01-engine.log",
+      "sha256": "6cab1ba1c65a9b5010b82f9c7471534b26bfedc0192b525e17c29055e64798b0",
+      "diagnostic_count": 0,
+      "first_diagnostics": []
+    },
+    "ui01": {
+      "path": "docs/development/logs/req098b-ui01-engine.log",
+      "sha256": "9517827f68e77046041a5574925a740d49517919695f86159436a55e900269ec",
+      "diagnostic_count": 0,
+      "first_diagnostics": []
+    },
+    "parse065-final": {
+      "path": "docs/development/logs/req098b-parse065-final-engine.log",
+      "sha256": "bedfced1991d0866b7cbb3c72972c2f8f9581c626b9a65c9b3ce3349c6159965",
+      "diagnostic_count": 0,
+      "first_diagnostics": []
+    },
+    "import01": {
+      "path": "docs/development/logs/req098b-import01-engine.log",
+      "sha256": "e2b71e78603881b2d78f6376c8f4d7a0dce7030fb905858edb3237f858104747",
+      "diagnostic_count": 0,
+      "first_diagnostics": []
+    },
+    "export01": {
+      "path": "docs/development/logs/req098b-export01-engine.log",
+      "sha256": "4cc7693603c76165aad4653ffd49c6bf773463552761b150cac961bafa1736a8",
+      "diagnostic_count": 0,
+      "first_diagnostics": []
+    },
+    "package-rules098": {
+      "path": "docs/development/logs/req098b-package-rules098-engine.log",
+      "sha256": "d16fc20d6e27c521d39f5571343c699e5d5f0dc576afc28628a6380b6976bd44",
+      "diagnostic_count": 0,
+      "first_diagnostics": []
+    },
+    "package-head098": {
+      "path": "docs/development/logs/req098b-package-head098-engine.log",
+      "sha256": "5ad76bf810dd136b90163dfae4277fde050a80425adbf48a28886e555fd7d0c2",
+      "diagnostic_count": 0,
+      "first_diagnostics": []
+    },
+    "package-contact098": {
+      "path": "docs/development/logs/req098b-package-contact098-engine.log",
+      "sha256": "8d122b9574ca8edeb4574277d8d8c4ec7ab29725f9c4f76396b2db8e2e739e61",
+      "diagnostic_count": 0,
+      "first_diagnostics": []
+    },
+    "package-fall098": {
+      "path": "docs/development/logs/req098b-package-fall098-engine.log",
+      "sha256": "2b6560eb96b2bf0ee7d4c27ac570f44412326f93a49eb4cbed384ec89f8ab334",
+      "diagnostic_count": 0,
+      "first_diagnostics": []
+    },
+    "package-controls098": {
+      "path": "docs/development/logs/req098b-package-controls098-engine.log",
+      "sha256": "f651720bc5810b554b612a9dba7b70e2f760e1fb188c6db1bc46894a5e624796",
+      "diagnostic_count": 0,
+      "first_diagnostics": []
+    },
+    "package-timing_v057": {
+      "path": "docs/development/logs/req098b-package-timing_v057-engine.log",
+      "sha256": "258cbbf58ab4661cfa5cacd6ac633916a90ece5733b4ce38a609bcd323f6a53d",
+      "diagnostic_count": 0,
+      "first_diagnostics": []
+    },
+    "package-arena01": {
+      "path": "docs/development/logs/req098b-package-arena01-engine.log",
+      "sha256": "88c2a30ab9333b8f5cb5f98b15e0e9c4c32a978db0a5d0ba4d53a76e7eb1eb43",
+      "diagnostic_count": 0,
+      "first_diagnostics": []
+    },
+    "package-war01": {
+      "path": "docs/development/logs/req098b-package-war01-engine.log",
+      "sha256": "159519f6cc29d026193ae7fb76f8c4da6a92d442a34663c8aac883098938d811",
+      "diagnostic_count": 0,
+      "first_diagnostics": []
+    },
+    "package-ui01": {
+      "path": "docs/development/logs/req098b-package-ui01-engine.log",
+      "sha256": "013a741166710596996a602ae4d7dec37967d708d5d626c708df0593f8c27b91",
+      "diagnostic_count": 0,
+      "first_diagnostics": []
+    },
+    "package-heraldry01": {
+      "path": "docs/development/logs/req098b-package-heraldry01-engine.log",
+      "sha256": "92b58f0afc2478a61c93a88a799b2af3d36c64354e9adb098a3cef0755e738ca",
+      "diagnostic_count": 0,
+      "first_diagnostics": []
+    },
+    "package-symbols01": {
+      "path": "docs/development/logs/req098b-package-symbols01-engine.log",
+      "sha256": "cc67dcf5f5d69b7c3f14ca25f4ed5d6f36cba5c946a0629f572b4dcab6238aa9",
+      "diagnostic_count": 0,
+      "first_diagnostics": []
+    }
+  },
+  "failed_runs_preserved_locally": {
+    "shields01": {
+      "path": "docs/development/logs/req098b-shields01-engine.log",
+      "sha256": "38a76d3545ad8b929897a7297433f4418b5acf91f6ca1457696cb9502c6d7e49",
+      "diagnostic_count": 1,
+      "first_diagnostics": [
+        "ERROR: Invalid polygon data, triangulation failed."
+      ]
+    },
+    "symbols01": {
+      "path": "docs/development/logs/req098b-symbols01-engine.log",
+      "sha256": "b8ebc3c7e3e1bfbbf15da94960994a7589852b28609d02a4025aa768299f64ce",
+      "diagnostic_count": 4,
+      "first_diagnostics": [
+        "SCRIPT ERROR: Compile Error: Identifier not found: GameState",
+        "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+        "ERROR: Failed to load script \"res://tests/test_symbols098.gd\" with error \"Compilation failed\".",
+        "SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'."
+      ]
+    },
+    "symbols02": {
+      "path": "docs/development/logs/req098b-symbols02-engine.log",
+      "sha256": "8b43f97bf580ef6fd515f664630ee776061fae4c17a03d0427f66898caf25663",
+      "diagnostic_count": 3012,
+      "first_diagnostics": [
+        "SCRIPT ERROR: Parse Error: Too few arguments for \"clipped_charges()\" call. Expected at least 3 but received 2.",
+        "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+        "ERROR: Failed to load script \"res://tests/test_symbols098.gd\" with error \"Compilation failed\".",
+        "SCRIPT ERROR: Parse Error: Too few arguments for \"clipped_charges()\" call. Expected at least 3 but received 2.",
+        "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+        "SCRIPT ERROR: Parse Error: Too few arguments for \"clipped_charges()\" call. Expected at least 3 but received 2."
+      ]
+    }
+  },
+  "memory": {
+    "war-soak01": {
+      "path": "docs/development/logs/req098b-war-soak01-memory.log",
+      "sha256": "a04c172cff3ec2f73ff77603eec31c33d560f0899bb080b269c3dfd0c2cef34e",
+      "peak_private_mib": 703.0,
+      "minimum_system_available_mib": 2000.0,
+      "last_sample_seconds": 488.0
+    },
+    "symbols03": {
+      "path": "docs/development/logs/req098b-symbols03-memory.log",
+      "sha256": "db9d5d28710cd7efc7ada56182c40f34666a5ce6adc6ba225f0c79db8b152003",
+      "peak_private_mib": 681.1,
+      "minimum_system_available_mib": 2165.0,
+      "last_sample_seconds": 17.0
+    },
+    "import01": {
+      "path": "docs/development/logs/req098b-import01-memory.log",
+      "sha256": "9c00ad3b201415cce0dfb9364f3d8fa6e115f8df09679f3844f6fc82b34bffa7",
+      "peak_private_mib": 765.8,
+      "minimum_system_available_mib": 2202.0,
+      "last_sample_seconds": 10.0
+    },
+    "export01": {
+      "path": "docs/development/logs/req098b-export01-memory.log",
+      "sha256": "041fdd6e6b3efabea909d82089f26a8bc07fff77cda0d5e4024570aff7b3d09d",
+      "peak_private_mib": 618.5,
+      "minimum_system_available_mib": 2073.0,
+      "last_sample_seconds": 12.0
+    },
+    "package-arena01": {
+      "path": "docs/development/logs/req098b-package-arena01-memory.log",
+      "sha256": "9ff4a753e89ddac7f0a513356ac08e63916eb44f8bc9a35f2591556a239362c9",
+      "peak_private_mib": 689.8,
+      "minimum_system_available_mib": 2056.0,
+      "last_sample_seconds": 487.0
+    },
+    "package-war01": {
+      "path": "docs/development/logs/req098b-package-war01-memory.log",
+      "sha256": "f077184ef613ee37255907f79737adc68161ba55df543bd76863c6c3295a5e1d",
+      "peak_private_mib": 687.1,
+      "minimum_system_available_mib": 2135.0,
+      "last_sample_seconds": 187.0
+    },
+    "package-ui01": {
+      "path": "docs/development/logs/req098b-package-ui01-memory.log",
+      "sha256": "3b872c439533b460dbe33cc22bb507ae6108ecb59bdabb1fb4c62d16fb2f20bc",
+      "peak_private_mib": 708.1,
+      "minimum_system_available_mib": 2140.0,
+      "last_sample_seconds": 61.0
+    },
+    "package-heraldry01": {
+      "path": "docs/development/logs/req098b-package-heraldry01-memory.log",
+      "sha256": "8e94e4cafcbb2ce2a7894d196360cca9115875d4d12619a95cbd6581a1600e0d",
+      "peak_private_mib": 676.6,
+      "minimum_system_available_mib": 2211.0,
+      "last_sample_seconds": 9.0
+    },
+    "package-symbols01": {
+      "path": "docs/development/logs/req098b-package-symbols01-memory.log",
+      "sha256": "87ae73ea8dddbad55e99c301d56f84d8fbd12e8af950b249d143ad9ecec0fd45",
+      "peak_private_mib": 660.8,
+      "minimum_system_available_mib": 2146.0,
+      "last_sample_seconds": 15.0
+    }
+  },
+  "package": {
+    "path": "builds/LanceAndLaurel-v0.4.51-c2",
+    "manifest_sha256": "28e3fa084ed5b60d5682b7b3c383258c9ebb50297f04a0f4a8b06229f94a2c19",
+    "pck_bytes": 38110884,
+    "pck_sha256": "6b8d87dd474216869dab077fa89c29f656ec931564a613205989520c1dc88fb9",
+    "files_verified": 9
+  },
+  "limits": [
+    "Historical timing049 immediate-freeze contract is superseded by timing057, not claimed passing.",
+    "Background GPU and engine-injected controls are not human input or subjective feel certification.",
+    "Rare long frames are reported separately; average FPS is not a lock guarantee.",
+    "Raw engine/memory logs and most screenshots stay local; compact evidence and test sources are committed."
+  ]
+}

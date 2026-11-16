@@ -1,0 +1,9 @@
+{
+  "combinations": 300,
+  "failures": [],
+  "families": 12,
+  "passed": true,
+  "rendered": true,
+  "scope": "Catalogue and old inventory roundtrip; fixed devices, independent family assets, slot order and bounded geometry. Optional actual Main screenshots, no OS input.",
+  "shields": 25
+}

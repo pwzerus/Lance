@@ -88,6 +88,13 @@ func run() -> void:
 		main.show_armory()
 		await create_timer(.8).timeout
 		await shot("family-armory")
+		# The later eight families are below the first screen. Exercise the
+		# actual lazy card builder there, not only the standalone icon board.
+		var scroll=main.screen.get_node("ArmoryList")
+		scroll.scroll_vertical=int(scroll.get_v_scroll_bar().max_value)
+		await create_timer(.8).timeout
+		await shot("family-armory-bottom")
+		check(main.armory_cards.has("crest_fleur") and main.armory_cards["crest_fleur"].get_meta("content_ready",false),"last family card was not built after scrolling")
 		main.selected_slot="shield"
 		main.show_armory()
 		await create_timer(.8).timeout

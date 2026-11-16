@@ -1,0 +1,32 @@
+{
+	"families": 12,
+	"samples": [
+		{
+			"cache": 25,
+			"resources": 53.0,
+			"seconds": 0.024
+		},
+		{
+			"cache": 48,
+			"resources": 53.0,
+			"seconds": 3.03
+		},
+		{
+			"cache": 48,
+			"resources": 53.0,
+			"seconds": 6.005
+		},
+		{
+			"cache": 48,
+			"resources": 53.0,
+			"seconds": 9.013
+		},
+		{
+			"cache": 48,
+			"resources": 53.0,
+			"seconds": 12.022
+		}
+	],
+	"scope": "Actual GPU frames; engine log must also be scanned for drawing errors.",
+	"shields": 25
+}

@@ -19,16 +19,17 @@ const HITSTOP_MAX_DURATION = KO_HITSTOP_DURATION
 const HITSTOP_SCALE = .001
 const READ_MIN_DURATION = .40
 const READ_HEAVY_DURATION = .85
-const KO_READ_DURATION = 1.05
+const KO_READ_DURATION = 2.0
 const READ_DURATION = KO_READ_DURATION
 const READ_LIGHT_SCALE = .28
 const READ_HEAVY_SCALE = .16
-const KO_READ_SCALE = .15
+const KO_READ_SCALE = .10
+const KO_FLIGHT_SCALE = .32
 const READ_SCALE = READ_LIGHT_SCALE
 const RELEASE_DURATION = .24 # approach release after a miss
 const IMPACT_RELEASE_LIGHT = .26
 const IMPACT_RELEASE_HEAVY = .34
-const KO_RELEASE_DURATION = .42
+const KO_RELEASE_DURATION = .60
 const FAST_RELEASE_DURATION = .12
 const MAX_IMPACT_DURATION = KO_HITSTOP_DURATION+KO_READ_DURATION+KO_RELEASE_DURATION
 const EPSILON = .00000001
@@ -254,6 +255,11 @@ func _refresh(context: Dictionary) -> void:
 			_focus_weight = lerpf(.4,1.0,_strength) if _focus_valid else 0.0
 		"read":
 			_scale = _read_scale
+			# Hold the loaded blow deeply, then let the rider actually leave the
+			# saddle and turn. A flat near-freeze hid the flight until time snapped
+			# back. This curve is wall-clock driven; ballistics still use game time.
+			if _ko:
+				_scale = lerpf(_read_scale,KO_FLIGHT_SCALE,smoothstep(.35,1.0,_stage_elapsed/_read_duration))
 			_approach = 0.0
 			_audio_duck = lerpf(.4,.65,_strength)
 			_focus_weight = lerpf(.4,1.0,_strength) if _focus_valid else 0.0

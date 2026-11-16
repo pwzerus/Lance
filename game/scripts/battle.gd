@@ -1,5 +1,6 @@
 class_name BattleScene
 extends Node2D
+const Trace099 = preload("res://scripts/core/frame_trace099.gd")
 
 signal finished(result: Dictionary)
 signal exit_requested
@@ -49,6 +50,8 @@ var paused = false
 var pause_started = 0
 var is_finished = false
 var terminal_at = 0
+var fall_frame_size = Vector2.ZERO
+var camera_subject_bounds = Rect2()
 var departure_elapsed = 0.0
 var last_visual_time = 0
 var exchange_director = Exchange.new()
@@ -673,6 +676,11 @@ func _handle_event(event: Dictionary) -> void:
 				rider.visible = true
 
 func _process(delta: float) -> void:
+	var trace_started=Trace099.begin()
+	_process_measured099(delta)
+	Trace099.measure("battle_process",trace_started)
+
+func _process_measured099(delta: float) -> void:
 	if not presentation_ready:
 		_advance_preparation()
 		return
@@ -705,7 +713,7 @@ func _process(delta: float) -> void:
 				fighter.gait_moving = float(fighter.speed)>.5
 				if fighter.gait_moving:
 					fighter.gait_phase += delta*TAU*Model.Gait.frequency(float(fighter.speed))
-		if terminal_at > 0 and now-terminal_at>2600 and (effects.falls_settled() or now-terminal_at>4500) and not is_finished:
+		if terminal_at > 0 and now-terminal_at>2600 and not bool(exchange_state.impact_active) and (effects.falls_settled() or now-terminal_at>6500) and not is_finished:
 			is_finished = true
 			Engine.time_scale = 1.0
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -759,13 +767,19 @@ func _draw_impact_grade() -> void:
 func _safe_camera_offset(offset: Vector2) -> Vector2:
 	# Camera offsets bypass position framing. Bound the final kick as well,
 	# so a raised shield or hoof cannot briefly cross into a HUD band.
-	var bounds = _mounted_vertical_bounds()
+	var mounted_bounds = _mounted_vertical_bounds()
+	var bounds = Vector2(camera_subject_bounds.position.y,camera_subject_bounds.end.y) if camera_subject_bounds.has_area() else mounted_bounds
 	var safe = COMBAT_SAFE_RECT.grow(-2)
 	var center_y = get_viewport_rect().size.y*.5
 	var lower = bounds.y-(safe.end.y-center_y)/camera.zoom.y-camera.position.y
 	var upper = bounds.x-(safe.position.y-center_y)/camera.zoom.y-camera.position.y
 	if lower<=upper:
 		offset.y = clampf(offset.y,lower,upper)
+	if camera_subject_bounds.has_area():
+		var center_x = get_viewport_rect().size.x*.5
+		var left = camera_subject_bounds.end.x-(safe.end.x-center_x)/camera.zoom.x-camera.position.x
+		var right = camera_subject_bounds.position.x-(safe.position.x-center_x)/camera.zoom.x-camera.position.x
+		if left<=right: offset.x=clampf(offset.x,left,right)
 	return offset
 
 func _update_camera(real_delta: float, now: int) -> void:
@@ -797,35 +811,38 @@ func _update_camera(real_delta: float, now: int) -> void:
 		center_x = lerpf(follow_x,720+(a+b)*.5,duel)
 	elif match_model.phase in ["charge","turn","ended"]:
 		desired_zoom = clampf(1120.0/(separation+300.0),.44,1.65)
+	var fall_rect = _fall_camera_rect()
+	var fall_weight = smoothstep(.06,.48,float(now-terminal_at)/1000.0) if fall_rect.has_area() else 0.0
 	if terminal_at>0:
 		desired_zoom = 1.6 if now-terminal_at<850 else 1.05
-		if not effects.bodies.is_empty():
-			var fall_center = 0.0
-			for fallen in effects.bodies:
-				fall_center += fallen.position.x
-			fall_center /= effects.bodies.size()
-			center_x = lerpf(center_x,world.position.x+fall_center,smoothstep(100,650,now-terminal_at))
+		if fall_rect.has_area():
+			center_x = lerpf(center_x,fall_rect.get_center().x,fall_weight)
+			desired_zoom = lerpf(desired_zoom,2.10 if bool(exchange_state.impact_active) else 1.70,fall_weight)
 	# The contact lies on an actual swept hit. Bias horizontally toward it;
 	# keep the full mounted vertical silhouette and both riders in frame.
 	var focus_weight = float(exchange_state.focus_weight)
-	if focus_weight>0.0:
+	if focus_weight>0.0 and fall_weight<1.0:
 		var focus_x = world.position.x+Vector2(exchange_state.focus).x
-		center_x = lerpf(center_x,clampf(focus_x,720+(a+b)*.5-75,720+(a+b)*.5+75),focus_weight*.65)
+		center_x = lerpf(center_x,clampf(focus_x,720+(a+b)*.5-75,720+(a+b)*.5+75),focus_weight*.65*(1.0-fall_weight))
 	# A horizontal close-up must also fit the whole mounted silhouette.
 	# This stable vertical envelope includes helmet decoration, raised shield,
 	# the larger gait phases, both lanes and a small strip below all hooves.
 	# Keeping the envelope independent of the current stride avoids chasing
 	# the horse's bob with the camera and cancelling its visible movement.
 	var vertical_bounds = _mounted_vertical_bounds()
+	if fall_rect.has_area():
+		vertical_bounds = vertical_bounds.lerp(Vector2(fall_rect.position.y,fall_rect.end.y),fall_weight)
+	camera_subject_bounds = Rect2(Vector2(fall_rect.position.x,vertical_bounds.x),Vector2(fall_rect.size.x,vertical_bounds.y-vertical_bounds.x)) if fall_rect.has_area() else Rect2()
 	# Reserve a real screen-space margin for the impact vibration as well as
 	# helmet/hoof framing. The HUD remains outside the moving world canvas.
 	var safe = COMBAT_SAFE_RECT.grow(-14)
 	var zoom_limit = safe.size.y/maxf(1.0,vertical_bounds.y-vertical_bounds.x)
+	if fall_rect.has_area(): zoom_limit=minf(zoom_limit,safe.size.x/maxf(1.0,fall_rect.size.x))
 	# Reserve a quarter-scale push for an actual hit. A 7% reserve vanished
 	# against the ordinary approach zoom, making contact look no larger.
 	if match_model.phase=="charge" and before_crossing and not pass_connected:
 		desired_zoom = minf(desired_zoom,zoom_limit*.78)
-	elif focus_weight>0.0:
+	elif focus_weight>0.0 and fall_weight<1.0:
 		desired_zoom = lerpf(desired_zoom,zoom_limit,focus_weight)
 	desired_zoom = minf(desired_zoom,zoom_limit)
 	var response = 10.0 if match_model.phase=="ready" else (24.0 if focus_weight>0.0 else (5.0 if approach_slow else 4.0))
@@ -839,6 +856,11 @@ func _update_camera(real_delta: float, now: int) -> void:
 	var highest_center = vertical_bounds.x-(safe.position.y-viewport_center_y)/camera.zoom.y
 	if lowest_center<=highest_center:
 		camera.position.y = clampf(camera.position.y,lowest_center,highest_center)
+	if fall_rect.has_area():
+		var viewport_center_x=get_viewport_rect().size.x*.5
+		var left=fall_rect.end.x-(safe.end.x-viewport_center_x)/camera.zoom.x
+		var right=fall_rect.position.x-(safe.position.x-viewport_center_x)/camera.zoom.x
+		if left<=right:camera.position.x=clampf(camera.position.x,left,right)
 	if match_model.phase=="ready":
 		# Interpolate the rider's SCREEN position, not two incompatible
 		# world centres while zoom changes. The old blend briefly cropped
@@ -859,6 +881,19 @@ func _mounted_vertical_bounds() -> Vector2:
 		top = minf(top,world.position.y+lane-350.0)
 		bottom = maxf(bottom,world.position.y+lane+26.0)
 	return Vector2(top,bottom)
+
+func _fall_camera_rect() -> Rect2:
+	# Track the real detached body (including helmet, shield and both boots).
+	# A growing envelope avoids zoom pumping as knees fold. Include both people
+	# on a simultaneous KO; never favour one just because its event came first.
+	var rect=Rect2()
+	for body in effects.bodies:
+		if is_instance_valid(body):
+			var bounds: Rect2=body.world_body_rect()
+			rect=rect.merge(bounds) if rect.has_area() else bounds
+	if not rect.has_area(): return rect
+	fall_frame_size=fall_frame_size.max(rect.size+Vector2(64,64))
+	return Rect2(rect.get_center()-fall_frame_size*.5,fall_frame_size)
 
 func _update_views() -> void:
 	# Terminal readability only: retain lane order and world-space ballistics,

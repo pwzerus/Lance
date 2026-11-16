@@ -1,5 +1,18 @@
 # 任务、审查建议与文件认领
 
+## REQ-098 部分交出，待纹章方案确认（2026-11-16，Codex）
+
+- 用户授权：实现 docs/requirements/REQ098_DAMAGE_SHIELD_HUD_COPY.md 五部分，并在功能完成后追加 45 分钟排错；本需求与已完成的 SYNC-098 不同。
+- 实际基线：codex/v0.4 a2bf5f367a679f803c17d0bfcc4a3e2dcfb9c2d1；新增需求属于 Claude，其他历史三份差异不动。先测盾击擦过比例和 40 场同级 AI 落马率，再改规则。
+- 文件认领：game/scripts/core/{joust_match,shield_geometry,catalogue,game_state,opponent_ai,campaign}.gd；game/scripts/visual/{shield_art,heraldry,rider_view,fallen_rider}.gd；game/scripts/{battle,main}.gd；game/scripts/ui/{combat_report,combat_cues,hit_zone_overlay}.gd（实际路径以文件为准）；装备 JSON 与新增盾牌数据；game/tests/*098* 与相关回归；中文技能及许可；project.godot/export_presets.cfg、发布入口、设计/交接/审查文档。
+- 补充文件认领：game/scripts/ui/combat_status098.gd、ui/equipment_comparison.gd、tests/test_ui098.gd、test_parse065.gd、test_level_diag094.gd；修复新仪表布局及完整调试数据，检查关卡盾线。
+- 纹章方案待用户明确确认；此前仅推进独立基线、伤害、盾几何与界面，不实施纹章规则变更。
+- 验证只经 Start-MemoryBound；后台画面加 IsolatedDesktop、隔离 QA，保护全部保留。不接管屏幕，不覆盖旧包。
+- 排错计时：功能完成并通过首轮验收后才开始，尚未开始，不能将此前实施/普通复验/等待时间计入。
+- 已保存45d5080、ddec4c6，独立候选.51-c1后台实包复验通过。发现并修复小/大盾极端落马的受限肘膝求解问题，新test_fall098覆盖72种组合；完整交接见2026-11-16-REQ-098-Codex.md。
+- 本轮文件占用释放。任务保持“部分完成”，待用户明确纹章用途后重新认领盾纹/纹章槽/兼容与额外45分钟；旧timing049/057和reaction075失败另列在审查，不标为通过。
+- 开工 UTC：2026-11-16T17:14:44.013515+00:00
+
 ## SYNC-098 已交出（2026-11-14，Codex）
 
 - 用户授权：把目前本地进度同步到 GitHub。

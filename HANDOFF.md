@@ -1,5 +1,13 @@
 # GALUMU 开发交接入口
 
+## REQ-098 阶段候选：v0.4.51-c1（2026-11-16）
+
+先读 [REQ-098交接](docs/collaboration/handoffs/2026-11-16-REQ-098-Codex.md)、[需求](docs/requirements/REQ098_DAMAGE_SHIELD_HUD_COPY.md)、[审查](docs/development/REQ098_REVIEW.md) 和 [紧凑证据](docs/development/REQ098_EVIDENCE.json)。从实际a2bf5f3接手Claude新增需求，运行源码45d5080/ddec4c6已保存；伤害、轻重盾、盾心/边缘连续传力、简明HUD和中文文案已实现，另修复新盾尺寸暴露的极端姿势落地迟迟不稳。旧三份工作区差异保留。
+
+**仍未完成：纹章栏新用途须用户确认，每盾独特纹章未启用；功能完成后的额外45分钟排错尚未开始。** 不把此候选写作REQ-098全部验收通过。已有纹章与盾牌收藏保留。
+
+候选入口 `Play-REQ098-Candidate.cmd` → 独立受保护的 `.51-c1`；`Play-Latest`仍为`.42-r2`，旧Claude候选`.50-c1`不覆盖。后台实际包规则/镜像头击/72极端落马/24盾画面及120秒重甲竞技场、90秒实战已复验；两段分别完成2/1场，均约60FPS，私有内存峰683.1/675.1MiB。普通源码UI/H与结算已有GPU证据，无真人或OS输入验收，保护全部不变。timing049四项、timing057两项、reaction075四项旧失败仍在，详见交接。推送回执在交接末尾，接手核对实际HEAD。
+
 ## SYNC-098 当前进度检查点（2026-11-14）
 
 已接收 Claude 的 ART-090、ANIM-091、LEVEL-092、FEEL-093/094/095、LEVEL-096、FEEL-097 八批改动，已按类别提交并推送 `origin codex/v0.4`，完整检查点 `ef84ba4dee3555e9a60b64099373db02b6a3c921` 已以 ls-remote 核对一致；本回执另作后续文档提交，接手以实际 HEAD 为准。推送回执见 [SYNC-098 交接](docs/collaboration/handoffs/2026-11-14-SYNC-098-Codex.md)。内容包括比赛精灵与罩袍/马衣纹章、头盔视野、80 关挑战及奖励、AI 平滑跟踪与难度曲线、马匹/骑手惯性、重心不稳、分部位受击与动量落马、慢动作和震动。

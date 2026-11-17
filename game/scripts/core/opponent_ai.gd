@@ -57,6 +57,9 @@ var aim_point = -212.0
 var aim_point_velocity = 0.0
 var guard_line = -1
 var lean_back = false
+var lesson_switched = false
+var lesson_ready = false
+var lesson_error = 0.0
 
 ## Extra observation delay from the helmet: 0 with an open face, ~0.15 s in a
 ## great helm (vision .50). ART-090.
@@ -103,6 +106,9 @@ func update(model: JoustMatch, index: int, difficulty: int, delta: float, rng: R
 		aim_point_velocity = 0.0
 		guard_line = -1
 		lean_back = false
+		lesson_switched=false
+		lesson_ready=false
+		lesson_error=0.0
 	var steady_aim = smoothstep(STEADY_RANGE.x,STEADY_RANGE.y,skill) if steady_tracking else 0.0
 	var steady_read = smoothstep(STEADY_RANGE.x,STEADY_RANGE.y,awareness) if steady_tracking else 0.0
 	elapsed += delta
@@ -129,14 +135,32 @@ func update(model: JoustMatch, index: int, difficulty: int, delta: float, rng: R
 		if not committed:
 			var desired_zone = _choose_target(last_seen,skill,rng)
 			if training>=.8:desired_zone="body"
+			var lesson=str(profile.get("attack_lesson",""))
+			if not lesson.is_empty():
+				var lines: Array=profile.get("lesson_lines",["body","flank","head"])
+				var final_line=str(lines[(pass_id-1+int(profile.get("lesson_offset",0)))%lines.size()])
+				if lesson=="change_once" and not lesson_switched:
+					# Change only with ample remaining travel. If a slow think/frame
+					# skips the window, retain the shown line rather than a late flick.
+					var commit_at=curve(ATTACK_COMMIT,skill)+.65*training
+					if contact_time<=2.8 and contact_time>=maxf(1.8,commit_at+.9):lesson_switched=true
+					desired_zone=final_line if lesson_switched else ("head" if final_line!="head" else "flank")
+				else:desired_zone=final_line
 			# A veteran may deliberately show a high line before moving once to
 			# an exposed lower line. The actual weapon still obeys player limits.
-			if bool(profile.get("feint",skill>=1.75)) and distance>1800:
+			if lesson.is_empty() and bool(profile.get("feint",skill>=1.75)) and distance>1800:
 				desired_zone = "head" if pass_id%2==1 else "body"
 			if zone!=desired_zone and distance<1600:
 				feinted = true
-			zone = desired_zone
-			target_y = float(last_seen[zone])+rng.randf_range(-1,1)*curve(AIM_JITTER,skill)
+			if not lesson.is_empty():
+				if not lesson_ready or zone!=desired_zone:
+					lesson_error=rng.randf_range(-1,1)*curve(AIM_JITTER,skill)
+					lesson_ready=true
+				zone=desired_zone
+				target_y=float(last_seen[zone])+lesson_error
+			else:
+				zone = desired_zone
+				target_y = float(last_seen[zone])+rng.randf_range(-1,1)*curve(AIM_JITTER,skill)
 		if not defense_committed:
 			var incoming = float(last_seen.tip)
 			var options = [Model.head_position(ai).y,Model.body_position(ai).y,Model.flank_position(ai).y]

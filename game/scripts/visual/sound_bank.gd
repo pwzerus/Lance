@@ -221,7 +221,12 @@ func impact_cue(event: Dictionary, defender_stats: Dictionary) -> Dictionary:
 	# Its audible contact must retain the actual incoming speed's energy;
 	# changing this presentation strength never increases shield damage.
 	var strength = preload("res://scripts/visual/exchange_director.gd").contact_strength(event)
+	# Sliding is audible as friction, even though it carries little body load.
+	# Keep its dedicated scrape sample; a square shield contact is lower and
+	# fuller. The existing pooled voices / group limiter still cap total level.
+	if zone=="shield" and kind=="glance":strength=maxf(strength,clampf(_finite_number(event.get("speed"),0.0)/900.0,0,1)*.55)
 	var pitch: float = lerpf(1.02,.91,strength)+[0.0,-.012,.014][variant]
+	if zone=="shield":pitch*=1.12 if kind=="glance" else .88
 	if zone=="flank":
 		pitch *= .95 # Same actual armour, more damped lower-torso resonance.
 	if kind=="glance":

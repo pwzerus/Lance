@@ -138,6 +138,7 @@ static func _merge_summary(a: Dictionary, b: Dictionary) -> Dictionary:
 	return result
 
 static func contact_strength(event: Dictionary) -> float:
+	if event.get("zone","")=="shield":return preload("res://scripts/core/contact_feedback.gd").shield_loading(event)
 	var strength = clampf(maxf(0.0,float(event.get("impulse",0.0)))/85.0,0.0,1.0)
 	# Armour or a shield can transmit little injury while receiving a heavy
 	# lance strike. Use actual incoming contact speed for this presentation,

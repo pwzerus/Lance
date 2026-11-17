@@ -46,9 +46,8 @@ static func contact_text(hit: Dictionary) -> String:
 	var part={"head":"头","body":"胸","flank":"腹","shield":"盾"}.get(str(hit.get("zone","")),"")
 	if hit.get("dead",false): return part+" 致命"
 	if hit.get("ko",false): return part+" 击落"
+	if part=="盾":return preload("res://scripts/core/contact_feedback.gd").shield_text(hit)
 	if hit.get("glanced",false): return part+(" 滑开" if part=="盾" else "擦过")
-	if part=="盾":
-		return "盾 "+{"center":"正中","face":"偏位","rim":"擦边"}.get(str(hit.get("shield_region","face")),"挡住")
 	return part+(" 重击" if float(hit.get("damage",0))>=35 else " 命中")
 
 func figure(at: Vector2, hit: Dictionary, scale_value: float=1) -> void:
@@ -82,7 +81,7 @@ func _draw() -> void:
 		text("生命",Vector2(x,94),INK,13)
 		text("平衡",Vector2(x,116),INK,13)
 		bar(Rect2(x+42,81,384,13),float(f.hp)/100,Color("b85d4c"),i==1)
-		bar(Rect2(x+42,103,384,9),float(f.balance)/100,Color("d2b16b"),i==1)
+		bar(Rect2(x+42,103,384,9),float(f.balance)/100,Color("ed9168") if float(f.balance)<35 else Color("d2b16b"),i==1)
 		if arena:
 			pips(Vector2(x+(381 if i==1 else 46),130),int(f.get("score",0)),i==1)
 		var latest: Dictionary={}

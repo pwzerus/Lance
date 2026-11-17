@@ -26,14 +26,14 @@ func clear_blood() -> void:
 	particles = particles.filter(func(p): return not p.get("blood", false))
 	queue_redraw()
 
-func hit(point: Vector2, direction: int, damage: float, shield: bool, broke: bool, zone: String = "body", impulse_strength: float = .5) -> void:
+func hit(point: Vector2, direction: int, damage: float, shield: bool, broke: bool, zone: String = "body", impulse_strength: float = .5, contact: Dictionary = {}) -> void:
 	# The caller supplies strength from this actual contact. No anticipation
 	# marker, target prediction, or blood setting creates a contact flash.
 	var strength = clampf(impulse_strength,0.0,1.0) if is_finite(impulse_strength) else .5
 	var duration = lerpf(.22,.36,strength)
 	bursts.append({"p":point,"life":duration,"duration":duration,"shield":shield,
 		"zone":"shield" if shield else zone,"direction":-1 if direction<0 else 1,
-		"strength":strength,"size":lerpf(12.0,34.0,strength)})
+		"strength":strength,"size":lerpf(12.0,34.0,strength),"slide":shield and bool(contact.get("glanced",false)),"lever":float(contact.get("lever",0))})
 	var blood = blood_enabled and not shield and damage > 11.0
 	# Bounded contact fan: low-speed taps must not look like a full charge.
 	for i in range(roundi(lerpf(5,15,strength))+(4 if broke else 0)):
@@ -177,6 +177,14 @@ func _draw_contact_burst(burst: Dictionary) -> void:
 	var strength = float(burst.strength)
 	var radius = float(burst.size)
 	var zone_color = Color(Cues.COLORS.get(burst.zone,Cues.COLORS.body))
+	if burst.get("slide",false):
+		# A tangential scrape, not the same starburst as a braced shield punch.
+		var tangent=Vector2(-direction*.35,1.0 if float(burst.get("lever",0))>=0 else -1.0).normalized()
+		var alpha=pow(1.0-t,1.4)
+		for i in range(3):
+			var start=point+tangent*(t*30+i*6)+Vector2(direction*i*3,0)
+			draw_line(start,start+tangent*(16.0-i*3),Color("8fcfe0",alpha),2.0)
+		return
 	var flash = 1.0-smoothstep(.035,.12,age)
 	if flash>0.0:
 		var size = radius*lerpf(.78,1.0,smoothstep(0.0,.05,age))

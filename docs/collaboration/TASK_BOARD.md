@@ -1,5 +1,12 @@
 # 任务、审查建议与文件认领
 
+## FEEL-102 / BALANCE-102 进行中（2026-11-17，Codex）
+
+- 用户批准BALANCE-101方案：先强化盾心/擦边/承压反馈，再给中期对手清晰高低枪；前五关保持简单、有限枪盾运动。后台验证、原保护保持、导出独立新包并推送。
+- 实际基线8f0e9a0f1077bd248f380e3613d56f109c196229，与origin核对一致；无新Claude功能，保留历史三份差异与无关QA/UID。
+- 认领：game/scripts/core/{joust_match,campaign,opponent_ai,contact_feedback}.gd；visual/{combat_cues,impact_fx,sound_bank,exchange_director}.gd；ui/combat_status098.gd、battle.gd；tests/*102.gd及UID、test_parse065.gd；版本/导出/入口、设计/本轮审查/交接与共享记录。
+- 先测现有反馈，再沿用已有传力/弹簧/音色/AI延迟与定线机制改善；不改盾碰撞尺寸、不加入隐藏伤害增益或即时AI反制。执行规则、初期回归、双向隔离GPU与实际发布包验证，证据分清模拟/引擎输入/真实渲染，无OS/真人验收冒称。
+
 ## BALANCE-101 诊断已交出：护胸的覆盖与取舍（2026-11-16，Codex）
 
 - 用户反馈固定护胸收益过高，要求平衡防守决策；先区分入门对手单一攻击与实际盾面覆盖，不直接提高刚降低的前期难度。

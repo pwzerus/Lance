@@ -18,10 +18,11 @@ static func contact_name(event: Dictionary) -> String:
 		if float(event.get("head_load",0.0))>=Model.WAR_HEAD_LOAD_LIMIT*.5: return "头部重创 · 再中危险"
 		return {"broken":"头部命中 · 残枪冲力弱","unsteady":"头部命中 · 枪未稳","low_speed":"头部命中 · 冲力不足","solid":"头部 · 正面受创"}.get(str(event.get("head_reason","solid")),"头部命中")
 	if event.zone=="shield":
-		return {"center":"盾心受击","face":"盾面受击","rim":"盾缘受击"}.get(str(event.get("shield_region","face")),"盾面受击")
+		return Model.Feedback.shield_text(event)
 	return {"head":"头盔 / 头部","body":"胸甲 / 躯干","flank":"腰腹"}.get(str(event.zone),str(event.zone))
 
 static func contact_color(event: Dictionary) -> Color:
+	if event.zone=="shield" and event.get("glanced",false):return Color("8fcfe0")
 	if event.zone=="shield" and event.get("shield_region","")=="rim":
 		return Color("ffb35c")
 	return COLORS.get(str(event.zone),COLORS.body)

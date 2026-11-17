@@ -618,7 +618,7 @@ func _handle_event(event: Dictionary) -> void:
 			riders[index].receive_impact(strength,event.zone=="shield")
 			riders[index].receive_contact(event)
 			riders[int(event.attacker)].receive_lance_contact(strength)
-			effects.hit(event.position,int(match_model.fighters[int(event.attacker)].direction),event.damage,event.zone=="shield",event.broke,event.zone,strength)
+			effects.hit(event.position,int(match_model.fighters[int(event.attacker)].direction),event.damage,event.zone=="shield",event.broke,event.zone,strength,event)
 			# FEEL-097: a horse knocked back onto its haunches skids its hinds,
 			# spraying dirt forward; the slower horse of the pair skids hardest.
 			for jolted in [int(event.attacker),index]:

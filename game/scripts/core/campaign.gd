@@ -171,6 +171,16 @@ static func build(items: Array, n: int) -> Dictionary:
 		ai.feint=false
 		if n<=5: hint="他出手慢，主要打胸。用护胸接枪，再瞄准他盾下的胸腹；按住左键催马。"
 		elif n<=10: hint="对手开始换高低枪线，但会提前出手。先稳住盾，瞄准露出的部位。"
+	# BALANCE-102: readable campaign lessons, not a global AI accuracy buff.
+	# Keep 1-5 exactly as LEVEL-100. Later veterans/free matches keep their AI.
+	if n>=6 and n<=40:
+		ai.attack_lesson="change_once" if n>=21 else "show_line"
+		ai.lesson_lines=["body","head","body"] if n<=10 else ["body","flank","head"]
+		ai.lesson_offset=0 if n<=10 else (n-11)%3
+		ai.feint=false
+		if n<=10:hint="首轮攻胸，次轮高枪，末轮再攻胸。枪会提前亮出，看到抬枪再护头。"
+		elif n<=20:hint="每轮会换一条高低枪线，亮出后不再变招。看枪尖选盾位；盾心硬接也会失衡。"
+		else:hint="远处先亮一枪，接近时可能变一次高低线，随后定线。稳住盾，别追着每次抖动乱换。"
 	return {"number":n,"chapter":chapter,"chapter_name":CHAPTERS[chapter],"position":position+1,"boss":boss,
 		"opponent":opponent,"region":Catalogue.REGIONS[REGION_KEYS.find(region)],"archetype":kind,"archetype_name":str(arche.name),
 		"hint":hint,"mode":"war" if war else "arena","quality":_q(q),"equipment":equipment,

@@ -69,6 +69,7 @@ const GROUND_Y = 0.0
 const HIP = Vector2(-18, -168)
 const Gait = preload("res://scripts/visual/horse_gait.gd")
 const Shield = preload("res://scripts/core/shield_geometry.gd")
+const Feedback = preload("res://scripts/core/contact_feedback.gd")
 const Condition = preload("res://scripts/core/horse_condition.gd")
 var mode = "arena"
 var phase = "ready"
@@ -248,6 +249,7 @@ static func shield_grip(fighter: Dictionary) -> Vector2:
 static func reaction_strength(event: Dictionary) -> float:
 	# Presentation loading, separate from injury: a solid shield transfers
 	# little damage but must visibly take the arriving lance's momentum.
+	if event.get("zone","")=="shield":return Feedback.shield_loading(event)
 	var transfer = .48 if bool(event.get("glanced",false)) else .75
 	return clampf(maxf(float(event.get("impulse",0.0))/85.0,clampf(float(event.get("speed",0.0))/900.0,0,1)*transfer),0,1)
 
@@ -258,9 +260,10 @@ static func advance_reaction(fighter: Dictionary, delta: float) -> void:
 	while remaining>.000001:
 		var dt = minf(remaining,1.0/120.0)
 		var trunk_hit = str(fighter.get("last_hit","")) in ["body","flank"]
+		var shield_hit = str(fighter.get("last_hit",""))=="shield"
 		# A committed hit carries the torso through a visible loss of posture;
 		# shoulders/grips/targets still use this one continuously integrated pose.
-		for config in [["reaction_angle","reaction_angular_velocity",52.0 if trunk_hit else 105.0,10.0 if trunk_hit else 12.0,-.68 if trunk_hit else -.48,.58 if trunk_hit else .34],
+		for config in [["reaction_angle","reaction_angular_velocity",52.0 if trunk_hit else (72.0 if shield_hit else 105.0),10.0 if trunk_hit else (14.0 if shield_hit else 12.0),-.68 if trunk_hit else -.48,.58 if trunk_hit else .34],
 			["reaction_shift","reaction_shift_velocity",250.0,20.0,-13.0,3.0],
 			["shield_compression","shield_compression_velocity",330.0,24.0,-3.0,24.0],
 			["shield_twist","shield_twist_velocity",150.0,14.0,-.32,.32],
@@ -281,7 +284,7 @@ static func advance_reaction(fighter: Dictionary, delta: float) -> void:
 			fighter[velocity_key] = velocity
 		# Head orientation lags a torso blow, then returns through the neck.
 		# Its centre stays on the shared head collision anchor.
-		var neck_target = clampf(-float(fighter.reaction_angle)*.45,-.18,.18) if trunk_hit else 0.0
+		var neck_target = clampf(-float(fighter.reaction_angle)*.45,-.18,.18) if trunk_hit or shield_hit else 0.0
 		fighter.reaction_neck_velocity = float(fighter.get("reaction_neck_velocity",0.0))+(45.0*(neck_target-float(fighter.get("reaction_neck",0.0)))-8.0*float(fighter.get("reaction_neck_velocity",0.0)))*dt
 		# FEEL-097: a helm strike whips the head back further than a torso blow
 		# carries it forward. It still turns about the head target's centre.
@@ -746,14 +749,17 @@ func _apply_contact(contact: Dictionary) -> void:
 		"attacker_speed":float(attacker.speed),"defender_speed":float(defender.speed),
 		"attacker_direction":int(attacker.direction),"defender_direction":int(defender.direction)})
 	var loading = reaction_strength(contact)
-	var angular_kick = -11.2 if zone=="head" else (9.0 if zone=="flank" else (-3.6 if zone=="shield" else -10.0))
+	var angular_kick = -11.2 if zone=="head" else (9.0 if zone=="flank" else (-8.4 if zone=="shield" else -10.0))
 	defender.reaction_angular_velocity = clampf(float(defender.get("reaction_angular_velocity",0.0))+angular_kick*loading,-12.0 if zone=="body" else -10.0,9.0 if zone=="flank" else 5.5)
 	defender.reaction_shift_velocity = maxf(-170.0,float(defender.get("reaction_shift_velocity",0.0))-145.0*loading)
 	if zone=="shield":
 		var eccentricity = float(contact.get("eccentricity",0.0))
 		var shield_motion = clampf(sqrt(3.0/maxf(1.0,float(defender.stats.get("shield_kg",3.0)))),.72,1.30)
 		defender.shield_compression_velocity = minf(760.0,float(defender.get("shield_compression_velocity",0.0))+690.0*loading*lerpf(1.0,.62,eccentricity)*shield_motion)
-		defender.shield_twist_velocity = clampf(float(defender.get("shield_twist_velocity",0.0))+6.5*loading*float(contact.get("lever",0.0))*shield_motion,-6.5,6.5)
+		# Edge torque remains visible even when little force reaches the torso.
+		# Only velocity changes here; the same handle-constrained spring moves it.
+		var twist_loading=maxf(loading,clampf(float(contact.get("speed",0))/900.0,0,1)*.65*eccentricity)
+		defender.shield_twist_velocity = clampf(float(defender.get("shield_twist_velocity",0.0))+10.5*twist_loading*float(contact.get("lever",0.0))*shield_motion,-10.0,10.0)
 	attacker.lance_compression_velocity = minf(360.0,float(attacker.get("lance_compression_velocity",0.0))+320.0*loading)
 	_kick_presentation(attacker,defender,zone,loading)
 	events.append(contact)

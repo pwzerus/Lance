@@ -713,7 +713,9 @@ func _process_measured099(delta: float) -> void:
 				fighter.gait_moving = float(fighter.speed)>.5
 				if fighter.gait_moving:
 					fighter.gait_phase += delta*TAU*Model.Gait.frequency(float(fighter.speed))
-		if terminal_at > 0 and now-terminal_at>2600 and not bool(exchange_state.impact_active) and (effects.falls_settled() or now-terminal_at>6500) and not is_finished:
+		# FIX-104: retain impact/flight, then reach the result promptly. No pose
+		# snapping or body removal when the wall-clock presentation budget ends.
+		if terminal_at > 0 and now-terminal_at>1800 and not bool(exchange_state.impact_active) and (effects.falls_settled() or now-terminal_at>3600) and not is_finished:
 			is_finished = true
 			Engine.time_scale = 1.0
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -919,7 +921,8 @@ func _update_views() -> void:
 		for fallen in effects.bodies:
 			if is_instance_valid(fallen) and float(fighter.get("lane_y",0))>float(fallen.fighter.get("lane_y",0)) and absf(riders[i].position.x-fallen.position.x)<360.0:
 				obscures_fall = true
-		riders[i].modulate.a = lerpf(riders[i].modulate.a,.20 if obscures_fall else 1.0,fade_blend)
+		# Only the horse occludes the distant fall. Never fade its mounted rider.
+		riders[i].horse_opacity = lerpf(riders[i].horse_opacity,.20 if obscures_fall else 1.0,fade_blend)
 		riders[i].blood_enabled = GameState.profile.settings.blood
 	effects.blood_enabled = GameState.profile.settings.blood
 	for fallen in effects.bodies:

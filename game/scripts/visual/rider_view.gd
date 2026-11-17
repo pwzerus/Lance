@@ -37,6 +37,7 @@ var detached_legs: Dictionary = {}
 var detached_far_only = false
 var detached_far_visible = true
 var stirrup_alpha = 1.0
+var horse_opacity = 1.0
 var fighter: Dictionary = {}
 var red = false
 var clock = 0.0
@@ -287,7 +288,7 @@ func _draw_measured099() -> void:
 			skin.set_caparison(cloth_style,cloth_design)
 		horse_coat_key=coat_key
 	# Independent coat textures carry markings; do not tint the saddle/white socks.
-	var horse_tint = Color.WHITE
+	var horse_tint = Color(1,1,1,horse_opacity)
 	var seated = seated_leg_pose(fighter)
 	var rider_visible = not bool(fighter.get("ko",false)) and not bool(fighter.get("dead",false))
 	_draw_horse_leg(0,horse_tint.darkened(.29))
@@ -306,7 +307,7 @@ func _draw_measured099() -> void:
 		rein_hand = Model.HIP+Vector2(8,20)+horse_pose.offset
 	# Reins give on a driving launch and go taut when the horse is checked.
 	var rein_sag = 20.0+6.0*float(horse_pose.get("push",0.0))-17.0*float(horse_pose.get("brake",0.0))
-	draw_polyline(PackedVector2Array([muzzle,muzzle.lerp(rein_hand,.55)+Vector2(0,rein_sag),rein_hand]),Color("493628"),2.5,true)
+	draw_polyline(PackedVector2Array([muzzle,muzzle.lerp(rein_hand,.55)+Vector2(0,rein_sag),rein_hand]),Color(Color("493628"),horse_opacity),2.5,true)
 	if bool(fighter.get("ko",false)) or bool(fighter.get("dead",false)):
 		draw_set_transform(Vector2.ZERO)
 		return
@@ -631,8 +632,15 @@ static func arm_pose(value: Dictionary) -> Dictionary:
 	for side in ["right","left"]:
 		var shoulder = LANCE_SHOULDER if side=="right" else SHIELD_SHOULDER
 		var hand = right_hand if side=="right" else left_hand
-		var elbow = arm_elbow(shoulder,hand,ARM_UPPER,ARM_LOWER)
-		result[side] = {"shoulder":transform*shoulder,"elbow":transform*elbow,"hand":transform*hand}
+		# The distant arm points partly into depth. Keeping both of its bones
+		# at full frontal length made the left-facing lance elbow hang at the
+		# belt. Project those bones, preserving both real hand/collision anchors.
+		# Only the couched lance arm uses this depth pose. Keep the shield's
+		# existing full travel and captured landing geometry unchanged.
+		var distant = side=="right" and facing<0
+		var projection = clampf((shoulder.distance_to(hand)+1.0)/(ARM_UPPER+ARM_LOWER),.64,1.0) if distant else 1.0
+		var elbow = arm_elbow(shoulder,hand,ARM_UPPER*projection,ARM_LOWER*projection)
+		result[side] = {"shoulder":transform*shoulder,"elbow":transform*elbow,"hand":transform*hand,"projection":projection}
 	return result
 
 static func _head_hinge(pose: Dictionary, value: Dictionary) -> Transform2D:

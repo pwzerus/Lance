@@ -16,13 +16,14 @@ func run_timing() -> void:
 			var expected=b.advance(duration,context)
 			check(absf(float(a.sample().scale)-float(expected.scale))<.00001,"KO clock partition invariance")
 		var director=Exchange.new();director.notify_contacts([hit])
-		var held=director.advance(.8,context)
+		var held=director.advance(.45,context)
 		check(held.state=="read" and held.scale<.16,"KO begins with deeper readable slow motion")
 		director.set_paused(true)
 		check(director.advance(3,context)==held.merged({"paused":true},true),"Pause does not spend KO budget")
 		director.set_paused(false)
-		var late=director.advance(1.2,context)
+		var late=director.advance(.65,context)
 		check(late.state=="read" and late.scale>.20 and late.scale<.33,"Flight progresses before release")
+		check(not director.advance(.7,context).impact_active,"KO presentation releases within 1.8 real seconds")
 		context.slow_motion=false
 		check(is_equal_approx(float(director.advance(.14,context).scale),1.0),"Disabling slow motion exits promptly")
 		director.reset()
@@ -50,12 +51,20 @@ func run_battle() -> void:
 	await process_frame
 	await process_frame
 
+func start_case() -> void:
+	main._start_match("arena",true)
+
+func after_result(_case: Dictionary, _battle: Node) -> void:
+	pass
+
 func run_battle_case(c: Dictionary) -> void:
 	var state=root.get_node("GameState")
 	state.profile.settings.slow_motion=c.get("slow",true)
 	state.profile.settings.shake=true
-	main._start_match("arena",true)
+	start_case()
 	var b=main.battle
+	check(is_instance_valid(b),"Fixture starts an actual battle: "+str(c.name))
+	if not is_instance_valid(b): return
 	b.set_physics_process(false)
 	b.set_process_input(false)
 	b.set_process_unhandled_input(false)
@@ -70,7 +79,7 @@ func run_battle_case(c: Dictionary) -> void:
 	var contact_at=-1
 	var started=Time.get_ticks_msec()
 	var hits=[];var timeline=[];var frames=[];var cropped=0
-	var captures=[] if capture_dir=="none" else [120,650,1400,2200,3200,4300]
+	var captures=[] if capture_dir=="none" else [120,650,1400,2200,3200,4100]
 	var capture_index=0
 	var pause_tested=false
 	while Time.get_ticks_msec()-started<15000:
@@ -83,7 +92,7 @@ func run_battle_case(c: Dictionary) -> void:
 			b.match_model.time_effect_active=b.exchange_state.impact_active
 			b.match_model.step(dt)
 			var events=b.match_model.drain_events()
-			if c.get("double",false) and events.any(func(e):return e.type=="hit"):
+			if c.get("double",false) and events.filter(func(e):return e.type=="hit").size()==1:
 				# Deliberate paired-contact presentation fixture, not a claim that two
 				# asymmetric 3/4-view sweeps necessarily land on the same physics tick.
 				var first={}
@@ -110,8 +119,11 @@ func run_battle_case(c: Dictionary) -> void:
 		if contact_at<0:continue
 		var since=Time.get_ticks_msec()-contact_at
 		await RenderingServer.frame_post_draw
+		for rider in b.riders:
+			check(rider.visible and is_equal_approx(rider.modulate.a,1.0),"Mounted rider never fades out during KO: "+str(c.name))
 		var rects=[]
 		for body in b.effects.bodies:
+			check(body.visual.visible and is_equal_approx(body.visual.modulate.a,1.0),"Detached rider remains visible through KO: "+str(c.name))
 			var r: Rect2=body.world_body_rect()
 			var t=b.world.get_canvas_transform()
 			var screen_rect=Rect2(t*r.position,r.size*b.camera.zoom)
@@ -137,7 +149,9 @@ func run_battle_case(c: Dictionary) -> void:
 	check(cropped==0,"Detached body remains inside HUD-safe view: "+str(c.name))
 	check(b.effects.bodies.size()==(2 if c.get("double",false) else 1),"Expected fall count: "+str(c.name))
 	check(b.is_finished and is_equal_approx(Engine.time_scale,1.0),"Result restores time after fall: "+str(c.name))
+	check(not timeline.is_empty() and int(timeline[-1].ms)<=3900,"Result follows KO within shortened budget: "+str(c.name))
 	report.battle.append({"case":c,"hits":hits,"timeline":timeline,"frames":frames,"cropped_frames":cropped})
+	await after_result(c,b)
 	main._close_battle()
 	check(is_equal_approx(Engine.time_scale,1.0),"Exit restores time: "+str(c.name))
 	await process_frame

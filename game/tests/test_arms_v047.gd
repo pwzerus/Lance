@@ -40,7 +40,8 @@ func validate_pose(fighter: Dictionary) -> Dictionary:
 	var inverse = torso.affine_inverse()
 	check(is_finite(torso.get_rotation()) and torso.origin.is_finite(), "Torso transform is finite", context)
 	check(absf(torso.determinant()-1.0) < .001, "Camera-facing torso does not exchange anatomical left and right by reflection", context)
-	var expected_origin = Model.mount_origin(fighter)+Model.HIP*Vector2(int(fighter.direction),1)
+	# FEEL-094 adds saddle lift and reaction translation to the shared mount.
+	var expected_origin = Model.mount_origin(fighter)+(Model.HIP+Vector2(float(fighter.get("reaction_shift",0.0)),-Model.seat_lift(fighter)))*Vector2(int(fighter.direction),1)
 	check(torso.origin.distance_to(expected_origin) < .02, "Arm torso origin remains sewn to the shared rider mount", context)
 	check((torso*Vector2(0,-111)).distance_to(Model.head_position(fighter)) < .02, "Arm transform and actual rider head use the same torso pose", context)
 	for side in ["right", "left"]:
@@ -55,10 +56,12 @@ func validate_pose(fighter: Dictionary) -> Dictionary:
 		var reach = Vector2(arm.shoulder).distance_to(arm.hand)
 		check(reach <= Rider.ARM_UPPER+Rider.ARM_LOWER+.02,
 			"Requested grip is reachable without stretching a human arm", context.merged({"side":side,"reach":reach}))
-		check(absf(upper_length-Rider.ARM_UPPER) < .03,
-			"Upper arm length remains fixed", context.merged({"side":side,"measured":upper_length}))
-		check(absf(lower_length-Rider.ARM_LOWER) < .03,
-			"Forearm length remains fixed; unreachable states must be reported", context.merged({"side":side,"measured":lower_length}))
+		var projected = float(arm.get("projection",1.0))
+		check(projected>=.64 and projected<=1.0,"Arm depth projection is bounded",context)
+		check(absf(upper_length-Rider.ARM_UPPER*projected) < .03,
+			"Upper arm matches its depth projection", context.merged({"side":side,"measured":upper_length}))
+		check(absf(lower_length-Rider.ARM_LOWER*projected) < .03,
+			"Forearm matches its depth projection; unreachable states must be reported", context.merged({"side":side,"measured":lower_length}))
 		var expected_shoulder = Vector2(-25,-64) if side=="right" else Vector2(25,-64)
 		check((inverse*Vector2(arm.shoulder)).distance_to(expected_shoulder) < .02,
 			"Anatomical shoulder stays on its authored side of the camera-facing chest", context.merged({"side":side}))
@@ -102,6 +105,8 @@ func control_trial(gap: float, facing: int, dt: float) -> Dictionary:
 	model.phase = "charge"
 	model.fighters[0].x = -gap*.5
 	model.fighters[1].x = gap*.5
+	for member in model.fighters:
+		member.speed = Model.TROT_SPEED
 	var index = 0 if facing==1 else 1
 	var fighter: Dictionary = model.fighters[index]
 	fighter.aim = -.68
@@ -116,7 +121,8 @@ func rate_regression() -> void:
 	var dt = 1.0/120.0
 	for facing in [1,-1]:
 		var far = control_trial(4000,facing,dt)
-		var near = control_trial(800,facing,dt)
+		# Commitment now depends on time-to-contact; 800 is not close at trot.
+		var near = control_trial(500,facing,dt)
 		check(far.aim_delta > 0 and far.aim_delta < .04, "A full-range aim request takes time", far)
 		check(near.aim_delta > 0 and near.aim_delta < float(far.aim_delta)*.60,
 			"Committed near-contact aiming remains slower than distant aiming", near)
@@ -164,8 +170,9 @@ func dynamic_motion(facing: int, hz: int) -> void:
 		var previous_guard = float(fighter.guard)
 		var previous_aim = float(fighter.aim)
 		model.set_controls(index,target_aim,target_lean,seconds<3.0,dt,target_guard)
-		check(absf(float(fighter.guard)-previous_guard) <= 3.0*dt+.0001, "Shield control retains its continuous movement limit", {"facing":facing,"hz":hz,"seconds":seconds})
-		check(absf(float(fighter.aim)-previous_aim) <= 2.3*dt+.0001, "Lance control retains its continuous movement limit", {"facing":facing,"hz":hz,"seconds":seconds})
+		# EQUIP-066 allows 115% agility with the default light kit.
+		check(absf(float(fighter.guard)-previous_guard) <= 2.8*1.15*dt+.0001, "Shield control retains its continuous movement limit", {"facing":facing,"hz":hz,"seconds":seconds})
+		check(absf(float(fighter.aim)-previous_aim) <= 2.2*1.15*dt+.0001, "Lance control retains its continuous movement limit", {"facing":facing,"hz":hz,"seconds":seconds})
 		model.step(dt)
 		var pose = validate_pose(fighter)
 		if pose.is_empty():

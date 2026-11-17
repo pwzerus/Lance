@@ -76,7 +76,8 @@ func update(model: JoustMatch, index: int, difficulty: int, delta: float, rng: R
 	difficulty = clampi(difficulty,0,2)
 	var skill = clampf(float(profile.get("skill",difficulty)),0.0,2.0)
 	var awareness = clampf(float(profile.get("awareness",difficulty)),0.0,2.0)
-	var reaction = curve(REACTION,awareness)
+	var training=clampf(float(profile.get("training",0.0)),0.0,1.0)
+	var reaction = curve(REACTION,awareness)+.35*training
 	var ai = model.fighters[index]
 	var enemy = model.fighters[1-index]
 	if pass_id!=model.pass_number:
@@ -94,6 +95,7 @@ func update(model: JoustMatch, index: int, difficulty: int, delta: float, rng: R
 		observed_attack_sum = 0
 		observed_attack_count = 0
 		guard = preferred_guard
+		if training>=.8:guard=1.0
 		zone = "body"
 		lean = .12
 		target_y = Model.body_position(enemy).y
@@ -117,15 +119,16 @@ func update(model: JoustMatch, index: int, difficulty: int, delta: float, rng: R
 	var closing_speed = maxf(100,float(ai.speed)+float(last_seen.get("speed",Model.TROT_SPEED)))
 	var contact_time = maxf(0,(distance-Model.lance_length(ai)-40)/closing_speed)
 	if model.phase=="charge" and approaching:
-		committed = committed or contact_time<curve(ATTACK_COMMIT,skill)
-		defense_committed = defense_committed or contact_time<curve(DEFENSE_COMMIT,awareness)
+		committed = committed or contact_time<curve(ATTACK_COMMIT,skill)+.65*training
+		defense_committed = defense_committed or contact_time<curve(DEFENSE_COMMIT,awareness)+.70*training
 	if elapsed>=next_think and not history.is_empty() and float(history[0].time)<=cutoff:
 		last_seen = history[0].duplicate()
 		last_observation_time = last_seen.time
-		next_think = elapsed+curve(THINK,awareness)*rng.randf_range(.92,1.08)
+		next_think = elapsed+(curve(THINK,awareness)+.25*training)*rng.randf_range(.92,1.08)
 		decision_count += 1
 		if not committed:
 			var desired_zone = _choose_target(last_seen,skill,rng)
+			if training>=.8:desired_zone="body"
 			# A veteran may deliberately show a high line before moving once to
 			# an exposed lower line. The actual weapon still obeys player limits.
 			if bool(profile.get("feint",skill>=1.75)) and distance>1800:
@@ -162,6 +165,12 @@ func update(model: JoustMatch, index: int, difficulty: int, delta: float, rng: R
 			# stays back instead of flipping with every read.
 			lean_back = (lean_back and steady_read>.5) or (awareness>=1.75 and nearest==0 and distance<1100)
 			lean = -.65 if lean_back else .18
+	# Opening opponents show a repeatable shield line instead of mirroring
+	# the player's attack. The actual shield still moves through set_controls.
+	if training>=.8:
+		guard=1.0
+	elif training>=.4:
+		guard=GUARDS[(pass_id-1)%GUARDS.size()]
 	if practice:
 		guard = GUARDS[(model.pass_number-1)%3]
 		lean = 0
@@ -189,6 +198,12 @@ func update(model: JoustMatch, index: int, difficulty: int, delta: float, rng: R
 	var rush_seen = float(last_seen.get("speed",0))>Model.GALLOP_SPEED*.82
 	var closing_window = contact_time<3.0 and rush_seen
 	var boost = (distance<pressure_gap or closing_window) and float(ai.stamina)>effort_floor
+	if training>0:
+		# Gentle opponents urge/release the same horse as the player. No direct
+		# velocity write or altered acceleration. A broad speed band avoids
+		# per-frame spur chatter; the first three simply ride at a walk/trot.
+		var pace=lerpf(Model.GALLOP_SPEED,Model.TROT_SPEED,training)*float(ai.stats.get("speed",1.0))*Model.Condition.load_speed_factor(ai.stats)
+		boost=boost and training<.99 and float(ai.speed)<pace+(35.0 if bool(ai.boost) else -35.0)
 	if practice:
 		boost = distance>1200
 	model.set_controls(index,aim,lean,boost,delta,guard)

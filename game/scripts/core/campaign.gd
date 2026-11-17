@@ -11,7 +11,7 @@ const COUNT = 80
 const PER_CHAPTER = 10
 const CHAPTERS = ["乡间比武","郡守之杯","勃艮第之路","莱茵骑士会","米兰金枪","王家比武大会","圣乔治骑士团","桂冠之巅"]
 const CHAPTER_NOTES = [
-	"村镇节庆的比武场。对手多是初出茅庐的扈从。",
+	"入门比武：前几关对手出手慢、空当明显。先护胸，再把枪稳稳送向胸腹。",
 	"郡守设下奖杯。骑手开始懂得护住要害。",
 	"沿商路南下，遇到装备更好的游历骑士。",
 	"莱茵河畔的骑士会。重甲与长枪成了常客。",
@@ -98,6 +98,12 @@ static func shield_quality(kind: String, quality: int) -> int:
 	var line_tier = clampi(quality/2,0,2)
 	return line_tier*2+(1 if kind in ["heavy","bulwark"] or (kind=="balanced" and quality%2==1) else 0)
 
+## LEVEL-100: explicit onboarding, fading out before the first war match.
+## Changes decisions/gear, never a hidden damage or player-health multiplier.
+static func training_strength(n: int) -> float:
+	if n<1 or n>=15: return 0.0
+	return [1.0,1.0,1.0,.92,.84,.76,.68,.60,.52,.44,.34,.25,.16,.08][n-1]
+
 static func build(items: Array, n: int) -> Dictionary:
 	var chapter = (n-1)/PER_CHAPTER
 	var position = (n-1)%PER_CHAPTER
@@ -108,7 +114,7 @@ static func build(items: Array, n: int) -> Dictionary:
 		kind = "balanced"
 	var arche: Dictionary = ARCHETYPES[kind]
 	var region = str(REGION_KEYS[(chapter+position/3)%4])
-	var q = base_quality(n)+(1 if boss else 0)
+	var q = base_quality(n)+(1 if boss and n>10 else 0)
 	var lance_type = str(arche.lance)
 	if lance_type=="mixed":
 		lance_type = ["long","stout","light"][n%3]
@@ -119,6 +125,10 @@ static func build(items: Array, n: int) -> Dictionary:
 	# squires: they carry the long lance; stout lances arrive from chapter 2.
 	if chapter==0 and lance_type=="stout":
 		lance_type = "long"
+	# A fresh save carries a 247px lance, not the 276px reference-kit lance
+	# used by the old curve benchmark. Do not give the first opponents free
+	# first-strike reach. Regional light lances retain distinct appearances.
+	if n<=5: lance_type="light"
 	var horse_line: Array = HORSES[str(arche.horse)]
 	# LEVEL-096 (level096-curve01): the fast line starts at horse_grey, a
 	# quality-1 horse (340 coins, speed 1.06), so in quality-0 levels the swift
@@ -153,10 +163,18 @@ static func build(items: Array, n: int) -> Dictionary:
 	if boss:
 		opponent = "冠军 "+opponent
 	var war = n>=15 and n%10==5
+	var training=training_strength(n)
+	var ai={"skill":snappedf(skill,.01),"awareness":snappedf(awareness,.01),"aggression":float(arche.aggression),"head_bias":float(arche.head),"feint":bool(arche.feint) or skill>=1.75}
+	var hint=str(arche.hint)
+	if training>0:
+		ai.training=training
+		ai.feint=false
+		if n<=5: hint="他出手慢，主要打胸。用护胸接枪，再瞄准他盾下的胸腹；按住左键催马。"
+		elif n<=10: hint="对手开始换高低枪线，但会提前出手。先稳住盾，瞄准露出的部位。"
 	return {"number":n,"chapter":chapter,"chapter_name":CHAPTERS[chapter],"position":position+1,"boss":boss,
 		"opponent":opponent,"region":Catalogue.REGIONS[REGION_KEYS.find(region)],"archetype":kind,"archetype_name":str(arche.name),
-		"hint":str(arche.hint),"mode":"war" if war else "arena","quality":_q(q),"equipment":equipment,
-		"ai":{"skill":snappedf(skill,.01),"awareness":snappedf(awareness,.01),"aggression":float(arche.aggression),"head_bias":float(arche.head),"feint":bool(arche.feint) or skill>=1.75},
+		"hint":hint,"mode":"war" if war else "arena","quality":_q(q),"equipment":equipment,
+		"ai":ai,
 		"reward_coins":reward_coins(n,boss),"reward_renown":3 if boss else 1}
 
 static func reward_coins(n: int, boss: bool) -> int:

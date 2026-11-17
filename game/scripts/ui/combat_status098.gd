@@ -26,7 +26,8 @@ func refresh(current: Array, contacts: Array, pass_index: int) -> void:
 		if is_visible_in_tree(): queue_redraw()
 
 func text(value: String, at: Vector2, color: Color=INK, font_size: int=14) -> void:
-	draw_string(FONT,at,value,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size,color)
+	var font = UIFactory.theme().default_font if history else FONT
+	draw_string(font,at,value,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size,color)
 
 func bar(rect: Rect2, fraction: float, color: Color, reverse: bool=false) -> void:
 	draw_rect(rect,Color("111c18"))

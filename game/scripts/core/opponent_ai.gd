@@ -139,7 +139,8 @@ func update(model: JoustMatch, index: int, difficulty: int, delta: float, rng: R
 			if not lesson.is_empty():
 				var lines: Array=profile.get("lesson_lines",["body","flank","head"])
 				var final_line=str(lines[(pass_id-1+int(profile.get("lesson_offset",0)))%lines.size()])
-				if lesson=="change_once" and not lesson_switched:
+				var change_pass=pass_id in profile.get("lesson_change_passes",[1,2,3])
+				if lesson=="change_once" and change_pass and not lesson_switched:
 					# Change only with ample remaining travel. If a slow think/frame
 					# skips the window, retain the shown line rather than a late flick.
 					var commit_at=curve(ATTACK_COMMIT,skill)+.65*training
@@ -222,12 +223,13 @@ func update(model: JoustMatch, index: int, difficulty: int, delta: float, rng: R
 	var rush_seen = float(last_seen.get("speed",0))>Model.GALLOP_SPEED*.82
 	var closing_window = contact_time<3.0 and rush_seen
 	var boost = (distance<pressure_gap or closing_window) and float(ai.stamina)>effort_floor
-	if training>0:
+	var pace_ease=maxf(training,clampf(float(profile.get("pressure_ease",0.0)),0.0,1.0))
+	if pace_ease>0:
 		# Gentle opponents urge/release the same horse as the player. No direct
 		# velocity write or altered acceleration. A broad speed band avoids
 		# per-frame spur chatter; the first three simply ride at a walk/trot.
-		var pace=lerpf(Model.GALLOP_SPEED,Model.TROT_SPEED,training)*float(ai.stats.get("speed",1.0))*Model.Condition.load_speed_factor(ai.stats)
-		boost=boost and training<.99 and float(ai.speed)<pace+(35.0 if bool(ai.boost) else -35.0)
+		var pace=lerpf(Model.GALLOP_SPEED,Model.TROT_SPEED,pace_ease)*float(ai.stats.get("speed",1.0))*Model.Condition.load_speed_factor(ai.stats)
+		boost=boost and pace_ease<.99 and float(ai.speed)<pace+(35.0 if bool(ai.boost) else -35.0)
 	if practice:
 		boost = distance>1200
 	model.set_controls(index,aim,lean,boost,delta,guard)

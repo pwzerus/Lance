@@ -37,7 +37,8 @@ func run() -> void:
 					root.get_texture().get_image().save_png(folder+"/level%d-hit.png"%n)
 				if not b.exchange_state.impact_active:break
 		check(captured_hit and not changes.is_empty(),"Lesson reaches visible contact "+str(n))
-		check(changes.size()==(1 if n==12 else 2),"Expected readable line sequence "+str(n))
+		var changes_first=level.ai.get("attack_lesson","")=="change_once" and 1 in level.ai.get("lesson_change_passes",[1,2,3])
+		check(changes.size()==(2 if changes_first else 1),"Expected readable line sequence "+str(n))
 		rows.append({"level":n,"changes":changes,"hits":b.exchange_log.duplicate(true),"profile":b.ai_controller.profile})
 		main._close_battle();await process_frame
 		check(is_equal_approx(Engine.time_scale,1.0),"Lesson exit restores time")

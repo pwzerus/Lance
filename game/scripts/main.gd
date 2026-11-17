@@ -865,6 +865,9 @@ func show_result() -> void:
 	var draw = int(result.get("winner",-1)) == -1
 	sounds.play("win" if won else "lose",-9)
 	var panel = UI.panel(screen,Rect2(332,116,776,578),Color(.045,.085,.065,.98))
+	# At the default 1280/1440 stretch, nearest filtering drops thin CJK
+	# strokes. Filter only this text/flat-UI panel, not the pixel-art world.
+	panel.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	var heading = "练习结束，不计奖励" if practice_match else (("竞技场" if current_mode=="arena" else "实战")+" · "+preload("res://scripts/core/opponent_ai.gd").NAMES[int(GameState.profile.settings.difficulty)])
 	if not current_level.is_empty():
 		heading = "第 %d 关 · %s · %s" % [int(current_level.number),str(current_level.opponent),str(current_level.archetype_name)]

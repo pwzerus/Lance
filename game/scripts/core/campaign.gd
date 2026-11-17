@@ -13,7 +13,7 @@ const CHAPTERS = ["乡间比武","郡守之杯","勃艮第之路","莱茵骑士�
 const CHAPTER_NOTES = [
 	"入门比武：前几关对手出手慢、空当明显。先护胸，再把枪稳稳送向胸腹。",
 	"郡守设下奖杯。骑手开始懂得护住要害。",
-	"沿商路南下，遇到装备更好的游历骑士。",
+	"先读高低枪，再练习提前变线；重枪与马匹升级逐步出现。",
 	"莱茵河畔的骑士会。重甲与长枪成了常客。",
 	"米兰工坊的金枪手。他们反应更快，也会变招。",
 	"王家大会，四国好手齐聚。",
@@ -112,6 +112,9 @@ static func build(items: Array, n: int) -> Dictionary:
 	# The first few levels teach the basics against plain riders.
 	if n<=3:
 		kind = "balanced"
+	# A recovery duel between the first heavy lesson and the next war round;
+	# 23/24 previously repeated the same heavy kit back to back.
+	if n==24:kind="balanced"
 	var arche: Dictionary = ARCHETYPES[kind]
 	var region = str(REGION_KEYS[(chapter+position/3)%4])
 	var q = base_quality(n)+(1 if boss and n>10 else 0)
@@ -138,14 +141,24 @@ static func build(items: Array, n: int) -> Dictionary:
 	# line's first horse is slower than the starter one and stays.)
 	if q==0 and str(arche.horse)=="fast":
 		horse_line = HORSES.balanced
+	# BALANCE-103: chapter three used to add a heavier lance, stronger horse,
+	# better armour and in-pass feints together. Stage those visible upgrades;
+	# ordinary heavy riders must not immediately repeat chapter two's boss kit.
+	var lance_q=q;var horse_q=q
+	var armor_q=q+int(arche.armor);var helmet_q=q+int(arche.helmet)
+	if n>=18 and n<=30:
+		lance_q=mini(q,1 if n<=24 else 2)
+		horse_q=mini(q,1 if n<=26 else 2)
+		if not boss and n>=21 and n<=26:
+			armor_q=mini(armor_q,q);helmet_q=mini(helmet_q,q)
 	var equipment = {
-		"armor":"%s_armor_%d" % [region,_q(q+int(arche.armor))],
-		"helmet":"%s_helmet_%d" % [region,_q(q+int(arche.helmet))],
+		"armor":"%s_armor_%d" % [region,_q(armor_q)],
+		"helmet":"%s_helmet_%d" % [region,_q(helmet_q)],
 		# REQ-098: progression improves a line, it must not alternate a
 		# bulwark between light and heavy just because quality is even/odd.
 		"shield":"%s_shield_%d" % [region,shield_quality(kind,_q(q+int(arche.shield)))],
-		"lance":"%s_lance_%s_%d" % [region,lance_type,_q(q)],
-		"horse":str(horse_line[clampi(q*horse_line.size()/6,0,horse_line.size()-1)]),
+		"lance":"%s_lance_%s_%d" % [region,lance_type,_q(lance_q)],
+		"horse":str(horse_line[clampi(horse_q*horse_line.size()/6,0,horse_line.size()-1)]),
 		"crest":str(CRESTS[(n*5+chapter)%CRESTS.size()]),
 		"caparison":str(CAPARISONS[clampi((q+1)/2,0,3)])}
 	for slot in equipment.keys():
@@ -165,6 +178,11 @@ static func build(items: Array, n: int) -> Dictionary:
 	var war = n>=15 and n%10==5
 	var training=training_strength(n)
 	var ai={"skill":snappedf(skill,.01),"awareness":snappedf(awareness,.01),"aggression":float(arche.aggression),"head_bias":float(arche.head),"feint":bool(arche.feint) or skill>=1.75}
+	# Mid-campaign lessons teach accumulated shield pressure at a measured pace.
+	# This is urge/release behaviour, not an invisible damage multiplier. Fade
+	# smoothly so the full-pressure rider does not reappear at the next level.
+	if n>=18 and n<40:
+		ai.pressure_ease=.88 if n<=28 else .88*float(40-n)/12.0
 	var hint=str(arche.hint)
 	if training>0:
 		ai.training=training
@@ -177,9 +195,13 @@ static func build(items: Array, n: int) -> Dictionary:
 		ai.attack_lesson="change_once" if n>=21 else "show_line"
 		ai.lesson_lines=["body","head","body"] if n<=10 else ["body","flank","head"]
 		ai.lesson_offset=0 if n<=10 else (n-11)%3
+		if n>=21 and n<=28:
+			ai.lesson_change_passes=[2] if n<=24 else [2,3]
 		ai.feint=false
 		if n<=10:hint="首轮攻胸，次轮高枪，末轮再攻胸。枪会提前亮出，看到抬枪再护头。"
 		elif n<=20:hint="每轮会换一条高低枪线，亮出后不再变招。看枪尖选盾位；盾心硬接也会失衡。"
+		elif n<=24:hint="首轮先看清高低枪；第二轮会提前变一次线。盾心硬接会承压，找盾外空当还击。"
+		elif n<=28:hint="首轮亮线不变，后两轮会提前变一次高低线。看到枪尖转向再换盾，别一直硬接盾心。"
 		else:hint="远处先亮一枪，接近时可能变一次高低线，随后定线。稳住盾，别追着每次抖动乱换。"
 	return {"number":n,"chapter":chapter,"chapter_name":CHAPTERS[chapter],"position":position+1,"boss":boss,
 		"opponent":opponent,"region":Catalogue.REGIONS[REGION_KEYS.find(region)],"archetype":kind,"archetype_name":str(arche.name),

@@ -3,7 +3,7 @@
 - 日期／时区：2026-11-17，美国纽约；交出者Codex；接收者待后续开发者。
 - 用户授权：把第24关和前后几关调顺，保留高低枪、前期简单，后台保护验证、独立导出、提交推送。
 - 开始基线：codex/v0.4，c7028aa08a7ccf03627aec5baabda6bde411844b，ls-remote相同。
-- 版本／源码：v0.4.55-c1，运行源码1a5d0461630315b25d6d2eb8d63af7c79ed43662。推送回执在最终收尾追加。
+- 版本／源码：v0.4.55-c1，运行源码1a5d0461630315b25d6d2eb8d63af7c79ed43662。完整交付ec267823190892025df0845edb885b7a2e4aced2已推送并以ls-remote核对，详见下方回执。
 - 保留历史差异：docs/development/V051_EXPERIENCE_REVIEW.md、V051_HISTORY_REVIEW.md、game/tests/rules_v045_results.json，另有build_queue.gd.uid及旧QA/UID；未reset/stash/pull或混入本轮提交。
 
 ## 实际改动与诊断
@@ -50,6 +50,10 @@ PERF-099原约94ms长帧仍未精确归因，本次仅处理结算文字采样�
 - GPU复验：Start-MemoryBound.ps1 -Executable <新包>/runtime/LanceAndLaurel.exe -IsolatedDesktop -TimeoutSeconds 400 -MemoryLog <新日志>，Arguments使用--path <新包>/runtime --script E:/GALUMU/game/tests/test_scene103.gd --log-file <新引擎日志> -- --test-profile --folder=<不存在的新QA目录>。新手同法替换test_beginner_ui100.gd。所有引擎串行、保护保持。
 - 追加诊断test_result_text103支持--fixture=<实际scene103报告>，重放真实命中但缩短比赛等待，不算游戏规则证据；msdf/material等开关只用于诊断，不进入生产改动。原始像素45帧核对纠正预览误判，完整过程见审查。
 - 共享HANDOFF/WORK_LOG/PROJECT_STATE/TASK_BOARD已更新，认领释放。只剩三份已知历史未提交差异及既存QA/UID，不混入本轮提交。远程只同步源码与文档，不声称上传了EXE Release。
+
+## 推送回执
+
+完整交付ec267823190892025df0845edb885b7a2e4aced2已推送origin codex/v0.4，并以ls-remote核对相同。运行源码1a5d046与实际复验的.55-c1包不变；本回执另作小型文档提交并推送。未上传EXE Release，保留本地旧包与正式档。
 
 ## 接收与复核（接收者追加）
 

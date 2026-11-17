@@ -1,0 +1,2237 @@
+{
+  "base": "8f0e9a0f1077bd248f380e3613d56f109c196229",
+  "version": "0.4.54-c1",
+  "verification": "Protected isolated QA; GPU where explicitly named, no OS input or human-play acceptance.",
+  "reports": {
+    "pressure": {
+      "path": "docs/development/logs/feel102-pressure04.json",
+      "sha256": "4762526821a416cc7b0eb7542588d207a9d52d5dadf9695bfec0be365360d657",
+      "passed": true,
+      "failures": [],
+      "scope": "See review",
+      "rows": [
+        {
+          "arm_error": 0.00018310546875,
+          "cue": {
+            "cue": "contact_shield_wood_solid_0",
+            "db": -4.75,
+            "kind": "solid",
+            "material": "shield_wood",
+            "pitch": 0.818224,
+            "strength": 0.82,
+            "variant": 0,
+            "zone": "shield"
+          },
+          "eccentricity": 0.0,
+          "event": {
+            "angle_factor": 1.0,
+            "attacker": 0,
+            "attacker_direction": 1,
+            "attacker_speed": 480.0,
+            "attaint": false,
+            "balance_left": 29.2962444994647,
+            "break_angle": 0.0,
+            "break_direction": 1,
+            "break_hand": "(-2170.0, -189.0)",
+            "break_reach": 247.0,
+            "break_tip": "(-1923.0, -189.0)",
+            "broke": false,
+            "combat_elevation": 0.0,
+            "damage": 3.0,
+            "dead": false,
+            "defender": 1,
+            "defender_direction": -1,
+            "defender_speed": 480.0,
+            "drive": 1.0,
+            "eccentricity": 0.0,
+            "glanced": false,
+            "head_incidence": 1.0,
+            "impulse": 59.5,
+            "impulse_ratio": 0.92062181641322,
+            "ko": false,
+            "ko_reason": "",
+            "ko_threshold": 64.630230284803,
+            "lever": 0.0,
+            "points": 1,
+            "position": "(2174.0, -203.599)",
+            "position_factor": 1.0,
+            "shaft_alignment": 1.0,
+            "shield_angle_difference": 0.0,
+            "shield_broke": false,
+            "shield_region": "center",
+            "shield_transfer": 1.0,
+            "speed": 960.0,
+            "support": 1.0,
+            "type": "hit",
+            "unsteady": 0.0,
+            "zone": "shield"
+          },
+          "peak_angle": 0.301994203169714,
+          "peak_compression": 10.1377922267324,
+          "peak_twist": 0.0,
+          "side": -1
+        },
+        {
+          "arm_error": 0.00016021728515625,
+          "cue": {
+            "cue": "contact_shield_wood_glance_0",
+            "db": -10.325,
+            "kind": "glance",
+            "material": "shield_wood",
+            "pitch": 1.1122524,
+            "strength": 0.55,
+            "variant": 0,
+            "zone": "shield"
+          },
+          "eccentricity": 1.0,
+          "event": {
+            "angle_factor": 1.0,
+            "attacker": 0,
+            "attacker_direction": 1,
+            "attacker_speed": 480.0,
+            "attaint": false,
+            "balance_left": 78.7888733498394,
+            "break_angle": 0.0,
+            "break_direction": 1,
+            "break_hand": "(-2170.0, -189.0)",
+            "break_reach": 247.0,
+            "break_tip": "(-1923.0, -189.0)",
+            "broke": false,
+            "combat_elevation": 0.0,
+            "damage": 0.49295030175465,
+            "dead": false,
+            "defender": 1,
+            "defender_direction": -1,
+            "defender_speed": 480.0,
+            "drive": 1.0,
+            "eccentricity": 1.0,
+            "glanced": true,
+            "head_incidence": 1.0,
+            "impulse": 17.85,
+            "impulse_ratio": 0.276186544923966,
+            "ko": false,
+            "ko_reason": "",
+            "ko_threshold": 64.630230284803,
+            "lever": 1.0,
+            "points": 0,
+            "position": "(2174.0, -203.599)",
+            "position_factor": 0.3,
+            "shaft_alignment": 1.0,
+            "shield_angle_difference": 0.0,
+            "shield_broke": false,
+            "shield_region": "rim",
+            "shield_transfer": 0.3,
+            "speed": 960.0,
+            "support": 1.0,
+            "type": "hit",
+            "unsteady": 0.0,
+            "zone": "shield"
+          },
+          "peak_angle": 0.0905982609509142,
+          "peak_compression": 1.88562935417223,
+          "peak_twist": 0.213820274396682,
+          "side": -1
+        },
+        {
+          "arm_error": 0.0001983642578125,
+          "cue": {
+            "cue": "contact_shield_wood_solid_1",
+            "db": -4.75,
+            "kind": "solid",
+            "material": "shield_wood",
+            "pitch": 0.807664,
+            "strength": 0.82,
+            "variant": 1,
+            "zone": "shield"
+          },
+          "eccentricity": 0.0,
+          "event": {
+            "angle_factor": 1.0,
+            "attacker": 0,
+            "attacker_direction": 1,
+            "attacker_speed": 480.0,
+            "attaint": false,
+            "balance_left": 29.2962444994647,
+            "break_angle": 0.0,
+            "break_direction": 1,
+            "break_hand": "(-2170.0, -189.0)",
+            "break_reach": 247.0,
+            "break_tip": "(-1923.0, -189.0)",
+            "broke": false,
+            "combat_elevation": 0.0,
+            "damage": 3.0,
+            "dead": false,
+            "defender": 1,
+            "defender_direction": 1,
+            "defender_speed": 480.0,
+            "drive": 1.0,
+            "eccentricity": 0.0,
+            "glanced": false,
+            "head_incidence": 1.0,
+            "impulse": 59.5,
+            "impulse_ratio": 0.92062181641322,
+            "ko": false,
+            "ko_reason": "",
+            "ko_threshold": 64.630230284803,
+            "lever": 0.0,
+            "points": 1,
+            "position": "(2226.0, -203.599)",
+            "position_factor": 1.0,
+            "shaft_alignment": 1.0,
+            "shield_angle_difference": 0.0,
+            "shield_broke": false,
+            "shield_region": "center",
+            "shield_transfer": 1.0,
+            "speed": 960.0,
+            "support": 1.0,
+            "type": "hit",
+            "unsteady": 0.0,
+            "zone": "shield"
+          },
+          "peak_angle": 0.301994203169714,
+          "peak_compression": 10.1377922267324,
+          "peak_twist": 0.0,
+          "side": 1
+        },
+        {
+          "arm_error": 0.000202178955078125,
+          "cue": {
+            "cue": "contact_shield_wood_glance_1",
+            "db": -10.325,
+            "kind": "glance",
+            "material": "shield_wood",
+            "pitch": 1.098342,
+            "strength": 0.55,
+            "variant": 1,
+            "zone": "shield"
+          },
+          "eccentricity": 1.0,
+          "event": {
+            "angle_factor": 1.0,
+            "attacker": 0,
+            "attacker_direction": 1,
+            "attacker_speed": 480.0,
+            "attaint": false,
+            "balance_left": 78.7888733498394,
+            "break_angle": 0.0,
+            "break_direction": 1,
+            "break_hand": "(-2170.0, -189.0)",
+            "break_reach": 247.0,
+            "break_tip": "(-1923.0, -189.0)",
+            "broke": false,
+            "combat_elevation": 0.0,
+            "damage": 0.49295030175465,
+            "dead": false,
+            "defender": 1,
+            "defender_direction": 1,
+            "defender_speed": 480.0,
+            "drive": 1.0,
+            "eccentricity": 1.0,
+            "glanced": true,
+            "head_incidence": 1.0,
+            "impulse": 17.85,
+            "impulse_ratio": 0.276186544923966,
+            "ko": false,
+            "ko_reason": "",
+            "ko_threshold": 64.630230284803,
+            "lever": 1.0,
+            "points": 0,
+            "position": "(2226.0, -203.599)",
+            "position_factor": 0.3,
+            "shaft_alignment": 1.0,
+            "shield_angle_difference": 0.0,
+            "shield_broke": false,
+            "shield_region": "rim",
+            "shield_transfer": 0.3,
+            "speed": 960.0,
+            "support": 1.0,
+            "type": "hit",
+            "unsteady": 0.0,
+            "zone": "shield"
+          },
+          "peak_angle": 0.0905982609509142,
+          "peak_compression": 1.88562935417223,
+          "peak_twist": 0.213820274396682,
+          "side": 1
+        }
+      ]
+    },
+    "contact_mirror": {
+      "path": "docs/development/logs/feel102-contact04.json",
+      "sha256": "eaeadbb3c00342065281966233607b927938d316fb6cf017f27e2dfc9d023495",
+      "passed": true,
+      "failures": [],
+      "scope": "See review"
+    },
+    "controls": {
+      "path": "docs/development/logs/feel102-test_controls098-02.json",
+      "sha256": "e469f7375e244911fc8de07b5409c1e2137c5b098720843bb66b43cac7681105",
+      "passed": true,
+      "failures": [],
+      "scope": "See review"
+    },
+    "reaction": {
+      "path": "docs/development/logs/feel102-test_reaction075-02.json",
+      "sha256": "c22b8c1b3d2780e36b2490a743e8c73969c95926871167cd213a499f2cbc3da1",
+      "passed": true,
+      "failures": [],
+      "scope": "See review"
+    },
+    "audio": {
+      "path": "docs/development/logs/feel102-audio04.json",
+      "sha256": "17e5f78fd86e031ebfa89d56a6976558180618f21fe62a083ec676af010f0a87",
+      "passed": true,
+      "failures": [],
+      "scope": "Actual current FEEL-075 PCM/peak table, old-new matched-peak mid-band and attack comparison, material routing and finite variants, simultaneous/staggered contact budget, real voice pause/resume, mute and bounded pool. No human listening, loudness/whole-Master hardware measurement or player impact acceptance claim."
+    },
+    "timing": {
+      "path": "docs/development/logs/feel102-timing04.json",
+      "sha256": "dc981895889fe8c1da72176ab285d62ef1db2fca0d99afd3bd3a9c1a2f95537d",
+      "passed": true,
+      "failures": [],
+      "scope": "Production director and Model at30/60/120Hz. Inherits v049 approach, simultaneous/repeated contact, pause/reset, late-toggle and actual swept-miss regressions. Contact first loads continuously, then freezes for total contact duration minus CONTACT_LOAD_DURATION; controls remain limited by scaled game time. No rendered-scene, OS input or human-feel claim."
+    },
+    "lessons": {
+      "path": "docs/development/logs/feel102-balance02.json",
+      "sha256": "362688739dfd55da35fb3e3841bcdbdb7292ca2d18fe92735f8454902b999c92",
+      "passed": true,
+      "failures": [],
+      "scope": "42 approach lesson samples, unchanged 1-5/41-80 profiles, delayed input and finite motors. No human difficulty verdict.",
+      "rows": [
+        {
+          "changes": [
+            {
+              "gap": 4176.82961011347,
+              "remaining": 14.4053316604624,
+              "time": 0.966666666666668,
+              "zone": "body"
+            }
+          ],
+          "committed": true,
+          "level": 6,
+          "max_aim_step": 0.0272451639175415,
+          "pass": 1,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4217.11387913081,
+              "remaining": 24.8087146499578,
+              "time": 0.966666666666668,
+              "zone": "head"
+            }
+          ],
+          "committed": true,
+          "level": 6,
+          "max_aim_step": 0.0389216542243958,
+          "pass": 2,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4176.82961011347,
+              "remaining": 14.4053316604624,
+              "time": 0.966666666666668,
+              "zone": "body"
+            }
+          ],
+          "committed": true,
+          "level": 6,
+          "max_aim_step": 0.0272451639175415,
+          "pass": 3,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4176.82961011347,
+              "remaining": 14.4053316604624,
+              "time": 0.966666666666668,
+              "zone": "body"
+            }
+          ],
+          "committed": true,
+          "level": 6,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 1,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "gap": 4217.11387913081,
+              "remaining": 24.8087146499578,
+              "time": 0.966666666666668,
+              "zone": "head"
+            }
+          ],
+          "committed": true,
+          "level": 6,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 2,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "gap": 4176.82961011347,
+              "remaining": 14.4053316604624,
+              "time": 0.966666666666668,
+              "zone": "body"
+            }
+          ],
+          "committed": true,
+          "level": 6,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 3,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "gap": 4287.73226786116,
+              "remaining": 31.8995263882618,
+              "time": 0.783333333333334,
+              "zone": "body"
+            }
+          ],
+          "committed": true,
+          "level": 10,
+          "max_aim_step": 0.0272451639175415,
+          "pass": 1,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4287.73226786116,
+              "remaining": 31.8995263882618,
+              "time": 0.783333333333334,
+              "zone": "head"
+            }
+          ],
+          "committed": true,
+          "level": 10,
+          "max_aim_step": 0.0389216542243958,
+          "pass": 2,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4287.73226786116,
+              "remaining": 31.8995263882618,
+              "time": 0.783333333333334,
+              "zone": "body"
+            }
+          ],
+          "committed": true,
+          "level": 10,
+          "max_aim_step": 0.0272451639175415,
+          "pass": 3,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4287.73226786116,
+              "remaining": 31.8995263882618,
+              "time": 0.783333333333334,
+              "zone": "body"
+            }
+          ],
+          "committed": true,
+          "level": 10,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 1,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "gap": 4287.73226786116,
+              "remaining": 31.8995263882618,
+              "time": 0.783333333333334,
+              "zone": "head"
+            }
+          ],
+          "committed": true,
+          "level": 10,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 2,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "gap": 4287.73226786116,
+              "remaining": 31.8995263882618,
+              "time": 0.783333333333334,
+              "zone": "body"
+            }
+          ],
+          "committed": true,
+          "level": 10,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 3,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "gap": 4243.56302464479,
+              "remaining": 17.5985668213355,
+              "time": 0.833333333333334,
+              "zone": "body"
+            }
+          ],
+          "committed": true,
+          "level": 11,
+          "max_aim_step": 0.0272451639175415,
+          "pass": 1,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4270.20280861869,
+              "remaining": 29.633250901069,
+              "time": 0.833333333333334,
+              "zone": "flank"
+            }
+          ],
+          "committed": true,
+          "level": 11,
+          "max_aim_step": 0.0334534794092178,
+          "pass": 2,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4243.56302464479,
+              "remaining": 17.5985668213355,
+              "time": 0.833333333333334,
+              "zone": "head"
+            }
+          ],
+          "committed": true,
+          "level": 11,
+          "max_aim_step": 0.0384126305580139,
+          "pass": 3,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4243.56302464479,
+              "remaining": 17.5985668213355,
+              "time": 0.833333333333334,
+              "zone": "body"
+            }
+          ],
+          "committed": true,
+          "level": 11,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 1,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "gap": 4270.20280861869,
+              "remaining": 29.633250901069,
+              "time": 0.833333333333334,
+              "zone": "flank"
+            }
+          ],
+          "committed": true,
+          "level": 11,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 2,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "gap": 4243.56302464479,
+              "remaining": 17.5985668213355,
+              "time": 0.833333333333334,
+              "zone": "head"
+            }
+          ],
+          "committed": true,
+          "level": 11,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 3,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "gap": 4336.79241651748,
+              "remaining": 40.4979241651748,
+              "time": 0.616666666666667,
+              "zone": "body"
+            }
+          ],
+          "committed": true,
+          "level": 20,
+          "max_aim_step": 0.0272451639175415,
+          "pass": 1,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4336.79241651748,
+              "remaining": 40.4979241651748,
+              "time": 0.616666666666667,
+              "zone": "flank"
+            }
+          ],
+          "committed": true,
+          "level": 20,
+          "max_aim_step": 0.0272451639175415,
+          "pass": 2,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4336.79241651748,
+              "remaining": 40.4979241651748,
+              "time": 0.616666666666667,
+              "zone": "head"
+            }
+          ],
+          "committed": true,
+          "level": 20,
+          "max_aim_step": 0.0389216542243958,
+          "pass": 3,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4336.79241651748,
+              "remaining": 40.4979241651748,
+              "time": 0.616666666666667,
+              "zone": "body"
+            }
+          ],
+          "committed": true,
+          "level": 20,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 1,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "gap": 4336.79241651748,
+              "remaining": 40.4979241651748,
+              "time": 0.616666666666667,
+              "zone": "flank"
+            }
+          ],
+          "committed": true,
+          "level": 20,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 2,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "gap": 4336.79241651748,
+              "remaining": 40.4979241651748,
+              "time": 0.616666666666667,
+              "zone": "head"
+            }
+          ],
+          "committed": true,
+          "level": 20,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 3,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "gap": 4332.53518964698,
+              "remaining": 40.4553518964698,
+              "time": 0.633333333333334,
+              "zone": "head"
+            },
+            {
+              "gap": 2333.95674213681,
+              "remaining": 2.26373778481777,
+              "time": 3.38333333333333,
+              "zone": "flank"
+            }
+          ],
+          "committed": true,
+          "level": 21,
+          "max_aim_step": 0.0389216542243958,
+          "pass": 1,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4332.53518964698,
+              "remaining": 40.4553518964698,
+              "time": 0.633333333333334,
+              "zone": "flank"
+            },
+            {
+              "gap": 2622.89612953041,
+              "remaining": 2.83977500140902,
+              "time": 3.36666666666666,
+              "zone": "head"
+            }
+          ],
+          "committed": true,
+          "level": 21,
+          "max_aim_step": 0.0337602198123932,
+          "pass": 2,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4332.53518964698,
+              "remaining": 40.4553518964698,
+              "time": 0.633333333333334,
+              "zone": "head"
+            },
+            {
+              "gap": 2478.85896952965,
+              "remaining": 2.39643587342157,
+              "time": 3.21666666666666,
+              "zone": "body"
+            }
+          ],
+          "committed": true,
+          "level": 21,
+          "max_aim_step": 0.0389216542243958,
+          "pass": 3,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4332.53518964698,
+              "remaining": 40.4553518964698,
+              "time": 0.633333333333334,
+              "zone": "head"
+            },
+            {
+              "gap": 2333.95674213681,
+              "remaining": 2.26373778481777,
+              "time": 3.38333333333333,
+              "zone": "flank"
+            }
+          ],
+          "committed": true,
+          "level": 21,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 1,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "gap": 4332.53518964698,
+              "remaining": 40.4553518964698,
+              "time": 0.633333333333334,
+              "zone": "flank"
+            },
+            {
+              "gap": 2622.89612953041,
+              "remaining": 2.83977500140902,
+              "time": 3.36666666666666,
+              "zone": "head"
+            }
+          ],
+          "committed": true,
+          "level": 21,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 2,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "gap": 4332.53518964698,
+              "remaining": 40.4553518964698,
+              "time": 0.633333333333334,
+              "zone": "head"
+            },
+            {
+              "gap": 2478.85896952965,
+              "remaining": 2.39643587342157,
+              "time": 3.21666666666666,
+              "zone": "body"
+            }
+          ],
+          "committed": true,
+          "level": 21,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 3,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "gap": 4359.30810042987,
+              "remaining": 40.7230810042987,
+              "time": 0.516666666666667,
+              "zone": "head"
+            },
+            {
+              "gap": 2537.3049737283,
+              "remaining": 2.46875453710205,
+              "time": 3.14999999999999,
+              "zone": "flank"
+            }
+          ],
+          "committed": true,
+          "level": 30,
+          "max_aim_step": 0.0389216542243958,
+          "pass": 1,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4359.30810042987,
+              "remaining": 40.7230810042987,
+              "time": 0.516666666666667,
+              "zone": "flank"
+            },
+            {
+              "gap": 2375.53766167771,
+              "remaining": 2.37525766546116,
+              "time": 3.66666666666666,
+              "zone": "head"
+            }
+          ],
+          "committed": true,
+          "level": 30,
+          "max_aim_step": 0.029191255569458,
+          "pass": 2,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4359.30810042987,
+              "remaining": 40.7230810042987,
+              "time": 0.516666666666667,
+              "zone": "head"
+            },
+            {
+              "gap": 2596.02818549355,
+              "remaining": 2.5162083122505,
+              "time": 3.08333333333333,
+              "zone": "body"
+            }
+          ],
+          "committed": true,
+          "level": 30,
+          "max_aim_step": 0.0389216542243958,
+          "pass": 3,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4359.30810042987,
+              "remaining": 40.7230810042987,
+              "time": 0.516666666666667,
+              "zone": "head"
+            },
+            {
+              "gap": 2537.3049737283,
+              "remaining": 2.46875453710205,
+              "time": 3.14999999999999,
+              "zone": "flank"
+            }
+          ],
+          "committed": true,
+          "level": 30,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 1,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "gap": 4359.30810042987,
+              "remaining": 40.7230810042987,
+              "time": 0.516666666666667,
+              "zone": "flank"
+            },
+            {
+              "gap": 2375.53766167771,
+              "remaining": 2.37525766546116,
+              "time": 3.66666666666666,
+              "zone": "head"
+            }
+          ],
+          "committed": true,
+          "level": 30,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 2,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "gap": 4359.30810042987,
+              "remaining": 40.7230810042987,
+              "time": 0.516666666666667,
+              "zone": "head"
+            },
+            {
+              "gap": 2596.02818549355,
+              "remaining": 2.5162083122505,
+              "time": 3.08333333333333,
+              "zone": "body"
+            }
+          ],
+          "committed": true,
+          "level": 30,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 3,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "gap": 4362.55610153016,
+              "remaining": 40.7555610153016,
+              "time": 0.5,
+              "zone": "flank"
+            },
+            {
+              "gap": 2794.65942222297,
+              "remaining": 2.96326251794312,
+              "time": 3.06666666666666,
+              "zone": "head"
+            }
+          ],
+          "committed": true,
+          "level": 40,
+          "max_aim_step": 0.0295758247375488,
+          "pass": 1,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4362.55610153016,
+              "remaining": 40.7555610153016,
+              "time": 0.5,
+              "zone": "head"
+            },
+            {
+              "gap": 2231.50695753519,
+              "remaining": 2.6032770737402,
+              "time": 4.08333333333332,
+              "zone": "body"
+            }
+          ],
+          "committed": true,
+          "level": 40,
+          "max_aim_step": 0.0389216542243958,
+          "pass": 2,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4362.55610153016,
+              "remaining": 40.7555610153016,
+              "time": 0.5,
+              "zone": "head"
+            },
+            {
+              "gap": 2381.63097864326,
+              "remaining": 2.36540863907036,
+              "time": 3.54999999999999,
+              "zone": "flank"
+            }
+          ],
+          "committed": true,
+          "level": 40,
+          "max_aim_step": 0.0389216542243958,
+          "pass": 3,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "gap": 4362.55610153016,
+              "remaining": 40.7555610153016,
+              "time": 0.5,
+              "zone": "flank"
+            },
+            {
+              "gap": 2794.65942222297,
+              "remaining": 2.96326251794312,
+              "time": 3.06666666666666,
+              "zone": "head"
+            }
+          ],
+          "committed": true,
+          "level": 40,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 1,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "gap": 4362.55610153016,
+              "remaining": 40.7555610153016,
+              "time": 0.5,
+              "zone": "head"
+            },
+            {
+              "gap": 2231.50695753519,
+              "remaining": 2.6032770737402,
+              "time": 4.08333333333332,
+              "zone": "body"
+            }
+          ],
+          "committed": true,
+          "level": 40,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 2,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "gap": 4362.55610153016,
+              "remaining": 40.7555610153016,
+              "time": 0.5,
+              "zone": "head"
+            },
+            {
+              "gap": 2381.63097864326,
+              "remaining": 2.36540863907036,
+              "time": 3.54999999999999,
+              "zone": "flank"
+            }
+          ],
+          "committed": true,
+          "level": 40,
+          "max_aim_step": 0.0389216691255569,
+          "pass": 3,
+          "side": 1
+        }
+      ]
+    },
+    "beginner": {
+      "path": "docs/development/logs/feel102-beginner01.json",
+      "sha256": "5b19c46541862abdb4fa253fcd1b0f93cbfa50ee15cbacc972bc13abee35f91f",
+      "passed": true,
+      "failures": [],
+      "scope": "Starter inventory; 850ms aim updates, +/-10px repeatable error, fixed chest guard, no lean, continuous spur. Rule simulation, not human win rates.",
+      "levels": {
+        "1": {
+          "draws": 0,
+          "games": 4,
+          "losses": 0,
+          "lost_unhorsed": 0,
+          "wins": 4
+        },
+        "3": {
+          "draws": 0,
+          "games": 4,
+          "losses": 0,
+          "lost_unhorsed": 0,
+          "wins": 4
+        },
+        "5": {
+          "draws": 0,
+          "games": 4,
+          "losses": 0,
+          "lost_unhorsed": 0,
+          "wins": 4
+        }
+      }
+    },
+    "tactics": {
+      "path": "docs/development/logs/feel102-tactics01.json",
+      "sha256": "ad13a9a1548e9fbfd7cecea5b2a580fa21edc9be36670eed14329424217604e3",
+      "passed": null,
+      "failures": [],
+      "scope": "12 matched-equipment arena matches vs levels 12/24 lessons, 600ms aim and visible-tip guard updates, +/-8px fixed error. Direction pair is not a population win rate; no human acceptance claim.",
+      "matches": [
+        {
+          "level": 12,
+          "strategy": "head",
+          "side": 0,
+          "ended": true,
+          "winner": 0
+        },
+        {
+          "level": 12,
+          "strategy": "head",
+          "side": 1,
+          "ended": true,
+          "winner": 0
+        },
+        {
+          "level": 12,
+          "strategy": "shield_center",
+          "side": 0,
+          "ended": true,
+          "winner": 0
+        },
+        {
+          "level": 12,
+          "strategy": "shield_center",
+          "side": 1,
+          "ended": true,
+          "winner": 1
+        },
+        {
+          "level": 12,
+          "strategy": "opening",
+          "side": 0,
+          "ended": true,
+          "winner": 0
+        },
+        {
+          "level": 12,
+          "strategy": "opening",
+          "side": 1,
+          "ended": true,
+          "winner": 0
+        },
+        {
+          "level": 24,
+          "strategy": "head",
+          "side": 0,
+          "ended": true,
+          "winner": 1
+        },
+        {
+          "level": 24,
+          "strategy": "head",
+          "side": 1,
+          "ended": true,
+          "winner": 1
+        },
+        {
+          "level": 24,
+          "strategy": "shield_center",
+          "side": 0,
+          "ended": true,
+          "winner": 1
+        },
+        {
+          "level": 24,
+          "strategy": "shield_center",
+          "side": 1,
+          "ended": true,
+          "winner": 1
+        },
+        {
+          "level": 24,
+          "strategy": "opening",
+          "side": 0,
+          "ended": true,
+          "winner": 1
+        },
+        {
+          "level": 24,
+          "strategy": "opening",
+          "side": 1,
+          "ended": true,
+          "winner": 1
+        }
+      ]
+    },
+    "tactics_old_ai": {
+      "path": "docs/development/logs/feel102-tactics-old.json",
+      "sha256": "feaa9a92f044d5f6c59c464060b6ad412e4c6c485f0e0c387f9668e6ba4f96a8",
+      "passed": null,
+      "failures": [],
+      "scope": "12 matched-equipment arena matches vs levels 12/24 lessons, 600ms aim and visible-tip guard updates, +/-8px fixed error. Direction pair is not a population win rate; no human acceptance claim.",
+      "matches": [
+        {
+          "level": 12,
+          "strategy": "head",
+          "side": 0,
+          "ended": true,
+          "winner": 0
+        },
+        {
+          "level": 12,
+          "strategy": "head",
+          "side": 1,
+          "ended": true,
+          "winner": 0
+        },
+        {
+          "level": 12,
+          "strategy": "shield_center",
+          "side": 0,
+          "ended": true,
+          "winner": 1
+        },
+        {
+          "level": 12,
+          "strategy": "shield_center",
+          "side": 1,
+          "ended": true,
+          "winner": 1
+        },
+        {
+          "level": 12,
+          "strategy": "opening",
+          "side": 0,
+          "ended": true,
+          "winner": 0
+        },
+        {
+          "level": 12,
+          "strategy": "opening",
+          "side": 1,
+          "ended": true,
+          "winner": 0
+        },
+        {
+          "level": 24,
+          "strategy": "head",
+          "side": 0,
+          "ended": true,
+          "winner": 1
+        },
+        {
+          "level": 24,
+          "strategy": "head",
+          "side": 1,
+          "ended": true,
+          "winner": 1
+        },
+        {
+          "level": 24,
+          "strategy": "shield_center",
+          "side": 0,
+          "ended": true,
+          "winner": 0
+        },
+        {
+          "level": 24,
+          "strategy": "shield_center",
+          "side": 1,
+          "ended": true,
+          "winner": 1
+        },
+        {
+          "level": 24,
+          "strategy": "opening",
+          "side": 0,
+          "ended": true,
+          "winner": 1
+        },
+        {
+          "level": 24,
+          "strategy": "opening",
+          "side": 1,
+          "ended": true,
+          "winner": 1
+        }
+      ]
+    },
+    "source_render": {
+      "path": "docs/development/logs/feel102-after03/report.json",
+      "sha256": "247ab63c0fc4a56bb56e48c7d4150e8ce80f2af70c5aee2ced4b0a2a994b76ab",
+      "passed": true,
+      "failures": [],
+      "scope": "Isolated GPU Battle and real finite-control sweeps; shield seat stability 1.5, body seat 3.0 and balance 300 to isolate mounted follow-through; not balance, human play or performance benchmark.",
+      "cases": [
+        {
+          "attacker": 0,
+          "feedback_kind": "center",
+          "contact_max_head_response_px": 33.7804374694824,
+          "max_shield_compression": 14.0839085852466
+        },
+        {
+          "attacker": 0,
+          "feedback_kind": "rim",
+          "contact_max_head_response_px": 9.85499477386475,
+          "max_shield_compression": 2.56355173396255
+        },
+        {
+          "attacker": 0,
+          "feedback_kind": "body",
+          "contact_max_head_response_px": 46.4213981628418,
+          "max_shield_compression": 0.0
+        },
+        {
+          "attacker": 1,
+          "feedback_kind": "center",
+          "contact_max_head_response_px": 32.4135627746582,
+          "max_shield_compression": 10.5036452292771
+        },
+        {
+          "attacker": 1,
+          "feedback_kind": "rim",
+          "contact_max_head_response_px": 13.8436040878296,
+          "max_shield_compression": 3.08529346347963
+        },
+        {
+          "attacker": 1,
+          "feedback_kind": "body",
+          "contact_max_head_response_px": 46.4223976135254,
+          "max_shield_compression": 0.0
+        }
+      ]
+    },
+    "source_lessons": {
+      "path": "docs/development/logs/feel102-lessonscene01/report.json",
+      "sha256": "42c9da9b2aabc24fb3f9d8aba63e8792bdc7f7c9849654b7a14a2b0c52a4c004",
+      "passed": true,
+      "failures": [],
+      "scope": "Isolated GPU Main levels 12/21; autoplay injected in engine, QA unlock and matched kit, first exchange only. No OS/human evidence.",
+      "rows": [
+        {
+          "changes": [
+            {
+              "aim": 0.299745738506317,
+              "gap": 4400.0,
+              "zone": "flank"
+            }
+          ],
+          "hits": [
+            {
+              "attacker": 0,
+              "attacker_direction": 1,
+              "attacker_speed": 256.318974575729,
+              "attaint": true,
+              "balance_left": 75.008186505483,
+              "break_angle": -0.55065643787384,
+              "break_direction": 1,
+              "break_hand": "(-89.00938, -184.5479)",
+              "break_reach": 239.0,
+              "break_tip": "(114.6619, -309.6039)",
+              "broke": true,
+              "combat_elevation": -0.25848033147282,
+              "damage": 32.1490800093413,
+              "dead": false,
+              "defender": 1,
+              "defender_direction": -1,
+              "defender_speed": 248.954895311327,
+              "drive": 0.790299038664746,
+              "glanced": false,
+              "head_incidence": 0.999989748001099,
+              "impulse": 25.4009562846083,
+              "impulse_ratio": 0.485342846477039,
+              "ko": false,
+              "ko_reason": "",
+              "ko_threshold": 52.3361093482399,
+              "pass": 1,
+              "points": 4,
+              "position": "(114.3614, -309.6229)",
+              "shaft_alignment": 0.966779539321166,
+              "shield_broke": false,
+              "speed": 474.425201416016,
+              "support": 1.0,
+              "type": "hit",
+              "unsteady": 0.0,
+              "zone": "head"
+            },
+            {
+              "attacker": 1,
+              "attacker_direction": -1,
+              "attacker_speed": 245.379895311327,
+              "attaint": false,
+              "balance_left": 79.5961956357077,
+              "break_angle": 0.490015506744385,
+              "break_direction": -1,
+              "break_hand": "(92.77962, -252.4692)",
+              "break_reach": 239.0,
+              "break_tip": "(-118.0962, -139.9864)",
+              "broke": true,
+              "combat_elevation": 0.204254339626773,
+              "damage": 8.89913952846248,
+              "dead": false,
+              "defender": 0,
+              "defender_direction": 1,
+              "defender_speed": 256.318974575729,
+              "drive": 0.780043651854369,
+              "glanced": false,
+              "impulse": 16.4174539151342,
+              "impulse_ratio": 0.31378993276228,
+              "ko": false,
+              "ko_reason": "",
+              "ko_threshold": 52.3198872908764,
+              "pass": 1,
+              "points": 2,
+              "position": "(-118.0978, -139.9626)",
+              "shaft_alignment": 0.979212504286331,
+              "shield_broke": false,
+              "speed": 218.470443725586,
+              "support": 1.0,
+              "type": "hit",
+              "unsteady": 0.0,
+              "zone": "flank"
+            }
+          ],
+          "level": 12,
+          "profile": {
+            "aggression": 0.85,
+            "attack_lesson": "show_line",
+            "awareness": 0.08,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "skill": 0.28,
+            "training": 0.25
+          }
+        },
+        {
+          "changes": [
+            {
+              "aim": 0.252542436122894,
+              "gap": 4400.0,
+              "zone": "head"
+            },
+            {
+              "aim": 0.0251938216388226,
+              "gap": 2756.64820734708,
+              "zone": "flank"
+            }
+          ],
+          "hits": [
+            {
+              "angle_factor": 1.0,
+              "attacker": 1,
+              "attacker_direction": -1,
+              "attacker_speed": 214.835484669509,
+              "attaint": false,
+              "balance_left": 78.461471876567,
+              "break_angle": 0.367137968540192,
+              "break_direction": -1,
+              "break_hand": "(118.9754, -247.6908)",
+              "break_reach": 278.0,
+              "break_tip": "(-140.4983, -147.9039)",
+              "broke": true,
+              "combat_elevation": 0.129217289361602,
+              "contact_local": "(16.63332, 35.1676)",
+              "damage": 1.18467567563046,
+              "dead": false,
+              "defender": 0,
+              "defender_direction": 1,
+              "defender_speed": 245.526268193725,
+              "drive": 0.751408266877665,
+              "eccentricity": 0.606051043834957,
+              "glanced": false,
+              "impulse": 17.6850835230654,
+              "impulse_ratio": 0.297154335152271,
+              "ko": false,
+              "ko_reason": "",
+              "ko_threshold": 59.5148090772529,
+              "lever": 0.606051043834957,
+              "pass": 1,
+              "points": 2,
+              "position": "(-140.1278, -147.8997)",
+              "position_factor": 0.744417267292177,
+              "shaft_alignment": 0.991663055993743,
+              "shield_angle_difference": 0.187532137215288,
+              "shield_broke": false,
+              "shield_region": "face",
+              "shield_transfer": 0.744417267292177,
+              "speed": 458.393920898438,
+              "support": 1.0,
+              "type": "hit",
+              "unsteady": 0.0,
+              "zone": "shield"
+            },
+            {
+              "attacker": 0,
+              "attacker_direction": 1,
+              "attacker_speed": 245.526268193725,
+              "attaint": true,
+              "balance_left": 76.7775494228453,
+              "break_angle": -0.445975095033646,
+              "break_direction": 1,
+              "break_hand": "(-137.3545, -191.923)",
+              "break_reach": 278.0,
+              "break_tip": "(113.4545, -311.8349)",
+              "broke": true,
+              "combat_elevation": -0.202057169525406,
+              "damage": 28.5223758732362,
+              "dead": false,
+              "defender": 1,
+              "defender_direction": -1,
+              "defender_speed": 214.835484669509,
+              "drive": 0.780180876431617,
+              "glanced": false,
+              "head_incidence": 0.99997752904892,
+              "impulse": 24.0855618485105,
+              "impulse_ratio": 0.408675823670394,
+              "ko": false,
+              "ko_reason": "",
+              "ko_threshold": 58.9356170673215,
+              "pass": 1,
+              "points": 4,
+              "position": "(113.1073, -311.7765)",
+              "shaft_alignment": 0.979655807842652,
+              "shield_broke": false,
+              "speed": 438.857391357422,
+              "support": 1.0,
+              "type": "hit",
+              "unsteady": 0.0,
+              "zone": "head"
+            }
+          ],
+          "level": 21,
+          "profile": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.37,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "skill": 0.37
+          }
+        }
+      ]
+    },
+    "package_pressure": {
+      "path": "docs/development/logs/feel102-package-pressure.json",
+      "sha256": "4762526821a416cc7b0eb7542588d207a9d52d5dadf9695bfec0be365360d657",
+      "passed": true,
+      "failures": [],
+      "scope": "See review"
+    },
+    "package_render": {
+      "path": "docs/development/logs/feel102-package-render/report.json",
+      "sha256": "2eaf14530a9f1bf20531fdf687aca12b6a01be1c6db2c831de04618712501cdf",
+      "passed": true,
+      "failures": [],
+      "scope": "Isolated GPU Battle and real finite-control sweeps; shield seat stability 1.5, body seat 3.0 and balance 300 to isolate mounted follow-through; not balance, human play or performance benchmark.",
+      "cases": [
+        {
+          "attacker": 0,
+          "feedback_kind": "center",
+          "contact_max_head_response_px": 30.2662830352783,
+          "max_shield_compression": 14.2848986625495
+        },
+        {
+          "attacker": 0,
+          "feedback_kind": "rim",
+          "contact_max_head_response_px": 9.38499164581299,
+          "max_shield_compression": 2.57856272648751
+        },
+        {
+          "attacker": 0,
+          "feedback_kind": "body",
+          "contact_max_head_response_px": 46.4213981628418,
+          "max_shield_compression": 0.0
+        },
+        {
+          "attacker": 1,
+          "feedback_kind": "center",
+          "contact_max_head_response_px": 29.0406742095947,
+          "max_shield_compression": 10.652618082722
+        },
+        {
+          "attacker": 1,
+          "feedback_kind": "rim",
+          "contact_max_head_response_px": 13.1827049255371,
+          "max_shield_compression": 3.10333798435
+        },
+        {
+          "attacker": 1,
+          "feedback_kind": "body",
+          "contact_max_head_response_px": 46.4273910522461,
+          "max_shield_compression": 0.0
+        }
+      ]
+    },
+    "package_beginner": {
+      "path": "docs/development/logs/feel102-package-beginner/report.json",
+      "sha256": "d80f218a1c317febd02ee2eb85c0a51cd904357d57884423d71abbdad7a16a95",
+      "passed": true,
+      "failures": [],
+      "scope": "Isolated rendered Main levels 1/3, starter inventory, coarse chest aim and held spur injected in engine. No OS input/human play; level 2 unlock supplied by fixture.",
+      "results": [
+        {
+          "level": 1,
+          "winner": 0,
+          "reward": {
+            "coins": 120,
+            "first_clear": true,
+            "level": 1,
+            "renown": 1
+          }
+        },
+        {
+          "level": 3,
+          "winner": 0,
+          "reward": {
+            "coins": 144,
+            "first_clear": true,
+            "level": 3,
+            "renown": 1
+          }
+        }
+      ]
+    },
+    "package_lessons": {
+      "path": "docs/development/logs/feel102-package-lessons/report.json",
+      "sha256": "eab25b90e852c2ae9606c1f017358bb30a2668b0c8ad073d1a6b981c9d1c4d11",
+      "passed": true,
+      "failures": [],
+      "scope": "Isolated GPU Main levels 12/21; autoplay injected in engine, QA unlock and matched kit, first exchange only. No OS/human evidence.",
+      "rows": [
+        {
+          "changes": [
+            {
+              "aim": 0.299745738506317,
+              "gap": 4400.0,
+              "zone": "flank"
+            }
+          ],
+          "hits": [
+            {
+              "attacker": 0,
+              "attacker_direction": 1,
+              "attacker_speed": 256.318974575729,
+              "attaint": true,
+              "balance_left": 75.008186505483,
+              "break_angle": -0.55065643787384,
+              "break_direction": 1,
+              "break_hand": "(-89.00938, -184.5479)",
+              "break_reach": 239.0,
+              "break_tip": "(114.6619, -309.6039)",
+              "broke": true,
+              "combat_elevation": -0.25848033147282,
+              "damage": 32.1490800093413,
+              "dead": false,
+              "defender": 1,
+              "defender_direction": -1,
+              "defender_speed": 248.954895311327,
+              "drive": 0.790299038664746,
+              "glanced": false,
+              "head_incidence": 0.999989748001099,
+              "impulse": 25.4009562846083,
+              "impulse_ratio": 0.485342846477039,
+              "ko": false,
+              "ko_reason": "",
+              "ko_threshold": 52.3361093482399,
+              "pass": 1,
+              "points": 4,
+              "position": "(114.3614, -309.6229)",
+              "shaft_alignment": 0.966779539321166,
+              "shield_broke": false,
+              "speed": 474.425201416016,
+              "support": 1.0,
+              "type": "hit",
+              "unsteady": 0.0,
+              "zone": "head"
+            },
+            {
+              "attacker": 1,
+              "attacker_direction": -1,
+              "attacker_speed": 245.379895311327,
+              "attaint": false,
+              "balance_left": 79.5961956357077,
+              "break_angle": 0.490015506744385,
+              "break_direction": -1,
+              "break_hand": "(92.77962, -252.4692)",
+              "break_reach": 239.0,
+              "break_tip": "(-118.0962, -139.9864)",
+              "broke": true,
+              "combat_elevation": 0.204254339626773,
+              "damage": 8.89913952846248,
+              "dead": false,
+              "defender": 0,
+              "defender_direction": 1,
+              "defender_speed": 256.318974575729,
+              "drive": 0.780043651854369,
+              "glanced": false,
+              "impulse": 16.4174539151342,
+              "impulse_ratio": 0.31378993276228,
+              "ko": false,
+              "ko_reason": "",
+              "ko_threshold": 52.3198872908764,
+              "pass": 1,
+              "points": 2,
+              "position": "(-118.0978, -139.9626)",
+              "shaft_alignment": 0.979212504286331,
+              "shield_broke": false,
+              "speed": 218.470443725586,
+              "support": 1.0,
+              "type": "hit",
+              "unsteady": 0.0,
+              "zone": "flank"
+            }
+          ],
+          "level": 12,
+          "profile": {
+            "aggression": 0.85,
+            "attack_lesson": "show_line",
+            "awareness": 0.08,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "skill": 0.28,
+            "training": 0.25
+          }
+        },
+        {
+          "changes": [
+            {
+              "aim": 0.248900175094604,
+              "gap": 4400.0,
+              "zone": "head"
+            },
+            {
+              "aim": 0.0279255192726851,
+              "gap": 2749.36920979986,
+              "zone": "flank"
+            }
+          ],
+          "hits": [
+            {
+              "angle_factor": 1.0,
+              "attacker": 1,
+              "attacker_direction": -1,
+              "attacker_speed": 214.835484669509,
+              "attaint": false,
+              "balance_left": 78.4517434980889,
+              "break_angle": 0.36711573600769,
+              "break_direction": -1,
+              "break_hand": "(118.9217, -247.6864)",
+              "break_reach": 278.0,
+              "break_tip": "(-140.5542, -147.9053)",
+              "broke": true,
+              "combat_elevation": 0.129217602606983,
+              "contact_local": "(16.63323, 35.16785)",
+              "damage": 1.18553514434139,
+              "dead": false,
+              "defender": 0,
+              "defender_direction": 1,
+              "defender_speed": 245.526268193725,
+              "drive": 0.751408266877665,
+              "eccentricity": 0.605783400295782,
+              "glanced": false,
+              "impulse": 17.6930714034324,
+              "impulse_ratio": 0.297288551837005,
+              "ko": false,
+              "ko_reason": "",
+              "ko_threshold": 59.5148090772529,
+              "lever": 0.605783400295782,
+              "pass": 1,
+              "points": 2,
+              "position": "(-140.1278, -147.8996)",
+              "position_factor": 0.744824804669653,
+              "shaft_alignment": 0.991663015629522,
+              "shield_angle_difference": 0.187537756087866,
+              "shield_broke": false,
+              "shield_region": "face",
+              "shield_transfer": 0.744824804669653,
+              "speed": 458.347747802734,
+              "support": 1.0,
+              "type": "hit",
+              "unsteady": 0.0,
+              "zone": "shield"
+            },
+            {
+              "attacker": 0,
+              "attacker_direction": 1,
+              "attacker_speed": 245.526268193725,
+              "attaint": true,
+              "balance_left": 76.7901660744929,
+              "break_angle": -0.44587904214859,
+              "break_direction": 1,
+              "break_hand": "(-137.4304, -191.937)",
+              "break_reach": 278.0,
+              "break_tip": "(113.3901, -311.8248)",
+              "broke": true,
+              "combat_elevation": -0.202050049287924,
+              "damage": 28.5068797963102,
+              "dead": false,
+              "defender": 1,
+              "defender_direction": -1,
+              "defender_speed": 214.835484669509,
+              "drive": 0.780180876431617,
+              "glanced": false,
+              "head_incidence": 0.999977290630341,
+              "impulse": 24.0724762724397,
+              "impulse_ratio": 0.408453791956432,
+              "ko": false,
+              "ko_reason": "",
+              "ko_threshold": 58.9356170673215,
+              "pass": 1,
+              "points": 4,
+              "position": "(113.106, -311.7769)",
+              "shaft_alignment": 0.979657236743191,
+              "shield_broke": false,
+              "speed": 438.605743408203,
+              "support": 1.0,
+              "type": "hit",
+              "unsteady": 0.0,
+              "zone": "head"
+            }
+          ],
+          "level": 21,
+          "profile": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.37,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "skill": 0.37
+          }
+        }
+      ]
+    },
+    "package_play": {
+      "path": "docs/development/logs/feel102-package-play/report.json",
+      "sha256": "c1cee213c5ab591cec1d562ab560d144c039f843e08ba525af723a20357c1c03",
+      "passed": true,
+      "failures": [],
+      "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+      "metrics": {
+        "all_frames": {
+          "fps": 60.0029770942898,
+          "frames": 10801,
+          "max_ms": 35.148,
+          "over_33ms": 1,
+          "over_50ms": 0,
+          "p50_ms": 16.663,
+          "p95_ms": 16.97,
+          "p99_ms": 17.276
+        },
+        "blood": false,
+        "difficulty": 1,
+        "equipped": {
+          "armor": "de_armor_5",
+          "caparison": "caparison_velvet",
+          "crest": "crest_bend",
+          "helmet": "de_helmet_5",
+          "horse": "horse_courser",
+          "lance": "de_lance_stout_5",
+          "shield": "de_shield_5"
+        },
+        "executable": "E:/GALUMU/builds/LanceAndLaurel-v0.4.54-c1/runtime/LanceAndLaurel.exe",
+        "kit": "heavy",
+        "mode": "arena",
+        "passed": true,
+        "phases": {
+          "charge": {
+            "fps": 59.9993437799964,
+            "frames": 7395,
+            "max_ms": 20.26,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.663,
+            "p95_ms": 16.974,
+            "p99_ms": 17.276
+          },
+          "contact": {
+            "fps": 60.0118681970276,
+            "frames": 653,
+            "max_ms": 18.551,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.661,
+            "p95_ms": 17.106,
+            "p99_ms": 17.385
+          },
+          "ended": {
+            "fps": 60.0226576094951,
+            "frames": 477,
+            "max_ms": 35.148,
+            "over_33ms": 1,
+            "over_50ms": 0,
+            "p50_ms": 16.664,
+            "p95_ms": 16.909,
+            "p99_ms": 17.33
+          },
+          "ready": {
+            "fps": 60.0102466835306,
+            "frames": 1362,
+            "max_ms": 18.021,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.663,
+            "p95_ms": 16.913,
+            "p99_ms": 17.163
+          },
+          "result": {
+            "fps": 60.0015565257342,
+            "frames": 239,
+            "max_ms": 21.912,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.666,
+            "p95_ms": 16.923,
+            "p99_ms": 17.175
+          },
+          "turn": {
+            "fps": 60.006117957093,
+            "frames": 675,
+            "max_ms": 17.776,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.66,
+            "p95_ms": 16.947,
+            "p99_ms": 17.245
+          }
+        },
+        "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+        "settings": {
+          "aim_cues": true,
+          "ambience_volume": 1.0,
+          "blood": false,
+          "brief_seen": false,
+          "combat_brief_v03": false,
+          "combat_brief_v043": false,
+          "combat_brief_v044": false,
+          "difficulty": 1,
+          "effects_volume": 1.0,
+          "guided_practice_v087": false,
+          "helmet_view": true,
+          "master_volume": 1.0,
+          "mouse_only": false,
+          "music_volume": 1.0,
+          "shake": true,
+          "slow_motion": true,
+          "sound": true,
+          "vsync": false
+        },
+        "version": "0.4.54-c1",
+        "wall_seconds": 180.010119,
+        "window": {
+          "mode": 0,
+          "size": "(1280, 720)",
+          "texture_reported_size": "(1138.0, 640.0)"
+        }
+      },
+      "completed_matches": 3,
+      "resource_endpoints": [
+        {
+          "fps": 61.0,
+          "matches": 0,
+          "nodes": 28.0,
+          "phase": "ready",
+          "resources": 102.0,
+          "seconds": 0.014833
+        },
+        {
+          "fps": 60.0,
+          "matches": 3,
+          "nodes": 75.0,
+          "phase": "charge",
+          "resources": 103.0,
+          "seconds": 180.007735
+        }
+      ]
+    }
+  },
+  "memory": {
+    "feel102-after01-memory.log": {
+      "sampled_peak_mib": 688.2,
+      "exit": [
+        "EXIT code=1 seconds=19.8"
+      ]
+    },
+    "feel102-after02-memory.log": {
+      "sampled_peak_mib": 687.4,
+      "exit": [
+        "EXIT code=1 seconds=18.7"
+      ]
+    },
+    "feel102-after03-memory.log": {
+      "sampled_peak_mib": 689.4,
+      "exit": [
+        "EXIT code=0 seconds=20.8"
+      ]
+    },
+    "feel102-balance02-memory.log": {
+      "sampled_peak_mib": 62.0,
+      "exit": [
+        "EXIT code=0 seconds=39.7"
+      ]
+    },
+    "feel102-before-memory.log": {
+      "sampled_peak_mib": 672.0,
+      "exit": [
+        "EXIT code=0 seconds=26.8"
+      ]
+    },
+    "feel102-before02-memory.log": {
+      "sampled_peak_mib": 680.9,
+      "exit": [
+        "EXIT code=0 seconds=14.6"
+      ]
+    },
+    "feel102-beginner01-memory.log": {
+      "sampled_peak_mib": 61.2,
+      "exit": [
+        "EXIT code=0 seconds=124.7"
+      ]
+    },
+    "feel102-bodyprobe-memory.log": {
+      "sampled_peak_mib": 127.5,
+      "exit": [
+        "EXIT code=0 seconds=2.5"
+      ]
+    },
+    "feel102-export-memory.log": {
+      "sampled_peak_mib": 625.2,
+      "exit": [
+        "EXIT code=0 seconds=17.1"
+      ]
+    },
+    "feel102-final-test_contact098-memory.log": {
+      "sampled_peak_mib": 60.1,
+      "exit": [
+        "EXIT code=0 seconds=1.9"
+      ]
+    },
+    "feel102-final-test_impact_audio_v056-memory.log": {
+      "sampled_peak_mib": 56.3,
+      "exit": [
+        "EXIT code=0 seconds=2.8"
+      ]
+    },
+    "feel102-final-test_parse065-memory.log": {
+      "sampled_peak_mib": 196.7,
+      "exit": [
+        "EXIT code=0 seconds=2.1"
+      ]
+    },
+    "feel102-final-test_pressure102-memory.log": {
+      "sampled_peak_mib": 0,
+      "exit": [
+        "EXIT code=0 seconds=1.0"
+      ]
+    },
+    "feel102-import-memory.log": {
+      "sampled_peak_mib": 759.0,
+      "exit": [
+        "EXIT code=0 seconds=10.9"
+      ]
+    },
+    "feel102-lessonscene01-memory.log": {
+      "sampled_peak_mib": 696.6,
+      "exit": [
+        "EXIT code=0 seconds=30.2"
+      ]
+    },
+    "feel102-package-beginner-memory.log": {
+      "sampled_peak_mib": 693.7,
+      "exit": [
+        "EXIT code=0 seconds=125.6"
+      ]
+    },
+    "feel102-package-lessons-memory.log": {
+      "sampled_peak_mib": 683.2,
+      "exit": [
+        "EXIT code=0 seconds=29.1"
+      ]
+    },
+    "feel102-package-play-memory.log": {
+      "sampled_peak_mib": 681.9,
+      "exit": [
+        "EXIT code=0 seconds=187.4"
+      ]
+    },
+    "feel102-package-pressure-memory.log": {
+      "sampled_peak_mib": 0,
+      "exit": [
+        "EXIT code=0 seconds=0.8"
+      ]
+    },
+    "feel102-package-render-memory.log": {
+      "sampled_peak_mib": 671.9,
+      "exit": [
+        "EXIT code=0 seconds=18.9"
+      ]
+    },
+    "feel102-parse-memory.log": {
+      "sampled_peak_mib": 201.7,
+      "exit": [
+        "EXIT code=0 seconds=4.8"
+      ]
+    },
+    "feel102-pressure03-memory.log": {
+      "sampled_peak_mib": 0,
+      "exit": [
+        "EXIT code=0 seconds=1.0"
+      ]
+    },
+    "feel102-tactics-old-memory.log": {
+      "sampled_peak_mib": 59.7,
+      "exit": [
+        "EXIT code=0 seconds=39.9"
+      ]
+    },
+    "feel102-tactics01-memory.log": {
+      "sampled_peak_mib": 60.1,
+      "exit": [
+        "EXIT code=0 seconds=62.4"
+      ]
+    },
+    "feel102-test_ai_v044-02-memory.log": {
+      "sampled_peak_mib": 0,
+      "exit": [
+        "EXIT code=0 seconds=0.6"
+      ]
+    },
+    "feel102-test_balance102-01-memory.log": {
+      "sampled_peak_mib": 61.8,
+      "exit": [
+        "TIMEOUT: terminating job"
+      ]
+    },
+    "feel102-test_controls098-02-memory.log": {
+      "sampled_peak_mib": 0,
+      "exit": [
+        "EXIT code=0 seconds=0.5"
+      ]
+    },
+    "feel102-test_pressure102-01-memory.log": {
+      "sampled_peak_mib": 0,
+      "exit": [
+        "EXIT code=0 seconds=0.9"
+      ]
+    },
+    "feel102-test_pressure102-02-memory.log": {
+      "sampled_peak_mib": 81.0,
+      "exit": [
+        "EXIT code=1 seconds=1.1"
+      ]
+    },
+    "feel102-test_reaction075-02-memory.log": {
+      "sampled_peak_mib": 61.7,
+      "exit": [
+        "EXIT code=0 seconds=1.0"
+      ]
+    },
+    "feel102-test_rules098-02-memory.log": {
+      "sampled_peak_mib": 0,
+      "exit": [
+        "EXIT code=0 seconds=0.6"
+      ]
+    },
+    "feel102-timing04-memory.log": {
+      "sampled_peak_mib": 61.8,
+      "exit": [
+        "EXIT code=0 seconds=2.5"
+      ]
+    }
+  },
+  "package": {
+    "format": "galumu-windows-bundle-1",
+    "version": "0.4.54-c1",
+    "source_revision": "c5dc1e9ba18c6e501d8f52a7c20c50e7ec85a41f",
+    "built_utc": "2026-11-17T19:26:03.8692796Z",
+    "engine": "4.5.1.stable",
+    "platform": "Windows x64",
+    "entry": "LanceAndLaurel.exe",
+    "signed": false,
+    "launcher": {
+      "format": "galumu-launcher-1",
+      "guard_sha256": "E993D317EBACAC1F7C12025E4E3D68EDDCD66919E422790BC33C46E74B31D635",
+      "extracted_guard_sha256": "3C79B1FEC36EE3DF6A689D7BF5125A1648B29F4376DB42ECF3EB08F3AD7C187E",
+      "launcher_source_sha256": "9310EF7E406DB0CE2BFB027DBE4F03D0DF6F6F565FA4EED225E4F099C5444DB6",
+      "launcher_sha256": "46916B73CDFB450E9CBE7F181552D5CACD6663CCCCB9A163E5ADC4A099713016",
+      "icon_sha256": "162216654BE34720045ED4B41A044FC855E1AA7ABF22DEBBDD494FA2D9FC4985",
+      "product_version": "0.4.54-c1",
+      "file_version": "0.4.54.1",
+      "built_utc": "2026-11-17T19:26:03.390092Z",
+      "note": "Compiled from the same MemoryBound source; 1024 MiB Job, 900 MiB early stop, 500 MiB system reserve, 25% CPU and one instance."
+    },
+    "files": [
+      {
+        "path": "LanceAndLaurel.exe",
+        "bytes": 44544,
+        "sha256": "46916B73CDFB450E9CBE7F181552D5CACD6663CCCCB9A163E5ADC4A099713016"
+      },
+      {
+        "path": "licenses/ASSET-NOTICES.txt",
+        "bytes": 1590,
+        "sha256": "F4B6EBA3D37BAC1A552E7BB9D70DF068F0267120658D691E0AF591F9324A72D5"
+      },
+      {
+        "path": "licenses/GODOT-LICENSE.txt",
+        "bytes": 1149,
+        "sha256": "B0435E3B3E4E55238F05F4B306F30524A1B2E20147810D436EAA554FA6855C80"
+      },
+      {
+        "path": "licenses/GODOT-THIRD-PARTY.txt",
+        "bytes": 91338,
+        "sha256": "25EFD44DF9346C7469B21AE5CB0488CF6FFF63854D4473A6AF95E08508A87B17"
+      },
+      {
+        "path": "licenses/NOTO-SANS-SC-OFL.txt",
+        "bytes": 4388,
+        "sha256": "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9"
+      },
+      {
+        "path": "PLAYER-GUIDE.txt",
+        "bytes": 3566,
+        "sha256": "A48414CE48FA98BDE5FCFBD227DBC090CAF045422930249DDBD6E1EDD33B6D12"
+      },
+      {
+        "path": "RELEASE-NOTES.txt",
+        "bytes": 864,
+        "sha256": "335E856BF3EFC1A323B7F6B78AB7D2968375D9BDB02651A6DC00DC65733618A9"
+      },
+      {
+        "path": "runtime/LanceAndLaurel.exe",
+        "bytes": 96725504,
+        "sha256": "78CCC576E8F8BFFD7EF6AD6F36EBD72A41E609A1052225A55B3407C96EA84065"
+      },
+      {
+        "path": "runtime/LanceAndLaurel.pck",
+        "bytes": 38121644,
+        "sha256": "429CEF185812F82745CC7123C67F968F4A920A715F2C7055697C73F140E0A3D8"
+      }
+    ],
+    "status": "Candidate package; validation and platform approval are recorded separately."
+  },
+  "pck": {
+    "bytes": 38121644,
+    "sha256": "429cef185812f82745cc7123c67f968f4a920a715f2c7055697c73f140e0a3d8"
+  }
+}

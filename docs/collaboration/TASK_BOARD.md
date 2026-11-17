@@ -1,11 +1,13 @@
 # 任务、审查建议与文件认领
 
-## FEEL-102 / BALANCE-102 进行中（2026-11-17，Codex）
+## FEEL-102 / BALANCE-102 已交出（2026-11-17，Codex）
 
 - 用户批准BALANCE-101方案：先强化盾心/擦边/承压反馈，再给中期对手清晰高低枪；前五关保持简单、有限枪盾运动。后台验证、原保护保持、导出独立新包并推送。
 - 实际基线8f0e9a0f1077bd248f380e3613d56f109c196229，与origin核对一致；无新Claude功能，保留历史三份差异与无关QA/UID。
 - 认领：game/scripts/core/{joust_match,campaign,opponent_ai,contact_feedback}.gd；visual/{combat_cues,impact_fx,sound_bank,exchange_director}.gd；ui/combat_status098.gd、battle.gd；tests/*102.gd及UID、test_parse065.gd；版本/导出/入口、设计/本轮审查/交接与共享记录。
 - 先测现有反馈，再沿用已有传力/弹簧/音色/AI延迟与定线机制改善；不改盾碰撞尺寸、不加入隐藏伤害增益或即时AI反制。执行规则、初期回归、双向隔离GPU与实际发布包验证，证据分清模拟/引擎输入/真实渲染，无OS/真人验收冒称。
+- 已完成：运行源码c5dc1e9，独立.54-c1；规则/42次课目/双向GPU通过，新旧策略对照完成。实际包压力、6组接触、中期12/21关、入门1/3关奖励保存、180秒3场重甲结算重开通过，平均60.003FPS、单帧最高35.148ms，不宣称锁60。最终证据FEEL102_EVIDENCE，详见新交接。
+- Play-Latest已指向.54-c1受保护入口；旧包/正式档/历史差异保留。本轮认领全部释放。第24关慢代理新旧AI都较难、真人手感/硬件听感待确认，PERF-099原94ms归因仍未完成。
 
 ## BALANCE-101 诊断已交出：护胸的覆盖与取舍（2026-11-16，Codex）
 

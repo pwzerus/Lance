@@ -1,0 +1,5087 @@
+{
+  "baseline": "c7028aa08a7ccf03627aec5baabda6bde411844b",
+  "version": "0.4.55-c1",
+  "reports": {
+    "before": {
+      "path": "docs/development/logs/balance103-before.json",
+      "sha256": "bcca5393ca008edfe60e5fb6aedf3fff2bbac811ca74668ae1fd5f3047858dfb",
+      "passed": true,
+      "failures": [],
+      "scope": "Fixed quality-1 English long lance/light shield/grey horse, 600ms aim and visible-tip guard updates, +/-8px, no lean, spur at 3000. Actual level mode and opponents. Both sides, finite controls, no human win-rate claim.",
+      "levels": {
+        "18": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0,
+          "games": 4,
+          "kind": "trickster",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_1",
+            "caparison": "caparison_linen",
+            "crest": "crest_fess",
+            "helmet": "it_helmet_0",
+            "horse": "horse_bay",
+            "lance": "it_lance_long_1",
+            "shield": "it_shield_0"
+          },
+          "ai": {
+            "aggression": 0.6,
+            "attack_lesson": "show_line",
+            "awareness": 0.49,
+            "feint": false,
+            "head_bias": 0.15,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "skill": 0.44
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "20": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 0,
+          "games": 4,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_3",
+            "caparison": "caparison_linen",
+            "crest": "crest_quarterly",
+            "helmet": "eng_helmet_3",
+            "horse": "horse_chestnut",
+            "lance": "eng_lance_stout_2",
+            "shield": "eng_shield_3"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "show_line",
+            "awareness": 0.47,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "skill": 0.67
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            }
+          ]
+        },
+        "21": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0,
+          "games": 4,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "de_armor_1",
+            "caparison": "caparison_linen",
+            "crest": "crest_fleur",
+            "helmet": "de_helmet_1",
+            "horse": "horse_bay",
+            "lance": "de_lance_long_1",
+            "shield": "de_shield_1"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.37,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "skill": 0.37
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "22": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0,
+          "games": 4,
+          "kind": "reach",
+          "mode": "arena",
+          "equipment": {
+            "armor": "de_armor_1",
+            "caparison": "caparison_linen",
+            "crest": "crest_saltire",
+            "helmet": "de_helmet_1",
+            "horse": "horse_bay",
+            "lance": "de_lance_long_1",
+            "shield": "de_shield_0"
+          },
+          "ai": {
+            "aggression": 0.55,
+            "attack_lesson": "change_once",
+            "awareness": 0.41,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "skill": 0.46
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "23": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 0,
+          "games": 4,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "de_armor_3",
+            "caparison": "caparison_linen",
+            "crest": "crest_roundels",
+            "helmet": "de_helmet_3",
+            "horse": "horse_chestnut",
+            "lance": "de_lance_stout_2",
+            "shield": "de_shield_3"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "change_once",
+            "awareness": 0.24,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "skill": 0.44
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            }
+          ]
+        },
+        "24": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 0,
+          "games": 4,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_3",
+            "caparison": "caparison_linen",
+            "crest": "crest_cross",
+            "helmet": "it_helmet_3",
+            "horse": "horse_chestnut",
+            "lance": "it_lance_stout_2",
+            "shield": "it_shield_3"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "change_once",
+            "awareness": 0.28,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "skill": 0.48
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            }
+          ]
+        },
+        "25": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0,
+          "games": 4,
+          "kind": "trickster",
+          "mode": "war",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_fess",
+            "helmet": "it_helmet_1",
+            "horse": "horse_bay",
+            "lance": "it_lance_stout_2",
+            "shield": "it_shield_2"
+          },
+          "ai": {
+            "aggression": 0.6,
+            "attack_lesson": "change_once",
+            "awareness": 0.62,
+            "feint": false,
+            "head_bias": 0.15,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "skill": 0.57
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "26": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0,
+          "games": 4,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_bend",
+            "helmet": "it_helmet_2",
+            "horse": "horse_bay",
+            "lance": "it_lance_light_2",
+            "shield": "it_shield_2"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.56,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "skill": 0.56
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "27": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 0,
+          "games": 4,
+          "kind": "bulwark",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_quarterly",
+            "helmet": "eng_helmet_2",
+            "horse": "horse_chestnut",
+            "lance": "eng_lance_stout_2",
+            "shield": "eng_shield_3"
+          },
+          "ai": {
+            "aggression": 0.35,
+            "attack_lesson": "change_once",
+            "awareness": 0.84,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "skill": 0.49
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            }
+          ]
+        },
+        "28": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0,
+          "games": 4,
+          "kind": "reach",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_chief",
+            "helmet": "eng_helmet_2",
+            "horse": "horse_bay",
+            "lance": "eng_lance_long_2",
+            "shield": "eng_shield_0"
+          },
+          "ai": {
+            "aggression": 0.55,
+            "attack_lesson": "change_once",
+            "awareness": 0.63,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "skill": 0.68
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        }
+      }
+    },
+    "equipment_only": {
+      "path": "docs/development/logs/balance103-after01.json",
+      "sha256": "144b9b6ee11b11c3fea866c7b73563ba387151750883d14ed38948a114e765d7",
+      "passed": true,
+      "failures": [],
+      "scope": "Fixed quality-1 English long lance/light shield/grey horse, 600ms aim and visible-tip guard updates, +/-8px, no lean, spur at 3000. Actual level mode and opponents. Both sides, finite controls, no human win-rate claim.",
+      "levels": {
+        "18": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0,
+          "games": 4,
+          "kind": "trickster",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_1",
+            "caparison": "caparison_linen",
+            "crest": "crest_fess",
+            "helmet": "it_helmet_0",
+            "horse": "horse_bay",
+            "lance": "it_lance_long_1",
+            "shield": "it_shield_0"
+          },
+          "ai": {
+            "aggression": 0.6,
+            "attack_lesson": "show_line",
+            "awareness": 0.49,
+            "feint": false,
+            "head_bias": 0.15,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "skill": 0.44
+          }
+        },
+        "20": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 0,
+          "games": 4,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_3",
+            "caparison": "caparison_linen",
+            "crest": "crest_quarterly",
+            "helmet": "eng_helmet_3",
+            "horse": "horse_cob",
+            "lance": "eng_lance_stout_1",
+            "shield": "eng_shield_3"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "show_line",
+            "awareness": 0.47,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "skill": 0.67
+          }
+        },
+        "21": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0,
+          "games": 4,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "de_armor_1",
+            "caparison": "caparison_linen",
+            "crest": "crest_fleur",
+            "helmet": "de_helmet_1",
+            "horse": "horse_bay",
+            "lance": "de_lance_long_1",
+            "shield": "de_shield_1"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.37,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "skill": 0.37
+          }
+        },
+        "22": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0,
+          "games": 4,
+          "kind": "reach",
+          "mode": "arena",
+          "equipment": {
+            "armor": "de_armor_1",
+            "caparison": "caparison_linen",
+            "crest": "crest_saltire",
+            "helmet": "de_helmet_1",
+            "horse": "horse_bay",
+            "lance": "de_lance_long_1",
+            "shield": "de_shield_0"
+          },
+          "ai": {
+            "aggression": 0.55,
+            "attack_lesson": "change_once",
+            "awareness": 0.41,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "skill": 0.46
+          }
+        },
+        "23": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 0,
+          "games": 4,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "de_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_roundels",
+            "helmet": "de_helmet_2",
+            "horse": "horse_cob",
+            "lance": "de_lance_stout_1",
+            "shield": "de_shield_3"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "change_once",
+            "awareness": 0.24,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "skill": 0.44
+          }
+        },
+        "24": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 1,
+          "games": 4,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_cross",
+            "helmet": "it_helmet_2",
+            "horse": "horse_cob",
+            "lance": "it_lance_stout_1",
+            "shield": "it_shield_3"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "change_once",
+            "awareness": 0.28,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "skill": 0.48
+          }
+        },
+        "25": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0,
+          "games": 4,
+          "kind": "trickster",
+          "mode": "war",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_fess",
+            "helmet": "it_helmet_1",
+            "horse": "horse_bay",
+            "lance": "it_lance_stout_2",
+            "shield": "it_shield_2"
+          },
+          "ai": {
+            "aggression": 0.6,
+            "attack_lesson": "change_once",
+            "awareness": 0.62,
+            "feint": false,
+            "head_bias": 0.15,
+            "lesson_change_passes": [
+              2,
+              3
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "skill": 0.57
+          }
+        },
+        "26": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0,
+          "games": 4,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_bend",
+            "helmet": "it_helmet_2",
+            "horse": "horse_bay",
+            "lance": "it_lance_light_2",
+            "shield": "it_shield_2"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.56,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2,
+              3
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "skill": 0.56
+          }
+        },
+        "27": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0,
+          "games": 4,
+          "kind": "bulwark",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_quarterly",
+            "helmet": "eng_helmet_2",
+            "horse": "horse_chestnut",
+            "lance": "eng_lance_stout_2",
+            "shield": "eng_shield_3"
+          },
+          "ai": {
+            "aggression": 0.35,
+            "attack_lesson": "change_once",
+            "awareness": 0.84,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2,
+              3
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "skill": 0.49
+          }
+        },
+        "28": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0,
+          "games": 4,
+          "kind": "reach",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_chief",
+            "helmet": "eng_helmet_2",
+            "horse": "horse_bay",
+            "lance": "eng_lance_long_2",
+            "shield": "eng_shield_0"
+          },
+          "ai": {
+            "aggression": 0.55,
+            "attack_lesson": "change_once",
+            "awareness": 0.63,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2,
+              3
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "skill": 0.68
+          }
+        }
+      }
+    },
+    "pace_first": {
+      "path": "docs/development/logs/balance103-after02.json",
+      "sha256": "ba4f6f3b85f605dc05f79c2b9bf7068568c2ecd241f25de7a0ef2793c87c6e29",
+      "passed": true,
+      "failures": [],
+      "scope": "Fixed quality-1 English long lance/light shield/grey horse, 600ms aim and visible-tip guard updates, +/-8px, no lean, spur at 3000. Actual level mode and opponents. Both sides, finite controls, no human win-rate claim.",
+      "levels": {
+        "20": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0,
+          "games": 4,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_3",
+            "caparison": "caparison_linen",
+            "crest": "crest_quarterly",
+            "helmet": "eng_helmet_3",
+            "horse": "horse_cob",
+            "lance": "eng_lance_stout_1",
+            "shield": "eng_shield_3"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "show_line",
+            "awareness": 0.47,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "pressure_ease": 0.56,
+            "skill": 0.67
+          }
+        },
+        "23": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0,
+          "games": 4,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "de_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_roundels",
+            "helmet": "de_helmet_2",
+            "horse": "horse_cob",
+            "lance": "de_lance_stout_1",
+            "shield": "de_shield_3"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "change_once",
+            "awareness": 0.24,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "pressure_ease": 0.44,
+            "skill": 0.44
+          }
+        },
+        "24": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 0,
+          "games": 4,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_cross",
+            "helmet": "it_helmet_2",
+            "horse": "horse_cob",
+            "lance": "it_lance_stout_1",
+            "shield": "it_shield_3"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "change_once",
+            "awareness": 0.28,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "pressure_ease": 0.4,
+            "skill": 0.48
+          }
+        },
+        "27": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0,
+          "games": 4,
+          "kind": "bulwark",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_quarterly",
+            "helmet": "eng_helmet_2",
+            "horse": "horse_chestnut",
+            "lance": "eng_lance_stout_2",
+            "shield": "eng_shield_3"
+          },
+          "ai": {
+            "aggression": 0.35,
+            "attack_lesson": "change_once",
+            "awareness": 0.84,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2,
+              3
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "pressure_ease": 0.28,
+            "skill": 0.49
+          }
+        },
+        "30": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0,
+          "games": 4,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "fr_armor_3",
+            "caparison": "caparison_wool",
+            "crest": "crest_chequy",
+            "helmet": "fr_helmet_3",
+            "horse": "horse_bay",
+            "lance": "fr_lance_long_2",
+            "shield": "fr_shield_3"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.91,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "skill": 0.91
+          }
+        }
+      }
+    },
+    "intermediate_broad": {
+      "path": "docs/development/logs/balance103-final.json",
+      "sha256": "8d8b65324f4c03194d7e9603a491634e99444c9942bd665da66a5aa72855d8d2",
+      "passed": true,
+      "failures": [],
+      "scope": "Fixed quality-1 English long lance/light shield/grey horse, 600ms aim and visible-tip guard updates, +/-8px, no lean, spur at 3000. Actual level mode and opponents. Both sides, finite controls, no human win-rate claim.",
+      "levels": {
+        "18": {
+          "wins": 8,
+          "losses": 0,
+          "draws": 0,
+          "games": 8,
+          "kind": "trickster",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_1",
+            "caparison": "caparison_linen",
+            "crest": "crest_fess",
+            "helmet": "it_helmet_0",
+            "horse": "horse_bay",
+            "lance": "it_lance_long_1",
+            "shield": "it_shield_0"
+          },
+          "ai": {
+            "aggression": 0.6,
+            "attack_lesson": "show_line",
+            "awareness": 0.49,
+            "feint": false,
+            "head_bias": 0.15,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "skill": 0.44
+          }
+        },
+        "19": {
+          "wins": 0,
+          "losses": 7,
+          "draws": 1,
+          "games": 8,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_1",
+            "caparison": "caparison_linen",
+            "crest": "crest_bend",
+            "helmet": "it_helmet_1",
+            "horse": "horse_bay",
+            "lance": "it_lance_stout_1",
+            "shield": "it_shield_1"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "show_line",
+            "awareness": 0.43,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "pressure_ease": 0.65,
+            "skill": 0.43
+          }
+        },
+        "20": {
+          "wins": 1,
+          "losses": 7,
+          "draws": 0,
+          "games": 8,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_3",
+            "caparison": "caparison_linen",
+            "crest": "crest_quarterly",
+            "helmet": "eng_helmet_3",
+            "horse": "horse_cob",
+            "lance": "eng_lance_stout_1",
+            "shield": "eng_shield_3"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "show_line",
+            "awareness": 0.47,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "pressure_ease": 0.65,
+            "skill": 0.67
+          }
+        },
+        "21": {
+          "wins": 4,
+          "losses": 4,
+          "draws": 0,
+          "games": 8,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "de_armor_1",
+            "caparison": "caparison_linen",
+            "crest": "crest_fleur",
+            "helmet": "de_helmet_1",
+            "horse": "horse_bay",
+            "lance": "de_lance_long_1",
+            "shield": "de_shield_1"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.37,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "skill": 0.37
+          }
+        },
+        "22": {
+          "wins": 4,
+          "losses": 4,
+          "draws": 0,
+          "games": 8,
+          "kind": "reach",
+          "mode": "arena",
+          "equipment": {
+            "armor": "de_armor_1",
+            "caparison": "caparison_linen",
+            "crest": "crest_saltire",
+            "helmet": "de_helmet_1",
+            "horse": "horse_bay",
+            "lance": "de_lance_long_1",
+            "shield": "de_shield_0"
+          },
+          "ai": {
+            "aggression": 0.55,
+            "attack_lesson": "change_once",
+            "awareness": 0.41,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "skill": 0.46
+          }
+        },
+        "23": {
+          "wins": 0,
+          "losses": 8,
+          "draws": 0,
+          "games": 8,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "de_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_roundels",
+            "helmet": "de_helmet_2",
+            "horse": "horse_cob",
+            "lance": "de_lance_stout_1",
+            "shield": "de_shield_3"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "change_once",
+            "awareness": 0.24,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "pressure_ease": 0.55,
+            "skill": 0.44
+          }
+        },
+        "24": {
+          "wins": 1,
+          "losses": 7,
+          "draws": 0,
+          "games": 8,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_cross",
+            "helmet": "it_helmet_2",
+            "horse": "horse_bay",
+            "lance": "it_lance_long_1",
+            "shield": "it_shield_2"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.48,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "skill": 0.48
+          }
+        },
+        "25": {
+          "wins": 1,
+          "losses": 7,
+          "draws": 0,
+          "games": 8,
+          "kind": "trickster",
+          "mode": "war",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_fess",
+            "helmet": "it_helmet_1",
+            "horse": "horse_bay",
+            "lance": "it_lance_stout_2",
+            "shield": "it_shield_2"
+          },
+          "ai": {
+            "aggression": 0.6,
+            "attack_lesson": "change_once",
+            "awareness": 0.62,
+            "feint": false,
+            "head_bias": 0.15,
+            "lesson_change_passes": [
+              2,
+              3
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "pressure_ease": 0.45,
+            "skill": 0.57
+          }
+        },
+        "26": {
+          "wins": 5,
+          "losses": 3,
+          "draws": 0,
+          "games": 8,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_bend",
+            "helmet": "it_helmet_2",
+            "horse": "horse_bay",
+            "lance": "it_lance_light_2",
+            "shield": "it_shield_2"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.56,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2,
+              3
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "skill": 0.56
+          }
+        },
+        "27": {
+          "wins": 0,
+          "losses": 7,
+          "draws": 1,
+          "games": 8,
+          "kind": "bulwark",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_quarterly",
+            "helmet": "eng_helmet_2",
+            "horse": "horse_chestnut",
+            "lance": "eng_lance_stout_2",
+            "shield": "eng_shield_3"
+          },
+          "ai": {
+            "aggression": 0.35,
+            "attack_lesson": "change_once",
+            "awareness": 0.84,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2,
+              3
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "pressure_ease": 0.35,
+            "skill": 0.49
+          }
+        },
+        "28": {
+          "wins": 8,
+          "losses": 0,
+          "draws": 0,
+          "games": 8,
+          "kind": "reach",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_chief",
+            "helmet": "eng_helmet_2",
+            "horse": "horse_bay",
+            "lance": "eng_lance_long_2",
+            "shield": "eng_shield_0"
+          },
+          "ai": {
+            "aggression": 0.55,
+            "attack_lesson": "change_once",
+            "awareness": 0.63,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2,
+              3
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "skill": 0.68
+          }
+        },
+        "29": {
+          "wins": 4,
+          "losses": 4,
+          "draws": 0,
+          "games": 8,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_diamond",
+            "helmet": "eng_helmet_2",
+            "horse": "horse_bay",
+            "lance": "eng_lance_light_2",
+            "shield": "eng_shield_2"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.67,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "skill": 0.67
+          }
+        },
+        "30": {
+          "wins": 3,
+          "losses": 5,
+          "draws": 0,
+          "games": 8,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "fr_armor_3",
+            "caparison": "caparison_wool",
+            "crest": "crest_chequy",
+            "helmet": "fr_helmet_3",
+            "horse": "horse_bay",
+            "lance": "fr_lance_long_2",
+            "shield": "fr_shield_3"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.91,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "skill": 0.91
+          }
+        },
+        "31": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 4,
+          "games": 8,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_3",
+            "caparison": "caparison_linen",
+            "crest": "crest_cross",
+            "helmet": "it_helmet_3",
+            "horse": "horse_chestnut",
+            "lance": "it_lance_stout_2",
+            "shield": "it_shield_3"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "change_once",
+            "awareness": 0.41,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "pressure_ease": 0.15,
+            "skill": 0.61
+          }
+        },
+        "32": {
+          "wins": 6,
+          "losses": 2,
+          "draws": 0,
+          "games": 8,
+          "kind": "trickster",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_fess",
+            "helmet": "it_helmet_1",
+            "horse": "horse_bay",
+            "lance": "it_lance_light_2",
+            "shield": "it_shield_2"
+          },
+          "ai": {
+            "aggression": 0.6,
+            "attack_lesson": "change_once",
+            "awareness": 0.75,
+            "feint": false,
+            "head_bias": 0.15,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "skill": 0.7
+          }
+        },
+        "33": {
+          "wins": 2,
+          "losses": 6,
+          "draws": 0,
+          "games": 8,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_bend",
+            "helmet": "it_helmet_2",
+            "horse": "horse_bay",
+            "lance": "it_lance_long_2",
+            "shield": "it_shield_2"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.69,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "skill": 0.69
+          }
+        },
+        "34": {
+          "wins": 0,
+          "losses": 8,
+          "draws": 0,
+          "games": 8,
+          "kind": "bulwark",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_quarterly",
+            "helmet": "eng_helmet_2",
+            "horse": "horse_chestnut",
+            "lance": "eng_lance_stout_2",
+            "shield": "eng_shield_3"
+          },
+          "ai": {
+            "aggression": 0.35,
+            "attack_lesson": "change_once",
+            "awareness": 0.98,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "skill": 0.63
+          }
+        }
+      }
+    },
+    "pace_second": {
+      "path": "docs/development/logs/balance103-after04.json",
+      "sha256": "7f4c566268cd58fe8dfc3741d02eb999a6b75a7536ce81755c31189bafd98b33",
+      "passed": true,
+      "failures": [],
+      "scope": "Fixed quality-1 English long lance/light shield/grey horse, 600ms aim and visible-tip guard updates, +/-8px, no lean, spur at 3000. Actual level mode and opponents. Both sides, finite controls, no human win-rate claim.",
+      "levels": {
+        "20": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0,
+          "games": 4,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_3",
+            "caparison": "caparison_linen",
+            "crest": "crest_quarterly",
+            "helmet": "eng_helmet_3",
+            "horse": "horse_cob",
+            "lance": "eng_lance_stout_1",
+            "shield": "eng_shield_3"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "show_line",
+            "awareness": 0.47,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "pressure_ease": 0.9,
+            "skill": 0.67
+          }
+        },
+        "23": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0,
+          "games": 4,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "de_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_roundels",
+            "helmet": "de_helmet_2",
+            "horse": "horse_cob",
+            "lance": "de_lance_stout_1",
+            "shield": "de_shield_3"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "change_once",
+            "awareness": 0.24,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "pressure_ease": 0.88,
+            "skill": 0.44
+          }
+        },
+        "24": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0,
+          "games": 4,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_cross",
+            "helmet": "it_helmet_2",
+            "horse": "horse_bay",
+            "lance": "it_lance_long_1",
+            "shield": "it_shield_2"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.48,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "pressure_ease": 0.8,
+            "skill": 0.48
+          }
+        },
+        "25": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0,
+          "games": 4,
+          "kind": "trickster",
+          "mode": "war",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_fess",
+            "helmet": "it_helmet_1",
+            "horse": "horse_bay",
+            "lance": "it_lance_stout_2",
+            "shield": "it_shield_2"
+          },
+          "ai": {
+            "aggression": 0.6,
+            "attack_lesson": "change_once",
+            "awareness": 0.62,
+            "feint": false,
+            "head_bias": 0.15,
+            "lesson_change_passes": [
+              2,
+              3
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "pressure_ease": 0.72,
+            "skill": 0.57
+          }
+        },
+        "27": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0,
+          "games": 4,
+          "kind": "bulwark",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_quarterly",
+            "helmet": "eng_helmet_2",
+            "horse": "horse_chestnut",
+            "lance": "eng_lance_stout_2",
+            "shield": "eng_shield_3"
+          },
+          "ai": {
+            "aggression": 0.35,
+            "attack_lesson": "change_once",
+            "awareness": 0.84,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2,
+              3
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "pressure_ease": 0.56,
+            "skill": 0.49
+          }
+        }
+      }
+    },
+    "final": {
+      "path": "docs/development/logs/balance103-release.json",
+      "sha256": "adf67129ce10ffa1c4a1811519b275e234d83d6609e2fd38d04b7d76eb682a83",
+      "passed": true,
+      "failures": [],
+      "scope": "Fixed quality-1 English long lance/light shield/grey horse, 600ms aim and visible-tip guard updates, +/-8px, no lean, spur at 3000. Actual level mode and opponents. Both sides, finite controls, no human win-rate claim.",
+      "levels": {
+        "18": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0,
+          "games": 4,
+          "kind": "trickster",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_1",
+            "caparison": "caparison_linen",
+            "crest": "crest_fess",
+            "helmet": "it_helmet_0",
+            "horse": "horse_bay",
+            "lance": "it_lance_long_1",
+            "shield": "it_shield_0"
+          },
+          "ai": {
+            "aggression": 0.6,
+            "attack_lesson": "show_line",
+            "awareness": 0.49,
+            "feint": false,
+            "head_bias": 0.15,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "pressure_ease": 0.88,
+            "skill": 0.44
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "19": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0,
+          "games": 4,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_1",
+            "caparison": "caparison_linen",
+            "crest": "crest_bend",
+            "helmet": "it_helmet_1",
+            "horse": "horse_bay",
+            "lance": "it_lance_stout_1",
+            "shield": "it_shield_1"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "show_line",
+            "awareness": 0.43,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "pressure_ease": 0.88,
+            "skill": 0.43
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "20": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0,
+          "games": 4,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_3",
+            "caparison": "caparison_linen",
+            "crest": "crest_quarterly",
+            "helmet": "eng_helmet_3",
+            "horse": "horse_cob",
+            "lance": "eng_lance_stout_1",
+            "shield": "eng_shield_3"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "show_line",
+            "awareness": 0.47,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "pressure_ease": 0.88,
+            "skill": 0.67
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "21": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0,
+          "games": 4,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "de_armor_1",
+            "caparison": "caparison_linen",
+            "crest": "crest_fleur",
+            "helmet": "de_helmet_1",
+            "horse": "horse_bay",
+            "lance": "de_lance_long_1",
+            "shield": "de_shield_1"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.37,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "pressure_ease": 0.88,
+            "skill": 0.37
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "22": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0,
+          "games": 4,
+          "kind": "reach",
+          "mode": "arena",
+          "equipment": {
+            "armor": "de_armor_1",
+            "caparison": "caparison_linen",
+            "crest": "crest_saltire",
+            "helmet": "de_helmet_1",
+            "horse": "horse_bay",
+            "lance": "de_lance_long_1",
+            "shield": "de_shield_0"
+          },
+          "ai": {
+            "aggression": 0.55,
+            "attack_lesson": "change_once",
+            "awareness": 0.41,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "pressure_ease": 0.88,
+            "skill": 0.46
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "23": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0,
+          "games": 4,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "de_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_roundels",
+            "helmet": "de_helmet_2",
+            "horse": "horse_cob",
+            "lance": "de_lance_stout_1",
+            "shield": "de_shield_3"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "change_once",
+            "awareness": 0.24,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "pressure_ease": 0.88,
+            "skill": 0.44
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "24": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0,
+          "games": 4,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_cross",
+            "helmet": "it_helmet_2",
+            "horse": "horse_bay",
+            "lance": "it_lance_long_1",
+            "shield": "it_shield_2"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.48,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "pressure_ease": 0.88,
+            "skill": 0.48
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "25": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0,
+          "games": 4,
+          "kind": "trickster",
+          "mode": "war",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_fess",
+            "helmet": "it_helmet_1",
+            "horse": "horse_bay",
+            "lance": "it_lance_stout_2",
+            "shield": "it_shield_2"
+          },
+          "ai": {
+            "aggression": 0.6,
+            "attack_lesson": "change_once",
+            "awareness": 0.62,
+            "feint": false,
+            "head_bias": 0.15,
+            "lesson_change_passes": [
+              2,
+              3
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "pressure_ease": 0.88,
+            "skill": 0.57
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "26": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0,
+          "games": 4,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_bend",
+            "helmet": "it_helmet_2",
+            "horse": "horse_bay",
+            "lance": "it_lance_light_2",
+            "shield": "it_shield_2"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.56,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2,
+              3
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "pressure_ease": 0.88,
+            "skill": 0.56
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "27": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0,
+          "games": 4,
+          "kind": "bulwark",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_quarterly",
+            "helmet": "eng_helmet_2",
+            "horse": "horse_chestnut",
+            "lance": "eng_lance_stout_2",
+            "shield": "eng_shield_3"
+          },
+          "ai": {
+            "aggression": 0.35,
+            "attack_lesson": "change_once",
+            "awareness": 0.84,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2,
+              3
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "pressure_ease": 0.88,
+            "skill": 0.49
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "28": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0,
+          "games": 4,
+          "kind": "reach",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_chief",
+            "helmet": "eng_helmet_2",
+            "horse": "horse_bay",
+            "lance": "eng_lance_long_2",
+            "shield": "eng_shield_0"
+          },
+          "ai": {
+            "aggression": 0.55,
+            "attack_lesson": "change_once",
+            "awareness": 0.63,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2,
+              3
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "pressure_ease": 0.88,
+            "skill": 0.68
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "29": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0,
+          "games": 4,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_diamond",
+            "helmet": "eng_helmet_2",
+            "horse": "horse_bay",
+            "lance": "eng_lance_light_2",
+            "shield": "eng_shield_2"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.67,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "pressure_ease": 0.806666666666667,
+            "skill": 0.67
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "30": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0,
+          "games": 4,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "fr_armor_3",
+            "caparison": "caparison_wool",
+            "crest": "crest_chequy",
+            "helmet": "fr_helmet_3",
+            "horse": "horse_bay",
+            "lance": "fr_lance_long_2",
+            "shield": "fr_shield_3"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.91,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "pressure_ease": 0.733333333333333,
+            "skill": 0.91
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "31": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 0,
+          "games": 4,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_3",
+            "caparison": "caparison_linen",
+            "crest": "crest_cross",
+            "helmet": "it_helmet_3",
+            "horse": "horse_chestnut",
+            "lance": "it_lance_stout_2",
+            "shield": "it_shield_3"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "change_once",
+            "awareness": 0.41,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "pressure_ease": 0.66,
+            "skill": 0.61
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            }
+          ]
+        },
+        "32": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0,
+          "games": 4,
+          "kind": "trickster",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_fess",
+            "helmet": "it_helmet_1",
+            "horse": "horse_bay",
+            "lance": "it_lance_light_2",
+            "shield": "it_shield_2"
+          },
+          "ai": {
+            "aggression": 0.6,
+            "attack_lesson": "change_once",
+            "awareness": 0.75,
+            "feint": false,
+            "head_bias": 0.15,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "pressure_ease": 0.586666666666667,
+            "skill": 0.7
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            }
+          ]
+        },
+        "33": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0,
+          "games": 4,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_bend",
+            "helmet": "it_helmet_2",
+            "horse": "horse_bay",
+            "lance": "it_lance_long_2",
+            "shield": "it_shield_2"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.69,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "pressure_ease": 0.513333333333333,
+            "skill": 0.69
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "34": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 1,
+          "games": 4,
+          "kind": "bulwark",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_quarterly",
+            "helmet": "eng_helmet_2",
+            "horse": "horse_chestnut",
+            "lance": "eng_lance_stout_2",
+            "shield": "eng_shield_3"
+          },
+          "ai": {
+            "aggression": 0.35,
+            "attack_lesson": "change_once",
+            "awareness": 0.98,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "pressure_ease": 0.44,
+            "skill": 0.63
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": -1,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            }
+          ]
+        },
+        "35": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 0,
+          "games": 4,
+          "kind": "reach",
+          "mode": "war",
+          "equipment": {
+            "armor": "eng_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_chief",
+            "helmet": "eng_helmet_2",
+            "horse": "horse_bay",
+            "lance": "eng_lance_long_2",
+            "shield": "eng_shield_0"
+          },
+          "ai": {
+            "aggression": 0.55,
+            "attack_lesson": "change_once",
+            "awareness": 0.76,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "pressure_ease": 0.366666666666667,
+            "skill": 0.81
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            }
+          ]
+        },
+        "37": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0,
+          "games": 4,
+          "kind": "swift",
+          "mode": "arena",
+          "equipment": {
+            "armor": "fr_armor_2",
+            "caparison": "caparison_wool",
+            "crest": "crest_chequy",
+            "helmet": "fr_helmet_2",
+            "horse": "horse_e3",
+            "lance": "fr_lance_light_3",
+            "shield": "fr_shield_2"
+          },
+          "ai": {
+            "aggression": 0.85,
+            "attack_lesson": "change_once",
+            "awareness": 0.74,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "pressure_ease": 0.22,
+            "skill": 0.94
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "39": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0,
+          "games": 4,
+          "kind": "headhunter",
+          "mode": "arena",
+          "equipment": {
+            "armor": "fr_armor_2",
+            "caparison": "caparison_wool",
+            "crest": "crest_pale",
+            "helmet": "fr_helmet_3",
+            "horse": "horse_e3",
+            "lance": "fr_lance_long_3",
+            "shield": "fr_shield_2"
+          },
+          "ai": {
+            "aggression": 0.9,
+            "attack_lesson": "change_once",
+            "awareness": 0.92,
+            "feint": false,
+            "head_bias": 0.45,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "pressure_ease": 0.0733333333333333,
+            "skill": 1.02
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "40": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 0,
+          "games": 4,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "de_armor_5",
+            "caparison": "caparison_wool",
+            "crest": "crest_fleur",
+            "helmet": "de_helmet_5",
+            "horse": "horse_e2",
+            "lance": "de_lance_stout_4",
+            "shield": "de_shield_5"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "change_once",
+            "awareness": 0.96,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "skill": 1.16
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            }
+          ]
+        }
+      }
+    },
+    "counter": {
+      "path": "docs/development/logs/balance103-counter.json",
+      "sha256": "a4e96873a30c419469931cc58a57746fca540a900a8e9c0993aae422bac7ac8a",
+      "passed": true,
+      "failures": [],
+      "scope": "Fixed quality-1 English long lance/light shield/grey horse, 600ms aim and visible-tip guard updates, +/-8px, no lean, spur at 3000. Actual level mode and opponents. Both sides, finite controls, no human win-rate claim.",
+      "levels": {
+        "20": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0,
+          "games": 4,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_3",
+            "caparison": "caparison_linen",
+            "crest": "crest_quarterly",
+            "helmet": "eng_helmet_3",
+            "horse": "horse_cob",
+            "lance": "eng_lance_stout_1",
+            "shield": "eng_shield_3"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "show_line",
+            "awareness": 0.47,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "pressure_ease": 0.65,
+            "skill": 0.67
+          }
+        },
+        "23": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 0,
+          "games": 4,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "de_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_roundels",
+            "helmet": "de_helmet_2",
+            "horse": "horse_cob",
+            "lance": "de_lance_stout_1",
+            "shield": "de_shield_3"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "change_once",
+            "awareness": 0.24,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "pressure_ease": 0.55,
+            "skill": 0.44
+          }
+        },
+        "24": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 1,
+          "games": 4,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_cross",
+            "helmet": "it_helmet_2",
+            "horse": "horse_bay",
+            "lance": "it_lance_long_1",
+            "shield": "it_shield_2"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.48,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "skill": 0.48
+          }
+        },
+        "25": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0,
+          "games": 4,
+          "kind": "trickster",
+          "mode": "war",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_fess",
+            "helmet": "it_helmet_1",
+            "horse": "horse_bay",
+            "lance": "it_lance_stout_2",
+            "shield": "it_shield_2"
+          },
+          "ai": {
+            "aggression": 0.6,
+            "attack_lesson": "change_once",
+            "awareness": 0.62,
+            "feint": false,
+            "head_bias": 0.15,
+            "lesson_change_passes": [
+              2,
+              3
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "pressure_ease": 0.45,
+            "skill": 0.57
+          }
+        },
+        "27": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0,
+          "games": 4,
+          "kind": "bulwark",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_quarterly",
+            "helmet": "eng_helmet_2",
+            "horse": "horse_chestnut",
+            "lance": "eng_lance_stout_2",
+            "shield": "eng_shield_3"
+          },
+          "ai": {
+            "aggression": 0.35,
+            "attack_lesson": "change_once",
+            "awareness": 0.84,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2,
+              3
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "pressure_ease": 0.35,
+            "skill": 0.49
+          }
+        }
+      }
+    },
+    "fixed_guard": {
+      "path": "docs/development/logs/balance103-fixed-guard.json",
+      "sha256": "fe5d9ec28e9f8e547a9e167b580c0d48618e4c17a78d2ad747ab8a000e94cd62",
+      "passed": true,
+      "failures": [],
+      "scope": "Fixed quality-1 English long lance/light shield/grey horse, 600ms aim and visible-tip guard updates, +/-8px, no lean, spur at 3000. Actual level mode and opponents. Both sides, finite controls, no human win-rate claim. Counterfactual: guard remains at chest instead of reading the incoming line.",
+      "levels": {
+        "23": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0,
+          "games": 4,
+          "kind": "heavy",
+          "mode": "arena",
+          "equipment": {
+            "armor": "de_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_roundels",
+            "helmet": "de_helmet_2",
+            "horse": "horse_cob",
+            "lance": "de_lance_stout_1",
+            "shield": "de_shield_3"
+          },
+          "ai": {
+            "aggression": 0.3,
+            "attack_lesson": "change_once",
+            "awareness": 0.24,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 0,
+            "pressure_ease": 0.88,
+            "skill": 0.44
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "24": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0,
+          "games": 4,
+          "kind": "balanced",
+          "mode": "arena",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_cross",
+            "helmet": "it_helmet_2",
+            "horse": "horse_bay",
+            "lance": "it_lance_long_1",
+            "shield": "it_shield_2"
+          },
+          "ai": {
+            "aggression": 0.5,
+            "attack_lesson": "change_once",
+            "awareness": 0.48,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "pressure_ease": 0.88,
+            "skill": 0.48
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 0,
+              "ended": true
+            }
+          ]
+        },
+        "25": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0,
+          "games": 4,
+          "kind": "trickster",
+          "mode": "war",
+          "equipment": {
+            "armor": "it_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_fess",
+            "helmet": "it_helmet_1",
+            "horse": "horse_bay",
+            "lance": "it_lance_stout_2",
+            "shield": "it_shield_2"
+          },
+          "ai": {
+            "aggression": 0.6,
+            "attack_lesson": "change_once",
+            "awareness": 0.62,
+            "feint": false,
+            "head_bias": 0.15,
+            "lesson_change_passes": [
+              2,
+              3
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 2,
+            "pressure_ease": 0.88,
+            "skill": 0.57
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            }
+          ]
+        },
+        "27": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0,
+          "games": 4,
+          "kind": "bulwark",
+          "mode": "arena",
+          "equipment": {
+            "armor": "eng_armor_2",
+            "caparison": "caparison_linen",
+            "crest": "crest_quarterly",
+            "helmet": "eng_helmet_2",
+            "horse": "horse_chestnut",
+            "lance": "eng_lance_stout_2",
+            "shield": "eng_shield_3"
+          },
+          "ai": {
+            "aggression": 0.35,
+            "attack_lesson": "change_once",
+            "awareness": 0.84,
+            "feint": false,
+            "head_bias": 0.0,
+            "lesson_change_passes": [
+              2,
+              3
+            ],
+            "lesson_lines": [
+              "body",
+              "flank",
+              "head"
+            ],
+            "lesson_offset": 1,
+            "pressure_ease": 0.88,
+            "skill": 0.49
+          },
+          "matches": [
+            {
+              "strategy": "head",
+              "side": 0,
+              "seed": 10301,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "head",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 0,
+              "seed": 10301,
+              "winner": 0,
+              "ended": true
+            },
+            {
+              "strategy": "opening",
+              "side": 1,
+              "seed": 10302,
+              "winner": 1,
+              "ended": true
+            }
+          ]
+        }
+      }
+    },
+    "rules": {
+      "path": "docs/development/logs/balance103-rules.json",
+      "sha256": "728644c95503ed8f16016bbdbdd18d9139f107200fe15a15a4acdda011f8d57b",
+      "passed": true,
+      "failures": [],
+      "scope": "54 approaches: staged high/low lessons, actual finite aim/guard, delayed observation, committed line; unchanged outside 18-39, rewards/modes/identities. Not human acceptance.",
+      "approaches": [
+        {
+          "changes": [
+            {
+              "remaining": 32.4882802888542,
+              "zone": "body"
+            }
+          ],
+          "level": 20,
+          "max_aim_step": 0.023004338145256,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 1,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 32.4882802888542,
+              "zone": "flank"
+            }
+          ],
+          "level": 20,
+          "max_aim_step": 0.023004338145256,
+          "max_guard_step": 0.04666668176651,
+          "pass": 2,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 32.4882802888542,
+              "zone": "head"
+            }
+          ],
+          "level": 20,
+          "max_aim_step": 0.0306724607944489,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 3,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 32.4882802888542,
+              "zone": "body"
+            }
+          ],
+          "level": 20,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 1,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 32.4882802888542,
+              "zone": "flank"
+            }
+          ],
+          "level": 20,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.04666668176651,
+          "pass": 2,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 32.4882802888542,
+              "zone": "head"
+            }
+          ],
+          "level": 20,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 3,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 31.6679918890603,
+              "zone": "flank"
+            }
+          ],
+          "level": 21,
+          "max_aim_step": 0.0302422940731049,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 1,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 31.6679918890603,
+              "zone": "flank"
+            },
+            {
+              "remaining": 2.32579254637613,
+              "zone": "head"
+            }
+          ],
+          "level": 21,
+          "max_aim_step": 0.0327946841716766,
+          "max_guard_step": 0.04666668176651,
+          "pass": 2,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 31.6679918890603,
+              "zone": "body"
+            }
+          ],
+          "level": 21,
+          "max_aim_step": 0.023004338145256,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 3,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 31.6679918890603,
+              "zone": "flank"
+            }
+          ],
+          "level": 21,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 1,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 31.6679918890603,
+              "zone": "flank"
+            },
+            {
+              "remaining": 2.32579254637613,
+              "zone": "head"
+            }
+          ],
+          "level": 21,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.04666668176651,
+          "pass": 2,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 31.6679918890603,
+              "zone": "body"
+            }
+          ],
+          "level": 21,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 3,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 30.1365992904571,
+              "zone": "body"
+            }
+          ],
+          "level": 23,
+          "max_aim_step": 0.023004338145256,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 1,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 30.1365992904571,
+              "zone": "head"
+            },
+            {
+              "remaining": 2.75912587970946,
+              "zone": "flank"
+            }
+          ],
+          "level": 23,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.04666668176651,
+          "pass": 2,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 30.1365992904571,
+              "zone": "head"
+            }
+          ],
+          "level": 23,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 3,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 30.1365992904571,
+              "zone": "body"
+            }
+          ],
+          "level": 23,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 1,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 30.1365992904571,
+              "zone": "head"
+            },
+            {
+              "remaining": 2.75912587970946,
+              "zone": "flank"
+            }
+          ],
+          "level": 23,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.04666668176651,
+          "pass": 2,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 30.1365992904571,
+              "zone": "head"
+            }
+          ],
+          "level": 23,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 3,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 33.3486206739826,
+              "zone": "flank"
+            }
+          ],
+          "level": 24,
+          "max_aim_step": 0.0301121175289154,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 1,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 33.3486206739826,
+              "zone": "flank"
+            },
+            {
+              "remaining": 2.60912587970946,
+              "zone": "head"
+            }
+          ],
+          "level": 24,
+          "max_aim_step": 0.0327946841716766,
+          "max_guard_step": 0.04666668176651,
+          "pass": 2,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 33.3486206739826,
+              "zone": "body"
+            }
+          ],
+          "level": 24,
+          "max_aim_step": 0.023004338145256,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 3,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 33.3486206739826,
+              "zone": "flank"
+            }
+          ],
+          "level": 24,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 1,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 33.3486206739826,
+              "zone": "flank"
+            },
+            {
+              "remaining": 2.60912587970946,
+              "zone": "head"
+            }
+          ],
+          "level": 24,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.04666668176651,
+          "pass": 2,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 33.3486206739826,
+              "zone": "body"
+            }
+          ],
+          "level": 24,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 3,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 35.2021704477551,
+              "zone": "head"
+            }
+          ],
+          "level": 25,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.04666668176651,
+          "pass": 1,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 35.2021704477551,
+              "zone": "head"
+            },
+            {
+              "remaining": 2.27579254637613,
+              "zone": "body"
+            }
+          ],
+          "level": 25,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.04666668176651,
+          "pass": 2,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 35.2021704477551,
+              "zone": "head"
+            },
+            {
+              "remaining": 2.16236456138752,
+              "zone": "flank"
+            }
+          ],
+          "level": 25,
+          "max_aim_step": 0.0327946841716766,
+          "max_guard_step": 0.04666668176651,
+          "pass": 3,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 35.2021704477551,
+              "zone": "head"
+            }
+          ],
+          "level": 25,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 1,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 35.2021704477551,
+              "zone": "head"
+            },
+            {
+              "remaining": 2.27579254637613,
+              "zone": "body"
+            }
+          ],
+          "level": 25,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 2,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 35.2021704477551,
+              "zone": "head"
+            },
+            {
+              "remaining": 2.16236456138752,
+              "zone": "flank"
+            }
+          ],
+          "level": 25,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 3,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 38.3719295979684,
+              "zone": "flank"
+            }
+          ],
+          "level": 27,
+          "max_aim_step": 0.0301906168460846,
+          "max_guard_step": 0.04666668176651,
+          "pass": 1,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 38.3719295979684,
+              "zone": "flank"
+            },
+            {
+              "remaining": 2.40912587970946,
+              "zone": "head"
+            }
+          ],
+          "level": 27,
+          "max_aim_step": 0.0327946841716766,
+          "max_guard_step": 0.04666668176651,
+          "pass": 2,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 38.3719295979684,
+              "zone": "head"
+            },
+            {
+              "remaining": 2.27579254637613,
+              "zone": "body"
+            }
+          ],
+          "level": 27,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.04666668176651,
+          "pass": 3,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 38.3719295979684,
+              "zone": "flank"
+            }
+          ],
+          "level": 27,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 1,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 38.3719295979684,
+              "zone": "flank"
+            },
+            {
+              "remaining": 2.40912587970946,
+              "zone": "head"
+            }
+          ],
+          "level": 27,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.04666668176651,
+          "pass": 2,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 38.3719295979684,
+              "zone": "head"
+            },
+            {
+              "remaining": 2.27579254637613,
+              "zone": "body"
+            }
+          ],
+          "level": 27,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 3,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 35.2021704477551,
+              "zone": "head"
+            }
+          ],
+          "level": 28,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.04666668176651,
+          "pass": 1,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 35.2021704477551,
+              "zone": "head"
+            },
+            {
+              "remaining": 2.30912587970946,
+              "zone": "body"
+            }
+          ],
+          "level": 28,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.04666668176651,
+          "pass": 2,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 35.2021704477551,
+              "zone": "head"
+            },
+            {
+              "remaining": 2.20912587970946,
+              "zone": "flank"
+            }
+          ],
+          "level": 28,
+          "max_aim_step": 0.0327946841716766,
+          "max_guard_step": 0.04666668176651,
+          "pass": 3,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 35.2021704477551,
+              "zone": "head"
+            }
+          ],
+          "level": 28,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 1,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 35.2021704477551,
+              "zone": "head"
+            },
+            {
+              "remaining": 2.30912587970946,
+              "zone": "body"
+            }
+          ],
+          "level": 28,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 2,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 35.2021704477551,
+              "zone": "head"
+            },
+            {
+              "remaining": 2.20912587970946,
+              "zone": "flank"
+            }
+          ],
+          "level": 28,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 3,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 35.2021704477551,
+              "zone": "head"
+            },
+            {
+              "remaining": 2.73965414044463,
+              "zone": "body"
+            }
+          ],
+          "level": 29,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.04666668176651,
+          "pass": 1,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 35.2021704477551,
+              "zone": "head"
+            },
+            {
+              "remaining": 2.41195917049218,
+              "zone": "flank"
+            }
+          ],
+          "level": 29,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.04666668176651,
+          "pass": 2,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 35.2021704477551,
+              "zone": "flank"
+            },
+            {
+              "remaining": 2.74708259356287,
+              "zone": "head"
+            }
+          ],
+          "level": 29,
+          "max_aim_step": 0.0315908789634705,
+          "max_guard_step": 0.04666668176651,
+          "pass": 3,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 35.2021704477551,
+              "zone": "head"
+            },
+            {
+              "remaining": 2.73965414044463,
+              "zone": "body"
+            }
+          ],
+          "level": 29,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 1,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 35.2021704477551,
+              "zone": "head"
+            },
+            {
+              "remaining": 2.41195917049218,
+              "zone": "flank"
+            }
+          ],
+          "level": 29,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 2,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 35.2021704477551,
+              "zone": "flank"
+            },
+            {
+              "remaining": 2.74708259356287,
+              "zone": "head"
+            }
+          ],
+          "level": 29,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 3,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 39.5507969177808,
+              "zone": "head"
+            },
+            {
+              "remaining": 2.99335052669922,
+              "zone": "flank"
+            }
+          ],
+          "level": 30,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.04666668176651,
+          "pass": 1,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 39.5507969177808,
+              "zone": "flank"
+            },
+            {
+              "remaining": 2.84111461901977,
+              "zone": "head"
+            }
+          ],
+          "level": 30,
+          "max_aim_step": 0.0316281020641327,
+          "max_guard_step": 0.04666668176651,
+          "pass": 2,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 39.5507969177808,
+              "zone": "head"
+            },
+            {
+              "remaining": 3.00072838721617,
+              "zone": "body"
+            }
+          ],
+          "level": 30,
+          "max_aim_step": 0.0306724607944489,
+          "max_guard_step": 0.04666668176651,
+          "pass": 3,
+          "side": 0
+        },
+        {
+          "changes": [
+            {
+              "remaining": 39.5507969177808,
+              "zone": "head"
+            },
+            {
+              "remaining": 2.99335052669922,
+              "zone": "flank"
+            }
+          ],
+          "level": 30,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 1,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 39.5507969177808,
+              "zone": "flank"
+            },
+            {
+              "remaining": 2.84111461901977,
+              "zone": "head"
+            }
+          ],
+          "level": 30,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 2,
+          "side": 1
+        },
+        {
+          "changes": [
+            {
+              "remaining": 39.5507969177808,
+              "zone": "head"
+            },
+            {
+              "remaining": 3.00072838721617,
+              "zone": "body"
+            }
+          ],
+          "level": 30,
+          "max_aim_step": 0.0328633487224579,
+          "max_guard_step": 0.0466666668653488,
+          "pass": 3,
+          "side": 1
+        }
+      ]
+    },
+    "beginner": {
+      "path": "docs/development/logs/balance103-beginner.json",
+      "sha256": "5b19c46541862abdb4fa253fcd1b0f93cbfa50ee15cbacc972bc13abee35f91f",
+      "passed": true,
+      "failures": [],
+      "scope": "Starter inventory; 850ms aim updates, +/-10px repeatable error, fixed chest guard, no lean, continuous spur. Rule simulation, not human win rates.",
+      "levels": {
+        "1": {
+          "draws": 0,
+          "games": 4,
+          "losses": 0,
+          "lost_unhorsed": 0,
+          "wins": 4
+        },
+        "3": {
+          "draws": 0,
+          "games": 4,
+          "losses": 0,
+          "lost_unhorsed": 0,
+          "wins": 4
+        },
+        "5": {
+          "draws": 0,
+          "games": 4,
+          "losses": 0,
+          "lost_unhorsed": 0,
+          "wins": 4
+        }
+      }
+    },
+    "controls": {
+      "path": "docs/development/logs/balance103-controls.json",
+      "sha256": "e469f7375e244911fc8de07b5409c1e2137c5b098720843bb66b43cac7681105",
+      "passed": true,
+      "failures": [],
+      "scope": "See review",
+      "results": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+      ]
+    },
+    "source_scene": {
+      "path": "docs/development/logs/balance103-source-scene/report.json",
+      "sha256": "63a8ce4c75a7200a3b2841ba23f40c9603d6ca92e10e935d253f170f912d3d5e",
+      "passed": true,
+      "failures": [],
+      "scope": "Actual Main/Battle GPU with fixed q1 purchased kit, engine-injected 600ms visible-line input. Normal result/reward/disk-save, isolated QA, no OS input or human acceptance.",
+      "results": [
+        {
+          "level": 23,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 29.7640853320513,
+            "enemy_score": 6,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 86.7936425480739,
+            "player_score": 9,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 384,
+            "first_clear": true,
+            "level": 23,
+            "renown": 1
+          },
+          "lines": [
+            "1:body",
+            "2:head",
+            "2:flank",
+            "3:head"
+          ]
+        },
+        {
+          "level": 24,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 43.0283011428204,
+            "enemy_score": 6,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 88.9472440835701,
+            "player_score": 9,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 396,
+            "first_clear": true,
+            "level": 24,
+            "renown": 1
+          },
+          "lines": [
+            "1:flank",
+            "2:flank",
+            "2:head",
+            "3:body"
+          ]
+        },
+        {
+          "level": 25,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 69.1092701170594,
+            "enemy_score": 3,
+            "mode": "war",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 90.2923039940053,
+            "player_score": 5,
+            "reason": "hp",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 408,
+            "first_clear": true,
+            "level": 25,
+            "renown": 1
+          },
+          "lines": [
+            "1:head",
+            "2:head",
+            "2:body",
+            "3:head",
+            "3:flank"
+          ]
+        }
+      ]
+    },
+    "text_fixed": {
+      "path": "docs/development/logs/balance103-text-fixed/report.json",
+      "sha256": "e06bd68540ef354021a44755ea5d1e63f4c477a40fe92b0f02d6a8f9ab314ad7",
+      "passed": true,
+      "failures": [],
+      "scope": "Three shortened result render cycles: early, late, explicit redraw; no gameplay inference or OS input.",
+      "results": []
+    },
+    "package_scene": {
+      "path": "docs/development/logs/balance103-package-scene/report.json",
+      "sha256": "8e4f21131bc3d3ec5cad41bfd169011252fd4de357c365a136a161687ac6dae9",
+      "passed": true,
+      "failures": [],
+      "scope": "Actual Main/Battle GPU with fixed q1 purchased kit, engine-injected 600ms visible-line input. Normal result/reward/disk-save, isolated QA, no OS input or human acceptance.",
+      "results": [
+        {
+          "level": 23,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 33.817466250007,
+            "enemy_score": 6,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 86.8248983720874,
+            "player_score": 9,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 384,
+            "first_clear": true,
+            "level": 23,
+            "renown": 1
+          },
+          "lines": [
+            "1:body",
+            "2:head",
+            "2:flank",
+            "3:head"
+          ]
+        },
+        {
+          "level": 24,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 39.0494585506669,
+            "enemy_score": 6,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 88.9473164695862,
+            "player_score": 9,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 396,
+            "first_clear": true,
+            "level": 24,
+            "renown": 1
+          },
+          "lines": [
+            "1:flank",
+            "2:flank",
+            "2:head",
+            "3:body"
+          ]
+        },
+        {
+          "level": 25,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 79.453062435974,
+            "enemy_score": 3,
+            "mode": "war",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 88.5118573538554,
+            "player_score": 3,
+            "reason": "hp",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 408,
+            "first_clear": true,
+            "level": 25,
+            "renown": 1
+          },
+          "lines": [
+            "1:head",
+            "2:head",
+            "2:body",
+            "3:head",
+            "3:flank"
+          ]
+        }
+      ]
+    },
+    "package_beginner": {
+      "path": "docs/development/logs/balance103-package-beginner/report.json",
+      "sha256": "181ecf70b834719a1c6dc3c00e5e7d3fb4c3a606b41dee08b3fb7d20b16d9bf5",
+      "passed": true,
+      "failures": [],
+      "scope": "Isolated rendered Main levels 1/3, starter inventory, coarse chest aim and held spur injected in engine. No OS input/human play; level 2 unlock supplied by fixture.",
+      "results": [
+        {
+          "level": 1,
+          "winner": 0,
+          "reward": {
+            "coins": 120,
+            "first_clear": true,
+            "level": 1,
+            "renown": 1
+          }
+        },
+        {
+          "level": 3,
+          "winner": 0,
+          "reward": {
+            "coins": 144,
+            "first_clear": true,
+            "level": 3,
+            "renown": 1
+          }
+        }
+      ]
+    }
+  },
+  "memory": {
+    "balance103-after01-memory.log": {
+      "sampled_peak_mib": 48.5,
+      "exit": [
+        "EXIT code=0 seconds=129.2"
+      ]
+    },
+    "balance103-after02-memory.log": {
+      "sampled_peak_mib": 47.9,
+      "exit": [
+        "EXIT code=0 seconds=49.8"
+      ]
+    },
+    "balance103-after04-memory.log": {
+      "sampled_peak_mib": 48.1,
+      "exit": [
+        "EXIT code=0 seconds=71.6"
+      ]
+    },
+    "balance103-before-memory.log": {
+      "sampled_peak_mib": 48.8,
+      "exit": [
+        "EXIT code=0 seconds=125.6"
+      ]
+    },
+    "balance103-beginner-memory.log": {
+      "sampled_peak_mib": 46.8,
+      "exit": [
+        "EXIT code=0 seconds=80.8"
+      ]
+    },
+    "balance103-controls-memory.log": {
+      "sampled_peak_mib": null,
+      "exit": [
+        "EXIT code=0 seconds=0.3"
+      ]
+    },
+    "balance103-counter-memory.log": {
+      "sampled_peak_mib": 48.1,
+      "exit": [
+        "EXIT code=0 seconds=54.9"
+      ]
+    },
+    "balance103-export-memory.log": {
+      "sampled_peak_mib": 608.9,
+      "exit": [
+        "EXIT code=0 seconds=13.7"
+      ]
+    },
+    "balance103-final-memory.log": {
+      "sampled_peak_mib": 52.5,
+      "exit": [
+        "EXIT code=0 seconds=462.1"
+      ]
+    },
+    "balance103-fixed-guard-memory.log": {
+      "sampled_peak_mib": 48.6,
+      "exit": [
+        "EXIT code=0 seconds=69.5"
+      ]
+    },
+    "balance103-import-memory.log": {
+      "sampled_peak_mib": 766.1,
+      "exit": [
+        "EXIT code=0 seconds=10.5"
+      ]
+    },
+    "balance103-package-beginner-memory.log": {
+      "sampled_peak_mib": 691.9,
+      "exit": [
+        "EXIT code=0 seconds=125.0"
+      ]
+    },
+    "balance103-package-scene-memory.log": {
+      "sampled_peak_mib": 731.3,
+      "exit": [
+        "EXIT code=0 seconds=190.5"
+      ]
+    },
+    "balance103-parse-final-memory.log": {
+      "sampled_peak_mib": 188.4,
+      "exit": [
+        "EXIT code=0 seconds=9.2"
+      ]
+    },
+    "balance103-parse-memory.log": {
+      "sampled_peak_mib": 171.4,
+      "exit": [
+        "EXIT code=0 seconds=3.5"
+      ]
+    },
+    "balance103-release-memory.log": {
+      "sampled_peak_mib": 50.3,
+      "exit": [
+        "EXIT code=0 seconds=323.2"
+      ]
+    },
+    "balance103-rules-memory.log": {
+      "sampled_peak_mib": 49.7,
+      "exit": [
+        "EXIT code=0 seconds=39.0"
+      ]
+    },
+    "balance103-source-scene-memory.log": {
+      "sampled_peak_mib": 736.8,
+      "exit": [
+        "EXIT code=0 seconds=192.5"
+      ]
+    },
+    "balance103-text-fixed-memory.log": {
+      "sampled_peak_mib": 705.6,
+      "exit": [
+        "EXIT code=0 seconds=12.5"
+      ]
+    },
+    "balance103-text-material-memory.log": {
+      "sampled_peak_mib": 711.2,
+      "exit": [
+        "EXIT code=0 seconds=16.6"
+      ]
+    },
+    "balance103-text-msdf-memory.log": {
+      "sampled_peak_mib": 705.3,
+      "exit": [
+        "EXIT code=0 seconds=16.1"
+      ]
+    },
+    "balance103-text01-memory.log": {
+      "sampled_peak_mib": 685.5,
+      "exit": [
+        "EXIT code=4294967295 seconds=48.6"
+      ]
+    },
+    "balance103-text02-memory.log": {
+      "sampled_peak_mib": 706.7,
+      "exit": [
+        "EXIT code=0 seconds=12.5"
+      ]
+    },
+    "balance103-text03-memory.log": {
+      "sampled_peak_mib": 703.5,
+      "exit": [
+        "EXIT code=0 seconds=14.7"
+      ]
+    },
+    "balance103-text04-memory.log": {
+      "sampled_peak_mib": 719.8,
+      "exit": [
+        "EXIT code=0 seconds=16.9"
+      ]
+    },
+    "balance103-text05-memory.log": {
+      "sampled_peak_mib": 707.7,
+      "exit": [
+        "EXIT code=0 seconds=16.4"
+      ]
+    }
+  },
+  "scope": "Protected background QA only. Rule proxies and engine input/rendering are not human difficulty or listening acceptance.",
+  "static_text_audit": {
+    "path": "docs/development/logs/balance103-text-pixels.json",
+    "sha256": "5c1aeeaa3b3258a9822194fd3365d11efdfa71b6dae3a6570a0871da44fdcd9d",
+    "frames": 45,
+    "distinct_masks_per_sequence": {
+      "balance103-text05/0": {
+        "hint": 1,
+        "timeline": 1,
+        "progress": 1
+      },
+      "balance103-text05/1": {
+        "hint": 1,
+        "timeline": 1,
+        "progress": 1
+      },
+      "balance103-text05/2": {
+        "hint": 1,
+        "timeline": 1,
+        "progress": 1
+      },
+      "balance103-text-msdf/0": {
+        "hint": 1,
+        "timeline": 1,
+        "progress": 1
+      },
+      "balance103-text-msdf/1": {
+        "hint": 1,
+        "timeline": 1,
+        "progress": 1
+      },
+      "balance103-text-msdf/2": {
+        "hint": 1,
+        "timeline": 1,
+        "progress": 1
+      },
+      "balance103-text-material/0": {
+        "hint": 1,
+        "timeline": 1,
+        "progress": 1
+      },
+      "balance103-text-material/1": {
+        "hint": 1,
+        "timeline": 1,
+        "progress": 1
+      },
+      "balance103-text-material/2": {
+        "hint": 1,
+        "timeline": 1,
+        "progress": 1
+      }
+    },
+    "passed": true,
+    "method": "Original PNG RGB max>70 glyph masks: progress x326..512/y470..483; hint x846..903/y127..140; timeline x380..922/y277..400. Five consecutive frames per sequence, nine sequences. No image modifications.",
+    "limitation": "Stable masks contradict the apparent flicker in inline previews; they do not prove text completeness for every screen or all hardware."
+  },
+  "package": {
+    "format": "galumu-windows-bundle-1",
+    "version": "0.4.55-c1",
+    "source_revision": "1a5d0461630315b25d6d2eb8d63af7c79ed43662",
+    "built_utc": "2026-11-17T20:30:04.5929436Z",
+    "engine": "4.5.1.stable",
+    "platform": "Windows x64",
+    "entry": "LanceAndLaurel.exe",
+    "signed": false,
+    "launcher": {
+      "format": "galumu-launcher-1",
+      "guard_sha256": "E993D317EBACAC1F7C12025E4E3D68EDDCD66919E422790BC33C46E74B31D635",
+      "extracted_guard_sha256": "3C79B1FEC36EE3DF6A689D7BF5125A1648B29F4376DB42ECF3EB08F3AD7C187E",
+      "launcher_source_sha256": "9310EF7E406DB0CE2BFB027DBE4F03D0DF6F6F565FA4EED225E4F099C5444DB6",
+      "launcher_sha256": "731D2E436559363F4A8F1165B8D160C510E6DB944D1CED24544912C99DAAB48F",
+      "icon_sha256": "162216654BE34720045ED4B41A044FC855E1AA7ABF22DEBBDD494FA2D9FC4985",
+      "product_version": "0.4.55-c1",
+      "file_version": "0.4.55.1",
+      "built_utc": "2026-11-17T20:30:04.1188229Z",
+      "note": "Compiled from the same MemoryBound source; 1024 MiB Job, 900 MiB early stop, 500 MiB system reserve, 25% CPU and one instance."
+    },
+    "files": [
+      {
+        "path": "LanceAndLaurel.exe",
+        "bytes": 44544,
+        "sha256": "731D2E436559363F4A8F1165B8D160C510E6DB944D1CED24544912C99DAAB48F"
+      },
+      {
+        "path": "licenses/ASSET-NOTICES.txt",
+        "bytes": 1590,
+        "sha256": "F4B6EBA3D37BAC1A552E7BB9D70DF068F0267120658D691E0AF591F9324A72D5"
+      },
+      {
+        "path": "licenses/GODOT-LICENSE.txt",
+        "bytes": 1149,
+        "sha256": "B0435E3B3E4E55238F05F4B306F30524A1B2E20147810D436EAA554FA6855C80"
+      },
+      {
+        "path": "licenses/GODOT-THIRD-PARTY.txt",
+        "bytes": 91338,
+        "sha256": "25EFD44DF9346C7469B21AE5CB0488CF6FFF63854D4473A6AF95E08508A87B17"
+      },
+      {
+        "path": "licenses/NOTO-SANS-SC-OFL.txt",
+        "bytes": 4388,
+        "sha256": "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9"
+      },
+      {
+        "path": "PLAYER-GUIDE.txt",
+        "bytes": 3566,
+        "sha256": "A48414CE48FA98BDE5FCFBD227DBC090CAF045422930249DDBD6E1EDD33B6D12"
+      },
+      {
+        "path": "RELEASE-NOTES.txt",
+        "bytes": 959,
+        "sha256": "1A84DE27852F9F2F009CFE44DCDF279C1000B4D2EAFFB35B1522D072EB24DB86"
+      },
+      {
+        "path": "runtime/LanceAndLaurel.exe",
+        "bytes": 96725504,
+        "sha256": "78CCC576E8F8BFFD7EF6AD6F36EBD72A41E609A1052225A55B3407C96EA84065"
+      },
+      {
+        "path": "runtime/LanceAndLaurel.pck",
+        "bytes": 38122748,
+        "sha256": "5B71E24E77A64E0B2EDF215E9C78C95DCBCD659DC8CE994081090EEA7AFD4E4F"
+      }
+    ],
+    "status": "Candidate package; validation and platform approval are recorded separately."
+  },
+  "pck": {
+    "bytes": 38122748,
+    "sha256": "5b71e24e77a64e0b2edf215e9c78c95dcbcd659dc8ce994081090eea7afd4e4f"
+  }
+}

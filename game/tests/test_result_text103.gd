@@ -6,16 +6,22 @@ func snap(folder:String,name:String)->void:
 func redraw_tree(node:Node)->void:
 	if node is CanvasItem:node.queue_redraw()
 	for child in node.get_children():redraw_tree(child)
+func isolate_materials(node:Node)->void:
+	if node is CanvasItem:node.material=CanvasItemMaterial.new()
+	for child in node.get_children():isolate_materials(child)
 func run()->void:
-	var folder=""
+	var folder="";var fixture=""
 	for a in OS.get_cmdline_user_args():
 		if a.begins_with("--folder="):folder=a.trim_prefix("--folder=")
+		if a.begins_with("--fixture="):fixture=a.trim_prefix("--fixture=")
 	var state=root.get_node("GameState")
 	if folder.is_empty() or DirAccess.dir_exists_absolute(folder) or not state.save_path.contains("qa_") or DisplayServer.get_name()=="headless" or OS.get_environment("GALUMU_MEMORY_BOUND")!="1024":quit(2);return
 	DirAccess.make_dir_recursive_absolute(folder)
 	state.save_path=folder+"/qa_profile.json";state.backup_path=folder+"/qa_backup.json";state.load_profile()
 	state.profile.campaign_cleared=range(1,26);state.profile.settings.combat_brief_v044=true
 	AudioServer.set_bus_mute(0,true);root.size=Vector2i(1280,720)
+	if "--msdf" in OS.get_cmdline_user_args():
+		load("res://assets/fonts/NotoSansSC.ttf").multichannel_signed_distance_field=true
 	var main=load("res://scenes/main.tscn").instantiate();root.add_child(main);current_scene=main
 	for i in range(100):await process_frame
 	for cycle in range(3):
@@ -23,9 +29,16 @@ func run()->void:
 		if b==null:quit(3);return
 		if root.focus_exited.is_connected(b._on_focus_lost):root.focus_exited.disconnect(b._on_focus_lost)
 		while not b.presentation_ready:await process_frame
+		if not fixture.is_empty():
+			var recorded=JSON.parse_string(FileAccess.get_file_as_string(fixture)).rows[cycle]
+			b.exchange_log.assign(recorded.hits.duplicate(true))
+			b.match_model.pass_number=3
+			b.match_model.fighters[0].score=recorded.result.player_score
+			b.match_model.fighters[1].score=recorded.result.enemy_score
 		b.match_model._finish("score");b._consume_events(b.match_model.drain_events())
 		b.terminal_at=maxi(1,Time.get_ticks_msec()-7000);b.is_finished=true;Engine.time_scale=1
 		while not main.result_visible:await process_frame
+		if "--isolate-materials" in OS.get_cmdline_user_args():isolate_materials(main.screen)
 		for i in range(5):await process_frame
 		await snap(folder,str(cycle)+"-early")
 		for i in range(60):await process_frame
@@ -33,6 +46,9 @@ func run()->void:
 		redraw_tree(main)
 		for i in range(5):await process_frame
 		await snap(folder,str(cycle)+"-redraw")
+		for i in range(5):
+			await process_frame
+			await snap(folder,str(cycle)+"-frame"+str(i))
 		if "--diagnostic-variants" in OS.get_cmdline_user_args():
 			b.visible=false
 			for i in range(5):await process_frame

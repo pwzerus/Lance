@@ -1,0 +1,537 @@
+{
+  "task": "FIX-104",
+  "baseline": "ea6506fcc45698302bcd74356f753356babb00dc",
+  "runtime_commit": "cb5a1169772e6dc11802ef1ce5f31d0cabcb817b",
+  "version": "0.4.56-c1",
+  "package": {
+    "path": "builds\\LanceAndLaurel-v0.4.56-c1",
+    "pck_bytes": 38123292,
+    "pck_sha256": "9187E2BAF8051027DF8BA793FC8FD7A539A7CA4D6B5AB6B7C551654AD9977EE4",
+    "integrity_files": 9
+  },
+  "mode": "IsolatedDesktop GPU + QA saves; guarded serial processes; no OS input/human play",
+  "protection": {
+    "job_MiB": 1024,
+    "early_kill_MiB": 900,
+    "system_reserve_MiB": 500,
+    "CPU_percent": 25
+  },
+  "baseline_fade": {
+    "1": 35931,
+    ".55": 35459,
+    ".45": 0,
+    ".2": 0
+  },
+  "package_pose": {
+    "elbow": "(-24.06722, -35.85545)",
+    "fade": [
+      {
+        "opacity": 1.0,
+        "visible_pixels": 35931
+      },
+      {
+        "opacity": 0.55,
+        "visible_pixels": 35930
+      },
+      {
+        "opacity": 0.45,
+        "visible_pixels": 35930
+      },
+      {
+        "opacity": 0.2,
+        "visible_pixels": 35928
+      }
+    ],
+    "failures": [],
+    "passed": true
+  },
+  "package_cinema": {
+    "passed": true,
+    "cases": [
+      {
+        "name": "right_body",
+        "result_ms": 3610,
+        "bodies": 1,
+        "cropped_frames": 0,
+        "frame_count": 134
+      },
+      {
+        "name": "left_head",
+        "result_ms": 3601,
+        "bodies": 1,
+        "cropped_frames": 0,
+        "frame_count": 141
+      },
+      {
+        "name": "double_body",
+        "result_ms": 3609,
+        "bodies": 2,
+        "cropped_frames": 0,
+        "frame_count": 136
+      },
+      {
+        "name": "no_slow",
+        "result_ms": 3607,
+        "bodies": 1,
+        "cropped_frames": 0,
+        "frame_count": 139
+      }
+    ]
+  },
+  "package_campaign": {
+    "failures": [],
+    "passed": true,
+    "rows": [
+      {
+        "hits": [
+          {
+            "angle_factor": 1.0,
+            "attacker": 1,
+            "attacker_direction": -1,
+            "attacker_speed": 217.768677119704,
+            "attaint": false,
+            "balance_left": 67.2159679974405,
+            "break_angle": 0.26157945394516,
+            "break_direction": -1,
+            "break_hand": "(465.7514, -251.5641)",
+            "break_reach": 237.0,
+            "break_tip": "(236.8135, -190.2743)",
+            "broke": true,
+            "combat_elevation": -0.0111759503101819,
+            "contact_local": "(14.79539, -3.271685)",
+            "damage": 3.77262539602045,
+            "dead": false,
+            "defender": 0,
+            "defender_direction": 1,
+            "defender_speed": 256.586277717263,
+            "drive": 0.754158134799722,
+            "eccentricity": 0.100435956484079,
+            "glanced": false,
+            "impulse": 26.4083777721431,
+            "impulse_ratio": 0.514701200747805,
+            "ko": false,
+            "ko_reason": "",
+            "ko_threshold": 51.3081720691046,
+            "lever": -0.100435956484079,
+            "pass": 1,
+            "points": 2,
+            "position": "(237.423, -190.2797)",
+            "position_factor": 1.0,
+            "shaft_alignment": 0.999937549717349,
+            "shield_angle_difference": 0.0073624479313193,
+            "shield_broke": false,
+            "shield_region": "center",
+            "shield_transfer": 1.0,
+            "speed": 486.854187011719,
+            "support": 1.0,
+            "type": "hit",
+            "unsteady": 0.0,
+            "zone": "shield"
+          },
+          {
+            "attacker": 0,
+            "attacker_direction": 1,
+            "attacker_speed": 256.586277717263,
+            "attaint": false,
+            "balance_left": 75.4842418062336,
+            "break_angle": -0.10091769695282,
+            "break_direction": 1,
+            "break_hand": "(217.307, -192.9085)",
+            "break_reach": 278.0,
+            "break_tip": "(493.8925, -220.916)",
+            "broke": false,
+            "combat_elevation": 0.129833797301157,
+            "damage": 11.5272250363271,
+            "dead": false,
+            "defender": 1,
+            "defender_direction": -1,
+            "defender_speed": 217.768677119704,
+            "drive": 0.790549635359934,
+            "glanced": false,
+            "impulse": 19.6044471256923,
+            "impulse_ratio": 0.341148223744191,
+            "ko": false,
+            "ko_reason": "",
+            "ko_threshold": 57.4660682987832,
+            "pass": 1,
+            "points": 1,
+            "position": "(493.7639, -220.7621)",
+            "shaft_alignment": 0.99158342556393,
+            "shield_broke": false,
+            "speed": 277.323669433594,
+            "support": 1.0,
+            "type": "hit",
+            "unsteady": 0.0,
+            "zone": "body"
+          },
+          {
+            "angle_factor": 1.0,
+            "attacker": 1,
+            "attacker_direction": -1,
+            "attacker_speed": 217.768677119704,
+            "attaint": false,
+            "balance_left": 42.8599747739515,
+            "break_angle": 0.328132182359695,
+            "break_direction": -1,
+            "break_hand": "(316.6865, -249.8848)",
+            "break_reach": 237.0,
+            "break_tip": "(92.33142, -173.5055)",
+            "broke": true,
+            "combat_elevation": 0.052506404723638,
+            "contact_local": "(14.12155, 11.54718)",
+            "damage": 3.72336879548161,
+            "dead": false,
+            "defender": 0,
+            "defender_direction": 1,
+            "defender_speed": 256.586277717263,
+            "drive": 0.754158134799722,
+            "eccentricity": 0.244773268590516,
+            "glanced": false,
+            "impulse": 26.0635815683713,
+            "impulse_ratio": 0.50798109769468,
+            "ko": false,
+            "ko_reason": "",
+            "ko_threshold": 51.3081720691046,
+            "lever": 0.244773268590516,
+            "pass": 2,
+            "points": 2,
+            "position": "(92.66203, -173.5057)",
+            "position_factor": 1.0,
+            "shaft_alignment": 0.998621855394975,
+            "shield_angle_difference": 0.0607585522505957,
+            "shield_broke": false,
+            "shield_region": "center",
+            "shield_transfer": 1.0,
+            "speed": 480.831359863281,
+            "support": 1.0,
+            "type": "hit",
+            "unsteady": 0.0,
+            "zone": "shield"
+          },
+          {
+            "attacker": 0,
+            "attacker_direction": 1,
+            "attacker_speed": 256.586277717263,
+            "attaint": false,
+            "balance_left": 62.4313432481199,
+            "break_angle": -0.107070490717888,
+            "break_direction": 1,
+            "break_hand": "(72.29851, -190.1657)",
+            "break_reach": 278.0,
+            "break_tip": "(348.7065, -219.8745)",
+            "broke": true,
+            "combat_elevation": 0.123664756356396,
+            "damage": 9.89900036654999,
+            "dead": false,
+            "defender": 1,
+            "defender_direction": -1,
+            "defender_speed": 217.768677119704,
+            "drive": 0.790549635359934,
+            "glanced": false,
+            "impulse": 16.8353119394875,
+            "impulse_ratio": 0.292960914812472,
+            "ko": false,
+            "ko_reason": "",
+            "ko_threshold": 57.4660682987832,
+            "pass": 2,
+            "points": 2,
+            "position": "(348.5146, -219.2491)",
+            "shaft_alignment": 0.992363253842765,
+            "shield_broke": false,
+            "speed": 236.055114746094,
+            "support": 1.0,
+            "type": "hit",
+            "unsteady": 0.0,
+            "zone": "body"
+          },
+          {
+            "attacker": 0,
+            "attacker_direction": 1,
+            "attacker_speed": 256.586277717263,
+            "attaint": true,
+            "balance_left": 26.03494631697,
+            "break_angle": -0.100996747612953,
+            "break_direction": 1,
+            "break_hand": "(73.53314, -188.7979)",
+            "break_reach": 278.0,
+            "break_tip": "(350.1165, -216.8273)",
+            "broke": true,
+            "combat_elevation": 0.129754481999428,
+            "damage": 19.2441709307774,
+            "dead": false,
+            "defender": 1,
+            "defender_direction": -1,
+            "defender_speed": 217.768677119704,
+            "drive": 0.790549635359934,
+            "glanced": false,
+            "impulse": 35.5023413646363,
+            "impulse_ratio": 0.617796595724089,
+            "ko": false,
+            "ko_reason": "",
+            "ko_threshold": 57.4660682987832,
+            "pass": 3,
+            "points": 3,
+            "position": "(349.4318, -216.9271)",
+            "shaft_alignment": 0.991593691344747,
+            "shield_broke": false,
+            "speed": 475.632019042969,
+            "support": 1.0,
+            "type": "hit",
+            "unsteady": 0.0,
+            "zone": "flank"
+          },
+          {
+            "angle_factor": 1.0,
+            "attacker": 1,
+            "attacker_direction": -1,
+            "attacker_speed": 217.768677119704,
+            "attaint": false,
+            "balance_left": 20.0759909639296,
+            "break_angle": 0.364114761352539,
+            "break_direction": -1,
+            "break_hand": "(315.3934, -249.6379)",
+            "break_reach": 237.0,
+            "break_tip": "(93.93124, -165.237)",
+            "broke": true,
+            "combat_elevation": 0.0862449944505423,
+            "contact_local": "(13.75773, 19.54832)",
+            "damage": 3.4669896046727,
+            "dead": false,
+            "defender": 0,
+            "defender_direction": 1,
+            "defender_speed": 256.586277717263,
+            "drive": 0.754158134799722,
+            "eccentricity": 0.432878550293501,
+            "glanced": false,
+            "impulse": 24.7972877077209,
+            "impulse_ratio": 0.483300938383122,
+            "ko": false,
+            "ko_reason": "",
+            "ko_threshold": 51.3081720691046,
+            "lever": 0.432878550293501,
+            "pass": 3,
+            "points": 2,
+            "position": "(94.00843, -165.2369)",
+            "position_factor": 0.957839619949973,
+            "shaft_alignment": 0.996283205178174,
+            "shield_angle_difference": 0.0947197243881023,
+            "shield_broke": false,
+            "shield_region": "face",
+            "shield_transfer": 0.957839619949973,
+            "speed": 478.616973876953,
+            "support": 1.0,
+            "type": "hit",
+            "unsteady": 0.0,
+            "zone": "shield"
+          }
+        ],
+        "level": 2,
+        "lines": [
+          "1:body",
+          "2:body",
+          "3:body"
+        ],
+        "result": {
+          "enemy_dead": false,
+          "enemy_hp": 59.3296036663455,
+          "enemy_score": 6,
+          "mode": "arena",
+          "passes": 3,
+          "player_dead": false,
+          "player_hp": 89.0370162038252,
+          "player_score": 6,
+          "reason": "hp",
+          "winner": 0
+        },
+        "reward": {
+          "coins": 132,
+          "first_clear": true,
+          "level": 2,
+          "renown": 1
+        }
+      }
+    ],
+    "scope": "Actual Main/Battle GPU with fixed q1 purchased kit, engine-injected 600ms visible-line input. Normal result/reward/disk-save, isolated QA, no OS input or human acceptance.",
+    "version": "0.4.56-c1"
+  },
+  "memory": {
+    "pose": {
+      "peak_private_MiB": 375.5,
+      "exit": [
+        "EXIT code=0 seconds=5.6"
+      ],
+      "isolated_desktop_closed": true
+    },
+    "scene": {
+      "peak_private_MiB": 684.3,
+      "exit": [
+        "EXIT code=0 seconds=28.7"
+      ],
+      "isolated_desktop_closed": true
+    },
+    "campaign": {
+      "peak_private_MiB": 712.1,
+      "exit": [
+        "EXIT code=0 seconds=64.5"
+      ],
+      "isolated_desktop_closed": true
+    }
+  },
+  "rules": {
+    "arms": {
+      "examples": [],
+      "failures": [],
+      "grid_poses": 7920,
+      "passed": true,
+      "project_version": "0.4.55-c1",
+      "rows": [
+        {
+          "far": {
+            "aim_delta": 0.00244366407394414,
+            "facing": 1,
+            "gap": 4000.0,
+            "guard_delta": 0.00311013893224299,
+            "lean_delta": 0.000625
+          },
+          "kind": "first_control_tick",
+          "near": {
+            "aim_delta": 0.00105523347854619,
+            "facing": 1,
+            "gap": 500.0,
+            "guard_delta": 0.00311013893224299,
+            "lean_delta": 0.000625
+          }
+        },
+        {
+          "facing": 1,
+          "kind": "shield_travel",
+          "lowering_seconds": 0.566666666666667,
+          "raising_seconds": 0.566666666666667
+        },
+        {
+          "far": {
+            "aim_delta": 0.00244366407394414,
+            "facing": -1,
+            "gap": 4000.0,
+            "guard_delta": 0.00311013893224299,
+            "lean_delta": 0.000625
+          },
+          "kind": "first_control_tick",
+          "near": {
+            "aim_delta": 0.00105523347854619,
+            "facing": -1,
+            "gap": 500.0,
+            "guard_delta": 0.00311013893224299,
+            "lean_delta": 0.000625
+          }
+        },
+        {
+          "facing": -1,
+          "kind": "shield_travel",
+          "lowering_seconds": 0.566666666666667,
+          "raising_seconds": 0.566666666666667
+        },
+        {
+          "facing": 1,
+          "hz": 30,
+          "kind": "dynamic_arm_motion",
+          "max_local_joint_step": 24.2592086791992,
+          "minimum_abs_ik_branch_sine": 0.584629385238091,
+          "seconds": 6
+        },
+        {
+          "facing": 1,
+          "hz": 60,
+          "kind": "dynamic_arm_motion",
+          "max_local_joint_step": 12.495813369751,
+          "minimum_abs_ik_branch_sine": 0.584611574380226,
+          "seconds": 6
+        },
+        {
+          "facing": 1,
+          "hz": 120,
+          "kind": "dynamic_arm_motion",
+          "max_local_joint_step": 6.29645347595215,
+          "minimum_abs_ik_branch_sine": 0.58462630132843,
+          "seconds": 6
+        },
+        {
+          "facing": -1,
+          "hz": 30,
+          "kind": "dynamic_arm_motion",
+          "max_local_joint_step": 11.8894176483154,
+          "minimum_abs_ik_branch_sine": 0.259726971651386,
+          "seconds": 6
+        },
+        {
+          "facing": -1,
+          "hz": 60,
+          "kind": "dynamic_arm_motion",
+          "max_local_joint_step": 5.95662832260132,
+          "minimum_abs_ik_branch_sine": 0.25966075966268,
+          "seconds": 6
+        },
+        {
+          "facing": -1,
+          "hz": 120,
+          "kind": "dynamic_arm_motion",
+          "max_local_joint_step": 2.97902536392212,
+          "minimum_abs_ik_branch_sine": 0.259605740749048,
+          "seconds": 6
+        },
+        {
+          "facing": 1,
+          "kind": "joint_timestep_convergence",
+          "ratios": [
+            {
+              "coarse_hz": 30,
+              "ratio": 0.515095670884985
+            },
+            {
+              "coarse_hz": 60,
+              "ratio": 0.503885044505721
+            }
+          ]
+        },
+        {
+          "facing": -1,
+          "kind": "joint_timestep_convergence",
+          "ratios": [
+            {
+              "coarse_hz": 30,
+              "ratio": 0.501002530047827
+            },
+            {
+              "coarse_hz": 60,
+              "ratio": 0.500119396843809
+            }
+          ]
+        }
+      ],
+      "scope": "Shared arm drawing anchors, both anatomical sides/facings, lean/guard/aim/gait extremes; actual limited controls, nonsingular IK branch identity and 30/60/120Hz timestep convergence. Optional guards/extremes/motion and torso-tier render previews. No absolute physical elbow-speed claim, OS input, human anatomy/art approval or fun claim."
+    },
+    "falls": {
+      "passed": true,
+      "cases": 72
+    },
+    "timing": true,
+    "controls": true
+  },
+  "evidence_folders": [
+    "fix104-before",
+    "fix104-cinema-before",
+    "fix104-baseline-arms",
+    "fix104-rules01",
+    "fix104-rules02",
+    "fix104-final-source",
+    "fix104-scene02",
+    "fix104-scene03",
+    "fix104-export",
+    "fix104-package"
+  ],
+  "limitations": [
+    "controlled HP KO fixture is not human difficulty evidence",
+    "no OS input or listening acceptance",
+    "PERF099 original 94ms spike remains unassigned"
+  ]
+}

@@ -1,5 +1,16 @@
 # 任务、审查建议与文件认领
 
+## FIX-104 已交出（2026-11-17，Codex）
+
+- 补充认领 `game/scripts/visual/mounted_pixel.gdshader`：核验淡出与素材 alpha 裁切的交互，保持原有抗白边处理。
+
+- 用户要求：第二关对手持枪手不应落在肚子前；缩短败北特写，修复特写中玩家消失后闪现。后台、内存保护保持，不接管屏幕。
+- 基线：codex/v0.4，ea6506fcc45698302bcd74356f753356babb00dc，ls-remote一致。未见新增Claude功能，三份既知历史差异与build_queue.gd.uid保留，不reset/stash/pull。
+- 认领：game/scripts/visual/{rider_view,fallen_rider,exchange_director}.gd、game/scripts/battle.gd；必要的core/joust_match.gd仅限共享握点/呈现挂点；game/tests/*104.gd与受影响时序/镜头测试、test_parse065.gd；版本/导出/入口、设计、交接与本轮证据。
+- 先复现第2关真实装备和双向姿态、完整终局逐帧可见性。修复沿用现有骨架/受击/镜头，不改难度或隐藏肢体消穿模；缩短真实时间预算并确保落马者与另一骑手连续显示。源码与实际新包隔离GPU/控制时序复验后交出。
+
+- 完成：远侧枪臂投影、源alpha裁切、马独立淡化、短KO特写。源/实际.56-c1包复验、正常第二关三轮及结算保存通过；详见FIX104交接/审查/证据。未改核心命中/数值，认领全部释放。
+
 ## BALANCE-103 已交出（2026-11-17，Codex）
 
 - 用户授权：调顺第24关与前后关卡难度，保留高低枪博弈与简单入门；后台、保护保持、复验后独立导出和推送。

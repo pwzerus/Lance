@@ -1,0 +1,694 @@
+{
+  "base": "0143711c9467602954e827c5bfed9d81630b092f",
+  "source_changed": false,
+  "scope": "972 frozen-pose real sweeps, actual lane depth; aimed center +/-10px, six English shields, both approaches, three guards and three leans. Also 36 isolated finite-control approaches, aim updates every 200ms, neutral lean, defender lance disabled. No AI or human win-rate claim.",
+  "raw_local_report": "docs/development/logs/guard101-approach.json",
+  "raw_sha256": "763a71c219b51655ec6c3746f14e174bd8201727c328cbe9482d2f0039c7d164",
+  "snapshot_cases": 972,
+  "neutral_pose_matrix": [
+    {
+      "shield": "eng_shield_0",
+      "guard": 0,
+      "neutral_pose_contacts": {
+        "head": {
+          "head": 6
+        },
+        "body": {
+          "body": 2,
+          "shield": 4
+        },
+        "flank": {
+          "shield": 6
+        }
+      }
+    },
+    {
+      "shield": "eng_shield_0",
+      "guard": 0.43,
+      "neutral_pose_contacts": {
+        "head": {
+          "head": 6
+        },
+        "body": {
+          "shield": 6
+        },
+        "flank": {
+          "shield": 4,
+          "flank": 2
+        }
+      }
+    },
+    {
+      "shield": "eng_shield_0",
+      "guard": 1,
+      "neutral_pose_contacts": {
+        "head": {
+          "shield": 6
+        },
+        "body": {
+          "body": 6
+        },
+        "flank": {
+          "body": 2,
+          "flank": 4
+        }
+      }
+    },
+    {
+      "shield": "eng_shield_1",
+      "guard": 0,
+      "neutral_pose_contacts": {
+        "head": {
+          "head": 6
+        },
+        "body": {
+          "shield": 6
+        },
+        "flank": {
+          "shield": 6
+        }
+      }
+    },
+    {
+      "shield": "eng_shield_1",
+      "guard": 0.43,
+      "neutral_pose_contacts": {
+        "head": {
+          "head": 4,
+          "shield": 2
+        },
+        "body": {
+          "shield": 6
+        },
+        "flank": {
+          "shield": 6
+        }
+      }
+    },
+    {
+      "shield": "eng_shield_1",
+      "guard": 1,
+      "neutral_pose_contacts": {
+        "head": {
+          "shield": 6
+        },
+        "body": {
+          "shield": 2,
+          "body": 4
+        },
+        "flank": {
+          "body": 2,
+          "flank": 4
+        }
+      }
+    },
+    {
+      "shield": "eng_shield_2",
+      "guard": 0,
+      "neutral_pose_contacts": {
+        "head": {
+          "head": 6
+        },
+        "body": {
+          "body": 4,
+          "shield": 2
+        },
+        "flank": {
+          "shield": 6
+        }
+      }
+    },
+    {
+      "shield": "eng_shield_2",
+      "guard": 0.43,
+      "neutral_pose_contacts": {
+        "head": {
+          "head": 6
+        },
+        "body": {
+          "shield": 6
+        },
+        "flank": {
+          "shield": 4,
+          "flank": 2
+        }
+      }
+    },
+    {
+      "shield": "eng_shield_2",
+      "guard": 1,
+      "neutral_pose_contacts": {
+        "head": {
+          "shield": 6
+        },
+        "body": {
+          "body": 6
+        },
+        "flank": {
+          "body": 2,
+          "flank": 4
+        }
+      }
+    },
+    {
+      "shield": "eng_shield_3",
+      "guard": 0,
+      "neutral_pose_contacts": {
+        "head": {
+          "head": 6
+        },
+        "body": {
+          "shield": 6
+        },
+        "flank": {
+          "shield": 6
+        }
+      }
+    },
+    {
+      "shield": "eng_shield_3",
+      "guard": 0.43,
+      "neutral_pose_contacts": {
+        "head": {
+          "head": 6
+        },
+        "body": {
+          "shield": 6
+        },
+        "flank": {
+          "shield": 6
+        }
+      }
+    },
+    {
+      "shield": "eng_shield_3",
+      "guard": 1,
+      "neutral_pose_contacts": {
+        "head": {
+          "shield": 6
+        },
+        "body": {
+          "shield": 2,
+          "body": 4
+        },
+        "flank": {
+          "body": 2,
+          "flank": 4
+        }
+      }
+    },
+    {
+      "shield": "eng_shield_4",
+      "guard": 0,
+      "neutral_pose_contacts": {
+        "head": {
+          "head": 6
+        },
+        "body": {
+          "body": 4,
+          "shield": 2
+        },
+        "flank": {
+          "shield": 6
+        }
+      }
+    },
+    {
+      "shield": "eng_shield_4",
+      "guard": 0.43,
+      "neutral_pose_contacts": {
+        "head": {
+          "head": 6
+        },
+        "body": {
+          "shield": 6
+        },
+        "flank": {
+          "shield": 2,
+          "flank": 4
+        }
+      }
+    },
+    {
+      "shield": "eng_shield_4",
+      "guard": 1,
+      "neutral_pose_contacts": {
+        "head": {
+          "shield": 6
+        },
+        "body": {
+          "body": 6
+        },
+        "flank": {
+          "body": 2,
+          "flank": 4
+        }
+      }
+    },
+    {
+      "shield": "eng_shield_5",
+      "guard": 0,
+      "neutral_pose_contacts": {
+        "head": {
+          "head": 6
+        },
+        "body": {
+          "shield": 6
+        },
+        "flank": {
+          "shield": 6
+        }
+      }
+    },
+    {
+      "shield": "eng_shield_5",
+      "guard": 0.43,
+      "neutral_pose_contacts": {
+        "head": {
+          "head": 6
+        },
+        "body": {
+          "shield": 6
+        },
+        "flank": {
+          "shield": 6
+        }
+      }
+    },
+    {
+      "shield": "eng_shield_5",
+      "guard": 1,
+      "neutral_pose_contacts": {
+        "head": {
+          "shield": 6
+        },
+        "body": {
+          "body": 6
+        },
+        "flank": {
+          "body": 2,
+          "flank": 4
+        }
+      }
+    }
+  ],
+  "approaches": [
+    {
+      "guard": 0.0,
+      "shield": "eng_shield_0",
+      "side": 0,
+      "target": "head",
+      "ticks": 103,
+      "contact": "head",
+      "impulse": 41.6485387245261,
+      "shield_transfer": null,
+      "ko": false
+    },
+    {
+      "guard": 0.0,
+      "shield": "eng_shield_0",
+      "side": 0,
+      "target": "body",
+      "ticks": 99,
+      "contact": "body",
+      "impulse": 76.1348972290001,
+      "shield_transfer": null,
+      "ko": true
+    },
+    {
+      "guard": 0.0,
+      "shield": "eng_shield_0",
+      "side": 0,
+      "target": "flank",
+      "ticks": 95,
+      "contact": "shield",
+      "impulse": 68.4026731110714,
+      "shield_transfer": 0.999246493801467,
+      "ko": true
+    },
+    {
+      "guard": 0.43,
+      "shield": "eng_shield_0",
+      "side": 0,
+      "target": "head",
+      "ticks": 103,
+      "contact": "head",
+      "impulse": 41.6485387245261,
+      "shield_transfer": null,
+      "ko": false
+    },
+    {
+      "guard": 0.43,
+      "shield": "eng_shield_0",
+      "side": 0,
+      "target": "body",
+      "ticks": 94,
+      "contact": "shield",
+      "impulse": 70.1345405170521,
+      "shield_transfer": 1.0,
+      "ko": true
+    },
+    {
+      "guard": 0.43,
+      "shield": "eng_shield_0",
+      "side": 0,
+      "target": "flank",
+      "ticks": 94,
+      "contact": "shield",
+      "impulse": 28.6931249244906,
+      "shield_transfer": 0.420492768265178,
+      "ko": false
+    },
+    {
+      "guard": 1.0,
+      "shield": "eng_shield_0",
+      "side": 0,
+      "target": "head",
+      "ticks": 96,
+      "contact": "shield",
+      "impulse": 42.235899326974,
+      "shield_transfer": 1.0,
+      "ko": false
+    },
+    {
+      "guard": 1.0,
+      "shield": "eng_shield_0",
+      "side": 0,
+      "target": "body",
+      "ticks": 99,
+      "contact": "body",
+      "impulse": 76.1348972290001,
+      "shield_transfer": null,
+      "ko": true
+    },
+    {
+      "guard": 1.0,
+      "shield": "eng_shield_0",
+      "side": 0,
+      "target": "flank",
+      "ticks": 100,
+      "contact": "flank",
+      "impulse": 79.7382881193967,
+      "shield_transfer": null,
+      "ko": true
+    },
+    {
+      "guard": 0.0,
+      "shield": "eng_shield_0",
+      "side": 1,
+      "target": "head",
+      "ticks": 98,
+      "contact": "head",
+      "impulse": 54.2418911608703,
+      "shield_transfer": null,
+      "ko": false
+    },
+    {
+      "guard": 0.0,
+      "shield": "eng_shield_0",
+      "side": 1,
+      "target": "body",
+      "ticks": 99,
+      "contact": "body",
+      "impulse": 62.4366134556626,
+      "shield_transfer": null,
+      "ko": false
+    },
+    {
+      "guard": 0.0,
+      "shield": "eng_shield_0",
+      "side": 1,
+      "target": "flank",
+      "ticks": 97,
+      "contact": "shield",
+      "impulse": 40.8765481736938,
+      "shield_transfer": 1.0,
+      "ko": false
+    },
+    {
+      "guard": 0.43,
+      "shield": "eng_shield_0",
+      "side": 1,
+      "target": "head",
+      "ticks": 98,
+      "contact": "head",
+      "impulse": 54.2418911608703,
+      "shield_transfer": null,
+      "ko": false
+    },
+    {
+      "guard": 0.43,
+      "shield": "eng_shield_0",
+      "side": 1,
+      "target": "body",
+      "ticks": 94,
+      "contact": "shield",
+      "impulse": 56.2116022972511,
+      "shield_transfer": 1.0,
+      "ko": false
+    },
+    {
+      "guard": 0.43,
+      "shield": "eng_shield_0",
+      "side": 1,
+      "target": "flank",
+      "ticks": 96,
+      "contact": "shield",
+      "impulse": 27.8883937879952,
+      "shield_transfer": 0.702355644905256,
+      "ko": false
+    },
+    {
+      "guard": 1.0,
+      "shield": "eng_shield_0",
+      "side": 1,
+      "target": "head",
+      "ticks": 91,
+      "contact": "shield",
+      "impulse": 64.6321962032079,
+      "shield_transfer": 0.995834810760989,
+      "ko": false
+    },
+    {
+      "guard": 1.0,
+      "shield": "eng_shield_0",
+      "side": 1,
+      "target": "body",
+      "ticks": 99,
+      "contact": "body",
+      "impulse": 62.4366134556626,
+      "shield_transfer": null,
+      "ko": false
+    },
+    {
+      "guard": 1.0,
+      "shield": "eng_shield_0",
+      "side": 1,
+      "target": "flank",
+      "ticks": 103,
+      "contact": "flank",
+      "impulse": 51.404675598578,
+      "shield_transfer": null,
+      "ko": false
+    },
+    {
+      "guard": 0.0,
+      "shield": "eng_shield_5",
+      "side": 0,
+      "target": "head",
+      "ticks": 103,
+      "contact": "head",
+      "impulse": 41.3911348677365,
+      "shield_transfer": null,
+      "ko": false
+    },
+    {
+      "guard": 0.0,
+      "shield": "eng_shield_5",
+      "side": 0,
+      "target": "body",
+      "ticks": 96,
+      "contact": "shield",
+      "impulse": 24.5932763972666,
+      "shield_transfer": 0.435688403245726,
+      "ko": false
+    },
+    {
+      "guard": 0.0,
+      "shield": "eng_shield_5",
+      "side": 0,
+      "target": "flank",
+      "ticks": 94,
+      "contact": "shield",
+      "impulse": 58.3495908198637,
+      "shield_transfer": 0.998868719054777,
+      "ko": false
+    },
+    {
+      "guard": 0.43,
+      "shield": "eng_shield_5",
+      "side": 0,
+      "target": "head",
+      "ticks": 103,
+      "contact": "head",
+      "impulse": 41.3911348677365,
+      "shield_transfer": null,
+      "ko": false
+    },
+    {
+      "guard": 0.43,
+      "shield": "eng_shield_5",
+      "side": 0,
+      "target": "body",
+      "ticks": 92,
+      "contact": "shield",
+      "impulse": 60.2241513638275,
+      "shield_transfer": 1.0,
+      "ko": false
+    },
+    {
+      "guard": 0.43,
+      "shield": "eng_shield_5",
+      "side": 0,
+      "target": "flank",
+      "ticks": 91,
+      "contact": "shield",
+      "impulse": 37.6467899571857,
+      "shield_transfer": 0.635933970436041,
+      "ko": false
+    },
+    {
+      "guard": 1.0,
+      "shield": "eng_shield_5",
+      "side": 0,
+      "target": "head",
+      "ticks": 95,
+      "contact": "shield",
+      "impulse": 38.0997793643195,
+      "shield_transfer": 1.0,
+      "ko": false
+    },
+    {
+      "guard": 1.0,
+      "shield": "eng_shield_5",
+      "side": 0,
+      "target": "body",
+      "ticks": 99,
+      "contact": "body",
+      "impulse": 75.8545798186642,
+      "shield_transfer": null,
+      "ko": true
+    },
+    {
+      "guard": 1.0,
+      "shield": "eng_shield_5",
+      "side": 0,
+      "target": "flank",
+      "ticks": 100,
+      "contact": "flank",
+      "impulse": 79.4465566653316,
+      "shield_transfer": null,
+      "ko": true
+    },
+    {
+      "guard": 0.0,
+      "shield": "eng_shield_5",
+      "side": 1,
+      "target": "head",
+      "ticks": 98,
+      "contact": "head",
+      "impulse": 54.0416505036432,
+      "shield_transfer": null,
+      "ko": false
+    },
+    {
+      "guard": 0.0,
+      "shield": "eng_shield_5",
+      "side": 1,
+      "target": "body",
+      "ticks": 97,
+      "contact": "shield",
+      "impulse": 16.78112360932,
+      "shield_transfer": 0.367268495512183,
+      "ko": false
+    },
+    {
+      "guard": 0.0,
+      "shield": "eng_shield_5",
+      "side": 1,
+      "target": "flank",
+      "ticks": 96,
+      "contact": "shield",
+      "impulse": 34.0794797862264,
+      "shield_transfer": 0.999976407037279,
+      "ko": false
+    },
+    {
+      "guard": 0.43,
+      "shield": "eng_shield_5",
+      "side": 1,
+      "target": "head",
+      "ticks": 98,
+      "contact": "head",
+      "impulse": 54.0416505036432,
+      "shield_transfer": null,
+      "ko": false
+    },
+    {
+      "guard": 0.43,
+      "shield": "eng_shield_5",
+      "side": 1,
+      "target": "body",
+      "ticks": 92,
+      "contact": "shield",
+      "impulse": 47.4722233893723,
+      "shield_transfer": 1.0,
+      "ko": false
+    },
+    {
+      "guard": 0.43,
+      "shield": "eng_shield_5",
+      "side": 1,
+      "target": "flank",
+      "ticks": 94,
+      "contact": "shield",
+      "impulse": 31.5141458893783,
+      "shield_transfer": 0.897699059157764,
+      "ko": false
+    },
+    {
+      "guard": 1.0,
+      "shield": "eng_shield_5",
+      "side": 1,
+      "target": "head",
+      "ticks": 90,
+      "contact": "shield",
+      "impulse": 55.6187373795064,
+      "shield_transfer": 1.0,
+      "ko": false
+    },
+    {
+      "guard": 1.0,
+      "shield": "eng_shield_5",
+      "side": 1,
+      "target": "body",
+      "ticks": 94,
+      "contact": "shield",
+      "impulse": 14.8744682406043,
+      "shield_transfer": 0.322905990897806,
+      "ko": false
+    },
+    {
+      "guard": 1.0,
+      "shield": "eng_shield_5",
+      "side": 1,
+      "target": "flank",
+      "ticks": 103,
+      "contact": "flank",
+      "impulse": 50.4926985438357,
+      "shield_transfer": null,
+      "ko": false
+    }
+  ],
+  "validation": "Protected headless only, no rendering, OS input, human play or match win-rate experiment."
+}

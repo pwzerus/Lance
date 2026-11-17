@@ -1,0 +1,735 @@
+{
+  "generated_utc": "2026-11-17T00:38:15.749281+00:00",
+  "baseline": "f3db4660328083599f335bc62a7c99d25532a758",
+  "source_revision": "fd68435b4d9d4b64b08f5d8fa7bd29681a1c7d96",
+  "scope": "Protected headless rules and isolated rendered engine injection, no OS input or human play. Baseline timeout retained; only completed levels 1/2/3 counted. Source UI save assertion compared raw JSON float IDs with integer arrays; fixed to use production sanitize on re-read, package rerun recorded separately.",
+  "reports": [
+    {
+      "path": "level100-before.json",
+      "sha256": "ddca135f9b153fd992cbd33c0ab34d4149774cacdb5e2398a575c40cf43e7874",
+      "scope": "Starter inventory; 850ms aim updates, +/-10px repeatable error, fixed chest guard, no lean, continuous spur. Rule simulation, not human win rates.",
+      "starter": {
+        "armor": "mail_basic",
+        "caparison": "caparison_none",
+        "crest": "crest_bend",
+        "helmet": "helm_nasal",
+        "horse": "horse_bay",
+        "lance": "lance_ash",
+        "shield": "shield_basic"
+      },
+      "levels": {
+        "1": {
+          "summary": {
+            "draws": 0,
+            "games": 8,
+            "losses": 5,
+            "lost_unhorsed": 0,
+            "wins": 3
+          },
+          "ai": {
+            "aggression": 0.5,
+            "awareness": 0.0,
+            "feint": false,
+            "head_bias": 0.0,
+            "skill": 0.0
+          },
+          "equipment": {
+            "armor": "eng_armor_0",
+            "caparison": "caparison_none",
+            "crest": "crest_quarterly",
+            "helmet": "eng_helmet_0",
+            "horse": "horse_bay",
+            "lance": "eng_lance_long_0",
+            "shield": "eng_shield_0"
+          }
+        },
+        "2": {
+          "summary": {
+            "draws": 0,
+            "games": 8,
+            "losses": 0,
+            "lost_unhorsed": 0,
+            "wins": 8
+          },
+          "ai": {
+            "aggression": 0.5,
+            "awareness": 0.0,
+            "feint": false,
+            "head_bias": 0.0,
+            "skill": 0.0
+          },
+          "equipment": {
+            "armor": "eng_armor_0",
+            "caparison": "caparison_none",
+            "crest": "crest_chief",
+            "helmet": "eng_helmet_0",
+            "horse": "horse_bay",
+            "lance": "eng_lance_light_0",
+            "shield": "eng_shield_0"
+          }
+        },
+        "3": {
+          "summary": {
+            "draws": 0,
+            "games": 8,
+            "losses": 5,
+            "lost_unhorsed": 0,
+            "wins": 3
+          },
+          "ai": {
+            "aggression": 0.5,
+            "awareness": 0.0,
+            "feint": false,
+            "head_bias": 0.0,
+            "skill": 0.0
+          },
+          "equipment": {
+            "armor": "eng_armor_0",
+            "caparison": "caparison_none",
+            "crest": "crest_diamond",
+            "helmet": "eng_helmet_0",
+            "horse": "horse_bay",
+            "lance": "eng_lance_long_0",
+            "shield": "eng_shield_0"
+          }
+        }
+      }
+    },
+    {
+      "path": "level100-after01.json",
+      "sha256": "f1ba2745d1e26ab26546d989061d2c84d22af5df1d6e477c6bd7c4c60abaccd1",
+      "passed": true,
+      "failures": [],
+      "scope": "Starter inventory; 850ms aim updates, +/-10px repeatable error, fixed chest guard, no lean, continuous spur. Rule simulation, not human win rates.",
+      "starter": {
+        "armor": "mail_basic",
+        "caparison": "caparison_none",
+        "crest": "crest_bend",
+        "helmet": "helm_nasal",
+        "horse": "horse_bay",
+        "lance": "lance_ash",
+        "shield": "shield_basic"
+      },
+      "levels": {
+        "1": {
+          "summary": {
+            "draws": 0,
+            "games": 8,
+            "losses": 0,
+            "lost_unhorsed": 0,
+            "wins": 8
+          },
+          "ai": {
+            "aggression": 0.5,
+            "awareness": 0.0,
+            "feint": false,
+            "head_bias": 0.0,
+            "skill": 0.0,
+            "training": 1.0
+          },
+          "equipment": {
+            "armor": "eng_armor_0",
+            "caparison": "caparison_none",
+            "crest": "crest_quarterly",
+            "helmet": "eng_helmet_0",
+            "horse": "horse_bay",
+            "lance": "eng_lance_light_0",
+            "shield": "eng_shield_0"
+          }
+        },
+        "2": {
+          "summary": {
+            "draws": 0,
+            "games": 8,
+            "losses": 0,
+            "lost_unhorsed": 0,
+            "wins": 8
+          },
+          "ai": {
+            "aggression": 0.5,
+            "awareness": 0.0,
+            "feint": false,
+            "head_bias": 0.0,
+            "skill": 0.0,
+            "training": 1.0
+          },
+          "equipment": {
+            "armor": "eng_armor_0",
+            "caparison": "caparison_none",
+            "crest": "crest_chief",
+            "helmet": "eng_helmet_0",
+            "horse": "horse_bay",
+            "lance": "eng_lance_light_0",
+            "shield": "eng_shield_0"
+          }
+        },
+        "3": {
+          "summary": {
+            "draws": 0,
+            "games": 8,
+            "losses": 0,
+            "lost_unhorsed": 0,
+            "wins": 8
+          },
+          "ai": {
+            "aggression": 0.5,
+            "awareness": 0.0,
+            "feint": false,
+            "head_bias": 0.0,
+            "skill": 0.0,
+            "training": 1.0
+          },
+          "equipment": {
+            "armor": "eng_armor_0",
+            "caparison": "caparison_none",
+            "crest": "crest_diamond",
+            "helmet": "eng_helmet_0",
+            "horse": "horse_bay",
+            "lance": "eng_lance_light_0",
+            "shield": "eng_shield_0"
+          }
+        }
+      }
+    },
+    {
+      "path": "level100-ramp01.json",
+      "sha256": "9468314baae94eddfbbaf2bc7c7e03e7baa9989f1f70edea6a2d30114a2a9856",
+      "passed": true,
+      "failures": [],
+      "scope": "Starter inventory; 850ms aim updates, +/-10px repeatable error, fixed chest guard, no lean, continuous spur. Rule simulation, not human win rates.",
+      "starter": {
+        "armor": "mail_basic",
+        "caparison": "caparison_none",
+        "crest": "crest_bend",
+        "helmet": "helm_nasal",
+        "horse": "horse_bay",
+        "lance": "lance_ash",
+        "shield": "shield_basic"
+      },
+      "levels": {
+        "10": {
+          "summary": {
+            "draws": 0,
+            "games": 8,
+            "losses": 2,
+            "lost_unhorsed": 2,
+            "wins": 6
+          },
+          "ai": {
+            "aggression": 0.5,
+            "awareness": 0.44,
+            "feint": false,
+            "head_bias": 0.0,
+            "skill": 0.44,
+            "training": 0.44
+          },
+          "equipment": {
+            "armor": "it_armor_0",
+            "caparison": "caparison_none",
+            "crest": "crest_cross",
+            "helmet": "it_helmet_0",
+            "horse": "horse_bay",
+            "lance": "it_lance_long_0",
+            "shield": "it_shield_0"
+          }
+        },
+        "5": {
+          "summary": {
+            "draws": 0,
+            "games": 8,
+            "losses": 0,
+            "lost_unhorsed": 0,
+            "wins": 8
+          },
+          "ai": {
+            "aggression": 0.85,
+            "awareness": 0.0,
+            "feint": false,
+            "head_bias": 0.0,
+            "skill": 0.17,
+            "training": 0.84
+          },
+          "equipment": {
+            "armor": "fr_armor_0",
+            "caparison": "caparison_none",
+            "crest": "crest_chevron",
+            "helmet": "fr_helmet_0",
+            "horse": "horse_bay",
+            "lance": "fr_lance_light_0",
+            "shield": "fr_shield_0"
+          }
+        }
+      }
+    },
+    {
+      "path": "level100-rules01.json",
+      "sha256": "d6e563f7caaf501f1c9d4e8286a6f89836954e06426733d578d71945bac50176",
+      "passed": true,
+      "failures": [],
+      "rows": [
+        {
+          "boosted": false,
+          "earliest_observation": 1.075,
+          "head_target": false,
+          "level": 1
+        },
+        {
+          "boosted": false,
+          "earliest_observation": 1.075,
+          "head_target": false,
+          "level": 3
+        },
+        {
+          "boosted": false,
+          "earliest_observation": 1.03333333333333,
+          "head_target": false,
+          "level": 5
+        },
+        {
+          "boosted": false,
+          "earliest_observation": 0.783333333333331,
+          "head_target": false,
+          "level": 10
+        },
+        {
+          "boosted": false,
+          "earliest_observation": 0.841666666666664,
+          "head_target": false,
+          "level": 14
+        },
+        {
+          "boosted": false,
+          "earliest_observation": 0.80833333333333,
+          "head_target": false,
+          "level": 15
+        }
+      ]
+    },
+    {
+      "path": "level100-rules02.json",
+      "sha256": "01f95d34a7152e5c95b0139726ba095ef60772f5a9f4568f19125064a31e8f63",
+      "passed": true,
+      "failures": [],
+      "legacy_compared": true,
+      "rows": [
+        {
+          "boosted": false,
+          "earliest_observation": 1.075,
+          "head_target": false,
+          "level": 1
+        },
+        {
+          "boosted": false,
+          "earliest_observation": 1.075,
+          "head_target": false,
+          "level": 3
+        },
+        {
+          "boosted": false,
+          "earliest_observation": 1.03333333333333,
+          "head_target": false,
+          "level": 5
+        },
+        {
+          "boosted": false,
+          "earliest_observation": 0.783333333333331,
+          "head_target": false,
+          "level": 10
+        },
+        {
+          "boosted": false,
+          "earliest_observation": 0.841666666666664,
+          "head_target": false,
+          "level": 14
+        },
+        {
+          "boosted": false,
+          "earliest_observation": 0.80833333333333,
+          "head_target": false,
+          "level": 15
+        }
+      ]
+    },
+    {
+      "path": "level100-ui01/report.json",
+      "sha256": "69c8e04bf3aa2a806c944e22fa74982db9fdd9a6f6016c25966efdd93a64cef9",
+      "passed": false,
+      "failures": [
+        "QA progress saved"
+      ],
+      "scope": "Isolated rendered Main levels 1/3, starter inventory, coarse chest aim and held spur injected in engine. No OS input/human play; level 2 unlock supplied by fixture.",
+      "version": "0.4.53-c1",
+      "rows": [
+        {
+          "level": 1,
+          "max_enemy_speed": 217.768677119704,
+          "reward": {
+            "coins": 120,
+            "first_clear": true,
+            "level": 1,
+            "renown": 1
+          },
+          "winner": 0
+        },
+        {
+          "level": 3,
+          "max_enemy_speed": 217.768677119704,
+          "reward": {
+            "coins": 144,
+            "first_clear": true,
+            "level": 3,
+            "renown": 1
+          },
+          "winner": 0
+        }
+      ]
+    },
+    {
+      "path": "level100-package-ui01/report.json",
+      "sha256": "c5c2c1b8e7ffdb0991c00d9d5546c2bee5de984b22f0522295dec0093dcc4617",
+      "passed": true,
+      "failures": [],
+      "scope": "Isolated rendered Main levels 1/3, starter inventory, coarse chest aim and held spur injected in engine. No OS input/human play; level 2 unlock supplied by fixture.",
+      "version": "0.4.53-c1",
+      "rows": [
+        {
+          "level": 1,
+          "max_enemy_speed": 217.768677119704,
+          "reward": {
+            "coins": 120,
+            "first_clear": true,
+            "level": 1,
+            "renown": 1
+          },
+          "winner": 0
+        },
+        {
+          "level": 3,
+          "max_enemy_speed": 217.768677119704,
+          "reward": {
+            "coins": 144,
+            "first_clear": true,
+            "level": 3,
+            "renown": 1
+          },
+          "winner": 0
+        }
+      ]
+    },
+    {
+      "path": "level100-package-rules01.json",
+      "sha256": "17a0136eb7c8fa14735cd5dcd3d8f4c6eac89129d34d9e2b112e4505ab2ac36c",
+      "passed": true,
+      "failures": [],
+      "legacy_compared": false,
+      "rows": [
+        {
+          "boosted": false,
+          "earliest_observation": 1.075,
+          "head_target": false,
+          "level": 1
+        },
+        {
+          "boosted": false,
+          "earliest_observation": 1.075,
+          "head_target": false,
+          "level": 3
+        },
+        {
+          "boosted": false,
+          "earliest_observation": 1.03333333333333,
+          "head_target": false,
+          "level": 5
+        },
+        {
+          "boosted": false,
+          "earliest_observation": 0.783333333333331,
+          "head_target": false,
+          "level": 10
+        },
+        {
+          "boosted": false,
+          "earliest_observation": 0.841666666666664,
+          "head_target": false,
+          "level": 14
+        },
+        {
+          "boosted": false,
+          "earliest_observation": 0.80833333333333,
+          "head_target": false,
+          "level": 15
+        }
+      ]
+    }
+  ],
+  "guards": [
+    {
+      "path": "level100-after01-memory.log",
+      "sha256": "e6b85b858cb688402ca34a128133c24114097cf3762b21151b5b79a24f304350",
+      "samples": 167,
+      "peak_private_mib": 47.0,
+      "start": [
+        "START utc=2026-11-17T00:24:38.3014255Z pid=15936 jobMiB=512 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1268"
+      ],
+      "end": [
+        "MEM seconds=169 privateMiB=46.9 workingMiB=99.0 availableRamMiB=2422 availableCommitMiB=3076",
+        "EXIT code=0 seconds=169.7"
+      ]
+    },
+    {
+      "path": "level100-ai044-memory.log",
+      "sha256": "bb7c42fa159a06373bd53c5b5d097658ff85fb0123f198ecf1949d896f9d37df",
+      "samples": 0,
+      "peak_private_mib": null,
+      "start": [
+        "START utc=2026-11-17T00:33:25.8094357Z pid=37512 jobMiB=512 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1268"
+      ],
+      "end": [
+        "START utc=2026-11-17T00:33:25.8094357Z pid=37512 jobMiB=512 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1268",
+        "EXIT code=0 seconds=0.4"
+      ]
+    },
+    {
+      "path": "level100-before-memory.log",
+      "sha256": "3c38405935af0d6f0cf0807ff417a6e13b4aec5ccd72475f01d06cad0ee45990",
+      "samples": 168,
+      "peak_private_mib": 48.5,
+      "start": [
+        "START utc=2026-11-17T00:20:49.5074894Z pid=4184 jobMiB=512 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1268"
+      ],
+      "end": [
+        "MEM seconds=170 privateMiB=48.5 workingMiB=99.5 availableRamMiB=2338 availableCommitMiB=3054",
+        "TIMEOUT: terminating job"
+      ]
+    },
+    {
+      "path": "level100-export01-memory.log",
+      "sha256": "62d7c0811463388abd479c12b23f6f16fdf7b247a89723bbabcdaccc66a36f06",
+      "samples": 17,
+      "peak_private_mib": 619.0,
+      "start": [
+        "START utc=2026-11-17T00:34:46.5729883Z pid=37588 jobMiB=1024 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1780"
+      ],
+      "end": [
+        "MEM seconds=17 privateMiB=412.2 workingMiB=463.3 availableRamMiB=2104 availableCommitMiB=2929",
+        "EXIT code=0 seconds=17.6"
+      ]
+    },
+    {
+      "path": "level100-import01-memory.log",
+      "sha256": "63ff0f01dec13069dd1aac30137ad6a5e3405dcc12bac0b7a2d90e3b8dbeb168",
+      "samples": 12,
+      "peak_private_mib": 763.3,
+      "start": [
+        "START utc=2026-11-17T00:33:29.6162924Z pid=32116 jobMiB=1024 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1780"
+      ],
+      "end": [
+        "MEM seconds=12 privateMiB=605.6 workingMiB=628.1 availableRamMiB=1986 availableCommitMiB=2689",
+        "EXIT code=0 seconds=12.6"
+      ]
+    },
+    {
+      "path": "level100-package-rules01-memory.log",
+      "sha256": "3762891980e635dfe3fba905060f1e7036738009d9d2fd9db407915d3d537f41",
+      "samples": 0,
+      "peak_private_mib": null,
+      "start": [
+        "START utc=2026-11-17T00:38:13.4433914Z pid=1336 jobMiB=512 executable=E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.53-c1\\runtime\\LanceAndLaurel.exe reserveMiB=500 startupMiB=1268"
+      ],
+      "end": [
+        "START utc=2026-11-17T00:38:13.4433914Z pid=1336 jobMiB=512 executable=E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.53-c1\\runtime\\LanceAndLaurel.exe reserveMiB=500 startupMiB=1268",
+        "EXIT code=0 seconds=0.4"
+      ]
+    },
+    {
+      "path": "level100-package-ui01-memory.log",
+      "sha256": "f7037598f768e95187e71b49d3c7edfe2f3c8ee8871974f47ef07f8105055eba",
+      "samples": 115,
+      "peak_private_mib": 697.6,
+      "start": [
+        "QA_DESKTOP GALUMU_QA_8c9e5dc919bc4eb882be2209aa8cf536 (not switched to input desktop)"
+      ],
+      "end": [
+        "EXIT code=0 seconds=117.7",
+        "QA_DESKTOP_CLOSED=True"
+      ]
+    },
+    {
+      "path": "level100-parse01-memory.log",
+      "sha256": "3396c4848608ed7c1645c7114683fd30c7b4f85e00ba85de10aceca106a196b5",
+      "samples": 3,
+      "peak_private_mib": 170.3,
+      "start": [
+        "START utc=2026-11-17T00:28:16.5201608Z pid=12760 jobMiB=512 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1268"
+      ],
+      "end": [
+        "MEM seconds=3 privateMiB=170.3 workingMiB=186.2 availableRamMiB=2398 availableCommitMiB=3008",
+        "EXIT code=0 seconds=3.5"
+      ]
+    },
+    {
+      "path": "level100-ramp01-memory.log",
+      "sha256": "df4ea2ac9dd128095cd14eebdf4c80ef58e0f199741e961144f5bbb18fceebf8",
+      "samples": 61,
+      "peak_private_mib": 46.8,
+      "start": [
+        "START utc=2026-11-17T00:31:41.7462945Z pid=23988 jobMiB=512 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1268"
+      ],
+      "end": [
+        "MEM seconds=62 privateMiB=46.7 workingMiB=98.6 availableRamMiB=2505 availableCommitMiB=3198",
+        "EXIT code=0 seconds=62.1"
+      ]
+    },
+    {
+      "path": "level100-rules01-memory.log",
+      "sha256": "8c8de4a968f6f0797b1466514cc8b391a4655eacd6cb0d72929aa8a9766a49db",
+      "samples": 0,
+      "peak_private_mib": null,
+      "start": [
+        "START utc=2026-11-17T00:24:25.2498462Z pid=5716 jobMiB=512 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1268"
+      ],
+      "end": [
+        "START utc=2026-11-17T00:24:25.2498462Z pid=5716 jobMiB=512 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1268",
+        "EXIT code=0 seconds=0.6"
+      ]
+    },
+    {
+      "path": "level100-rules02-memory.log",
+      "sha256": "a514dfe4a69a5e7ebd376fb7d37ea5b5dcd7a7daf62ae26590f2c4118488fb9a",
+      "samples": 2,
+      "peak_private_mib": 52.0,
+      "start": [
+        "START utc=2026-11-17T00:27:53.1104485Z pid=14456 jobMiB=512 executable=E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1268"
+      ],
+      "end": [
+        "MEM seconds=2 privateMiB=52.0 workingMiB=100.7 availableRamMiB=2496 availableCommitMiB=3168",
+        "EXIT code=0 seconds=2.9"
+      ]
+    },
+    {
+      "path": "level100-ui01-memory.log",
+      "sha256": "46394c08bfd4d553af43d4383952abff34a0da8a663905777829d4cb8eb2e4b6",
+      "samples": 117,
+      "peak_private_mib": 713.2,
+      "start": [
+        "QA_DESKTOP GALUMU_QA_7655248f492b4604aa276d503bf10f23 (not switched to input desktop)"
+      ],
+      "end": [
+        "EXIT code=0 seconds=119.4",
+        "QA_DESKTOP_CLOSED=True"
+      ]
+    }
+  ],
+  "engine_logs": [
+    {
+      "path": "level100-after01-engine.log",
+      "sha256": "f549a17a366bcf34a008aa1d69b39418c67338b75ffb9dc9ba68212d057ca15c",
+      "issues": []
+    },
+    {
+      "path": "level100-ai044-engine.log",
+      "sha256": "4f189ac525b59b3c9862616f2892650ebbd631362d1b2a094ccd474b516c5d40",
+      "issues": []
+    },
+    {
+      "path": "level100-before-engine.log",
+      "sha256": "f223f13529b2a51ca0eb961df91af2be241879a6081de7d87ee7a0b6e2063bc6",
+      "issues": []
+    },
+    {
+      "path": "level100-export01-engine.log",
+      "sha256": "452b786cedc656db8f393d0900f20817cb76fe16806dbca155983d84bd17d0da",
+      "issues": []
+    },
+    {
+      "path": "level100-import01-engine.log",
+      "sha256": "0a52cba29c81115a95665328f9ea1f295bfea757bdd813bd9d199a333e090427",
+      "issues": []
+    },
+    {
+      "path": "level100-package-rules01-engine.log",
+      "sha256": "ff55b7e67eda3c74e4ed9ec456e08bfc53b788a28faa1b725f3a06cf639c2763",
+      "issues": []
+    },
+    {
+      "path": "level100-package-ui01-engine.log",
+      "sha256": "76edd7f2103a9f3b5c8ba5b970afd4ff764aa17d5473899fa9ba9f61c7603a70",
+      "issues": []
+    },
+    {
+      "path": "level100-parse01-engine.log",
+      "sha256": "e5f3656d9f492921c36e9b8c176c911e3c25bf4c5daeb12807b3b8615b6455bb",
+      "issues": []
+    },
+    {
+      "path": "level100-ramp01-engine.log",
+      "sha256": "bb57fa08c9673f0a007e54c4f1f016d00406007db7d41c40a366b008a2b4bf67",
+      "issues": []
+    },
+    {
+      "path": "level100-rules01-engine.log",
+      "sha256": "ff55b7e67eda3c74e4ed9ec456e08bfc53b788a28faa1b725f3a06cf639c2763",
+      "issues": []
+    },
+    {
+      "path": "level100-rules02-engine.log",
+      "sha256": "ff55b7e67eda3c74e4ed9ec456e08bfc53b788a28faa1b725f3a06cf639c2763",
+      "issues": []
+    },
+    {
+      "path": "level100-ui01-engine.log",
+      "sha256": "76edd7f2103a9f3b5c8ba5b970afd4ff764aa17d5473899fa9ba9f61c7603a70",
+      "issues": []
+    }
+  ],
+  "package": {
+    "manifest_sha256": "523b415b39579577c1a3475820989c557b502a0f9ecfbf490312062e8a9efee0",
+    "files": [
+      {
+        "path": "LanceAndLaurel.exe",
+        "bytes": 44544,
+        "sha256": "3DA4080952DBF08DF376B5751CBA119ECE51520A41EBCFEF2CE5F9AAC13B9024"
+      },
+      {
+        "path": "licenses/ASSET-NOTICES.txt",
+        "bytes": 1590,
+        "sha256": "F4B6EBA3D37BAC1A552E7BB9D70DF068F0267120658D691E0AF591F9324A72D5"
+      },
+      {
+        "path": "licenses/GODOT-LICENSE.txt",
+        "bytes": 1149,
+        "sha256": "B0435E3B3E4E55238F05F4B306F30524A1B2E20147810D436EAA554FA6855C80"
+      },
+      {
+        "path": "licenses/GODOT-THIRD-PARTY.txt",
+        "bytes": 91338,
+        "sha256": "25EFD44DF9346C7469B21AE5CB0488CF6FFF63854D4473A6AF95E08508A87B17"
+      },
+      {
+        "path": "licenses/NOTO-SANS-SC-OFL.txt",
+        "bytes": 4388,
+        "sha256": "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9"
+      },
+      {
+        "path": "PLAYER-GUIDE.txt",
+        "bytes": 3566,
+        "sha256": "A48414CE48FA98BDE5FCFBD227DBC090CAF045422930249DDBD6E1EDD33B6D12"
+      },
+      {
+        "path": "RELEASE-NOTES.txt",
+        "bytes": 821,
+        "sha256": "B829369114435835DE2A65A3061C112D33E0B5CA5015211ECA0E54780B390CAC"
+      },
+      {
+        "path": "runtime/LanceAndLaurel.exe",
+        "bytes": 96725504,
+        "sha256": "78CCC576E8F8BFFD7EF6AD6F36EBD72A41E609A1052225A55B3407C96EA84065"
+      },
+      {
+        "path": "runtime/LanceAndLaurel.pck",
+        "bytes": 38118064,
+        "sha256": "BA38AC2FAA6859E858107DDA290BF175CE711277A597F255F05A3005D58858CD"
+      }
+    ]
+  }
+}

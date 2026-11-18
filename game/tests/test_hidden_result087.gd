@@ -39,6 +39,8 @@ func run()->void:
 	while Time.get_ticks_msec()<until:await process_frame
 	check(not DisplayServer.window_can_draw(),"Result did not become non-drawable")
 	var before=counts.duplicate(true)
+	if normal_hud:
+		check(before.status>0 and before.status_background>0,"Normal HUD counters observed real drawing before minimizing")
 	var rows=[]
 	var hidden_start=Time.get_ticks_msec()
 	var sample=0

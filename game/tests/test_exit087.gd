@@ -3,9 +3,11 @@ extends "test_ui082.gd"
 ## Dialog signals are production callbacks, not OS mouse/keyboard evidence.
 func run() -> void:
 	var discard=false
+	var during_preparation=false
 	for a in OS.get_cmdline_user_args():
 		if a.begins_with("--folder="):folder=a.trim_prefix("--folder=")
 		if a=="--discard":discard=true
+		if a=="--during-preparation":during_preparation=true
 	state=root.get_node("GameState")
 	if folder.is_empty() or DirAccess.dir_exists_absolute(folder) or not state.save_path.contains("qa_") or OS.get_environment("GALUMU_MEMORY_BOUND")!="1024" or DisplayServer.get_name()=="headless":quit(2);return
 	DirAccess.make_dir_recursive_absolute(folder)
@@ -22,10 +24,19 @@ func run() -> void:
 	main=load("res://scenes/main.tscn").instantiate();root.add_child(main);current_scene=main
 	main._start_match("arena",true)
 	if root.focus_exited.is_connected(main.battle._on_focus_lost):root.focus_exited.disconnect(main.battle._on_focus_lost)
-	await process_frame
+	if not during_preparation:
+		var ready_deadline=Time.get_ticks_msec()+10000
+		while not main.battle.presentation_ready and Time.get_ticks_msec()<ready_deadline:await process_frame
+		check(main.battle.presentation_ready,"Combat preparation never completed")
+	var phase_before=float(main.battle.match_model.phase_time)
 	main.notification(Node.NOTIFICATION_WM_CLOSE_REQUEST)
+	check(main.battle.paused or main.battle.preparation_pause_requested,"Close failure lost its pending pause")
+	var pause_deadline=Time.get_ticks_msec()+10000
+	while not main.battle.presentation_ready and Time.get_ticks_msec()<pause_deadline:await process_frame
+	check(main.battle.presentation_ready,"Pending pause prevented staged preparation from completing")
 	await capture("01_failed_exit")
 	check(not main.shutting_down and main.battle.paused and paused,"Save error did not pause active combat")
+	check(absf(float(main.battle.match_model.phase_time)-phase_before)<.0001,"Combat progressed while save failure modal was open")
 	var first=main.save_error_dialog
 	check(first is ConfirmationDialog and first.get_cancel_button().text=="返回游戏","Save failure lacks safe return")
 	check(first.get_viewport().gui_get_focus_owner()==first.get_cancel_button(),"Failure dialog defaults to unsafe focus")
@@ -57,5 +68,5 @@ func run() -> void:
 		check(saved.coins==coins_before and FileAccess.get_sha256(state.save_path)==disk_before,"Discard wrote unsaved changes or damaged original")
 	else:
 		check(saved.coins==coins_before+180 and not state.profile_save_pending,"Retry failed to save before exit")
-	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"discard":discard,"shutting_down":main.shutting_down,"captures":captures,"saved_coins":saved.coins,"scope":"Actual isolated GPU and file write failure; normal modal callbacks and asynchronous shutdown, no OS input. Guard exit log proves final process exit."},"\t"))
+	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"discard":discard,"during_preparation":during_preparation,"shutting_down":main.shutting_down,"captures":captures,"saved_coins":saved.coins,"scope":"Actual isolated GPU and file write failure; normal modal callbacks and asynchronous shutdown, no OS input. Guard exit log proves final process exit."},"\t"))
 	print("EXIT087 ",failures)

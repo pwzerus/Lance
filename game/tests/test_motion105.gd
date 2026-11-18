@@ -10,6 +10,7 @@ var folder=""
 var failures=[]
 var records=[]
 var expect_grip=false
+var study_prefix=""
 
 func _initialize()->void:call_deferred("run")
 func check(ok:bool,message:String)->void:
@@ -68,21 +69,30 @@ func study(kind:String,facing:int,kit:Dictionary)->void:
 			samples.append({"time":time,"fighter":f.duplicate(true),"body":rider.visual_pose.duplicate(true),"legs":rider.leg_poses.duplicate(true),"moving":rider.moving})
 	var span=hand_max-hand_min
 	if expect_grip and kind=="aim":check(span>7 and span<28,"Aim uses a bounded forearm/grip arc")
-	records.append({"kind":kind,"facing":facing,"hand_vertical_span":span,"maximum_world_step":max_step,"samples":points})
+	records.append({"coat":str(kit.get("horse_coat","bay")),"kind":kind,"facing":facing,"hand_vertical_span":span,"maximum_world_step":max_step,"samples":points})
 	rider.queue_free();await process_frame
-	await render_study(samples,kind+str(facing))
+	await render_study(samples,study_prefix+kind+str(facing))
 
 func run()->void:
+	var coats=[];var kinds=["aim","guard","lean","ride"]
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--folder="):folder=arg.trim_prefix("--folder=")
 		if arg=="--expect-animated-grip":expect_grip=true
+		if arg.begins_with("--coats="):coats=Array(arg.trim_prefix("--coats=").split(","))
+		if arg.begins_with("--kinds="):kinds=Array(arg.trim_prefix("--kinds=").split(","))
 	var state=root.get_node("GameState")
 	if folder.is_empty() or DirAccess.dir_exists_absolute(folder) or not "qa_" in state.save_path or DisplayServer.get_name()=="headless" or OS.get_environment("GALUMU_MEMORY_BOUND")!="1024":quit(2);return
 	DirAccess.make_dir_recursive_absolute(folder)
 	root.size=Vector2i(1440,900);root.content_scale_size=Vector2i(1440,900);root.content_scale_mode=Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 	var kit=Catalogue.stats(state.items,Campaign.level(state.items,2).equipment)
-	for kind in ["aim","guard","lean","ride"]:
-		for facing in [1,-1]:await study(kind,facing,kit)
-	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"records":records,"version":ProjectSettings.get_setting("application/config/version"),"scope":"Production controls/pose sampling and isolated GPU images; no OS input or human rating."},"\t"))
+	if coats.is_empty():coats=[str(kit.get("horse_coat","bay"))]
+	for coat in coats:
+		check(coat in ["bay","black","flaxen","grey"],"Known shipped coat")
+		kit["horse_coat"]=coat
+		study_prefix=str(coat)+"_" if coats.size()>1 else ""
+		for kind in kinds:
+			check(kind in ["aim","guard","lean","ride"],"Known study type")
+			for facing in [1,-1]:await study(kind,facing,kit)
+	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"records":records,"version":ProjectSettings.get_setting("application/config/version"),"coats":coats,"scope":"Coat-only visual variants, unchanged horse stats. Production controls/pose sampling and isolated GPU images; no OS input or human rating."},"\t"))
 	print("MOTION105 ",failures)
 	quit(0 if failures.is_empty() else 1)

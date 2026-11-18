@@ -4,6 +4,8 @@ const Catalogue=preload("res://scripts/core/catalogue.gd")
 var folder=""
 var main
 var rows=[]
+const Model=preload("res://scripts/core/joust_match.gd")
+var control_rows=[]
 func check(ok:bool,message:String) -> void:
 	if not ok and message not in failures:failures.append(message)
 func click(button:Button) -> void:
@@ -32,7 +34,11 @@ func run() -> void:
 		check(summary.lines.size()>0 and summary.lines.size()<=5,"Unreadable comparison length: "+item.id)
 		check(not ("nan" in str(summary) or "inf" in str(summary)),"Nonfinite comparison: "+item.id)
 		if item.id=="de_armor_5":
-			check(summary.changes.armor>0 and summary.changes.fatigue>0 and summary.changes.lance_handling<0 and summary.changes.shield_handling<0,"Heavy armor preview failed to show its actual costs")
+			check(summary.changes.armor>0 and summary.changes.fatigue>0 and summary.changes.lance_handling<0 and summary.changes.shield_handling==0,"Heavy armor preview failed to show its actual costs (REQ098 keeps the same shield traversal speed)")
+			var fresh=control_travel(summary.before)
+			var armored=control_travel(summary.after)
+			check(armored.aim_time>fresh.aim_time and absf(armored.guard_time-fresh.guard_time)<.009,"Comparison disagrees with actual fresh-arm control traversal")
+			control_rows.append({"item":item.id,"before":fresh,"after":armored})
 		if item.slot=="crest":check(summary.changes.fatigue==0 and summary.changes.loaded_speed==0,"Crest invented physical changes")
 		if item.slot=="horse":
 			var art=load("res://scripts/visual/equipment_art.gd")
@@ -73,7 +79,24 @@ func run() -> void:
 		for item in state.items.slice(0,20):
 			main.selected_item=item;main._update_item_panel()
 		main.show_home();await settle(.3)
-	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"items":rows,"rendered":DisplayServer.get_name()!="headless","scope":"Exact current-loadout comparison and real isolated GPU menu; viewport tab clicks, not OS or human assessment."},"\t"))
+	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"items":rows,"control_traversal":control_rows,"rendered":DisplayServer.get_name()!="headless","scope":"Exact current-loadout comparison and real isolated GPU menu; viewport tab clicks, not OS or human assessment."},"\t"))
 	print("COMPARE087 ",failures)
 	if is_instance_valid(main):main.notification(Node.NOTIFICATION_WM_CLOSE_REQUEST)
 	else:quit(0 if failures.is_empty() else 1)
+
+# Exercise the real eased motor. Hold only stamina/pace constant to compare
+# fresh-arm handling separately from accumulated fatigue and approaching impact.
+func control_travel(stats:Dictionary)->Dictionary:
+	var model=Model.new("arena",stats,stats,105)
+	model.phase="charge"
+	model.fighters[0].x=-10000;model.fighters[1].x=10000
+	var f=model.fighters[0]
+	f.aim=-.6;f.aim_rate=0;f.guard=0;f.guard_rate=0;f.speed=200
+	var result={"aim_time":-1.0,"guard_time":-1.0}
+	for tick in range(360):
+		f.arm=100.0
+		model.set_controls(0,.5,0,false,1.0/120,1.0)
+		if result.aim_time<0 and absf(f.aim-.5)<.003:result.aim_time=(tick+1)/120.0
+		if result.guard_time<0 and absf(f.guard-1.0)<.003:result.guard_time=(tick+1)/120.0
+	check(result.aim_time>0 and result.guard_time>0,"Comparison traversal failed to arrive")
+	return result

@@ -2,6 +2,8 @@ extends SceneTree
 ## HORSE-065 compile gate: every script touched this round must load and
 ## compile headless before any render pass. Prints one line per script.
 const PATHS = [
+	"res://tests/test_mounted_contact105.gd",
+	"res://scripts/ui/help_pages.gd",
 	"res://tests/test_motion105.gd",
 	"res://tests/test_continuity105.gd",
 	"res://tests/test_reaction105.gd",

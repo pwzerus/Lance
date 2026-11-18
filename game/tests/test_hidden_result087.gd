@@ -3,6 +3,7 @@ extends "test_flow082.gd"
 ## canvas draw callbacks, not only whole-window frames, with H overlay enabled.
 func run()->void:
 	var hidden_seconds=90.0
+	var normal_hud=OS.get_cmdline_user_args().has("--normal-hud")
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--folder="):folder=arg.trim_prefix("--folder=")
 		if arg.begins_with("--hidden-seconds="):hidden_seconds=clampf(float(arg.trim_prefix("--hidden-seconds=")),15,90)
@@ -20,12 +21,14 @@ func run()->void:
 	# Production builds riders/HUD over several frames; subscribe only once
 	# they exist, so a stale fixture cannot masquerade as a minimize leak.
 	if not await wait_battle(battle):quit(2);return
-	battle.training_zones=true;battle.zone_overlay.visible=true
-	var counts={"zones":0,"cues":0,"rider0":0,"rider1":0}
+	battle.training_zones=not normal_hud;battle.zone_overlay.visible=not normal_hud
+	var counts={"zones":0,"cues":0,"rider0":0,"rider1":0,"status":0,"status_background":0}
 	battle.zone_overlay.draw.connect(func():counts.zones+=1)
 	battle.combat_cues.draw.connect(func():counts.cues+=1)
 	battle.riders[0].draw.connect(func():counts.rider0+=1)
 	battle.riders[1].draw.connect(func():counts.rider1+=1)
+	battle.status_gauges.draw.connect(func():counts.status+=1)
+	battle.status_gauges._backdrop.draw.connect(func():counts.status_background+=1)
 	var started=Time.get_ticks_msec()
 	while not main.result_visible and Time.get_ticks_msec()-started<120000:await process_frame
 	check(main.result_visible and battle.is_finished,"Actual normal match did not reach results")
@@ -56,7 +59,7 @@ func run()->void:
 	check(click_result_back(),"Restored result cannot return to camp")
 	await process_frame
 	check(main.page=="home" and not is_instance_valid(main.battle),"Finished battle remained after return to camp")
-	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"before":before,"after":after,"samples":rows,"version":ProjectSettings.get_setting("application/config/version"),"wall_seconds":(Time.get_ticks_msec()-started)/1000.0,"hidden_seconds":hidden_seconds,"scope":"Normal Main/autoplay match and result, bounded truly minimized interval on isolated desktop, individual CanvasItem draw signal counters. H overlay enabled. Engine window modes and viewport return click, no OS input or human play."},"\t"))
+	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"before":before,"after":after,"samples":rows,"version":ProjectSettings.get_setting("application/config/version"),"wall_seconds":(Time.get_ticks_msec()-started)/1000.0,"hidden_seconds":hidden_seconds,"normal_hud":normal_hud,"scope":"Normal Main/autoplay match and result, bounded truly minimized interval on isolated desktop, individual CanvasItem draw signal counters. H overlay or normal HUD selected explicitly. Engine window modes and viewport return click, no OS input or human play."},"\t"))
 	print("HIDDEN_RESULT087 ",failures," before=",before," after=",after)
 	main.notification(Node.NOTIFICATION_WM_CLOSE_REQUEST)
 

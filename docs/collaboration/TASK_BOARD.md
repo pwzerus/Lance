@@ -17,6 +17,7 @@
 - test_cinema099.gd的配对双KO表现夹具同步各自枪体/速度/跑道快照，避免把第一把断枪的位置复制为第二把；仍明确这是表现夹具，不冒称同帧双扫掠。
 - 测试维护复核后，撤销本轮对历史test_horse_anatomy_v050.gd的全部修改，保留其历史用途；改由现有test_horse_anatomy063.gd提供六节点检查并补当前visual_pose/逐帧系部速度度量。test_motion_cadence061.gd与test_motion_lowrate061.gd迁移到该基类，避免复制新骨架测试。
 - 后台画面发现顶部生命/平衡/得分文字叠在明亮天空上，对比不足；ui/combat_status098.gd补两侧紧凑底色，保持中央视野，复用test_notice105实际渲染核对两尺寸与文字覆盖。
+- 实包审查追加：test_bundle087.gd的旧186物品假设未包含FEEL-093已存在8纹章；按实际数据独立核对194和各槽数量/ID唯一性。test_hidden_result087.gd增加正常HUD计数模式，复验新背景缓存与隐藏窗口。
 - 串行后台-IsolatedDesktop和QA存档，内存/CPU/单实例等保护保持，不接管屏幕。最后留出导出和实包检查时间，记录未解决项，不用通过数或专业称谓代替实际验收。
 
 ## FIX-104 已交出（2026-11-17，Codex）

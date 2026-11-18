@@ -19,7 +19,16 @@ func run()->void:
 	var catalogue=load("res://scripts/core/catalogue.gd")
 	var art=load("res://scripts/visual/equipment_art.gd")
 	var skin=load("res://scripts/visual/horse_skin.gd")
-	check(state.items.size()==186,"Unexpected merged catalogue count")
+	# FEEL-093 added eight family crests after the original 186-item fixture.
+	# Check each slot and unique IDs so a duplicate cannot hide a missing item.
+	check(state.items.size()==194,"Unexpected merged catalogue count")
+	var expected_slots={"armor":33,"helmet":31,"lance":79,"horse":10,"crest":12,"shield":25,"caparison":4}
+	var actual_slots={};var item_ids={}
+	for item in state.items:
+		check(not item_ids.has(str(item.id)),"Duplicate packed item: "+str(item.id))
+		item_ids[str(item.id)]=true
+		actual_slots[item.slot]=int(actual_slots.get(item.slot,0))+1
+	check(actual_slots==expected_slots,"Packed slot distribution differs: "+str(actual_slots))
 	var art_paths=[];var armor_count=0;var lance_count=0
 	for region in ["eng","fr","de","it"]:
 		for tier in range(6):

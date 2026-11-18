@@ -16,6 +16,7 @@ var capture_dir = "E:/GALUMU/docs/development/screenshots/v050/fall-scene01"
 var captures_enabled = true
 var case_limit = 0
 var blood_toggle_only = false
+var blood_toggle_both_lanes = false
 var blood_toggle_results: Array = []
 var original_master_db = 0.0
 
@@ -51,6 +52,7 @@ func create_battle(mode_name: String, blood: bool = false):
 	state.profile.settings.blood = blood
 	state.profile.settings.slow_motion = false
 	main._start_match(mode_name,true)
+	while not main.battle.presentation_ready:await process_frame
 	configure(main.battle)
 	return main.battle
 
@@ -250,6 +252,8 @@ func blood_toggle_contract(battle, actor, defender: int, name: String) -> void:
 		return
 	var toggle_count = [0]
 	blood_button.toggled.connect(func(_value: bool): toggle_count[0] += 1)
+	var ground_redraws = [0]
+	battle.effects.far_dust.draw.connect(func():ground_redraws[0]+=1)
 	var actor_age = actor.age
 	var nonblood_before = battle.effects.particles.size()-blood_particle_count(battle)
 	blood_button.button_pressed = false
@@ -263,6 +267,7 @@ func blood_toggle_contract(battle, actor, defender: int, name: String) -> void:
 	check(battle.effects.particles.size()==nonblood_before,"Blood toggle preserves existing nonblood contact particles",{"case":name})
 	check(battle.paused and paused and is_equal_approx(actor.age,actor_age),"Blood toggle keeps the scene and fallen body paused",{"case":name})
 	await capture(battle,actor,name,"blood_off_paused")
+	check(ground_redraws[0]>0,"Paused blood toggle invalidates the cached ground canvas",{"case":name})
 	var resume_button = find_button(battle.pause_panel,"继续对冲")
 	check(resume_button!=null,"Formal resume button exists after blood toggle",{"case":name})
 	if resume_button!=null:
@@ -274,7 +279,7 @@ func blood_toggle_contract(battle, actor, defender: int, name: String) -> void:
 	check(rule_state(battle.match_model)==rules_before and injury_state(actor.fighter)==injury_before,"Resume preserves the terminal injury and outcome after blood toggle",{"case":name})
 	blood_toggle_results.append({"case":name,"mode":battle.mode,"passed":failures.size()==failures_before,
 		"blood_particles_before":blood_before,"stains_before":stains_before,"blood_particles_after":blood_particle_count(battle),
-		"stains_after":battle.effects.stains.size(),"toggled_signal_count":toggle_count[0],"injury":injury_before,
+		"stains_after":battle.effects.stains.size(),"toggled_signal_count":toggle_count[0],"ground_redraws_paused":ground_redraws[0],"injury":injury_before,
 		"evidence":"Existing pause/resume Button.pressed signals and existing blood CheckButton.button_pressed property emitting toggled; production callbacks execute. Scripted engine UI, not OS input."})
 
 func assert_first_pose(battle, actor, defender: int, name: String) -> void:
@@ -302,6 +307,7 @@ func restart_contract(battle, actor, name: String) -> void:
 	var old_lance = weakref(actor.loose_lance) if is_instance_valid(actor.loose_lance) else null
 	battle.replay_requested.emit()
 	var fresh = main.battle
+	while not fresh.presentation_ready:await process_frame
 	configure(fresh)
 	await process_frame
 	check(old_battle.get_ref()==null and old_actor.get_ref()==null,"Formal replay frees the previous scene and fallen rider",{"case":name})
@@ -315,7 +321,7 @@ func restart_contract(battle, actor, name: String) -> void:
 func run_case(mode_name: String, attacker: int, zone: String, broken: bool, test_blood_toggle: bool = false) -> void:
 	var defender = 1-attacker
 	var name = "%s_%s_facing_%s_%s" % [mode_name,zone,"right" if defender==0 else "left","broken" if broken else "whole"]
-	var battle = create_battle(mode_name,test_blood_toggle)
+	var battle = await create_battle(mode_name,test_blood_toggle)
 	var fixture = find_fixture(battle,attacker,zone,broken)
 	check(not fixture.is_empty(),"A genuine swept terminal fixture exists",{"case":name})
 	if fixture.is_empty():
@@ -417,6 +423,7 @@ func run() -> void:
 		if arg.begins_with("--case-limit="): case_limit = maxi(0,int(arg.trim_prefix("--case-limit=")))
 		if arg=="--no-captures": captures_enabled = false
 		if arg=="--blood-toggle-only": blood_toggle_only = true
+		if arg=="--blood-toggle-both-lanes": blood_toggle_both_lanes = true
 	var state = root.get_node_or_null("GameState")
 	if state==null or not str(state.save_path).contains("qa_") or DisplayServer.get_name()=="headless":
 		push_error("Fall scene integration requires rendering and -- --test-profile")
@@ -433,6 +440,8 @@ func run() -> void:
 			quit(2)
 			return
 	DirAccess.make_dir_recursive_absolute(report_path.get_base_dir())
+	state.save_path=report_path.get_base_dir()+"/qa_profile.json"
+	state.backup_path=report_path.get_base_dir()+"/qa_backup.json"
 	if captures_enabled:
 		DirAccess.make_dir_recursive_absolute(capture_dir)
 	state.profile = state.default_profile()
@@ -452,7 +461,7 @@ func run() -> void:
 		for attacker in [0,1]:
 			for zone in ["head","body","flank"]:
 				for broken in [false,true]:
-					var test_blood_toggle = attacker==0 and zone=="head" and not broken
+					var test_blood_toggle = (attacker==0 or blood_toggle_both_lanes) and zone=="head" and not broken
 					if blood_toggle_only and not test_blood_toggle:
 						continue
 					if case_limit>0 and selected>=case_limit:
@@ -464,7 +473,7 @@ func run() -> void:
 	await process_frame
 	AudioServer.set_bus_volume_db(0,original_master_db)
 	var report = {"passed":failures.is_empty(),"failures":failures,"examples":examples,"cases":cases,"selected_cases":selected,"full_matrix_cases":24,
-		"case_limit":case_limit,"blood_toggle_only":blood_toggle_only,"blood_toggle_results":blood_toggle_results,
+		"case_limit":case_limit,"blood_toggle_only":blood_toggle_only,"blood_toggle_both_lanes":blood_toggle_both_lanes,"blood_toggle_results":blood_toggle_results,
 		"captures":captures,"captures_enabled":captures_enabled,"project_version":ProjectSettings.get_setting("application/config/version","unknown"),
 		"evidence":"Actual Model.step swept hit replayed from selected initial state, formal Battle consumer and ordinary post-contact process/physics. Initial defender 1HP, no shield, no reciprocal attack, explicit whole/broken weapon state are contract fixtures, not natural AI balance. First selected head/left/whole case in each mode starts blood-on and switches it off through the existing pause-menu CheckButton toggled callback after a real wound and fall; other cases start blood-off. Every case invokes formal replay and checks freed rider/weapon. First contact freezes only for age0 evidence; subsequent fall and loose weapon use the real scene. Captures fit actual FallenRider.world_body_rect plus held/loose weapon with a QA camera override, so no claim that production camera framing or player feel passed. Scripted engine integration and UI signals, no OS input or human verdict."}
 	var file = FileAccess.open(report_path,FileAccess.WRITE)

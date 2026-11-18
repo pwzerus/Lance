@@ -1143,6 +1143,25 @@ func _draw() -> void:
 			draw_set_transform(point,0,Vector2(lerpf(1,.91,air),lerpf(.22,.17,air)))
 			draw_circle(Vector2.ZERO,125,Color(0,0,0,lerpf(.19,.13,air)))
 			draw_set_transform(Vector2.ZERO)
+	# A fallen rider needs the same ground reference as a mount. This lives
+	# behind the actors/rail, on his actual lane floor, and never alters the
+	# support solver. A high airborne body casts a lighter, softer footprint;
+	# contact gathers it under the supported silhouette rather than the hip.
+	if effects:
+		for fallen in effects.bodies:
+			if not is_instance_valid(fallen):continue
+			var bounds: Rect2 = fallen.world_body_rect()
+			var floor_point = fallen.get_parent().to_global(Vector2(0,fallen.ground_y))
+			var center = to_local(Vector2(bounds.get_center().x,floor_point.y))
+			var height = maxf(0.0,float(fallen.ground_y)-fallen.position.y-fallen.lowest_body_point())
+			var airborne = smoothstep(0.0,160.0,height)
+			var radius = clampf(bounds.size.x*.44,24.0,126.0)
+			draw_set_transform(center,0,Vector2(1.0,lerpf(7.0,12.0,airborne)/radius))
+			draw_circle(Vector2.ZERO,radius,Color(.10,.08,.05,lerpf(.23,.055,airborne)))
+			if height<20.0:
+				draw_set_transform(center,0,Vector2(.80,3.0/radius))
+				draw_circle(Vector2.ZERO,radius,Color(.08,.06,.04,.11*(1.0-smoothstep(0.0,20.0,height))))
+			draw_set_transform(Vector2.ZERO)
 
 func _draw_rail() -> void:
 	# A separate canvas item sits between the far and near mounts, rather

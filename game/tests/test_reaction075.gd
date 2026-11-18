@@ -22,8 +22,15 @@ func _initialize() -> void:
 				var pose=Rider.arm_pose(f)
 				for side in ["left","right"]:
 					var arm: Dictionary=pose[side]
-					arm_error=maxf(arm_error,absf(arm.shoulder.distance_to(arm.elbow)-Rider.ARM_UPPER))
-					arm_error=maxf(arm_error,absf(arm.hand.distance_to(arm.elbow)-Rider.ARM_LOWER))
+					# FIX-104 / ANIM-105: the distant arm is foreshortened, never
+					# disconnected. Check both captured segment lengths plus a
+					# separate bound and an unprojected near-arm requirement.
+					var projection=float(arm.get("projection",1.0))
+					var distant=(side=="right" and facing<0) or (side=="left" and facing>0)
+					if projection<.6399 or projection>1.0001 or (not distant and absf(projection-1.0)>.0001):
+						if "Invalid arm projection" not in failures:failures.append("Invalid arm projection")
+					arm_error=maxf(arm_error,absf(arm.shoulder.distance_to(arm.elbow)-Rider.ARM_UPPER*projection))
+					arm_error=maxf(arm_error,absf(arm.hand.distance_to(arm.elbow)-Rider.ARM_LOWER*projection))
 			if arm_error>.05: failures.append("Arm disconnected")
 			if zone=="head" and peak<deg_to_rad(20): failures.append("Full head hit has insufficient torso follow-through")
 			# FEEL-079 intentionally enlarged body/flank follow-through (bounded

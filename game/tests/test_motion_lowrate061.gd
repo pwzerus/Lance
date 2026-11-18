@@ -1,4 +1,4 @@
-extends "test_horse_anatomy_v050.gd"
+extends "test_horse_anatomy063.gd"
 ## The user's integrated-GPU laptop can miss 60 FPS. Keep the same geometry
 ## limits when visual updates arrive at 20/24/48 Hz, including gait transitions.
 func run() -> void:

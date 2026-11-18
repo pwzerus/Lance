@@ -333,10 +333,12 @@ static func leg(index: int, phase: float, speed: float, moving: bool, stability:
   # Unload BEFORE a planted chain exhausts its reach. Previously the binary
   # clamp permitted a deeply loaded fetlock right up to full extension;
   # the next frame released the hoof and zeroed that flex in one step.
-  # Keep the hoof locked and flat, tapering spring travel over the final
-  # 7 game units of extension, rather than stretching the limb or snapping.
+  # Keep the hoof locked and flat. ANIM-105: a seven-unit release ramp
+  # compressed recovery into one fast frame (13.6 rad/s at 120Hz). Begin
+  # unloading over the final ten units; retain the same loaded peak and
+  # exact planted sole, without adding an independent ankle oscillator.
   var extension_room = maximum_reach-(coronet_probe-bone-hip).length()
-  wanted *= smoothstep(.35,7.0,extension_room)
+  wanted *= smoothstep(.35,10.0,extension_room)
   if wanted>0.0 and (coronet_probe-bone.rotated(-wanted)-hip).length()>maximum_reach:
    var low = 0.0
    var high = wanted

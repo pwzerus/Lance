@@ -28,10 +28,13 @@ func new_metrics() -> Dictionary:
 		"maximum_toe_velocity_rad_s":0.0,"maximum_bone_turn_rad":0.0,"maximum_scapula_x":0.0,"maximum_scapula_y":0.0,
 		"fore_support_wrist_flex_max":0.0,"hind_femur_local_min":INF,"hind_femur_local_max":-INF,
 		"maximum_support_hoof_tilt_rad":0.0,"maximum_sink_rad":0.0,"maximum_sink_step_rad":0.0,"maximum_swing_sink_rad":0.0,
+		"maximum_sink_velocity_rad_s":0.0,"worst_sink":{},
 		"reach_releases":0,"previous":[],"previous_body_x":0.0}
 
 func inspect_pose(fighter: Dictionary, view, dt: float, metrics: Dictionary, label: String) -> void:
-	var body: Dictionary = Model.gait_pose(fighter)
+	# ANIM-091 skin and legs use the same visible trunk rock/squat. Retain
+	# v050 as history; current root checks use the actual presentation pose.
+	var body: Dictionary = view.visual_pose if not view.visual_pose.is_empty() else Model.gait_pose(fighter)
 	var facing = int(fighter.direction)
 	var current: Array = []
 	for index in range(4):
@@ -74,7 +77,7 @@ func inspect_pose(fighter: Dictionary, view, dt: float, metrics: Dictionary, lab
 		if bool(leg.reach_limited):
 			metrics.reach_releases += 1
 		var world = Vector2(float(fighter.x)+leg.foot.x*facing,leg.foot.y)
-		var record = {"world":world,"contact":leg.contact,"toe_angle":leg.toe_angle,"sink":sink,"joints":[],"bone_angles":[]}
+		var record = {"world":world,"contact":leg.contact,"toe_angle":leg.toe_angle,"sink":sink,"cycle":leg.cycle,"swing":leg.swing,"joints":[],"bone_angles":[]}
 		for key in JOINTS:
 			record.joints.append(Vector2(float(fighter.x)+leg[key].x*facing,leg[key].y))
 		for part in range(5):
@@ -84,6 +87,10 @@ func inspect_pose(fighter: Dictionary, view, dt: float, metrics: Dictionary, lab
 			metrics.maximum_hoof_velocity = maxf(metrics.maximum_hoof_velocity,world.distance_to(previous.world)/dt)
 			metrics.maximum_toe_velocity_rad_s = maxf(metrics.maximum_toe_velocity_rad_s,absf(angle_difference(previous.toe_angle,leg.toe_angle))/dt)
 			metrics.maximum_sink_step_rad = maxf(metrics.maximum_sink_step_rad,absf(sink-float(previous.sink)))
+			var sink_velocity=absf(sink-float(previous.sink))/dt
+			if sink_velocity>metrics.maximum_sink_velocity_rad_s:
+				metrics.worst_sink={"index":index,"speed":fighter.speed,"dt":dt,"phase":fighter.gait_phase,"cycle":leg.cycle,"previous_cycle":previous.cycle,"duty":leg.duty,"previous_sink":previous.sink,"sink":sink,"contact":leg.contact,"previous_contact":previous.contact,"reach_limited":leg.reach_limited,"requested_reach":leg.requested_reach,"maximum_reach":leg.maximum_reach,"foot":leg.foot,"requested_foot":leg.requested_foot,"swing":leg.swing}
+			metrics.maximum_sink_velocity_rad_s = maxf(metrics.maximum_sink_velocity_rad_s,sink_velocity)
 			if leg.contact and previous.contact:
 				metrics.maximum_support_slide = maxf(metrics.maximum_support_slide,world.distance_to(previous.world))
 			var body_delta = float(fighter.x)-float(metrics.previous_body_x)
@@ -112,6 +119,7 @@ func finish_metrics(metrics: Dictionary, label: String, hz: int) -> Dictionary:
 	check(metrics.maximum_swing_sink_rad<.0001,label+": fetlock sink leaked into the swing")
 	# Continuity: the same 12 rad/s bound as the toe rotation.
 	check(metrics.maximum_sink_step_rad<=12.0/hz+.001,label+": fetlock sink jumped between frames")
+	check(metrics.maximum_sink_velocity_rad_s<=12.001,label+": fetlock sink exceeded its actual frame-time velocity bound")
 	var result = metrics.duplicate(true)
 	result.erase("previous")
 	result.erase("previous_body_x")

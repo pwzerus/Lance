@@ -1,4 +1,4 @@
-extends "test_ui082.gd"
+extends "test_flow082.gd"
 ## Explicit gap: result pages do not pause a finished Battle. Count individual
 ## canvas draw callbacks, not only whole-window frames, with H overlay enabled.
 func run()->void:
@@ -17,6 +17,9 @@ func run()->void:
 	var battle=main.battle
 	battle.autoplay=true;battle.match_model.rng.seed=87091;battle.ai_rng.seed=87444
 	if root.focus_exited.is_connected(battle._on_focus_lost):root.focus_exited.disconnect(battle._on_focus_lost)
+	# Production builds riders/HUD over several frames; subscribe only once
+	# they exist, so a stale fixture cannot masquerade as a minimize leak.
+	if not await wait_battle(battle):quit(2);return
 	battle.training_zones=true;battle.zone_overlay.visible=true
 	var counts={"zones":0,"cues":0,"rider0":0,"rider1":0}
 	battle.zone_overlay.draw.connect(func():counts.zones+=1)

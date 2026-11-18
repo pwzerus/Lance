@@ -17,13 +17,16 @@ var far_dust: Node2D
 func _ready() -> void:
 	rng.randomize()
 	far_dust = Node2D.new()
-	far_dust.z_index = -11 # Parent effects is +10; far dust belongs behind rail +1.
+	far_dust.z_index = -11 # Parent effects is +10; ground marks/dust stay below actors and rail.
 	far_dust.draw.connect(_draw_far_dust)
 	add_child(far_dust)
 
 func clear_blood() -> void:
 	stains.clear()
 	particles = particles.filter(func(p): return not p.get("blood", false))
+	# The pause menu can clear blood while _process is suspended. Invalidate
+	# the ground canvas too, rather than retaining its cached stain geometry.
+	if far_dust: far_dust.queue_redraw()
 	queue_redraw()
 
 func hit(point: Vector2, direction: int, damage: float, shield: bool, broke: bool, zone: String = "body", impulse_strength: float = .5, contact: Dictionary = {}) -> void:
@@ -43,13 +46,25 @@ func hit(point: Vector2, direction: int, damage: float, shield: bool, broke: boo
 	if blood:
 		for i in range(12):
 			particles.append({"p":point,"v":Vector2(direction*rng.randf_range(30,160),rng.randf_range(-100,5)),"life":rng.randf_range(.3,.7),"color":Color("8b2c24"),"size":rng.randf_range(2,4),"blood":true})
-		stains.append({"p": Vector2(point.x, rng.randf_range(-2,8)), "radius": rng.randf_range(10,19)})
+		stains.append({"p": Vector2(point.x,float(contact.get("defender_ground_y",12.0))+rng.randf_range(-2,8)), "radius": rng.randf_range(10,19)})
+		if far_dust: far_dust.queue_redraw()
 	queue_redraw()
 
 func break_lance(event: Dictionary, mode: String, equipment: Dictionary = {}) -> void:
 	var ray = Vector2(cos(float(event.break_angle))*int(event.break_direction),sin(float(event.break_angle)))
 	var start = Vector2(event.break_hand)+ray*66
 	var remaining = maxf(10,float(event.break_reach)-66)
+	var direction = int(event.break_direction)
+	var carry = Vector2(event.get("break_hand_velocity",Vector2(direction*float(event.get("attacker_speed",190.0)),0)))
+	if not carry.is_finite(): carry = Vector2.ZERO
+	carry = carry.limit_length(1100.0)
+	var shaft_spin = clampf(float(event.get("break_angular_velocity",0.0)),-8.0,8.0)
+	if not is_finite(shaft_spin): shaft_spin = 0.0
+	var load = smoothstep(150.0,1000.0,float(event.get("speed",380.0)))
+	# Real impact sheds momentum; this bounded visual approximation retains
+	# charge/hand motion and rotational velocity, then adds a small fracture fan.
+	# It does not feed back into damage, rider contacts or the rules RNG.
+	var retention = lerpf(.92,.70,load)
 	var cursor = 0.0
 	for i in range(2):
 		var length = remaining*(.56 if i==0 else .44)
@@ -61,8 +76,10 @@ func break_lance(event: Dictionary, mode: String, equipment: Dictionary = {}) ->
 		body.collision_mask = 32 if int(event.break_direction)==1 else 16
 		body.gravity_scale = 1.0
 		body.z_index = -8 if int(event.break_direction)==1 else -10
-		body.linear_velocity = Vector2(int(event.break_direction)*(190+i*55),-125-i*45)
-		body.angular_velocity = int(event.break_direction)*(-3.0 if i==0 else 5.0)
+		var center_offset = 66.0+cursor+length*.5
+		var tangential = Vector2(-ray.y,ray.x)*shaft_spin*center_offset
+		body.linear_velocity = ((carry+tangential)*retention+Vector2(direction*(-18.0 if i==0 else 18.0),-lerpf(32.0,100.0,load)-i*12.0)).limit_length(1250.0)
+		body.angular_velocity = clampf(shaft_spin+direction*lerpf(1.2,4.8,load)*(-.8 if i==0 else 1.0),-12.0,12.0)
 		var collider = CollisionShape2D.new()
 		var rectangle = RectangleShape2D.new()
 		rectangle.size = Vector2(length,6)
@@ -129,6 +146,11 @@ func _process(delta: float) -> void:
 func _draw_far_dust() -> void:
 	if WindowActivity.suspended():
 		return
+	if blood_enabled:
+		for stain in stains:
+			far_dust.draw_set_transform(stain.p,0,Vector2(1,.22))
+			far_dust.draw_circle(Vector2.ZERO,stain.radius,Color(.31,.09,.07,.60))
+		far_dust.draw_set_transform(Vector2.ZERO)
 	for particle in particles:
 		if particle.get("dust",false) and float(particle.floor)<0:
 			var color = Color(particle.color)
@@ -151,11 +173,6 @@ func _draw() -> void:
 		return
 	for burst in bursts:
 		_draw_contact_burst(burst)
-	if blood_enabled:
-		for stain in stains:
-			draw_set_transform(stain.p, 0, Vector2(1,.22))
-			draw_circle(Vector2.ZERO, stain.radius, Color(.31,.09,.07,.60))
-		draw_set_transform(Vector2.ZERO)
 	for particle in particles:
 		if particle.get("dust",false) and float(particle.floor)<0:
 			continue

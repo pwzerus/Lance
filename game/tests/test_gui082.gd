@@ -1,4 +1,4 @@
-extends "test_ui082.gd"
+extends "test_flow082.gd"
 ## Real engine GUI hit-testing, including the modal shade and scroll controls.
 ## push_input is viewport injection, never system mouse/keyboard control.
 func pointer(point: Vector2, button: int = MOUSE_BUTTON_LEFT) -> void:
@@ -39,7 +39,7 @@ func run() -> void:
 	root.add_child(main)
 	current_scene=main
 	await process_frame
-	click_text("开始游戏")
+	click_text("自由对战")
 	await process_frame
 	check(main.page=="setup","Start button GUI hit failed")
 	click_text("进入竞技场")
@@ -63,7 +63,7 @@ func run() -> void:
 	click_text("返回营地")
 	await process_frame
 	click_text("军械库")
-	await process_frame
+	if not await wait_armory():quit(2);return
 	var selected=""
 	for id in main.armory_cards:
 		if id!=main.selected_item.id:
@@ -79,15 +79,20 @@ func run() -> void:
 	await capture("gui_inventory")
 	click_text("返回营地")
 	await process_frame
-	click_text("开始游戏")
+	click_text("自由对战")
 	await process_frame
 	click_text("开始练习")
+	await process_frame
+	check(main.page=="practice_setup","Practice start opens the existing lesson/free choice")
+	click_text("进入自由练习")
 	await process_frame
 	click_text("明白了，出战")
 	await process_frame
 	check(main.page=="battle" and main.practice_match,"Practice start GUI hit failed")
 	var battle=main.battle
+	if not is_instance_valid(battle):quit(2);return
 	if root.focus_exited.is_connected(battle._on_focus_lost): root.focus_exited.disconnect(battle._on_focus_lost)
+	if not await wait_battle(battle):quit(2);return
 	battle.set_physics_process(false)
 	pointer(battle.guard_buttons[0].get_global_rect().get_center())
 	await process_frame

@@ -587,7 +587,11 @@ func _detect_contact(index: int, delta: float) -> Dictionary:
 	var hand_velocity = (current_hand-Vector2(attacker.prev_hand))/maxf(delta,0.0001)
 	var relative_speed = clampf((hand_velocity-target_velocity).dot(shaft),30.0,1050.0)
 	var event = {"attacker": index, "defender": 1 - index, "zone": found.zone, "speed": relative_speed,
-		"position": sweep.point, "type": "hit", "combat_elevation":elevation,"shaft_alignment":clampf(cos(elevation),.4,1.0)}
+		"position": sweep.point, "type": "hit", "combat_elevation":elevation,"shaft_alignment":clampf(cos(elevation),.4,1.0),
+		# Presentation-only pre-impact motion. Capture before either simultaneous
+		# contact changes a rider; fracture pieces must not use a fixed toss.
+		"break_hand_velocity":hand_velocity,
+		"break_angular_velocity":angle_difference(float(attacker.prev_aim),float(attacker.aim))*int(attacker.direction)/maxf(delta,.0001)}
 	if found.zone=="shield":
 		event.contact_local = sweep.contact_local
 		event.merge(Shield.contact_region(sweep.contact_local,sweep.local_incoming,str(defender.stats.get("shield_shape","kite")),float(defender.stats.get("shield_scale",1.0))))
@@ -759,6 +763,7 @@ func _apply_contact(contact: Dictionary) -> void:
 		# FEEL-097: ground speeds for the presentation of momentum (camera kick,
 		# fall trajectory, horse jolt). Read only by visuals; no rule uses them.
 		"attacker_speed":float(attacker.speed),"defender_speed":float(defender.speed),
+		"defender_ground_y":float(defender.get("lane_y",0.0))+Gait.GROUND,
 		"attacker_direction":int(attacker.direction),"defender_direction":int(defender.direction)})
 	var loading = reaction_strength(contact)
 	var angular_kick = -11.2 if zone=="head" else (9.0 if zone=="flank" else (-8.4 if zone=="shield" else -10.0))

@@ -103,6 +103,18 @@ func run_battle_case(c: Dictionary) -> void:
 				other.position=zone_point(b.match_model.fighters[other.defender],str(c.zone))
 				other.attacker_direction=-int(first.get("attacker_direction",1))
 				other.defender_direction=-int(first.get("defender_direction",-1))
+				var paired_attacker=b.match_model.fighters[int(other.attacker)]
+				var paired_defender=b.match_model.fighters[int(other.defender)]
+				other.break_hand=Model.hand_position(paired_attacker)
+				other.break_direction=int(paired_attacker.direction)
+				other.break_angle=float(paired_attacker.aim)
+				other.break_reach=float(paired_attacker.stats.get("reach",247.0))
+				other.break_tip=Vector2(other.break_hand)+Vector2(cos(other.break_angle)*other.break_direction,sin(other.break_angle))*other.break_reach
+				other.break_hand_velocity=Vector2(paired_attacker.direction*paired_attacker.speed,paired_attacker.get("mount_velocity_y",0.0))
+				other.break_angular_velocity=0.0
+				other.attacker_speed=float(paired_attacker.speed)
+				other.defender_speed=float(paired_defender.speed)
+				other.defender_ground_y=float(paired_defender.lane_y)+12.0
 				b.match_model.fighters[other.defender].ko=true
 				b.match_model.fighters[other.defender].hp=0.0
 				events=events.filter(func(e):return e.type!="end")

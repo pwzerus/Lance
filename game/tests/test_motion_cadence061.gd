@@ -1,6 +1,17 @@
-extends "test_horse_catalogue_v050.gd"
+extends "test_horse_anatomy063.gd"
 ## Fixed 120Hz production model; irregular visual updates and rapid spur taps.
 ## Reuse existing geometry limits; do not infer naturalness from passing bounds.
+const Catalogue=preload("res://scripts/core/catalogue.gd")
+var active_horse:Dictionary={}
+var active_stats:Dictionary={}
+func check(ok:bool,message:String)->void:
+	super.check(ok,"["+str(active_horse.get("id","catalogue"))+"] "+message)
+func make_fixture(facing:int,speed:float)->Dictionary:
+	var fixture=super.make_fixture(facing,speed*float(active_stats.get("speed",1.0)))
+	for member in fixture.model.fighters:member.stats=active_stats.duplicate(true)
+	fixture.model.rng.seed=5050
+	fixture.model._cache_pose(fixture.fighter)
+	return fixture
 func run() -> void:
 	var path = ""
 	for arg in OS.get_cmdline_user_args():
@@ -38,14 +49,14 @@ func run() -> void:
 				inspect_pose(fixture.fighter,fixture.view,count/120.0,metrics,"Irregular cadence / "+str(facing))
 				visual_frames+=1
 			check(changes>20,"Rapid-spur fixture did not exercise repeated input changes")
-			rows.append({"horse":id,"facing":facing,"input_changes":changes,"model_ticks":tick,"visual_frames":visual_frames,"metrics":finish_metrics(metrics,"Irregular cadence / "+str(facing))})
+			rows.append({"horse":id,"facing":facing,"input_changes":changes,"model_ticks":tick,"visual_frames":visual_frames,"metrics":finish_metrics(metrics,"Irregular cadence / "+str(facing),20)})
 			fixture.view.queue_free()
 			await process_frame
 	var file=FileAccess.open(path,FileAccess.WRITE)
 	if file==null:
 		quit(2)
 		return
-	file.store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"cases":rows,"scope":"Fixed 120Hz production Model and world-translated Rider with irregular 20-120Hz visual intervals, rapid spur changes, three representative horse configurations and both facings. Original v050 geometry bounds retained. No GPU or OS input and no real-time FPS/naturalness verdict."},"\t"))
+	file.store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"cases":rows,"scope":"Fixed 120Hz production Model and world-translated Rider with irregular 20-120Hz visual intervals, rapid spur changes, three representative horse configurations and both facings. ART-063 six-joint geometry and flat-hoof bounds, current presentation trunk, actual per-frame fetlock velocity. No GPU or OS input and no real-time FPS/naturalness verdict."},"\t"))
 	file.close()
 	print("MOTION_CADENCE061 "+str(failures.is_empty())+" "+str(failures))
 	quit(0 if failures.is_empty() else 1)

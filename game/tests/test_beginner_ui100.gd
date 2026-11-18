@@ -5,9 +5,10 @@ func shot(folder: String, label: String) -> void:
 	await RenderingServer.frame_post_draw
 	root.get_texture().get_image().save_png(folder+"/"+label+".png")
 func run() -> void:
-	var folder="";var level_numbers=[1,3];var sequential=false
+	var folder="";var level_numbers=[1,3];var sequential=false;var fixture_unlock_before=0
 	for a in OS.get_cmdline_user_args():
 		if a.begins_with("--folder="):folder=a.trim_prefix("--folder=")
+		if a.begins_with("--qa-unlock-before="):fixture_unlock_before=clampi(int(a.trim_prefix("--qa-unlock-before=")),0,10)
 		if a.begins_with("--levels="):
 			sequential=true;level_numbers=[]
 			for value in a.trim_prefix("--levels=").split(","):level_numbers.append(int(value))
@@ -16,6 +17,8 @@ func run() -> void:
 	DirAccess.make_dir_recursive_absolute(folder)
 	state.save_path=folder+"/qa_profile.json";state.backup_path=folder+"/qa_backup.json"
 	state.profile=state.default_profile()
+	# Explicit single-level baseline probe; never counted as natural progression.
+	for cleared in range(1,fixture_unlock_before):state.profile.campaign_cleared.append(cleared)
 	state.profile.settings.combat_brief_v044=true
 	state.profile.settings.sound=true
 	AudioServer.set_bus_mute(0,true)
@@ -68,5 +71,5 @@ func run() -> void:
 	# comparing the integer campaign IDs, rather than raw Array equality.
 	var restored=state.sanitize(disk)
 	check(not disk.is_empty() and restored.campaign_cleared==state.profile.campaign_cleared and restored.coins==state.profile.coins,"QA progress saved")
-	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"version":ProjectSettings.get_setting("application/config/version"),"rows":rows,"levels":level_numbers,"sequential_unlocks":sequential,"scope":"Isolated rendered Main, starter inventory, coarse chest aim and held spur injected in engine. No OS input/human play. Default 1/3 fixture supplies level-2 unlock; explicit --levels uses natural results only."},"\t"))
+	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"version":ProjectSettings.get_setting("application/config/version"),"rows":rows,"levels":level_numbers,"sequential_unlocks":sequential and fixture_unlock_before==0,"fixture_unlock_before":fixture_unlock_before,"scope":"Isolated rendered Main, starter inventory, coarse chest aim and held spur injected in engine. No OS input/human play. Default 1/3 fixture supplies level-2 unlock; explicit --levels uses natural results only."},"\t"))
 	main.notification(Node.NOTIFICATION_WM_CLOSE_REQUEST)

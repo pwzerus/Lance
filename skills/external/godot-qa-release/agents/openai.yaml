@@ -1,0 +1,4 @@
+interface:
+  display_name: "Godot QA Release"
+  short_description: "Verify and release Godot games"
+  default_prompt: "Verify this Godot game with run QA, screenshots, viewport pixel checks, responsive/mobile checks, export-release build, and release risk notes. First load the QA/release checklist reference, report the reference ledger, and include a pass/fail QA matrix."

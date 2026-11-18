@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-17",
+  "task": "ANIM-105",
+  "installed_by": "skill-installer helper --method download, pinned commits",
+  "executed_upstream_scripts": false,
+  "skills": [
+    {
+      "name": "game-designer",
+      "repository": "setcodes/gamedev-skills",
+      "commit": "096c224aa498a789fa99d476583029fcb9f538e1",
+      "path": "skills/game-designer",
+      "url": "https://github.com/setcodes/gamedev-skills/tree/096c224aa498a789fa99d476583029fcb9f538e1/skills/game-designer",
+      "global_install": "C:\\Users\\yifei\\.codex\\skills\\game-designer",
+      "files_sha256": {
+        "LICENSE": "8216697406035baa3cbc143c1f7962d5a92640eb6d5a028c2565891057418bd8",
+        "SKILL.md": "86cb61770809a2705d9a98dec268f312d493688ebe1689574a0d56fd0f0a0155",
+        "UPSTREAM-LICENSE": "8216697406035baa3cbc143c1f7962d5a92640eb6d5a028c2565891057418bd8",
+        "agents/openai.yaml": "542840f604e75b5e68df52991ae98da596105efd01fadf43f25f038d430af6ae",
+        "references/playtesting.md": "e5eff987ed2ca4b1ed2892915c7e5a122d9fbf955d4c0de2aded5a969c12522e",
+        "references/system-design.md": "69acc70408654200e37e485b97deee087cd4b40673bf356e569e837352452059",
+        "references/teaching-feedback.md": "c8be9875a94821a01bca7e5c095c7dd233ef4e235d489ddae0d94ad3aaae5730"
+      }
+    },
+    {
+      "name": "godot-gamedev",
+      "repository": "setcodes/gamedev-skills",
+      "commit": "096c224aa498a789fa99d476583029fcb9f538e1",
+      "path": "skills/godot-gamedev",
+      "url": "https://github.com/setcodes/gamedev-skills/tree/096c224aa498a789fa99d476583029fcb9f538e1/skills/godot-gamedev",
+      "global_install": "C:\\Users\\yifei\\.codex\\skills\\godot-gamedev",
+      "files_sha256": {
+        "LICENSE": "8216697406035baa3cbc143c1f7962d5a92640eb6d5a028c2565891057418bd8",
+        "SKILL.md": "b905f10ed48a810853da51d614700046620a74a3566bf2f7d1a4ad7e8dbdf347",
+        "UPSTREAM-LICENSE": "8216697406035baa3cbc143c1f7962d5a92640eb6d5a028c2565891057418bd8",
+        "agents/openai.yaml": "3481ca7aed9c7d76311121348a02118f71a0a0548d947cda7d8b52f8265fdd92",
+        "references/verification.md": "1d03241c731fc0725fc582c18ddf77c604a8b9919ee3cf163cd97fa2a7300011"
+      }
+    },
+    {
+      "name": "godot-qa-release",
+      "repository": "hbilal9/godot-ai-skills",
+      "commit": "4770a8baf392bbf0437536e23e3701f66f659d7c",
+      "path": "skills/godot-qa-release",
+      "url": "https://github.com/hbilal9/godot-ai-skills/tree/4770a8baf392bbf0437536e23e3701f66f659d7c/skills/godot-qa-release",
+      "global_install": "C:\\Users\\yifei\\.codex\\skills\\godot-qa-release",
+      "files_sha256": {
+        "SKILL.md": "64e6cdfd1de732a5bbb5d0421b40a328a2c38cd4567b6254bcb3264b07d0dd41",
+        "UPSTREAM-LICENSE": "41952f02941f7638cc8848be5721c98ac394399968ac4bd525e9ce1ca2210580",
+        "agents/openai.yaml": "218f66a091609f61f346cd6913429c4175973c18acda3f294286737cb38120b7",
+        "references/prompt-templates.md": "ce01734a66564dc3c6f31bab8f122e02a72698e349f116ced63404beb8686ca5",
+        "references/qa-release-checklists.md": "438303121856815db2ade807f93ff58b094f9117fc852a959a8d60df43a9cb39",
+        "scripts/inspect_godot_viewport.py": "e2c8beaed25fcce766675b274807c8598abe24e876a190d9246d654b6e91f560",
+        "references/checklists/playtest-qa.md": "626de6cc8026a78910cf69cff90662eed037202ba403ed68f6e9c8e69c70a1f2",
+        "references/checklists/release.md": "6b5a1ea1547ffa6d93a94bc0ea963f6779d1e7034520c8b10e2a81c366ff3abd",
+        "references/checklists/visual-verification.md": "2758e055676af1d664efd8ca45cfc27b9299ba170585a7d2da8ad0e676e8e960"
+      }
+    },
+    {
+      "name": "game-feel",
+      "repository": "gamedev-skills/awesome-gamedev-agent-skills",
+      "commit": "c6ca6c41c839b68319ffc08430b99ab768debc32",
+      "path": "skills/disciplines/game-feel",
+      "url": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/c6ca6c41c839b68319ffc08430b99ab768debc32/skills/disciplines/game-feel",
+      "global_install": "C:\\Users\\yifei\\.codex\\skills\\game-feel",
+      "files_sha256": {
+        "SKILL.md": "a3591662e732f1540887570f584bd18778f4f728708afa013a33e20bcc949a06",
+        "UPSTREAM-LICENSE": "6f82dcfeb95a1c0a0452180a3b16f21bf82111780018fed59d95a052b5b75f6c",
+        "references/feedback-recipes.md": "dd084164150a75f84ce7d8459956ef35b1d3e5270aa7421612ab2671a9da0740"
+      }
+    }
+  ]
+}

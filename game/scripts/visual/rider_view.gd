@@ -381,10 +381,8 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 	draw_line(brace-brace_side*8,brace+brace_side*8,Color("533925"),5)
 	draw_line(brace-brace_side*7,brace+brace_side*7,Color("b08a4b"),2)
 	_draw_grip("left",left_arm,Color(.86,.88,.90) if facing==1 else Color.WHITE)
-	var shield_transform = torso_transform
-	shield_transform.x *= facing
-	shield_transform = shield_transform*Transform2D(float(fighter.get("shield_twist",0.0)),Vector2.ZERO)
-	shield_transform.origin = pose.shield_center-origin
+	var shield_transform = shield_pose_transform(pose,fighter)
+	shield_transform.origin -= origin
 	draw_set_transform_matrix(shield_transform)
 	_draw_shield(Vector2.ZERO,design)
 	draw_set_transform_matrix(torso_transform)
@@ -531,12 +529,17 @@ static func seated_leg_pose(value: Dictionary) -> Dictionary:
 	# rule torso) and the lower legs flap instead of hanging quiet.
 	var unsteady = clampf(float(value.get("unsteady",0.0)),0.0,1.0)
 	var lift = Model.seat_lift(value)
-	var flap = Vector2(-sin(phase+.4)*9.0,-absf(sin(phase+.4))*4.0)*unsteady*activity
+	var flap_wave = sin(phase+.4)
+	var flap = Vector2(-flap_wave*9.0,-flap_wave*flap_wave*4.0)*unsteady*activity
 	# FEEL-097: a lance blow throws the lower legs forward and up, out of the
 	# stirrups, while the torso is carried back; the spring overshoot swings
 	# them back past the girth before they find the irons again.
 	var fling = clampf(float(value.get("reaction_legs",0.0)),-.6,1.5)
-	var thrown = Vector2(42.0,-38.0)*maxf(fling,0.0)+Vector2(-16.0,6.0)*minf(fling,0.0)
+	# The negative spring half is a small BACKWARD/downward recovery. The
+	# old negative-vector * negative-value product kicked forward twice.
+	# Blend gains through neutral so crossing it has no velocity corner.
+	var response = Vector2(16.0,-6.0).lerp(Vector2(42.0,-38.0),smoothstep(-.12,.12,fling))
+	var thrown = response*fling
 	for side in ["far","near"]:
 		var far = side=="far"
 		var hip_offset = Vector2(14,-8) if far else Vector2(-11,3)
@@ -635,12 +638,25 @@ static func arm_pose(value: Dictionary) -> Dictionary:
 		# The distant arm points partly into depth. Keeping both of its bones
 		# at full frontal length made the left-facing lance elbow hang at the
 		# belt. Project those bones, preserving both real hand/collision anchors.
-		# Only the couched lance arm uses this depth pose. Keep the shield's
-		# existing full travel and captured landing geometry unchanged.
-		var distant = side=="right" and facing<0
+		# Both anatomical arms need depth projection when distant. A full-
+		# length far shield arm folded past its natural elbow range near the
+		# upper chest, then left a strapped shield propping up the fallen body.
+		# The new shield-aware ground solver preserves this captured geometry.
+		var distant = (side=="right" and facing<0) or (side=="left" and facing>0)
 		var projection = clampf((shoulder.distance_to(hand)+1.0)/(ARM_UPPER+ARM_LOWER),.64,1.0) if distant else 1.0
 		var elbow = arm_elbow(shoulder,hand,ARM_UPPER*projection,ARM_LOWER*projection)
 		result[side] = {"shoulder":transform*shoulder,"elbow":transform*elbow,"hand":transform*hand,"projection":projection}
+	return result
+
+static func shield_pose_transform(pose: Dictionary, value: Dictionary) -> Transform2D:
+	# A detached shield is strapped to the articulated forearm. Mounted
+	# poses retain their existing shared rule transform and control motor.
+	if pose.has("shield_transform"):
+		return pose.shield_transform
+	var result: Transform2D = pose.torso_transform
+	result.x *= int(value.direction)
+	result = result*Transform2D(float(value.get("shield_twist",0.0)),Vector2.ZERO)
+	result.origin = pose.shield_center
 	return result
 
 static func _head_hinge(pose: Dictionary, value: Dictionary) -> Transform2D:

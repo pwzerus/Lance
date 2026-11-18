@@ -1,5 +1,13 @@
 # 任务、审查建议与文件认领
 
+## ANIM-105 进行中（2026-11-17 23:41:56 UTC，Codex）
+
+- 用户要求：下载并应用动作/游戏设计、游戏测试、开发skills，持续4小时复核并完善动作流畅性、人体合理性与流程/文字缺漏。截止2026-11-18 03:41:56 UTC，按新问题迭代，不空耗重复测试。
+- 实际基线：codex/v0.4，077ad0ea152fe1079b5e5421f9c03b216c6ba215；origin一致。当前未见新增Claude功能；三份历史差异与旧QA/UID保留。
+- 认领：skills/external/及本轮来源清单、必要的项目动作技能补充；game/scripts/visual/{rider_view,fallen_rider,horse_gait,horse_skin,exchange_director}.gd、core/joust_match.gd和battle.gd动作/镜头接口；必要的main.gd、ui/文字/结算流程仅限已复现问题；game/tests/*105*与直接受影响回归、test_parse065.gd；版本/导出/入口及设计/审查/交接/证据文件。
+- 第一阶段先从正常速度、减速和逐帧真实渲染建立基线；重点看双向重心、肩肘握点、头颈连接、骑乘支撑、落马/触地/收势，保留枪盾运动时间。外部skills只作经审查的参考，不覆盖项目规则、不执行未知下载脚本、不升级引擎。
+- 串行后台-IsolatedDesktop和QA存档，内存/CPU/单实例等保护保持，不接管屏幕。最后留出导出和实包检查时间，记录未解决项，不用通过数或专业称谓代替实际验收。
+
 ## FIX-104 已交出（2026-11-17，Codex）
 
 - 补充认领 `game/scripts/visual/mounted_pixel.gdshader`：核验淡出与素材 alpha 裁切的交互，保持原有抗白边处理。

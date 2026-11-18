@@ -149,7 +149,12 @@ static func seat_lift(fighter: Dictionary) -> float:
 	var unsteady = float(fighter.get("unsteady",0.0))
 	if unsteady<=0.0 or not bool(fighter.get("gait_moving",false)):
 		return 0.0
-	return unsteady*9.0*maxf(0.0,sin(float(fighter.get("gait_phase",0.0))+.4))*smoothstep(0.0,120.0,float(fighter.get("speed",0.0)))
+	# Enter and leave saddle contact at zero vertical speed. Clipping a
+	# plain sine left a velocity jump at each half-stride boundary, making
+	# loose-seat motion look like a repeated hard tug. Keep one lift, its
+	# original 9px peak, and the same unsteadiness/balance consequences.
+	var lift = maxf(0.0,sin(float(fighter.get("gait_phase",0.0))+.4))
+	return unsteady*9.0*lift*lift*smoothstep(0.0,120.0,float(fighter.get("speed",0.0)))
 
 static func add_fidget(fighter: Dictionary, amount: float) -> void:
 	# Heavier riders sit deeper (Condition.seat .90-1.12), so the same jerk
@@ -225,7 +230,14 @@ static func head_position(fighter: Dictionary) -> Vector2:
 static func hand_position(fighter: Dictionary) -> Vector2:
 	var angle = pose_angle(fighter)
 	var ray = Vector2(cos(float(fighter.aim))*int(fighter.direction),sin(float(fighter.aim)))
-	return rider_origin(fighter)+Vector2(48,-53).rotated(angle)*Vector2(int(fighter.direction),1)-ray*float(fighter.get("lance_compression",0.0))
+	# ANIM-105: lifting a couched lance also lifts its grip/forearm. Follow the
+	# actual eased aim, never the input target, so the arm cannot teleport.
+	# A short arc preserves the couched shoulder and neutral grip while the
+	# same anchor continues to drive the visible hand, lance and swept hits.
+	var relative_aim = float(fighter.aim)-angle
+	var neutral = -.08
+	var grip = Vector2(48,-53)+18.0*Vector2(cos(relative_aim)-cos(neutral),sin(relative_aim)-sin(neutral))
+	return rider_origin(fighter)+grip.rotated(angle)*Vector2(int(fighter.direction),1)-ray*float(fighter.get("lance_compression",0.0))
 
 static func shield_position(fighter: Dictionary) -> Vector2:
 	# Forward bracing raises the left-chest shield; leaning back withdraws

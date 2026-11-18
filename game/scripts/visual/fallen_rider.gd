@@ -37,6 +37,8 @@ var stopped = 0.0
 const STEP_SECONDS = 1.0/120.0
 var pose_points099 = PackedVector2Array()
 var support_hull099 = PackedVector2Array()
+var rest_targets: Dictionary = {}
+var rest_angle = 0.0
 
 func setup(value: Dictionary, event: Dictionary, mounted: RiderView = null) -> void:
 	fighter = value.duplicate(true)
@@ -161,6 +163,8 @@ func _make_joints() -> void:
 func _joint_targets() -> Dictionary:
 	# A brief regional protective reaction yields to freely hanging limbs.
 	# Targets change smoothly; angles themselves are integrated, never lerped.
+	if not rest_targets.is_empty():
+		return rest_targets
 	var reaction = exp(-age*2.8)
 	var ground_blend = 1.0-exp(-ground_age*9.0) if grounded else 0.0
 	var spine_air = direction*(.25 if zone=="body" else (-.32 if zone=="flank" else .15))*reaction
@@ -202,16 +206,16 @@ func _ground_targets(targets: Dictionary, blend: float) -> void:
 	for side in ["left","right"]:
 		var arm: Dictionary = initial_pose[side]
 		var margin = 13.0
+		var support_offsets = PackedVector2Array()
 		if side=="left" and float(fighter.get("shield",0.0))>0.0:
-			var pose: Dictionary = visual.detached_pose
+			var initial_frame = Rider.shield_pose_transform(initial_pose,fighter)
 			for point in Rider.Shield.polygon(str(fighter.stats.get("shield_shape","kite")),float(fighter.stats.get("shield_scale",1.0))):
-				var offset: Vector2 = pose.shield_center-pose.left.hand+pose.torso_transform.basis_xform(point.rotated(float(fighter.get("shield_twist",0.0)))*mirror)
-				margin = maxf(margin,offset.rotated(rotation).y+7.0)
-		var solution = _ground_chain(arm.shoulder.rotated(spine),(arm.elbow-arm.shoulder).rotated(spine),(arm.hand-arm.elbow).rotated(spine),side+"_upper",side+"_elbow",1.0,level,roll_direction,margin,true)
+				support_offsets.append((initial_frame*point-initial_pose.left.hand).rotated(spine+rotation))
+		var solution = _ground_chain(arm.shoulder.rotated(spine),(arm.elbow-arm.shoulder).rotated(spine),(arm.hand-arm.elbow).rotated(spine),side+"_upper",side+"_elbow",1.0,level,roll_direction,margin,true,support_offsets)
 		targets[side+"_upper"] = lerpf(float(targets[side+"_upper"]),solution.x,blend)
 		targets[side+"_elbow"] = lerpf(float(targets[side+"_elbow"]),solution.y,blend)
 
-func _ground_chain(origin: Vector2, upper: Vector2, lower: Vector2, upper_key: String, lower_key: String, angle_sign: float, level: float, along: float, margin: float, arm_support: bool = false) -> Vector2:
+func _ground_chain(origin: Vector2, upper: Vector2, lower: Vector2, upper_key: String, lower_key: String, angle_sign: float, level: float, along: float, margin: float, arm_support: bool = false, support_offsets: PackedVector2Array = PackedVector2Array()) -> Vector2:
 	var start = origin.rotated(rotation)
 	var u = upper.rotated(rotation)
 	var v = lower.rotated(rotation)
@@ -219,39 +223,46 @@ func _ground_chain(origin: Vector2, upper: Vector2, lower: Vector2, upper_key: S
 	var lower_joint: Dictionary = joints[lower_key]
 	var result = Vector2(float(upper_joint.angle),float(lower_joint.angle))
 	var best = INF
-	var length = u.length()+v.length()
-	var offsets = [along*length*.62,along*length*.82,along*length*.96]
-	if arm_support:
-		# A low, long shield can block the original headward landing target
-		# at the shoulder limit. Let the hand fold across the body or beside
-		# its present position, rather than widening the joint/ground limits.
-		var present = u.rotated(float(upper_joint.angle)*angle_sign)+v.rotated((float(upper_joint.angle)+float(lower_joint.angle))*angle_sign)
-		offsets.append_array([-along*length*.40,-along*length*.70,present.x,0.0])
-	for candidate in range(offsets.size()):
-		var target = Vector2(start.x+float(offsets[candidate]),level-margin)
-		var ray = target-start
-		var distance = clampf(ray.length(),absf(u.length()-v.length())+.01,u.length()+v.length()-.01)
-		var bend = acos(clampf((u.length_squared()+distance*distance-v.length_squared())/(2*u.length()*distance),-1,1))
-		for pole in [-1.0,1.0]:
-			var desired_upper = ray.angle()+bend*pole
-			var first = angle_difference(u.angle(),desired_upper)/angle_sign
-			first = clampf(first,float(upper_joint.minimum),float(upper_joint.maximum))
-			var elbow = start+u.rotated(first*angle_sign)
-			# Once a shoulder/hip reaches its limit, solve the lower segment
-			# from that reachable elbow/knee, not the discarded ideal position.
-			var second = angle_difference(v.angle()+first*angle_sign,(target-elbow).angle())/angle_sign
-			second = clampf(second,float(lower_joint.minimum),float(lower_joint.maximum))
-			var end = elbow+v.rotated((first+second)*angle_sign)
-			var below = maxf(0.0,maxf(elbow.y+10.0,end.y+margin)-level)
-			# Prefer the reachable branch near the current articulation. Tiny
-			# changes in shield support must not select the other elbow solution
-			# late in a landing and inject another large swing. Floor clearance
-			# still dominates; this biases targets, never snaps/freezes a limb.
-			var travel = absf(first-float(upper_joint.angle))+absf(second-float(lower_joint.angle))
-			var score = below*40.0+end.distance_to(target)+absf(first)*2.0+absf(second)*2.0+travel*8.0+(8.0 if candidate>=3 else 0.0)
-			if score<best:
-				best = score
-				result = Vector2(first,second)
+	# For a strapped shield the contact endpoint is a shield corner, not a
+	# hand plus last frame's vertical clearance. Treat each corner as a rigid
+	# extension of the forearm while solving; the actual bones never stretch.
+	var endpoints = PackedVector2Array([Vector2.ZERO])
+	endpoints.append_array(support_offsets)
+	for endpoint in endpoints:
+		var distal = v+endpoint
+		if distal.length()<.01: continue
+		var length = u.length()+distal.length()
+		var offsets = [along*length*.62,along*length*.82,along*length*.96]
+		if arm_support:
+			var present = u.rotated(float(upper_joint.angle)*angle_sign)+distal.rotated((float(upper_joint.angle)+float(lower_joint.angle))*angle_sign)
+			offsets.append_array([-along*length*.40,-along*length*.70,present.x,0.0])
+		var contact_margin = margin if support_offsets.is_empty() else (13.0 if endpoint==Vector2.ZERO else 7.0)
+		for candidate in range(offsets.size()):
+			var target = Vector2(start.x+float(offsets[candidate]),level-contact_margin)
+			var ray = target-start
+			var distance = clampf(ray.length(),absf(u.length()-distal.length())+.01,u.length()+distal.length()-.01)
+			var bend = acos(clampf((u.length_squared()+distance*distance-distal.length_squared())/(2*u.length()*distance),-1,1))
+			for pole in [-1.0,1.0]:
+				var first = angle_difference(u.angle(),ray.angle()+bend*pole)/angle_sign
+				first = clampf(first,float(upper_joint.minimum),float(upper_joint.maximum))
+				var elbow = start+u.rotated(first*angle_sign)
+				var second = angle_difference(distal.angle()+first*angle_sign,(target-elbow).angle())/angle_sign
+				second = clampf(second,float(lower_joint.minimum),float(lower_joint.maximum))
+				var turn = (first+second)*angle_sign
+				var end = elbow+v.rotated(turn)
+				var contact_end = elbow+distal.rotated(turn)
+				var candidate_margin = margin if support_offsets.is_empty() else 13.0
+				var down = Vector2(sin(turn),cos(turn))
+				for point in support_offsets:
+					candidate_margin = maxf(candidate_margin,point.dot(down)+7.0)
+				var below = maxf(0.0,maxf(elbow.y+10.0,end.y+candidate_margin)-level)
+				# Clearance dominates, with a preference for the nearby bend
+				# branch. This is a spring target, never a joint position write.
+				var travel = absf(first-float(upper_joint.angle))+absf(second-float(lower_joint.angle))
+				var score = below*40.0+contact_end.distance_to(target)+absf(first)*2.0+absf(second)*2.0+travel*8.0+(8.0 if candidate>=3 else 0.0)
+				if score<best:
+					best = score
+					result = Vector2(first,second)
 	return result
 
 func _advance_joints(dt: float) -> void:
@@ -309,7 +320,10 @@ func _supported_rest_angle_measured099(base_angle: float) -> float:
 	var center: Vector2 = visual.detached_pose.torso_transform*Vector2(0,-38)
 	var best_angle = base_angle
 	var best_score = INF
-	for step in range(-8,9):
+	# A deep backward seat can leave the strapped shield at the old 18-degree
+	# search boundary. Permit another 14 degrees of settling roll so the
+	# shoulder can take weight; the spring still integrates the turn.
+	for step in range(-14,15):
 		var candidate = base_angle+step*.04
 		var down = Vector2(sin(candidate),cos(candidate))
 		var floor_offset = -INF
@@ -354,7 +368,9 @@ func advance_measured099(delta: float) -> void:
 			velocity.x *= exp(-6.5*dt)
 			position.x += velocity.x*dt
 			var support_angle = target_rotation-float(joints.spine.angle)*.65
-			if ground_age>.25:
+			if not rest_targets.is_empty():
+				support_angle = rest_angle
+			elif ground_age>.25:
 				support_angle = _supported_rest_angle(support_angle)
 			angular_velocity += (34.0*angle_difference(rotation,support_angle)-10.0*angular_velocity)*dt
 		angular_velocity = clampf(angular_velocity,-5.0,5.0)
@@ -364,6 +380,17 @@ func advance_measured099(delta: float) -> void:
 			position.y = ground_y-lowest
 			if not grounded:
 				_landing_response()
+		# Once the trunk has found support, keep its chosen rest TARGETS.
+		# Re-solving from the moving elbows/feet every step made quiet limbs
+		# slowly chase themselves for seconds. Momentum and damping continue;
+		# no joint, velocity or body position is frozen to finish the animation.
+		if grounded and ground_age>.65:
+			var gap = support_gap()
+			if not rest_targets.is_empty() and gap>10.0:
+				rest_targets.clear()
+			elif rest_targets.is_empty() and gap<8.0 and absf(angular_velocity)<.25:
+				rest_angle = _supported_rest_angle(target_rotation-float(joints.spine.angle)*.65)
+				rest_targets = _joint_targets().duplicate()
 		if grounded and ground_age>.85:
 			var remaining_motion = absf(angular_velocity)
 			for joint in joints.values():
@@ -395,8 +422,15 @@ func _update_pose() -> void:
 		pose[side].shoulder = arm.shoulder.rotated(spine)
 		pose[side].elbow = pose[side].shoulder+upper.rotated(upper_turn)
 		pose[side].hand = pose[side].elbow+lower.rotated(upper_turn+lower_turn)
-	pose.shield_center = pose.left.hand+(initial_pose.shield_center-initial_pose.left.hand).rotated(spine)
-	pose.shield_grip = pose.left.hand+(initial_pose.shield_grip-initial_pose.left.hand).rotated(spine)
+	# Keep the captured strap/forearm relationship. Following only the spine
+	# made the shield rotate independently of its arm by up to 119 degrees.
+	# This shared frame also drives the support envelope and floor solver.
+	var shield_turn = spine+float(joints.left_upper.angle)+float(joints.left_elbow.angle)
+	var shield_frame = Transform2D(shield_turn,Vector2.ZERO)*Rider.shield_pose_transform(initial_pose,fighter)
+	shield_frame.origin = pose.left.hand-shield_frame.basis_xform(Vector2(-10,4))
+	pose["shield_transform"] = shield_frame
+	pose.shield_center = shield_frame.origin
+	pose.shield_grip = pose.left.hand
 	for side in ["near","far"]:
 		var leg: Dictionary = initial_legs[side]
 		var thigh: Vector2 = leg.knee-leg.hip
@@ -434,8 +468,9 @@ func body_points() -> PackedVector2Array:
 			points.append(pose[side][joint]+Vector2(0,9))
 	var mirror = Vector2(int(fighter.direction),1)
 	if float(fighter.get("shield",0.0))>0.0:
+		var shield_frame = Rider.shield_pose_transform(pose,fighter)
 		for point in Rider.Shield.polygon(str(fighter.stats.get("shield_shape","kite")),float(fighter.stats.get("shield_scale",1.0))):
-			points.append(pose.shield_center+torso.basis_xform(point.rotated(float(fighter.get("shield_twist",0.0)))*mirror))
+			points.append(shield_frame*point)
 	for side in ["near","far"]:
 		for joint in ["hip","knee","ankle","foot"]:
 			var point: Vector2 = visual.detached_legs[side][joint]*mirror

@@ -164,7 +164,10 @@ static func visual(pose: Dictionary, phase: float, speed: float, moving: bool, d
  # swishes the tail. Art only (neck/head/tail).
  unrest = clampf(unrest,0.0,1.0)*intensity
  if unrest>0.0:
-  out.neck = float(out.neck)-.07*unrest*maxf(0.0,sin(clock*5.1))
+  # Give and retake the rein smoothly. A clipped sine changed neck speed
+  # abruptly at both ends of every tug, even with a steady input state.
+  var tug = maxf(0.0,sin(clock*5.1))
+  out.neck = float(out.neck)-.07*unrest*tug*tug
   out.head = float(out.head)+.12*unrest*sin(clock*7.3+.6)
   out.tail = float(out.tail)+.22*unrest*sin(clock*6.1)
  _jolt(out,jolt)

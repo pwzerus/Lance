@@ -59,6 +59,10 @@ var fore_influences: Array[PackedInt32Array] = []
 static var _rest_templates: Dictionary = {}
 const REST_FIELDS = ["source_points", "uvs", "indices", "weights", "rest_points", "neck_weights", "head_weights", "tail_weights", "tail_bends", "hind_weights", "fore_weights", "hind_influences", "fore_influences", "deformed_indices"]
 var deformed_indices = PackedInt32Array()
+# Exact repeated-pose reuse only; no angle quantization or dropped animation frames.
+var last_deformation: Array = []
+var deformation_uploads = 0
+var deformation_reuses = 0
 
 func _init(limb: String = "") -> void:
 	limb_name = limb
@@ -149,6 +153,7 @@ func _init(limb: String = "") -> void:
 	_create_mesh()
 
 func _create_mesh() -> void:
+	last_deformation.clear()
 	var arrays = []
 	arrays.resize(Mesh.ARRAY_MAX)
 	arrays[Mesh.ARRAY_VERTEX] = vertices
@@ -255,8 +260,10 @@ static func muzzle_point(body_pose: Dictionary) -> Vector2:
 func update(body_pose: Dictionary, hind_pose: Dictionary, fore_pose: Dictionary) -> void:
 	var rigid_pose: Transform2D = Transform2D(float(body_pose.pitch),Vector2.ZERO)
 	rigid_pose.origin = PIVOT+Vector2(body_pose.offset)-rigid_pose.basis_xform(PIVOT)
-	var hind: Array[Transform2D] = _limb_transforms(HIND,hind_pose)
-	var fore: Array[Transform2D] = _limb_transforms(FORE,fore_pose)
+	var hind: Array[Transform2D] = []
+	var fore: Array[Transform2D] = []
+	if limb_name!="fore":hind=_limb_transforms(HIND,hind_pose)
+	if limb_name!="hind":fore=_limb_transforms(FORE,fore_pose)
 	# Read pose data once per mesh, not once per neck/tail vertex. Tail bend
 	# weights depend only on source coordinates and are baked in _init.
 	var neck_angle: float = float(body_pose.neck)
@@ -265,6 +272,14 @@ func update(body_pose: Dictionary, hind_pose: Dictionary, fore_pose: Dictionary)
 	var neck_pivot: Vector2 = rest_point(NECK_BASE)
 	var tail_pivot: Vector2 = rest_point(TAIL_ROOT)
 	var head_pose: Transform2D = head_transform(body_pose)
+	# Far-leg templates have zero neck/head/tail and opposite-limb weights.
+	# Unrelated head motion must not invalidate an identical leg mesh.
+	var deformation = [rigid_pose,hind,fore,neck_angle,neck_offset,tail_angle,head_pose] if limb_name.is_empty() else [rigid_pose,hind,fore]
+	if deformation==last_deformation:
+		deformation_reuses+=1
+		return
+	last_deformation=deformation
+	deformation_uploads+=1
 	# Native packed-array transform for rigid vertices; full deformation is
 	# still evaluated for every affected vertex at every displayed frame.
 	vertices = rigid_pose*rest_points

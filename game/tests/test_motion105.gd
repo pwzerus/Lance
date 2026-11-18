@@ -41,9 +41,12 @@ func study(kind:String,facing:int,kit:Dictionary)->void:
 	var f:Dictionary=model.fighters[index]
 	f.aim=-.08;f.guard=.43;f.guard_target=.43;f.speed=0.0;f.gait_moving=false
 	var rider=Rider.new();rider.fighter=f;root.add_child(rider);rider.set_process(false)
-	var duration=8.0 if kind=="ride" else 3.0
+	var travelling=kind in ["ride","fatigue"]
+	var duration=18.0 if kind=="fatigue" else (8.0 if kind=="ride" else 3.0)
 	var stamps=[.15,1.0,2.5,4.0,5.5,7.9] if kind=="ride" else [.05,.35,.8,1.25,1.8,2.9]
+	if kind=="fatigue":stamps=[.2,2.5,5.0,8.8,12.0,17.9]
 	var samples=[];var points=[];var previous={};var max_step=0.0
+	var minimum_stamina=100.0;var minimum_arm=100.0;var maximum_bone_error=0.0;var maximum_neck_step=0.0;var previous_neck=0.0
 	var hand_min=INF;var hand_max=-INF
 	for tick in range(int(duration*120)):
 		var time=tick/120.0
@@ -52,24 +55,38 @@ func study(kind:String,facing:int,kit:Dictionary)->void:
 		if kind=="guard":guard=1.0 if time<1.25 else 0.0;aim=-.08
 		if kind=="lean":lean=-1.0 if time<1.25 else 1.0;aim=-.08
 		if kind=="ride":aim=-.08
-		model.set_controls(index,aim,lean,kind=="ride" and time<4,1.0/120,guard)
-		if kind=="ride":model.step(1.0/120)
+		if kind=="fatigue":
+			aim=(-.58 if int(time/.65)%2==0 else .50) if time<9 else -.08
+			guard=(1.0 if int(time/.65)%2==0 else 0.0) if time<9 else .43
+		model.set_controls(index,aim,lean,travelling and time<(9.0 if kind=="fatigue" else 4.0),1.0/120,guard)
+		if travelling:model.step(1.0/120)
 		else:Model.advance_unsteady(f,1.0/120,false)
-		rider.position=Vector2(f.x,0);rider.moving=kind=="ride";rider._process(1.0/120)
+		rider.position=Vector2(f.x,0);rider.moving=travelling;rider._process(1.0/120)
 		var pose=Rider.arm_pose(f);var inv:Transform2D=pose.torso_transform.affine_inverse()
 		var hand:Vector2=inv*Vector2(pose.right.hand)
+		minimum_stamina=minf(minimum_stamina,float(f.stamina));minimum_arm=minf(minimum_arm,float(f.get("arm",100.0)))
+		for side in ["left","right"]:
+			var arm=pose[side];var projection=float(arm.projection)
+			maximum_bone_error=maxf(maximum_bone_error,maxf(absf(arm.shoulder.distance_to(arm.elbow)-44*projection),absf(arm.elbow.distance_to(arm.hand)-46*projection)))
+		if tick>0:maximum_neck_step=maxf(maximum_neck_step,absf(float(rider.visual_pose.neck)-previous_neck))
+		previous_neck=float(rider.visual_pose.neck)
 		hand_min=minf(hand_min,hand.y);hand_max=maxf(hand_max,hand.y)
 		var current={"head":Model.head_position(f),"hand":Model.hand_position(f),"elbow":pose.right.elbow,"shield":pose.left.hand}
 		for joint in current:
 			check(Vector2(current[joint]).is_finite(),"Finite joint: "+joint)
 			if previous.has(joint):max_step=maxf(max_step,Vector2(current[joint]).distance_to(previous[joint]))
 		previous=current
-		if tick%6==0:points.append({"time":time,"aim":f.aim,"guard":f.guard,"speed":f.speed,"hand_local":str(hand),"right_elbow":str(inv*Vector2(pose.right.elbow)),"pose_angle":Model.pose_angle(f),"seat":str(Model.rider_origin(f)-Vector2(f.x,0))})
+		if tick%6==0:points.append({"time":time,"aim":f.aim,"guard":f.guard,"speed":f.speed,"stamina":f.stamina,"arm":f.get("arm",100.0),"unsteady":f.get("unsteady",0.0),"neck":rider.visual_pose.neck,"hand_local":str(hand),"right_elbow":str(inv*Vector2(pose.right.elbow)),"pose_angle":Model.pose_angle(f),"seat":str(Model.rider_origin(f)-Vector2(f.x,0))})
 		if samples.size()<stamps.size() and time>=float(stamps[samples.size()]):
 			samples.append({"time":time,"fighter":f.duplicate(true),"body":rider.visual_pose.duplicate(true),"legs":rider.leg_poses.duplicate(true),"moving":rider.moving})
 	var span=hand_max-hand_min
 	if expect_grip and kind=="aim":check(span>7 and span<28,"Aim uses a bounded forearm/grip arc")
-	records.append({"coat":str(kit.get("horse_coat","bay")),"kind":kind,"facing":facing,"hand_vertical_span":span,"maximum_world_step":max_step,"samples":points})
+	if kind=="fatigue":
+		check(minimum_stamina<20 and float(f.stamina)>minimum_stamina+20,"Horse actually tires and recovers")
+		check(minimum_arm<20 and float(f.get("arm",100.0))>minimum_arm+20,"Arms actually tire and recover")
+		check(maximum_bone_error<.05,"Fatigue must not disconnect projected arm bones")
+		check(maximum_neck_step<.12,"Fatigue must not snap the neck between 120Hz samples")
+	records.append({"minimum_stamina":minimum_stamina,"minimum_arm":minimum_arm,"final_stamina":f.stamina,"final_arm":f.get("arm",100.0),"maximum_bone_error":maximum_bone_error,"maximum_neck_step":maximum_neck_step,"coat":str(kit.get("horse_coat","bay")),"kind":kind,"facing":facing,"hand_vertical_span":span,"maximum_world_step":max_step,"samples":points})
 	rider.queue_free();await process_frame
 	await render_study(samples,study_prefix+kind+str(facing))
 
@@ -91,7 +108,7 @@ func run()->void:
 		kit["horse_coat"]=coat
 		study_prefix=str(coat)+"_" if coats.size()>1 else ""
 		for kind in kinds:
-			check(kind in ["aim","guard","lean","ride"],"Known study type")
+			check(kind in ["aim","guard","lean","ride","fatigue"],"Known study type")
 			for facing in [1,-1]:await study(kind,facing,kit)
 	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"records":records,"version":ProjectSettings.get_setting("application/config/version"),"coats":coats,"scope":"Coat-only visual variants, unchanged horse stats. Production controls/pose sampling and isolated GPU images; no OS input or human rating."},"\t"))
 	print("MOTION105 ",failures)

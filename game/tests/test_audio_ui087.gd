@@ -70,6 +70,10 @@ func run() -> void:
 	check(state.save_profile(),"Retry cannot persist audio mix")
 	for _i in range(3):
 		main._start_match("arena",true)
+		var ready_deadline=Time.get_ticks_msec()+10000
+		while not main.battle.presentation_ready and Time.get_ticks_msec()<ready_deadline:await process_frame
+		if not main.battle.presentation_ready:
+			check(false,"Sound routing fixture did not finish staged preparation");quit(2);return
 		check(main.battle.wind.bus==Mix.AMBIENCE,"Battle wind bypasses its own bus")
 		main.battle.sound.play("hoof")
 		check(main.battle.sound.voices.all(func(voice):return voice.bus==Mix.EFFECTS),"Battle effect bypasses effect bus")

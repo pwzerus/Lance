@@ -944,9 +944,14 @@ func _update_hud() -> void:
 	subcallout.visible = not is_finished
 	var f = match_model.fighters[0]
 	var projection = Cues.project(match_model)
-	aim_label.text = "枪线指向 "+Cues.NAMES[projection.zone] if projection.active else _exchange_hint()
-	aim_label.add_theme_color_override("font_color",Cues.COLORS[projection.zone])
-	aim_label.get_parent().visible = GameState.profile.settings.get("aim_cues",true)
+	var notice = _combat_notice()
+	var show_aim = bool(GameState.profile.settings.get("aim_cues",true))
+	aim_label.text = notice if not notice.is_empty() else ("枪线指向 "+Cues.NAMES[projection.zone] if projection.active else _exchange_hint())
+	aim_label.add_theme_color_override("font_color",UI.GOLD if not notice.is_empty() else Cues.COLORS[projection.zone])
+	# Aim assistance is optional; weapon failure and an exhausted arm are
+	# essential state feedback. They must not live only in hidden diagnostics.
+	aim_label.get_parent().visible = show_aim or not notice.is_empty()
+	hint.visible = (show_aim or practice_guide!=null) and not bool(f.get("ko",false)) and phase!="ended"
 	speed_meter.value = float(f.speed)
 	# HORSE-065: a tired horse can still be urged, but no longer holds the gallop.
 	var tired = float(f.stamina)<Model.Condition.TIRED
@@ -1095,6 +1100,22 @@ func _update_hud() -> void:
 		for label in [contact_label,enemy_contact_label]: label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	if not paused:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func _combat_notice() -> String:
+	var player: Dictionary = match_model.fighters[0]
+	if bool(player.get("ko",false)):
+		return "骑手阵亡" if bool(player.get("dead",false)) else "落马出局"
+	if match_model.phase=="ended": return ""
+	if float(player.get("shield",1.0))<=0.0: return "盾已破 · 用俯仰避开来枪"
+	if mode=="war" and float(player.get("head_load",0.0))>=Model.WAR_HEAD_LOAD_LIMIT*.5:
+		return "头部重创 · 提前护头"
+	if bool(player.get("broken",false)):
+		if mode=="war": return "枪已断 · 残柄射程与冲力下降"
+		return "枪已断 · 下轮换新枪" if match_model.pass_number<match_model.MAX_PASSES else "枪已断 · 先护住身体"
+	if float(player.get("unsteady",0.0))>.45: return "重心不稳 · 减少急摆"
+	if float(player.get("balance",100.0))<35.0: return "坐姿失衡 · 稳住身体"
+	if float(player.get("arm",100.0))<40.0: return "手臂酸软 · 放缓调枪"
+	return ""
 
 func _exchange_hint() -> String:
 	if match_model.phase=="ended":

@@ -1063,6 +1063,8 @@ func show_armory() -> void:
 			filtered.append(item)
 	var build_queue = preload("res://scripts/ui/build_queue.gd").new()
 	screen.add_child(build_queue)
+	if selected_item.is_empty() and not filtered.is_empty():
+		selected_item = filtered[0]
 	for item in filtered:
 		var item_value = item
 		var card = Button.new()
@@ -1073,6 +1075,9 @@ func show_armory() -> void:
 		card.add_theme_font_size_override("font_size",14)
 		card.tooltip_text = item.description
 		card.toggle_mode = true
+		# Keep selection readable while icons/details build over later frames,
+		# including the rebuild immediately after buying or equipping an item.
+		card.set_pressed_no_signal(item.id==selected_item.get("id",""))
 		card.focus_entered.connect(func(): _fill_armory_card(card,item_value))
 		card.add_theme_stylebox_override("pressed",UI.box(Color("34452f"),UI.GOLD,5))
 		card.pressed.connect(func():
@@ -1097,8 +1102,6 @@ func show_armory() -> void:
 			show_armory())
 	info_panel = UI.panel(screen,Rect2(925,229,460,507),Color(.055,.10,.08,.95))
 	info_panel.clip_contents = true
-	if selected_item.is_empty() and not filtered.is_empty():
-		selected_item = filtered[0]
 	UI.label(info_panel,"正在整理装备…",Vector2(22,16),22,UI.GOLD,415)
 	build_queue.enqueue(func():
 		if not info_panel.get_meta("details_ready",false): _update_item_panel())

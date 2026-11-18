@@ -505,6 +505,24 @@ func _release_lance() -> void:
 	var grip = position+Vector2(visual.detached_pose.right.hand).rotated(rotation)
 	var length = Model.lance_length(fighter)
 	var center_from_grip = (length-67.0)*.5
+	# Carry the velocity of the HELD centre, not just the rider's root. The
+	# hand moves with spine/shoulder/elbow and the long shaft sweeps around
+	# it. Dropping those tangential terms made the lance visibly lose motion
+	# at release despite an exact position/direction match.
+	var arm: Dictionary = visual.detached_pose.right
+	var shoulder: Vector2 = arm.shoulder
+	var upper: Vector2 = arm.elbow-arm.shoulder
+	var forearm: Vector2 = arm.hand-arm.elbow
+	var spine_rate = float(joints.spine.velocity)
+	var upper_rate = spine_rate+float(joints.right_upper.velocity)
+	var forearm_rate = upper_rate+float(joints.right_elbow.velocity)
+	var hand_rate = Vector2(-shoulder.y,shoulder.x)*spine_rate+Vector2(-upper.y,upper.x)*upper_rate+Vector2(-forearm.y,forearm.x)*forearm_rate
+	var local_hand: Vector2 = arm.hand
+	var world_hand_rate = velocity+(hand_rate+Vector2(-local_hand.y,local_hand.x)*angular_velocity).rotated(rotation)
+	# _update_pose's continuous wrist response is expressed in the facing
+	# frame; reflection cancels that sign in world angular velocity.
+	var release_spin = angular_velocity+spine_rate+float(joints.right_upper.velocity)*.45+float(joints.right_elbow.velocity)*.25
+	var center_rate = world_hand_rate+Vector2(-ray.y,ray.x)*center_from_grip*release_spin
 	loose_lance = RigidBody2D.new()
 	loose_lance.position = grip+ray*center_from_grip
 	loose_lance.rotation = ray.angle()
@@ -515,8 +533,8 @@ func _release_lance() -> void:
 	loose_lance.continuous_cd = RigidBody2D.CCD_MODE_CAST_SHAPE
 	loose_lance.linear_damp = .7
 	loose_lance.angular_damp = 1.4
-	loose_lance.linear_velocity = velocity+Vector2(direction*35,-15)
-	loose_lance.angular_velocity = angular_velocity*.65+direction*1.3
+	loose_lance.linear_velocity = center_rate
+	loose_lance.angular_velocity = release_spin
 	var collider = CollisionShape2D.new()
 	var shape = RectangleShape2D.new()
 	shape.size = Vector2(length+67.0,7)

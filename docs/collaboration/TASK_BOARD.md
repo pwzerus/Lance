@@ -6,6 +6,8 @@
 - 实际基线：codex/v0.4，077ad0ea152fe1079b5e5421f9c03b216c6ba215；origin一致。当前未见新增Claude功能；三份历史差异与旧QA/UID保留。
 - 认领：skills/external/及本轮来源清单、必要的项目动作技能补充；game/scripts/visual/{rider_view,fallen_rider,horse_gait,horse_skin,exchange_director}.gd、core/joust_match.gd和battle.gd动作/镜头接口；必要的main.gd、ui/文字/结算流程仅限已复现问题；game/tests/*105*与直接受影响回归、test_parse065.gd；版本/导出/入口及设计/审查/交接/证据文件。
 - 第一阶段先从正常速度、减速和逐帧真实渲染建立基线；重点看双向重心、肩肘握点、头颈连接、骑乘支撑、落马/触地/收势，保留枪盾运动时间。外部skills只作经审查的参考，不覆盖项目规则、不执行未知下载脚本、不升级引擎。
+- 第二阶段明确追加：tests/test_flow082.gd的过时确认/分帧就绪夹具；main.gd军械库重建时选中高亮的短暂缺失，先按真实流程复现。tests/test_release105.gd检查脱手动量，沿用fallen_rider现有架构。
+- UI复核追加：battle.gd与ui/combat_status098.gd恢复正常HUD缺失的断枪/破盾/失衡等简短行动提示，避免只更新隐藏调试标签；沿用现有底栏，不增加数字或新面板。
 - 串行后台-IsolatedDesktop和QA存档，内存/CPU/单实例等保护保持，不接管屏幕。最后留出导出和实包检查时间，记录未解决项，不用通过数或专业称谓代替实际验收。
 
 ## FIX-104 已交出（2026-11-17，Codex）

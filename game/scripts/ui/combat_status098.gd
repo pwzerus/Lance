@@ -18,6 +18,7 @@ func refresh(current: Array, contacts: Array, pass_index: int) -> void:
 	# when an actual meter or contact changes (prevents hidden result churn).
 	var values: Array = [history,pass_number,contacts.size()]
 	for f in fighters:
+		values.append(bool(f.get("broken",false)))
 		for key in ["hp","balance","shield","score","stamina","speed","lance_stability"]:
 			values.append(roundi(float(f.get(key,0))* (100 if key=="lance_stability" else 1)))
 	var signature=str(values)
@@ -92,8 +93,9 @@ func _draw() -> void:
 	for i in range(3):
 		draw_circle(Vector2(702+i*18,69),4,Color("e1c27a") if i<pass_number else Color("394a3e"))
 	var player: Dictionary=fighters[0]
-	text("枪稳",Vector2(404,772),MUTED,13)
-	bar(Rect2(446,761,194,9),float(player.lance_stability),Color("a5b484"))
+	var broken = bool(player.get("broken",false))
+	text("残枪" if broken else "枪稳",Vector2(404,772),Color("e0ae59") if broken else MUTED,13)
+	bar(Rect2(446,761,194,9),0.0 if broken else float(player.lance_stability),Color("a5b484"))
 	text("盾牌",Vector2(658,772),MUTED,13)
 	bar(Rect2(700,761,194,9),float(player.shield)/maxf(1,float(player.stats.get("shield_capacity",150))),Color("7da7a6"))
 

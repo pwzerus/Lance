@@ -10,6 +10,22 @@ func key(code: int) -> void:
 	event.pressed=false
 	root.push_input(event,true)
 
+func wait_armory() -> bool:
+	var began=Time.get_ticks_msec()
+	while is_instance_valid(main.info_panel) and not main.info_panel.get_meta("details_ready",false) and Time.get_ticks_msec()-began<15000:
+		await process_frame
+	var ready=is_instance_valid(main.info_panel) and main.info_panel.get_meta("details_ready",false)
+	check(ready,"Staged armoury details became ready")
+	return ready
+
+func wait_battle(battle:Node) -> bool:
+	var began=Time.get_ticks_msec()
+	while is_instance_valid(battle) and not battle.presentation_ready and Time.get_ticks_msec()-began<30000:
+		await process_frame
+	var ready=is_instance_valid(battle) and battle.presentation_ready
+	check(ready,"Staged battle presentation became ready")
+	return ready
+
 func run() -> void:
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--folder="): folder=arg.trim_prefix("--folder=")
@@ -41,6 +57,10 @@ func run() -> void:
 	main.show_saves()
 	press("读取进度")
 	await process_frame
+	check(state.profile.coins==17,"Manual load must wait for the player's confirmation")
+	check(is_instance_valid(main.slot_dialog) and main.slot_dialog.visible,"Manual load confirmation appears")
+	if is_instance_valid(main.slot_dialog):main.slot_dialog.confirmed.emit()
+	await process_frame
 	check(state.profile.coins==520,"Manual slot did not restore current progress")
 	check(FileAccess.file_exists(state.backup_path),"Manual load lost automatic backup")
 	main.show_settings()
@@ -67,14 +87,14 @@ func run() -> void:
 	main.selected_era=-1
 	main.selected_region=1
 	main.show_armory()
-	await process_frame
+	await wait_armory()
 	press("清除筛选")
-	await process_frame
+	await wait_armory()
 	check(main.armory_cards.size()>0 and main.selected_region==0,"Clearing filters did not restore shared horses")
 	main.selected_slot="armor"
 	main.selected_item={}
 	main.show_armory()
-	await process_frame
+	await wait_armory()
 	var candidate: Dictionary={}
 	for item in state.items:
 		if item.slot=="armor" and item.id in main.armory_cards and item.id!=state.profile.equipped.armor:
@@ -86,6 +106,8 @@ func run() -> void:
 		main.armory_scroll.scroll_vertical=300
 		for _i in range(3): await process_frame
 		press("装备")
+		check(main.armory_cards[candidate.id].button_pressed,"Selection remains highlighted during staged armoury rebuild")
+		await wait_armory()
 		for _i in range(5): await process_frame
 		check(state.profile.equipped.armor==candidate.id,"Owned equipment failed to equip")
 		check(main.armory_scroll.scroll_vertical>=250,"Equipping unexpectedly returned inventory to top")
@@ -96,6 +118,7 @@ func run() -> void:
 	main._start_match("arena",true)
 	var battle=main.battle
 	if root.focus_exited.is_connected(battle._on_focus_lost): root.focus_exited.disconnect(battle._on_focus_lost)
+	if not await wait_battle(battle):quit(2);return
 	battle.set_physics_process(false)
 	battle.set_process(false)
 	await process_frame
@@ -117,10 +140,16 @@ func run() -> void:
 	f.broken=true
 	battle._update_hud()
 	check(battle.tactics_label.text.contains("枪已断"),"Normal HUD hides broken lance state")
+	check(battle.aim_label.is_visible_in_tree() and battle.aim_label.text.contains("枪已断"),"Broken-lance notice must be visible, not only in hidden diagnostics")
 	check(battle.tactics_label.text.contains("下轮换新枪"),"Early arena pass hides the replacement reminder")
+	state.profile.settings.aim_cues=false
+	battle._update_hud()
+	check(battle.aim_label.is_visible_in_tree() and battle.aim_label.text.contains("下轮换新枪"),"Disabling aim assistance must not hide weapon failure")
+	state.profile.settings.aim_cues=true
 	model.pass_number=model.MAX_PASSES
 	battle._update_hud()
 	check(not battle.tactics_label.text.contains("下轮换新枪"),"Final pass promises a nonexistent next lance")
+	check(not battle.aim_label.text.contains("下轮换新枪"),"Visible final-pass notice must not promise another lance")
 	model.pass_number=1
 	battle._update_hud()
 	await capture("combat_states")
@@ -139,6 +168,7 @@ func run() -> void:
 	key(KEY_R)
 	await process_frame
 	check(main.battle!=battle and not main.battle.paused and is_equal_approx(Engine.time_scale,1.0),"Restart retained old battle/pause/time scale")
+	if not await wait_battle(main.battle):quit(2);return
 	main._close_battle()
 	main.show_home()
 	await capture("return_after_restart")

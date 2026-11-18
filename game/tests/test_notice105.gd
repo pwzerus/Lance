@@ -58,6 +58,18 @@ func run() -> void:
 				rows.append({"case":c.name,"width":dimensions.x,"cues":cues,"visible":label.is_visible_in_tree(),"text":label.text})
 				if not cues and c.name in ["war_stub","shield_broken","head_trauma","tired_arm","fallen"]:
 					await capture(str(dimensions.x)+"_"+c.name)
+	# Explicit overlapping contact readout: a background painted in the
+	# gauges' foreground can hide this text despite all Labels being visible.
+	model.phase="charge";battle.mode="arena";model.mode="arena"
+	model.fighters[0].merge(original.duplicate(true),true)
+	battle.contact_until=Time.get_ticks_msec()+10000
+	battle.contact_label.text="盾心重击"
+	battle.enemy_contact_label.text="头 命中"
+	battle._update_hud()
+	for _i in range(3):await process_frame
+	check(battle.contact_label.is_visible_in_tree() and battle.enemy_contact_label.is_visible_in_tree(),"Contact labels remain visible")
+	check(battle.status_gauges._backdrop.z_index<0,"Status backdrop stays behind contact labels")
+	await capture("960_contact_overlap")
 	main._close_battle();main.sounds.stop_all();main.queue_free();await process_frame
 	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"rows":rows,"captures":captures,"scope":"48 explicit HUD states rendered at two window sizes; no OS input or human readability verdict."},"\t"))
 	print("NOTICE105 ",failures);quit(0 if failures.is_empty() else 1)

@@ -16,6 +16,7 @@
 - 接地/受伤表现复核追加：impact_fx.gd旧血迹固定在y≈0而不随双方跑道；tests/test_ground105.gd复现，旧test_fall_scene_v050.gd补分帧等待及新QA路径，验证正式暂停菜单关闭血腥时旧地面痕迹即时清除、伤害结果保持。
 - test_cinema099.gd的配对双KO表现夹具同步各自枪体/速度/跑道快照，避免把第一把断枪的位置复制为第二把；仍明确这是表现夹具，不冒称同帧双扫掠。
 - 测试维护复核后，撤销本轮对历史test_horse_anatomy_v050.gd的全部修改，保留其历史用途；改由现有test_horse_anatomy063.gd提供六节点检查并补当前visual_pose/逐帧系部速度度量。test_motion_cadence061.gd与test_motion_lowrate061.gd迁移到该基类，避免复制新骨架测试。
+- 后台画面发现顶部生命/平衡/得分文字叠在明亮天空上，对比不足；ui/combat_status098.gd补两侧紧凑底色，保持中央视野，复用test_notice105实际渲染核对两尺寸与文字覆盖。
 - 串行后台-IsolatedDesktop和QA存档，内存/CPU/单实例等保护保持，不接管屏幕。最后留出导出和实包检查时间，记录未解决项，不用通过数或专业称谓代替实际验收。
 
 ## FIX-104 已交出（2026-11-17，Codex）

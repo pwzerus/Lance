@@ -1,5 +1,7 @@
 extends Control
 ## Presentation reads resolved state. No hit prediction and no rules here.
+# Keep the base-font reference for existing shield/heraldry QA consumers.
+# Actual HUD text uses the shared 500-weight variation below.
 const FONT = preload("res://assets/fonts/NotoSansSC.ttf")
 const INK = Color("eee6cc")
 const MUTED = Color("9fae9f")
@@ -9,6 +11,21 @@ var pass_number = 1
 var history = false
 var arena = true
 var _signature = ""
+var _backdrop: Node2D
+
+func _ready() -> void:
+	_backdrop = Node2D.new()
+	# Behind the HUD's labels, not over the contact messages at y=110.
+	_backdrop.z_index = -1
+	_backdrop.draw.connect(_draw_backdrop)
+	add_child(_backdrop)
+
+func _draw_backdrop() -> void:
+	if history or fighters.size()!=2: return
+	for panel in [Rect2(14,58,538,84),Rect2(908,58,518,84)]:
+		_backdrop.draw_rect(panel,Color("14231d"))
+		_backdrop.draw_line(panel.position+Vector2(0,83),panel.end,Color("435244"),1)
+	_backdrop.draw_rect(Rect2(686,58,68,22),Color("14231d"))
 
 func refresh(current: Array, contacts: Array, pass_index: int) -> void:
 	fighters=current
@@ -24,10 +41,12 @@ func refresh(current: Array, contacts: Array, pass_index: int) -> void:
 	var signature=str(values)
 	if signature!=_signature:
 		_signature=signature
-		if is_visible_in_tree(): queue_redraw()
+		if is_visible_in_tree():
+			queue_redraw()
+			if _backdrop: _backdrop.queue_redraw()
 
 func text(value: String, at: Vector2, color: Color=INK, font_size: int=14) -> void:
-	var font = UIFactory.theme().default_font if history else FONT
+	var font = UIFactory.theme().default_font
 	draw_string(font,at,value,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size,color)
 
 func bar(rect: Rect2, fraction: float, color: Color, reverse: bool=false) -> void:
@@ -79,9 +98,9 @@ func _draw() -> void:
 	for i in range(2):
 		var f: Dictionary=fighters[i]
 		var x=24.0 if i==0 else 984.0
-		text("你的骑手" if i==0 else "对手",Vector2(x,73),MUTED,14)
-		text("生命",Vector2(x,94),INK,13)
-		text("平衡",Vector2(x,116),INK,13)
+		text("你的骑手" if i==0 else "对手",Vector2(x,73),MUTED,15)
+		text("生命",Vector2(x,94),INK,15)
+		text("平衡",Vector2(x,116),INK,15)
 		bar(Rect2(x+42,81,384,13),float(f.hp)/100,Color("b85d4c"),i==1)
 		bar(Rect2(x+42,103,384,9),float(f.balance)/100,Color("ed9168") if float(f.balance)<35 else Color("d2b16b"),i==1)
 		if arena:

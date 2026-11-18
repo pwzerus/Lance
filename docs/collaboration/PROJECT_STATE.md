@@ -8,7 +8,7 @@
 
 发布入口Play-Latest指向.57-c3外层保护程序，ZIP与旧包均在builds；PCK38,129,100字节，SHA256 C73D2423776ADBC33B6F93486273831146314179F2BC3722E7C6F12FECD43989。原内存/CPU/单实例/系统余量保护始终开启，全程后台隔离，无OS输入、真人试玩、硬件听感或跨机验收。旧94ms未稳定复现，仍未定位；不得写成已彻底解决。历史三份工作区差异及旧QA保留。
 
-详见ANIM-105交接、ANIM105_MOTION_REVIEW和ANIM105_EVIDENCE。后续优先真人观察第五关盾缘反馈、动作自然程度与真实声音；有旧94ms复现再按追踪证据查，不重写整套马骨架。本轮文件认领在四小时交付后释放。
+详见[ANIM-105交接](handoffs/2026-11-17-ANIM-105-Codex.md)、[审查](../development/ANIM105_MOTION_REVIEW.md)、[证据](../development/ANIM105_EVIDENCE.json)与[复验步骤](../development/ANIM105_RETEST_GUIDE.md)。后续优先真人观察第五关盾缘反馈、动作自然程度与真实声音；有旧94ms复现再按追踪证据查，不重写整套马骨架。四小时开发与复验完成，本轮文件认领全部释放。
 
 ## FIX-104：第二关持枪臂与短特写，v0.4.56-c1（2026-11-17）
 

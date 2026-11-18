@@ -1,6 +1,6 @@
 {
   "task": "ANIM-105",
-  "generated_utc": "2026-11-18T03:32:50.959744+00:00",
+  "generated_utc": "2026-11-18T03:40:47.518635+00:00",
   "window": {
     "start": "2026-11-17T23:41:56Z",
     "deadline": "2026-11-18T03:41:56Z"
@@ -1431,6 +1431,135 @@
       "engine_log": {
         "path": "docs/development/logs/anim105-c3-level5/engine.log",
         "sha256": "b547b08b8550760a0b101c6a3b6e4c0e88f2e5a237dc96c555865495e42863f9",
+        "completion_markers": [
+          "ERROR: Can't create shader cache folder, no shader caching will happen: user://"
+        ]
+      }
+    },
+    {
+      "name": "anim105-c3-lowfps01",
+      "reports": [
+        {
+          "path": "docs/development/logs/anim105-c3-lowfps01/qa/motion.json",
+          "sha256": "21c47bbf3b1e887d19856cb711e32c3e6bc4ae473d6fdb36af6fc5ccd3c22be2",
+          "passed": true,
+          "failures": [],
+          "scope": "Normal Main/Battle results/replay and actual rendered frames, QA-only 30FPS cap. No physics-rate or art reduction. Joint bounds do not establish human motion quality.",
+          "metrics": {
+            "arms": 19984,
+            "frames": 5371,
+            "maximum_anchor_error": 0.000492081162519753,
+            "maximum_bone_error": 0.000247955322265625,
+            "nonfinite": 0
+          },
+          "target_render_fps": 30,
+          "physics_hz": 120
+        },
+        {
+          "path": "docs/development/logs/anim105-c3-lowfps01/qa/report.json",
+          "sha256": "0a64f58eb666662d9b14e607ae8db3edf491b621020d953e2da35ed2e90bd691",
+          "passed": true,
+          "failures": [],
+          "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+          "version": "0.4.57-c3",
+          "wall_seconds": 180.030194,
+          "all_frames": {
+            "fps": 30.0008014285559,
+            "frames": 5401,
+            "max_ms": 44.972,
+            "over_33ms": 2586,
+            "over_50ms": 0,
+            "p50_ms": 33.318,
+            "p95_ms": 35.33,
+            "p99_ms": 36.624
+          },
+          "phases": {
+            "charge": {
+              "fps": 29.9937536067132,
+              "frames": 3361,
+              "max_ms": 39.916,
+              "over_33ms": 1645,
+              "over_50ms": 0,
+              "p50_ms": 33.323,
+              "p95_ms": 35.3,
+              "p99_ms": 36.085
+            },
+            "contact": {
+              "fps": 29.9652603193616,
+              "frames": 449,
+              "max_ms": 44.972,
+              "over_33ms": 217,
+              "over_50ms": 0,
+              "p50_ms": 33.28,
+              "p95_ms": 37.337,
+              "p99_ms": 39.676
+            },
+            "ended": {
+              "fps": 30.1141512605877,
+              "frames": 291,
+              "max_ms": 39.178,
+              "over_33ms": 132,
+              "over_50ms": 0,
+              "p50_ms": 33.244,
+              "p95_ms": 35.905,
+              "p99_ms": 37.633
+            },
+            "ready": {
+              "fps": 30.0009911438556,
+              "frames": 810,
+              "max_ms": 36.234,
+              "over_33ms": 369,
+              "over_50ms": 0,
+              "p50_ms": 33.307,
+              "p95_ms": 34.723,
+              "p99_ms": 35.427
+            },
+            "result": {
+              "fps": 29.9998009914192,
+              "frames": 202,
+              "max_ms": 34.478,
+              "over_33ms": 88,
+              "over_50ms": 0,
+              "p50_ms": 33.325,
+              "p95_ms": 33.718,
+              "p99_ms": 34.116
+            },
+            "turn": {
+              "fps": 30.0246327090851,
+              "frames": 288,
+              "max_ms": 37.614,
+              "over_33ms": 135,
+              "over_50ms": 0,
+              "p50_ms": 33.29,
+              "p95_ms": 34.993,
+              "p99_ms": 35.72
+            }
+          },
+          "matches_count": 5
+        }
+      ],
+      "candidate": "0.4.57-c3 (see review for source import/export versus actual package)",
+      "guard": {
+        "path": "docs/development/logs/anim105-c3-lowfps01/memory.log",
+        "sha256": "1cedb8f36558c3457551bc13923e86ed6772fe1ba596548972a6391648a6ab4f",
+        "peak_private_mib": 666.5,
+        "exit_code": 0,
+        "seconds": 184.8,
+        "isolated_desktop_closed": true,
+        "startup": "QA_DESKTOP GALUMU_QA_1ff49dee0e51434bb89512d978a4a2ac (not switched to input desktop)"
+      },
+      "frame_traces": [
+        {
+          "path": "docs/development/logs/anim105-c3-lowfps01/qa/trace.json",
+          "sha256": "829aa3aadc778b82a951d2f8b54c163c1907cc410ec13defa64a26049b363bf0",
+          "recorded_gaps_over_30ms": 512,
+          "maximum_recorded_gap_ms": 37.096,
+          "note": "30 FPS QA normally has gaps >30ms; not all trace entries are stalls."
+        }
+      ],
+      "engine_log": {
+        "path": "docs/development/logs/anim105-c3-lowfps01/engine.log",
+        "sha256": "7fb689a5c94d637f494b0567f0679b719c4d3929a755045b41a71d26e6c29650",
         "completion_markers": [
           "ERROR: Can't create shader cache folder, no shader caching will happen: user://"
         ]

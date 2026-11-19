@@ -1,6 +1,6 @@
 {
   "task": "CORE-106",
-  "updated_utc": "2026-11-19T22:55:40.913860+00:00",
+  "updated_utc": "2026-11-19T22:58:32.098793+00:00",
   "baseline_sha": "d6d46cc567b606664e8faccd3ddbf0741ec86f80",
   "source_checkpoint_sha": "ac8cbfb05183cd540ee3a740af9ed04ed2070700",
   "status": "Development checkpoint; latest user requests lightweight checks now, full GPU/release verification later.",
@@ -1145,6 +1145,44 @@
         "terminal": [
           "EXIT code=0 seconds=2.3"
         ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-static-audio01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-static-audio01/report.json",
+          "sha256": "811a0a0dda62afa524cc383164bd0a289ad721f9bfc3b8a789846061a4285d81",
+          "bytes": 2353,
+          "passed": false,
+          "failures": [
+            "Player notices must include audio origin"
+          ],
+          "scope": "Read-only source WAV hashes, exact generator reproducibility, import configuration, runtime directory and export filter intent. Actual exported PCK presence still requires package validation."
+        }
+      ],
+      "memory": {
+        "terminal": []
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-static-audio02",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-static-audio02/report.json",
+          "sha256": "33474d883d4f51ae30cab318b78a773a77792998dd7d3da0b738aeaebb0a4131",
+          "bytes": 2300,
+          "passed": true,
+          "failures": [],
+          "scope": "Read-only source WAV hashes, exact generator reproducibility, import configuration, runtime directory and export filter intent. Actual exported PCK presence still requires package validation."
+        }
+      ],
+      "memory": {
+        "terminal": []
       },
       "engine_error_lines": [],
       "has_script_error": false

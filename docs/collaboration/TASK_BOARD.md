@@ -1,5 +1,16 @@
 # 任务、审查建议与文件认领
 
+## CORE-106 进行中（2026-11-19，Codex）
+
+- 用户批准 Windows 成品计划第1–4项：稳定性/性能、骑乘动作、对冲受力与声音、战斗取舍。五小时从2026-11-19 21:49:16 UTC至2026-11-20 02:49:16 UTC；优先修复有证据的问题，保留导出和实际包复验时间。
+- 实际基线 codex/v0.4，d6d46cc567b606664e8faccd3ddbf0741ec86f80，ls-remote一致；现发布v0.4.57-c3，运行源码ba0f558。无新增Claude功能；V051_EXPERIENCE_REVIEW、V051_HISTORY_REVIEW、rules_v045_results及历史未跟踪UID原样保留。
+- 当前文件占用：Codex独占 game/scripts/{main,battle}.gd、core/{joust_match,horse_condition,opponent_ai,frame_trace099,contact_feedback}.gd、visual/{horse_gait,horse_skin,rider_view,fallen_rider,impact_fx,exchange_director,sound_bank}.gd；仅限诊断后的必要改动。core/campaign.gd及ui/combat_status098.gd只在战斗取舍/反馈复验发现问题后修改，不扩展关卡内容。game/tests/*106*、直接受影响旧测试与test_parse065；本轮审查/证据/设计/交接、项目版本/导出与Play-Latest。
+- 起始时间及负责人：2026-11-19 21:49:16 UTC，Codex。认领直到最终交接释放。计划先基线性能与资源生命周期，再动作/接触声音，随后同种子策略对照，最后独立Windows包验证。
+- 验收：保留美术/骨架/120Hz物理、枪盾有限移动、初关简单；所有引擎串行经Start-MemoryBound，GPU用-IsolatedDesktop，QA存档隔离，内存/CPU/单实例保护开启。无真实鼠标键盘或屏幕接管；区分规则、引擎注入、后台渲染和未完成真人手感/硬件听感。
+- 不在本轮做iOS/广告/近战/新付费；不以平均FPS、断言数或时间耗满宣称商业发布质量。
+- 声音阶段追加认领：game/tools/build_movement_audio106.py、game/assets/audio/movement_v106/及资源来源记录；为现有SoundBank生成短小原创甲片/锁子甲骑乘声，按实际马背压缩回弹触发，保持命中声优先与有界声部。
+- 动作/诊断追加认领：visual/lance_art.gd、tests/profile_result099.gd及launcher/ASSET-NOTICES.txt。修复旗饰使用墙上时间导致暂停/慢动作不同步，并将性能采样改为完整的显示间隔，避免物理帧重置遗漏绘制耗时。
+
 ## ANIM-105 已交付（2026-11-17/18，Codex）
 
 ANIM-105四小时交付收尾：2026-11-18 03:42:17 UTC，自23:41:56 UTC起用时240.4分钟。c3实际30FPS重甲实战最后复验：180.030秒、5次正常结算，平均30.001FPS、最大44.972ms；19984个手臂采样，骨长误差最大0.000248、握点误差最大0.000492，无非有限关节值。原120Hz物理/美术保持；这是后台引擎注入，不是真人手感。 运行源码ba0f558/PCK未改，主体交付2e2f375已推送核对，最后文档回执随后提交推送并再次核对。本轮全部文件认领释放；旧三份差异及旧未跟踪QA保持。

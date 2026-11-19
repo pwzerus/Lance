@@ -1,0 +1,1612 @@
+{
+  "task": "CORE-106",
+  "updated_utc": "2026-11-19T22:55:40.913860+00:00",
+  "baseline_sha": "d6d46cc567b606664e8faccd3ddbf0741ec86f80",
+  "source_checkpoint_sha": "ac8cbfb05183cd540ee3a740af9ed04ed2070700",
+  "status": "Development checkpoint; latest user requests lightweight checks now, full GPU/release verification later.",
+  "validation_mode": "Guarded headless rules and earlier isolated GPU; no screen takeover, OS input, human play or hardware listening.",
+  "protections": "Start-MemoryBound: original memory/CPU/single-instance guards; reserve500MiB; finite diagnostic profiles only for eligible scripts.",
+  "runs": [
+    {
+      "run": "core106-arm01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-arm01/report.json",
+          "sha256": "374e8b1456124e91f91a74dd31cf98f1f9d0dcba693cdc1b463293d519ef5ff8",
+          "bytes": 368,
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "memory": {
+        "terminal": [
+          "EXIT code=0 seconds=0.5"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-baseline-heavy01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-baseline-heavy01/qa/report.json",
+          "sha256": "b50de2ff51e055f90c68b2beb8ae3f01b6a03256306de9520a649f991c2db5c0",
+          "bytes": 67253,
+          "passed": true,
+          "failures": [],
+          "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+          "all_frames": {
+            "fps": 57.8358589075035,
+            "frames": 13881,
+            "max_ms": 69.305,
+            "over_33ms": 31,
+            "over_50ms": 2,
+            "p50_ms": 16.744,
+            "p95_ms": 22.506,
+            "p99_ms": 27.424
+          },
+          "phases": {
+            "charge": {
+              "fps": 58.2546787040062,
+              "frames": 9428,
+              "max_ms": 69.305,
+              "over_33ms": 3,
+              "over_50ms": 1,
+              "p50_ms": 16.783,
+              "p95_ms": 22.007,
+              "p99_ms": 26.373
+            },
+            "contact": {
+              "fps": 49.9441639854194,
+              "frames": 256,
+              "max_ms": 45.145,
+              "over_33ms": 9,
+              "over_50ms": 0,
+              "p50_ms": 17.852,
+              "p95_ms": 31.471,
+              "p99_ms": 37.59
+            },
+            "ended": {
+              "fps": 52.9486690454815,
+              "frames": 838,
+              "max_ms": 50.299,
+              "over_33ms": 19,
+              "over_50ms": 1,
+              "p50_ms": 17.286,
+              "p95_ms": 27.098,
+              "p99_ms": 40.062
+            },
+            "ready": {
+              "fps": 59.2228969349085,
+              "frames": 2077,
+              "max_ms": 31.081,
+              "over_33ms": 0,
+              "over_50ms": 0,
+              "p50_ms": 16.681,
+              "p95_ms": 19.79,
+              "p99_ms": 22.173
+            },
+            "result": {
+              "fps": 60.2381270274467,
+              "frames": 559,
+              "max_ms": 25.987,
+              "over_33ms": 0,
+              "over_50ms": 0,
+              "p50_ms": 16.661,
+              "p95_ms": 17.282,
+              "p99_ms": 19.203
+            },
+            "turn": {
+              "fps": 56.2093575441471,
+              "frames": 723,
+              "max_ms": 26.523,
+              "over_33ms": 0,
+              "over_50ms": 0,
+              "p50_ms": 16.902,
+              "p95_ms": 23.567,
+              "p99_ms": 25.059
+            }
+          },
+          "wall_seconds": 240.013258,
+          "matches_count": 7
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 689.5,
+        "sampled_system_available_min_mib": 516,
+        "terminal": [
+          "EXIT code=0 seconds=249.0",
+          "QA_DESKTOP_CLOSED=True"
+        ]
+      },
+      "engine_error_lines": [
+        "ERROR: Can't create shader cache folder, no shader caching will happen: user://"
+      ],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-beginner-rules01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-beginner-rules01/report.json",
+          "sha256": "17a0136eb7c8fa14735cd5dcd3d8f4c6eac89129d34d9e2b112e4505ab2ac36c",
+          "bytes": 744,
+          "passed": true,
+          "failures": [],
+          "rows_count": 6
+        }
+      ],
+      "memory": {
+        "terminal": [
+          "EXIT code=0 seconds=0.7"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-cadence01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-cadence01/report.json",
+          "sha256": "eac1f14ce0e8ae36e0a3b8bead370f866396c5ce07246dd9d5278910ae088229",
+          "bytes": 9774,
+          "passed": true,
+          "failures": [],
+          "scope": "Fixed 120Hz production Model and world-translated Rider with irregular 20-120Hz visual intervals, rapid spur changes, three representative horse configurations and both facings. ART-063 six-joint geometry and flat-hoof bounds, current presentation trunk, actual per-frame fetlock velocity. No GPU or OS input and no real-time FPS/naturalness verdict.",
+          "cases_count": 6
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 127.0,
+        "sampled_system_available_min_mib": 1314,
+        "terminal": [
+          "EXIT code=0 seconds=4.7"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-contact-mix01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-contact-mix01/capture/report.json",
+          "sha256": "3000e05a9ab144de4accfdd6ca789e989152ee40322fd28ed6db3d8ee4be08c4",
+          "bytes": 20737,
+          "passed": true,
+          "failures": [],
+          "scope": "Actual AudioEffectRecord Master output before final mute, saved WAV PCM read-back for these representative/explicit stress schedules. Not every possible gameplay mix, LUFS, hardware loudness, true-peak certification, collision verification or human listening.",
+          "rows_count": 14
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 55.2,
+        "sampled_system_available_min_mib": 1313,
+        "terminal": [
+          "EXIT code=0 seconds=13.4"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-drive01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-drive01/qa/report.json",
+          "sha256": "97a6d3342fc4f6dca10235e2b3d661fa8b70cd4dfb14d24079da2e261d9595ac",
+          "bytes": 837,
+          "passed": true,
+          "failures": [],
+          "scope": "Analytic drive time-step convergence and neutral curve continuity; no visual naturalness verdict.",
+          "rows_count": 3
+        }
+      ],
+      "memory": {
+        "terminal": [
+          "EXIT code=0 seconds=0.9"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-drive02",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-drive02/qa/report.json",
+          "sha256": "778926f91cf4fa25a25761236e993670049e750a38756a8e6b3b03ea9c476ad7",
+          "bytes": 1252,
+          "passed": false,
+          "failures": [
+            "Exit posture must not jump the head anchor"
+          ],
+          "scope": "Analytic drive time-step convergence and neutral curve continuity; no visual naturalness verdict.",
+          "rows_count": 5
+        }
+      ],
+      "memory": {
+        "terminal": [
+          "EXIT code=1 seconds=0.5"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-drive03",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-drive03/qa/report.json",
+          "sha256": "e7d8d9e5b37a211c1b6ad55076809503e64c959acd7303174878b57e1e118956",
+          "bytes": 1202,
+          "passed": true,
+          "failures": [],
+          "scope": "Analytic drive time-step convergence and neutral curve continuity; no visual naturalness verdict.",
+          "rows_count": 5,
+          "measurements": [
+            {
+              "maximum": 0.99999808690203,
+              "minimum": -0.666663478203801,
+              "rate": 120,
+              "rate_error": 0.0
+            },
+            {
+              "maximum": 0.99999808690203,
+              "minimum": -0.666663478203801,
+              "rate": 60,
+              "rate_error": 3.5527136788005e-15
+            },
+            {
+              "maximum": 0.99999808690203,
+              "minimum": -0.666663478203801,
+              "rate": 30,
+              "rate_error": 3.5527136788005e-15
+            },
+            {
+              "facing": 1,
+              "final_drive": 4.17917463120112e-13,
+              "final_seat": 6.30399100944285e-05,
+              "kind": "turn_release",
+              "maximum_head_step": 1.24733901023865
+            },
+            {
+              "facing": -1,
+              "final_drive": 4.17917463120112e-13,
+              "final_seat": 6.30399100944285e-05,
+              "kind": "turn_release",
+              "maximum_head_step": 1.24733901023865
+            }
+          ]
+        }
+      ],
+      "memory": {
+        "terminal": [
+          "EXIT code=0 seconds=0.5"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-fall-fuzz01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-fall-fuzz01/report.json",
+          "sha256": "06cacb11d2ca416e577e5c27721ba20db2c6651312b5c56bd9a8f247cf36711b",
+          "bytes": 1224764,
+          "passed": true,
+          "failures": [],
+          "scope": "Deterministic synthetic captured poses: campaign gear, varied lean/guard/aim/hoof phase/unsteady, impact and speed ratios; production fall integration and constraints. Optional isolated GPU captures. Not human gameplay or probability evidence.",
+          "cases_count": 64
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 138.7,
+        "sampled_system_available_min_mib": 1330,
+        "terminal": [
+          "EXIT code=0 seconds=5.5"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-fast-gait01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-fast-gait01/report.json",
+          "sha256": "08768233723ccf59b5a36cec4b38c401d8580ee50af21dc0fd8cc5537543a09a",
+          "bytes": 19983,
+          "passed": true,
+          "failures": [],
+          "scope": "Additional 560/640 game-unit steady speeds at 30/60/120Hz, both directions. The latter is a conservative above-normal stress case, not a claim that ordinary horses reach that speed. Same six-node geometry/support/sink limits; not GPU or human motion review.",
+          "steady_count": 12
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 129.0,
+        "sampled_system_available_min_mib": 1249,
+        "terminal": [
+          "EXIT code=0 seconds=1.3"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-head01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-head01/report.json",
+          "sha256": "fb52d8a9d15bc16bdd73231a3a18bcf256afffca8c110a6c1990827a34b13aaa",
+          "bytes": 36904,
+          "passed": true,
+          "failures": [],
+          "rows_count": 24
+        }
+      ],
+      "memory": {
+        "terminal": [
+          "EXIT code=0 seconds=0.5"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-hoof-regression01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-hoof-regression01/report.json",
+          "sha256": "bf44b4a3b083049ad4d91cf3971bd4b9f76e5ba9f377ef3fe95bdf47cdf4861d",
+          "bytes": 281,
+          "passed": true,
+          "failures": [],
+          "scope": "Curve continuity, no overshoot, rigid poll/muzzle and bounded mesh topology. Not a human feel verdict."
+        }
+      ],
+      "memory": {
+        "terminal": [
+          "EXIT code=0 seconds=1.0"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-import01",
+      "reports": [],
+      "memory": {
+        "sampled_private_peak_mib": 737.7,
+        "sampled_system_available_min_mib": 1172,
+        "terminal": [
+          "EXIT code=0 seconds=5.7"
+        ]
+      },
+      "engine_error_lines": [
+        "ERROR: Could not create editor data directory: C:/Users/yifei/AppData/Roaming/Godot",
+        "ERROR: Could not create editor config directory: C:/Users/yifei/AppData/Roaming/Godot",
+        "ERROR: Could not create editor cache directory: C:/Users/yifei/AppData/Local/Godot",
+        "ERROR: Cannot create file 'C:/Users/yifei/AppData/Local/Godot/editor_doc_cache-4.5.res'.",
+        "ERROR: Cannot save editor help cache (C:/Users/yifei/AppData/Local/Godot/editor_doc_cache-4.5.res).",
+        "ERROR: Cannot open directory 'C:/Users/yifei/AppData/Roaming/Godot/feature_profiles'.",
+        "ERROR: Can't save resource to empty path. Provide non-empty path or a Resource with non-empty resource_path.",
+        "ERROR: Error saving editor settings to "
+      ],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-import02",
+      "reports": [],
+      "memory": {
+        "sampled_private_peak_mib": 766.7,
+        "sampled_system_available_min_mib": 1063,
+        "terminal": [
+          "EXIT code=0 seconds=7.3"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-lifecycle01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-lifecycle01/qa/report.json",
+          "sha256": "cb087c8b5bde92e10854d4ca2e8f667883cee763388d4d903b9f849452ca1f57",
+          "bytes": 3269,
+          "passed": true,
+          "failures": [],
+          "scope": "32 bounded local rider/audio lifetimes and detached game clocks; no full scene/GPU/OS input or hearing verdict.",
+          "rows_count": 32
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 130.1,
+        "sampled_system_available_min_mib": 1422,
+        "terminal": [
+          "EXIT code=0 seconds=2.5"
+        ]
+      },
+      "engine_error_lines": [
+        "SCRIPT ERROR: Invalid access to property or key 'stats' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'offset' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'."
+      ],
+      "has_script_error": true
+    },
+    {
+      "run": "core106-lifecycle02",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-lifecycle02/qa/report.json",
+          "sha256": "7cfdc7d59bfb4638c0b610c5112283df3876247c02c3d0da832c69e1cb40e62f",
+          "bytes": 3269,
+          "passed": true,
+          "failures": [],
+          "scope": "32 bounded local rider/audio lifetimes and detached game clocks; no full scene/GPU/OS input or hearing verdict.",
+          "rows_count": 32
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 130.1,
+        "sampled_system_available_min_mib": 1452,
+        "terminal": [
+          "EXIT code=0 seconds=2.5"
+        ]
+      },
+      "engine_error_lines": [
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'far' on a base object of type 'Dictionary'."
+      ],
+      "has_script_error": true
+    },
+    {
+      "run": "core106-lifecycle03",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-lifecycle03/qa/report.json",
+          "sha256": "5c41b04c9649c0fb6b91da61de9c45630e135c96e50c552f9253631aadccaa3d",
+          "bytes": 3269,
+          "passed": true,
+          "failures": [],
+          "scope": "32 bounded local rider/audio lifetimes and detached game clocks; no full scene/GPU/OS input or hearing verdict.",
+          "rows_count": 32
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 130.2,
+        "sampled_system_available_min_mib": 1459,
+        "terminal": [
+          "EXIT code=0 seconds=2.5"
+        ]
+      },
+      "engine_error_lines": [
+        "WARNING: ObjectDB instances leaked at exit (run with --verbose for details).",
+        "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+      ],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-lifecycle04",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-lifecycle04/qa/report.json",
+          "sha256": "2a5e07bb0c0b8c4336c518d6546da4647649741d35c34519b34de46001bae343",
+          "bytes": 3269,
+          "passed": true,
+          "failures": [],
+          "scope": "32 bounded local rider/audio lifetimes and detached game clocks; no full scene/GPU/OS input or hearing verdict.",
+          "rows_count": 32
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 130.0,
+        "sampled_system_available_min_mib": 1456,
+        "terminal": [
+          "EXIT code=0 seconds=2.5"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-lifecycle05",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-lifecycle05/qa/report.json",
+          "sha256": "a1c0619aa8e599abebee02d10c9f1b37eecc1a205413ec3355b4329981109914",
+          "bytes": 3269,
+          "passed": true,
+          "failures": [],
+          "scope": "32 bounded local rider/audio lifetimes and detached game clocks; no full scene/GPU/OS input or hearing verdict.",
+          "rows_count": 32
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 129.9,
+        "sampled_system_available_min_mib": 1459,
+        "terminal": [
+          "EXIT code=0 seconds=2.6"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-lowrate01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-lowrate01/report.json",
+          "sha256": "91e1e613487588620928f42ee0416a7097552ea01588cbbfb2dea88bdf531429",
+          "bytes": 48003,
+          "passed": true,
+          "failures": [],
+          "scope": "Same v050 anatomy and support limits at 20/24/48Hz. Does not claim low frame rate looks smooth.",
+          "steady_count": 24,
+          "transitions_count": 6
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 128.7,
+        "sampled_system_available_min_mib": 1232,
+        "terminal": [
+          "EXIT code=0 seconds=2.5"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-movement-audio01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-movement-audio01/report.json",
+          "sha256": "f228271e5d2402166600a481febd1315a90b2774dc5b3fe6eedca78267119581",
+          "bytes": 32130,
+          "passed": false,
+          "failures": [
+            "Movement sample has non-silent unclipped headroom",
+            "Movement material and variants use distinct samples"
+          ],
+          "scope": "Real catalogue material fallback and explicit material fixtures, speed-aware contact strength distinct from damage, pure cue selection, bounded variants, original-event immutability, actual PCM/headroom and simultaneous/staggered contact-group peak budget, optional fixed-gain audition WAVs, live long-voice pause/resume, mute and bounded pool. No claim of human listening, whole-Master mix measurement, hardware loudness, real recorded material or player impact satisfaction.",
+          "rows_count": 79
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 133.7,
+        "sampled_system_available_min_mib": 2245,
+        "terminal": [
+          "EXIT code=1 seconds=2.9"
+        ]
+      },
+      "engine_error_lines": [
+        "ERROR: Movement sample has non-silent unclipped headroom",
+        "ERROR: Movement material and variants use distinct samples"
+      ],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-movement-audio02",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-movement-audio02/report.json",
+          "sha256": "0f6fe5aa8c5a599a7ce0a6a7fdd4179c891a5e5f9e5e30b80421aa1bf641c9cc",
+          "bytes": 30238,
+          "passed": true,
+          "failures": [],
+          "scope": "Real catalogue material fallback and explicit material fixtures, speed-aware contact strength distinct from damage, pure cue selection, bounded variants, original-event immutability, actual PCM/headroom and simultaneous/staggered contact-group peak budget, optional fixed-gain audition WAVs, live long-voice pause/resume, mute and bounded pool. No claim of human listening, whole-Master mix measurement, hardware loudness, real recorded material or player impact satisfaction.",
+          "rows_count": 62
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 133.7,
+        "sampled_system_available_min_mib": 1521,
+        "terminal": [
+          "EXIT code=0 seconds=3.1"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-pacing01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-pacing01/qa/report.json",
+          "sha256": "15058e18d58dc694b23577fd895f8621e089961ed552c61e147bbdfa1a595d97",
+          "bytes": 334703,
+          "passed": true,
+          "failures": [],
+          "scope": "Matched actual catalogue equipment/AI, 120Hz rules, 300ms head/visible-tip observation with fixed +/-8px aim error; no stamina resets. Diagnostic strategy comparison, not human win rates or full rendered Battle.",
+          "rows_count": 144
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 61.2,
+        "sampled_system_available_min_mib": 1217,
+        "terminal": [
+          "EXIT code=0 seconds=384.5"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-parse01",
+      "reports": [],
+      "memory": {
+        "sampled_private_peak_mib": 204.8,
+        "sampled_system_available_min_mib": 1316,
+        "terminal": [
+          "EXIT code=0 seconds=5.2"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false,
+      "parse": [
+        "PARSE065_RESULT failed=0"
+      ]
+    },
+    {
+      "run": "core106-parse02",
+      "reports": [],
+      "memory": {
+        "sampled_private_peak_mib": 201.7,
+        "sampled_system_available_min_mib": 1776,
+        "terminal": [
+          "EXIT code=0 seconds=2.3"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false,
+      "parse": [
+        "PARSE065_RESULT failed=0"
+      ]
+    },
+    {
+      "run": "core106-parse03",
+      "reports": [],
+      "memory": {
+        "terminal": []
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-parse04",
+      "reports": [],
+      "memory": {
+        "sampled_private_peak_mib": 180.2,
+        "sampled_system_available_min_mib": 1382,
+        "terminal": [
+          "EXIT code=0 seconds=2.6"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false,
+      "parse": [
+        "PARSE065_RESULT failed=0"
+      ]
+    },
+    {
+      "run": "core106-parse05",
+      "reports": [],
+      "memory": {
+        "sampled_private_peak_mib": 199.5,
+        "sampled_system_available_min_mib": 1449,
+        "terminal": [
+          "EXIT code=0 seconds=2.4"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false,
+      "parse": [
+        "PARSE065_RESULT failed=0"
+      ]
+    },
+    {
+      "run": "core106-pennon01",
+      "reports": [],
+      "memory": {
+        "terminal": []
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-pose-cache01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-pose-cache01/qa/report.json",
+          "sha256": "22f598e2d5b5261ee01f0697a7c880695d7a69fda6b6aef126d2debed2fbe7d6",
+          "bytes": 714,
+          "passed": true,
+          "failures": [],
+          "scope": "Exact anchor outputs and local CPU work; not whole-game FPS or feel.",
+          "reference_sha256": "ac0adb3e7afb4c5d1082f020421e29c66cc0593f1ad7d8778c7f81a3652de494"
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 61.4,
+        "sampled_system_available_min_mib": 1219,
+        "terminal": [
+          "EXIT code=0 seconds=2.7"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-profile-heavy01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-profile-heavy01/qa/report.json",
+          "sha256": "8b69ebf17e910d8a8a833119c49e3a73cebdc198056030941553c97ab5cfff14",
+          "bytes": 67260,
+          "passed": true,
+          "failures": [],
+          "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+          "all_frames": {
+            "fps": 58.5947627581888,
+            "frames": 14063,
+            "max_ms": 53.362,
+            "over_33ms": 15,
+            "over_50ms": 1,
+            "p50_ms": 16.722,
+            "p95_ms": 21.321,
+            "p99_ms": 25.677
+          },
+          "phases": {
+            "charge": {
+              "fps": 59.1205293105185,
+              "frames": 9565,
+              "max_ms": 53.362,
+              "over_33ms": 1,
+              "over_50ms": 1,
+              "p50_ms": 16.74,
+              "p95_ms": 20.708,
+              "p99_ms": 23.579
+            },
+            "contact": {
+              "fps": 53.0443960063637,
+              "frames": 271,
+              "max_ms": 48.352,
+              "over_33ms": 9,
+              "over_50ms": 0,
+              "p50_ms": 17.147,
+              "p95_ms": 28.506,
+              "p99_ms": 39.544
+            },
+            "ended": {
+              "fps": 51.4026254617159,
+              "frames": 814,
+              "max_ms": 38.626,
+              "over_33ms": 5,
+              "over_50ms": 0,
+              "p50_ms": 18.414,
+              "p95_ms": 27.439,
+              "p99_ms": 31.47
+            },
+            "ready": {
+              "fps": 59.5488720778183,
+              "frames": 2094,
+              "max_ms": 28.661,
+              "over_33ms": 0,
+              "over_50ms": 0,
+              "p50_ms": 16.68,
+              "p95_ms": 18.443,
+              "p99_ms": 22.095
+            },
+            "result": {
+              "fps": 60.3896317472608,
+              "frames": 560,
+              "max_ms": 27.89,
+              "over_33ms": 0,
+              "over_50ms": 0,
+              "p50_ms": 16.662,
+              "p95_ms": 17.088,
+              "p99_ms": 17.44
+            },
+            "turn": {
+              "fps": 59.1395591523766,
+              "frames": 759,
+              "max_ms": 27.842,
+              "over_33ms": 0,
+              "over_50ms": 0,
+              "p50_ms": 16.784,
+              "p95_ms": 20.823,
+              "p99_ms": 22.577
+            }
+          },
+          "wall_seconds": 240.007981,
+          "matches_count": 7
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 695.6,
+        "sampled_system_available_min_mib": 1472,
+        "terminal": [
+          "EXIT code=0 seconds=251.1",
+          "QA_DESKTOP_CLOSED=True"
+        ]
+      },
+      "engine_error_lines": [
+        "ERROR: Can't create shader cache folder, no shader caching will happen: user://"
+      ],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-reaction01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-reaction01/report.json",
+          "sha256": "8b4b73f30b6c849b6fe97373474d225c35adf8164ed9736b9b4cd879d26eca45",
+          "bytes": 11789,
+          "passed": true,
+          "failures": [],
+          "scope": "Production constrained ankle, one-sided velocity at flap boundaries, real contact reaction spring. Direct rule fixtures; no human play or full Battle camera.",
+          "rows_count": 16
+        }
+      ],
+      "memory": {
+        "terminal": [
+          "EXIT code=0 seconds=0.9"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-release01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-release01/report.json",
+          "sha256": "fba221156ce6e61d4ad385e0c1bd7a9cfef05710bf2b8e4ca4b45b2b4cf86cbb",
+          "bytes": 39732,
+          "passed": true,
+          "failures": [],
+          "scope": "72 real articulated releases, intact and broken weapons; finite-difference carried centre/ray versus free-body initial velocity, allowing one 120Hz derivative step. No collision or human quality verdict.",
+          "rows_count": 72
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 86.2,
+        "sampled_system_available_min_mib": 1075,
+        "terminal": [
+          "EXIT code=0 seconds=1.1"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-release02",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-release02/report.json",
+          "sha256": "fba221156ce6e61d4ad385e0c1bd7a9cfef05710bf2b8e4ca4b45b2b4cf86cbb",
+          "bytes": 39732,
+          "passed": true,
+          "failures": [],
+          "scope": "72 real articulated releases, intact and broken weapons; finite-difference carried centre/ray versus free-body initial velocity, allowing one 120Hz derivative step. No collision or human quality verdict.",
+          "rows_count": 72
+        }
+      ],
+      "memory": {
+        "terminal": [
+          "EXIT code=0 seconds=1.0"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-rhythm-baseline01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-rhythm-baseline01/qa/report.json",
+          "sha256": "a45869de9e7cc6c2be51b82016f163a2771499c7ba3b5f34aa9f1f71b0114f17",
+          "bytes": 908,
+          "passed": true,
+          "failures": [],
+          "scope": "120Hz production model/renderer geometry, natural fatigue, no GPU or manual approval.",
+          "rows_count": 6
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 120.8,
+        "sampled_system_available_min_mib": 926,
+        "terminal": [
+          "EXIT code=0 seconds=32.8"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-rhythm-smooth01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-rhythm-smooth01/qa/report.json",
+          "sha256": "a45869de9e7cc6c2be51b82016f163a2771499c7ba3b5f34aa9f1f71b0114f17",
+          "bytes": 908,
+          "passed": true,
+          "failures": [],
+          "scope": "120Hz production model/renderer geometry, natural fatigue, no GPU or manual approval.",
+          "rows_count": 6
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 128.4,
+        "sampled_system_available_min_mib": 983,
+        "terminal": [
+          "EXIT code=0 seconds=11.3"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-rules01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-rules01/report.json",
+          "sha256": "2ba3a9010dbb035d78e73dade64127bc9bb3ce937c2c946591fc9b79d4b50b43",
+          "bytes": 8307,
+          "passed": true,
+          "failures": [],
+          "rows_count": 20
+        }
+      ],
+      "memory": {
+        "terminal": [
+          "EXIT code=0 seconds=0.5"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-skin-cache01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-skin-cache01/qa/report.json",
+          "sha256": "af0db64bf8ccf860edbebec7da3fd4067179238c7b1ecdfe259ec847de1b5217",
+          "bytes": 534,
+          "passed": true,
+          "failures": [],
+          "scope": "432 poses, exact PackedVector2Array equality against supplied pre-change source; repeated inputs, 1e-6 head changes and mesh recreation. No rendered/human quality claim.",
+          "cases_count": 3
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 65.3,
+        "sampled_system_available_min_mib": 1191,
+        "terminal": [
+          "EXIT code=0 seconds=1.1"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-skin-cost01",
+      "reports": [],
+      "memory": {
+        "terminal": [
+          "EXIT code=1 seconds=0.5"
+        ]
+      },
+      "engine_error_lines": [
+        "SCRIPT ERROR: Parse Error: The member \"Skin\" shadows a native class.",
+        "ERROR: Failed to load script \"res://tests/test_skin_cost106.gd\" with error \"Parse error\"."
+      ],
+      "has_script_error": true
+    },
+    {
+      "run": "core106-skin-cost02",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-skin-cost02/qa/report.json",
+          "sha256": "9705ab36a0803074471f89306a6f0bb45583e58d087445b1c78db56c88db2dc3",
+          "bytes": 997,
+          "passed": true,
+          "failures": [],
+          "scope": "Local deformation CPU work and exact vertices/UVs/topology, not GPU frame rate.",
+          "reference_sha256": "2e327634dd2207e900d6723116229aef3dcaf6c99b31e895ba65a91a1c9c0a21",
+          "rows_count": 3
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 64.1,
+        "sampled_system_available_min_mib": 1375,
+        "terminal": [
+          "EXIT code=0 seconds=2.6"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-skin-cost03",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-skin-cost03/qa/report.json",
+          "sha256": "8f24f37c6a5b0b022c707f59e7aa157fdb4cab61afa0525eb9a76aa5cca53a8d",
+          "bytes": 1187,
+          "passed": true,
+          "failures": [],
+          "scope": "Local deformation CPU work and exact vertices/UVs/topology, not GPU frame rate.",
+          "reference_sha256": "2e327634dd2207e900d6723116229aef3dcaf6c99b31e895ba65a91a1c9c0a21",
+          "rows_count": 3,
+          "measurements": [
+            {
+              "batched_rigid_vertices": 170,
+              "limb": "",
+              "samples": 48,
+              "timings": [
+                {
+                  "new_us": 155666,
+                  "old_us": 181927
+                },
+                {
+                  "new_us": 140258,
+                  "old_us": 167008
+                },
+                {
+                  "new_us": 139828,
+                  "old_us": 166993
+                }
+              ],
+              "vertices": 2214,
+              "weighted_vertices": 1123
+            },
+            {
+              "batched_rigid_vertices": 270,
+              "limb": "hind",
+              "samples": 48,
+              "timings": [
+                {
+                  "new_us": 46717,
+                  "old_us": 79658
+                },
+                {
+                  "new_us": 45082,
+                  "old_us": 80677
+                },
+                {
+                  "new_us": 47689,
+                  "old_us": 78549
+                }
+              ],
+              "vertices": 627,
+              "weighted_vertices": 300
+            },
+            {
+              "batched_rigid_vertices": 301,
+              "limb": "fore",
+              "samples": 48,
+              "timings": [
+                {
+                  "new_us": 46807,
+                  "old_us": 81060
+                },
+                {
+                  "new_us": 44080,
+                  "old_us": 87313
+                },
+                {
+                  "new_us": 47371,
+                  "old_us": 86426
+                }
+              ],
+              "vertices": 627,
+              "weighted_vertices": 288
+            }
+          ]
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 63.7,
+        "sampled_system_available_min_mib": 1758,
+        "terminal": [
+          "EXIT code=0 seconds=2.3"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-targets01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-targets01/report.json",
+          "sha256": "e12445b8fe89ed05d157167ca7e9c5b7cc8717091e613a331b6e4046269d635e",
+          "bytes": 166554,
+          "passed": true,
+          "failures": [],
+          "scope": "Fixed quality-1 English long lance/light shield/grey horse, 600ms aim and visible-tip guard updates, +/-8px, no lean, spur at 3000. Actual level mode and opponents. Both sides, finite controls, no human win-rate claim."
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 61.2,
+        "sampled_system_available_min_mib": 1453,
+        "terminal": [
+          "EXIT code=0 seconds=46.6"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-texture01",
+      "reports": [],
+      "memory": {
+        "terminal": []
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-texture02",
+      "reports": [],
+      "memory": {
+        "sampled_private_peak_mib": 494.4,
+        "sampled_system_available_min_mib": 863,
+        "terminal": [
+          "STOP memory budget exceeded, RAM reserve below 500 MiB, or available commit below 512 MiB",
+          "QA_DESKTOP_CLOSED=True"
+        ]
+      },
+      "engine_error_lines": [
+        "ERROR: Can't create shader cache folder, no shader caching will happen: user://"
+      ],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-texture03",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-texture03/qa/report.json",
+          "sha256": "7ca39953817f1657aae5f212abeea615122c196985070def1b0d18027340ee9d",
+          "bytes": 7231,
+          "passed": false,
+          "failures": [
+            "Changed rider pixels: eng_armor_4/1",
+            "Changed rider pixels: eng_armor_4/-1",
+            "Changed rider pixels: eng_armor_5/1",
+            "Changed rider pixels: eng_armor_5/-1",
+            "Changed rider pixels: fr_armor_4/1",
+            "Changed rider pixels: fr_armor_4/-1",
+            "Changed rider pixels: fr_armor_5/1",
+            "Changed rider pixels: fr_armor_5/-1",
+            "Changed rider pixels: de_armor_4/1",
+            "Changed rider pixels: de_armor_4/-1",
+            "Changed rider pixels: de_armor_5/1",
+            "Changed rider pixels: de_armor_5/-1",
+            "Changed rider pixels: it_armor_4/1",
+            "Changed rider pixels: it_armor_4/-1",
+            "Changed rider pixels: it_armor_5/1",
+            "Changed rider pixels: it_armor_5/-1"
+          ],
+          "scope": "Isolated real GPU, 24 chest/helmet pairs both facings, bit-exact viewport against baseline draw; no OS input.",
+          "reference_sha256": "f2ae022a26ab9c059514a3f9a3a35ada0f738685122f0d1b0fc3d571c66ed534",
+          "rows_count": 48
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 546.4,
+        "sampled_system_available_min_mib": 1360,
+        "terminal": [
+          "EXIT code=1 seconds=10.2",
+          "QA_DESKTOP_CLOSED=True"
+        ]
+      },
+      "engine_error_lines": [
+        "ERROR: Can't create shader cache folder, no shader caching will happen: user://"
+      ],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-texture04",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-texture04/qa/report.json",
+          "sha256": "8e9bdf945dabb22037015306f4cf7e85b34aeec428edf32a1aba5bcb6a6ad5f8",
+          "bytes": 23587,
+          "passed": false,
+          "failures": [
+            "Changed rider pixels: eng_armor_4/1",
+            "Changed rider pixels: eng_armor_4/-1",
+            "Changed rider pixels: eng_armor_5/1",
+            "Changed rider pixels: eng_armor_5/-1",
+            "Changed rider pixels: fr_armor_4/1",
+            "Changed rider pixels: fr_armor_4/-1",
+            "Changed rider pixels: fr_armor_5/1",
+            "Changed rider pixels: fr_armor_5/-1",
+            "Changed rider pixels: de_armor_4/1",
+            "Changed rider pixels: de_armor_4/-1",
+            "Changed rider pixels: de_armor_5/1",
+            "Changed rider pixels: de_armor_5/-1",
+            "Changed rider pixels: it_armor_4/1",
+            "Changed rider pixels: it_armor_4/-1",
+            "Changed rider pixels: it_armor_5/1",
+            "Changed rider pixels: it_armor_5/-1"
+          ],
+          "scope": "Isolated real GPU, 24 chest/helmet pairs both facings, bit-exact viewport against baseline draw; no OS input.",
+          "reference_sha256": "f2ae022a26ab9c059514a3f9a3a35ada0f738685122f0d1b0fc3d571c66ed534",
+          "rows_count": 48
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 550.7,
+        "sampled_system_available_min_mib": 1455,
+        "terminal": [
+          "EXIT code=1 seconds=12.1",
+          "QA_DESKTOP_CLOSED=True"
+        ]
+      },
+      "engine_error_lines": [
+        "ERROR: Can't create shader cache folder, no shader caching will happen: user://"
+      ],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-texture05",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-texture05/qa/report.json",
+          "sha256": "5cf5a3d3c6befa4fe4f4a7450c19338a6631ae3e766632479093c9df79a45fb3",
+          "bytes": 22809,
+          "passed": true,
+          "failures": [],
+          "scope": "Isolated real GPU, 24 chest/helmet pairs both facings, bit-exact viewport against baseline draw; no OS input.",
+          "reference_sha256": "f2ae022a26ab9c059514a3f9a3a35ada0f738685122f0d1b0fc3d571c66ed534",
+          "rows_count": 48
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 545.6,
+        "sampled_system_available_min_mib": 1701,
+        "terminal": [
+          "EXIT code=0 seconds=10.1",
+          "QA_DESKTOP_CLOSED=True"
+        ]
+      },
+      "engine_error_lines": [
+        "ERROR: Can't create shader cache folder, no shader caching will happen: user://"
+      ],
+      "has_script_error": false
+    }
+  ],
+  "pacing_diagnostic": [
+    {
+      "level": 5,
+      "mode": "arena",
+      "pace": "sustained",
+      "cases": 6,
+      "script_wins": 3,
+      "script_draws": 0,
+      "own_contacts": 18,
+      "head_contacts": 0,
+      "mean_own_speed_at_contact": 249.6717701074616,
+      "mean_minimum_stamina": 0.0
+    },
+    {
+      "level": 5,
+      "mode": "arena",
+      "pace": "late",
+      "cases": 6,
+      "script_wins": 3,
+      "script_draws": 0,
+      "own_contacts": 12,
+      "head_contacts": 0,
+      "mean_own_speed_at_contact": 472.063303967069,
+      "mean_minimum_stamina": 0.0
+    },
+    {
+      "level": 5,
+      "mode": "arena",
+      "pace": "recover",
+      "cases": 6,
+      "script_wins": 3,
+      "script_draws": 0,
+      "own_contacts": 18,
+      "head_contacts": 0,
+      "mean_own_speed_at_contact": 282.35618194586675,
+      "mean_minimum_stamina": 34.8491542949319
+    },
+    {
+      "level": 5,
+      "mode": "arena",
+      "pace": "coast",
+      "cases": 6,
+      "script_wins": 4,
+      "script_draws": 0,
+      "own_contacts": 18,
+      "head_contacts": 0,
+      "mean_own_speed_at_contact": 217.414115394955,
+      "mean_minimum_stamina": 100.0
+    },
+    {
+      "level": 5,
+      "mode": "war",
+      "pace": "sustained",
+      "cases": 6,
+      "script_wins": 4,
+      "script_draws": 0,
+      "own_contacts": 18,
+      "head_contacts": 0,
+      "mean_own_speed_at_contact": 249.506839551906,
+      "mean_minimum_stamina": 0.0
+    },
+    {
+      "level": 5,
+      "mode": "war",
+      "pace": "late",
+      "cases": 6,
+      "script_wins": 6,
+      "script_draws": 0,
+      "own_contacts": 15,
+      "head_contacts": 0,
+      "mean_own_speed_at_contact": 459.7316389196838,
+      "mean_minimum_stamina": 0.0
+    },
+    {
+      "level": 5,
+      "mode": "war",
+      "pace": "recover",
+      "cases": 6,
+      "script_wins": 4,
+      "script_draws": 0,
+      "own_contacts": 18,
+      "head_contacts": 0,
+      "mean_own_speed_at_contact": 282.35618194586675,
+      "mean_minimum_stamina": 34.8491542949319
+    },
+    {
+      "level": 5,
+      "mode": "war",
+      "pace": "coast",
+      "cases": 6,
+      "script_wins": 4,
+      "script_draws": 0,
+      "own_contacts": 18,
+      "head_contacts": 0,
+      "mean_own_speed_at_contact": 217.414115394955,
+      "mean_minimum_stamina": 100.0
+    },
+    {
+      "level": 24,
+      "mode": "arena",
+      "pace": "sustained",
+      "cases": 6,
+      "script_wins": 6,
+      "script_draws": 0,
+      "own_contacts": 18,
+      "head_contacts": 12,
+      "mean_own_speed_at_contact": 251.11943293601053,
+      "mean_minimum_stamina": 0.0
+    },
+    {
+      "level": 24,
+      "mode": "arena",
+      "pace": "late",
+      "cases": 6,
+      "script_wins": 4,
+      "script_draws": 0,
+      "own_contacts": 16,
+      "head_contacts": 10,
+      "mean_own_speed_at_contact": 437.6966581748054,
+      "mean_minimum_stamina": 0.0
+    },
+    {
+      "level": 24,
+      "mode": "arena",
+      "pace": "recover",
+      "cases": 6,
+      "script_wins": 6,
+      "script_draws": 0,
+      "own_contacts": 18,
+      "head_contacts": 12,
+      "mean_own_speed_at_contact": 248.92074230870787,
+      "mean_minimum_stamina": 34.8757295401582
+    },
+    {
+      "level": 24,
+      "mode": "arena",
+      "pace": "coast",
+      "cases": 6,
+      "script_wins": 6,
+      "script_draws": 0,
+      "own_contacts": 18,
+      "head_contacts": 12,
+      "mean_own_speed_at_contact": 214.867717553577,
+      "mean_minimum_stamina": 100.0
+    },
+    {
+      "level": 24,
+      "mode": "war",
+      "pace": "sustained",
+      "cases": 6,
+      "script_wins": 6,
+      "script_draws": 0,
+      "own_contacts": 18,
+      "head_contacts": 11,
+      "mean_own_speed_at_contact": 249.83297460267724,
+      "mean_minimum_stamina": 0.0
+    },
+    {
+      "level": 24,
+      "mode": "war",
+      "pace": "late",
+      "cases": 6,
+      "script_wins": 4,
+      "script_draws": 0,
+      "own_contacts": 16,
+      "head_contacts": 10,
+      "mean_own_speed_at_contact": 432.90810323847535,
+      "mean_minimum_stamina": 0.0
+    },
+    {
+      "level": 24,
+      "mode": "war",
+      "pace": "recover",
+      "cases": 6,
+      "script_wins": 6,
+      "script_draws": 0,
+      "own_contacts": 18,
+      "head_contacts": 11,
+      "mean_own_speed_at_contact": 248.92074230870787,
+      "mean_minimum_stamina": 34.8757295401582
+    },
+    {
+      "level": 24,
+      "mode": "war",
+      "pace": "coast",
+      "cases": 6,
+      "script_wins": 6,
+      "script_draws": 0,
+      "own_contacts": 18,
+      "head_contacts": 11,
+      "mean_own_speed_at_contact": 214.867717553577,
+      "mean_minimum_stamina": 100.0
+    },
+    {
+      "level": 40,
+      "mode": "arena",
+      "pace": "sustained",
+      "cases": 6,
+      "script_wins": 3,
+      "script_draws": 0,
+      "own_contacts": 18,
+      "head_contacts": 2,
+      "mean_own_speed_at_contact": 241.18838201315782,
+      "mean_minimum_stamina": 0.0
+    },
+    {
+      "level": 40,
+      "mode": "arena",
+      "pace": "late",
+      "cases": 6,
+      "script_wins": 3,
+      "script_draws": 0,
+      "own_contacts": 9,
+      "head_contacts": 0,
+      "mean_own_speed_at_contact": 480.4855603226111,
+      "mean_minimum_stamina": 0.0
+    },
+    {
+      "level": 40,
+      "mode": "arena",
+      "pace": "recover",
+      "cases": 6,
+      "script_wins": 2,
+      "script_draws": 0,
+      "own_contacts": 16,
+      "head_contacts": 2,
+      "mean_own_speed_at_contact": 324.1418489154112,
+      "mean_minimum_stamina": 34.86209372271955
+    },
+    {
+      "level": 40,
+      "mode": "arena",
+      "pace": "coast",
+      "cases": 6,
+      "script_wins": 5,
+      "script_draws": 0,
+      "own_contacts": 18,
+      "head_contacts": 4,
+      "mean_own_speed_at_contact": 209.648003628797,
+      "mean_minimum_stamina": 100.0
+    },
+    {
+      "level": 40,
+      "mode": "war",
+      "pace": "sustained",
+      "cases": 6,
+      "script_wins": 4,
+      "script_draws": 0,
+      "own_contacts": 18,
+      "head_contacts": 2,
+      "mean_own_speed_at_contact": 241.37625857316775,
+      "mean_minimum_stamina": 0.0
+    },
+    {
+      "level": 40,
+      "mode": "war",
+      "pace": "late",
+      "cases": 6,
+      "script_wins": 3,
+      "script_draws": 0,
+      "own_contacts": 9,
+      "head_contacts": 0,
+      "mean_own_speed_at_contact": 480.4855603226111,
+      "mean_minimum_stamina": 0.0
+    },
+    {
+      "level": 40,
+      "mode": "war",
+      "pace": "recover",
+      "cases": 6,
+      "script_wins": 2,
+      "script_draws": 0,
+      "own_contacts": 15,
+      "head_contacts": 2,
+      "mean_own_speed_at_contact": 326.5311202902116,
+      "mean_minimum_stamina": 34.86209372271955
+    },
+    {
+      "level": 40,
+      "mode": "war",
+      "pace": "coast",
+      "cases": 6,
+      "script_wins": 5,
+      "script_draws": 0,
+      "own_contacts": 18,
+      "head_contacts": 5,
+      "mean_own_speed_at_contact": 209.648003628797,
+      "mean_minimum_stamina": 100.0
+    }
+  ],
+  "limits": [
+    "Runs with no result/EXIT are not passes.",
+    "Exact pixel comparison excluded wall-clock pennon timing by fixing its QA lance quality to 3; gameplay pennons remain.",
+    "Microbenchmark timings do not establish whole-game FPS.",
+    "Scripted strategy results are not human win rates.",
+    "Latest batch mesh, departure posture and pennon timing still require GPU integration verification; no new published Windows build yet."
+  ]
+}

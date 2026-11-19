@@ -21,6 +21,7 @@ class ReleaseProbe extends Fallen:
 	func _release_lance()->void:
 		super._release_lance()
 		release_record={"age":age,"velocity_error":loose_lance.linear_velocity.distance_to(measured_velocity),"angular_error":absf(loose_lance.angular_velocity-measured_spin),"measured_velocity":[measured_velocity.x,measured_velocity.y],"released_velocity":[loose_lance.linear_velocity.x,loose_lance.linear_velocity.y],"measured_spin":measured_spin,"released_spin":loose_lance.angular_velocity,"center_error":loose_lance.position.distance_to(previous_center),"ray_error":absf(previous_ray.angle_to(Vector2.from_angle(loose_lance.rotation)))}
+		release_record["cloth_clock_error"]=absf(float(loose_lance.get_child(-1).clock)-float(visual.clock))
 
 var failures=[]
 func _initialize()->void:call_deferred("run")
@@ -40,7 +41,10 @@ func run()->void:
 						var model=Model.new();var f=model.fighters[0]
 						f.x=0.0;f.lane_y=0.0;f.direction=facing;f.speed=speeds.x;f.aim=-.18;f.lean=-.3;f.guard=.43;f.gait_moving=true;f.broken=broken
 						var actor=ReleaseProbe.new();root.add_child(actor)
-						actor.setup(f,{"zone":zone,"direction":-facing,"impulse":impulse,"attacker_speed":speeds.y,"defender_speed":speeds.x})
+						var source=Fallen.Rider.new();source.fighter=f;source.clock=12.3
+						actor.setup(f,{"zone":zone,"direction":-facing,"impulse":impulse,"attacker_speed":speeds.y,"defender_speed":speeds.x},source)
+						check(actor.visual.clock==source.clock and actor.far_leg.clock==source.clock,"Mounted-to-fall handoff preserves cloth time on both layers")
+						source.free()
 						actor.set_process(false);actor.visual.set_process(false);actor.far_leg.set_process(false)
 						for tick in range(30):
 							actor.advance(1.0/120)
@@ -52,6 +56,7 @@ func run()->void:
 							check(record.velocity_error<18.0,"Release retains carried linear motion: "+str([facing,zone,speeds,impulse]))
 							check(record.angular_error<.25,"Release retains carried rotation: "+str([facing,zone,speeds,impulse]))
 							check(record.center_error<.002 and record.ray_error<.0001,"Release keeps exact center and direction")
+							check(record.cloth_clock_error<.000001,"Release preserves the carried pennon's animation phase")
 						rows.append(record)
 						if is_instance_valid(actor.loose_lance):actor.loose_lance.free()
 						actor.free()

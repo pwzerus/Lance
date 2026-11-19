@@ -103,7 +103,7 @@ func _make_fighter(x: float, direction: int, stats: Dictionary) -> Dictionary:
 		"reaction_neck":0.0,"reaction_neck_velocity":0.0,"arm_rest_delay":0.0,
 		"shield_compression":0.0,"shield_compression_velocity":0.0,"lance_compression":0.0,"lance_compression_velocity":0.0,
 		"shield_twist":0.0,"shield_twist_velocity":0.0,"guard_stun":0.0,
-		"gait_phase":0.0,"gait_moving":false,"acceleration":0.0,"accel_command":0.0,"motion_drive":0.0,"seat_drive":0.0,"seat_drive_velocity":0.0,"mount_velocity_y":0.0,"lane_y":32.0 if direction==1 else -32.0,
+		"gait_phase":0.0,"gait_moving":false,"acceleration":0.0,"accel_command":0.0,"motion_drive":0.0,"motion_drive_velocity":0.0,"seat_drive":0.0,"seat_drive_velocity":0.0,"mount_velocity_y":0.0,"lane_y":32.0 if direction==1 else -32.0,
 		"fidget":0.0,"unsteady":0.0,"sway":0.0,"sway_velocity":0.0,
 		"reaction_legs":0.0,"reaction_legs_velocity":0.0,"reaction_horse":0.0,"reaction_horse_velocity":0.0}
 
@@ -117,6 +117,7 @@ func _reset_positions() -> void:
 		fighter.acceleration = 0.0
 		fighter.accel_command = 0.0
 		fighter.motion_drive = 0.0
+		fighter.motion_drive_velocity = 0.0
 		fighter.seat_drive = 0.0
 		fighter.seat_drive_velocity = 0.0
 		fighter.mount_velocity_y = 0.0
@@ -192,11 +193,39 @@ static func advance_unsteady(fighter: Dictionary, delta: float, riding: bool) ->
 static func gait_pose(fighter: Dictionary) -> Dictionary:
 	# Fatigue only lowers neck/head carriage; it never moves the saddle, rider
 	# pitch or any hit anchor.
-	return Gait.body(float(fighter.get("gait_phase",0.0)),float(fighter.get("speed",0.0)),bool(fighter.get("gait_moving",false)),float(fighter.stats.get("stability",1.0)),float(fighter.get("motion_drive",0.0)),Condition.fatigue(float(fighter.get("stamina",100.0))),seat_inertia(fighter))
+	# CORE-106: head/body/weapon sweeps and drawing request this same pose
+	# many times without changing its inputs. Retain ONE exact result per
+	# fighter; no frame keys, quantization or growing global history. QA and
+	# contacts can change state within a frame and still get a fresh pose.
+	var key = [float(fighter.get("gait_phase",0.0)),float(fighter.get("speed",0.0)),bool(fighter.get("gait_moving",false)),float(fighter.stats.get("stability",1.0)),float(fighter.get("motion_drive",0.0)),Condition.fatigue(float(fighter.get("stamina",100.0))),seat_inertia(fighter)]
+	if fighter.get("_gait_pose_key")==key:
+		return fighter._gait_pose_value
+	var pose = Gait.body(key[0],key[1],key[2],key[3],key[4],key[5],key[6])
+	# All entries are value types. A caller needing artistic edits duplicates
+	# the dictionary (Gait.visual already does), preserving shared anchors.
+	pose.make_read_only()
+	fighter._gait_pose_key = key
+	fighter._gait_pose_value = pose
+	return pose
 
 static func seat_inertia(fighter: Dictionary) -> float:
 	# ANIM-091: how far the horse's drive has run ahead of the rider's seat.
 	return float(fighter.get("motion_drive",0.0))-float(fighter.get("seat_drive",fighter.get("motion_drive",0.0)))
+
+static func advance_drive(fighter: Dictionary, target: float, delta: float) -> void:
+	# CORE-106: actual acceleration still changes speed immediately. The
+	# horse's weight transfer follows continuously instead of a move_toward
+	# ramp whose velocity stops dead at cruising speed. Analytic critically
+	# damped response (16 rad/s), no additional oscillation or random shake.
+	if delta<=0.0: return
+	var dt = minf(delta,.25)
+	var wanted = clampf(target,-1.0,1.0)
+	var offset = float(fighter.get("motion_drive",0.0))-wanted
+	var velocity = float(fighter.get("motion_drive_velocity",0.0))
+	var decay = exp(-16.0*dt)
+	var follow = velocity+16.0*offset
+	fighter.motion_drive = wanted+(offset+follow*dt)*decay
+	fighter.motion_drive_velocity = (velocity-16.0*follow*dt)*decay
 
 static func advance_seat(fighter: Dictionary, delta: float) -> void:
 	# The seat follows the horse's drive through a damped spring (about 9 rad/s,
@@ -211,6 +240,13 @@ static func advance_seat(fighter: Dictionary, delta: float) -> void:
 		fighter.seat_drive = seat+velocity*dt
 		fighter.seat_drive_velocity = velocity
 		remaining -= dt
+
+static func release_drive_pose(fighter: Dictionary, delta: float) -> void:
+	# The completed pass rides out at its retained speed. It has no continued
+	# acceleration, so release launch/braking posture smoothly instead of
+	# freezing the last weight-transfer and rider spring for the whole exit.
+	advance_drive(fighter,0.0,delta)
+	advance_seat(fighter,delta)
 
 static func saddle_offset(fighter: Dictionary) -> Vector2:
 	var pose = gait_pose(fighter)
@@ -451,6 +487,7 @@ func step(delta: float) -> void:
 			# No contacts are evaluated here; reracking resets all anchors.
 			fighter.gait_moving = phase=="turn" and float(fighter.speed)>.5
 			if fighter.gait_moving:
+				release_drive_pose(fighter,delta)
 				fighter.x += int(fighter.direction)*float(fighter.speed)*delta
 				fighter.gait_phase += delta*TAU*Gait.frequency(float(fighter.speed))
 			_cache_pose(fighter)
@@ -487,7 +524,7 @@ func step(delta: float) -> void:
 		fighter.speed = move_toward(old_speed,target_speed,absf(float(fighter.accel_command))*delta)
 		fighter.acceleration = (float(fighter.speed)-old_speed)/maxf(.00001,delta)
 		var old_drive = float(fighter.get("motion_drive",0.0))
-		fighter.motion_drive = move_toward(old_drive,clampf(float(fighter.acceleration)/ACCELERATION,-1,1),delta*5)
+		advance_drive(fighter,float(fighter.acceleration)/ACCELERATION,delta)
 		# FEEL-094: pumping the spur on and off jerks the seat as well.
 		add_fidget(fighter,FIDGET_WEIGHT.drive*absf(float(fighter.motion_drive)-old_drive))
 		advance_seat(fighter,delta)

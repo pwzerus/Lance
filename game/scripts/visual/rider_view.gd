@@ -2,6 +2,7 @@ class_name RiderView
 extends Node2D
 const Trace099 = preload("res://scripts/core/frame_trace099.gd")
 signal hoof_contact(leg_index: int)
+signal armor_motion(strength: float)
 
 const ATLAS = preload("res://assets/art/pixel_v03/rider_atlas.png")
 const WindowActivity = preload("res://scripts/core/window_activity.gd")
@@ -60,6 +61,7 @@ var previous_contacts = [false,false,false,false]
 var torso_texture: Texture2D
 var head_texture: Texture2D
 var shield_texture: Texture2D
+var torso_has_authored_detail = false
 var art_key = ""
 var planted_feet: Array[float] = [INF,INF,INF,INF]
 var leg_poses: Array[Dictionary] = []
@@ -73,6 +75,10 @@ var horse_coat_key = ""
 var far_hind_skin: RefCounted
 var far_fore_skin: RefCounted
 var visual_pose: Dictionary = {}
+var armor_previous_height = INF
+var armor_previous_velocity = 0.0
+var armor_compression_peak = 0.0
+var armor_cooldown = 0.0
 
 func _init() -> void:
 	var pixel_material = ShaderMaterial.new()
@@ -80,8 +86,14 @@ func _init() -> void:
 	material = pixel_material
 
 func _process(delta: float) -> void:
+	var trace_started = Trace099.begin()
+	_process_measured106(delta)
+	Trace099.measure("rider_pose",trace_started)
+
+func _process_measured106(delta: float) -> void:
 	if WindowActivity.suspended():
 		return
+	clock += maxf(0.0,delta)
 	if not contact_mark.is_empty():
 		contact_mark.age += maxf(0.0,delta)
 		if contact_mark.age>.62:
@@ -90,7 +102,6 @@ func _process(delta: float) -> void:
 		_advance_recoil(delta)
 		queue_redraw()
 		return
-	clock += delta
 	var speed = float(fighter.get("speed",0.0))
 	if fighter.has("gait_phase") and not preview:
 		stride_phase = float(fighter.gait_phase)
@@ -171,8 +182,43 @@ func _process(delta: float) -> void:
 	if moving and delta>0 and delta<.2:
 		for index in landed:
 			hoof_contact.emit(index)
+	_advance_armor_motion(delta,reset_cycles)
 	_advance_recoil(delta)
 	queue_redraw()
+
+func _advance_armor_motion(delta: float, reset: bool = false) -> void:
+	# One quiet clatter as the actual saddle finishes compressing and rises.
+	# Trot has two support beats; canter/gallop has one. No extra clock/RNG,
+	# and no dependence on camera shake or whether the spur button is held.
+	if delta<=0.0: return
+	if not fighter.has("stats"):
+		# A view may exist before its fighter is assigned. Keep the optional
+		# riding layer dormant instead of asking rule geometry for empty data.
+		armor_previous_height = INF
+		armor_previous_velocity = 0.0
+		armor_compression_peak = 0.0
+		armor_cooldown = 0.0
+		return
+	armor_cooldown = maxf(0.0,armor_cooldown-delta)
+	var height = float(Model.gait_pose(fighter).offset.y)
+	if reset or not moving or bool(fighter.get("ko",false)) or bool(fighter.get("dead",false)) or float(fighter.get("speed",0))<80.0 or delta>=.2:
+		armor_previous_height = height
+		armor_previous_velocity = 0.0
+		armor_compression_peak = 0.0
+		return
+	if not is_finite(armor_previous_height):
+		armor_previous_height = height
+		return
+	var velocity = (height-armor_previous_height)/delta
+	armor_previous_height = height
+	if velocity>0.0:
+		armor_compression_peak = maxf(armor_compression_peak,velocity)
+	elif armor_previous_velocity>0.0:
+		if armor_cooldown<=0.0 and armor_compression_peak>8.0:
+			armor_motion.emit(clampf(armor_compression_peak/56.0,.12,1.0))
+			armor_cooldown = .18
+		armor_compression_peak = 0.0
+	armor_previous_velocity = velocity
 
 func _advance_recoil(delta: float) -> void:
 	# Contact adds momentum; the mesh never jumps to a new weapon/guard pose.
@@ -259,6 +305,10 @@ func _draw_measured099() -> void:
 		art_key = next_key
 		# ART-090: battle-size sprites; cloth armours carry the rider's arms.
 		torso_texture = Art.battle_torso_for(fighter.stats,design,int(fighter.direction),armor_red)
+		# Battle sprites already include their armour detail. The old per-draw
+		# check loaded the large catalogue plate solely to return without
+		# drawing it. Retain the original fallback test only for legacy art.
+		torso_has_authored_detail = torso_texture is CanvasTexture or Art.equipment_texture(fighter.stats,"armor")!=null
 		head_texture = Art.battle_helmet_for(fighter.stats)
 		shield_texture = Art.shield(design)
 	var facing = int(fighter.direction)
@@ -782,7 +832,7 @@ static func mirrored_transform(origin: Vector2, angle: float, facing: int) -> Tr
 	return Transform2D(Vector2.RIGHT.rotated(angle)*mirror,Vector2.DOWN.rotated(angle)*mirror,origin*mirror)
 
 func _draw_lance(hand: Vector2, angle: float, length: float, broken: bool, layer: int = Lance.Layer.WHOLE) -> void:
-	Lance.draw(self,fighter.stats,hand,angle,length,broken,lance_recoil,mode,layer)
+	Lance.draw(self,fighter.stats,hand,angle,length,broken,lance_recoil,mode,layer,clock)
 
 func _lance_surface_point(hand: Vector2, angle: float, length: float, broken: bool, distance: float) -> Vector2:
 	return Lance.surface(hand,angle,distance,0,length,broken,lance_recoil)
@@ -854,7 +904,7 @@ func _draw_impact_torso() -> void:
 		draw_polygon(points,PackedColorArray([Color.WHITE]),uv,torso_texture)
 
 func _draw_armor_detail() -> void:
-	if Art.equipment_texture(fighter.stats,"armor")!=null:
+	if torso_has_authored_detail:
 		# New plates/mail have their own structure; do not paint the old shared
 		# coloured bib over every breastplate.
 		return

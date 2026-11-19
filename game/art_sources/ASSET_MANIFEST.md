@@ -42,3 +42,9 @@ v0.3 当前引用 `assets/art/pixel_v03/` 的六张重绘图，记录见 `PIXEL_
 `docs/development/screenshots/08_equipment_gallery.png` 为 Godot 中十组双向组合截图；导出程序的实际对冲截图在 `docs/development/exported_screenshots/`。
 
 字体采用 Noto Sans SC 可变字体，以实际 OpenType 字重标签选择 500；OFL 许可在 `assets/fonts/OFL.txt`。音效和旋律由 `sound_bank.gd` 运行时合成，不取用商业游戏音频。
+
+## CORE-106 音频增补（2026-11-19）
+
+上文为早期版本记录。当前撞击声使用项目已有的 `assets/audio/impact_v075/` 预烘焙原创样本；本轮新增 `assets/audio/movement_v106/`，板甲、锁甲、布面甲各3个短促骑乘甲片声，共9个44.1kHz单声道16位WAV，总145926字节。生成器 `tools/build_movement_audio106.py` 仅用Python标准库与固定种子；目录中的manifest记录每个文件的SHA256、时长和峰值。未采样、下载或改编商业游戏音频，不声称是历史盔甲的实测声学复原。
+
+运行时从预导入资源读取，不在碰撞帧生成PCM。骑手随马背一次压缩回弹触发一次安静的伴随声；命中声优先，已有12声部上限保持。波形检查和Dummy混音不等于真人听感验收。

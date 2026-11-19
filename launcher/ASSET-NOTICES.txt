@@ -1,5 +1,7 @@
 骑枪与桂冠 / Lance & Laurel — 素材与制作说明
 
+CORE-106 音频增补：骑乘时板甲、锁甲与布面甲的9个短样本由本项目固定种子程序原创合成并预烘焙，未使用商业游戏录音。材料听感为游戏表现，不代表历史声学测量。
+
 引擎：Godot 4.5.1，MIT 许可。引擎与其第三方组件的完整声明分别见 GODOT-LICENSE.txt 和 GODOT-THIRD-PARTY.txt。
 
 字体：Noto Sans SC。实际字体文件的版权记录为 (c) 2014–2021 Adobe，保留字体名称 Source。采用 SIL Open Font License 1.1，完整声明见 NOTO-SANS-SC-OFL.txt。

@@ -20,7 +20,8 @@ func probe() -> void:
 	if not is_instance_valid(b): return
 	var now=Time.get_ticks_usec()
 	var row={"us":now,"phase":b.match_model.phase,"finished":b.is_finished,"result":b.get_parent().result_visible,"phase_time":b.match_model.phase_time,"exchange":b.exchange_state.state,"scale":Engine.time_scale,"frame":Engine.get_process_frames(),"process_ms":Performance.get_monitor(Performance.TIME_PROCESS)*1000,"physics_ms":Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS)*1000,"draw_calls":Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),"nodes":Performance.get_monitor(Performance.OBJECT_NODE_COUNT),"frame_to_post_ms":draw_duration/1000.0,"post_to_next_ms":(now-drawn_at)/1000.0}
-	row.hot=Trace.hot.duplicate()
+	row.hot=Trace.take_interval()
+	row.hot_scope="Accumulated since previous process-frame probe; nested spans overlap."
 	if not previous.is_empty() and now-int(previous.us)>30000 and spikes.size()<512:
 		spikes.append({"gap_ms":(now-int(previous.us))/1000.0,"before":previous,"after":row})
 	previous=row

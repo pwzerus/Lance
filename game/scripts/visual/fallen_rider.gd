@@ -102,6 +102,7 @@ func setup(value: Dictionary, event: Dictionary, mounted: RiderView = null) -> v
 		renderer.detached_pose = initial_pose.duplicate(true)
 		renderer.detached_legs = initial_legs.duplicate(true)
 		if is_instance_valid(mounted):
+			renderer.clock = mounted.clock
 			renderer.impact_recoil = mounted.impact_recoil
 			renderer.lance_recoil = mounted.lance_recoil
 			renderer.shield_recoil = mounted.shield_recoil
@@ -546,6 +547,7 @@ func _release_lance() -> void:
 	renderer.fighter.aim = 0.0
 	renderer.mode = visual.mode
 	renderer.lance_only = true
+	renderer.clock = visual.clock
 	renderer.position.x = -center_from_grip
 	renderer.lance_recoil = visual.lance_recoil
 	renderer.lance_velocity = visual.lance_velocity

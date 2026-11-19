@@ -1,0 +1,81 @@
+{
+  "generator": "game/tools/build_movement_audio106.py",
+  "origin": "Original procedural game sound; no third-party recordings; not historical acoustic data",
+  "rate": 44100,
+  "channels": 1,
+  "sample_bits": 16,
+  "files": [
+    {
+      "file": "armor_plate_0.wav",
+      "bytes": 17684,
+      "sha256": "c1af417e5d6300d8c5f66e3df25d9c119e05a3d3a1cc90284db32a4904e76447",
+      "seconds": 0.2,
+      "peak": 0.3,
+      "rms": 0.04599776830061694
+    },
+    {
+      "file": "armor_plate_1.wav",
+      "bytes": 17684,
+      "sha256": "990646f77a0d817a4ed37fd69e985e427750dc18df857789fddd7ebbdd5523da",
+      "seconds": 0.2,
+      "peak": 0.3,
+      "rms": 0.04491441905956807
+    },
+    {
+      "file": "armor_plate_2.wav",
+      "bytes": 17684,
+      "sha256": "ab9f89456bc0edc307f6f5390369b04c97388e9173f7d7b39a5d10e54d126620",
+      "seconds": 0.2,
+      "peak": 0.3,
+      "rms": 0.043446244441464145
+    },
+    {
+      "file": "armor_mail_0.wav",
+      "bytes": 15920,
+      "sha256": "3cefcf7f4b67c2f26922b5561e37b0a3d508a8ee96c6a2dbe4bfb1180f16ceb4",
+      "seconds": 0.18,
+      "peak": 0.3,
+      "rms": 0.03472998394156948
+    },
+    {
+      "file": "armor_mail_1.wav",
+      "bytes": 15920,
+      "sha256": "d6d583336814ea310ea47a6fd7d6f0a3c8526ef157329138dd0b479454f92034",
+      "seconds": 0.18,
+      "peak": 0.3,
+      "rms": 0.03636212519771026
+    },
+    {
+      "file": "armor_mail_2.wav",
+      "bytes": 15920,
+      "sha256": "1ebc7759cffd99b612cafa3d6a52ad1cfc8ba6835a49caddb1d8b7c33d7b87ba",
+      "seconds": 0.18,
+      "peak": 0.3,
+      "rms": 0.036720170319560874
+    },
+    {
+      "file": "armor_brigandine_0.wav",
+      "bytes": 15038,
+      "sha256": "376538903d55779a5ad0189f86ef7d94436f7897257972fe15a4a7bb89164b28",
+      "seconds": 0.17,
+      "peak": 0.3,
+      "rms": 0.03472593136454855
+    },
+    {
+      "file": "armor_brigandine_1.wav",
+      "bytes": 15038,
+      "sha256": "a319ff6322fe6bd353d2f0688dfb66eff52805d965758f85b398e636a4fc358d",
+      "seconds": 0.17,
+      "peak": 0.3,
+      "rms": 0.03527238999955533
+    },
+    {
+      "file": "armor_brigandine_2.wav",
+      "bytes": 15038,
+      "sha256": "eac11f0c69dc0709d0fe8e89fdc830ff37db4e6bb2d0b0ef4a334cfa7bafba59",
+      "seconds": 0.17,
+      "peak": 0.3,
+      "rms": 0.035219171525714965
+    }
+  ]
+}

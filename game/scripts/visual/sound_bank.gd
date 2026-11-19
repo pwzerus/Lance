@@ -60,6 +60,8 @@ const CONTACT_PEAKS = {
 	"lance_break_2":0.569976806641
 }
 const IMPACT_ASSET_DIR = "res://assets/audio/impact_v075/"
+const MOVEMENT_ASSET_DIR = "res://assets/audio/movement_v106/"
+const MOVEMENT_FAMILIES = ["plate","mail","brigandine"]
 static var contact_generation_count = 0
 # Audible responses, not historical acoustic measurements. Metal has a short
 # shell attack over a heavy body; no sustained high sine serves as the hit.
@@ -96,6 +98,14 @@ func _ready() -> void:
 		for variant in range(IMPACT_VARIANTS):
 			var cue = "lance_break_%d" % variant
 			shared_streams[cue] = _load_impact_stream(cue,"break","solid",variant)
+	if not shared_streams.has("armor_plate_0"):
+		for family in MOVEMENT_FAMILIES:
+			for variant in range(3):
+				var cue = "armor_%s_%d" % [family,variant]
+				var path = MOVEMENT_ASSET_DIR+cue+".wav"
+				if ResourceLoader.exists(path):
+					var stream = load(path)
+					if stream is AudioStreamWAV: shared_streams[cue]=stream
 	streams = shared_streams
 	music.stream = streams.lute_loop
 	music.volume_db = -16.0
@@ -142,8 +152,25 @@ func set_movement_duck(amount: float) -> void:
 	# Always derive from the requested gain; repeated frames must not add cuts.
 	movement_duck = clampf(_finite_number(amount,0.0),0.0,1.0)
 	for voice in voices:
-		if str(voice.get_meta("sfx_cue",""))=="hoof":
+		if is_movement_cue(str(voice.get_meta("sfx_cue",""))):
 			voice.volume_db = float(voice.get_meta("sfx_base_db",voice.volume_db))-movement_duck*18.0
+
+static func is_movement_cue(cue: String) -> bool:
+	return cue=="hoof" or cue.begins_with("armor_")
+
+static func voice_priority(cue: String) -> int:
+	return 0 if is_movement_cue(cue) else (2 if _group_voice(cue) else 1)
+
+func movement_cue(stats: Dictionary, strength: float, distant: bool = false) -> Dictionary:
+	var family = impact_material("body",stats)
+	if family not in MOVEMENT_FAMILIES or not is_finite(strength) or strength<=.0: return {}
+	var counter = "movement_"+family+("_far" if distant else "_near")
+	var variant = int(_impact_counters.get(counter,0))%3
+	var cue = "armor_%s_%d" % [family,variant]
+	if not streams.has(cue): return {} # Never substitute a missing clatter with a full impact.
+	_impact_counters[counter] = variant+1
+	var load = clampf(strength,0.0,1.0)
+	return {"cue":cue,"db":lerpf(-28.0,-18.0,load)-(5.0 if distant else 0.0),"pitch":lerpf(1.08,.94,load),"strength":load,"family":family}
 
 func play(sound: String, volume_db: float = -5.0, pitch: float = 1.0) -> void:
 	if not enabled or playback_paused:
@@ -162,13 +189,24 @@ func play(sound: String, volume_db: float = -5.0, pitch: float = 1.0) -> void:
 			voices.append(player)
 			add_child(player)
 		else:
-			player = voices[next_voice]
-			next_voice = (next_voice + 1) % MAX_VOICES
+			# Hooves/clothing must not steal the audible attack of a resolved hit.
+			# Prefer low-priority voices; round-robin only among equal priorities.
+			var incoming = voice_priority(sound)
+			var lowest = incoming+1
+			var selected = -1
+			for offset in range(MAX_VOICES):
+				var index = (next_voice+offset)%MAX_VOICES
+				var priority = voice_priority(str(voices[index].get_meta("sfx_cue","")))
+				if priority<lowest:
+					lowest=priority; selected=index
+			if selected<0: return
+			player=voices[selected]
+			next_voice=(selected+1)%MAX_VOICES
 	player.stop()
 	player.stream_paused = false
 	player.stream = streams.get(sound,streams.impact)
 	player.set_meta("sfx_base_db",volume_db)
-	player.volume_db = volume_db-(movement_duck*18.0 if sound=="hoof" else 0.0)
+	player.volume_db = volume_db-(movement_duck*18.0 if is_movement_cue(sound) else 0.0)
 	player.pitch_scale = pitch
 	player.set_meta("sfx_cue",sound)
 	player.play()

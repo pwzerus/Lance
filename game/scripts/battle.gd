@@ -226,6 +226,7 @@ func _build_battle_details() -> void:
 	for i in range(riders.size()):
 		riders[i].stride_phase = i*1.1
 		riders[i].hoof_contact.connect(_on_hoof_contact.bind(i))
+		riders[i].armor_motion.connect(_on_armor_motion.bind(i))
 
 func _finish_presentation() -> void:
 	_update_views()
@@ -442,6 +443,11 @@ func _pointer_over_hud(point: Vector2) -> bool:
 	return point.x<0.0 or point.x>=1440.0 or point.y<COMBAT_SAFE_RECT.position.y or point.y>=720.0 or (paused and is_instance_valid(pause_panel) and pause_panel.get_global_rect().has_point(point))
 
 func _physics_process(delta: float) -> void:
+	var trace_started = Trace099.begin()
+	_physics_measured106(delta)
+	Trace099.measure("battle_physics",trace_started)
+
+func _physics_measured106(delta: float) -> void:
 	if not presentation_ready: return
 	if preload("res://scripts/core/window_activity.gd").suspended():
 		return
@@ -453,6 +459,7 @@ func _physics_process(delta: float) -> void:
 		_consume_events(match_model.drain_events())
 		for fighter in match_model.fighters:
 			Model.advance_reaction(fighter,delta)
+			Model.release_drive_pose(fighter,delta)
 		_update_views()
 		return
 	var fighter = match_model.fighters[0]
@@ -591,6 +598,13 @@ func _on_hoof_contact(leg_index: int, rider_index: int) -> void:
 	if drive<-.35 and leg_index<2:
 		effects.dust(hoof_point,-int(fighter.direction),clampf(-drive,0,1)*.7)
 	sound.play("hoof",lerpf(-27,-12,pace)-(5 if rider_index==1 else 0),(.88 if leg_index<2 else 1.06)*lerpf(1.04,.94,pace))
+
+func _on_armor_motion(strength: float, rider_index: int) -> void:
+	if paused or match_model.phase!="charge" or not sound: return
+	var fighter = match_model.fighters[rider_index]
+	if fighter.get("ko",false) or fighter.get("dead",false): return
+	var cue = sound.movement_cue(fighter.stats,strength,rider_index!=0)
+	if not cue.is_empty(): sound.play(cue.cue,cue.db,cue.pitch)
 
 func _update_ai(delta: float) -> void:
 	if practice_guide and practice_guide.step<6:

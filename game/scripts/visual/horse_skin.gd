@@ -52,12 +52,20 @@ var hind_weights: Array[PackedFloat32Array] = []
 var fore_weights: Array[PackedFloat32Array] = []
 var hind_influences: Array[PackedInt32Array] = []
 var fore_influences: Array[PackedInt32Array] = []
+# Most limb vertices sit wholly on one bone. Keep the exact multi-bone
+# blend at joints, but avoid allocating/iterating a blend for a rigid patch.
+var hind_single = PackedInt32Array()
+var fore_single = PackedInt32Array()
+var hind_rigid_indices: Array[PackedInt32Array] = []
+var hind_rigid_sources: Array[PackedVector2Array] = []
+var fore_rigid_indices: Array[PackedInt32Array] = []
+var fore_rigid_sources: Array[PackedVector2Array] = []
 
 # Immutable rest geometry has only three variants; animated meshes/vertices
 # remain private to each horse. This avoids rebuilding thousands of weights
 # when returning to camp, opening the armoury, or starting the next match.
 static var _rest_templates: Dictionary = {}
-const REST_FIELDS = ["source_points", "uvs", "indices", "weights", "rest_points", "neck_weights", "head_weights", "tail_weights", "tail_bends", "hind_weights", "fore_weights", "hind_influences", "fore_influences", "deformed_indices"]
+const REST_FIELDS = ["source_points", "uvs", "indices", "weights", "rest_points", "neck_weights", "head_weights", "tail_weights", "tail_bends", "hind_weights", "fore_weights", "hind_influences", "fore_influences", "hind_single", "fore_single", "hind_rigid_indices", "hind_rigid_sources", "fore_rigid_indices", "fore_rigid_sources", "deformed_indices"]
 var deformed_indices = PackedInt32Array()
 # Exact repeated-pose reuse only; no angle quantization or dropped animation frames.
 var last_deformation: Array = []
@@ -101,6 +109,8 @@ func _init(limb: String = "") -> void:
 			fore_weights.append(_limb_weights(source,FORE))
 			hind_influences.append(_active_influences(hind_weights[-1]))
 			fore_influences.append(_active_influences(fore_weights[-1]))
+			hind_single.append(hind_influences[-1][0] if hind_influences[-1].size()==1 and hind_weights[-1][hind_influences[-1][0]]==1.0 else -1)
+			fore_single.append(fore_influences[-1][0] if fore_influences[-1].size()==1 and fore_weights[-1][fore_influences[-1][0]]==1.0 else -1)
 			# The tail and the hock are close in the plate but separated by
 			# transparent pixels. A broad X blend incorrectly pinned the back
 			# edge of the hock to the tail, stretching it into a triangular flap.
@@ -143,7 +153,23 @@ func _init(limb: String = "") -> void:
 	# Draw the whole tail behind the near leg. Row-by-row triangle ordering
 	# alternated tail and white sock at crossings, producing a comb pattern.
 	indices = tail_indices+indices
+	for bone in range(5):
+		hind_rigid_indices.append(PackedInt32Array());hind_rigid_sources.append(PackedVector2Array())
+		fore_rigid_indices.append(PackedInt32Array());fore_rigid_sources.append(PackedVector2Array())
 	for i in range(source_points.size()):
+		# Native packed-array transforms for fully rigid limb patches. Keep
+		# every original vertex; joint/coat blend vertices still use the exact
+		# original weighted path below. These groups are immutable rest data.
+		if weights[i].y==1.0 and weights[i].x==0.0 and weights[i].z==0.0 and hind_single[i]>=0:
+			var bone=hind_single[i]
+			var ids=hind_rigid_indices[bone];ids.append(i);hind_rigid_indices[bone]=ids
+			var points=hind_rigid_sources[bone];points.append(source_points[i]);hind_rigid_sources[bone]=points
+			continue
+		if weights[i].z==1.0 and weights[i].x==0.0 and weights[i].y==0.0 and fore_single[i]>=0:
+			var bone=fore_single[i]
+			var ids=fore_rigid_indices[bone];ids.append(i);fore_rigid_indices[bone]=ids
+			var points=fore_rigid_sources[bone];points.append(source_points[i]);fore_rigid_sources[bone]=points
+			continue
 		if neck_weights[i]>0 or head_weights[i]>0 or tail_weights[i]>0 or weights[i].y>0 or weights[i].z>0:
 			deformed_indices.append(i)
 	if limb in ["","hind","fore"]:
@@ -258,6 +284,7 @@ static func muzzle_point(body_pose: Dictionary) -> Vector2:
 	return neck_point(MUZZLE,body_pose)
 
 func update(body_pose: Dictionary, hind_pose: Dictionary, fore_pose: Dictionary) -> void:
+	var trace_started=preload("res://scripts/core/frame_trace099.gd").begin()
 	var rigid_pose: Transform2D = Transform2D(float(body_pose.pitch),Vector2.ZERO)
 	rigid_pose.origin = PIVOT+Vector2(body_pose.offset)-rigid_pose.basis_xform(PIVOT)
 	var hind: Array[Transform2D] = []
@@ -277,12 +304,15 @@ func update(body_pose: Dictionary, hind_pose: Dictionary, fore_pose: Dictionary)
 	var deformation = [rigid_pose,hind,fore,neck_angle,neck_offset,tail_angle,head_pose] if limb_name.is_empty() else [rigid_pose,hind,fore]
 	if deformation==last_deformation:
 		deformation_reuses+=1
+		preload("res://scripts/core/frame_trace099.gd").measure("horse_skin",trace_started)
 		return
 	last_deformation=deformation
 	deformation_uploads+=1
 	# Native packed-array transform for rigid vertices; full deformation is
 	# still evaluated for every affected vertex at every displayed frame.
 	vertices = rigid_pose*rest_points
+	if limb_name!="fore":_update_rigid_groups(hind,hind_rigid_sources,hind_rigid_indices)
+	if limb_name!="hind":_update_rigid_groups(fore,fore_rigid_sources,fore_rigid_indices)
 	for i in deformed_indices:
 		var source: Vector2 = source_points[i]
 		var weight: Vector3 = weights[i]
@@ -297,21 +327,35 @@ func update(body_pose: Dictionary, hind_pose: Dictionary, fore_pose: Dictionary)
 			rest = rest.lerp(tail_pivot+(rest-tail_pivot).rotated(tail_angle*tail_bends[i]),tail_weight)
 		var point: Vector2 = (rigid_pose*rest)*weight.x
 		if weight.y>0.0:
-			var blend: PackedFloat32Array = hind_weights[i]
 			var limb: Vector2 = Vector2.ZERO
-			for bone in hind_influences[i]:
-				limb += (hind[bone]*source)*blend[bone]
+			if hind_single[i]>=0:
+				limb = hind[hind_single[i]]*source
+			else:
+				var blend: PackedFloat32Array = hind_weights[i]
+				for bone in hind_influences[i]:
+					limb += (hind[bone]*source)*blend[bone]
 			point += limb*weight.y
 		if weight.z>0.0:
-			var blend: PackedFloat32Array = fore_weights[i]
 			var limb: Vector2 = Vector2.ZERO
-			for bone in fore_influences[i]:
-				limb += (fore[bone]*source)*blend[bone]
+			if fore_single[i]>=0:
+				limb = fore[fore_single[i]]*source
+			else:
+				var blend: PackedFloat32Array = fore_weights[i]
+				for bone in fore_influences[i]:
+					limb += (fore[bone]*source)*blend[bone]
 			point += limb*weight.z
 		vertices[i] = point
 	# Only the vertex buffer changes. UVs, topology, material and source bitmap
 	# stay fixed; two horses do not allocate thousands of draw calls per frame.
 	mesh.surface_update_vertex_region(0,0,vertices.to_byte_array())
+	preload("res://scripts/core/frame_trace099.gd").measure("horse_skin",trace_started)
+
+func _update_rigid_groups(transforms: Array[Transform2D], sources: Array[PackedVector2Array], groups: Array[PackedInt32Array]) -> void:
+	for bone in range(transforms.size()):
+		if groups[bone].is_empty():continue
+		var mapped: PackedVector2Array=transforms[bone]*sources[bone]
+		var ids: PackedInt32Array=groups[bone]
+		for index in range(ids.size()):vertices[ids[index]]=mapped[index]
 
 static func coat_texture(key: String) -> Texture2D:
 	var name = key if COAT_KEYS.has(key) else "bay"

@@ -107,7 +107,7 @@ static func _tinctures(stats: Dictionary) -> Array:
 	var paint = Color(str(stats.get("lance_color","d2b179")))
 	return [paint,paint.lightened(.55)]
 
-static func draw(canvas: CanvasItem, stats: Dictionary, hand: Vector2, angle: float, length: float, broken: bool, recoil: float, mode: String, layer: int = Layer.WHOLE) -> void:
+static func draw(canvas: CanvasItem, stats: Dictionary, hand: Vector2, angle: float, length: float, broken: bool, recoil: float, mode: String, layer: int = Layer.WHOLE, motion_time: float = 0.0) -> void:
 	var quality = clampi(int(stats.get("lance_quality",0)),0,5)
 	var era = int(stats.get("lance_era",0))
 	var full_length = maxf(120.0,float(stats.get("reach",247.0)))
@@ -156,7 +156,7 @@ static func draw(canvas: CanvasItem, stats: Dictionary, hand: Vector2, angle: fl
 		canvas.draw_polyline(_mapped([Vector2(length-4,-4),Vector2(length,0),Vector2(length-5,1),Vector2(length,4)],hand,angle,length,true,0),Color("e7cb8d"),2,false)
 	else:
 		if quality>=4:
-			_draw_pennon(canvas,stats,map,length,quality)
+			_draw_pennon(canvas,stats,map,length,quality,motion_time)
 		draw_tip(canvas,surface(hand,angle,length,0,length,false,recoil),angle,mode,kind)
 
 static func _paint(canvas: CanvasItem, stats: Dictionary, map: Callable, start: float, end: float, full_length: float) -> void:
@@ -239,7 +239,7 @@ static func _draw_guard(canvas: CanvasItem, stats: Dictionary, map: Callable, er
 		for offset in [-.62,-.2,.2,.62]:
 			canvas.draw_line(map.call(10,height*offset),map.call(6+reach,height*offset*.18),Color(0,0,0,.40),1.4,false)
 
-static func _draw_pennon(canvas: CanvasItem, stats: Dictionary, map: Callable, length: float, quality: int) -> void:
+static func _draw_pennon(canvas: CanvasItem, stats: Dictionary, map: Callable, length: float, quality: int, motion_time: float = 0.0) -> void:
 	# A small swallow-tailed pennon streaming back along the upper side of the
 	# shaft just behind the head, in the rider's livery. Gentle flutter only.
 	var colors = _tinctures(stats)
@@ -249,7 +249,9 @@ static func _draw_pennon(canvas: CanvasItem, stats: Dictionary, map: Callable, l
 	var depth = 15.0 if quality>=5 else 12.0
 	var front = length-30.0
 	var back = front-span
-	var phase = Time.get_ticks_msec()*.006
+	# The rider supplies game time, so paused/slow-motion cloth does not jump
+	# to wall-clock time when it is drawn again. Inventory defaults to rest.
+	var phase = motion_time*6.0
 	var wave = func(x: float) -> float: return sin(phase+x*.18)*2.2*clampf((front-x)/span,0,1)
 	var top = PackedVector2Array()
 	for i in range(6):

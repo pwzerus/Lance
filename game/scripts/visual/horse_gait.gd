@@ -147,9 +147,12 @@ static func visual(pose: Dictionary, phase: float, speed: float, moving: bool, d
  var cycle = fposmod(phase/TAU,1)
  var intensity = smoothstep(0,95,speed)
  # Launch squat shows even from a standstill; a stop needs some travel.
- var push = clampf(drive,0.0,1.0)*smoothstep(0,60,speed)
- var brake = clampf(-drive,0.0,1.0)*intensity
- var surge = clampf(inertia*1.8,0.0,1.0)
+ # Ease the weight shift through neutral. Linear positive/negative halves
+ # and abs(drive) made a V-shaped kink as acceleration changed sign, which
+ # read as a neck/trunk twitch over an otherwise smooth stride.
+ var push = pow(clampf(drive,0.0,1.0),2.0)*smoothstep(0,60,speed)
+ var brake = pow(clampf(-drive,0.0,1.0),2.0)*intensity
+ var surge = smoothstep(0.0,1.0/1.8,inertia)
  # Forehand rises while the hinds are planted and drops onto the leading
  # fore stance: same phase as back_pitch, so feet and trunk stay matched.
  var rock = (.032*run*sin(TAU*(cycle-.20))+.010*w.y*sin(TAU*2.0*(cycle-.10)))*intensity
@@ -224,7 +227,7 @@ static func body(phase: float, speed: float, moving: bool, stability: float = 1.
  # rearward, then he settles into the forward drive lean; a sudden check
  # pitches him forward. Small, shared with rule anchors (seen = hit).
  inertia = clampf(inertia,-1.0,1.0)
- return {"offset":Vector2(sin(phase-.4)*run*.55+drive*1.3,height*intensity+absf(drive)*.7),"pitch":pitch*intensity-drive*.018,
+ return {"offset":Vector2(sin(phase-.4)*run*.55+drive*1.3,height*intensity+drive*drive*.7),"pitch":pitch*intensity-drive*.018,
   "neck":neck_angle,"head":-neck_angle*.55-pitch*.6+sin(phase-.7)*.012*run*intensity,
   "neck_offset":Vector2(run*(2+2*sin(phase-.3))+3*w.w,run*(1+height*.14))*intensity,
   "tail":(.30*run+sin(phase-1.1)*(.04+.10*run))*intensity,

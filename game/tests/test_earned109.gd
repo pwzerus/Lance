@@ -3,6 +3,7 @@ extends "test_scene103.gd"
 ## ownership, clears, stats or outcomes are granted. UI purchases and normal
 ## match rewards supply all growth. Finite scripted controls are not humans.
 const Catalogue109=preload("res://scripts/core/catalogue.gd")
+const TransactionTrace109=preload("res://scripts/core/frame_trace099.gd")
 var purchase_log=[]
 func action_button(node:Node,prefix:String)->Button:
 	if node is Button and node.is_visible_in_tree() and node.text.begins_with(prefix):return node
@@ -24,10 +25,13 @@ func buy_equipment(main:Node,state:Node,id:String,folder:String)->void:
 		var before=int(state.profile.coins);var button=action_button(main.info_panel,"购买 ·")
 		check(button!=null and not button.disabled,"Purchase button enabled "+id)
 		if not button or button.disabled:return
+		var trace_start=TransactionTrace109.rows.size()
+		TransactionTrace109.enabled=true
 		click(button)
 		for i in range(10):await process_frame
+		TransactionTrace109.enabled=false
 		check(id in state.profile.owned and state.profile.coins==before-int(item.price),"UI purchase debits once "+id)
-		purchase_log.append({"id":id,"price":item.price,"coins_before":before,"coins_after":state.profile.coins,"renown":state.profile.renown,"profile_matches":state.profile.matches})
+		purchase_log.append({"id":id,"price":item.price,"coins_before":before,"coins_after":state.profile.coins,"renown":state.profile.renown,"profile_matches":state.profile.matches,"transaction_trace":TransactionTrace109.rows.slice(trace_start).duplicate(true)})
 		await capture(folder,"purchase-%02d-%s"%[purchase_log.size(),id])
 	var button=action_button(main.info_panel,"装备")
 	check(button!=null and not button.disabled,"Equip button enabled "+id)
@@ -91,7 +95,8 @@ func run()->void:
 					var target=Model103.flank_position(enemy) if float(enemy.guard)>.55 else Model103.head_position(enemy)
 					b.pointer_aim=asin(clampf((target.y-8-Model103.hand_position(p).y)/Model103.lance_length(p),-.629,.548))
 					var incoming=Model103.tip_position(enemy).y
-					b._select_guard(0 if incoming<Model103.body_position(p).y-30 else (2 if incoming>Model103.body_position(p).y+22 else 1))
+					var wanted_guard=0 if incoming<Model103.body_position(p).y-30 else (2 if incoming>Model103.body_position(p).y+22 else 1)
+					if b.guard_slot!=wanted_guard:b._select_guard(wanted_guard)
 				if not hit_captured and not b.exchange_log.is_empty():
 					hit_captured=true;await capture(folder,"level%d-attempt%d-hit"%[n,attempt+1])
 			if holding:forward_key(false)

@@ -32,7 +32,7 @@ func run()->void:
 		var row=0
 		for facing in [1,-1]:
 			for zone in ["head","body","flank"]:
-				var kit=Catalogue.stats(items,{"helmet":"%s_helmet_%d"%[region,tier],"armor":"%s_armor_%d"%[region,tier],"shield":region+"_shield_2","lance":region+"_lance_long_2","crest":"crest_lion"})
+				var kit=Catalogue.stats(items,{"helmet":"%s_helmet_%d"%[region,tier],"armor":"%s_armor_%d"%[region,tier],"shield":region+"_shield_2","lance":region+"_lance_long_2","crest":"crest_bend"})
 				kit.appearance=Appearance.variant(tier*409+row*211+10801)
 				var model=Model.new("war",kit,kit,10801)
 				var f=model.fighters[0 if facing==1 else 1]

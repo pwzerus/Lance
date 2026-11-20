@@ -16,6 +16,7 @@ func run()->void:
 	if folder.is_empty() or DirAccess.dir_exists_absolute(folder) or not state.save_path.contains("qa_") or OS.get_environment("GALUMU_MEMORY_BOUND").is_empty():quit(2);return
 	DirAccess.make_dir_recursive_absolute(folder)
 	state.save_path=folder+"/qa_profile.json";state.backup_path=folder+"/qa_backup.json"
+	state.load_profile()
 	state.profile=state.default_profile();state.session_awarded.clear()
 	check(state.save_profile() and state.save_slot(1),"New journey and older manual snapshot saved")
 	var primary_before=FileAccess.get_sha256(state.save_path)
@@ -67,5 +68,7 @@ func run()->void:
 	check(sanitized.campaign_cleared==[1,2] and sanitized.renown==0 and sanitized.coins==520 and sanitized.matches==0,"Malformed counters/clears cannot grant progress")
 	check("helm_great" in sanitized.owned and "missing109" not in sanitized.owned and sanitized.equipped.helmet=="helm_nasal" and sanitized.equipped.armor=="mail_basic","Unknown/wrong-slot/unowned equipment ignored without deleting legal old items")
 	check(not sanitized.settings.blood and is_finite(float(sanitized.settings.master_volume)),"Invalid settings remain finite and typed")
+	var catalogue=load("res://scripts/core/catalogue.gd")
+	check(catalogue.find(state.items,"crest_lion").is_empty() and catalogue.stats(state.items,{"crest":"crest_lion"})==catalogue.stats(state.items,{"crest":"crest_bend"}),"ART108 explicit bend fixture preserves the previous unknown-crest fallback exactly")
 	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"checks":rows,"pending_profile":pending,"purchased_profile":bought,"legacy_restored":clean,"scope":"Real isolated storage failure, campaign reward retry, rescue snapshots and malformed/legacy data. Intentional SAVE_IO warnings expected for blocked_backup; no player file, OS input or battle outcome claim."},"\t"))
 	print("ECON109_FAULT ",failures);quit(0 if failures.is_empty() else 1)

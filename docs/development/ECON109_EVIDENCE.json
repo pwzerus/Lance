@@ -1,11 +1,17 @@
 {
   "task": "ECON-109",
   "baseline": "851600b7afadfc8ca59967e999ceb6f9db29ce21",
+  "generated_utc": "2026-11-20T08:58:37.684820+00:00",
   "source_hashes": {
     "game/scripts/core/game_state.gd": "DC94407F19E6D46B5B35F2E332F3FE60175992717ACCCF13CC1ECF27DD614DAA",
     "game/scripts/core/catalogue.gd": "C119FA082381A18C18CE2EF5B160ABCF85B87E8899F4F55482CEEF206CBB1BD4",
     "game/scripts/core/campaign.gd": "06FDB10BC5A6068ABC7140FA4377EA33C3FFC81C994F0277DDE00B602D5EA66E",
-    "game/scripts/core/horse_condition.gd": "2BC368613E5339B15B9ED0A1A0893010F99592F6834EF4877BA57011E344951A"
+    "game/scripts/core/horse_condition.gd": "2BC368613E5339B15B9ED0A1A0893010F99592F6834EF4877BA57011E344951A",
+    "game/tests/test_earned109.gd": "CB9B0A360885FCDD873AC5E939D6E75B47677906A473C91460ACA258DAFC08DA",
+    "game/tests/test_economy109.gd": "E659F10E8F4725769F557A4BF18C5305D3214628E7744829887B842737E95924",
+    "game/tests/test_economy_fault109.gd": "1495DECEE89FD97453A2EF744FD4686C50B92943E73AD9AE35211148AE258D88",
+    "game/tests/test_recovery_play109.gd": "576D8CD4EDC81DC7BAA348BD9A315625FB9D683C96081B332D8641BB8130EACA",
+    "game/tests/test_shop109.gd": "2E99232F6701E721DA223A5C89DCD30459FA286C27B979D593786FF3E04E347F"
   },
   "runs": [
     {
@@ -42,12 +48,227 @@
     },
     {
       "run": "econ109-earned03",
-      "memory_sha256": "5C6BC635FCFF769E4E081AC001EE041B2C8BECEDF3920801A6752194DD21FD41",
-      "exit_lines": [],
-      "private_peak_mib": 738.5,
-      "finished": false,
+      "memory_sha256": "91A0C745859E59F81EE83C056278E6EC8222E6119E699AB802E45C1C47CF5049",
+      "exit_lines": [
+        "EXIT code=0 seconds=262.5",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 749.9,
+      "finished": true,
       "engine_issues": [],
-      "parse_result": []
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-earned03/screens/report.json",
+      "report_sha256": "266141F2E0787AC7810F4B6BED721AD0A850C0A74691900881B110EC73030E2E",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "econ109-earned04",
+      "memory_sha256": "F2E5142D192D733AEFCE6E5D2EC5D55AC8826AEBC4D1862E4EF03E3B3B7F4D83",
+      "exit_lines": [
+        "EXIT code=0 seconds=288.4",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 754.7,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-earned04/screens/report.json",
+      "report_sha256": "4837A714CD38190BBBF554044079D8458092CA5D71D7D4BDD397FF4B2D1D7055",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "econ109-earned05",
+      "memory_sha256": "25AEA107F9F188350FFE67D9CD1645614937E3853A2377942F3F765572FC2FC7",
+      "exit_lines": [
+        "EXIT code=0 seconds=304.1",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 745.9,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-earned05/screens/report.json",
+      "report_sha256": "7B230DEE1CBFCF86EE4A6067ECD5BF7490B876C5204BC1D4B71B10D54BA40201",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "econ109-earned06",
+      "memory_sha256": "10DC62C73859021D32811EF04566B452A141C67497F641A4290A920217220A93",
+      "exit_lines": [
+        "EXIT code=0 seconds=265.9",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 740.1,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-earned06/screens/report.json",
+      "report_sha256": "87FF2420A6A5C455CFE5DE5FEDED88CFE89305F84B08BCBC40E0651BC15CF0EA",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "econ109-earned07",
+      "memory_sha256": "5E07BE4FE8B78D074656590EBE7194C8E71C53585E136124E4EA47A0A117EC65",
+      "exit_lines": [
+        "EXIT code=0 seconds=215.5",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 752.6,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-earned07/screens/report.json",
+      "report_sha256": "00EB421D6DF70592CBB10FA43D7555AC9ED80E0952F52F477BDA4A807E61499C",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "econ109-earned08",
+      "memory_sha256": "DB25D9F2CB2DAF8DFBDBB490791D66EE1A87A15282D9C436DC6A969B89969E3E",
+      "exit_lines": [
+        "EXIT code=0 seconds=223.1",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 727.3,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-earned08/screens/report.json",
+      "report_sha256": "5C0C5CA7BF5F4FA871C4FA3654F752868AE7E0EEEC33C8860EB4BCBB89C59BDA",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "econ109-earned09",
+      "memory_sha256": "E44003045B42C99289702FBB83749BE21A95D1CADC9EF22F137FCF5514C8B14C",
+      "exit_lines": [
+        "EXIT code=0 seconds=230.5",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 785.3,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-earned09/screens/report.json",
+      "report_sha256": "FD748D8AF5C74CD625FA2FE4C662684094FAE7AEAB6A0DD3001A0CEEC3D4ACBC",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "econ109-earned10",
+      "memory_sha256": "FAD63AD0776D0D1E3629A0FB0ED7B985571203536B318F1B8C9FFCD07EF3C58C",
+      "exit_lines": [
+        "EXIT code=0 seconds=281.3",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 733.9,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-earned10/screens/report.json",
+      "report_sha256": "D058EEFC36430A1EA864B86572F35633E08EBC35FB06BDC9291FA09D9C25D639",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "econ109-earned11",
+      "memory_sha256": "7E10C83F92905B5BD8B6E85466F70D1452094C39EDA3732505950247D3AEDE48",
+      "exit_lines": [
+        "EXIT code=0 seconds=294.4",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 731.5,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-earned11/screens/report.json",
+      "report_sha256": "123660CDED0B16122B4515AA2BB85EBBFCA2B47BFBA6BBE602817C893457A1E8",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "econ109-earned12",
+      "memory_sha256": "3E275A78BDB1149E6B82717118707800238C302D0D79014D92B65DB343FAA37F",
+      "exit_lines": [
+        "EXIT code=0 seconds=279.4",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 772.4,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-earned12/screens/report.json",
+      "report_sha256": "5890984A46DB86B5B4C8B1EB2DD21230CDDADF2ADD9761C15E89212C25C43FDD",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "econ109-earned13",
+      "memory_sha256": "EE23276A84ED256954184EC10BD7568DE471FF29EEB6FEE86254B0D424245FDD",
+      "exit_lines": [
+        "EXIT code=0 seconds=323.5",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 723.1,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-earned13/screens/report.json",
+      "report_sha256": "226016F77983051BA8AE084E4253A215B999E221274583FF6EBF20359660AE2A",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "econ109-earned14",
+      "memory_sha256": "4D845518E7FE241A22415C3E5D151FA56C81E70A3900CC8032EE96F33527EC10",
+      "exit_lines": [
+        "EXIT code=0 seconds=278.6",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 778.6,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-earned14/screens/report.json",
+      "report_sha256": "B379093972D701BD4E274354630C7C9C4706A1196CECB6E69166E1823274032F",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "econ109-earned15",
+      "memory_sha256": "D76A7990F079582CB0833D20B3AAFBE4C1E7245712868D44FE8EF7492EF243F1",
+      "exit_lines": [
+        "EXIT code=0 seconds=275.7",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 723.3,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-earned15/screens/report.json",
+      "report_sha256": "B751D215C7B03308FF848333F3A44CBBE89F777566C1BF6FF2AD3BFE6E28B7B7",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "econ109-earned16",
+      "memory_sha256": "4BE27D2CEE8DEF782DBBB86A48CA2AB815755AD548E85BB6E7D04925D8C42103",
+      "exit_lines": [
+        "EXIT code=0 seconds=235.8",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 783.5,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-earned16/screens/report.json",
+      "report_sha256": "DB8E9B0B7E102F8CE69F9A0FB3D9979974A6F3EB0290951439EDA04A51797F6F",
+      "passed": true,
+      "failures": []
     },
     {
       "run": "econ109-fault01",
@@ -93,6 +314,72 @@
       "parse_result": [],
       "report": "docs/development/logs/econ109-fault02/evidence/report.json",
       "report_sha256": "8E7BDA84594DDD8A12A7F550D865A0020C15DA42BF55ECD3EC26214230603C64",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "econ109-fault03",
+      "memory_sha256": "D02AA64A7C48DC7F45AC5B9E9CF45C453F1DF9D5F7A2EF2D8D25DA8BAB580B1F",
+      "exit_lines": [
+        "EXIT code=0 seconds=0.3"
+      ],
+      "private_peak_mib": null,
+      "finished": true,
+      "engine_issues": [
+        "ERROR: Failed to open 'E:\\GALUMU\\docs\\development\\logs\\econ109-fault03/evidence/blocked_backup'.",
+        "WARNING: SAVE_IO: 无法备份原进度 [12: Can't open file]",
+        "ERROR: Failed to open 'E:\\GALUMU\\docs\\development\\logs\\econ109-fault03/evidence/blocked_backup'.",
+        "WARNING: SAVE_IO: 无法备份原进度 [12: Can't open file]",
+        "ERROR: Failed to open 'E:\\GALUMU\\docs\\development\\logs\\econ109-fault03/evidence/blocked_backup'.",
+        "WARNING: SAVE_IO: 无法备份原进度 [12: Can't open file]"
+      ],
+      "parse_result": [],
+      "diagnostic_review": {
+        "passed": true,
+        "intentional_native_copy_errors": [
+          "ERROR: Failed to open 'E:\\GALUMU\\docs\\development\\logs\\econ109-fault03/evidence/blocked_backup'.",
+          "ERROR: Failed to open 'E:\\GALUMU\\docs\\development\\logs\\econ109-fault03/evidence/blocked_backup'.",
+          "ERROR: Failed to open 'E:\\GALUMU\\docs\\development\\logs\\econ109-fault03/evidence/blocked_backup'."
+        ],
+        "save_io_warnings": 3,
+        "unexpected_errors": [],
+        "note": "Initial wrapper rejected deliberate native copy errors. Exact blocked fixture path and three occurrences reviewed; all production rollback and final crest equivalence assertions passed. No rerun or game change needed."
+      },
+      "diagnostic_review_sha256": "4D59ABA0D2C13AFCB2BB923939F323A31E95B92F226BC1C8C8D6C140B0CDFF59",
+      "report": "docs/development/logs/econ109-fault03/evidence/report.json",
+      "report_sha256": "B95D7D0BDC356411B55868BB4E356237EBFACDDCB39E3ECF1350C70C22BD20B2",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "econ109-heavy01",
+      "memory_sha256": "4CD150AB22C364286F9A706E250859FFC56E866420CD72FD4976B23BD37EA296",
+      "exit_lines": [
+        "EXIT code=0 seconds=95.8",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 799.7,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-heavy01/screens/report.json",
+      "report_sha256": "97C97D66319D492A0BC72EDB159D13CFF10A63761C2013D11213485A9FE5A955",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "econ109-heavy02",
+      "memory_sha256": "E7D9179F1DB660083F06408A04FBF9A8C8619C41915202E8BB05EF55078F2FAD",
+      "exit_lines": [
+        "EXIT code=0 seconds=247.9",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 815.3,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-heavy02/screens/report.json",
+      "report_sha256": "519833E7E9653C53F28B05E823925E5DEFE775F1B2E5AAEAE5ABDE210C77BBC3",
       "passed": true,
       "failures": []
     },
@@ -155,6 +442,252 @@
       ]
     },
     {
+      "run": "econ109-parse02",
+      "memory_sha256": "55C99343B4D6385FD2807C1F12B309912A0011AB5EFE360647804016DFC00742",
+      "exit_lines": [
+        "EXIT code=0 seconds=2.3"
+      ],
+      "private_peak_mib": 181.4,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [
+        "PARSE065_RESULT failed=0"
+      ]
+    },
+    {
+      "run": "econ109-recovery01",
+      "memory_sha256": "4D877F564AF14BC867F5CFEF5E3CD3580FEE63FF356E16954B70BB39831B157D",
+      "exit_lines": [
+        "EXIT code=0 seconds=104.9",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 704.7,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-recovery01/screens/report.json",
+      "report_sha256": "8E92AB3E359A9B0108E7574834E9E223E85C8DD792100505F7E0FBD783E18B17",
+      "passed": true,
+      "failures": [],
+      "natural_recovery": {
+        "purchases": [
+          {
+            "coins_after": 340,
+            "coins_before": 520,
+            "id": "crest_diamond",
+            "price": 180.0,
+            "profile_matches": 0,
+            "renown": 0,
+            "transaction_trace": [
+              {
+                "end_us": 6186115,
+                "frame": 42,
+                "stage": "save_write_flush",
+                "start_us": 6185481
+              },
+              {
+                "end_us": 6188051,
+                "frame": 42,
+                "stage": "save_backup",
+                "start_us": 6187108
+              },
+              {
+                "end_us": 6189611,
+                "frame": 42,
+                "stage": "save_replace",
+                "start_us": 6188079
+              },
+              {
+                "end_us": 6189629,
+                "frame": 42,
+                "stage": "save_total",
+                "start_us": 6185429
+              }
+            ]
+          },
+          {
+            "coins_after": 180,
+            "coins_before": 340,
+            "id": "crest_cross",
+            "price": 160.0,
+            "profile_matches": 0,
+            "renown": 0,
+            "transaction_trace": [
+              {
+                "end_us": 6804550,
+                "frame": 73,
+                "stage": "save_write_flush",
+                "start_us": 6804072
+              },
+              {
+                "end_us": 6805060,
+                "frame": 73,
+                "stage": "save_backup",
+                "start_us": 6804748
+              },
+              {
+                "end_us": 6805822,
+                "frame": 73,
+                "stage": "save_replace",
+                "start_us": 6805074
+              },
+              {
+                "end_us": 6805834,
+                "frame": 73,
+                "stage": "save_total",
+                "start_us": 6804021
+              }
+            ]
+          },
+          {
+            "coins_after": 30,
+            "coins_before": 180,
+            "id": "crest_quarterly",
+            "price": 150.0,
+            "profile_matches": 0,
+            "renown": 0,
+            "transaction_trace": [
+              {
+                "end_us": 7402259,
+                "frame": 104,
+                "stage": "save_write_flush",
+                "start_us": 7401547
+              },
+              {
+                "end_us": 7403239,
+                "frame": 104,
+                "stage": "save_backup",
+                "start_us": 7402617
+              },
+              {
+                "end_us": 7404423,
+                "frame": 104,
+                "stage": "save_replace",
+                "start_us": 7403257
+              },
+              {
+                "end_us": 7404435,
+                "frame": 104,
+                "stage": "save_total",
+                "start_us": 7401475
+              }
+            ]
+          },
+          {
+            "coins_after": 15,
+            "coins_before": 140,
+            "id": "eng_lance_long_0",
+            "price": 125.0,
+            "profile_matches": 2,
+            "renown": 2,
+            "transaction_trace": [
+              {
+                "end_us": 103633602,
+                "frame": 5801,
+                "stage": "save_write_flush",
+                "start_us": 103632907
+              },
+              {
+                "end_us": 103634434,
+                "frame": 5801,
+                "stage": "save_backup",
+                "start_us": 103633906
+              },
+              {
+                "end_us": 103635619,
+                "frame": 5801,
+                "stage": "save_replace",
+                "start_us": 103634451
+              },
+              {
+                "end_us": 103635634,
+                "frame": 5801,
+                "stage": "save_total",
+                "start_us": 103632835
+              }
+            ]
+          }
+        ],
+        "matches": [
+          {
+            "attempt": 1,
+            "result": {
+              "enemy_dead": false,
+              "enemy_hp": 100.0,
+              "enemy_score": 12,
+              "mode": "arena",
+              "passes": 3,
+              "player_dead": false,
+              "player_hp": 0.0,
+              "player_score": 0,
+              "reason": "terminal",
+              "winner": 1
+            },
+            "reward": {
+              "coins": 55,
+              "renown": 1
+            },
+            "coins_before": 30,
+            "coins_after": 85
+          },
+          {
+            "attempt": 2,
+            "result": {
+              "enemy_dead": false,
+              "enemy_hp": 100.0,
+              "enemy_score": 10,
+              "mode": "arena",
+              "passes": 3,
+              "player_dead": false,
+              "player_hp": 0.0,
+              "player_score": 0,
+              "reason": "terminal",
+              "winner": 1
+            },
+            "reward": {
+              "coins": 55,
+              "renown": 1
+            },
+            "coins_before": 85,
+            "coins_after": 140
+          }
+        ],
+        "final_coins": 15
+      }
+    },
+    {
+      "run": "econ109-replay01",
+      "memory_sha256": "AA1169351B47E983347699C6FCC5EF80D9F508E5AFC72B23470C14A3B6ED7A5C",
+      "exit_lines": [
+        "EXIT code=0 seconds=60.6",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 720.7,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-replay01/screens/report.json",
+      "report_sha256": "D720C633A48048BF74729114242725254C94C0F844D745F5D6E2D3F7FE22B9C3",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "econ109-replay02",
+      "memory_sha256": "4970AC8ADFDD22F952F268DD9C711E40808A910D714E0381D12636D256643133",
+      "exit_lines": [
+        "EXIT code=0 seconds=36.8",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 759.6,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-replay02/screens/report.json",
+      "report_sha256": "EA5A9C06B90ECDC11ABD3AF6AD4B218F6129B168700CC38B9E061227CE07C076",
+      "passed": true,
+      "failures": []
+    },
+    {
       "run": "econ109-savebase01",
       "memory_sha256": "C2497F73A09D26ED1C0E06548E0DB350693C70DF5EBD47857A01BFE36A5D6740",
       "exit_lines": [
@@ -175,6 +708,47 @@
       "report_sha256": "D72E4FF49C8171CBEDE278E9BD75BDCD8C2BDA058B7F19B16B7B3035BB2FABCA",
       "passed": true,
       "failures": []
+    },
+    {
+      "run": "econ109-shop01",
+      "memory_sha256": "40FA4A6320442D4D4F04A4D322D1116F2281A0824B17F1B8A84848EDD6CB658C",
+      "exit_lines": [
+        "EXIT code=0 seconds=3.1"
+      ],
+      "private_peak_mib": 44.4,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-shop01/evidence/report.json",
+      "report_sha256": "813B1FFBF9BD1F26A67419761DF419535B3EED4DDCAF9A9BDF6B07DE909712A3",
+      "passed": true,
+      "failures": [],
+      "public_item_count": 173,
+      "hidden_unowned_legacy": [
+        "mail_eng",
+        "mail_fr",
+        "mail_de",
+        "mail_it",
+        "helm_great",
+        "helm_gilt",
+        "armor_e1",
+        "helm_e1",
+        "armor_e2",
+        "helm_e2",
+        "armor_e3",
+        "helm_e3",
+        "armor_e4",
+        "helm_e4"
+      ],
+      "slot_counts": {
+        "armor": 24,
+        "caparison": 3,
+        "crest": 11,
+        "helmet": 24,
+        "horse": 9,
+        "lance": 78,
+        "shield": 24
+      }
     }
   ],
   "earned_segments": [
@@ -282,37 +856,43 @@
           "id": "eng_lance_long_1",
           "price": 295.0,
           "coins_before": 1240,
-          "coins_after": 945
+          "coins_after": 945,
+          "save_total_ms": []
         },
         {
           "id": "eng_armor_1",
           "price": 290.0,
           "coins_before": 945,
-          "coins_after": 655
+          "coins_after": 655,
+          "save_total_ms": []
         },
         {
           "id": "eng_helmet_1",
           "price": 240.0,
           "coins_before": 655,
-          "coins_after": 415
+          "coins_after": 415,
+          "save_total_ms": []
         },
         {
           "id": "horse_grey",
           "price": 340.0,
           "coins_before": 415,
-          "coins_after": 75
+          "coins_after": 75,
+          "save_total_ms": []
         },
         {
           "id": "eng_shield_0",
           "price": 70.0,
           "coins_before": 75,
-          "coins_after": 5
+          "coins_after": 5,
+          "save_total_ms": []
         },
         {
           "id": "eng_lance_long_2",
           "price": 555.0,
           "coins_before": 581,
-          "coins_after": 26
+          "coins_after": 26,
+          "save_total_ms": []
         }
       ],
       "matches": [
@@ -422,9 +1002,3712 @@
         10
       ],
       "ledger_matches_final": true
+    },
+    {
+      "run": "econ109-earned03",
+      "completed_requested_segment": true,
+      "first": 11,
+      "last": 15,
+      "purchases": [
+        {
+          "id": "eng_armor_2",
+          "price": 620.0,
+          "coins_before": 770,
+          "coins_after": 150,
+          "save_total_ms": []
+        },
+        {
+          "id": "eng_shield_2",
+          "price": 380.0,
+          "coins_before": 390,
+          "coins_after": 10,
+          "save_total_ms": []
+        },
+        {
+          "id": "eng_helmet_2",
+          "price": 480.0,
+          "coins_before": 526,
+          "coins_after": 46,
+          "save_total_ms": []
+        }
+      ],
+      "matches": [
+        {
+          "level": 11,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 240,
+            "first_clear": true,
+            "level": 11,
+            "renown": 1
+          },
+          "coins": 390,
+          "renown": 13
+        },
+        {
+          "level": 12,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 252,
+            "first_clear": true,
+            "level": 12,
+            "renown": 1
+          },
+          "coins": 262,
+          "renown": 14
+        },
+        {
+          "level": 13,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 264,
+            "first_clear": true,
+            "level": 13,
+            "renown": 1
+          },
+          "coins": 526,
+          "renown": 15
+        },
+        {
+          "level": 14,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 276,
+            "first_clear": true,
+            "level": 14,
+            "renown": 1
+          },
+          "coins": 322,
+          "renown": 16
+        },
+        {
+          "level": 15,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "hp",
+          "reward": {
+            "coins": 288,
+            "first_clear": true,
+            "level": 15,
+            "renown": 1
+          },
+          "coins": 610,
+          "renown": 17
+        }
+      ],
+      "final_coins": 610,
+      "final_renown": 17,
+      "cleared": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "ledger_matches_final": true
+    },
+    {
+      "run": "econ109-earned04",
+      "completed_requested_segment": true,
+      "first": 16,
+      "last": 20,
+      "purchases": [
+        {
+          "id": "eng_lance_long_3",
+          "price": 835.0,
+          "coins_before": 910,
+          "coins_after": 75,
+          "save_total_ms": []
+        },
+        {
+          "id": "eng_helmet_3",
+          "price": 670.0,
+          "coins_before": 711,
+          "coins_after": 41,
+          "save_total_ms": []
+        }
+      ],
+      "matches": [
+        {
+          "level": 16,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 300,
+            "first_clear": true,
+            "level": 16,
+            "renown": 1
+          },
+          "coins": 910,
+          "renown": 18
+        },
+        {
+          "level": 17,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 312,
+            "first_clear": true,
+            "level": 17,
+            "renown": 1
+          },
+          "coins": 387,
+          "renown": 19
+        },
+        {
+          "level": 18,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 324,
+            "first_clear": true,
+            "level": 18,
+            "renown": 1
+          },
+          "coins": 711,
+          "renown": 20
+        },
+        {
+          "level": 19,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 336,
+            "first_clear": true,
+            "level": 19,
+            "renown": 1
+          },
+          "coins": 377,
+          "renown": 21
+        },
+        {
+          "level": 20,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 648,
+            "first_clear": true,
+            "level": 20,
+            "renown": 3
+          },
+          "coins": 1025,
+          "renown": 24
+        }
+      ],
+      "final_coins": 1025,
+      "final_renown": 24,
+      "cleared": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "ledger_matches_final": true
+    },
+    {
+      "run": "econ109-earned05",
+      "completed_requested_segment": true,
+      "first": 21,
+      "last": 25,
+      "purchases": [
+        {
+          "id": "eng_armor_3",
+          "price": 890.0,
+          "coins_before": 1025,
+          "coins_after": 135,
+          "save_total_ms": [
+            2.0
+          ]
+        },
+        {
+          "id": "horse_e2",
+          "price": 840.0,
+          "coins_before": 867,
+          "coins_after": 27,
+          "save_total_ms": [
+            4.349
+          ]
+        }
+      ],
+      "matches": [
+        {
+          "level": 21,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 360,
+            "first_clear": true,
+            "level": 21,
+            "renown": 1
+          },
+          "coins": 495,
+          "renown": 25
+        },
+        {
+          "level": 22,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 372,
+            "first_clear": true,
+            "level": 22,
+            "renown": 1
+          },
+          "coins": 867,
+          "renown": 26
+        },
+        {
+          "level": 23,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 384,
+            "first_clear": true,
+            "level": 23,
+            "renown": 1
+          },
+          "coins": 411,
+          "renown": 27
+        },
+        {
+          "level": 24,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 396,
+            "first_clear": true,
+            "level": 24,
+            "renown": 1
+          },
+          "coins": 807,
+          "renown": 28
+        },
+        {
+          "level": 25,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "hp",
+          "reward": {
+            "coins": 408,
+            "first_clear": true,
+            "level": 25,
+            "renown": 1
+          },
+          "coins": 1215,
+          "renown": 29
+        }
+      ],
+      "final_coins": 1215,
+      "final_renown": 29,
+      "cleared": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "ledger_matches_final": true
+    },
+    {
+      "run": "econ109-earned06",
+      "completed_requested_segment": true,
+      "first": 26,
+      "last": 30,
+      "purchases": [
+        {
+          "id": "eng_lance_long_4",
+          "price": 1155.0,
+          "coins_before": 2511,
+          "coins_after": 1356,
+          "save_total_ms": [
+            1.731
+          ]
+        },
+        {
+          "id": "eng_armor_4",
+          "price": 1190.0,
+          "coins_before": 1356,
+          "coins_after": 166,
+          "save_total_ms": [
+            3.042
+          ]
+        }
+      ],
+      "matches": [
+        {
+          "level": 26,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 420,
+            "first_clear": true,
+            "level": 26,
+            "renown": 1
+          },
+          "coins": 1635,
+          "renown": 30
+        },
+        {
+          "level": 27,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 432,
+            "first_clear": true,
+            "level": 27,
+            "renown": 1
+          },
+          "coins": 2067,
+          "renown": 31
+        },
+        {
+          "level": 28,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 444,
+            "first_clear": true,
+            "level": 28,
+            "renown": 1
+          },
+          "coins": 2511,
+          "renown": 32
+        },
+        {
+          "level": 29,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 456,
+            "first_clear": true,
+            "level": 29,
+            "renown": 1
+          },
+          "coins": 622,
+          "renown": 33
+        },
+        {
+          "level": 30,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 768,
+            "first_clear": true,
+            "level": 30,
+            "renown": 3
+          },
+          "coins": 1390,
+          "renown": 36
+        }
+      ],
+      "final_coins": 1390,
+      "final_renown": 36,
+      "cleared": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "ledger_matches_final": true
+    },
+    {
+      "run": "econ109-earned07",
+      "completed_requested_segment": true,
+      "first": 31,
+      "last": 35,
+      "purchases": [
+        {
+          "id": "eng_helmet_4",
+          "price": 880.0,
+          "coins_before": 1390,
+          "coins_after": 510,
+          "save_total_ms": [
+            2.878
+          ]
+        },
+        {
+          "id": "eng_shield_4",
+          "price": 820.0,
+          "coins_before": 990,
+          "coins_after": 170,
+          "save_total_ms": [
+            3.508
+          ]
+        }
+      ],
+      "matches": [
+        {
+          "level": 31,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 480,
+            "first_clear": true,
+            "level": 31,
+            "renown": 1
+          },
+          "coins": 990,
+          "renown": 37
+        },
+        {
+          "level": 32,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 492,
+            "first_clear": true,
+            "level": 32,
+            "renown": 1
+          },
+          "coins": 662,
+          "renown": 38
+        },
+        {
+          "level": 33,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 504,
+            "first_clear": true,
+            "level": 33,
+            "renown": 1
+          },
+          "coins": 1166,
+          "renown": 39
+        },
+        {
+          "level": 34,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 516,
+            "first_clear": true,
+            "level": 34,
+            "renown": 1
+          },
+          "coins": 1682,
+          "renown": 40
+        },
+        {
+          "level": 35,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 528,
+            "first_clear": true,
+            "level": 35,
+            "renown": 1
+          },
+          "coins": 2210,
+          "renown": 41
+        }
+      ],
+      "final_coins": 2210,
+      "final_renown": 41,
+      "cleared": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "ledger_matches_final": true
+    },
+    {
+      "run": "econ109-earned08",
+      "completed_requested_segment": true,
+      "first": 36,
+      "last": 40,
+      "purchases": [],
+      "matches": [
+        {
+          "level": 36,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 540,
+            "first_clear": true,
+            "level": 36,
+            "renown": 1
+          },
+          "coins": 2750,
+          "renown": 42
+        },
+        {
+          "level": 37,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 552,
+            "first_clear": true,
+            "level": 37,
+            "renown": 1
+          },
+          "coins": 3302,
+          "renown": 43
+        },
+        {
+          "level": 38,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 564,
+            "first_clear": true,
+            "level": 38,
+            "renown": 1
+          },
+          "coins": 3866,
+          "renown": 44
+        },
+        {
+          "level": 39,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 576,
+            "first_clear": true,
+            "level": 39,
+            "renown": 1
+          },
+          "coins": 4442,
+          "renown": 45
+        },
+        {
+          "level": 40,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 888,
+            "first_clear": true,
+            "level": 40,
+            "renown": 3
+          },
+          "coins": 5330,
+          "renown": 48
+        }
+      ],
+      "final_coins": 5330,
+      "final_renown": 48,
+      "cleared": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "ledger_matches_final": true
+    },
+    {
+      "run": "econ109-earned09",
+      "completed_requested_segment": true,
+      "first": 41,
+      "last": 45,
+      "purchases": [
+        {
+          "id": "eng_lance_long_5",
+          "price": 1515.0,
+          "coins_before": 7802,
+          "coins_after": 6287,
+          "save_total_ms": [
+            3.817
+          ]
+        },
+        {
+          "id": "eng_armor_5",
+          "price": 1550.0,
+          "coins_before": 6287,
+          "coins_after": 4737,
+          "save_total_ms": [
+            1.73
+          ]
+        },
+        {
+          "id": "eng_helmet_5",
+          "price": 1120.0,
+          "coins_before": 4737,
+          "coins_after": 3617,
+          "save_total_ms": [
+            3.105
+          ]
+        },
+        {
+          "id": "horse_e4",
+          "price": 1260.0,
+          "coins_before": 3617,
+          "coins_after": 2357,
+          "save_total_ms": [
+            2.99
+          ]
+        }
+      ],
+      "matches": [
+        {
+          "level": 41,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 600,
+            "first_clear": true,
+            "level": 41,
+            "renown": 1
+          },
+          "coins": 5930,
+          "renown": 49
+        },
+        {
+          "level": 42,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 612,
+            "first_clear": true,
+            "level": 42,
+            "renown": 1
+          },
+          "coins": 6542,
+          "renown": 50
+        },
+        {
+          "level": 43,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 624,
+            "first_clear": true,
+            "level": 43,
+            "renown": 1
+          },
+          "coins": 7166,
+          "renown": 51
+        },
+        {
+          "level": 44,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 636,
+            "first_clear": true,
+            "level": 44,
+            "renown": 1
+          },
+          "coins": 7802,
+          "renown": 52
+        },
+        {
+          "level": 45,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 648,
+            "first_clear": true,
+            "level": 45,
+            "renown": 1
+          },
+          "coins": 3005,
+          "renown": 53
+        }
+      ],
+      "final_coins": 3005,
+      "final_renown": 53,
+      "cleared": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "ledger_matches_final": true
+    },
+    {
+      "run": "econ109-earned10",
+      "completed_requested_segment": true,
+      "first": 46,
+      "last": 50,
+      "purchases": [],
+      "matches": [
+        {
+          "level": 46,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 660,
+            "first_clear": true,
+            "level": 46,
+            "renown": 1
+          },
+          "coins": 3665,
+          "renown": 54
+        },
+        {
+          "level": 47,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 672,
+            "first_clear": true,
+            "level": 47,
+            "renown": 1
+          },
+          "coins": 4337,
+          "renown": 55
+        },
+        {
+          "level": 48,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 684,
+            "first_clear": true,
+            "level": 48,
+            "renown": 1
+          },
+          "coins": 5021,
+          "renown": 56
+        },
+        {
+          "level": 49,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 1,
+          "reason": "hp",
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 49,
+            "renown": 0
+          },
+          "coins": 5021,
+          "renown": 56
+        },
+        {
+          "level": 49,
+          "attempt": 2,
+          "strategy": "reserve",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 696,
+            "first_clear": true,
+            "level": 49,
+            "renown": 1
+          },
+          "coins": 5717,
+          "renown": 57
+        },
+        {
+          "level": 50,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 1008,
+            "first_clear": true,
+            "level": 50,
+            "renown": 3
+          },
+          "coins": 6725,
+          "renown": 60
+        }
+      ],
+      "final_coins": 6725,
+      "final_renown": 60,
+      "cleared": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "ledger_matches_final": true
+    },
+    {
+      "run": "econ109-earned11",
+      "completed_requested_segment": true,
+      "first": 51,
+      "last": 55,
+      "purchases": [],
+      "matches": [
+        {
+          "level": 51,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 720,
+            "first_clear": true,
+            "level": 51,
+            "renown": 1
+          },
+          "coins": 7445,
+          "renown": 61
+        },
+        {
+          "level": 52,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 732,
+            "first_clear": true,
+            "level": 52,
+            "renown": 1
+          },
+          "coins": 8177,
+          "renown": 62
+        },
+        {
+          "level": 53,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 1,
+          "reason": "score",
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 53,
+            "renown": 0
+          },
+          "coins": 8177,
+          "renown": 62
+        },
+        {
+          "level": 53,
+          "attempt": 2,
+          "strategy": "reserve",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 744,
+            "first_clear": true,
+            "level": 53,
+            "renown": 1
+          },
+          "coins": 8921,
+          "renown": 63
+        },
+        {
+          "level": 54,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 756,
+            "first_clear": true,
+            "level": 54,
+            "renown": 1
+          },
+          "coins": 9677,
+          "renown": 64
+        },
+        {
+          "level": 55,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 1,
+          "reason": "hp",
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 55,
+            "renown": 0
+          },
+          "coins": 9677,
+          "renown": 64
+        },
+        {
+          "level": 55,
+          "attempt": 2,
+          "strategy": "reserve",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 768,
+            "first_clear": true,
+            "level": 55,
+            "renown": 1
+          },
+          "coins": 10445,
+          "renown": 65
+        }
+      ],
+      "final_coins": 10445,
+      "final_renown": 65,
+      "cleared": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "ledger_matches_final": true
+    },
+    {
+      "run": "econ109-earned12",
+      "completed_requested_segment": true,
+      "first": 56,
+      "last": 60,
+      "purchases": [],
+      "matches": [
+        {
+          "level": 56,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 780,
+            "first_clear": true,
+            "level": 56,
+            "renown": 1
+          },
+          "coins": 11225,
+          "renown": 66
+        },
+        {
+          "level": 57,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 792,
+            "first_clear": true,
+            "level": 57,
+            "renown": 1
+          },
+          "coins": 12017,
+          "renown": 67
+        },
+        {
+          "level": 58,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 1,
+          "reason": "score",
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 58,
+            "renown": 0
+          },
+          "coins": 12017,
+          "renown": 67
+        },
+        {
+          "level": 58,
+          "attempt": 2,
+          "strategy": "reserve",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 804,
+            "first_clear": true,
+            "level": 58,
+            "renown": 1
+          },
+          "coins": 12821,
+          "renown": 68
+        },
+        {
+          "level": 59,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 816,
+            "first_clear": true,
+            "level": 59,
+            "renown": 1
+          },
+          "coins": 13637,
+          "renown": 69
+        },
+        {
+          "level": 60,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 1128,
+            "first_clear": true,
+            "level": 60,
+            "renown": 3
+          },
+          "coins": 14765,
+          "renown": 72
+        }
+      ],
+      "final_coins": 14765,
+      "final_renown": 72,
+      "cleared": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "ledger_matches_final": true
+    },
+    {
+      "run": "econ109-earned13",
+      "completed_requested_segment": true,
+      "first": 61,
+      "last": 65,
+      "purchases": [],
+      "matches": [
+        {
+          "level": 61,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 840,
+            "first_clear": true,
+            "level": 61,
+            "renown": 1
+          },
+          "coins": 15605,
+          "renown": 73
+        },
+        {
+          "level": 62,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 1,
+          "reason": "score",
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 62,
+            "renown": 0
+          },
+          "coins": 15605,
+          "renown": 73
+        },
+        {
+          "level": 62,
+          "attempt": 2,
+          "strategy": "reserve",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 852,
+            "first_clear": true,
+            "level": 62,
+            "renown": 1
+          },
+          "coins": 16457,
+          "renown": 74
+        },
+        {
+          "level": 63,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 864,
+            "first_clear": true,
+            "level": 63,
+            "renown": 1
+          },
+          "coins": 17321,
+          "renown": 75
+        },
+        {
+          "level": 64,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 1,
+          "reason": "terminal",
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 64,
+            "renown": 0
+          },
+          "coins": 17321,
+          "renown": 75
+        },
+        {
+          "level": 64,
+          "attempt": 2,
+          "strategy": "reserve",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 876,
+            "first_clear": true,
+            "level": 64,
+            "renown": 1
+          },
+          "coins": 18197,
+          "renown": 76
+        },
+        {
+          "level": 65,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "hp",
+          "reward": {
+            "coins": 888,
+            "first_clear": true,
+            "level": 65,
+            "renown": 1
+          },
+          "coins": 19085,
+          "renown": 77
+        }
+      ],
+      "final_coins": 19085,
+      "final_renown": 77,
+      "cleared": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "ledger_matches_final": true
+    },
+    {
+      "run": "econ109-earned14",
+      "completed_requested_segment": true,
+      "first": 66,
+      "last": 70,
+      "purchases": [],
+      "matches": [
+        {
+          "level": 66,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 900,
+            "first_clear": true,
+            "level": 66,
+            "renown": 1
+          },
+          "coins": 19985,
+          "renown": 78
+        },
+        {
+          "level": 67,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 912,
+            "first_clear": true,
+            "level": 67,
+            "renown": 1
+          },
+          "coins": 20897,
+          "renown": 79
+        },
+        {
+          "level": 68,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 924,
+            "first_clear": true,
+            "level": 68,
+            "renown": 1
+          },
+          "coins": 21821,
+          "renown": 80
+        },
+        {
+          "level": 69,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 936,
+            "first_clear": true,
+            "level": 69,
+            "renown": 1
+          },
+          "coins": 22757,
+          "renown": 81
+        },
+        {
+          "level": 70,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 1,
+          "reason": "score",
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 70,
+            "renown": 0
+          },
+          "coins": 22757,
+          "renown": 81
+        },
+        {
+          "level": 70,
+          "attempt": 2,
+          "strategy": "reserve",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 1248,
+            "first_clear": true,
+            "level": 70,
+            "renown": 3
+          },
+          "coins": 24005,
+          "renown": 84
+        }
+      ],
+      "final_coins": 24005,
+      "final_renown": 84,
+      "cleared": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "ledger_matches_final": true
+    },
+    {
+      "run": "econ109-earned15",
+      "completed_requested_segment": true,
+      "first": 71,
+      "last": 75,
+      "purchases": [],
+      "matches": [
+        {
+          "level": 71,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 960,
+            "first_clear": true,
+            "level": 71,
+            "renown": 1
+          },
+          "coins": 24965,
+          "renown": 85
+        },
+        {
+          "level": 72,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 972,
+            "first_clear": true,
+            "level": 72,
+            "renown": 1
+          },
+          "coins": 25937,
+          "renown": 86
+        },
+        {
+          "level": 73,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 984,
+            "first_clear": true,
+            "level": 73,
+            "renown": 1
+          },
+          "coins": 26921,
+          "renown": 87
+        },
+        {
+          "level": 74,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 996,
+            "first_clear": true,
+            "level": 74,
+            "renown": 1
+          },
+          "coins": 27917,
+          "renown": 88
+        },
+        {
+          "level": 75,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 1,
+          "reason": "hp",
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 75,
+            "renown": 0
+          },
+          "coins": 27917,
+          "renown": 88
+        },
+        {
+          "level": 75,
+          "attempt": 2,
+          "strategy": "reserve",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 1008,
+            "first_clear": true,
+            "level": 75,
+            "renown": 1
+          },
+          "coins": 28925,
+          "renown": 89
+        }
+      ],
+      "final_coins": 28925,
+      "final_renown": 89,
+      "cleared": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75
+      ],
+      "ledger_matches_final": true
+    },
+    {
+      "run": "econ109-earned16",
+      "completed_requested_segment": true,
+      "first": 76,
+      "last": 80,
+      "purchases": [],
+      "matches": [
+        {
+          "level": 76,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 1020,
+            "first_clear": true,
+            "level": 76,
+            "renown": 1
+          },
+          "coins": 29945,
+          "renown": 90
+        },
+        {
+          "level": 77,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 1032,
+            "first_clear": true,
+            "level": 77,
+            "renown": 1
+          },
+          "coins": 30977,
+          "renown": 91
+        },
+        {
+          "level": 78,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 1044,
+            "first_clear": true,
+            "level": 78,
+            "renown": 1
+          },
+          "coins": 32021,
+          "renown": 92
+        },
+        {
+          "level": 79,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 1056,
+            "first_clear": true,
+            "level": 79,
+            "renown": 1
+          },
+          "coins": 33077,
+          "renown": 93
+        },
+        {
+          "level": 80,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 1368,
+            "first_clear": true,
+            "level": 80,
+            "renown": 3
+          },
+          "coins": 34445,
+          "renown": 96
+        }
+      ],
+      "final_coins": 34445,
+      "final_renown": 96,
+      "cleared": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "ledger_matches_final": true
+    }
+  ],
+  "heavy_comparison": [
+    {
+      "run": "econ109-heavy01",
+      "first": 6,
+      "last": 10,
+      "passed": true,
+      "completed_requested_segment": true,
+      "initial_profile": {
+        "appearance": {
+          "beard": 0,
+          "brows": 0,
+          "eyes": 0,
+          "face_shape": 0,
+          "hair": 0,
+          "skin": 0
+        },
+        "campaign_cleared": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coins": 1240,
+        "equipped": {
+          "armor": "mail_basic",
+          "caparison": "caparison_none",
+          "crest": "crest_bend",
+          "helmet": "helm_nasal",
+          "horse": "horse_bay",
+          "lance": "lance_ash",
+          "shield": "shield_basic"
+        },
+        "matches": 5,
+        "owned": [
+          "mail_basic",
+          "helm_nasal",
+          "lance_ash",
+          "horse_bay",
+          "crest_bend",
+          "shield_basic",
+          "caparison_none"
+        ],
+        "region": 0,
+        "renown": 5,
+        "settings": {
+          "aim_cues": true,
+          "ambience_volume": 1.0,
+          "blood": false,
+          "brief_seen": false,
+          "combat_brief_v03": false,
+          "combat_brief_v043": false,
+          "combat_brief_v044": true,
+          "difficulty": 1,
+          "effects_volume": 1.0,
+          "guided_practice_v087": false,
+          "helmet_view": true,
+          "master_volume": 1.0,
+          "mouse_only": false,
+          "music_volume": 1.0,
+          "shake": true,
+          "slow_motion": true,
+          "sound": true,
+          "vsync": false
+        },
+        "version": 1,
+        "wins": 5
+      },
+      "final_profile": {
+        "appearance": {
+          "beard": 0,
+          "brows": 0,
+          "eyes": 0,
+          "face_shape": 0,
+          "hair": 0,
+          "skin": 0
+        },
+        "campaign_cleared": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "coins": 620,
+        "equipped": {
+          "armor": "eng_armor_1",
+          "caparison": "caparison_none",
+          "crest": "crest_bend",
+          "helmet": "eng_helmet_2",
+          "horse": "horse_chestnut",
+          "lance": "eng_lance_stout_1",
+          "shield": "eng_shield_1"
+        },
+        "matches": 10,
+        "owned": [
+          "mail_basic",
+          "helm_nasal",
+          "lance_ash",
+          "horse_bay",
+          "crest_bend",
+          "shield_basic",
+          "caparison_none",
+          "eng_lance_stout_1",
+          "eng_armor_1",
+          "eng_helmet_1",
+          "eng_shield_1",
+          "horse_chestnut",
+          "eng_helmet_2"
+        ],
+        "region": 0,
+        "renown": 12,
+        "settings": {
+          "aim_cues": true,
+          "ambience_volume": 1.0,
+          "blood": false,
+          "brief_seen": false,
+          "combat_brief_v03": false,
+          "combat_brief_v043": false,
+          "combat_brief_v044": true,
+          "difficulty": 1,
+          "effects_volume": 1.0,
+          "guided_practice_v087": false,
+          "helmet_view": true,
+          "master_volume": 1.0,
+          "mouse_only": false,
+          "music_volume": 1.0,
+          "shake": true,
+          "slow_motion": true,
+          "sound": true,
+          "vsync": false
+        },
+        "version": 1,
+        "wins": 10
+      },
+      "purchases": [
+        {
+          "coins_after": 920,
+          "coins_before": 1240,
+          "id": "eng_lance_stout_1",
+          "price": 320.0,
+          "profile_matches": 5,
+          "renown": 5,
+          "transaction_trace": [
+            {
+              "end_us": 6077497,
+              "frame": 42,
+              "stage": "save_write_flush",
+              "start_us": 6076773
+            },
+            {
+              "end_us": 6078386,
+              "frame": 42,
+              "stage": "save_backup",
+              "start_us": 6077824
+            },
+            {
+              "end_us": 6079548,
+              "frame": 42,
+              "stage": "save_replace",
+              "start_us": 6078406
+            },
+            {
+              "end_us": 6079559,
+              "frame": 42,
+              "stage": "save_total",
+              "start_us": 6076698
+            }
+          ]
+        },
+        {
+          "coins_after": 630,
+          "coins_before": 920,
+          "id": "eng_armor_1",
+          "price": 290.0,
+          "profile_matches": 5,
+          "renown": 5,
+          "transaction_trace": [
+            {
+              "end_us": 6704900,
+              "frame": 73,
+              "stage": "save_write_flush",
+              "start_us": 6704232
+            },
+            {
+              "end_us": 6705819,
+              "frame": 73,
+              "stage": "save_backup",
+              "start_us": 6705219
+            },
+            {
+              "end_us": 6707028,
+              "frame": 73,
+              "stage": "save_replace",
+              "start_us": 6705848
+            },
+            {
+              "end_us": 6707042,
+              "frame": 73,
+              "stage": "save_total",
+              "start_us": 6704158
+            }
+          ]
+        },
+        {
+          "coins_after": 390,
+          "coins_before": 630,
+          "id": "eng_helmet_1",
+          "price": 240.0,
+          "profile_matches": 5,
+          "renown": 5,
+          "transaction_trace": [
+            {
+              "end_us": 7305732,
+              "frame": 104,
+              "stage": "save_write_flush",
+              "start_us": 7305188
+            },
+            {
+              "end_us": 7306196,
+              "frame": 104,
+              "stage": "save_backup",
+              "start_us": 7305895
+            },
+            {
+              "end_us": 7306921,
+              "frame": 104,
+              "stage": "save_replace",
+              "start_us": 7306207
+            },
+            {
+              "end_us": 7306929,
+              "frame": 104,
+              "stage": "save_total",
+              "start_us": 7305135
+            }
+          ]
+        },
+        {
+          "coins_after": 200,
+          "coins_before": 390,
+          "id": "eng_shield_1",
+          "price": 190.0,
+          "profile_matches": 5,
+          "renown": 5,
+          "transaction_trace": [
+            {
+              "end_us": 7941641,
+              "frame": 135,
+              "stage": "save_write_flush",
+              "start_us": 7941134
+            },
+            {
+              "end_us": 7942065,
+              "frame": 135,
+              "stage": "save_backup",
+              "start_us": 7941805
+            },
+            {
+              "end_us": 7942797,
+              "frame": 135,
+              "stage": "save_replace",
+              "start_us": 7942074
+            },
+            {
+              "end_us": 7942806,
+              "frame": 135,
+              "stage": "save_total",
+              "start_us": 7941077
+            }
+          ]
+        },
+        {
+          "coins_after": 152,
+          "coins_before": 572,
+          "id": "horse_chestnut",
+          "price": 420.0,
+          "profile_matches": 7,
+          "renown": 7,
+          "transaction_trace": [
+            {
+              "end_us": 36475225,
+              "frame": 1795,
+              "stage": "save_write_flush",
+              "start_us": 36470388
+            },
+            {
+              "end_us": 36475784,
+              "frame": 1795,
+              "stage": "save_backup",
+              "start_us": 36475480
+            },
+            {
+              "end_us": 36476777,
+              "frame": 1795,
+              "stage": "save_replace",
+              "start_us": 36475796
+            },
+            {
+              "end_us": 36476794,
+              "frame": 1795,
+              "stage": "save_total",
+              "start_us": 36470287
+            }
+          ]
+        },
+        {
+          "coins_after": 92,
+          "coins_before": 572,
+          "id": "eng_helmet_2",
+          "price": 480.0,
+          "profile_matches": 9,
+          "renown": 9,
+          "transaction_trace": [
+            {
+              "end_us": 80823633,
+              "frame": 4403,
+              "stage": "save_write_flush",
+              "start_us": 80822754
+            },
+            {
+              "end_us": 80824753,
+              "frame": 4403,
+              "stage": "save_backup",
+              "start_us": 80824048
+            },
+            {
+              "end_us": 80826268,
+              "frame": 4403,
+              "stage": "save_replace",
+              "start_us": 80824773
+            },
+            {
+              "end_us": 80826291,
+              "frame": 4403,
+              "stage": "save_total",
+              "start_us": 80822634
+            }
+          ]
+        }
+      ],
+      "matches": [
+        {
+          "level": 6,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 64.0515835549733,
+            "enemy_score": 2,
+            "mode": "arena",
+            "passes": 1,
+            "player_dead": false,
+            "player_hp": 98.6206373145534,
+            "player_score": 2,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 180,
+            "first_clear": true,
+            "level": 6,
+            "renown": 1
+          },
+          "coins": 380,
+          "renown": 6
+        },
+        {
+          "level": 7,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 61.6200387427111,
+            "enemy_score": 2,
+            "mode": "arena",
+            "passes": 1,
+            "player_dead": false,
+            "player_hp": 98.6318032644405,
+            "player_score": 2,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 192,
+            "first_clear": true,
+            "level": 7,
+            "renown": 1
+          },
+          "coins": 572,
+          "renown": 7
+        },
+        {
+          "level": 8,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 63.5526058932084,
+            "enemy_score": 2,
+            "mode": "arena",
+            "passes": 1,
+            "player_dead": false,
+            "player_hp": 98.5359636827454,
+            "player_score": 2,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 204,
+            "first_clear": true,
+            "level": 8,
+            "renown": 1
+          },
+          "coins": 356,
+          "renown": 8
+        },
+        {
+          "level": 9,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 33.6352645909802,
+            "enemy_score": 4,
+            "mode": "arena",
+            "passes": 2,
+            "player_dead": false,
+            "player_hp": 95.4853114423904,
+            "player_score": 6,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 216,
+            "first_clear": true,
+            "level": 9,
+            "renown": 1
+          },
+          "coins": 572,
+          "renown": 9
+        },
+        {
+          "level": 10,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 61.9884507157695,
+            "enemy_score": 2,
+            "mode": "arena",
+            "passes": 1,
+            "player_dead": false,
+            "player_hp": 98.0259478590221,
+            "player_score": 2,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 528,
+            "first_clear": true,
+            "level": 10,
+            "renown": 3
+          },
+          "coins": 620,
+          "renown": 12
+        }
+      ],
+      "scope": "Fork of genuinely earned first-five-level profile; subsequent purchases/results are real. Not independent re-earning of levels 1–5.",
+      "initial_matches_preceding_checkpoint": true,
+      "ledger_matches_final": true
+    },
+    {
+      "run": "econ109-heavy02",
+      "first": 11,
+      "last": 15,
+      "passed": true,
+      "completed_requested_segment": true,
+      "initial_profile": {
+        "appearance": {
+          "beard": 0,
+          "brows": 0,
+          "eyes": 0,
+          "face_shape": 0,
+          "hair": 0,
+          "skin": 0
+        },
+        "campaign_cleared": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "coins": 620,
+        "equipped": {
+          "armor": "eng_armor_1",
+          "caparison": "caparison_none",
+          "crest": "crest_bend",
+          "helmet": "eng_helmet_2",
+          "horse": "horse_chestnut",
+          "lance": "eng_lance_stout_1",
+          "shield": "eng_shield_1"
+        },
+        "matches": 10,
+        "owned": [
+          "mail_basic",
+          "helm_nasal",
+          "lance_ash",
+          "horse_bay",
+          "crest_bend",
+          "shield_basic",
+          "caparison_none",
+          "eng_lance_stout_1",
+          "eng_armor_1",
+          "eng_helmet_1",
+          "eng_shield_1",
+          "horse_chestnut",
+          "eng_helmet_2"
+        ],
+        "region": 0,
+        "renown": 12,
+        "settings": {
+          "aim_cues": true,
+          "ambience_volume": 1.0,
+          "blood": false,
+          "brief_seen": false,
+          "combat_brief_v03": false,
+          "combat_brief_v043": false,
+          "combat_brief_v044": true,
+          "difficulty": 1,
+          "effects_volume": 1.0,
+          "guided_practice_v087": false,
+          "helmet_view": true,
+          "master_volume": 1.0,
+          "mouse_only": false,
+          "music_volume": 1.0,
+          "shake": true,
+          "slow_motion": true,
+          "sound": true,
+          "vsync": false
+        },
+        "version": 1,
+        "wins": 10
+      },
+      "final_profile": {
+        "appearance": {
+          "beard": 0,
+          "brows": 0,
+          "eyes": 0,
+          "face_shape": 0,
+          "hair": 0,
+          "skin": 0
+        },
+        "campaign_cleared": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "coins": 740,
+        "equipped": {
+          "armor": "eng_armor_2",
+          "caparison": "caparison_none",
+          "crest": "crest_bend",
+          "helmet": "eng_helmet_2",
+          "horse": "horse_chestnut",
+          "lance": "eng_lance_stout_2",
+          "shield": "eng_shield_1"
+        },
+        "matches": 15,
+        "owned": [
+          "mail_basic",
+          "helm_nasal",
+          "lance_ash",
+          "horse_bay",
+          "crest_bend",
+          "shield_basic",
+          "caparison_none",
+          "eng_lance_stout_1",
+          "eng_armor_1",
+          "eng_helmet_1",
+          "eng_shield_1",
+          "horse_chestnut",
+          "eng_helmet_2",
+          "eng_lance_stout_2",
+          "eng_armor_2"
+        ],
+        "region": 0,
+        "renown": 17,
+        "settings": {
+          "aim_cues": true,
+          "ambience_volume": 1.0,
+          "blood": false,
+          "brief_seen": false,
+          "combat_brief_v03": false,
+          "combat_brief_v043": false,
+          "combat_brief_v044": true,
+          "difficulty": 1,
+          "effects_volume": 1.0,
+          "guided_practice_v087": false,
+          "helmet_view": true,
+          "master_volume": 1.0,
+          "mouse_only": false,
+          "music_volume": 1.0,
+          "shake": true,
+          "slow_motion": true,
+          "sound": true,
+          "vsync": false
+        },
+        "version": 1,
+        "wins": 15
+      },
+      "purchases": [
+        {
+          "coins_after": 40,
+          "coins_before": 620,
+          "id": "eng_lance_stout_2",
+          "price": 580.0,
+          "profile_matches": 10,
+          "renown": 12,
+          "transaction_trace": [
+            {
+              "end_us": 6374839,
+              "frame": 42,
+              "stage": "save_write_flush",
+              "start_us": 6374375
+            },
+            {
+              "end_us": 6375276,
+              "frame": 42,
+              "stage": "save_backup",
+              "start_us": 6375003
+            },
+            {
+              "end_us": 6376316,
+              "frame": 42,
+              "stage": "save_replace",
+              "start_us": 6375285
+            },
+            {
+              "end_us": 6376331,
+              "frame": 42,
+              "stage": "save_total",
+              "start_us": 6374320
+            }
+          ]
+        },
+        {
+          "coins_after": 176,
+          "coins_before": 796,
+          "id": "eng_armor_2",
+          "price": 620.0,
+          "profile_matches": 13,
+          "renown": 15,
+          "transaction_trace": [
+            {
+              "end_us": 153174171,
+              "frame": 8756,
+              "stage": "save_write_flush",
+              "start_us": 153173564
+            },
+            {
+              "end_us": 153175093,
+              "frame": 8756,
+              "stage": "save_backup",
+              "start_us": 153174509
+            },
+            {
+              "end_us": 153176198,
+              "frame": 8756,
+              "stage": "save_replace",
+              "start_us": 153175114
+            },
+            {
+              "end_us": 153176259,
+              "frame": 8756,
+              "stage": "save_total",
+              "start_us": 153173471
+            }
+          ]
+        }
+      ],
+      "matches": [
+        {
+          "level": 11,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 0.0,
+            "enemy_score": 4,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.9321035418912,
+            "player_score": 9,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 240,
+            "first_clear": true,
+            "level": 11,
+            "renown": 1
+          },
+          "coins": 280,
+          "renown": 13
+        },
+        {
+          "level": 12,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 4.9637827460891,
+            "enemy_score": 4,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.6624407383059,
+            "player_score": 9,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 252,
+            "first_clear": true,
+            "level": 12,
+            "renown": 1
+          },
+          "coins": 532,
+          "renown": 14
+        },
+        {
+          "level": 13,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 0.0,
+            "enemy_score": 4,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.7112261270782,
+            "player_score": 9,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 264,
+            "first_clear": true,
+            "level": 13,
+            "renown": 1
+          },
+          "coins": 796,
+          "renown": 15
+        },
+        {
+          "level": 14,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 0.0,
+            "enemy_score": 4,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.7627899889374,
+            "player_score": 9,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 276,
+            "first_clear": true,
+            "level": 14,
+            "renown": 1
+          },
+          "coins": 452,
+          "renown": 16
+        },
+        {
+          "level": 15,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": true,
+            "enemy_hp": 0.0,
+            "enemy_score": 2,
+            "mode": "war",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.2823952745545,
+            "player_score": 9,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 288,
+            "first_clear": true,
+            "level": 15,
+            "renown": 1
+          },
+          "coins": 740,
+          "renown": 17
+        }
+      ],
+      "scope": "Fork of genuinely earned first-five-level profile; subsequent purchases/results are real. Not independent re-earning of levels 1–5.",
+      "initial_matches_preceding_checkpoint": true,
+      "ledger_matches_final": true
+    }
+  ],
+  "real_replays": [
+    {
+      "run": "econ109-replay01",
+      "first": 2,
+      "last": 2,
+      "passed": true,
+      "completed_requested_segment": true,
+      "initial_profile": {
+        "appearance": {
+          "beard": 0,
+          "brows": 0,
+          "eyes": 0,
+          "face_shape": 0,
+          "hair": 0,
+          "skin": 0
+        },
+        "campaign_cleared": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80
+        ],
+        "coins": 34445,
+        "equipped": {
+          "armor": "eng_armor_5",
+          "caparison": "caparison_none",
+          "crest": "crest_bend",
+          "helmet": "eng_helmet_5",
+          "horse": "horse_e4",
+          "lance": "eng_lance_long_5",
+          "shield": "eng_shield_4"
+        },
+        "matches": 89,
+        "owned": [
+          "mail_basic",
+          "helm_nasal",
+          "lance_ash",
+          "horse_bay",
+          "crest_bend",
+          "shield_basic",
+          "caparison_none",
+          "eng_lance_long_1",
+          "eng_armor_1",
+          "eng_helmet_1",
+          "horse_grey",
+          "eng_shield_0",
+          "eng_lance_long_2",
+          "eng_armor_2",
+          "eng_shield_2",
+          "eng_helmet_2",
+          "eng_lance_long_3",
+          "eng_helmet_3",
+          "eng_armor_3",
+          "horse_e2",
+          "eng_lance_long_4",
+          "eng_armor_4",
+          "eng_helmet_4",
+          "eng_shield_4",
+          "eng_lance_long_5",
+          "eng_armor_5",
+          "eng_helmet_5",
+          "horse_e4"
+        ],
+        "region": 0,
+        "renown": 96,
+        "settings": {
+          "aim_cues": true,
+          "ambience_volume": 1.0,
+          "blood": false,
+          "brief_seen": false,
+          "combat_brief_v03": false,
+          "combat_brief_v043": false,
+          "combat_brief_v044": true,
+          "difficulty": 1,
+          "effects_volume": 1.0,
+          "guided_practice_v087": false,
+          "helmet_view": true,
+          "master_volume": 1.0,
+          "mouse_only": false,
+          "music_volume": 1.0,
+          "shake": true,
+          "slow_motion": true,
+          "sound": true,
+          "vsync": false
+        },
+        "version": 1,
+        "wins": 80
+      },
+      "final_profile": {
+        "appearance": {
+          "beard": 0,
+          "brows": 0,
+          "eyes": 0,
+          "face_shape": 0,
+          "hair": 0,
+          "skin": 0
+        },
+        "campaign_cleared": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80
+        ],
+        "coins": 34478,
+        "equipped": {
+          "armor": "eng_armor_5",
+          "caparison": "caparison_none",
+          "crest": "crest_bend",
+          "helmet": "eng_helmet_5",
+          "horse": "horse_e4",
+          "lance": "eng_lance_long_5",
+          "shield": "eng_shield_4"
+        },
+        "matches": 90,
+        "owned": [
+          "mail_basic",
+          "helm_nasal",
+          "lance_ash",
+          "horse_bay",
+          "crest_bend",
+          "shield_basic",
+          "caparison_none",
+          "eng_lance_long_1",
+          "eng_armor_1",
+          "eng_helmet_1",
+          "horse_grey",
+          "eng_shield_0",
+          "eng_lance_long_2",
+          "eng_armor_2",
+          "eng_shield_2",
+          "eng_helmet_2",
+          "eng_lance_long_3",
+          "eng_helmet_3",
+          "eng_armor_3",
+          "horse_e2",
+          "eng_lance_long_4",
+          "eng_armor_4",
+          "eng_helmet_4",
+          "eng_shield_4",
+          "eng_lance_long_5",
+          "eng_armor_5",
+          "eng_helmet_5",
+          "horse_e4"
+        ],
+        "region": 0,
+        "renown": 96,
+        "settings": {
+          "aim_cues": true,
+          "ambience_volume": 1.0,
+          "blood": false,
+          "brief_seen": false,
+          "combat_brief_v03": false,
+          "combat_brief_v043": false,
+          "combat_brief_v044": true,
+          "difficulty": 1,
+          "effects_volume": 1.0,
+          "guided_practice_v087": false,
+          "helmet_view": true,
+          "master_volume": 1.0,
+          "mouse_only": false,
+          "music_volume": 1.0,
+          "shake": true,
+          "slow_motion": true,
+          "sound": true,
+          "vsync": false
+        },
+        "version": 1,
+        "wins": 81
+      },
+      "matches": [
+        {
+          "level": 2,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 30.0231649557485,
+            "enemy_score": 1,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 98.4111207152879,
+            "player_score": 9,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 33,
+            "first_clear": false,
+            "level": 2,
+            "renown": 0
+          },
+          "coins": 34478,
+          "renown": 96
+        }
+      ],
+      "scope": "Actual replay from an exact fork of the earned 80-clear profile; no new first-clear reward.",
+      "initial_matches_preceding_checkpoint": true,
+      "ledger_matches_final": true
+    },
+    {
+      "run": "econ109-replay02",
+      "first": 80,
+      "last": 80,
+      "passed": true,
+      "completed_requested_segment": true,
+      "initial_profile": {
+        "appearance": {
+          "beard": 0,
+          "brows": 0,
+          "eyes": 0,
+          "face_shape": 0,
+          "hair": 0,
+          "skin": 0
+        },
+        "campaign_cleared": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80
+        ],
+        "coins": 34478,
+        "equipped": {
+          "armor": "eng_armor_5",
+          "caparison": "caparison_none",
+          "crest": "crest_bend",
+          "helmet": "eng_helmet_5",
+          "horse": "horse_e4",
+          "lance": "eng_lance_long_5",
+          "shield": "eng_shield_4"
+        },
+        "matches": 90,
+        "owned": [
+          "mail_basic",
+          "helm_nasal",
+          "lance_ash",
+          "horse_bay",
+          "crest_bend",
+          "shield_basic",
+          "caparison_none",
+          "eng_lance_long_1",
+          "eng_armor_1",
+          "eng_helmet_1",
+          "horse_grey",
+          "eng_shield_0",
+          "eng_lance_long_2",
+          "eng_armor_2",
+          "eng_shield_2",
+          "eng_helmet_2",
+          "eng_lance_long_3",
+          "eng_helmet_3",
+          "eng_armor_3",
+          "horse_e2",
+          "eng_lance_long_4",
+          "eng_armor_4",
+          "eng_helmet_4",
+          "eng_shield_4",
+          "eng_lance_long_5",
+          "eng_armor_5",
+          "eng_helmet_5",
+          "horse_e4"
+        ],
+        "region": 0,
+        "renown": 96,
+        "settings": {
+          "aim_cues": true,
+          "ambience_volume": 1.0,
+          "blood": false,
+          "brief_seen": false,
+          "combat_brief_v03": false,
+          "combat_brief_v043": false,
+          "combat_brief_v044": true,
+          "difficulty": 1,
+          "effects_volume": 1.0,
+          "guided_practice_v087": false,
+          "helmet_view": true,
+          "master_volume": 1.0,
+          "mouse_only": false,
+          "music_volume": 1.0,
+          "shake": true,
+          "slow_motion": true,
+          "sound": true,
+          "vsync": false
+        },
+        "version": 1,
+        "wins": 81
+      },
+      "final_profile": {
+        "appearance": {
+          "beard": 0,
+          "brows": 0,
+          "eyes": 0,
+          "face_shape": 0,
+          "hair": 0,
+          "skin": 0
+        },
+        "campaign_cleared": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80
+        ],
+        "coins": 34820,
+        "equipped": {
+          "armor": "eng_armor_5",
+          "caparison": "caparison_none",
+          "crest": "crest_bend",
+          "helmet": "eng_helmet_5",
+          "horse": "horse_e4",
+          "lance": "eng_lance_long_5",
+          "shield": "eng_shield_4"
+        },
+        "matches": 91,
+        "owned": [
+          "mail_basic",
+          "helm_nasal",
+          "lance_ash",
+          "horse_bay",
+          "crest_bend",
+          "shield_basic",
+          "caparison_none",
+          "eng_lance_long_1",
+          "eng_armor_1",
+          "eng_helmet_1",
+          "horse_grey",
+          "eng_shield_0",
+          "eng_lance_long_2",
+          "eng_armor_2",
+          "eng_shield_2",
+          "eng_helmet_2",
+          "eng_lance_long_3",
+          "eng_helmet_3",
+          "eng_armor_3",
+          "horse_e2",
+          "eng_lance_long_4",
+          "eng_armor_4",
+          "eng_helmet_4",
+          "eng_shield_4",
+          "eng_lance_long_5",
+          "eng_armor_5",
+          "eng_helmet_5",
+          "horse_e4"
+        ],
+        "region": 0,
+        "renown": 96,
+        "settings": {
+          "aim_cues": true,
+          "ambience_volume": 1.0,
+          "blood": false,
+          "brief_seen": false,
+          "combat_brief_v03": false,
+          "combat_brief_v043": false,
+          "combat_brief_v044": true,
+          "difficulty": 1,
+          "effects_volume": 1.0,
+          "guided_practice_v087": false,
+          "helmet_view": true,
+          "master_volume": 1.0,
+          "mouse_only": false,
+          "music_volume": 1.0,
+          "shake": true,
+          "slow_motion": true,
+          "sound": true,
+          "vsync": false
+        },
+        "version": 1,
+        "wins": 82
+      },
+      "matches": [
+        {
+          "level": 80,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 52.6805541583506,
+            "enemy_score": 2,
+            "mode": "arena",
+            "passes": 2,
+            "player_dead": false,
+            "player_hp": 97.2788698992105,
+            "player_score": 6,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 342,
+            "first_clear": false,
+            "level": 80,
+            "renown": 0
+          },
+          "coins": 34820,
+          "renown": 96
+        }
+      ],
+      "scope": "Actual replay from an exact fork of the earned 80-clear profile; no new first-clear reward.",
+      "initial_matches_preceding_checkpoint": true,
+      "ledger_matches_final": true
     }
   ],
   "scope": "Protected isolated source-engine tests. Ledger/fault outcomes supplied to API; earned segments use actual battle outcomes and UI purchase/equip. No OS input, human skill/feel, hardware audio or new package acceptance.",
+  "driver_revision_note": "Current fixture hashes are final reproducibility references. During the natural route, purchase-only trace collection was added, followed by suppressing redundant _select_guard calls when the same slot was already selected. The latter changes only the click flash/sound and learned flag; guard targets, 600ms decisions, finite motion, seeds and production rule code are unchanged. Historical evidence is retained.",
   "earned_progress": {
     "completed_levels": [
       1,
@@ -436,10 +4719,80 @@
       7,
       8,
       9,
-      10
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80
     ],
-    "completed_matches": 11,
-    "purchase_count": 6,
+    "completed_matches": 89,
+    "purchase_count": 21,
     "losses": [
       {
         "level": 7,
@@ -455,13 +4808,192 @@
         },
         "coins": 185,
         "renown": 6
+      },
+      {
+        "level": 49,
+        "attempt": 1,
+        "strategy": "forward",
+        "winner": 1,
+        "reason": "hp",
+        "reward": {
+          "coins": 0,
+          "first_clear": false,
+          "level": 49,
+          "renown": 0
+        },
+        "coins": 5021,
+        "renown": 56
+      },
+      {
+        "level": 53,
+        "attempt": 1,
+        "strategy": "forward",
+        "winner": 1,
+        "reason": "score",
+        "reward": {
+          "coins": 0,
+          "first_clear": false,
+          "level": 53,
+          "renown": 0
+        },
+        "coins": 8177,
+        "renown": 62
+      },
+      {
+        "level": 55,
+        "attempt": 1,
+        "strategy": "forward",
+        "winner": 1,
+        "reason": "hp",
+        "reward": {
+          "coins": 0,
+          "first_clear": false,
+          "level": 55,
+          "renown": 0
+        },
+        "coins": 9677,
+        "renown": 64
+      },
+      {
+        "level": 58,
+        "attempt": 1,
+        "strategy": "forward",
+        "winner": 1,
+        "reason": "score",
+        "reward": {
+          "coins": 0,
+          "first_clear": false,
+          "level": 58,
+          "renown": 0
+        },
+        "coins": 12017,
+        "renown": 67
+      },
+      {
+        "level": 62,
+        "attempt": 1,
+        "strategy": "forward",
+        "winner": 1,
+        "reason": "score",
+        "reward": {
+          "coins": 0,
+          "first_clear": false,
+          "level": 62,
+          "renown": 0
+        },
+        "coins": 15605,
+        "renown": 73
+      },
+      {
+        "level": 64,
+        "attempt": 1,
+        "strategy": "forward",
+        "winner": 1,
+        "reason": "terminal",
+        "reward": {
+          "coins": 0,
+          "first_clear": false,
+          "level": 64,
+          "renown": 0
+        },
+        "coins": 17321,
+        "renown": 75
+      },
+      {
+        "level": 70,
+        "attempt": 1,
+        "strategy": "forward",
+        "winner": 1,
+        "reason": "score",
+        "reward": {
+          "coins": 0,
+          "first_clear": false,
+          "level": 70,
+          "renown": 0
+        },
+        "coins": 22757,
+        "renown": 81
+      },
+      {
+        "level": 75,
+        "attempt": 1,
+        "strategy": "forward",
+        "winner": 1,
+        "reason": "hp",
+        "reward": {
+          "coins": 0,
+          "first_clear": false,
+          "level": 75,
+          "renown": 0
+        },
+        "coins": 27917,
+        "renown": 88
       }
     ],
     "cross_process_continuity": [
       {
         "segment": "econ109-earned02",
         "initial_equals_previous_final": true
+      },
+      {
+        "segment": "econ109-earned03",
+        "initial_equals_previous_final": true
+      },
+      {
+        "segment": "econ109-earned04",
+        "initial_equals_previous_final": true
+      },
+      {
+        "segment": "econ109-earned05",
+        "initial_equals_previous_final": true
+      },
+      {
+        "segment": "econ109-earned06",
+        "initial_equals_previous_final": true
+      },
+      {
+        "segment": "econ109-earned07",
+        "initial_equals_previous_final": true
+      },
+      {
+        "segment": "econ109-earned08",
+        "initial_equals_previous_final": true
+      },
+      {
+        "segment": "econ109-earned09",
+        "initial_equals_previous_final": true
+      },
+      {
+        "segment": "econ109-earned10",
+        "initial_equals_previous_final": true
+      },
+      {
+        "segment": "econ109-earned11",
+        "initial_equals_previous_final": true
+      },
+      {
+        "segment": "econ109-earned12",
+        "initial_equals_previous_final": true
+      },
+      {
+        "segment": "econ109-earned13",
+        "initial_equals_previous_final": true
+      },
+      {
+        "segment": "econ109-earned14",
+        "initial_equals_previous_final": true
+      },
+      {
+        "segment": "econ109-earned15",
+        "initial_equals_previous_final": true
+      },
+      {
+        "segment": "econ109-earned16",
+        "initial_equals_previous_final": true
       }
     ]
-  }
+  },
+  "formal_profile_unchanged": true,
+  "formal_evidence_path": "docs/development/logs/econ109-formal-after02.json",
+  "formal_evidence_sha256": "98B039E49E3B21BF72DBD8CA993450CD932B9FA825B62349F076304C98CE9D59"
 }

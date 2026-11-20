@@ -30,17 +30,17 @@ const GIVEN = {
 ## epithets and a one-line counter hint for the player.
 const ARCHETYPES = {
 	"balanced":{"name":"均衡骑士","armor":0,"helmet":0,"shield":0,"lance":"mixed","horse":"balanced","skill":0.0,"awareness":0.0,"aggression":.5,"head":.0,"feint":false,
-		"epithets":["灰鹰","橡木","银桥","北原","长堤"],"hint":"各方面平均。先稳住盾，再找空当。"},
+		"epithets":["灰鹰","橡木","银桥","北原","长堤"],"hint":"先稳住盾，再找空当。马力吃紧时松手收速，为后两轮留力。"},
 	"swift":{"name":"轻骑","armor":-1,"helmet":-1,"shield":-1,"lance":"light","horse":"fast","skill":.10,"awareness":-.10,"aggression":.85,"head":.0,"feint":false,
-		"epithets":["疾风","飞燕","白驹","雀鹰"],"hint":"轻甲快马，冲得早。护甲薄：瞄胸腹就能见效。"},
+		"epithets":["疾风","飞燕","白驹","雀鹰"],"hint":"护甲较轻，快马冲得早。提前准备盾位，找胸腹空当还击。"},
 	"heavy":{"name":"重甲骑士","armor":1,"helmet":1,"shield":1,"lance":"stout","horse":"stable","skill":0.0,"awareness":-.20,"aggression":.30,"head":.0,"feint":false,
-		"epithets":["铁塔","重锤","黑岩","铜墙"],"hint":"护甲厚、视野窄、起步慢。打头或绕开大盾，也可以靠速度压迫。"},
+		"epithets":["铁塔","重锤","黑岩","铜墙"],"hint":"护甲厚、盾大、起步慢。提前支撑，绕开盾面找空当；别等马力耗尽才收速。"},
 	"reach":{"name":"长枪手","armor":0,"helmet":0,"shield":-1,"lance":"long","horse":"balanced","skill":.05,"awareness":0.0,"aggression":.55,"head":.0,"feint":false,
-		"epithets":["长影","远矛","苍杉"],"hint":"长枪先到。提前立盾，别在最后一刻才防。"},
+		"epithets":["长影","远矛","苍杉"],"hint":"长枪能在更远处接触。提前立盾，别在最后一刻才防。"},
 	"bulwark":{"name":"铁壁","armor":0,"helmet":0,"shield":1,"lance":"stout","horse":"stable","skill":-.10,"awareness":.25,"aggression":.35,"head":.0,"feint":false,
 		"epithets":["铁壁","坚盾","石门"],"hint":"大盾、读枪准。盾挡住的地方别硬打，换高低线。"},
 	"headhunter":{"name":"猎首者","armor":-1,"helmet":0,"shield":0,"lance":"long","horse":"fast","skill":.10,"awareness":0.0,"aggression":.90,"head":.45,"feint":false,
-		"epithets":["夺盔","断喉","红喙"],"hint":"专打头盔。护头，或后仰躲开，再还他一枪。"},
+		"epithets":["夺盔","断喉","红喙"],"hint":"偏爱高枪。提前护头，或后仰避开已定线的来枪，再找机会还击。"},
 	"trickster":{"name":"诡枪","armor":0,"helmet":-1,"shield":0,"lance":"mixed","horse":"balanced","skill":.05,"awareness":.10,"aggression":.60,"head":.15,"feint":true,
 		"epithets":["狐影","双面","迷雾"],"hint":"会先亮一条枪线再变招。盯住最后的枪尖。"}}
 const ORDER = ["balanced","swift","heavy","balanced","reach","bulwark","headhunter","trickster","swift","heavy","reach","balanced"]
@@ -202,7 +202,7 @@ static func build(items: Array, n: int) -> Dictionary:
 	# The teaching profile can override the archetype's normal behaviour.
 	# Do not advertise a continuous head-hunter or an in-pass feint when this
 	# encounter actually shows a fixed line and changes it only next round.
-	if n<=20 and kind=="headhunter":role_name="高枪教习"
+	if n<=20 and kind=="headhunter":role_name="高低枪教习"
 	if n<=20 and kind=="trickster":role_name="换线骑手"
 	if training>0:
 		ai.training=training

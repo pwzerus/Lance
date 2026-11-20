@@ -1,0 +1,1912 @@
+{
+  "scope": "640 production-rule simulations; two seeds, +/-8px aim error, paired sides, 250ms observed pose delay and 600ms input; early-light legal-budget assumptions; no leaning. Not actual purchases, human win rates or rendered acceptance.",
+  "complete": true,
+  "sources": [
+    {
+      "path": "docs/development/logs/level107-growth01/report.json",
+      "sha256": "c4f03defe0c9543d0d1345b9bf82817378db7509455f2993750de3643cc071c7"
+    },
+    {
+      "path": "docs/development/logs/level107-growth02/report.json",
+      "sha256": "719435081bd69a97c3ad97d9e8e9a7c115a43a65b9425053ee36a80374a86e6d"
+    },
+    {
+      "path": "docs/development/logs/level107-growth03/report.json",
+      "sha256": "898b88aa1add32de850acbf9996398da653a0a7326099c028d2dda2c61fd6043"
+    },
+    {
+      "path": "docs/development/logs/level107-growth04/report.json",
+      "sha256": "3c1e6e1c21d6eaf8c160f05a41c47b0c216b62c3de992e7e12956ec127c03371"
+    },
+    {
+      "path": "docs/development/logs/level107-growth05/report.json",
+      "sha256": "f282643a972c8cd767359e947e66ef5ce77cc74b0c736db0e3babce47ebc66f3"
+    },
+    {
+      "path": "docs/development/logs/level107-growth06/report.json",
+      "sha256": "13c4510203162a39f30a247ee0aa0acae895f0a2aa19d11509ad47f504c77a30"
+    },
+    {
+      "path": "docs/development/logs/level107-growth07/report.json",
+      "sha256": "950b712ca247f95f49ce7dbd7580ed753857d46bae8361a0801b4a0a4a17291d"
+    },
+    {
+      "path": "docs/development/logs/level107-growth08/report.json",
+      "sha256": "047b9448818ad41c9c7bce4c1cc84696e2069b1828a3fde48c35fdbc31808100"
+    }
+  ],
+  "rows": [
+    {
+      "level": 1,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "loss": 2,
+          "win": 2
+        }
+      },
+      "wins": 6,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 2.822163,
+      "max_ai_guard_rate": 2.800001
+    },
+    {
+      "level": 2,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "loss": 2,
+          "win": 2
+        }
+      },
+      "wins": 6,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 2.822163,
+      "max_ai_guard_rate": 2.800001
+    },
+    {
+      "level": 3,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "loss": 2,
+          "win": 2
+        }
+      },
+      "wins": 6,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 2.822163,
+      "max_ai_guard_rate": 2.800001
+    },
+    {
+      "level": 4,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "win": 3,
+          "loss": 1
+        }
+      },
+      "wins": 7,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 2.7786,
+      "max_ai_guard_rate": 2.800001
+    },
+    {
+      "level": 5,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "loss": 2,
+          "win": 2
+        }
+      },
+      "wins": 6,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 2.7786,
+      "max_ai_guard_rate": 2.800001
+    },
+    {
+      "level": 6,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 8,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 1.945024,
+      "max_ai_guard_rate": 2.800001
+    },
+    {
+      "level": 7,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 4
+        },
+        "head": {
+          "loss": 4
+        }
+      },
+      "wins": 0,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 8
+      },
+      "max_ai_aim_rate": 1.961653,
+      "max_ai_guard_rate": 2.800001
+    },
+    {
+      "level": 8,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 4
+        },
+        "head": {
+          "loss": 4
+        }
+      },
+      "wins": 0,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 8
+      },
+      "max_ai_aim_rate": 1.961653,
+      "max_ai_guard_rate": 2.800001
+    },
+    {
+      "level": 9,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 2,
+          "loss": 2
+        },
+        "head": {
+          "win": 2,
+          "loss": 2
+        }
+      },
+      "wins": 4,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 3
+      },
+      "max_ai_aim_rate": 1.842457,
+      "max_ai_guard_rate": 2.240002
+    },
+    {
+      "level": 10,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 1,
+          "loss": 3
+        },
+        "head": {
+          "loss": 4
+        }
+      },
+      "wins": 1,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 7
+      },
+      "max_ai_aim_rate": 1.992145,
+      "max_ai_guard_rate": 2.800001
+    },
+    {
+      "level": 11,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 1,
+          "win": 3
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 7,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 1
+      },
+      "max_ai_aim_rate": 2.811019,
+      "max_ai_guard_rate": 2.8
+    },
+    {
+      "level": 12,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 8,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 2.811019,
+      "max_ai_guard_rate": 2.8
+    },
+    {
+      "level": 13,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "win": 3,
+          "loss": 1
+        }
+      },
+      "wins": 7,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 1.957712,
+      "max_ai_guard_rate": 2.8
+    },
+    {
+      "level": 14,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 8,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 2.66279,
+      "max_ai_guard_rate": 2.240002
+    },
+    {
+      "level": 15,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 8,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 1.954892,
+      "max_ai_guard_rate": 2.8
+    },
+    {
+      "level": 16,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 1,
+          "loss": 3
+        },
+        "head": {
+          "win": 1,
+          "loss": 3
+        }
+      },
+      "wins": 2,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 6
+      },
+      "max_ai_aim_rate": 1.850095,
+      "max_ai_guard_rate": 2.408001
+    },
+    {
+      "level": 17,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 3,
+          "win": 1
+        },
+        "head": {
+          "loss": 3,
+          "win": 1
+        }
+      },
+      "wins": 2,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 5,
+        "impact:shield": 1
+      },
+      "max_ai_aim_rate": 2.010652,
+      "max_ai_guard_rate": 2.408001
+    },
+    {
+      "level": 18,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 8,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 2.011256,
+      "max_ai_guard_rate": 2.8
+    },
+    {
+      "level": 19,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 3,
+          "loss": 1
+        },
+        "head": {
+          "win": 3,
+          "loss": 1
+        }
+      },
+      "wins": 6,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 2.146025,
+      "max_ai_guard_rate": 2.240002
+    },
+    {
+      "level": 20,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 8,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 1.925649,
+      "max_ai_guard_rate": 2.408001
+    },
+    {
+      "level": 21,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 3,
+          "loss": 1
+        },
+        "head": {
+          "win": 2,
+          "loss": 2
+        }
+      },
+      "wins": 5,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 1.873165,
+      "max_ai_guard_rate": 2.240002
+    },
+    {
+      "level": 22,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 3,
+          "loss": 1
+        },
+        "head": {
+          "win": 3,
+          "loss": 1
+        }
+      },
+      "wins": 6,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 1.954894,
+      "max_ai_guard_rate": 2.8
+    },
+    {
+      "level": 23,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 8,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 1.850095,
+      "max_ai_guard_rate": 2.408001
+    },
+    {
+      "level": 24,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 8,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 1.875983,
+      "max_ai_guard_rate": 3.024001
+    },
+    {
+      "level": 25,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "win": 2,
+          "loss": 2
+        }
+      },
+      "wins": 6,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 2.139183,
+      "max_ai_guard_rate": 3.024001
+    },
+    {
+      "level": 26,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 8,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 2.697548,
+      "max_ai_guard_rate": 3.024001
+    },
+    {
+      "level": 27,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 1,
+          "loss": 3
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 5,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 1.979465,
+      "max_ai_guard_rate": 2.408001
+    },
+    {
+      "level": 28,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 3,
+          "loss": 1
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 7,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 1.840855,
+      "max_ai_guard_rate": 2.800001
+    },
+    {
+      "level": 29,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 2,
+          "loss": 2
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 6,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 1
+      },
+      "max_ai_aim_rate": 2.620554,
+      "max_ai_guard_rate": 3.024001
+    },
+    {
+      "level": 30,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 2,
+          "win": 2
+        },
+        "head": {
+          "loss": 1,
+          "win": 3
+        }
+      },
+      "wins": 5,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 1.860906,
+      "max_ai_guard_rate": 2.408001
+    },
+    {
+      "level": 31,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 2,
+          "win": 1,
+          "draw": 1
+        },
+        "head": {
+          "win": 2,
+          "loss": 1,
+          "draw": 1
+        }
+      },
+      "wins": 3,
+      "draws": 2,
+      "player_falls": {
+        "balance:shield": 5
+      },
+      "max_ai_aim_rate": 1.899605,
+      "max_ai_guard_rate": 2.408001
+    },
+    {
+      "level": 32,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 8,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 2.713759,
+      "max_ai_guard_rate": 3.024001
+    },
+    {
+      "level": 33,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 2,
+          "win": 2
+        },
+        "head": {
+          "loss": 1,
+          "win": 3
+        }
+      },
+      "wins": 5,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 3
+      },
+      "max_ai_aim_rate": 1.906736,
+      "max_ai_guard_rate": 3.024001
+    },
+    {
+      "level": 34,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 4
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 4,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 4
+      },
+      "max_ai_aim_rate": 1.979464,
+      "max_ai_guard_rate": 2.408001
+    },
+    {
+      "level": 35,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "loss": 1,
+          "win": 3
+        }
+      },
+      "wins": 7,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 1
+      },
+      "max_ai_aim_rate": 1.840855,
+      "max_ai_guard_rate": 2.8
+    },
+    {
+      "level": 36,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 4
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 4,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 2
+      },
+      "max_ai_aim_rate": 1.852312,
+      "max_ai_guard_rate": 3.024001
+    },
+    {
+      "level": 37,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 1,
+          "win": 3
+        },
+        "head": {
+          "loss": 1,
+          "win": 3
+        }
+      },
+      "wins": 6,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 2.687316,
+      "max_ai_guard_rate": 3.024001
+    },
+    {
+      "level": 38,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "loss": 1,
+          "win": 3
+        }
+      },
+      "wins": 7,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 2.687316,
+      "max_ai_guard_rate": 3.024001
+    },
+    {
+      "level": 39,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 2,
+          "win": 2
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 6,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 1.925848,
+      "max_ai_guard_rate": 3.024001
+    },
+    {
+      "level": 40,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 4
+        },
+        "head": {
+          "loss": 3,
+          "win": 1
+        }
+      },
+      "wins": 1,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 7
+      },
+      "max_ai_aim_rate": 1.8428,
+      "max_ai_guard_rate": 2.576001
+    },
+    {
+      "level": 41,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 4
+        },
+        "head": {
+          "loss": 2,
+          "win": 2
+        }
+      },
+      "wins": 2,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 6
+      },
+      "max_ai_aim_rate": 2.001611,
+      "max_ai_guard_rate": 2.576001
+    },
+    {
+      "level": 42,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 1,
+          "loss": 3
+        },
+        "head": {
+          "loss": 2,
+          "win": 2
+        }
+      },
+      "wins": 3,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 2,
+        "balance:flank": 1
+      },
+      "max_ai_aim_rate": 1.858907,
+      "max_ai_guard_rate": 3.024001
+    },
+    {
+      "level": 43,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 4
+        },
+        "head": {
+          "loss": 3,
+          "win": 1
+        }
+      },
+      "wins": 1,
+      "draws": 0,
+      "player_falls": {
+        "balance:head": 2,
+        "balance:shield": 3
+      },
+      "max_ai_aim_rate": 1.982168,
+      "max_ai_guard_rate": 2.408001
+    },
+    {
+      "level": 44,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 2,
+          "win": 2
+        },
+        "head": {
+          "loss": 1,
+          "win": 3
+        }
+      },
+      "wins": 5,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 2.687316,
+      "max_ai_guard_rate": 3.024001
+    },
+    {
+      "level": 45,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 8,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 2.687316,
+      "max_ai_guard_rate": 3.024001
+    },
+    {
+      "level": 46,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 3,
+          "loss": 1
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 7,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 1.925848,
+      "max_ai_guard_rate": 3.024001
+    },
+    {
+      "level": 47,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 3,
+          "loss": 1
+        },
+        "head": {
+          "win": 2,
+          "loss": 2
+        }
+      },
+      "wins": 5,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 1
+      },
+      "max_ai_aim_rate": 2.4414,
+      "max_ai_guard_rate": 2.408001
+    },
+    {
+      "level": 48,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 3,
+          "loss": 1
+        },
+        "head": {
+          "win": 3,
+          "loss": 1
+        }
+      },
+      "wins": 6,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 1,
+        "balance:flank": 1
+      },
+      "max_ai_aim_rate": 1.812336,
+      "max_ai_guard_rate": 3.024001
+    },
+    {
+      "level": 49,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 2,
+          "win": 2
+        },
+        "head": {
+          "loss": 1,
+          "win": 3
+        }
+      },
+      "wins": 5,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 2,
+        "balance:flank": 1
+      },
+      "max_ai_aim_rate": 1.849303,
+      "max_ai_guard_rate": 2.576001
+    },
+    {
+      "level": 50,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "win": 3,
+          "loss": 1
+        }
+      },
+      "wins": 7,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 1
+      },
+      "max_ai_aim_rate": 2.535238,
+      "max_ai_guard_rate": 3.220003
+    },
+    {
+      "level": 51,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "loss": 1,
+          "win": 3
+        }
+      },
+      "wins": 7,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 2.687316,
+      "max_ai_guard_rate": 3.024001
+    },
+    {
+      "level": 52,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 3,
+          "loss": 1
+        },
+        "head": {
+          "win": 3,
+          "loss": 1
+        }
+      },
+      "wins": 6,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 2.687316,
+      "max_ai_guard_rate": 3.024001
+    },
+    {
+      "level": 53,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 3,
+          "loss": 1
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 7,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 1
+      },
+      "max_ai_aim_rate": 2.000771,
+      "max_ai_guard_rate": 3.220003
+    },
+    {
+      "level": 54,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 1,
+          "win": 3
+        },
+        "head": {
+          "win": 2,
+          "loss": 2
+        }
+      },
+      "wins": 5,
+      "draws": 0,
+      "player_falls": {
+        "balance:flank": 1,
+        "balance:head": 1
+      },
+      "max_ai_aim_rate": 1.761268,
+      "max_ai_guard_rate": 3.220003
+    },
+    {
+      "level": 55,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 4
+        },
+        "head": {
+          "win": 4
+        }
+      },
+      "wins": 8,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 1.74944,
+      "max_ai_guard_rate": 3.024001
+    },
+    {
+      "level": 56,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 4
+        },
+        "head": {
+          "loss": 4
+        }
+      },
+      "wins": 0,
+      "draws": 0,
+      "player_falls": {
+        "balance:flank": 3,
+        "balance:head": 3,
+        "balance:shield": 2
+      },
+      "max_ai_aim_rate": 1.842801,
+      "max_ai_guard_rate": 2.576001
+    },
+    {
+      "level": 57,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 4
+        },
+        "head": {
+          "loss": 4
+        }
+      },
+      "wins": 0,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 5,
+        "balance:head": 1,
+        "balance:body": 2
+      },
+      "max_ai_aim_rate": 1.796787,
+      "max_ai_guard_rate": 2.576001
+    },
+    {
+      "level": 58,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 4
+        },
+        "head": {
+          "win": 1,
+          "loss": 3
+        }
+      },
+      "wins": 1,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 6
+      },
+      "max_ai_aim_rate": 2.023574,
+      "max_ai_guard_rate": 3.220003
+    },
+    {
+      "level": 59,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 3,
+          "win": 1
+        },
+        "head": {
+          "win": 3,
+          "loss": 1
+        }
+      },
+      "wins": 4,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 4
+      },
+      "max_ai_aim_rate": 2.535238,
+      "max_ai_guard_rate": 3.220003
+    },
+    {
+      "level": 60,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 3,
+          "win": 1
+        },
+        "head": {
+          "loss": 4
+        }
+      },
+      "wins": 1,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 7
+      },
+      "max_ai_aim_rate": 1.822042,
+      "max_ai_guard_rate": 2.576001
+    },
+    {
+      "level": 61,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 2,
+          "win": 2
+        },
+        "head": {
+          "loss": 3,
+          "win": 1
+        }
+      },
+      "wins": 3,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 2,
+        "balance:body": 3
+      },
+      "max_ai_aim_rate": 1.957837,
+      "max_ai_guard_rate": 3.220003
+    },
+    {
+      "level": 62,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 3,
+          "win": 1
+        },
+        "head": {
+          "loss": 2,
+          "win": 2
+        }
+      },
+      "wins": 3,
+      "draws": 0,
+      "player_falls": {
+        "balance:head": 1,
+        "balance:shield": 3
+      },
+      "max_ai_aim_rate": 1.74944,
+      "max_ai_guard_rate": 3.024001
+    },
+    {
+      "level": 63,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 3,
+          "win": 1
+        },
+        "head": {
+          "loss": 3,
+          "win": 1
+        }
+      },
+      "wins": 2,
+      "draws": 0,
+      "player_falls": {
+        "balance:body": 1,
+        "balance:flank": 1,
+        "balance:shield": 4
+      },
+      "max_ai_aim_rate": 1.842799,
+      "max_ai_guard_rate": 2.576001
+    },
+    {
+      "level": 64,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 4
+        },
+        "head": {
+          "loss": 2,
+          "win": 2
+        }
+      },
+      "wins": 2,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 6
+      },
+      "max_ai_aim_rate": 1.796787,
+      "max_ai_guard_rate": 2.576001
+    },
+    {
+      "level": 65,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 3,
+          "loss": 1
+        },
+        "head": {
+          "win": 3,
+          "loss": 1
+        }
+      },
+      "wins": 6,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 1
+      },
+      "max_ai_aim_rate": 2.551815,
+      "max_ai_guard_rate": 3.220003
+    },
+    {
+      "level": 66,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 4
+        },
+        "head": {
+          "loss": 2,
+          "win": 2
+        }
+      },
+      "wins": 2,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 2
+      },
+      "max_ai_aim_rate": 1.808578,
+      "max_ai_guard_rate": 3.220003
+    },
+    {
+      "level": 67,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 3,
+          "win": 1
+        },
+        "head": {
+          "loss": 3,
+          "win": 1
+        }
+      },
+      "wins": 2,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 6
+      },
+      "max_ai_aim_rate": 1.822042,
+      "max_ai_guard_rate": 2.576001
+    },
+    {
+      "level": 68,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 2,
+          "win": 2
+        },
+        "head": {
+          "loss": 4
+        }
+      },
+      "wins": 2,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 1.653653,
+      "max_ai_guard_rate": 3.220003
+    },
+    {
+      "level": 69,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 2,
+          "loss": 2
+        },
+        "head": {
+          "loss": 3,
+          "win": 1
+        }
+      },
+      "wins": 3,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 1.641641,
+      "max_ai_guard_rate": 2.576001
+    },
+    {
+      "level": 70,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 2,
+          "loss": 2
+        },
+        "head": {
+          "loss": 3,
+          "win": 1
+        }
+      },
+      "wins": 3,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 3
+      },
+      "max_ai_aim_rate": 1.882035,
+      "max_ai_guard_rate": 2.576001
+    },
+    {
+      "level": 71,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 4
+        },
+        "head": {
+          "loss": 2,
+          "win": 2
+        }
+      },
+      "wins": 2,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 6
+      },
+      "max_ai_aim_rate": 1.822042,
+      "max_ai_guard_rate": 2.576001
+    },
+    {
+      "level": 72,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 4
+        },
+        "head": {
+          "loss": 2,
+          "win": 2
+        }
+      },
+      "wins": 2,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 1.731731,
+      "max_ai_guard_rate": 3.220003
+    },
+    {
+      "level": 73,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 4
+        },
+        "head": {
+          "loss": 4
+        }
+      },
+      "wins": 0,
+      "draws": 0,
+      "player_falls": {
+        "health:head": 3
+      },
+      "max_ai_aim_rate": 1.822042,
+      "max_ai_guard_rate": 2.576001
+    },
+    {
+      "level": 74,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 4
+        },
+        "head": {
+          "loss": 4
+        }
+      },
+      "wins": 0,
+      "draws": 0,
+      "player_falls": {
+        "balance:shield": 3,
+        "health:head": 1
+      },
+      "max_ai_aim_rate": 1.822042,
+      "max_ai_guard_rate": 2.576001
+    },
+    {
+      "level": 75,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 2,
+          "loss": 2
+        },
+        "head": {
+          "win": 2,
+          "loss": 2
+        }
+      },
+      "wins": 4,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 1.653653,
+      "max_ai_guard_rate": 3.220003
+    },
+    {
+      "level": 76,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 2,
+          "win": 2
+        },
+        "head": {
+          "loss": 4
+        }
+      },
+      "wins": 2,
+      "draws": 0,
+      "player_falls": {
+        "balance:flank": 3,
+        "balance:shield": 1,
+        "impact:flank": 1
+      },
+      "max_ai_aim_rate": 1.822042,
+      "max_ai_guard_rate": 2.576001
+    },
+    {
+      "level": 77,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 3,
+          "win": 1
+        },
+        "head": {
+          "win": 2,
+          "loss": 2
+        }
+      },
+      "wins": 3,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 2.479677,
+      "max_ai_guard_rate": 3.220003
+    },
+    {
+      "level": 78,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 3,
+          "win": 1
+        },
+        "head": {
+          "win": 1,
+          "loss": 3
+        }
+      },
+      "wins": 2,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 2.479675,
+      "max_ai_guard_rate": 3.220003
+    },
+    {
+      "level": 79,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "win": 2,
+          "loss": 2
+        },
+        "head": {
+          "loss": 3,
+          "win": 1
+        }
+      },
+      "wins": 3,
+      "draws": 0,
+      "player_falls": {},
+      "max_ai_aim_rate": 1.785784,
+      "max_ai_guard_rate": 3.220003
+    },
+    {
+      "level": 80,
+      "matches": 8,
+      "seeds": [
+        10701,
+        10702
+      ],
+      "strategy_outcomes": {
+        "opening": {
+          "loss": 4
+        },
+        "head": {
+          "loss": 4
+        }
+      },
+      "wins": 0,
+      "draws": 0,
+      "player_falls": {
+        "balance:body": 1,
+        "balance:head": 3,
+        "balance:flank": 1,
+        "balance:shield": 1
+      },
+      "max_ai_aim_rate": 1.868702,
+      "max_ai_guard_rate": 2.576001
+    }
+  ]
+}

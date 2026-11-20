@@ -1,0 +1,2273 @@
+[
+  {
+    "file": "docs\\development\\logs\\level107-forward01\\report.json",
+    "complete": true,
+    "passed": true,
+    "kit": "early_light",
+    "fixed_ai": 0,
+    "fixed_gear": 0,
+    "pace_override": -1.0,
+    "levels": [
+      {
+        "level": 6,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 2,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 12
+        },
+        "lost_by_fall": {},
+        "mean_damage": 5.19,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 7,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "win": 3,
+            "loss": 1
+          }
+        },
+        "side_wins": {
+          "0": 1,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 10
+        },
+        "lost_by_fall": {},
+        "mean_damage": 5.91,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 8,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 2,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 7
+        },
+        "lost_by_fall": {},
+        "mean_damage": 3.51,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 9,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 2,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 10
+        },
+        "lost_by_fall": {},
+        "mean_damage": 4.75,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 10,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 2,
+          "1": 2
+        },
+        "taken_zones": {
+          "body": 1,
+          "shield": 5
+        },
+        "lost_by_fall": {},
+        "mean_damage": 9.86,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 16,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 2,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 8,
+          "head": 1
+        },
+        "lost_by_fall": {},
+        "mean_damage": 4.61,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 17,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 2,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 12
+        },
+        "lost_by_fall": {},
+        "mean_damage": 5.83,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 40,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "loss": 1,
+            "win": 3
+          }
+        },
+        "side_wins": {
+          "1": 2,
+          "0": 1
+        },
+        "taken_zones": {
+          "shield": 9,
+          "head": 1
+        },
+        "lost_by_fall": {},
+        "mean_damage": 5.89,
+        "min_actual_change_lead": 1.742,
+        "changes_measured": 12
+      },
+      {
+        "level": 41,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 2,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 9,
+          "head": 3
+        },
+        "lost_by_fall": {},
+        "mean_damage": 20.42,
+        "min_actual_change_lead": 1.017,
+        "changes_measured": 58
+      },
+      {
+        "level": 43,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "loss": 4
+          }
+        },
+        "side_wins": {},
+        "taken_zones": {
+          "shield": 7,
+          "head": 3,
+          "flank": 1
+        },
+        "lost_by_fall": {},
+        "mean_damage": 35.4,
+        "min_actual_change_lead": 0.692,
+        "changes_measured": 60
+      },
+      {
+        "level": 49,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 2,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 10
+        },
+        "lost_by_fall": {},
+        "mean_damage": 2.63,
+        "min_actual_change_lead": 0.492,
+        "changes_measured": 47
+      },
+      {
+        "level": 50,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "win": 3,
+            "loss": 1
+          }
+        },
+        "side_wins": {
+          "0": 2,
+          "1": 1
+        },
+        "taken_zones": {
+          "flank": 1,
+          "shield": 6,
+          "head": 3
+        },
+        "lost_by_fall": {},
+        "mean_damage": 28.15,
+        "min_actual_change_lead": 0.658,
+        "changes_measured": 60
+      },
+      {
+        "level": 56,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 2,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 7,
+          "flank": 1,
+          "head": 2
+        },
+        "lost_by_fall": {},
+        "mean_damage": 33.12,
+        "min_actual_change_lead": 0.442,
+        "changes_measured": 59
+      },
+      {
+        "level": 57,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "win": 2,
+            "loss": 2
+          }
+        },
+        "side_wins": {
+          "0": 1,
+          "1": 1
+        },
+        "taken_zones": {
+          "shield": 9,
+          "head": 3
+        },
+        "lost_by_fall": {},
+        "mean_damage": 27.95,
+        "min_actual_change_lead": 0.5,
+        "changes_measured": 49
+      },
+      {
+        "level": 60,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "win": 3,
+            "loss": 1
+          }
+        },
+        "side_wins": {
+          "0": 2,
+          "1": 1
+        },
+        "taken_zones": {
+          "shield": 7,
+          "head": 2,
+          "body": 2
+        },
+        "lost_by_fall": {
+          "balance:shield": 1
+        },
+        "mean_damage": 33.94,
+        "min_actual_change_lead": 0.342,
+        "changes_measured": 48
+      },
+      {
+        "level": 70,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "win": 3,
+            "loss": 1
+          }
+        },
+        "side_wins": {
+          "0": 2,
+          "1": 1
+        },
+        "taken_zones": {
+          "head": 4,
+          "shield": 8
+        },
+        "lost_by_fall": {},
+        "mean_damage": 38.06,
+        "min_actual_change_lead": 0.867,
+        "changes_measured": 24
+      },
+      {
+        "level": 80,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "win": 3,
+            "loss": 1
+          }
+        },
+        "side_wins": {
+          "0": 2,
+          "1": 1
+        },
+        "taken_zones": {
+          "shield": 6,
+          "body": 2,
+          "head": 1
+        },
+        "lost_by_fall": {},
+        "mean_damage": 19.57,
+        "min_actual_change_lead": 0.3,
+        "changes_measured": 20
+      }
+    ],
+    "failures": []
+  },
+  {
+    "file": "docs\\development\\logs\\level107-forward02\\report.json",
+    "complete": true,
+    "passed": true,
+    "kit": "early_light",
+    "fixed_ai": 0,
+    "fixed_gear": 0,
+    "pace_override": -1.0,
+    "levels": [
+      {
+        "level": 39,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 2,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 12
+        },
+        "lost_by_fall": {},
+        "mean_damage": 3.65,
+        "min_actual_change_lead": 1.767,
+        "changes_measured": 12
+      },
+      {
+        "level": 44,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 2,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 8,
+          "head": 1
+        },
+        "lost_by_fall": {},
+        "mean_damage": 3.27,
+        "min_actual_change_lead": 0.633,
+        "changes_measured": 51
+      },
+      {
+        "level": 45,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 2,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 9,
+          "head": 1,
+          "flank": 1
+        },
+        "lost_by_fall": {},
+        "mean_damage": 16.72,
+        "min_actual_change_lead": 0.633,
+        "changes_measured": 56
+      },
+      {
+        "level": 73,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "win": 2,
+            "loss": 2
+          }
+        },
+        "side_wins": {
+          "0": 2
+        },
+        "taken_zones": {
+          "shield": 6,
+          "head": 5,
+          "flank": 1
+        },
+        "lost_by_fall": {
+          "health:head": 1
+        },
+        "mean_damage": 50.62,
+        "min_actual_change_lead": 0.467,
+        "changes_measured": 62
+      },
+      {
+        "level": 74,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "loss": 4
+          }
+        },
+        "side_wins": {},
+        "taken_zones": {
+          "shield": 7,
+          "head": 5
+        },
+        "lost_by_fall": {},
+        "mean_damage": 40.93,
+        "min_actual_change_lead": 0.592,
+        "changes_measured": 63
+      },
+      {
+        "level": 75,
+        "matches": 4,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "forward": {
+            "win": 2,
+            "loss": 2
+          }
+        },
+        "side_wins": {
+          "0": 2
+        },
+        "taken_zones": {
+          "shield": 9,
+          "head": 2,
+          "flank": 1
+        },
+        "lost_by_fall": {},
+        "mean_damage": 27.51,
+        "min_actual_change_lead": 0.6,
+        "changes_measured": 58
+      }
+    ],
+    "failures": []
+  },
+  {
+    "file": "docs\\development\\logs\\level107-throttle01\\report.json",
+    "complete": true,
+    "passed": true,
+    "kit": "early_light",
+    "fixed_ai": 0,
+    "fixed_gear": 0,
+    "pace_override": -1.0,
+    "levels": [
+      {
+        "level": 7,
+        "matches": 12,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "reserve_forward": {
+            "loss": 2,
+            "win": 2
+          },
+          "coast_forward": {
+            "win": 4
+          },
+          "continuous_forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 5,
+          "1": 5
+        },
+        "taken_zones": {
+          "body": 2,
+          "shield": 22
+        },
+        "lost_by_fall": {
+          "impact:body": 2
+        },
+        "mean_damage": 9.1,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 8,
+        "matches": 12,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "reserve_forward": {
+            "win": 4
+          },
+          "coast_forward": {
+            "win": 3,
+            "loss": 1
+          },
+          "continuous_forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 5,
+          "1": 6
+        },
+        "taken_zones": {
+          "shield": 22,
+          "head": 1
+        },
+        "lost_by_fall": {},
+        "mean_damage": 3.54,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 16,
+        "matches": 12,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "reserve_forward": {
+            "win": 4
+          },
+          "coast_forward": {
+            "win": 4
+          },
+          "continuous_forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 6,
+          "1": 6
+        },
+        "taken_zones": {
+          "head": 5,
+          "shield": 18
+        },
+        "lost_by_fall": {},
+        "mean_damage": 5.27,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 17,
+        "matches": 12,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "reserve_forward": {
+            "win": 4
+          },
+          "coast_forward": {
+            "win": 4
+          },
+          "continuous_forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 6,
+          "1": 6
+        },
+        "taken_zones": {
+          "shield": 25,
+          "body": 2,
+          "head": 3
+        },
+        "lost_by_fall": {},
+        "mean_damage": 9.05,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 39,
+        "matches": 12,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "reserve_forward": {
+            "win": 4
+          },
+          "coast_forward": {
+            "win": 4
+          },
+          "continuous_forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 6,
+          "1": 6
+        },
+        "taken_zones": {
+          "shield": 29
+        },
+        "lost_by_fall": {},
+        "mean_damage": 2.82,
+        "min_actual_change_lead": 1.733,
+        "changes_measured": 30
+      },
+      {
+        "level": 41,
+        "matches": 12,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "reserve_forward": {
+            "loss": 2,
+            "win": 2
+          },
+          "coast_forward": {
+            "win": 4
+          },
+          "continuous_forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 5,
+          "1": 5
+        },
+        "taken_zones": {
+          "shield": 31,
+          "head": 5
+        },
+        "lost_by_fall": {},
+        "mean_damage": 10.5,
+        "min_actual_change_lead": 0.35,
+        "changes_measured": 173
+      },
+      {
+        "level": 43,
+        "matches": 12,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "reserve_forward": {
+            "win": 4
+          },
+          "coast_forward": {
+            "win": 4
+          },
+          "continuous_forward": {
+            "win": 3,
+            "loss": 1
+          }
+        },
+        "side_wins": {
+          "0": 6,
+          "1": 5
+        },
+        "taken_zones": {
+          "shield": 20,
+          "head": 6,
+          "flank": 4,
+          "body": 1
+        },
+        "lost_by_fall": {},
+        "mean_damage": 28.51,
+        "min_actual_change_lead": 0.475,
+        "changes_measured": 150
+      },
+      {
+        "level": 44,
+        "matches": 12,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "reserve_forward": {
+            "win": 4
+          },
+          "coast_forward": {
+            "win": 4
+          },
+          "continuous_forward": {
+            "win": 3,
+            "loss": 1
+          }
+        },
+        "side_wins": {
+          "0": 6,
+          "1": 5
+        },
+        "taken_zones": {
+          "head": 5,
+          "shield": 25
+        },
+        "lost_by_fall": {},
+        "mean_damage": 14.02,
+        "min_actual_change_lead": 0.458,
+        "changes_measured": 138
+      },
+      {
+        "level": 45,
+        "matches": 12,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "reserve_forward": {
+            "win": 4
+          },
+          "coast_forward": {
+            "win": 2,
+            "loss": 2
+          },
+          "continuous_forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 6,
+          "1": 4
+        },
+        "taken_zones": {
+          "body": 1,
+          "head": 6,
+          "shield": 19
+        },
+        "lost_by_fall": {},
+        "mean_damage": 18.35,
+        "min_actual_change_lead": 0.408,
+        "changes_measured": 146
+      },
+      {
+        "level": 56,
+        "matches": 12,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "reserve_forward": {
+            "win": 3,
+            "loss": 1
+          },
+          "coast_forward": {
+            "win": 4
+          },
+          "continuous_forward": {
+            "win": 3,
+            "loss": 1
+          }
+        },
+        "side_wins": {
+          "0": 6,
+          "1": 4
+        },
+        "taken_zones": {
+          "shield": 23,
+          "head": 6,
+          "body": 2
+        },
+        "lost_by_fall": {
+          "balance:shield": 1
+        },
+        "mean_damage": 26.12,
+        "min_actual_change_lead": 0.3,
+        "changes_measured": 161
+      },
+      {
+        "level": 57,
+        "matches": 12,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "reserve_forward": {
+            "loss": 2,
+            "win": 2
+          },
+          "coast_forward": {
+            "win": 3,
+            "loss": 1
+          },
+          "continuous_forward": {
+            "win": 3,
+            "loss": 1
+          }
+        },
+        "side_wins": {
+          "1": 4,
+          "0": 4
+        },
+        "taken_zones": {
+          "shield": 17,
+          "head": 10,
+          "body": 3,
+          "flank": 2
+        },
+        "lost_by_fall": {
+          "health:head": 1,
+          "balance:head": 1
+        },
+        "mean_damage": 44.46,
+        "min_actual_change_lead": 0.408,
+        "changes_measured": 161
+      },
+      {
+        "level": 73,
+        "matches": 12,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "reserve_forward": {
+            "win": 3,
+            "loss": 1
+          },
+          "coast_forward": {
+            "win": 2,
+            "loss": 2
+          },
+          "continuous_forward": {
+            "loss": 2,
+            "win": 2
+          }
+        },
+        "side_wins": {
+          "0": 4,
+          "1": 3
+        },
+        "taken_zones": {
+          "body": 5,
+          "head": 10,
+          "shield": 15,
+          "flank": 1
+        },
+        "lost_by_fall": {
+          "balance:head": 1,
+          "balance:body": 1
+        },
+        "mean_damage": 47.75,
+        "min_actual_change_lead": 0.242,
+        "changes_measured": 168
+      },
+      {
+        "level": 74,
+        "matches": 12,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "reserve_forward": {
+            "loss": 3,
+            "win": 1
+          },
+          "coast_forward": {
+            "win": 2,
+            "loss": 2
+          },
+          "continuous_forward": {
+            "win": 2,
+            "loss": 2
+          }
+        },
+        "side_wins": {
+          "0": 4,
+          "1": 1
+        },
+        "taken_zones": {
+          "shield": 15,
+          "head": 11,
+          "flank": 5,
+          "body": 2
+        },
+        "lost_by_fall": {
+          "balance:shield": 1,
+          "health:head": 1
+        },
+        "mean_damage": 43.67,
+        "min_actual_change_lead": 0.45,
+        "changes_measured": 174
+      },
+      {
+        "level": 75,
+        "matches": 12,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "reserve_forward": {
+            "win": 4
+          },
+          "coast_forward": {
+            "win": 2,
+            "loss": 2
+          },
+          "continuous_forward": {
+            "win": 1,
+            "loss": 3
+          }
+        },
+        "side_wins": {
+          "0": 5,
+          "1": 2
+        },
+        "taken_zones": {
+          "head": 7,
+          "shield": 20,
+          "flank": 3
+        },
+        "lost_by_fall": {
+          "fatal:head": 1
+        },
+        "mean_damage": 34.8,
+        "min_actual_change_lead": 0.525,
+        "changes_measured": 154
+      },
+      {
+        "level": 80,
+        "matches": 12,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "reserve_forward": {
+            "loss": 1,
+            "win": 3
+          },
+          "coast_forward": {
+            "loss": 3,
+            "win": 1
+          },
+          "continuous_forward": {
+            "loss": 4
+          }
+        },
+        "side_wins": {
+          "1": 2,
+          "0": 2
+        },
+        "taken_zones": {
+          "head": 15,
+          "shield": 13,
+          "body": 3,
+          "flank": 1
+        },
+        "lost_by_fall": {
+          "health:head": 1
+        },
+        "mean_damage": 52.0,
+        "min_actual_change_lead": 0.45,
+        "changes_measured": 66
+      }
+    ],
+    "failures": []
+  },
+  {
+    "file": "docs\\development\\logs\\level107-heavy01\\report.json",
+    "complete": true,
+    "passed": true,
+    "kit": "early_heavy",
+    "fixed_ai": 0,
+    "fixed_gear": 0,
+    "pace_override": -1.0,
+    "levels": [
+      {
+        "level": 6,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 4
+          },
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 4,
+          "1": 4
+        },
+        "taken_zones": {
+          "shield": 8
+        },
+        "lost_by_fall": {},
+        "mean_damage": 2.0,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 7,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 4
+          },
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 4,
+          "1": 4
+        },
+        "taken_zones": {
+          "shield": 8
+        },
+        "lost_by_fall": {},
+        "mean_damage": 2.15,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 8,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 4
+          },
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 4,
+          "1": 4
+        },
+        "taken_zones": {
+          "shield": 8
+        },
+        "lost_by_fall": {},
+        "mean_damage": 2.06,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 9,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 4
+          },
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 4,
+          "1": 4
+        },
+        "taken_zones": {
+          "shield": 8
+        },
+        "lost_by_fall": {},
+        "mean_damage": 1.99,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 10,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 4
+          },
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 4,
+          "1": 4
+        },
+        "taken_zones": {
+          "shield": 8
+        },
+        "lost_by_fall": {},
+        "mean_damage": 2.46,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 15,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 4
+          },
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 4,
+          "1": 4
+        },
+        "taken_zones": {
+          "shield": 22
+        },
+        "lost_by_fall": {},
+        "mean_damage": 4.95,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 16,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "loss": 3,
+            "win": 1
+          },
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "1": 3,
+          "0": 2
+        },
+        "taken_zones": {
+          "shield": 19
+        },
+        "lost_by_fall": {
+          "balance:shield": 3
+        },
+        "mean_damage": 5.67,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 17,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "loss": 4
+          },
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 2,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 18
+        },
+        "lost_by_fall": {
+          "balance:shield": 4
+        },
+        "mean_damage": 5.52,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 18,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 4
+          },
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 4,
+          "1": 4
+        },
+        "taken_zones": {
+          "shield": 24
+        },
+        "lost_by_fall": {},
+        "mean_damage": 4.45,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 20,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 4
+          },
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 4,
+          "1": 4
+        },
+        "taken_zones": {
+          "shield": 24
+        },
+        "lost_by_fall": {},
+        "mean_damage": 4.75,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 21,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 4
+          },
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 4,
+          "1": 4
+        },
+        "taken_zones": {
+          "shield": 24
+        },
+        "lost_by_fall": {},
+        "mean_damage": 4.02,
+        "min_actual_change_lead": 2.75,
+        "changes_measured": 8
+      },
+      {
+        "level": 30,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 4
+          },
+          "forward": {
+            "loss": 1,
+            "win": 3
+          }
+        },
+        "side_wins": {
+          "0": 3,
+          "1": 4
+        },
+        "taken_zones": {
+          "shield": 18
+        },
+        "lost_by_fall": {},
+        "mean_damage": 2.87,
+        "min_actual_change_lead": 2.158,
+        "changes_measured": 18
+      },
+      {
+        "level": 31,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 1,
+            "loss": 3
+          },
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 3,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 20
+        },
+        "lost_by_fall": {
+          "balance:shield": 3
+        },
+        "mean_damage": 4.83,
+        "min_actual_change_lead": 1.842,
+        "changes_measured": 16
+      },
+      {
+        "level": 40,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "loss": 3,
+            "win": 1
+          },
+          "forward": {
+            "win": 3,
+            "loss": 1
+          }
+        },
+        "side_wins": {
+          "1": 2,
+          "0": 2
+        },
+        "taken_zones": {
+          "shield": 24
+        },
+        "lost_by_fall": {
+          "balance:shield": 3
+        },
+        "mean_damage": 5.3,
+        "min_actual_change_lead": 1.75,
+        "changes_measured": 24
+      },
+      {
+        "level": 41,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 1,
+            "loss": 3
+          },
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 3,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 20,
+          "head": 2
+        },
+        "lost_by_fall": {
+          "balance:shield": 2
+        },
+        "mean_damage": 10.65,
+        "min_actual_change_lead": 0.708,
+        "changes_measured": 99
+      },
+      {
+        "level": 43,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 2,
+            "loss": 2
+          },
+          "forward": {
+            "win": 3,
+            "loss": 1
+          }
+        },
+        "side_wins": {
+          "0": 3,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 18,
+          "flank": 3,
+          "head": 3
+        },
+        "lost_by_fall": {
+          "balance:head": 1,
+          "balance:shield": 1
+        },
+        "mean_damage": 23.57,
+        "min_actual_change_lead": 0.608,
+        "changes_measured": 101
+      },
+      {
+        "level": 50,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 2,
+            "loss": 2
+          },
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 3,
+          "1": 3
+        },
+        "taken_zones": {
+          "flank": 2,
+          "shield": 17,
+          "head": 3
+        },
+        "lost_by_fall": {},
+        "mean_damage": 17.13,
+        "min_actual_change_lead": 0.692,
+        "changes_measured": 94
+      },
+      {
+        "level": 51,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 1,
+            "loss": 3
+          },
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 3,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 16,
+          "head": 2
+        },
+        "lost_by_fall": {},
+        "mean_damage": 9.3,
+        "min_actual_change_lead": 0.508,
+        "changes_measured": 92
+      },
+      {
+        "level": 56,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "loss": 2,
+            "win": 2
+          },
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "1": 4,
+          "0": 2
+        },
+        "taken_zones": {
+          "shield": 15,
+          "flank": 1,
+          "head": 4,
+          "body": 1
+        },
+        "lost_by_fall": {
+          "balance:flank": 1,
+          "balance:body": 1
+        },
+        "mean_damage": 32.32,
+        "min_actual_change_lead": 0.567,
+        "changes_measured": 100
+      },
+      {
+        "level": 57,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "loss": 4
+          },
+          "forward": {
+            "win": 3,
+            "loss": 1
+          }
+        },
+        "side_wins": {
+          "0": 2,
+          "1": 1
+        },
+        "taken_zones": {
+          "shield": 17,
+          "flank": 3,
+          "head": 2,
+          "body": 1
+        },
+        "lost_by_fall": {
+          "balance:flank": 3,
+          "balance:shield": 1
+        },
+        "mean_damage": 24.51,
+        "min_actual_change_lead": 0.458,
+        "changes_measured": 97
+      },
+      {
+        "level": 60,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "loss": 3,
+            "win": 1
+          },
+          "forward": {
+            "win": 3,
+            "loss": 1
+          }
+        },
+        "side_wins": {
+          "1": 2,
+          "0": 2
+        },
+        "taken_zones": {
+          "shield": 20,
+          "head": 4
+        },
+        "lost_by_fall": {
+          "balance:head": 1,
+          "balance:shield": 2
+        },
+        "mean_damage": 23.48,
+        "min_actual_change_lead": 0.5,
+        "changes_measured": 90
+      },
+      {
+        "level": 61,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 2,
+            "loss": 2
+          },
+          "forward": {
+            "win": 3,
+            "loss": 1
+          }
+        },
+        "side_wins": {
+          "0": 2,
+          "1": 3
+        },
+        "taken_zones": {
+          "shield": 12,
+          "head": 6,
+          "flank": 2,
+          "body": 1
+        },
+        "lost_by_fall": {
+          "balance:shield": 1
+        },
+        "mean_damage": 33.21,
+        "min_actual_change_lead": 0.542,
+        "changes_measured": 108
+      },
+      {
+        "level": 70,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "loss": 3,
+            "win": 1
+          },
+          "forward": {
+            "loss": 2,
+            "win": 2
+          }
+        },
+        "side_wins": {
+          "1": 2,
+          "0": 1
+        },
+        "taken_zones": {
+          "head": 8,
+          "shield": 16
+        },
+        "lost_by_fall": {},
+        "mean_damage": 35.96,
+        "min_actual_change_lead": 0.392,
+        "changes_measured": 49
+      },
+      {
+        "level": 71,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 3,
+            "loss": 1
+          },
+          "forward": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 3,
+          "1": 4
+        },
+        "taken_zones": {
+          "shield": 19,
+          "head": 4
+        },
+        "lost_by_fall": {
+          "balance:shield": 1
+        },
+        "mean_damage": 24.42,
+        "min_actual_change_lead": 0.633,
+        "changes_measured": 90
+      },
+      {
+        "level": 73,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "loss": 4
+          },
+          "forward": {
+            "win": 2,
+            "loss": 2
+          }
+        },
+        "side_wins": {
+          "0": 2
+        },
+        "taken_zones": {
+          "shield": 12,
+          "body": 1,
+          "head": 9,
+          "flank": 1
+        },
+        "lost_by_fall": {
+          "health:head": 2
+        },
+        "mean_damage": 44.82,
+        "min_actual_change_lead": 0.267,
+        "changes_measured": 124
+      },
+      {
+        "level": 74,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 2,
+            "loss": 2
+          },
+          "forward": {
+            "win": 1,
+            "loss": 3
+          }
+        },
+        "side_wins": {
+          "0": 3
+        },
+        "taken_zones": {
+          "shield": 16,
+          "head": 6,
+          "body": 1
+        },
+        "lost_by_fall": {},
+        "mean_damage": 29.92,
+        "min_actual_change_lead": 0.592,
+        "changes_measured": 120
+      },
+      {
+        "level": 80,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "loss": 2,
+            "win": 2
+          },
+          "forward": {
+            "win": 3,
+            "loss": 1
+          }
+        },
+        "side_wins": {
+          "0": 3,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 12,
+          "body": 4,
+          "head": 7
+        },
+        "lost_by_fall": {
+          "balance:head": 2
+        },
+        "mean_damage": 34.87,
+        "min_actual_change_lead": 0.283,
+        "changes_measured": 40
+      }
+    ],
+    "failures": []
+  },
+  {
+    "file": "docs\\development\\logs\\level107-dimensions-ai01\\report.json",
+    "complete": true,
+    "passed": true,
+    "kit": "early_light",
+    "fixed_ai": 10,
+    "fixed_gear": 0,
+    "pace_override": -1.0,
+    "levels": [
+      {
+        "level": 30,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "loss": 3,
+            "win": 1
+          },
+          "head": {
+            "loss": 4
+          }
+        },
+        "side_wins": {
+          "1": 1
+        },
+        "taken_zones": {
+          "shield": 17
+        },
+        "lost_by_fall": {
+          "balance:shield": 7
+        },
+        "mean_damage": 11.36,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 40,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "loss": 3,
+            "draw": 1
+          },
+          "head": {
+            "loss": 3,
+            "draw": 1
+          }
+        },
+        "side_wins": {},
+        "taken_zones": {
+          "shield": 22
+        },
+        "lost_by_fall": {
+          "balance:shield": 8
+        },
+        "mean_damage": 11.13,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 43,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "loss": 4
+          },
+          "head": {
+            "loss": 4
+          }
+        },
+        "side_wins": {},
+        "taken_zones": {
+          "shield": 19
+        },
+        "lost_by_fall": {
+          "balance:shield": 8
+        },
+        "mean_damage": 9.58,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 60,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "loss": 3,
+            "win": 1
+          },
+          "head": {
+            "loss": 4
+          }
+        },
+        "side_wins": {
+          "1": 1
+        },
+        "taken_zones": {
+          "shield": 16
+        },
+        "lost_by_fall": {
+          "balance:shield": 7
+        },
+        "mean_damage": 9.14,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      },
+      {
+        "level": 80,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "loss": 3,
+            "win": 1
+          },
+          "head": {
+            "loss": 4
+          }
+        },
+        "side_wins": {
+          "1": 1
+        },
+        "taken_zones": {
+          "shield": 16
+        },
+        "lost_by_fall": {
+          "balance:shield": 7
+        },
+        "mean_damage": 9.25,
+        "min_actual_change_lead": null,
+        "changes_measured": 0
+      }
+    ],
+    "failures": []
+  },
+  {
+    "file": "docs\\development\\logs\\level107-dimensions-gear01\\report.json",
+    "complete": true,
+    "passed": true,
+    "kit": "early_light",
+    "fixed_ai": 0,
+    "fixed_gear": 10,
+    "pace_override": -1.0,
+    "levels": [
+      {
+        "level": 30,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 3,
+            "loss": 1
+          },
+          "head": {
+            "win": 3,
+            "loss": 1
+          }
+        },
+        "side_wins": {
+          "0": 4,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 22
+        },
+        "lost_by_fall": {},
+        "mean_damage": 9.32,
+        "min_actual_change_lead": 2.05,
+        "changes_measured": 23
+      },
+      {
+        "level": 40,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "loss": 3,
+            "win": 1
+          },
+          "head": {
+            "loss": 1,
+            "win": 3
+          }
+        },
+        "side_wins": {
+          "1": 3,
+          "0": 1
+        },
+        "taken_zones": {
+          "shield": 18
+        },
+        "lost_by_fall": {
+          "balance:shield": 4
+        },
+        "mean_damage": 7.08,
+        "min_actual_change_lead": 1.7,
+        "changes_measured": 20
+      },
+      {
+        "level": 43,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "loss": 3,
+            "win": 1
+          },
+          "head": {
+            "loss": 2,
+            "win": 2
+          }
+        },
+        "side_wins": {
+          "0": 1,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 17,
+          "flank": 2,
+          "head": 1
+        },
+        "lost_by_fall": {
+          "balance:shield": 2
+        },
+        "mean_damage": 14.03,
+        "min_actual_change_lead": 0.667,
+        "changes_measured": 100
+      },
+      {
+        "level": 60,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 2,
+            "loss": 2
+          },
+          "head": {
+            "win": 4
+          }
+        },
+        "side_wins": {
+          "0": 3,
+          "1": 3
+        },
+        "taken_zones": {
+          "flank": 4,
+          "shield": 10,
+          "body": 3
+        },
+        "lost_by_fall": {
+          "balance:shield": 2
+        },
+        "mean_damage": 21.2,
+        "min_actual_change_lead": 0.425,
+        "changes_measured": 99
+      },
+      {
+        "level": 80,
+        "matches": 8,
+        "seeds": [
+          10701,
+          10702
+        ],
+        "outcomes": {
+          "opening": {
+            "win": 4
+          },
+          "head": {
+            "loss": 4
+          }
+        },
+        "side_wins": {
+          "0": 2,
+          "1": 2
+        },
+        "taken_zones": {
+          "shield": 11,
+          "flank": 6,
+          "body": 2,
+          "head": 1
+        },
+        "lost_by_fall": {},
+        "mean_damage": 20.84,
+        "min_actual_change_lead": 0.508,
+        "changes_measured": 40
+      }
+    ],
+    "failures": []
+  }
+]

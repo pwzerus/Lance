@@ -1,0 +1,795 @@
+{
+  "task": "LEVEL-107",
+  "baseline": "0f523cb9db7da3191c217cbc98b8cd920423ef3c",
+  "scope": "source Godot 4.5.1; protected isolated QA; no OS input/human play/audio listening/new package",
+  "production_level_field_changes": {
+    "opponent": 76,
+    "archetype_name": 3,
+    "hint": 49
+  },
+  "other_production_config_unchanged": true,
+  "ai_source_unchanged": true,
+  "formal_profile_files_unchanged": true,
+  "runs": [
+    {
+      "run": "level107-audit01",
+      "memory_log_sha256": "DE1CB0F9E48E271D75B09F6E353F319E57DE94DA32298C8E244975F69C73498D",
+      "exit_lines": [
+        "EXIT code=0 seconds=0.4"
+      ],
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-audit01/report.json",
+      "report_sha256": "26CFF83C08EF2B86061C01659216287C04C8203D7D1FFC4FD103249852F8C475",
+      "passed": true,
+      "failures": [],
+      "rows": 80
+    },
+    {
+      "run": "level107-audit02",
+      "memory_log_sha256": "A0C7F8A4068D89401276E48B7FFFCE61C4836C8E8DE4076F619FF24BA4FD58E6",
+      "exit_lines": [
+        "EXIT code=0 seconds=0.4"
+      ],
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-audit02/report.json",
+      "report_sha256": "837C1507864A468DE69F465BDE0E9AF76DFE4D9C0AB8C69526AE6B55F61D84F9",
+      "passed": true,
+      "failures": [],
+      "rows": 80
+    },
+    {
+      "run": "level107-audit03",
+      "memory_log_sha256": "27780CBC66BA8BB1DF68FE72875AB20E85D2947B97036F143F25494D226869F5",
+      "exit_lines": [
+        "EXIT code=0 seconds=0.9"
+      ],
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-audit03/report.json",
+      "report_sha256": "6CD2DDB26011A246D5A9DD6842A5B7DB0AF9B46D9B635AC09093E7472EFD1CBC",
+      "passed": true,
+      "failures": [],
+      "rows": 80
+    },
+    {
+      "run": "level107-audit04",
+      "memory_log_sha256": "AE98A07D2260E4D2C5270C9CC527F0CBDF4EFF00A5FD8FA8228369A902782A50",
+      "exit_lines": [
+        "EXIT code=0 seconds=0.5"
+      ],
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-audit04/report.json",
+      "report_sha256": "295FEF64ED6B07E99DF900A6A115E5BE22BBC8BE1DBE4C6C667168CD82AFF13D",
+      "passed": true,
+      "failures": [],
+      "rows": 80
+    },
+    {
+      "run": "level107-audit05",
+      "memory_log_sha256": "40D877332D8811CA04BB2E8DF3708E941320E9F24C575236C8C8D532DF69920A",
+      "exit_lines": [
+        "EXIT code=0 seconds=0.5"
+      ],
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-audit05/report.json",
+      "report_sha256": "B9DD62D432C6A1A4DC2C758939F9CCD1CB0198780FF0E233C567985648527C35",
+      "passed": true,
+      "failures": [],
+      "rows": 80
+    },
+    {
+      "run": "level107-baseline01",
+      "memory_log_sha256": "DAEC7438B7786467809EAE6E34F2F5DCAD109DA5547A62E34D97B8165D12C67F",
+      "exit_lines": [
+        "TIMEOUT: terminating job"
+      ],
+      "private_peak_mib": 49.4,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-baseline01/report.json",
+      "report_sha256": "1B689E196AEF67E2B290591B98E1D289004136F97E9551A30A6B4B4B878D3770",
+      "passed": null,
+      "failures": []
+    },
+    {
+      "run": "level107-baseline02",
+      "memory_log_sha256": "B09017AD8924CC03EF3925F60224B25FABD822B118A80CA9506486CB3186BA6B",
+      "exit_lines": [
+        "EXIT code=0 seconds=33.6"
+      ],
+      "private_peak_mib": 47.7,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-baseline02/report.json",
+      "report_sha256": "0B2BA9F258F49E03F54721F032F8F2B3B0133E3DF2D2A6197D87AB7A0C0A425E",
+      "passed": null,
+      "failures": []
+    },
+    {
+      "run": "level107-beginner01",
+      "memory_log_sha256": "2D71DEC00E4EC3824B0F591B5320D18EBBA361551BBC05B0796DCBF401362434",
+      "exit_lines": [
+        "EXIT code=0 seconds=287.2",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 720.2,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-beginner01/screens/report.json",
+      "report_sha256": "C2D1D7B76E853078E008AFF7A3A0206B66596722C5913067AAF5B1AF58BEFB2D",
+      "passed": true,
+      "failures": [],
+      "rows": 5
+    },
+    {
+      "run": "level107-dimensions-ai01",
+      "memory_log_sha256": "CDC9D0F2DB78D414E754F2A54EA3B6806D874A51C99053D2DAE9E2801D1E8B3E",
+      "exit_lines": [
+        "EXIT code=0 seconds=37.9"
+      ],
+      "private_peak_mib": 58.3,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-dimensions-ai01/report.json",
+      "report_sha256": "2204AF9C5D1EB9A601558DB9B0544C97F5C3915A8D12A05A941DBB48258C0619",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "level107-dimensions-gear01",
+      "memory_log_sha256": "3A0932693732C438DCA5197D77CC971B0796C62C079DE7E768729E8196825D1E",
+      "exit_lines": [
+        "EXIT code=0 seconds=51.4"
+      ],
+      "private_peak_mib": 58.0,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-dimensions-gear01/report.json",
+      "report_sha256": "A2810F76DEE750CA394ACABAE518FB482305A7952964EA0F0A20C9645BB505E3",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "level107-early-options01",
+      "memory_log_sha256": "60C596E37414A2BC5A917E3927B8FD850F049F5A82AC6308C9FA80E092B2532F",
+      "exit_lines": [
+        "EXIT code=0 seconds=98.7"
+      ],
+      "private_peak_mib": 55.9,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-early-options01/report.json",
+      "report_sha256": "5689F04180E8EDFE1EF6FE5BB63E294079935D988C165B807DF3B6BC0455A477",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "level107-forward01",
+      "memory_log_sha256": "845B91E17A8E34AAD9A0C73C692245872DABBEDDF6F7B62E188B545C36D2D34D",
+      "exit_lines": [
+        "EXIT code=0 seconds=91.8"
+      ],
+      "private_peak_mib": 59.1,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-forward01/report.json",
+      "report_sha256": "6285AD9DFEA4D7E516F8392BC00F469C8DEFC522AC7AB30EE53248E522C0F5D4",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "level107-forward02",
+      "memory_log_sha256": "13DDB6738EA55E08C70D0B3D2C211F982C71D4A21F3A5EC071141B2706C26056",
+      "exit_lines": [
+        "EXIT code=0 seconds=35.1"
+      ],
+      "private_peak_mib": 58.2,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-forward02/report.json",
+      "report_sha256": "EAA9FFF17C21D5574740347EF098C46DB8DDB3315DF74704C20A0C2EE1BF2245",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "level107-growth01",
+      "memory_log_sha256": "29B87343BA2E9F352A3BBEC239A5F50F9831C957B8E54007E38348C90362F255",
+      "exit_lines": [
+        "EXIT code=0 seconds=353.0"
+      ],
+      "private_peak_mib": 59.5,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-growth01/report.json",
+      "report_sha256": "C4F03DEFE0C9543D0D1345B9BF82817378DB7509455F2993750DE3643CC071C7",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "level107-growth02",
+      "memory_log_sha256": "4EA987AC30BB1F5DC62EA73AB8F984D589BD40EB7FDD3A14607500EFC422FCFE",
+      "exit_lines": [
+        "EXIT code=0 seconds=358.5"
+      ],
+      "private_peak_mib": 59.1,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-growth02/report.json",
+      "report_sha256": "719435081BD69A97C3AD97D9E8E9A7C115A43A65B9425053EE36A80374A86E6D",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "level107-growth03",
+      "memory_log_sha256": "8720589EDC1ABA8C499C25D16AB01C119173176627AAD4B64EE0E268C7566744",
+      "exit_lines": [
+        "EXIT code=0 seconds=192.1"
+      ],
+      "private_peak_mib": 60.6,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-growth03/report.json",
+      "report_sha256": "898B88AA1ADD32DE850ACBF9996398DA653A0A7326099C028D2DDA2C61FD6043",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "level107-growth04",
+      "memory_log_sha256": "F88054408FF24BDC002D998A3E6D036FB900245A22886D64239391291187BA7B",
+      "exit_lines": [
+        "EXIT code=0 seconds=107.9"
+      ],
+      "private_peak_mib": 59.1,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-growth04/report.json",
+      "report_sha256": "3C1E6E1C21D6EAF8C160F05A41C47B0C216B62C3DE992E7E12956EC127C03371",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "level107-growth05",
+      "memory_log_sha256": "75B9E0BE07FEBBEF56EF7B4BD5C00BC3487CC033F3D95A3D1AE14C6314D3D045",
+      "exit_lines": [
+        "EXIT code=0 seconds=128.7"
+      ],
+      "private_peak_mib": 59.6,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-growth05/report.json",
+      "report_sha256": "F282643A972C8CD767359E947E66EF5CE77CC74B0C736DB0E3BABCE47EBC66F3",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "level107-growth06",
+      "memory_log_sha256": "E9833D8B3FC78439F468B71223772D408B6D5D9E72270D89968C967C3627E4D0",
+      "exit_lines": [
+        "EXIT code=0 seconds=123.1"
+      ],
+      "private_peak_mib": 59.0,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-growth06/report.json",
+      "report_sha256": "13C4510203162A39F30A247EE0AA0ACAE895F0A2AA19D11509AD47F504C77A30",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "level107-growth07",
+      "memory_log_sha256": "35AF79D5D58B313B5983797C9617A74D7FDC1DAE31C07C018245EBB4A067752E",
+      "exit_lines": [
+        "EXIT code=0 seconds=112.3"
+      ],
+      "private_peak_mib": 61.9,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-growth07/report.json",
+      "report_sha256": "950B712CA247F95F49CE7DBD7580ED753857D46BAE8361A0801B4A0A4A17291D",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "level107-growth08",
+      "memory_log_sha256": "1819923FC0C464DF32D1DADFB9826069B17D7CC0EC64FD6D8D6F06B07FF2819F",
+      "exit_lines": [
+        "EXIT code=0 seconds=114.0"
+      ],
+      "private_peak_mib": 60.0,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-growth08/report.json",
+      "report_sha256": "047B9448818AD41C9C7BCE4C1CC84696E2069B1828A3FDE48C35FDBC31808100",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "level107-heavy01",
+      "memory_log_sha256": "326685E19AD86F36D1B0D481FD626B59B7B4E847658F072E54CFC22099672D2D",
+      "exit_lines": [
+        "EXIT code=0 seconds=251.2"
+      ],
+      "private_peak_mib": 65.2,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-heavy01/report.json",
+      "report_sha256": "D1E83E955E296D87AC96DC7125A5A6A5C28BD7B9AEBB1D564E6780B05D28D29F",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "level107-parse01",
+      "memory_log_sha256": "8EC66CEB8C8EEB23093886F1147FB3B7F37380C735789FA1BE6A4591FA9D4469",
+      "exit_lines": [
+        "EXIT code=0 seconds=5.3"
+      ],
+      "private_peak_mib": 189.4,
+      "engine_issues": [],
+      "parse_results": [
+        "PARSE065_RESULT failed=0"
+      ]
+    },
+    {
+      "run": "level107-parse02",
+      "memory_log_sha256": "288E3E7EB44EB1D2039682E67616896802B8541EC5B93427C856422215EF8897",
+      "exit_lines": [
+        "EXIT code=0 seconds=2.0"
+      ],
+      "private_peak_mib": 107.0,
+      "engine_issues": [],
+      "parse_results": [
+        "PARSE065_RESULT failed=0"
+      ]
+    },
+    {
+      "run": "level107-parse03",
+      "memory_log_sha256": "6134448CD65B21C3490B1B59BFFD4DED7469FD5AA7EADCEA540F27FEB378F51F",
+      "exit_lines": [
+        "EXIT code=0 seconds=1.9"
+      ],
+      "private_peak_mib": 112.7,
+      "engine_issues": [],
+      "parse_results": [
+        "PARSE065_RESULT failed=0"
+      ]
+    },
+    {
+      "run": "level107-probe-baseline01",
+      "memory_log_sha256": "8073B026ABF58FEFB099D72EEA0487E6F54F28311AC362C64361E310BD923267",
+      "exit_lines": [
+        "EXIT code=1 seconds=0.3"
+      ],
+      "engine_issues": [
+        "SCRIPT ERROR: Parse Error: Too few arguments for \"simulate()\" call. Expected at least 7 but received 6.",
+        "ERROR: Failed to load script \"res://tests/test_campaign_probe107.gd\" with error \"Parse error\"."
+      ],
+      "parse_results": []
+    },
+    {
+      "run": "level107-probe-baseline02",
+      "memory_log_sha256": "D0D411BE4864F3F299A4D64E5AD10CF7A393E3CEA3D4ED7780C1EF20899772F6",
+      "exit_lines": [
+        "EXIT code=0 seconds=205.5"
+      ],
+      "private_peak_mib": 55.5,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-probe-baseline02/report.json",
+      "report_sha256": "5B7C7FE85805EBBD5498955902AE1168F1956BBA90CE0205835BBCFD8D27F2E2",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "level107-throttle01",
+      "memory_log_sha256": "3D452E2F6CD856CF902749605488FCD257989202A7B93F90A71DAC63DD59947A",
+      "exit_lines": [
+        "EXIT code=0 seconds=230.1"
+      ],
+      "private_peak_mib": 64.2,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-throttle01/report.json",
+      "report_sha256": "C95A8833285444EC19D6033E4C3425499202ABED343DD9F0488187F5BF40C812",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "level107-visual01",
+      "memory_log_sha256": "829BE7B5F6DDED400D061838E1521D164748DB6E3B7F3BF4C070898D5C5C17C5",
+      "exit_lines": [
+        "EXIT code=1 seconds=138.5",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 750.1,
+      "engine_issues": [
+        "WARNING: ObjectDB instances leaked at exit (run with --verbose for details)."
+      ],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-visual01/screens/report.json",
+      "report_sha256": "20131511BF32F8D44770378FAEB00A85E02C394390DF6DF080C7D7EEBBCF8F05",
+      "passed": false,
+      "failures": [
+        "Engine W key state matches injection"
+      ],
+      "rows": 3,
+      "levels": [
+        {
+          "level": 6,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 3.1176374120345,
+            "enemy_score": 6,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 91.2343446564492,
+            "player_score": 9,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 180,
+            "first_clear": true,
+            "level": 6,
+            "renown": 1
+          },
+          "peak_lean": 1.0
+        },
+        {
+          "level": 10,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 26.4939443687298,
+            "enemy_score": 2,
+            "mode": "arena",
+            "passes": 2,
+            "player_dead": false,
+            "player_hp": 95.3664312868694,
+            "player_score": 6,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 528,
+            "first_clear": true,
+            "level": 10,
+            "renown": 3
+          },
+          "peak_lean": 1.0
+        },
+        {
+          "level": 15,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 16.7517625087113,
+            "enemy_score": 1,
+            "mode": "war",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.7037285662317,
+            "player_score": 9,
+            "reason": "hp",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 288,
+            "first_clear": true,
+            "level": 15,
+            "renown": 1
+          },
+          "peak_lean": 1.0
+        }
+      ]
+    },
+    {
+      "run": "level107-visual02",
+      "memory_log_sha256": "88753117D3F7D7522248BB755E8540C6A2B0E21403F630262879F97C0CCD138B",
+      "exit_lines": [
+        "EXIT code=0 seconds=136.9",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 732.6,
+      "engine_issues": [
+        "WARNING: ObjectDB instances leaked at exit (run with --verbose for details)."
+      ],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-visual02/screens/report.json",
+      "report_sha256": "3BED40410D398B55D347506CCD81DA04C2A5670F7DE42153D818C21356D59B2D",
+      "passed": true,
+      "failures": [],
+      "rows": 3,
+      "levels": [
+        {
+          "level": 6,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 2.81063541416039,
+            "enemy_score": 6,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 91.0587823846538,
+            "player_score": 9,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 180,
+            "first_clear": true,
+            "level": 6,
+            "renown": 1
+          },
+          "peak_lean": 1.0
+        },
+        {
+          "level": 10,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 26.3150062980646,
+            "enemy_score": 2,
+            "mode": "arena",
+            "passes": 2,
+            "player_dead": false,
+            "player_hp": 95.3200495883524,
+            "player_score": 6,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 528,
+            "first_clear": true,
+            "level": 10,
+            "renown": 3
+          },
+          "peak_lean": 1.0
+        },
+        {
+          "level": 15,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 16.6017898075909,
+            "enemy_score": 1,
+            "mode": "war",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.7058426672105,
+            "player_score": 9,
+            "reason": "hp",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 288,
+            "first_clear": true,
+            "level": 15,
+            "renown": 1
+          },
+          "peak_lean": 1.0
+        }
+      ]
+    },
+    {
+      "run": "level107-visual03",
+      "memory_log_sha256": "5605EBE3C3AC9C1460C43C104D046675B5E7D7B1D986956E5324073E53A7931D",
+      "exit_lines": [
+        "EXIT code=0 seconds=165.9",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 760.3,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-visual03/screens/report.json",
+      "report_sha256": "B40A63546A39D1F19F426E9354A869DE1E10C62ED6AFD8F586EC7660B40130EE",
+      "passed": true,
+      "failures": [],
+      "rows": 3,
+      "levels": [
+        {
+          "level": 40,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 87.0729670395583,
+            "enemy_score": 2,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 84.2414402802402,
+            "player_score": 4,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 888,
+            "first_clear": true,
+            "level": 40,
+            "renown": 3
+          },
+          "peak_lean": 1.0
+        },
+        {
+          "level": 41,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 18.7016960179446,
+            "enemy_score": 0,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 98.253846136797,
+            "player_score": 9,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 600,
+            "first_clear": true,
+            "level": 41,
+            "renown": 1
+          },
+          "peak_lean": 1.0
+        },
+        {
+          "level": 43,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 93.9536669701553,
+            "enemy_score": 1,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.3014161815271,
+            "player_score": 6,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 624,
+            "first_clear": true,
+            "level": 43,
+            "renown": 1
+          },
+          "peak_lean": 1.0
+        }
+      ]
+    },
+    {
+      "run": "level107-visual04",
+      "memory_log_sha256": "11C22907352D1CF144A1787F89CC0D8C5BF067FD76A3545C46E3E54A770A7646",
+      "exit_lines": [
+        "EXIT code=0 seconds=249.7",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 761.0,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/level107-visual04/screens/report.json",
+      "report_sha256": "A41A8F1272388C0717D4A286FBD5A129A4EF5F7CF0BCA42DFF335BD92924AD56",
+      "passed": true,
+      "failures": [],
+      "rows": 5,
+      "levels": [
+        {
+          "level": 24,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 13.4285287431233,
+            "enemy_score": 4,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.1472225979697,
+            "player_score": 9,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 396,
+            "first_clear": true,
+            "level": 24,
+            "renown": 1
+          },
+          "peak_lean": 1.0
+        },
+        {
+          "level": 60,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 43.6741079650946,
+            "enemy_score": 0,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.5305110081677,
+            "player_score": 8,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 1128,
+            "first_clear": true,
+            "level": 60,
+            "renown": 3
+          },
+          "peak_lean": 1.0
+        },
+        {
+          "level": 70,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 56.2961023356498,
+            "enemy_score": 6,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 62.4398392595244,
+            "player_score": 5,
+            "reason": "score",
+            "winner": 1
+          },
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 70,
+            "renown": 0
+          },
+          "peak_lean": 1.0
+        },
+        {
+          "level": 75,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 55.6464137797816,
+            "enemy_score": 5,
+            "mode": "war",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 46.187293867453,
+            "player_score": 5,
+            "reason": "hp",
+            "winner": 1
+          },
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 75,
+            "renown": 0
+          },
+          "peak_lean": 1.0
+        },
+        {
+          "level": 80,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 51.7982878478636,
+            "enemy_score": 2,
+            "mode": "arena",
+            "passes": 2,
+            "player_dead": false,
+            "player_hp": 97.2245473412953,
+            "player_score": 6,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 1368,
+            "first_clear": true,
+            "level": 80,
+            "renown": 3
+          },
+          "peak_lean": 1.0
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Budget kits are legal shadow ledgers, not actual purchase transactions.",
+    "Injected strategies and small seeds are not population win rates.",
+    "Only first five levels earned sequential unlocks; other GPU fixtures set prior progress.",
+    "Old 94ms cause, contact locked 60 FPS, human feel/audio and second-machine certification not resolved by this stage."
+  ],
+  "LEVEL107_GROWTH_CURVE.json": "937AD43F8953FB1645096D8330BD4370EA3620EA9A1295A5A3CFC3CD3BBCB336",
+  "LEVEL107_TACTICS_CURVE.json": "16735091D935B10A61870F9436FB251CB383F64745787F144699BF9278F49082"
+}

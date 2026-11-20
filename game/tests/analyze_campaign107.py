@@ -16,7 +16,7 @@ for name in a.reports:
              'kit':doc.get('kit'), 'fixed_ai':doc.get('fixed_ai'),
              'fixed_gear':doc.get('fixed_gear'),'pace_override':doc.get('pace_override'),
              'levels':[],'failures':doc.get('failures',[])}
-    for key,level in doc.get('levels',{}).items():
+    for key,level in sorted(doc.get('levels',{}).items(), key=lambda item: int(item[0])):
         rows=level.get('rows',[])
         if not rows:
             continue
@@ -29,7 +29,9 @@ for name in a.reports:
         for row in rows:
             s=row['strategy']
             outcomes.setdefault(s,Counter())
-            outcomes[s]['win' if row['winner']==0 else 'loss' if row['winner']==1 else 'draw']+=1
+            outcome=('timeout' if not row.get('ended',False) else
+                     'win' if row['winner']==0 else 'loss' if row['winner']==1 else 'draw')
+            outcomes[s][outcome]+=1
             if row['winner']==0:side_wins[str(row['side'])]+=1
             own_damage=0
             for hit in row['hits']:
@@ -47,7 +49,8 @@ for name in a.reports:
                 first=min(contacts)
                 for line in lines[1:]:
                     if line['time']<first:actual_change_leads.append(round(first-line['time'],3))
-        data={'level':int(key),'outcomes':outcomes,'side_wins':side_wins,
+        data={'level':int(key),'matches':len(rows),'seeds':sorted({r['seed'] for r in rows}),
+              'outcomes':outcomes,'side_wins':side_wins,
               'taken_zones':taken,'lost_by_fall':falls,'mean_damage':round(sum(damage)/max(1,len(damage)),2),
               'min_actual_change_lead':min(actual_change_leads,default=None),
               'changes_measured':len(actual_change_leads)}

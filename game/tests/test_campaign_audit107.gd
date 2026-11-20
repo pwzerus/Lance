@@ -92,7 +92,7 @@ func run()->void:
 	var duplicates={}
 	for key in names:
 		if names[key].size()>1:duplicates[key]=names[key]
-	var report={"passed":failures.is_empty(),"failures":failures,"version":ProjectSettings.get_setting("application/config/version"),"rows":rows,"duplicate_names":duplicates,"unique_kits":kits.size(),"unique_ai_profiles":profiles.size(),"scope":"Actual campaign catalogue snapshot. Legacy reference affordability assumes buying each reference upgrade once and winning all previous levels, not actual purchase/progression or human play evidence."}
+	var report={"passed":failures.is_empty(),"failures":failures,"version":ProjectSettings.get_setting("application/config/version"),"chapters":Campaign.CHAPTERS,"chapter_notes":Campaign.CHAPTER_NOTES,"rows":rows,"duplicate_names":duplicates,"unique_kits":kits.size(),"unique_ai_profiles":profiles.size(),"scope":"Actual campaign catalogue snapshot. Legacy reference affordability assumes buying each reference upgrade once and winning all previous levels, not actual purchase/progression or human play evidence."}
 	DirAccess.make_dir_recursive_absolute(report_path.get_base_dir())
 	FileAccess.open(report_path,FileAccess.WRITE).store_string(JSON.stringify(report,"\t"))
 	print("CAMPAIGN_AUDIT107 ",failures);quit(0 if failures.is_empty() else 1)

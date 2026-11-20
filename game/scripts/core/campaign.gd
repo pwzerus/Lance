@@ -7,6 +7,7 @@ extends RefCounted
 ## aggression = how early and how hard they press). Difficulty never changes
 ## combat stats: only equipment and decisions differ.
 const Catalogue = preload("res://scripts/core/catalogue.gd")
+const Appearance = preload("res://scripts/core/character_appearance.gd")
 const COUNT = 80
 const PER_CHAPTER = 10
 const CHAPTERS = ["乡间比武","郡守之杯","勃艮第之路","莱茵骑士会","米兰金枪","王家比武大会","圣乔治骑士团","桂冠之巅"]
@@ -229,7 +230,9 @@ static func build(items: Array, n: int) -> Dictionary:
 	return {"number":n,"chapter":chapter,"chapter_name":CHAPTERS[chapter],"position":position+1,"boss":boss,
 		"opponent":opponent,"region":Catalogue.REGIONS[REGION_KEYS.find(region)],"archetype":kind,"archetype_name":role_name,
 		"hint":hint,"mode":"war" if war else "arena","quality":_q(q),"equipment":equipment,
-		"ai":ai,
+		# Cosmetic identity belongs to the encounter, not its equipment colours.
+		# Local arithmetic does not consume combat RNG or encode nationality.
+		"appearance":Appearance.variant(n*409+10801),"ai":ai,
 		"reward_coins":reward_coins(n,boss),"reward_renown":3 if boss else 1}
 
 static func reward_coins(n: int, boss: bool) -> int:

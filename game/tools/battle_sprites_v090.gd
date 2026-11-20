@@ -11,7 +11,8 @@ extends SceneTree
 ## Armours that show cloth (surcoats, jupons, cloth-covered plates) also get a
 ## cloth mask; every arms design is baked onto that cloth (field over the whole
 ## garment, charge across it, folds kept from the original luminance), so the
-## rider's surcoat bears the same arms as shield and caparison. Plate armours
+## rider's surcoat bears the same family arms as caparison and lance pennon.
+## REQ-098: shields have independent fixed devices. Plate armours
 ## keep their own decoration, now readable.
 ##
 ## --out=<new absolute dir> [--install]
@@ -27,7 +28,9 @@ const PALETTE = 28
 # (mail coif/collar) when classifying.
 # "gold": yellow/gilt embroidery or yellow cloth is part of the garment (the
 # English jupon's old royal charges; the French yellow velvet brigandine).
-# art090-bake01 review: fr_armor_2 is leather, not cloth, so it keeps its look.
+# ART-108: fr_armor_2 retains the brown appearance selected in ART-090.
+# This is a visual exception, not evidence of leather: Met 29.150.105 lists
+# textile covering. Do not infer historical material from the sprite colour.
 const CLOTH = {
 	# Cream wool sits in the gold hue band; bake02 left cream patches.
 	"eng_armor_1":{"white":true,"white_v":.50,"gold":true},

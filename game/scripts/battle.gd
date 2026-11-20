@@ -143,6 +143,8 @@ func _ready() -> void:
 	var enemy_stats = Catalogue.opponent_stats(GameState.items,Catalogue.era_for_renown(int(GameState.profile.renown)))
 	if not level.is_empty():
 		enemy_stats = Catalogue.stats(GameState.items,level.equipment)
+		if level.has("appearance"):
+			enemy_stats.appearance = preload("res://scripts/core/character_appearance.gd").sanitize(level.appearance)
 		ai_controller.configure(level.ai)
 	match_model = Model.new(mode, player_stats, enemy_stats, demo_seed if demo_seed else int(Time.get_ticks_usec()))
 	if practice_guide: practice_guide.begin_attempt(match_model.fighters[0])

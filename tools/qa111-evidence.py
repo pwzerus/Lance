@@ -8,6 +8,8 @@ import argparse
 import hashlib
 import json
 import re
+import statistics
+from datetime import datetime
 
 ROOT = Path(__file__).resolve().parents[1]
 LOGS = ROOT / 'docs/development/logs'
@@ -72,7 +74,40 @@ def collect(include_images=False):
             'performance': {'all_frames': report.get('all_frames'), 'phases': report.get('phases')},
             'measured_play_seconds': report.get('wall_seconds'),
             'configuration': {key: report.get(key) for key in ['mode', 'kit', 'difficulty', 'blood', 'settings', 'window']},
+            'completed_matches': len(report.get('matches', [])) if isinstance(report.get('matches'), list) else None,
+            'sample_trends': {},
         }
+        # Compare like phases; an effect-heavy contact is not equivalent to an
+        # empty ready screen. Trends remain evidence, not a hidden pass waiver.
+        phase_samples = {}
+        for sample in report.get('samples', []):
+            if isinstance(sample, dict) and all(key in sample for key in ['phase', 'nodes', 'resources']):
+                phase_samples.setdefault(sample['phase'], []).append(sample)
+        for phase, samples_in_phase in phase_samples.items():
+            window = min(20, len(samples_in_phase))
+            entry['sample_trends'][phase] = {
+                'samples': len(samples_in_phase),
+                **{key: {
+                    'minimum': min(row[key] for row in samples_in_phase),
+                    'maximum': max(row[key] for row in samples_in_phase),
+                    'first_median': statistics.median(row[key] for row in samples_in_phase[:window]),
+                    'last_median': statistics.median(row[key] for row in samples_in_phase[-window:]),
+                } for key in ['nodes', 'resources']},
+            }
+        if directory.name.startswith('qa111-final-') and exits:
+            save_file = directory / 'screens/qa_profile.json'
+            saved = read(save_file) if save_file.is_file() else {}
+            equipped = report.get('equipped') or {}
+            entry['final_qa_save'] = {
+                'path': relative(save_file),
+                'sha256': digest(save_file) if save_file.is_file() else None,
+                'same_equipment': bool(equipped) and saved.get('equipped') == equipped,
+                'owned_equipment_retained': bool(equipped) and set(equipped.values()).issubset(set(saved.get('owned', []))),
+                'matches': saved.get('matches'),
+                # A result may arrive during the explicitly excluded screenshot
+                # frames. The in-engine test checks exact timing-sample saves.
+                'covers_measured_results': saved.get('matches', -1) >= (entry['completed_matches'] or 0),
+            }
         if include_images:
             entry['images'] = [{'file': relative(p), 'sha256': digest(p)} for p in sorted(directory.glob('screens/*.png'))]
         runs.append(entry)
@@ -139,12 +174,45 @@ def collect(include_images=False):
     after_file = LOGS / 'qa111-formal-after.json'
     before_file = LOGS / 'ux110-formal-after02.json'
     integration_runs = [run for run in runs if run['name'].startswith('qa111-final-')]
+    final_cases = {
+        'starter-arena': ('starter', 'arena', 0, False, True, True, 480),
+        'starter-war': ('starter', 'war', 1, True, True, True, 480),
+        'french-light': ('french_light', 'arena', 2, False, False, True, 480),
+        'italian-plate': ('italian_plate', 'war', 2, True, True, False, 480),
+        'heavy-arena': ('heavy', 'arena', 2, False, True, True, 480),
+        'english-late': ('english_late', 'war', 1, False, False, False, 480),
+        'steady-arena': ('steady', 'arena', 1, False, True, True, 480),
+        'heavy-fullscreen': ('heavy', 'war', 0, True, False, False, 240),
+    }
+    integration_issues = []
+    for run in integration_runs:
+        if run['exit_code'] is None:
+            continue
+        key = run['name'].removeprefix('qa111-final-').removesuffix('01')
+        if key not in final_cases:
+            integration_issues.append(run['name'] + ': unrecognized configuration')
+            continue
+        kit, mode, difficulty, blood, slow, shake, seconds = final_cases[key]
+        actual = run['configuration']
+        for field, expected in [('kit', kit), ('mode', mode), ('difficulty', difficulty), ('blood', blood)]:
+            if actual.get(field) != expected:
+                integration_issues.append(run['name'] + ': configuration differs: ' + field)
+        settings = actual.get('settings') or {}
+        if settings.get('slow_motion') != slow or settings.get('shake') != shake:
+            integration_issues.append(run['name'] + ': slow/shake configuration differs')
+        if key == 'heavy-fullscreen' and (actual.get('window') or {}).get('mode') != 3:
+            integration_issues.append(run['name'] + ': fullscreen was not active')
+        if (run['measured_play_seconds'] or 0) < seconds or not run['completed_matches']:
+            integration_issues.append(run['name'] + ': measured duration or completed match missing')
+        saved = run.get('final_qa_save') or {}
+        if not all(saved.get(key) is True for key in ['same_equipment', 'owned_equipment_retained', 'covers_measured_results']):
+            integration_issues.append(run['name'] + ': final QA save did not retain equipment or completed results')
     result = {
         'scope': 'Actual v0.4.59 candidate runtime/PCK with external QA drivers, background isolated GPU, engine/viewport input and explicitly identified fixtures. No OS input, human difficulty/feel/hearing or second-machine certification.',
         'memory_note': 'Private-byte one-second samples, not kernel high-water marks. Each process remains protected and serialized.',
         'timing': read(timing_file) if timing_file.is_file() else None,
         'runs': runs, 'journey': journey, 'independent_ledger': ledger, 'score_audit': score,
-        'integration': {'runs': [run['name'] for run in integration_runs], 'measured_play_seconds': sum(run['measured_play_seconds'] or 0 for run in integration_runs)},
+        'integration': {'runs': [run['name'] for run in integration_runs], 'measured_play_seconds': sum(run['measured_play_seconds'] or 0 for run in integration_runs), 'validation_issues': integration_issues},
         'all_runs_closed': bool(runs) and all(row['exit_code'] is not None for row in runs),
         'actual_journey_complete': complete_route,
         'archive': read(LOGS / 'qa111-archive01.json'),
@@ -167,13 +235,26 @@ if __name__ == '__main__':
             raise SystemExit('The separate final verification hour is not complete.')
         if len(result['integration']['runs']) != 8 or result['integration']['measured_play_seconds'] < 3600:
             raise SystemExit('The eight distinct post-stage configurations have not completed 60 minutes of measured play.')
+        if result['integration']['validation_issues']:
+            raise SystemExit('Post-stage configuration verification differs: ' + str(result['integration']['validation_issues']))
         if result['timing'].get('stage9_seconds', 0) < 5400:
             raise SystemExit('The Windows delivery stage has not reached its own 90-minute minimum.')
+        timing = result['timing']
+        stamps = {key: datetime.fromisoformat(timing[key].replace('Z', '+00:00')) for key in ['stage9_start_utc', 'stage9_end_utc', 'integration_start_utc', 'integration_end_utc']}
+        if stamps['integration_start_utc'] < stamps['stage9_end_utc']:
+            raise SystemExit('The separate final period overlaps stage 9.')
+        for prefix in ['stage9', 'integration']:
+            measured = (stamps[prefix + '_end_utc'] - stamps[prefix + '_start_utc']).total_seconds()
+            if abs(measured - timing[prefix + '_seconds']) > 1:
+                raise SystemExit('Recorded duration disagrees with UTC endpoints: ' + prefix)
         if result['independent_ledger']['issues'] or result['score_audit']['mismatches'] or result['score_audit']['duplicate_cells']:
             raise SystemExit('The actual earned campaign ledger or scoring still differs.')
         if result['formal_save_check'].get('unchanged') is not True:
             raise SystemExit('Final formal-save preservation has not been verified.')
         for run in result['runs']:
+            target = run.get('target') or {}
+            if target.get('target') == 'bundle' and target.get('pck_sha256') != '65A6B6D8FF9C4F3B1CEA5E1FBD68E5AA2563FDD50C84870252742884FC9C539C':
+                raise SystemExit('Actual tested PCK differs from the sealed candidate: ' + run['name'])
             if run['name'] == 'qa111-save-ui01' and run['expected_storage_errors'] != 2:
                 raise SystemExit('Expected storage-fault count differs from the two deliberate probes.')
             reviewed_timing_failure = run['name'] == 'qa111-journey02' and run['exit_code'] == 1 and set(run['failures'] or []) == {'Equip button enabled eng_lance_long_2', 'UI equip persists eng_lance_long_2'}

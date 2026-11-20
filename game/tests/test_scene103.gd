@@ -20,8 +20,10 @@ func forward_key(pressed:bool)->Dictionary:
 	Input.flush_buffered_events()
 	return {"wanted":pressed,"immediate":immediate,"after_flush":Input.is_physical_key_pressed(KEY_W)}
 func run()->void:
-	var folder="";var nums=[23,24,25];var audit_path="";var budget_line="light";var audit={};var strategy="opening"
+	var folder="";var nums=[23,24,25];var audit_path="";var budget_line="light";var audit={};var strategy="opening";var appearance_cycle=false;var fall_captures=false
 	for a in OS.get_cmdline_user_args():
+		if a=="--appearance-cycle":appearance_cycle=true
+		if a=="--fall-captures":fall_captures=true
 		if a.begins_with("--folder="):folder=a.trim_prefix("--folder=")
 		if a.begins_with("--audit="):audit_path=a.trim_prefix("--audit=")
 		if a.begins_with("--kit="):budget_line=a.trim_prefix("--kit=")
@@ -49,6 +51,8 @@ func run()->void:
 	for i in range(30):await process_frame
 	var rows=[]
 	for n in nums:
+		if appearance_cycle:
+			check(state.set_appearance(preload("res://scripts/core/character_appearance.gd").variant(n*211+10829)),"Save custom player face "+str(n))
 		if not audit.is_empty():
 			state.profile.equipped=audit.rows[n-1].budget_kits[budget_line].equipment.duplicate()
 			state.profile.coins=int(audit.rows[n-1].budget_kits[budget_line].coins_remaining)
@@ -68,11 +72,28 @@ func run()->void:
 		if root.focus_exited.is_connected(b._on_focus_lost):root.focus_exited.disconnect(b._on_focus_lost)
 		b.match_model.rng.seed=10301;b.ai_rng.seed=10732
 		check(b.ai_controller.profile==Campaign103.level(state.items,n).ai,"Actual level profile "+str(n))
+		check(b.match_model.fighters[1].stats.get("appearance",{})==expected.get("appearance",{}),"Campaign face reaches actual Battle "+str(n))
+		check(b.match_model.fighters[0].stats.get("appearance",{})==state.profile.appearance,"Player face stays independent "+str(n))
+		var fallen_seen=[]
+		var fall_frames=[];var fall_stages={};var fall_stamps=[0.0,.2,.4,.7,1.2,1.8]
 		var began=Time.get_ticks_msec();var next_input=-1.0;var lines=[];var last_line="";var captured_hit=false;var holding_w=false;var peak_lean=0.0;var key_events=[]
 		while Time.get_ticks_msec()-began<120000 and not main.result_visible:
 			await process_frame
 			if not b.presentation_ready:continue
 			var p=b.match_model.fighters[0];var enemy=b.match_model.fighters[1]
+			for body in b.effects.bodies:
+				if is_instance_valid(body) and body.get_instance_id() not in fallen_seen:
+					fallen_seen.append(body.get_instance_id())
+					var source_fighter=p if int(body.fighter.direction)==int(p.direction) else enemy
+					check(body.fighter.stats.get("appearance",{})==source_fighter.stats.get("appearance",{}),"Fall preserves rider identity "+str(n))
+					check(body.visual.fighter.stats.get("appearance",{})==body.fighter.stats.get("appearance",{}),"Detached renderer preserves face "+str(n))
+				if fall_captures and is_instance_valid(body):
+					var body_id=body.get_instance_id();var stage=int(fall_stages.get(body_id,0))
+					if stage<fall_stamps.size() and body.age>=float(fall_stamps[stage]):
+						var file="level%d-fall%d-step%d"%[n,fallen_seen.find(body_id),stage]
+						fall_frames.append({"file":file+".png","age":body.age,"stage":stage,"direction":body.fighter.direction,"position":str(body.position),"visible":body.visible})
+						fall_stages[body_id]=stage+1
+						await capture(folder,file)
 			var gap=absf(p.x-enemy.x)
 			b.mouse_held=(gap<1500 if strategy=="reserve" else (gap>1500 if strategy=="coast" else gap<3000));b.ui_pointer_held=false
 			var want_w=strategy=="forward" and gap<1600 and b.match_model.phase=="charge"
@@ -105,12 +126,13 @@ func run()->void:
 			check(not won or main.reward.coins==Campaign103.reward_coins(n,bool(expected.boss)),"Reward correct")
 			var buttons=visible_buttons(main.screen)
 			check(n!=Campaign103.COUNT or "下一关" not in buttons,"Final champion must not offer level 81")
-			rows.append({"level":n,"result":main.pending_result.duplicate(true),"reward":main.reward.duplicate(true),"lines":lines,"hits":b.exchange_log.duplicate(true),"peak_lean":peak_lean,"key_events":key_events,"buttons":buttons})
+			rows.append({"level":n,"result":main.pending_result.duplicate(true),"reward":main.reward.duplicate(true),"lines":lines,"hits":b.exchange_log.duplicate(true),"peak_lean":peak_lean,"key_events":key_events,"buttons":buttons,"player_appearance":b.match_model.fighters[0].stats.get("appearance",{}),"opponent_appearance":b.match_model.fighters[1].stats.get("appearance",{}),"fallen_identities_checked":fallen_seen.size(),"fall_frames":fall_frames})
 		main._close_battle();await process_frame
 		check(is_equal_approx(Engine.time_scale,1.0),"Close restores time")
 		FileAccess.open(folder+"/partial.json",FileAccess.WRITE).store_string(JSON.stringify(rows,"\t"))
 	var disk=state.sanitize(state._read_save(state.save_path))
 	check(disk.coins==state.profile.coins and disk.campaign_cleared==state.profile.campaign_cleared,"QA disk progress matches")
+	check(disk.appearance==state.profile.appearance,"Appearance persists across actual matches and rewards")
 	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"version":ProjectSettings.get_setting("application/config/version"),"rows":rows,"audit":audit_path,"strategy":strategy,"budget_line":budget_line if not audit.is_empty() else "legacy_fixed_q1","scope":"Actual Main/Battle GPU with legacy fixed q1 or explicit audit budget kit; earlier levels are unlocked in the fixture. Engine-injected 600ms aim/guard input and optional W key events, normal result/reward/disk-save. Isolated QA, no OS input, earned campaign playthrough or human acceptance."},"\t"))
 	# Exercise the game's normal shutdown: stop players and allow the mixer
 	# to drain. Immediate fixture quit bypassed this and reported WAV leaks.

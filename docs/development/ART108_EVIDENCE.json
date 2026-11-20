@@ -1,0 +1,1706 @@
+{
+  "task": "ART-108",
+  "baseline": "0ad4f2f4ba3f3c07ce795768ce83c5815cd27365",
+  "scope": "Protected source Godot 4.5.1, isolated QA GPU and headless rules. No OS input, human acceptance, hardware audio or new Windows package at this stage.",
+  "production_files": {
+    "game/scripts/core/campaign.gd": "06FDB10BC5A6068ABC7140FA4377EA33C3FFC81C994F0277DDE00B602D5EA66E",
+    "game/scripts/battle.gd": "066FA4E3D66C724E23257AABB2724468A0B5B23DE8839439848CB2F41005F212",
+    "game/data/history_v051_en_fr.json": "1C9C22199B4AD2473599CCB33FD44CF179A977219FAAB97AEF20B98B8CB37BEC",
+    "game/tools/battle_sprites_v090.gd": "DBDC12426432B85B88A1CC07F6DCCF5DB3571C0AC26046D9685B3FF12E6E2422"
+  },
+  "runs": [
+    {
+      "run": "art108-campaign01",
+      "memory_sha256": "85C812EF00435BAB053AD6A501D8797A1D9C238DC10DC41E3E2DB7A5AAEB5C18",
+      "exit_lines": [
+        "EXIT code=0 seconds=405.5",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 725.6,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-campaign01/screens/report.json",
+      "report_sha256": "21EA52C417B349D0011A10C37B616C54BD43F55B544E85AD30E0C5B9CA509227",
+      "passed": true,
+      "failures": [],
+      "rows_count": 8
+    },
+    {
+      "run": "art108-campaign02",
+      "memory_sha256": "852E455C4636AE1DF3B7EC24FA6FB1196D6BF3AD37BDD2F190746022D42DE813",
+      "exit_lines": [
+        "EXIT code=0 seconds=397.5",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 743.2,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-campaign02/screens/report.json",
+      "report_sha256": "E18683B6D863146564223E318F1BF75AB85C3090A60459647F631E109D3F9023",
+      "passed": true,
+      "failures": [],
+      "rows_count": 8
+    },
+    {
+      "run": "art108-campaign03",
+      "memory_sha256": "7077978A28FC540BF0F4644C0F270B578DC92F20DD35D27071F4A9C7D3D85AC8",
+      "exit_lines": [
+        "EXIT code=0 seconds=481.3",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 782.0,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-campaign03/screens/report.json",
+      "report_sha256": "30D797C1047E877ED9AFF9924D61B10222C57C3BD147DC7EEB4DAB70F4A1919B",
+      "passed": true,
+      "failures": [],
+      "rows_count": 8
+    },
+    {
+      "run": "art108-campaign04",
+      "memory_sha256": "A401DD4F59AC7F1382AF12D756FA52F643DDFA82A873D0EE4981E8FF1E439E53",
+      "exit_lines": [
+        "EXIT code=0 seconds=433.0",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 750.2,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-campaign04/screens/report.json",
+      "report_sha256": "8BB55538ADB6DA407FA8E5B88C62C740B6D3319F14348E7ADFA2DB7C0C0E2067",
+      "passed": true,
+      "failures": [],
+      "rows_count": 8
+    },
+    {
+      "run": "art108-campaign05",
+      "memory_sha256": "1E5983BE951CE88CA918AF07A8C7EF53578FB1890AE09642DCDE549F2DBB1BA9",
+      "exit_lines": [
+        "EXIT code=0 seconds=338.6",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 755.7,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-campaign05/screens/report.json",
+      "report_sha256": "DCA2C11F4DF6A2890E6D634AF582492CB257CE795F13ABD082C03819D512C338",
+      "passed": true,
+      "failures": [],
+      "rows_count": 8
+    },
+    {
+      "run": "art108-campaign06",
+      "memory_sha256": "3AC2C6EC4072D035AD3E722D9190ABBA1914EB5D5CE7B10B6D7A867948A4C4C1",
+      "exit_lines": [],
+      "finished": false,
+      "private_peak_mib": 747.5,
+      "engine_issues": [],
+      "parse_results": []
+    },
+    {
+      "run": "art108-character01",
+      "memory_sha256": "8EEECA9E2A2C15A4A595794FB3DD45F135B691A45845A3B1FFFA17D2C57985C3",
+      "exit_lines": [
+        "EXIT code=0 seconds=6.9",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 487.3,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-character01/report.json",
+      "report_sha256": "F92D3C010CD8AF40B2052DE90971D3D462F862A476BFC12E42631488D3F0F839",
+      "passed": true,
+      "failures": [],
+      "rows_count": 10
+    },
+    {
+      "run": "art108-cloth01",
+      "memory_sha256": "C55B4613D475E4ECBD56CB23070B6013590E0F2F1C28F7E86C3E33AADE472AED",
+      "exit_lines": [
+        "EXIT code=0 seconds=7.9",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 690.1,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-cloth01/screens/report.json",
+      "report_sha256": "B07EEC6751BDDAC5209920CDAA485BFB2672F06250BB042C7C57536FAE0662F9",
+      "passed": true,
+      "failures": [],
+      "trace_count": 72
+    },
+    {
+      "run": "art108-faces01",
+      "memory_sha256": "5A343EA6552C69710B862F3E4DCE4CFDB3E41C5B0946D9F302F1165D16478866",
+      "exit_lines": [
+        "EXIT code=0 seconds=24.7",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 526.0,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-faces01/screens/report.json",
+      "report_sha256": "868392B96EAB1EF6C852A21CB3E3BA72E122C042DAF19250CFCED1FB39D522DD",
+      "passed": true,
+      "failures": [],
+      "trace_count": 576
+    },
+    {
+      "run": "art108-fallde01",
+      "memory_sha256": "BBAB9FC8BB60AADA5B8B3ADC3F618DF05D8000C11171B93154E06B70D8F72F37",
+      "exit_lines": [
+        "EXIT code=0 seconds=10.2",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 547.9,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-fallde01/screens/report.json",
+      "report_sha256": "70A00CB8A09252D4DF8B11909F6FD3A23D4F7865749DEE5E1AAEBC00BEF27B45",
+      "passed": true,
+      "failures": [],
+      "rows_count": 36
+    },
+    {
+      "run": "art108-falleng01",
+      "memory_sha256": "8D62F50F434E67B51A57217DE20E8DC0694F232F650AAD1F0257CE87AFB265C4",
+      "exit_lines": [
+        "EXIT code=0 seconds=10.4",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 549.3,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-falleng01/screens/report.json",
+      "report_sha256": "1176FB3BEE12CF9EF70122EE722B828F18159470E4F4BEB261892587FDF9809F",
+      "passed": true,
+      "failures": [],
+      "rows_count": 36
+    },
+    {
+      "run": "art108-fallfr01",
+      "memory_sha256": "22EAAA990015C6D2B95424AF9493F1C4A90BBF111C91E4D69A5F6780144F529C",
+      "exit_lines": [
+        "EXIT code=0 seconds=10.5",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 547.3,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-fallfr01/screens/report.json",
+      "report_sha256": "3D6F26144DAF9A0775EB5F86683838906B7F420F40CF094DE017FC84DDB1DA76",
+      "passed": true,
+      "failures": [],
+      "rows_count": 36
+    },
+    {
+      "run": "art108-fallit01",
+      "memory_sha256": "10027B8B24844B2D3A1406676CD872FD9F4DC1244521869C13B6294063E63EDC",
+      "exit_lines": [
+        "EXIT code=0 seconds=10.8",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 519.7,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-fallit01/screens/report.json",
+      "report_sha256": "C57E2B845CEF403249DC790E08A5DB3151A4C76E237B619CF1FA9D2EE281DAA0",
+      "passed": true,
+      "failures": [],
+      "rows_count": 36
+    },
+    {
+      "run": "art108-fit-baseline01",
+      "memory_sha256": "FA7E1539BBFE2A66B49EB8CAA2A2702A249CEB425084A93FE68BCEB5EFED039B",
+      "exit_lines": [
+        "EXIT code=0 seconds=8.4",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 547.0,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-fit-baseline01/screens/report.json",
+      "report_sha256": "4CBBDAF8A39A5D3FFB903BF1D57D669A1B572E5C0763ADCF8EF0E723B7D56276",
+      "passed": true,
+      "failures": [],
+      "trace_count": 0
+    },
+    {
+      "run": "art108-heraldry01",
+      "memory_sha256": "5F20FB6CD286E5AD1701BE4551B7AC753B70476421BABE99A3412AC349FAED5E",
+      "exit_lines": [
+        "EXIT code=0 seconds=10.4",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 686.7,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-heraldry01/screens/report.json",
+      "report_sha256": "362A544008D79AF3C6D09D2C97A821FEEFD8D1F3F9406A5D60A002C992042103",
+      "passed": true,
+      "failures": [],
+      "combinations": 300,
+      "shields": 25,
+      "families": 12
+    },
+    {
+      "run": "art108-identities01",
+      "memory_sha256": "7C12901FCB1B958A29C561CE36199C3C28FA486D547B7D8EB0D8893B7F88631E",
+      "exit_lines": [
+        "EXIT code=0 seconds=9.9",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 506.0,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-identities01/screens/report.json",
+      "report_sha256": "968223ABC12ACF38F3FA24F42795928F49AF03EA6AFEE48507EBF3A22D6A8554",
+      "passed": true,
+      "failures": [],
+      "trace_count": 160
+    },
+    {
+      "run": "art108-inventory-baseline01",
+      "memory_sha256": "024D81B568AFFE2296567340C6947EC4610D6626E9BEE67F891B9E11BE82D34F",
+      "exit_lines": [
+        "EXIT code=0 seconds=1.4"
+      ],
+      "finished": true,
+      "private_peak_mib": 80.6,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-inventory-baseline01/report.json",
+      "report_sha256": "224D7490BC2C83A765F077B4B0AC5AE8095F64AF1A1EC07AEEC10A44C42BC52E",
+      "passed": true,
+      "failures": [],
+      "unique_faces": 4,
+      "fit_pairs": 576
+    },
+    {
+      "run": "art108-inventory02",
+      "memory_sha256": "E1727F929A7AF91D9206B67A116DBF7D943486D852CDC9635D0CF99E432A0B78",
+      "exit_lines": [
+        "EXIT code=0 seconds=0.7"
+      ],
+      "finished": true,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-inventory02/report.json",
+      "report_sha256": "767BE9A2B5656A197C7CDF0C9220CE042A280259C8CF6E8A9D9EA00640E1C66C",
+      "passed": true,
+      "failures": [],
+      "unique_faces": 80,
+      "fit_pairs": 576
+    },
+    {
+      "run": "art108-inventory03",
+      "memory_sha256": "0434C7B350889FB40E23642157320C2ADD280062549C7048D0B540254E18F163",
+      "exit_lines": [
+        "EXIT code=0 seconds=0.9"
+      ],
+      "finished": true,
+      "engine_issues": [
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/eng_armor_0.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/eng_helmet_0.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/eng_armor_1.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/eng_helmet_1.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/eng_armor_2.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/eng_helmet_2.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/eng_armor_3.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/eng_helmet_3.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/eng_armor_4.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/eng_helmet_4.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/eng_armor_5.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/eng_helmet_5.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/fr_armor_0.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/fr_helmet_0.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/fr_armor_1.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/fr_helmet_1.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/fr_armor_2.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/fr_helmet_2.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/fr_armor_3.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/fr_helmet_3.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/fr_armor_4.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/fr_helmet_4.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/fr_armor_5.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/fr_helmet_5.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/de_armor_0.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/de_helmet_0.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/de_armor_1.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/de_helmet_1.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/de_armor_2.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/de_helmet_2.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/de_armor_3.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/de_helmet_3.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/de_armor_4.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/de_helmet_4.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/de_armor_5.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/de_helmet_5.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/it_armor_0.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/it_helmet_0.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/it_armor_1.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/it_helmet_1.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/it_armor_2.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/it_helmet_2.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/it_armor_3.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/it_helmet_3.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/it_armor_4.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/it_helmet_4.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/armor/it_armor_5.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+        "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/art/battle090/helmet/it_helmet_5.png'. Instead, import the image file as an Image resource and load it normally as a resource."
+      ],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-inventory03/report.json",
+      "report_sha256": "96EA273DDDA1532F4B662ED946D9E161D963219F8AA11ED79BAC2A72944F480A",
+      "passed": true,
+      "failures": [],
+      "unique_faces": 80,
+      "fit_pairs": 576
+    },
+    {
+      "run": "art108-inventory04",
+      "memory_sha256": "FAF4B2D5366E613468D5437C2209076929EF414982DC4376233F5F779AF5CB14",
+      "exit_lines": [
+        "EXIT code=0 seconds=0.8"
+      ],
+      "finished": true,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-inventory04/report.json",
+      "report_sha256": "96EA273DDDA1532F4B662ED946D9E161D963219F8AA11ED79BAC2A72944F480A",
+      "passed": true,
+      "failures": [],
+      "unique_faces": 80,
+      "fit_pairs": 576
+    },
+    {
+      "run": "art108-lances01",
+      "memory_sha256": "5F2E72E35289EEB578019E7092B24FCDDF25EF1B15D63AD1740C2C4831670821",
+      "exit_lines": [
+        "EXIT code=0 seconds=6.5",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 532.2,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-lances01/screens/report.json",
+      "report_sha256": "F1A1B6206B0EF113E05EBA476105E6C0C8A321217883B3BA60761FD5CA002745",
+      "passed": true,
+      "failures": [],
+      "trace_count": 32
+    },
+    {
+      "run": "art108-mixed01",
+      "memory_sha256": "AF529562CA5A1ED941E00F5983E5A953C8B314DA9B61E1BF26D03783B077504C",
+      "exit_lines": [
+        "EXIT code=0 seconds=28.1",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 528.7,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-mixed01/screens/report.json",
+      "report_sha256": "2A4FE4290329CAFD9E48775D923394BA80A0A5EDC57A83735E963AF313F2169B",
+      "passed": true,
+      "failures": [],
+      "trace_count": 576
+    },
+    {
+      "run": "art108-motion01",
+      "memory_sha256": "6D2B636715D086B5C0FD07930AA5250AC80148C467EE3082ECFF15AE6133EFC3",
+      "exit_lines": [
+        "EXIT code=0 seconds=21.5",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 526.4,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-motion01/screens/report.json",
+      "report_sha256": "A9EC06D0FC41D67D070125D6BAC867F446A901B481FBA91416362E3387DF84DD",
+      "passed": true,
+      "failures": [],
+      "records_count": 16
+    },
+    {
+      "run": "art108-parse01",
+      "memory_sha256": "3733515AFF36413169B39F014940AF40AF29EB798D80446AB9237D7ACB4E163F",
+      "exit_lines": [
+        "EXIT code=0 seconds=2.1"
+      ],
+      "finished": true,
+      "private_peak_mib": 183.0,
+      "engine_issues": [],
+      "parse_results": [
+        "PARSE065_RESULT failed=0"
+      ]
+    },
+    {
+      "run": "art108-parse02",
+      "memory_sha256": "2866C89D9A757C5A1DCD32E5C5B79C4A14AE1967CFFD2BAB88E507024E025050",
+      "exit_lines": [
+        "EXIT code=0 seconds=2.1"
+      ],
+      "finished": true,
+      "private_peak_mib": 106.4,
+      "engine_issues": [],
+      "parse_results": [
+        "PARSE065_RESULT failed=0"
+      ]
+    },
+    {
+      "run": "art108-parse03",
+      "memory_sha256": "A5AACFFB22DA0CD22FAF340DF1C4393BF76096398268ABAA504D4F7A22C6A271",
+      "exit_lines": [
+        "EXIT code=0 seconds=2.0"
+      ],
+      "finished": true,
+      "private_peak_mib": 107.7,
+      "engine_issues": [],
+      "parse_results": [
+        "PARSE065_RESULT failed=0"
+      ]
+    },
+    {
+      "run": "art108-rules01",
+      "memory_sha256": "F2CA20C99D729C4B50D165016555E18CB4614B7A56722316216654637E385AF8",
+      "exit_lines": [
+        "EXIT code=0 seconds=68.3"
+      ],
+      "finished": true,
+      "private_peak_mib": 47.2,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-rules01/report.json",
+      "report_sha256": "95744CBD983DFC6A0E9DEAF127112C97D103606A2F99EFD74A256B694817F9E4",
+      "passed": true,
+      "failures": [],
+      "rows_count": 24
+    },
+    {
+      "run": "art108-scenes01",
+      "memory_sha256": "C979A4B7893F9F70ACCC3D70A1521BC95C6F8EFA0FB345D86AA1E7FCBD01BA95",
+      "exit_lines": [
+        "EXIT code=0 seconds=297.5",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 737.4,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-scenes01/screens/report.json",
+      "report_sha256": "C996864954679A669040AFF2BAAA1AC92A5FAE047B2C603C75D5FE425DBB4A9A",
+      "passed": true,
+      "failures": [],
+      "rows_count": 6
+    },
+    {
+      "run": "art108-shields01",
+      "memory_sha256": "383AE48E593D36731721EEB64850917674FD0B9BC48D57255CD3267F06BDF623",
+      "exit_lines": [
+        "EXIT code=0 seconds=4.3",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 297.4,
+      "engine_issues": [],
+      "parse_results": []
+    },
+    {
+      "run": "art108-wardrobe01",
+      "memory_sha256": "9418EED1EE28BE88FAD67967179EF0613DDA0D89DC28EEE33B0EBFB48C5BBAD4",
+      "exit_lines": [
+        "EXIT code=1 seconds=4.0",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 56.0,
+      "engine_issues": [
+        "SCRIPT ERROR: Parse Error: The member \"Skin\" shadows a native class.",
+        "ERROR: Failed to load script \"res://tests/test_wardrobe108.gd\" with error \"Parse error\"."
+      ],
+      "parse_results": []
+    },
+    {
+      "run": "art108-wardrobe02",
+      "memory_sha256": "A42153F07E487A6551EDFC7A835F6874BA5F992E5889D0692ACB0BA47439519F",
+      "exit_lines": [
+        "EXIT code=0 seconds=189.3",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 805.8,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-wardrobe02/screens/report.json",
+      "report_sha256": "457ABEC18285C253856DDD619E0BB9C3F7AEFF0D4FA53CC1046A1BEC4BF2301D",
+      "passed": true,
+      "failures": [],
+      "rows_count": 242
+    }
+  ],
+  "campaign_cases": [
+    {
+      "run": "art108-campaign01",
+      "level": 1,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 2,
+        "brows": 1,
+        "eyes": 2,
+        "face_shape": 3,
+        "hair": 3,
+        "skin": 0
+      },
+      "opponent_appearance": {
+        "beard": 4,
+        "brows": 2,
+        "eyes": 0,
+        "face_shape": 1,
+        "hair": 3,
+        "skin": 2
+      }
+    },
+    {
+      "run": "art108-campaign01",
+      "level": 2,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 0,
+        "brows": 1,
+        "eyes": 4,
+        "face_shape": 2,
+        "hair": 2,
+        "skin": 5
+      },
+      "opponent_appearance": {
+        "beard": 0,
+        "brows": 0,
+        "eyes": 1,
+        "face_shape": 1,
+        "hair": 1,
+        "skin": 0
+      }
+    },
+    {
+      "run": "art108-campaign01",
+      "level": 3,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 4,
+        "brows": 2,
+        "eyes": 1,
+        "face_shape": 0,
+        "hair": 1,
+        "skin": 4
+      },
+      "opponent_appearance": {
+        "beard": 2,
+        "brows": 1,
+        "eyes": 2,
+        "face_shape": 1,
+        "hair": 2,
+        "skin": 5
+      }
+    },
+    {
+      "run": "art108-campaign01",
+      "level": 4,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 2,
+        "brows": 2,
+        "eyes": 4,
+        "face_shape": 3,
+        "hair": 0,
+        "skin": 3
+      },
+      "opponent_appearance": {
+        "beard": 3,
+        "brows": 2,
+        "eyes": 3,
+        "face_shape": 2,
+        "hair": 3,
+        "skin": 4
+      }
+    },
+    {
+      "run": "art108-campaign01",
+      "level": 5,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [],
+      "hits": 4,
+      "player_appearance": {
+        "beard": 1,
+        "brows": 3,
+        "eyes": 1,
+        "face_shape": 2,
+        "hair": 0,
+        "skin": 1
+      },
+      "opponent_appearance": {
+        "beard": 4,
+        "brows": 3,
+        "eyes": 4,
+        "face_shape": 2,
+        "hair": 0,
+        "skin": 3
+      }
+    },
+    {
+      "run": "art108-campaign01",
+      "level": 6,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 4,
+        "brows": 3,
+        "eyes": 3,
+        "face_shape": 0,
+        "hair": 3,
+        "skin": 0
+      },
+      "opponent_appearance": {
+        "beard": 0,
+        "brows": 0,
+        "eyes": 0,
+        "face_shape": 2,
+        "hair": 2,
+        "skin": 2
+      }
+    },
+    {
+      "run": "art108-campaign01",
+      "level": 7,
+      "winner": 1,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 3,
+        "brows": 0,
+        "eyes": 0,
+        "face_shape": 3,
+        "hair": 2,
+        "skin": 5
+      },
+      "opponent_appearance": {
+        "beard": 1,
+        "brows": 1,
+        "eyes": 1,
+        "face_shape": 3,
+        "hair": 3,
+        "skin": 1
+      }
+    },
+    {
+      "run": "art108-campaign01",
+      "level": 8,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 1,
+        "brows": 0,
+        "eyes": 2,
+        "face_shape": 2,
+        "hair": 1,
+        "skin": 4
+      },
+      "opponent_appearance": {
+        "beard": 2,
+        "brows": 2,
+        "eyes": 2,
+        "face_shape": 3,
+        "hair": 0,
+        "skin": 5
+      }
+    },
+    {
+      "run": "art108-campaign02",
+      "level": 9,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 0,
+        "brows": 1,
+        "eyes": 0,
+        "face_shape": 0,
+        "hair": 0,
+        "skin": 2
+      },
+      "opponent_appearance": {
+        "beard": 4,
+        "brows": 3,
+        "eyes": 3,
+        "face_shape": 3,
+        "hair": 1,
+        "skin": 4
+      }
+    },
+    {
+      "run": "art108-campaign02",
+      "level": 10,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [],
+      "hits": 4,
+      "player_appearance": {
+        "beard": 3,
+        "brows": 2,
+        "eyes": 2,
+        "face_shape": 3,
+        "hair": 0,
+        "skin": 1
+      },
+      "opponent_appearance": {
+        "beard": 0,
+        "brows": 0,
+        "eyes": 4,
+        "face_shape": 0,
+        "hair": 3,
+        "skin": 3
+      }
+    },
+    {
+      "run": "art108-campaign02",
+      "level": 11,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 2,
+        "brows": 2,
+        "eyes": 4,
+        "face_shape": 2,
+        "hair": 3,
+        "skin": 0
+      },
+      "opponent_appearance": {
+        "beard": 1,
+        "brows": 1,
+        "eyes": 0,
+        "face_shape": 0,
+        "hair": 0,
+        "skin": 2
+      }
+    },
+    {
+      "run": "art108-campaign02",
+      "level": 12,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 0,
+        "brows": 3,
+        "eyes": 1,
+        "face_shape": 0,
+        "hair": 2,
+        "skin": 5
+      },
+      "opponent_appearance": {
+        "beard": 2,
+        "brows": 2,
+        "eyes": 1,
+        "face_shape": 0,
+        "hair": 1,
+        "skin": 1
+      }
+    },
+    {
+      "run": "art108-campaign02",
+      "level": 13,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 4,
+        "brows": 3,
+        "eyes": 3,
+        "face_shape": 3,
+        "hair": 1,
+        "skin": 3
+      },
+      "opponent_appearance": {
+        "beard": 3,
+        "brows": 3,
+        "eyes": 2,
+        "face_shape": 1,
+        "hair": 3,
+        "skin": 0
+      }
+    },
+    {
+      "run": "art108-campaign02",
+      "level": 14,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 2,
+        "brows": 0,
+        "eyes": 0,
+        "face_shape": 2,
+        "hair": 0,
+        "skin": 2
+      },
+      "opponent_appearance": {
+        "beard": 4,
+        "brows": 0,
+        "eyes": 4,
+        "face_shape": 1,
+        "hair": 0,
+        "skin": 4
+      }
+    },
+    {
+      "run": "art108-campaign02",
+      "level": 15,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 5,
+      "player_appearance": {
+        "beard": 1,
+        "brows": 0,
+        "eyes": 3,
+        "face_shape": 0,
+        "hair": 0,
+        "skin": 1
+      },
+      "opponent_appearance": {
+        "beard": 0,
+        "brows": 2,
+        "eyes": 0,
+        "face_shape": 1,
+        "hair": 1,
+        "skin": 3
+      }
+    },
+    {
+      "run": "art108-campaign02",
+      "level": 16,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 4,
+        "brows": 1,
+        "eyes": 0,
+        "face_shape": 3,
+        "hair": 3,
+        "skin": 0
+      },
+      "opponent_appearance": {
+        "beard": 2,
+        "brows": 3,
+        "eyes": 1,
+        "face_shape": 2,
+        "hair": 2,
+        "skin": 2
+      }
+    },
+    {
+      "run": "art108-campaign03",
+      "level": 17,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 3,
+        "brows": 2,
+        "eyes": 2,
+        "face_shape": 2,
+        "hair": 2,
+        "skin": 4
+      },
+      "opponent_appearance": {
+        "beard": 3,
+        "brows": 0,
+        "eyes": 2,
+        "face_shape": 2,
+        "hair": 0,
+        "skin": 1
+      }
+    },
+    {
+      "run": "art108-campaign03",
+      "level": 18,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 1,
+        "brows": 2,
+        "eyes": 4,
+        "face_shape": 0,
+        "hair": 1,
+        "skin": 3
+      },
+      "opponent_appearance": {
+        "beard": 4,
+        "brows": 1,
+        "eyes": 3,
+        "face_shape": 2,
+        "hair": 1,
+        "skin": 0
+      }
+    },
+    {
+      "run": "art108-campaign03",
+      "level": 19,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 0,
+        "brows": 3,
+        "eyes": 1,
+        "face_shape": 3,
+        "hair": 1,
+        "skin": 2
+      },
+      "opponent_appearance": {
+        "beard": 0,
+        "brows": 2,
+        "eyes": 4,
+        "face_shape": 3,
+        "hair": 2,
+        "skin": 5
+      }
+    },
+    {
+      "run": "art108-campaign03",
+      "level": 20,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 3,
+        "brows": 3,
+        "eyes": 3,
+        "face_shape": 1,
+        "hair": 0,
+        "skin": 0
+      },
+      "opponent_appearance": {
+        "beard": 1,
+        "brows": 3,
+        "eyes": 0,
+        "face_shape": 3,
+        "hair": 0,
+        "skin": 4
+      }
+    },
+    {
+      "run": "art108-campaign03",
+      "level": 21,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 2,
+        "brows": 0,
+        "eyes": 1,
+        "face_shape": 0,
+        "hair": 3,
+        "skin": 5
+      },
+      "opponent_appearance": {
+        "beard": 2,
+        "brows": 0,
+        "eyes": 1,
+        "face_shape": 3,
+        "hair": 1,
+        "skin": 2
+      }
+    },
+    {
+      "run": "art108-campaign03",
+      "level": 22,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 0,
+        "brows": 0,
+        "eyes": 3,
+        "face_shape": 3,
+        "hair": 2,
+        "skin": 4
+      },
+      "opponent_appearance": {
+        "beard": 4,
+        "brows": 1,
+        "eyes": 2,
+        "face_shape": 0,
+        "hair": 2,
+        "skin": 1
+      }
+    },
+    {
+      "run": "art108-campaign03",
+      "level": 23,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 4,
+        "brows": 1,
+        "eyes": 0,
+        "face_shape": 1,
+        "hair": 1,
+        "skin": 3
+      },
+      "opponent_appearance": {
+        "beard": 0,
+        "brows": 2,
+        "eyes": 3,
+        "face_shape": 0,
+        "hair": 3,
+        "skin": 0
+      }
+    },
+    {
+      "run": "art108-campaign03",
+      "level": 24,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 2,
+        "brows": 2,
+        "eyes": 2,
+        "face_shape": 0,
+        "hair": 1,
+        "skin": 1
+      },
+      "opponent_appearance": {
+        "beard": 1,
+        "brows": 3,
+        "eyes": 4,
+        "face_shape": 0,
+        "hair": 1,
+        "skin": 5
+      }
+    },
+    {
+      "run": "art108-campaign04",
+      "level": 25,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 5,
+      "player_appearance": {
+        "beard": 1,
+        "brows": 2,
+        "eyes": 4,
+        "face_shape": 3,
+        "hair": 0,
+        "skin": 0
+      },
+      "opponent_appearance": {
+        "beard": 2,
+        "brows": 0,
+        "eyes": 0,
+        "face_shape": 1,
+        "hair": 2,
+        "skin": 4
+      }
+    },
+    {
+      "run": "art108-campaign04",
+      "level": 26,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 4,
+        "brows": 3,
+        "eyes": 2,
+        "face_shape": 1,
+        "hair": 3,
+        "skin": 5
+      },
+      "opponent_appearance": {
+        "beard": 3,
+        "brows": 1,
+        "eyes": 1,
+        "face_shape": 1,
+        "hair": 3,
+        "skin": 3
+      }
+    },
+    {
+      "run": "art108-campaign04",
+      "level": 27,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 3,
+        "brows": 3,
+        "eyes": 4,
+        "face_shape": 0,
+        "hair": 2,
+        "skin": 4
+      },
+      "opponent_appearance": {
+        "beard": 4,
+        "brows": 2,
+        "eyes": 2,
+        "face_shape": 1,
+        "hair": 0,
+        "skin": 1
+      }
+    },
+    {
+      "run": "art108-campaign04",
+      "level": 28,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 1,
+        "brows": 0,
+        "eyes": 1,
+        "face_shape": 3,
+        "hair": 1,
+        "skin": 2
+      },
+      "opponent_appearance": {
+        "beard": 0,
+        "brows": 3,
+        "eyes": 3,
+        "face_shape": 1,
+        "hair": 2,
+        "skin": 0
+      }
+    },
+    {
+      "run": "art108-campaign04",
+      "level": 29,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [],
+      "hits": 3,
+      "player_appearance": {
+        "beard": 0,
+        "brows": 0,
+        "eyes": 3,
+        "face_shape": 1,
+        "hair": 1,
+        "skin": 1
+      },
+      "opponent_appearance": {
+        "beard": 2,
+        "brows": 1,
+        "eyes": 0,
+        "face_shape": 2,
+        "hair": 3,
+        "skin": 5
+      }
+    },
+    {
+      "run": "art108-campaign04",
+      "level": 30,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 3,
+        "brows": 1,
+        "eyes": 0,
+        "face_shape": 0,
+        "hair": 0,
+        "skin": 0
+      },
+      "opponent_appearance": {
+        "beard": 3,
+        "brows": 2,
+        "eyes": 1,
+        "face_shape": 2,
+        "hair": 0,
+        "skin": 4
+      }
+    },
+    {
+      "run": "art108-campaign04",
+      "level": 31,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [],
+      "hits": 5,
+      "player_appearance": {
+        "beard": 2,
+        "brows": 1,
+        "eyes": 2,
+        "face_shape": 3,
+        "hair": 3,
+        "skin": 5
+      },
+      "opponent_appearance": {
+        "beard": 4,
+        "brows": 3,
+        "eyes": 2,
+        "face_shape": 2,
+        "hair": 2,
+        "skin": 3
+      }
+    },
+    {
+      "run": "art108-campaign04",
+      "level": 32,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 5,
+      "player_appearance": {
+        "beard": 0,
+        "brows": 2,
+        "eyes": 0,
+        "face_shape": 1,
+        "hair": 2,
+        "skin": 3
+      },
+      "opponent_appearance": {
+        "beard": 0,
+        "brows": 0,
+        "eyes": 3,
+        "face_shape": 3,
+        "hair": 3,
+        "skin": 2
+      }
+    },
+    {
+      "run": "art108-campaign05",
+      "level": 33,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [
+        {
+          "age": 0.0,
+          "direction": -1,
+          "file": "level33-fall0-step0.png",
+          "position": "(15.59908, -205.1014)",
+          "stage": 0,
+          "visible": true
+        },
+        {
+          "age": 0.208333333333333,
+          "direction": -1,
+          "file": "level33-fall0-step1.png",
+          "position": "(-31.36358, -188.5387)",
+          "stage": 1,
+          "visible": true
+        },
+        {
+          "age": 0.4,
+          "direction": -1,
+          "file": "level33-fall0-step2.png",
+          "position": "(-74.56923, -138.8011)",
+          "stage": 2,
+          "visible": true
+        },
+        {
+          "age": 0.7,
+          "direction": -1,
+          "file": "level33-fall0-step3.png",
+          "position": "(-112.944, -92.19504)",
+          "stage": 3,
+          "visible": true
+        }
+      ],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 4,
+        "brows": 3,
+        "eyes": 2,
+        "face_shape": 0,
+        "hair": 2,
+        "skin": 2
+      },
+      "opponent_appearance": {
+        "beard": 1,
+        "brows": 1,
+        "eyes": 4,
+        "face_shape": 3,
+        "hair": 0,
+        "skin": 0
+      }
+    },
+    {
+      "run": "art108-campaign05",
+      "level": 34,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [
+        {
+          "age": 0.0,
+          "direction": -1,
+          "file": "level34-fall0-step0.png",
+          "position": "(110.7849, -202.862)",
+          "stage": 0,
+          "visible": true
+        },
+        {
+          "age": 0.208333333333333,
+          "direction": -1,
+          "file": "level34-fall0-step1.png",
+          "position": "(98.91638, -203.5876)",
+          "stage": 1,
+          "visible": true
+        },
+        {
+          "age": 0.4,
+          "direction": -1,
+          "file": "level34-fall0-step2.png",
+          "position": "(87.99738, -169.7551)",
+          "stage": 2,
+          "visible": true
+        },
+        {
+          "age": 0.708333333333333,
+          "direction": -1,
+          "file": "level34-fall0-step3.png",
+          "position": "(71.82547, -88.8)",
+          "stage": 3,
+          "visible": true
+        }
+      ],
+      "hits": 5,
+      "player_appearance": {
+        "beard": 2,
+        "brows": 3,
+        "eyes": 4,
+        "face_shape": 3,
+        "hair": 1,
+        "skin": 1
+      },
+      "opponent_appearance": {
+        "beard": 2,
+        "brows": 2,
+        "eyes": 0,
+        "face_shape": 3,
+        "hair": 1,
+        "skin": 5
+      }
+    },
+    {
+      "run": "art108-campaign05",
+      "level": 35,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [
+        {
+          "age": 0.0,
+          "direction": -1,
+          "file": "level35-fall0-step0.png",
+          "position": "(112.5168, -204.0164)",
+          "stage": 0,
+          "visible": true
+        },
+        {
+          "age": 0.208333333333333,
+          "direction": -1,
+          "file": "level35-fall0-step1.png",
+          "position": "(113.0732, -197.3677)",
+          "stage": 1,
+          "visible": true
+        },
+        {
+          "age": 0.4,
+          "direction": -1,
+          "file": "level35-fall0-step2.png",
+          "position": "(113.585, -156.751)",
+          "stage": 2,
+          "visible": true
+        },
+        {
+          "age": 0.7,
+          "direction": -1,
+          "file": "level35-fall0-step3.png",
+          "position": "(114.3103, -69.17519)",
+          "stage": 3,
+          "visible": true
+        }
+      ],
+      "hits": 2,
+      "player_appearance": {
+        "beard": 1,
+        "brows": 0,
+        "eyes": 1,
+        "face_shape": 1,
+        "hair": 0,
+        "skin": 0
+      },
+      "opponent_appearance": {
+        "beard": 4,
+        "brows": 3,
+        "eyes": 1,
+        "face_shape": 0,
+        "hair": 3,
+        "skin": 4
+      }
+    },
+    {
+      "run": "art108-campaign05",
+      "level": 36,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [
+        {
+          "age": 0.0,
+          "direction": -1,
+          "file": "level36-fall0-step0.png",
+          "position": "(93.77307, -205.3347)",
+          "stage": 0,
+          "visible": true
+        },
+        {
+          "age": 0.208333333333333,
+          "direction": -1,
+          "file": "level36-fall0-step1.png",
+          "position": "(97.24483, -199.3087)",
+          "stage": 1,
+          "visible": true
+        },
+        {
+          "age": 0.4,
+          "direction": -1,
+          "file": "level36-fall0-step2.png",
+          "position": "(100.4388, -159.2647)",
+          "stage": 2,
+          "visible": true
+        },
+        {
+          "age": 0.7,
+          "direction": -1,
+          "file": "level36-fall0-step3.png",
+          "position": "(105.2046, -68.99051)",
+          "stage": 3,
+          "visible": true
+        }
+      ],
+      "hits": 2,
+      "player_appearance": {
+        "beard": 4,
+        "brows": 0,
+        "eyes": 3,
+        "face_shape": 0,
+        "hair": 3,
+        "skin": 4
+      },
+      "opponent_appearance": {
+        "beard": 0,
+        "brows": 0,
+        "eyes": 2,
+        "face_shape": 0,
+        "hair": 0,
+        "skin": 3
+      }
+    },
+    {
+      "run": "art108-campaign05",
+      "level": 37,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 3,
+        "brows": 1,
+        "eyes": 0,
+        "face_shape": 2,
+        "hair": 2,
+        "skin": 3
+      },
+      "opponent_appearance": {
+        "beard": 1,
+        "brows": 1,
+        "eyes": 3,
+        "face_shape": 0,
+        "hair": 1,
+        "skin": 2
+      }
+    },
+    {
+      "run": "art108-campaign05",
+      "level": 38,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 1,
+        "brows": 1,
+        "eyes": 3,
+        "face_shape": 1,
+        "hair": 2,
+        "skin": 2
+      },
+      "opponent_appearance": {
+        "beard": 2,
+        "brows": 2,
+        "eyes": 4,
+        "face_shape": 1,
+        "hair": 3,
+        "skin": 1
+      }
+    },
+    {
+      "run": "art108-campaign05",
+      "level": 39,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 0,
+        "brows": 2,
+        "eyes": 0,
+        "face_shape": 0,
+        "hair": 1,
+        "skin": 1
+      },
+      "opponent_appearance": {
+        "beard": 3,
+        "brows": 3,
+        "eyes": 0,
+        "face_shape": 1,
+        "hair": 0,
+        "skin": 5
+      }
+    },
+    {
+      "run": "art108-campaign05",
+      "level": 40,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 3,
+        "brows": 3,
+        "eyes": 2,
+        "face_shape": 2,
+        "hair": 0,
+        "skin": 5
+      },
+      "opponent_appearance": {
+        "beard": 4,
+        "brows": 0,
+        "eyes": 1,
+        "face_shape": 1,
+        "hair": 1,
+        "skin": 4
+      }
+    }
+  ],
+  "limits": [
+    "Distinct cosmetic configurations are not 80 newly painted heads; closed helmets hide faces.",
+    "Campaign visual fixture sets preceding progress and a legal shadow-budget loadout. It does not earn 80 sequential clears or perform purchases.",
+    "Numerical fit/continuity checks complement, not replace, visual inspection.",
+    "Source PNG uniqueness does not prove historical accuracy. History review records 42 readable references and 6 unread source cases.",
+    "Perceived motion, readability and sound still need human play feedback; these are not commercial certification."
+  ],
+  "campaign_levels_verified": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+  ],
+  "campaign_fall_identities_checked": 14,
+  "campaign_fall_frames": 16,
+  "history_review_sha256": "CB1AD9847835A8669690DAEC4CE06F9BA65954211B35A770FA78FAF07C0F4F00"
+}

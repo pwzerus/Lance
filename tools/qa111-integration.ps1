@@ -9,9 +9,11 @@ $cases=@(
  @{Name='italian-plate';Extra='--kit=italian_plate --mode=war --difficulty=2 --blood --no-shake'},
  @{Name='heavy-arena';Extra='--kit=heavy --mode=arena --difficulty=2'},
  @{Name='english-late';Extra='--kit=english_late --mode=war --difficulty=1 --no-slow --no-shake'},
- @{Name='steady-arena';Extra='--kit=steady --mode=arena --difficulty=1'}
+ @{Name='steady-arena';Extra='--kit=steady --mode=arena --difficulty=1'},
+ @{Name='heavy-fullscreen';Seconds=240;Extra='--kit=heavy --mode=war --difficulty=0 --blood --no-slow --no-shake --fullscreen'}
 )
 foreach($case in $cases){
- & "$PSScriptRoot/qa111-run.ps1" -Name ('qa111-final-'+$case.Name+'01') -Script test_play087.gd -Bundle $Bundle -Extra ('--seconds=480 --capture-render '+$case.Extra)
+ $caseSeconds=if($case.ContainsKey('Seconds')){$case.Seconds}else{480}
+ & "$PSScriptRoot/qa111-run.ps1" -Name ('qa111-final-'+$case.Name+'01') -Script test_play087.gd -Bundle $Bundle -Extra ('--seconds='+$caseSeconds+' --capture-render '+$case.Extra)
 }
-Write-Output 'Seven distinct eight-minute integration cases closed. Separate final inspection and total elapsed-time gate still required.'
+Write-Output 'Eight distinct integration cases closed: seven at 480s and one at 240s. At least 60 minutes measured play; final inspection remains required.'

@@ -9,6 +9,7 @@ const PATHS = [
 	"res://tests/test_result_gallery110.gd",
 	"res://tests/test_journey110.gd",
 	"res://tests/test_journey111.gd",
+	"res://tests/test_shop_timing111.gd",
 	"res://tests/test_copy110.gd",
 	"res://tests/test_ui110.gd",
 	"res://tests/test_ux_baseline110.gd",

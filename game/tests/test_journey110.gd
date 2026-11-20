@@ -42,6 +42,7 @@ func enter110(main:Node,n:int)->void:
 	navigation.append({"level":n,"route":"camp, chapter tab, card, battle buttons"})
 func run()->void:
 	var folder="";var profile_folder="";var first=1;var last=5;var heavy=false;var max_attempts=3
+	var high_guard=false;var low_line=false
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--folder="):folder=arg.trim_prefix("--folder=")
 		if arg.begins_with("--profile="):profile_folder=arg.trim_prefix("--profile=")
@@ -49,6 +50,8 @@ func run()->void:
 		if arg.begins_with("--last="):last=int(arg.trim_prefix("--last="))
 		if arg.begins_with("--attempts="):max_attempts=clampi(int(arg.trim_prefix("--attempts=")),1,3)
 		if arg=="--heavy":heavy=true
+		if arg=="--high-guard":high_guard=true
+		if arg=="--low-line":low_line=true
 	var state=root.get_node("GameState")
 	if folder.is_empty() or DirAccess.dir_exists_absolute(folder) or not profile_folder.begins_with(profile_root110()) or not profile_folder.ends_with("qa_journey") or not state.save_path.contains("qa_") or OS.get_environment("GALUMU_MEMORY_BOUND")!="1024" or DisplayServer.get_name()=="headless" or first<1 or last>80 or last<first:quit(2);return
 	DirAccess.make_dir_recursive_absolute(folder);DirAccess.make_dir_recursive_absolute(profile_folder)
@@ -98,10 +101,11 @@ func run()->void:
 				if want!=holding:holding=want;forward_key(holding)
 				if b.match_model.time_elapsed>=next_input:
 					next_input=b.match_model.time_elapsed+.6
-					var target=Model103.flank_position(enemy) if float(enemy.guard)>.55 else Model103.head_position(enemy)
+					var target=Model103.flank_position(enemy) if low_line or float(enemy.guard)>.55 else Model103.head_position(enemy)
 					b.pointer_aim=asin(clampf((target.y-8-Model103.hand_position(p).y)/Model103.lance_length(p),-.629,.548))
 					var incoming=Model103.tip_position(enemy).y
 					var wanted_guard=0 if incoming<Model103.body_position(p).y-30 else (2 if incoming>Model103.body_position(p).y+22 else 1)
+					if high_guard:wanted_guard=0
 					if b.guard_slot!=wanted_guard:b._select_guard(wanted_guard)
 				if not hit_captured and not b.exchange_log.is_empty():
 					hit_captured=true;await capture(folder,"level%d-attempt%d-hit"%[n,attempt+1])
@@ -131,7 +135,7 @@ func run()->void:
 			check(not state.profile_save_pending,"Natural match reward saved")
 			var disk=state.sanitize(state._read_save(state.save_path))
 			check(disk==state.profile,"Natural result matches disk")
-			rows.append({"level":n,"attempt":attempt+1,"strategy":strategy,"result":main.pending_result.duplicate(true),"reward":main.reward.duplicate(true),"coins":state.profile.coins,"renown":state.profile.renown,"equipped":state.profile.equipped.duplicate(),"hits":b.exchange_log.duplicate(true)})
+			rows.append({"level":n,"attempt":attempt+1,"strategy":strategy,"high_guard":high_guard,"low_line":low_line,"result":main.pending_result.duplicate(true),"reward":main.reward.duplicate(true),"coins":state.profile.coins,"renown":state.profile.renown,"equipped":state.profile.equipped.duplicate(),"hits":b.exchange_log.duplicate(true)})
 			FileAccess.open(folder+"/partial.json",FileAccess.WRITE).store_string(JSON.stringify({"rows":rows,"purchases":purchase_log,"ui_waits":ui_wait_log,"profile":state.profile},"\t"))
 			if won:break
 			if attempt+1<max_attempts:

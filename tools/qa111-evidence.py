@@ -44,8 +44,11 @@ def collect(include_images=False):
         report_file = next((p for p in [directory / 'screens/report.json', directory / 'evidence/report.json', directory / 'report.json'] if p.is_file()), None)
         report = read(report_file) if report_file else {}
         expected_fault = "ERROR: Failed to open '%s/screens/blocked_backup'." % directory.as_posix()
-        expected_errors = engine.count(expected_fault) if directory.name == 'qa111-save-ui01' else 0
-        unexpected = engine.replace(expected_fault, 'EXPECTED STORAGE FAULT') if directory.name == 'qa111-save-ui01' else engine
+        # PowerShell Join-Path emits Windows separators, while Path.as_posix()
+        # does not. Normalize only the comparison; retain the original log.
+        normalized_engine = engine.replace('\\', '/')
+        expected_errors = normalized_engine.count(expected_fault) if directory.name == 'qa111-save-ui01' else 0
+        unexpected = normalized_engine.replace(expected_fault, 'EXPECTED STORAGE FAULT') if directory.name == 'qa111-save-ui01' else engine
         target_file = directory / 'target.json'
         entry = {
             'name': directory.name,
@@ -67,6 +70,8 @@ def collect(include_images=False):
             'report': relative(report_file) if report_file else None,
             'report_sha256': digest(report_file) if report_file else None,
             'performance': {'all_frames': report.get('all_frames'), 'phases': report.get('phases')},
+            'measured_play_seconds': report.get('wall_seconds'),
+            'configuration': {key: report.get(key) for key in ['mode', 'kit', 'difficulty', 'blood', 'settings', 'window']},
         }
         if include_images:
             entry['images'] = [{'file': relative(p), 'sha256': digest(p)} for p in sorted(directory.glob('screens/*.png'))]
@@ -76,7 +81,16 @@ def collect(include_images=False):
     ledger = {'coins': 520, 'renown': 0, 'matches': 0, 'purchases': 0, 'issues': []}
     score = {'arena_matches': 0, 'war_matches': 0, 'mismatches': [], 'duplicate_cells': [], 'natural_losses': []}
     previous = None
+    route = []
     for directory in sorted(LOGS.glob('qa111-journey[0-9][0-9]')):
+        route.append(directory)
+        # Segment 15 genuinely stopped after three losses at 75. Preserve those
+        # losses, then append the changed-control continuation of the same save.
+        if directory.name == 'qa111-journey15':
+            continuation = LOGS / 'qa111-journey75-defense01'
+            if (continuation / 'screens/report.json').is_file():
+                route.append(continuation)
+    for directory in route:
         path = directory / 'screens/report.json'
         if not path.is_file():
             continue
@@ -107,18 +121,32 @@ def collect(include_images=False):
             if len(cells) != len(set(cells)):
                 score['duplicate_cells'].append({'level': row['level'], 'attempt': row['attempt']})
         previous = report['final_profile']
-        journey.append({'run': path.parent.parent.name, 'superseded_fixture_run': directory.name if path == retry else None, 'passed': report['passed'], 'completed': report['completed_requested_segment'], 'first': report['first'], 'last': report['last'], 'attempts': [{'level': r['level'], 'attempt': r['attempt'], 'winner': r['result']['winner'], 'reason': r['result']['reason'], 'reward': r['reward']} for r in report['rows']], 'navigation': report['navigation'], 'ui_waits': report.get('ui_waits', []), 'coins': previous['coins'], 'renown': previous['renown'], 'clears': len(previous['campaign_cleared']), 'purchases': len(report['purchases'])})
+        journey.append({'run': path.parent.parent.name, 'superseded_fixture_run': directory.name if path == retry else None, 'passed': report['passed'], 'completed': report['completed_requested_segment'], 'first': report['first'], 'last': report['last'], 'attempts': [{'level': r['level'], 'attempt': r['attempt'], 'winner': r['result']['winner'], 'reason': r['result']['reason'], 'reward': r['reward'], 'high_guard': r.get('high_guard', False), 'low_line': r.get('low_line', False)} for r in report['rows']], 'navigation': report['navigation'], 'ui_waits': report.get('ui_waits', []), 'coins': previous['coins'], 'renown': previous['renown'], 'clears': len(previous['campaign_cleared']), 'purchases': len(report['purchases'])})
+
+    expected_route = ['qa111-journey%02d' % n for n in range(1, 17)]
+    expected_route[1] += '-retry01'
+    expected_route.insert(15, 'qa111-journey75-defense01')
+    complete_route = (
+        [row['run'] for row in journey] == expected_route
+        and all(row['passed'] for row in journey)
+        and all(row['completed'] or (row['run'] == 'qa111-journey15' and row['clears'] == 74) for row in journey)
+        and previous is not None
+        and {int(n) for n in previous['campaign_cleared']} == set(range(1, 81))
+        and not ledger['issues']
+    )
 
     timing_file = LOGS / 'qa111-phase-timing.json'
     after_file = LOGS / 'qa111-formal-after.json'
     before_file = LOGS / 'ux110-formal-after02.json'
+    integration_runs = [run for run in runs if run['name'].startswith('qa111-final-')]
     result = {
         'scope': 'Actual v0.4.59 candidate runtime/PCK with external QA drivers, background isolated GPU, engine/viewport input and explicitly identified fixtures. No OS input, human difficulty/feel/hearing or second-machine certification.',
         'memory_note': 'Private-byte one-second samples, not kernel high-water marks. Each process remains protected and serialized.',
         'timing': read(timing_file) if timing_file.is_file() else None,
         'runs': runs, 'journey': journey, 'independent_ledger': ledger, 'score_audit': score,
+        'integration': {'runs': [run['name'] for run in integration_runs], 'measured_play_seconds': sum(run['measured_play_seconds'] or 0 for run in integration_runs)},
         'all_runs_closed': bool(runs) and all(row['exit_code'] is not None for row in runs),
-        'actual_journey_complete': len(journey) == 16 and all(row['passed'] and row['completed'] for row in journey) and journey[-1]['clears'] == 80,
+        'actual_journey_complete': complete_route,
         'archive': read(LOGS / 'qa111-archive01.json'),
         'formal_save_check': {'before': relative(before_file), 'after': relative(after_file), 'unchanged': read(before_file) == read(after_file)} if after_file.is_file() else {'unchanged': None, 'reason': 'Final formal-save comparison not yet performed.'},
         'portable': read(LOGS / 'qa111-portable01/results.json') if (LOGS / 'qa111-portable01/results.json').is_file() else None,
@@ -137,5 +165,21 @@ if __name__ == '__main__':
             raise SystemExit('Keep final evidence pending until runs, campaign and timing are complete.')
         if result['timing'].get('integration_seconds', 0) < 3600:
             raise SystemExit('The separate final verification hour is not complete.')
+        if len(result['integration']['runs']) != 8 or result['integration']['measured_play_seconds'] < 3600:
+            raise SystemExit('The eight distinct post-stage configurations have not completed 60 minutes of measured play.')
+        if result['timing'].get('stage9_seconds', 0) < 5400:
+            raise SystemExit('The Windows delivery stage has not reached its own 90-minute minimum.')
+        if result['independent_ledger']['issues'] or result['score_audit']['mismatches'] or result['score_audit']['duplicate_cells']:
+            raise SystemExit('The actual earned campaign ledger or scoring still differs.')
+        if result['formal_save_check'].get('unchanged') is not True:
+            raise SystemExit('Final formal-save preservation has not been verified.')
+        for run in result['runs']:
+            if run['name'] == 'qa111-save-ui01' and run['expected_storage_errors'] != 2:
+                raise SystemExit('Expected storage-fault count differs from the two deliberate probes.')
+            reviewed_timing_failure = run['name'] == 'qa111-journey02' and run['exit_code'] == 1 and set(run['failures'] or []) == {'Equip button enabled eng_lance_long_2', 'UI equip persists eng_lance_long_2'}
+            if run['script_errors'] or run['unexpected_native_error_lines'] or (not reviewed_timing_failure and (run['exit_code'] != 0 or run['passed'] is False)):
+                raise SystemExit('Unresolved run: ' + run['name'])
+        if not result['portable'] or not all(probe['passed'] for probe in result['portable']):
+            raise SystemExit('Portable launcher probes remain incomplete.')
         (ROOT / 'docs/development/QA111_EVIDENCE.json').write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
-    print(json.dumps({'closed_segments': len(result['journey']), 'last_completed_level': result['journey'][-1]['last'] if result['journey'] else 0, 'ledger': result['independent_ledger'], 'score': result['score_audit'], 'active_runs': [row['name'] for row in result['runs'] if row['exit_code'] is None], 'unexpected_errors': [row['name'] for row in result['runs'] if row['script_errors'] or row['unexpected_native_error_lines']], 'reported_failures': [row['name'] for row in result['runs'] if row['passed'] is False], 'artifact_written': args.write}, ensure_ascii=False))
+    print(json.dumps({'closed_segments': len(result['journey']), 'cleared_level_count': result['journey'][-1]['clears'] if result['journey'] else 0, 'actual_journey_complete': result['actual_journey_complete'], 'ledger': result['independent_ledger'], 'score': result['score_audit'], 'active_runs': [row['name'] for row in result['runs'] if row['exit_code'] is None], 'unexpected_errors': [row['name'] for row in result['runs'] if row['script_errors'] or row['unexpected_native_error_lines']], 'reported_failures': [row['name'] for row in result['runs'] if row['passed'] is False], 'artifact_written': args.write}, ensure_ascii=False))

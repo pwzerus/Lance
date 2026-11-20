@@ -11,14 +11,14 @@ const COUNT = 80
 const PER_CHAPTER = 10
 const CHAPTERS = ["乡间比武","郡守之杯","勃艮第之路","莱茵骑士会","米兰金枪","王家比武大会","圣乔治骑士团","桂冠之巅"]
 const CHAPTER_NOTES = [
-	"入门比武：前几关对手出手慢、空当明显。先护胸，再把枪稳稳送向胸腹。",
-	"郡守设下奖杯。骑手开始懂得护住要害。",
-	"先读高低枪，再练习提前变线；重枪与马匹升级逐步出现。",
-	"莱茵河畔的骑士会。重甲与长枪成了常客。",
-	"米兰工坊的金枪手。他们反应更快，也会变招。",
-	"王家大会，四国好手齐聚。",
-	"骑士团的精英，几乎不给你第二次机会。",
-	"最后的冠军们。每一枪都可能决定桂冠归属。"]
+	"先练催马和护胸，第6关起辨认提前亮出的高低枪；第10关挑战入门冠军。",
+	"每轮会换枪线，亮出后保持。第15关首次实战：有效重击可致命，收藏不会丢失。",
+	"先读高低枪，再练提前变线；重枪与马匹升级分开出现，别在最后一刻才换盾。",
+	"重甲与长枪渐多，冲锋压力逐步增加。提前稳住枪盾，留意马力与骑手平衡。",
+	"对手开始根据暴露部位选线。比较轻甲快马与重甲稳马，别把追头当作唯一解法。",
+	"四国好手齐聚，枪长、盾位和假动作各有不同。看清装备与来枪，再决定进攻位置。",
+	"精英反应更快，但枪盾仍需时间移动。保留催马余力，稳住最后一条枪线。",
+	"最后的冠军们。先读装备与出枪习惯；挑战失败可调整配装，重试不损失收藏。"]
 const REGION_KEYS = ["eng","fr","de","it"]
 const GIVEN = {
 	"eng":["威廉","托马斯","理查","约翰","亨利","休","罗伯特","杰弗里"],
@@ -104,6 +104,19 @@ static func training_strength(n: int) -> float:
 	if n<1 or n>=15: return 0.0
 	return [1.0,1.0,1.0,.92,.84,.76,.68,.60,.52,.44,.34,.25,.16,.08][n-1]
 
+static func _region_index(n: int) -> int:
+	return (((n-1)/PER_CHAPTER)+((n-1)%PER_CHAPTER)/3)%REGION_KEYS.size()
+
+static func _regional_ordinal(n: int) -> int:
+	# Twenty riders per region. Use each given-name/epithet combination once
+	# instead of the old modulo expression repeating whole names every 33
+	# levels. Display identity only: level IDs, saves, kits and RNG stay put.
+	var ordinal=0
+	var region_index=_region_index(n)
+	for earlier in range(1,n):
+		if _region_index(earlier)==region_index:ordinal+=1
+	return ordinal
+
 static func build(items: Array, n: int) -> Dictionary:
 	var chapter = (n-1)/PER_CHAPTER
 	var position = (n-1)%PER_CHAPTER
@@ -116,7 +129,7 @@ static func build(items: Array, n: int) -> Dictionary:
 	# 23/24 previously repeated the same heavy kit back to back.
 	if n==24:kind="balanced"
 	var arche: Dictionary = ARCHETYPES[kind]
-	var region = str(REGION_KEYS[(chapter+position/3)%4])
+	var region = str(REGION_KEYS[_region_index(n)])
 	var q = base_quality(n)+(1 if boss and n>10 else 0)
 	var lance_type = str(arche.lance)
 	if lance_type=="mixed":
@@ -172,7 +185,8 @@ static func build(items: Array, n: int) -> Dictionary:
 	var awareness = top_ease(clampf(curve+float(arche.awareness)+(.20 if boss else 0.0),0.0,2.0),AWARENESS_TOP_SLOPE)
 	var given: Array = GIVEN[region]
 	var epithets: Array = arche.epithets
-	var opponent = "%s「%s」" % [given[(n*7+chapter*3)%given.size()],epithets[(n+chapter)%epithets.size()]]
+	var ordinal=_regional_ordinal(n)
+	var opponent = "%s「%s」" % [given[ordinal%given.size()],epithets[(ordinal/given.size())%epithets.size()]]
 	if boss:
 		opponent = "冠军 "+opponent
 	var war = n>=15 and n%10==5
@@ -184,6 +198,12 @@ static func build(items: Array, n: int) -> Dictionary:
 	if n>=18 and n<40:
 		ai.pressure_ease=.88 if n<=28 else .88*float(40-n)/12.0
 	var hint=str(arche.hint)
+	var role_name=str(arche.name)
+	# The teaching profile can override the archetype's normal behaviour.
+	# Do not advertise a continuous head-hunter or an in-pass feint when this
+	# encounter actually shows a fixed line and changes it only next round.
+	if n<=20 and kind=="headhunter":role_name="高枪教习"
+	if n<=20 and kind=="trickster":role_name="换线骑手"
 	if training>0:
 		ai.training=training
 		ai.feint=false
@@ -198,13 +218,16 @@ static func build(items: Array, n: int) -> Dictionary:
 		if n>=21 and n<=28:
 			ai.lesson_change_passes=[2] if n<=24 else [2,3]
 		ai.feint=false
-		if n<=10:hint="首轮攻胸，次轮高枪，末轮再攻胸。枪会提前亮出，看到抬枪再护头。"
-		elif n<=20:hint="每轮会换一条高低枪线，亮出后不再变招。看枪尖选盾位；盾心硬接也会失衡。"
+		if n==6:hint="首轮攻胸，次轮高枪，末轮攻胸。先看枪尖再换盾；临近接触前按住 W 前倾支撑。"
+		elif n<=8:hint="来枪会提前定线。选对应盾位，提前按住 W 前倾承压；平衡低时别一直硬接盾心。"
+		elif n==9:hint="他用重盾与稳马，盾心硬接会压低平衡。提前前倾支撑，瞄盾外空当；别一直追头。"
+		elif n==10:hint="冠军按胸／头／胸出枪。先换好盾，再前倾承压；枪盾仍要时间移动，别等贴身才操作。"
+		elif n<=20:hint="每轮换高低枪线，亮出后保持。看枪尖选盾位，提前前倾承压；盾心硬接也会失衡。"
 		elif n<=24:hint="首轮先看清高低枪；第二轮会提前变一次线。盾心硬接会承压，找盾外空当还击。"
 		elif n<=28:hint="首轮亮线不变，后两轮会提前变一次高低线。看到枪尖转向再换盾，别一直硬接盾心。"
 		else:hint="远处先亮一枪，接近时可能变一次高低线，随后定线。稳住盾，别追着每次抖动乱换。"
 	return {"number":n,"chapter":chapter,"chapter_name":CHAPTERS[chapter],"position":position+1,"boss":boss,
-		"opponent":opponent,"region":Catalogue.REGIONS[REGION_KEYS.find(region)],"archetype":kind,"archetype_name":str(arche.name),
+		"opponent":opponent,"region":Catalogue.REGIONS[REGION_KEYS.find(region)],"archetype":kind,"archetype_name":role_name,
 		"hint":hint,"mode":"war" if war else "arena","quality":_q(q),"equipment":equipment,
 		"ai":ai,
 		"reward_coins":reward_coins(n,boss),"reward_renown":3 if boss else 1}

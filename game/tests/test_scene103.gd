@@ -5,14 +5,21 @@ func capture(folder:String,name:String)->void:
 	await RenderingServer.frame_post_draw
 	root.get_texture().get_image().save_png(folder+"/"+name+".png")
 func run()->void:
-	var folder="";var nums=[23,24,25]
+	var folder="";var nums=[23,24,25];var audit_path="";var budget_line="light";var audit={}
 	for a in OS.get_cmdline_user_args():
 		if a.begins_with("--folder="):folder=a.trim_prefix("--folder=")
+		if a.begins_with("--audit="):audit_path=a.trim_prefix("--audit=")
+		if a.begins_with("--kit="):budget_line=a.trim_prefix("--kit=")
 		if a.begins_with("--levels="):
 			nums=[]
 			for value in a.trim_prefix("--levels=").split(","):nums.append(int(value))
 	var state=root.get_node("GameState")
 	if folder.is_empty() or DirAccess.dir_exists_absolute(folder) or not "qa_" in state.save_path or OS.get_environment("GALUMU_MEMORY_BOUND")!="1024" or DisplayServer.get_name()=="headless":quit(2);return
+	if not audit_path.is_empty():
+		audit=JSON.parse_string(FileAccess.get_file_as_string(audit_path))
+		if not audit is Dictionary or not audit.get("passed",false) or budget_line not in ["light","heavy","early_light","early_heavy"]:quit(2);return
+	for n in nums:
+		if n<1 or n>80:quit(2);return
 	DirAccess.make_dir_recursive_absolute(folder)
 	state.save_path=folder+"/qa_profile.json";state.backup_path=folder+"/qa_backup.json"
 	state.profile=state.default_profile();state.profile.settings.combat_brief_v044=true
@@ -24,13 +31,19 @@ func run()->void:
 	for i in range(30):await process_frame
 	var rows=[]
 	for n in nums:
+		if not audit.is_empty():
+			state.profile.equipped=audit.rows[n-1].budget_kits[budget_line].equipment.duplicate()
+			state.profile.coins=int(audit.rows[n-1].budget_kits[budget_line].coins_remaining)
+			state.profile.renown=int(audit.rows[n-1].first_clear_renown_before_level)
+			for id in state.profile.equipped.values():
+				if id not in state.profile.owned:state.profile.owned.append(id)
 		var expected=Campaign103.level(state.items,n)
 		if n>=18 and n<=28:check(is_equal_approx(float(expected.ai.get("pressure_ease",0)),.88),"Published teaching pace "+str(n))
 		if n==24:check(expected.archetype=="balanced","Published level 24 recovery opponent")
 		if n>=21 and n<=28:check(expected.ai.get("lesson_change_passes",[])==([2] if n<=24 else [2,3]),"Published line-change rounds")
 		state.profile.campaign_cleared=range(1,n)
 		main.level_selected=n
-		main.show_levels(2)
+		main.show_levels((n-1)/Campaign103.PER_CHAPTER)
 		for i in range(4):await process_frame
 		await capture(folder,"level%d-menu"%n)
 		main._start_level(n);var b=main.battle
@@ -69,5 +82,5 @@ func run()->void:
 		FileAccess.open(folder+"/partial.json",FileAccess.WRITE).store_string(JSON.stringify(rows,"\t"))
 	var disk=state.sanitize(state._read_save(state.save_path))
 	check(disk.coins==state.profile.coins and disk.campaign_cleared==state.profile.campaign_cleared,"QA disk progress matches")
-	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"version":ProjectSettings.get_setting("application/config/version"),"rows":rows,"scope":"Actual Main/Battle GPU with fixed q1 purchased kit, engine-injected 600ms visible-line input. Normal result/reward/disk-save, isolated QA, no OS input or human acceptance."},"\t"))
+	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"version":ProjectSettings.get_setting("application/config/version"),"rows":rows,"audit":audit_path,"budget_line":budget_line if not audit.is_empty() else "legacy_fixed_q1","scope":"Actual Main/Battle GPU with legacy fixed q1 or explicit audit budget kit; earlier levels are unlocked in the fixture. Engine-injected 600ms visible-line input, normal result/reward/disk-save. Isolated QA, no OS input, earned campaign playthrough or human acceptance."},"\t"))
 	main.queue_free();await process_frame;quit(0 if failures.is_empty() else 1)

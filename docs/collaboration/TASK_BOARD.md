@@ -5,7 +5,9 @@
 - 用户授权：按原成品计划继续5关卡AI、6装备美术历史、7奖励成长、8UI教学、9Windows验收；每项至少90分钟实际开发/审查/有效验证，全部完成后额外60分钟综合复验。计划原文已从本对话2026-11-19成品任务表恢复，不扩展到iOS/广告/付费/上架。
 - 实际基线：codex/v0.4，HEAD/origin均为0f523cb9db7da3191c217cbc98b8cd920423ef3c，发布v0.4.58-c1。无新Claude功能差异；三份历史跟踪修改及既有未跟踪QA/UID继续保留，不reset/stash/pull。
 - LEVEL-107（第5项）起点2026-11-20 04:06:37 UTC，最早05:36:37 UTC转入下一项；其余阶段逐项记实际起止，总体最早完成12:36:37 UTC（不含阻塞等待和必要延长）。不以空等、重复已过测试或压低标准凑时长。
-- 当前文件占用，Codex：game/scripts/core/{campaign,opponent_ai}.gd；game/tests/*107*及直接相关关卡/AI夹具；docs/requirements/WINDOWS_PRODUCT_PLAN.md、docs/development/LEVEL107_*、本任务的设计/交接/状态/任务板/日志；候选版本入口game/project.godot、game/export_presets.cfg、Play-Latest.cmd。main.gd只读到第8项，如发现必须修的当前功能接口先追加认领。其他阶段的生产文件在其开工前认领。
+- LEVEL-107于2026-11-20 05:40 UTC完成，功能26f1b0f；释放opponent_ai及107专属文件，保留共享交接/入口认领。
+- ART-108自2026-11-20 05:40 UTC开始，最早07:10 UTC结束：Codex认领game/scripts/core/{campaign,appearance}.gd、game/scripts/battle.gd、game/scripts/visual/{rider_view,face_art,head_fit,armor_art,lance_art,shield_art}.gd中经诊断需要的纯表现接口，game/data装备与历史元数据、game/tests/*108*及直接相关穿戴/资产夹具、game/tests/test_parse065.gd；docs/development/ART108_*与历史/素材出处、设计/交接文档。改位图前使用指定图像工具；不默认重绘全部已有素材。game/scripts/main.gd继续只读到UX阶段。
+- 原第5项认领（已释放专属）：game/scripts/core/{campaign,opponent_ai}.gd；game/tests/*107*及直接相关关卡/AI夹具；docs/requirements/WINDOWS_PRODUCT_PLAN.md、docs/development/LEVEL107_*、本任务的设计/交接/状态/任务板/日志；候选版本入口game/project.godot、game/export_presets.cfg、Play-Latest.cmd。main.gd只读到第8项，如发现必须修的当前功能接口先追加认领。其他阶段的生产文件在其开工前认领。
 - 默认隔离后台，原内存/CPU/系统预留/单实例和QA存档保持；本任务没有新的真实桌面授权。另一台机器、真人听感与真实输入不可伪称通过，必要时先解释范围再向用户申请。
 - 阶段顺序、完成门槛与计时见docs/requirements/WINDOWS_PRODUCT_PLAN.md。每阶段保存/审查/commit，需发布时独立导出目录，最终综合复验后推送当前分支核对远程SHA；旧发布包不覆盖。
 

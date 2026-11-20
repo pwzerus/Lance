@@ -1,5 +1,7 @@
 # 任务、审查建议与文件认领
 
+ECON-109（第7项）自2026-11-20 07:28:44 UTC开始，至少90分钟：Codex认领game/scripts/core/{game_state,catalogue,campaign}.gd经证据需要的经济/存档接口，game/tests/*109*、相关存档/实际流程夹具及test_parse065.gd，docs/development/ECON109_*、tools/econ109-*、设计/计划/共享交接。先跑原基线、真实交易及合法失败恢复；不擅改已验证的战斗、AI或奖励曲线，main.gd仍只读到UX-110。ART-108专属文件释放，旧三份差异与QA保留。
+
 ## DELIVERY-107–111 进行中：Windows计划第5–9项（2026-11-20 UTC，Codex）
 
 - 用户授权：按原成品计划继续5关卡AI、6装备美术历史、7奖励成长、8UI教学、9Windows验收；每项至少90分钟实际开发/审查/有效验证，全部完成后额外60分钟综合复验。计划原文已从本对话2026-11-19成品任务表恢复，不扩展到iOS/广告/付费/上架。

@@ -6,7 +6,10 @@
     "game/scripts/core/campaign.gd": "06FDB10BC5A6068ABC7140FA4377EA33C3FFC81C994F0277DDE00B602D5EA66E",
     "game/scripts/battle.gd": "066FA4E3D66C724E23257AABB2724468A0B5B23DE8839439848CB2F41005F212",
     "game/data/history_v051_en_fr.json": "1C9C22199B4AD2473599CCB33FD44CF179A977219FAAB97AEF20B98B8CB37BEC",
-    "game/tools/battle_sprites_v090.gd": "DBDC12426432B85B88A1CC07F6DCCF5DB3571C0AC26046D9685B3FF12E6E2422"
+    "game/tools/battle_sprites_v090.gd": "DBDC12426432B85B88A1CC07F6DCCF5DB3571C0AC26046D9685B3FF12E6E2422",
+    "game/data/caparisons_v066.json": "28BEBEFCA0DBD8C4303C39C21336DAEBBE220A0973B6852036954D2EA4211ED5",
+    "game/tools/caparison_v066.gd": "6B74F01A8DF82C03762321DAF542972BC0AE65E0E349315703BFDAF92F568127",
+    "game/art_sources/v051/eng_armor_2_source01.md": "032943FF06ADA8D7191DDA2F6AC12282B59E9D26AD03F72D9B1990F66E32498D"
   },
   "runs": [
     {
@@ -96,12 +99,88 @@
     },
     {
       "run": "art108-campaign06",
-      "memory_sha256": "3AC2C6EC4072D035AD3E722D9190ABBA1914EB5D5CE7B10B6D7A867948A4C4C1",
-      "exit_lines": [],
-      "finished": false,
+      "memory_sha256": "D78AF2F14CCFAA821DF6D26836ADB96469E9DDB87B81EE373ECE400CF04978D2",
+      "exit_lines": [
+        "EXIT code=0 seconds=429.5",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
       "private_peak_mib": 747.5,
       "engine_issues": [],
-      "parse_results": []
+      "parse_results": [],
+      "report": "docs/development/logs/art108-campaign06/screens/report.json",
+      "report_sha256": "5E0465AD96B027BDEC46468122C2182445A116A356500BB8C686E8E54A386261",
+      "passed": true,
+      "failures": [],
+      "rows_count": 8
+    },
+    {
+      "run": "art108-campaign07",
+      "memory_sha256": "2FD765F0AC37E30C5D720B3352B5838768819501F0133B928F5978F75F549890",
+      "exit_lines": [
+        "EXIT code=0 seconds=404.6",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 763.4,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-campaign07/screens/report.json",
+      "report_sha256": "B39B18B460845CDFADE70C2764E8E6E1770EEED7C005A4305420BCB8B5A269E3",
+      "passed": true,
+      "failures": [],
+      "rows_count": 8
+    },
+    {
+      "run": "art108-campaign08",
+      "memory_sha256": "B7435B6A5F5EC6B924E11DB40D82FE23CE20E554AADC02056E8108E1D6F2B419",
+      "exit_lines": [
+        "EXIT code=0 seconds=408.4",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 760.3,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-campaign08/screens/report.json",
+      "report_sha256": "94F2AC16DD94798B0CEAB354ABA9B64B0C786C986D5CFDA7896918F0C1BC0E8E",
+      "passed": true,
+      "failures": [],
+      "rows_count": 8
+    },
+    {
+      "run": "art108-campaign09",
+      "memory_sha256": "58801BC29B7D3D9CBA3C3E3162EA342551706BC05EC3349CEA7A347DF4530B4E",
+      "exit_lines": [
+        "EXIT code=0 seconds=398.3",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 761.6,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-campaign09/screens/report.json",
+      "report_sha256": "DC6F06AAEBF17F45A38BC2228FA6DA0C26BFAB9164D6F3E5315A1D261ABA0D98",
+      "passed": true,
+      "failures": [],
+      "rows_count": 8
+    },
+    {
+      "run": "art108-campaign10",
+      "memory_sha256": "445646B4BDEF7EB250933812AD844ED2901AABBB005664DD35217657C2ED2ACF",
+      "exit_lines": [
+        "EXIT code=0 seconds=402.7",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 768.4,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-campaign10/screens/report.json",
+      "report_sha256": "8FC4C4B63E50AAA28D48CFDB33CAAA416468113030F6435C5B3EFCDAD13D3454",
+      "passed": true,
+      "failures": [],
+      "rows_count": 8
     },
     {
       "run": "art108-character01",
@@ -221,6 +300,23 @@
       "passed": true,
       "failures": [],
       "rows_count": 36
+    },
+    {
+      "run": "art108-fallprobe01",
+      "memory_sha256": "E43BC82D8D51BCB874444F8F1F68795D542B7269585658CE9D00B76327E6D79F",
+      "exit_lines": [
+        "EXIT code=0 seconds=5.6",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "finished": true,
+      "private_peak_mib": 412.4,
+      "engine_issues": [],
+      "parse_results": [],
+      "report": "docs/development/logs/art108-fallprobe01/screens/report.json",
+      "report_sha256": "F10278AA4A486383A90AED2D1B462EC4AF3DD902D10A99E96C8E9E486B90BE5A",
+      "passed": true,
+      "failures": [],
+      "rows_count": 6
     },
     {
       "run": "art108-fit-baseline01",
@@ -474,6 +570,19 @@
       ],
       "finished": true,
       "private_peak_mib": 107.7,
+      "engine_issues": [],
+      "parse_results": [
+        "PARSE065_RESULT failed=0"
+      ]
+    },
+    {
+      "run": "art108-parse04",
+      "memory_sha256": "0A1AFC849BE0C17B701493B6C1CD1D89F38A93CF413BB82B7EB077D8D674064E",
+      "exit_lines": [
+        "EXIT code=0 seconds=2.1"
+      ],
+      "finished": true,
+      "private_peak_mib": 183.0,
       "engine_issues": [],
       "parse_results": [
         "PARSE065_RESULT failed=0"
@@ -1649,6 +1758,1677 @@
         "hair": 1,
         "skin": 4
       }
+    },
+    {
+      "run": "art108-campaign06",
+      "level": 41,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 2,
+        "brows": 3,
+        "eyes": 4,
+        "face_shape": 1,
+        "hair": 3,
+        "skin": 4
+      },
+      "opponent_appearance": {
+        "beard": 1,
+        "brows": 1,
+        "eyes": 2,
+        "face_shape": 2,
+        "hair": 2,
+        "skin": 3
+      }
+    },
+    {
+      "run": "art108-campaign06",
+      "level": 42,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [
+        {
+          "age": 0.0,
+          "direction": -1,
+          "file": "level42-fall0-step0.png",
+          "position": "(93.61348, -202.1308)",
+          "stage": 0,
+          "visible": true
+        },
+        {
+          "age": 0.208333333333333,
+          "direction": -1,
+          "file": "level42-fall0-step1.png",
+          "position": "(42.15989, -185.7192)",
+          "stage": 1,
+          "visible": true
+        },
+        {
+          "age": 0.4,
+          "direction": -1,
+          "file": "level42-fall0-step2.png",
+          "position": "(-5.177378, -136.1205)",
+          "stage": 2,
+          "visible": true
+        },
+        {
+          "age": 0.708333333333333,
+          "direction": -1,
+          "file": "level42-fall0-step3.png",
+          "position": "(-45.91119, -85.6051)",
+          "stage": 3,
+          "visible": true
+        },
+        {
+          "age": 1.20833333333333,
+          "direction": -1,
+          "file": "level42-fall0-step4.png",
+          "position": "(-52.19144, -60.2991)",
+          "stage": 4,
+          "visible": true
+        }
+      ],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 0,
+        "brows": 0,
+        "eyes": 1,
+        "face_shape": 0,
+        "hair": 2,
+        "skin": 3
+      },
+      "opponent_appearance": {
+        "beard": 2,
+        "brows": 3,
+        "eyes": 3,
+        "face_shape": 2,
+        "hair": 0,
+        "skin": 2
+      }
+    },
+    {
+      "run": "art108-campaign06",
+      "level": 43,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 4,
+        "brows": 0,
+        "eyes": 4,
+        "face_shape": 2,
+        "hair": 2,
+        "skin": 1
+      },
+      "opponent_appearance": {
+        "beard": 3,
+        "brows": 0,
+        "eyes": 4,
+        "face_shape": 2,
+        "hair": 1,
+        "skin": 1
+      }
+    },
+    {
+      "run": "art108-campaign06",
+      "level": 44,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 2,
+        "brows": 1,
+        "eyes": 1,
+        "face_shape": 1,
+        "hair": 1,
+        "skin": 0
+      },
+      "opponent_appearance": {
+        "beard": 4,
+        "brows": 1,
+        "eyes": 1,
+        "face_shape": 3,
+        "hair": 2,
+        "skin": 0
+      }
+    },
+    {
+      "run": "art108-campaign06",
+      "level": 45,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 5,
+      "player_appearance": {
+        "beard": 1,
+        "brows": 1,
+        "eyes": 3,
+        "face_shape": 0,
+        "hair": 0,
+        "skin": 5
+      },
+      "opponent_appearance": {
+        "beard": 0,
+        "brows": 2,
+        "eyes": 2,
+        "face_shape": 3,
+        "hair": 3,
+        "skin": 4
+      }
+    },
+    {
+      "run": "art108-campaign06",
+      "level": 46,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 5,
+      "player_appearance": {
+        "beard": 4,
+        "brows": 2,
+        "eyes": 0,
+        "face_shape": 2,
+        "hair": 3,
+        "skin": 4
+      },
+      "opponent_appearance": {
+        "beard": 1,
+        "brows": 3,
+        "eyes": 3,
+        "face_shape": 3,
+        "hair": 1,
+        "skin": 3
+      }
+    },
+    {
+      "run": "art108-campaign06",
+      "level": 47,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 3,
+        "brows": 2,
+        "eyes": 2,
+        "face_shape": 1,
+        "hair": 2,
+        "skin": 2
+      },
+      "opponent_appearance": {
+        "beard": 2,
+        "brows": 0,
+        "eyes": 4,
+        "face_shape": 0,
+        "hair": 2,
+        "skin": 2
+      }
+    },
+    {
+      "run": "art108-campaign06",
+      "level": 48,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 1,
+        "brows": 3,
+        "eyes": 4,
+        "face_shape": 0,
+        "hair": 2,
+        "skin": 1
+      },
+      "opponent_appearance": {
+        "beard": 4,
+        "brows": 1,
+        "eyes": 0,
+        "face_shape": 0,
+        "hair": 3,
+        "skin": 1
+      }
+    },
+    {
+      "run": "art108-campaign07",
+      "level": 49,
+      "winner": 1,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 0,
+        "brows": 0,
+        "eyes": 2,
+        "face_shape": 2,
+        "hair": 1,
+        "skin": 0
+      },
+      "opponent_appearance": {
+        "beard": 0,
+        "brows": 2,
+        "eyes": 1,
+        "face_shape": 0,
+        "hair": 1,
+        "skin": 0
+      }
+    },
+    {
+      "run": "art108-campaign07",
+      "level": 50,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 3,
+        "brows": 0,
+        "eyes": 4,
+        "face_shape": 1,
+        "hair": 0,
+        "skin": 5
+      },
+      "opponent_appearance": {
+        "beard": 1,
+        "brows": 3,
+        "eyes": 2,
+        "face_shape": 1,
+        "hair": 2,
+        "skin": 5
+      }
+    },
+    {
+      "run": "art108-campaign07",
+      "level": 51,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 2,
+        "brows": 1,
+        "eyes": 1,
+        "face_shape": 0,
+        "hair": 3,
+        "skin": 3
+      },
+      "opponent_appearance": {
+        "beard": 2,
+        "brows": 0,
+        "eyes": 3,
+        "face_shape": 1,
+        "hair": 3,
+        "skin": 3
+      }
+    },
+    {
+      "run": "art108-campaign07",
+      "level": 52,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [
+        {
+          "age": 0.0,
+          "direction": -1,
+          "file": "level52-fall0-step0.png",
+          "position": "(201.8808, -200.7264)",
+          "stage": 0,
+          "visible": true
+        },
+        {
+          "age": 0.208333333333333,
+          "direction": -1,
+          "file": "level52-fall0-step1.png",
+          "position": "(171.9786, -183.9841)",
+          "stage": 1,
+          "visible": true
+        },
+        {
+          "age": 0.408333333333334,
+          "direction": -1,
+          "file": "level52-fall0-step2.png",
+          "position": "(143.2724, -131.1614)",
+          "stage": 2,
+          "visible": true
+        },
+        {
+          "age": 0.708333333333333,
+          "direction": -1,
+          "file": "level52-fall0-step3.png",
+          "position": "(120.796, -91.30473)",
+          "stage": 3,
+          "visible": true
+        },
+        {
+          "age": 1.20833333333333,
+          "direction": -1,
+          "file": "level52-fall0-step4.png",
+          "position": "(117.1462, -61.21839)",
+          "stage": 4,
+          "visible": true
+        }
+      ],
+      "hits": 5,
+      "player_appearance": {
+        "beard": 0,
+        "brows": 1,
+        "eyes": 3,
+        "face_shape": 2,
+        "hair": 3,
+        "skin": 2
+      },
+      "opponent_appearance": {
+        "beard": 3,
+        "brows": 1,
+        "eyes": 4,
+        "face_shape": 1,
+        "hair": 0,
+        "skin": 2
+      }
+    },
+    {
+      "run": "art108-campaign07",
+      "level": 53,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [
+        {
+          "age": 0.0,
+          "direction": -1,
+          "file": "level53-fall0-step0.png",
+          "position": "(184.3648, -198.9993)",
+          "stage": 0,
+          "visible": true
+        },
+        {
+          "age": 0.216666666666667,
+          "direction": -1,
+          "file": "level53-fall0-step1.png",
+          "position": "(154.8034, -181.3218)",
+          "stage": 1,
+          "visible": true
+        },
+        {
+          "age": 0.408333333333334,
+          "direction": -1,
+          "file": "level53-fall0-step2.png",
+          "position": "(128.6529, -130.4653)",
+          "stage": 2,
+          "visible": true
+        },
+        {
+          "age": 0.708333333333333,
+          "direction": -1,
+          "file": "level53-fall0-step3.png",
+          "position": "(107.2872, -89.27281)",
+          "stage": 3,
+          "visible": true
+        },
+        {
+          "age": 1.21666666666666,
+          "direction": -1,
+          "file": "level53-fall0-step4.png",
+          "position": "(103.8104, -60.51402)",
+          "stage": 4,
+          "visible": true
+        },
+        {
+          "age": 1.80833333333333,
+          "direction": -1,
+          "file": "level53-fall0-step5.png",
+          "position": "(103.6806, -61.45965)",
+          "stage": 5,
+          "visible": true
+        }
+      ],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 4,
+        "brows": 2,
+        "eyes": 0,
+        "face_shape": 1,
+        "hair": 2,
+        "skin": 1
+      },
+      "opponent_appearance": {
+        "beard": 4,
+        "brows": 2,
+        "eyes": 0,
+        "face_shape": 1,
+        "hair": 2,
+        "skin": 1
+      }
+    },
+    {
+      "run": "art108-campaign07",
+      "level": 54,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 2,
+        "brows": 2,
+        "eyes": 2,
+        "face_shape": 0,
+        "hair": 1,
+        "skin": 0
+      },
+      "opponent_appearance": {
+        "beard": 1,
+        "brows": 3,
+        "eyes": 1,
+        "face_shape": 2,
+        "hair": 3,
+        "skin": 0
+      }
+    },
+    {
+      "run": "art108-campaign07",
+      "level": 55,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [
+        {
+          "age": 0.0,
+          "direction": -1,
+          "file": "level55-fall0-step0.png",
+          "position": "(170.7696, -202.1326)",
+          "stage": 0,
+          "visible": true
+        },
+        {
+          "age": 0.216666666666667,
+          "direction": -1,
+          "file": "level55-fall0-step1.png",
+          "position": "(143.5045, -184.3656)",
+          "stage": 1,
+          "visible": true
+        },
+        {
+          "age": 0.4,
+          "direction": -1,
+          "file": "level55-fall0-step2.png",
+          "position": "(120.4339, -136.3319)",
+          "stage": 2,
+          "visible": true
+        },
+        {
+          "age": 0.708333333333333,
+          "direction": -1,
+          "file": "level55-fall0-step3.png",
+          "position": "(99.67915, -90.37359)",
+          "stage": 3,
+          "visible": true
+        },
+        {
+          "age": 1.225,
+          "direction": -1,
+          "file": "level55-fall0-step4.png",
+          "position": "(96.46597, -61.14413)",
+          "stage": 4,
+          "visible": true
+        },
+        {
+          "age": 1.81666666666666,
+          "direction": -1,
+          "file": "level55-fall0-step5.png",
+          "position": "(96.35262, -62.31468)",
+          "stage": 5,
+          "visible": true
+        }
+      ],
+      "hits": 4,
+      "player_appearance": {
+        "beard": 1,
+        "brows": 3,
+        "eyes": 0,
+        "face_shape": 2,
+        "hair": 0,
+        "skin": 4
+      },
+      "opponent_appearance": {
+        "beard": 2,
+        "brows": 1,
+        "eyes": 2,
+        "face_shape": 2,
+        "hair": 0,
+        "skin": 5
+      }
+    },
+    {
+      "run": "art108-campaign07",
+      "level": 56,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 4,
+        "brows": 0,
+        "eyes": 2,
+        "face_shape": 1,
+        "hair": 3,
+        "skin": 3
+      },
+      "opponent_appearance": {
+        "beard": 3,
+        "brows": 2,
+        "eyes": 3,
+        "face_shape": 2,
+        "hair": 1,
+        "skin": 4
+      }
+    },
+    {
+      "run": "art108-campaign08",
+      "level": 57,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [
+        {
+          "age": 0.0,
+          "direction": -1,
+          "file": "level57-fall0-step0.png",
+          "position": "(26.19418, -203.1346)",
+          "stage": 0,
+          "visible": true
+        },
+        {
+          "age": 0.208333333333333,
+          "direction": -1,
+          "file": "level57-fall0-step1.png",
+          "position": "(-14.3955, -185.9963)",
+          "stage": 1,
+          "visible": true
+        },
+        {
+          "age": 0.4,
+          "direction": -1,
+          "file": "level57-fall0-step2.png",
+          "position": "(-51.73801, -135.7291)",
+          "stage": 2,
+          "visible": true
+        },
+        {
+          "age": 0.708333333333333,
+          "direction": -1,
+          "file": "level57-fall0-step3.png",
+          "position": "(-83.87135, -88.4603)",
+          "stage": 3,
+          "visible": true
+        },
+        {
+          "age": 1.21666666666666,
+          "direction": -1,
+          "file": "level57-fall0-step4.png",
+          "position": "(-88.83612, -61.09057)",
+          "stage": 4,
+          "visible": true
+        }
+      ],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 3,
+        "brows": 0,
+        "eyes": 4,
+        "face_shape": 3,
+        "hair": 3,
+        "skin": 2
+      },
+      "opponent_appearance": {
+        "beard": 4,
+        "brows": 3,
+        "eyes": 4,
+        "face_shape": 3,
+        "hair": 3,
+        "skin": 2
+      }
+    },
+    {
+      "run": "art108-campaign08",
+      "level": 58,
+      "winner": 1,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 1,
+        "brows": 1,
+        "eyes": 1,
+        "face_shape": 2,
+        "hair": 2,
+        "skin": 1
+      },
+      "opponent_appearance": {
+        "beard": 0,
+        "brows": 0,
+        "eyes": 0,
+        "face_shape": 3,
+        "hair": 0,
+        "skin": 1
+      }
+    },
+    {
+      "run": "art108-campaign08",
+      "level": 59,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [
+        {
+          "age": 0.0,
+          "direction": -1,
+          "file": "level59-fall0-step0.png",
+          "position": "(184.7056, -203.6658)",
+          "stage": 0,
+          "visible": true
+        },
+        {
+          "age": 0.208333333333333,
+          "direction": -1,
+          "file": "level59-fall0-step1.png",
+          "position": "(132.4534, -187.5464)",
+          "stage": 1,
+          "visible": true
+        },
+        {
+          "age": 0.4,
+          "direction": -1,
+          "file": "level59-fall0-step2.png",
+          "position": "(84.38138, -138.2166)",
+          "stage": 2,
+          "visible": true
+        },
+        {
+          "age": 0.7,
+          "direction": -1,
+          "file": "level59-fall0-step3.png",
+          "position": "(41.68436, -90.55398)",
+          "stage": 3,
+          "visible": true
+        },
+        {
+          "age": 1.20833333333333,
+          "direction": -1,
+          "file": "level59-fall0-step4.png",
+          "position": "(34.56179, -60.28156)",
+          "stage": 4,
+          "visible": true
+        }
+      ],
+      "hits": 5,
+      "player_appearance": {
+        "beard": 0,
+        "brows": 1,
+        "eyes": 3,
+        "face_shape": 1,
+        "hair": 1,
+        "skin": 5
+      },
+      "opponent_appearance": {
+        "beard": 1,
+        "brows": 1,
+        "eyes": 2,
+        "face_shape": 3,
+        "hair": 1,
+        "skin": 0
+      }
+    },
+    {
+      "run": "art108-campaign08",
+      "level": 60,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [
+        {
+          "age": 0.0,
+          "direction": -1,
+          "file": "level60-fall0-step0.png",
+          "position": "(-21.34012, -202.1188)",
+          "stage": 0,
+          "visible": true
+        },
+        {
+          "age": 0.208333333333333,
+          "direction": -1,
+          "file": "level60-fall0-step1.png",
+          "position": "(-64.34303, -185.7507)",
+          "stage": 1,
+          "visible": true
+        },
+        {
+          "age": 0.408333333333334,
+          "direction": -1,
+          "file": "level60-fall0-step2.png",
+          "position": "(-105.6258, -133.2873)",
+          "stage": 2,
+          "visible": true
+        },
+        {
+          "age": 0.716666666666667,
+          "direction": -1,
+          "file": "level60-fall0-step3.png",
+          "position": "(-145.229, -70.53907)",
+          "stage": 3,
+          "visible": true
+        },
+        {
+          "age": 1.20833333333333,
+          "direction": -1,
+          "file": "level60-fall0-step4.png",
+          "position": "(-151.733, -68.3979)",
+          "stage": 4,
+          "visible": true
+        }
+      ],
+      "hits": 5,
+      "player_appearance": {
+        "beard": 3,
+        "brows": 2,
+        "eyes": 0,
+        "face_shape": 3,
+        "hair": 0,
+        "skin": 4
+      },
+      "opponent_appearance": {
+        "beard": 3,
+        "brows": 2,
+        "eyes": 3,
+        "face_shape": 0,
+        "hair": 3,
+        "skin": 5
+      }
+    },
+    {
+      "run": "art108-campaign08",
+      "level": 61,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [
+        {
+          "age": 0.0,
+          "direction": -1,
+          "file": "level61-fall0-step0.png",
+          "position": "(182.9862, -203.6299)",
+          "stage": 0,
+          "visible": true
+        },
+        {
+          "age": 0.208333333333333,
+          "direction": -1,
+          "file": "level61-fall0-step1.png",
+          "position": "(130.6474, -187.1839)",
+          "stage": 1,
+          "visible": true
+        },
+        {
+          "age": 0.4,
+          "direction": -1,
+          "file": "level61-fall0-step2.png",
+          "position": "(82.4957, -137.5537)",
+          "stage": 2,
+          "visible": true
+        },
+        {
+          "age": 0.708333333333333,
+          "direction": -1,
+          "file": "level61-fall0-step3.png",
+          "position": "(39.33741, -87.71957)",
+          "stage": 3,
+          "visible": true
+        },
+        {
+          "age": 1.20833333333333,
+          "direction": -1,
+          "file": "level61-fall0-step4.png",
+          "position": "(32.59354, -60.29149)",
+          "stage": 4,
+          "visible": true
+        }
+      ],
+      "hits": 5,
+      "player_appearance": {
+        "beard": 2,
+        "brows": 2,
+        "eyes": 3,
+        "face_shape": 2,
+        "hair": 3,
+        "skin": 3
+      },
+      "opponent_appearance": {
+        "beard": 4,
+        "brows": 3,
+        "eyes": 4,
+        "face_shape": 0,
+        "hair": 0,
+        "skin": 4
+      }
+    },
+    {
+      "run": "art108-campaign08",
+      "level": 62,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 0,
+        "brows": 3,
+        "eyes": 0,
+        "face_shape": 1,
+        "hair": 3,
+        "skin": 2
+      },
+      "opponent_appearance": {
+        "beard": 0,
+        "brows": 0,
+        "eyes": 0,
+        "face_shape": 0,
+        "hair": 1,
+        "skin": 3
+      }
+    },
+    {
+      "run": "art108-campaign08",
+      "level": 63,
+      "winner": 1,
+      "fall_identities_checked": 1,
+      "fall_frames": [
+        {
+          "age": 0.0,
+          "direction": 1,
+          "file": "level63-fall0-step0.png",
+          "position": "(-382.1117, -137.551)",
+          "stage": 0,
+          "visible": true
+        },
+        {
+          "age": 0.208333333333333,
+          "direction": 1,
+          "file": "level63-fall0-step1.png",
+          "position": "(-351.3347, -120.9269)",
+          "stage": 1,
+          "visible": true
+        },
+        {
+          "age": 0.408333333333334,
+          "direction": 1,
+          "file": "level63-fall0-step2.png",
+          "position": "(-321.7888, -68.2178)",
+          "stage": 2,
+          "visible": true
+        },
+        {
+          "age": 0.708333333333333,
+          "direction": 1,
+          "file": "level63-fall0-step3.png",
+          "position": "(-295.6512, -19.19791)",
+          "stage": 3,
+          "visible": true
+        },
+        {
+          "age": 1.20833333333333,
+          "direction": 1,
+          "file": "level63-fall0-step4.png",
+          "position": "(-291.2318, 3.41362)",
+          "stage": 4,
+          "visible": true
+        }
+      ],
+      "hits": 5,
+      "player_appearance": {
+        "beard": 4,
+        "brows": 0,
+        "eyes": 2,
+        "face_shape": 3,
+        "hair": 2,
+        "skin": 0
+      },
+      "opponent_appearance": {
+        "beard": 1,
+        "brows": 1,
+        "eyes": 1,
+        "face_shape": 1,
+        "hair": 2,
+        "skin": 1
+      }
+    },
+    {
+      "run": "art108-campaign08",
+      "level": 64,
+      "winner": 1,
+      "fall_identities_checked": 1,
+      "fall_frames": [
+        {
+          "age": 0.0,
+          "direction": 1,
+          "file": "level64-fall0-step0.png",
+          "position": "(-340.8378, -135.8363)",
+          "stage": 0,
+          "visible": true
+        },
+        {
+          "age": 0.208333333333333,
+          "direction": 1,
+          "file": "level64-fall0-step1.png",
+          "position": "(-310.9992, -119.6627)",
+          "stage": 1,
+          "visible": true
+        },
+        {
+          "age": 0.408333333333334,
+          "direction": 1,
+          "file": "level64-fall0-step2.png",
+          "position": "(-282.3542, -67.38609)",
+          "stage": 2,
+          "visible": true
+        },
+        {
+          "age": 0.7,
+          "direction": 1,
+          "file": "level64-fall0-step3.png",
+          "position": "(-259.1657, -15.40595)",
+          "stage": 3,
+          "visible": true
+        },
+        {
+          "age": 1.21666666666666,
+          "direction": 1,
+          "file": "level64-fall0-step4.png",
+          "position": "(-255.0902, 3.789001)",
+          "stage": 4,
+          "visible": true
+        },
+        {
+          "age": 1.80833333333333,
+          "direction": 1,
+          "file": "level64-fall0-step5.png",
+          "position": "(-254.9464, 2.554245)",
+          "stage": 5,
+          "visible": true
+        }
+      ],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 2,
+        "brows": 0,
+        "eyes": 4,
+        "face_shape": 2,
+        "hair": 1,
+        "skin": 5
+      },
+      "opponent_appearance": {
+        "beard": 2,
+        "brows": 2,
+        "eyes": 2,
+        "face_shape": 1,
+        "hair": 0,
+        "skin": 0
+      }
+    },
+    {
+      "run": "art108-campaign09",
+      "level": 65,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 1,
+        "brows": 1,
+        "eyes": 1,
+        "face_shape": 1,
+        "hair": 0,
+        "skin": 4
+      },
+      "opponent_appearance": {
+        "beard": 3,
+        "brows": 3,
+        "eyes": 3,
+        "face_shape": 1,
+        "hair": 1,
+        "skin": 5
+      }
+    },
+    {
+      "run": "art108-campaign09",
+      "level": 66,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 4,
+        "brows": 1,
+        "eyes": 4,
+        "face_shape": 3,
+        "hair": 3,
+        "skin": 2
+      },
+      "opponent_appearance": {
+        "beard": 4,
+        "brows": 0,
+        "eyes": 4,
+        "face_shape": 2,
+        "hair": 2,
+        "skin": 4
+      }
+    },
+    {
+      "run": "art108-campaign09",
+      "level": 67,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [
+        {
+          "age": 0.0,
+          "direction": -1,
+          "file": "level67-fall0-step0.png",
+          "position": "(44.18555, -203.2903)",
+          "stage": 0,
+          "visible": true
+        },
+        {
+          "age": 0.208333333333333,
+          "direction": -1,
+          "file": "level67-fall0-step1.png",
+          "position": "(-6.097572, -186.6166)",
+          "stage": 1,
+          "visible": true
+        },
+        {
+          "age": 0.4,
+          "direction": -1,
+          "file": "level67-fall0-step2.png",
+          "position": "(-52.35805, -136.7768)",
+          "stage": 2,
+          "visible": true
+        },
+        {
+          "age": 0.716666666666667,
+          "direction": -1,
+          "file": "level67-fall0-step3.png",
+          "position": "(-92.50193, -88.05933)",
+          "stage": 3,
+          "visible": true
+        },
+        {
+          "age": 1.21666666666666,
+          "direction": -1,
+          "file": "level67-fall0-step4.png",
+          "position": "(-98.31573, -60.47501)",
+          "stage": 4,
+          "visible": true
+        }
+      ],
+      "hits": 4,
+      "player_appearance": {
+        "beard": 3,
+        "brows": 2,
+        "eyes": 1,
+        "face_shape": 2,
+        "hair": 3,
+        "skin": 1
+      },
+      "opponent_appearance": {
+        "beard": 1,
+        "brows": 1,
+        "eyes": 0,
+        "face_shape": 2,
+        "hair": 0,
+        "skin": 3
+      }
+    },
+    {
+      "run": "art108-campaign09",
+      "level": 68,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 1,
+        "brows": 2,
+        "eyes": 3,
+        "face_shape": 1,
+        "hair": 2,
+        "skin": 0
+      },
+      "opponent_appearance": {
+        "beard": 2,
+        "brows": 2,
+        "eyes": 1,
+        "face_shape": 2,
+        "hair": 1,
+        "skin": 2
+      }
+    },
+    {
+      "run": "art108-campaign09",
+      "level": 69,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 0,
+        "brows": 3,
+        "eyes": 0,
+        "face_shape": 3,
+        "hair": 1,
+        "skin": 5
+      },
+      "opponent_appearance": {
+        "beard": 3,
+        "brows": 0,
+        "eyes": 2,
+        "face_shape": 3,
+        "hair": 2,
+        "skin": 0
+      }
+    },
+    {
+      "run": "art108-campaign09",
+      "level": 70,
+      "winner": 1,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 3,
+        "brows": 3,
+        "eyes": 2,
+        "face_shape": 2,
+        "hair": 0,
+        "skin": 3
+      },
+      "opponent_appearance": {
+        "beard": 4,
+        "brows": 1,
+        "eyes": 3,
+        "face_shape": 3,
+        "hair": 3,
+        "skin": 5
+      }
+    },
+    {
+      "run": "art108-campaign09",
+      "level": 71,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [
+        {
+          "age": 0.0,
+          "direction": -1,
+          "file": "level71-fall0-step0.png",
+          "position": "(-25.20521, -202.1172)",
+          "stage": 0,
+          "visible": true
+        },
+        {
+          "age": 0.208333333333333,
+          "direction": -1,
+          "file": "level71-fall0-step1.png",
+          "position": "(-68.93396, -185.7178)",
+          "stage": 1,
+          "visible": true
+        },
+        {
+          "age": 0.4,
+          "direction": -1,
+          "file": "level71-fall0-step2.png",
+          "position": "(-109.1645, -136.1304)",
+          "stage": 2,
+          "visible": true
+        },
+        {
+          "age": 0.7,
+          "direction": -1,
+          "file": "level71-fall0-step3.png",
+          "position": "(-150.3963, -73.14323)",
+          "stage": 3,
+          "visible": true
+        },
+        {
+          "age": 1.20833333333333,
+          "direction": -1,
+          "file": "level71-fall0-step4.png",
+          "position": "(-157.799, -68.42233)",
+          "stage": 4,
+          "visible": true
+        }
+      ],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 2,
+        "brows": 0,
+        "eyes": 4,
+        "face_shape": 1,
+        "hair": 0,
+        "skin": 2
+      },
+      "opponent_appearance": {
+        "beard": 0,
+        "brows": 2,
+        "eyes": 4,
+        "face_shape": 3,
+        "hair": 1,
+        "skin": 4
+      }
+    },
+    {
+      "run": "art108-campaign09",
+      "level": 72,
+      "winner": 1,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 0,
+        "brows": 1,
+        "eyes": 2,
+        "face_shape": 3,
+        "hair": 3,
+        "skin": 1
+      },
+      "opponent_appearance": {
+        "beard": 1,
+        "brows": 3,
+        "eyes": 0,
+        "face_shape": 0,
+        "hair": 2,
+        "skin": 3
+      }
+    },
+    {
+      "run": "art108-campaign10",
+      "level": 73,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 4,
+        "brows": 1,
+        "eyes": 4,
+        "face_shape": 2,
+        "hair": 2,
+        "skin": 0
+      },
+      "opponent_appearance": {
+        "beard": 3,
+        "brows": 0,
+        "eyes": 1,
+        "face_shape": 0,
+        "hair": 3,
+        "skin": 2
+      }
+    },
+    {
+      "run": "art108-campaign10",
+      "level": 74,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [
+        {
+          "age": 0.0,
+          "direction": -1,
+          "file": "level74-fall0-step0.png",
+          "held_lance_visible": true,
+          "position": "(-41.93046, -201.1875)",
+          "released_lance_position": "",
+          "released_lance_valid": false,
+          "released_lance_velocity": "",
+          "stage": 0,
+          "visible": true
+        },
+        {
+          "age": 0.208333333333333,
+          "direction": -1,
+          "file": "level74-fall0-step1.png",
+          "held_lance_visible": true,
+          "position": "(-71.2522, -184.4364)",
+          "released_lance_position": "",
+          "released_lance_valid": false,
+          "released_lance_velocity": "",
+          "stage": 1,
+          "visible": true
+        },
+        {
+          "age": 0.408333333333334,
+          "direction": -1,
+          "file": "level74-fall0-step2.png",
+          "held_lance_visible": false,
+          "position": "(-99.40101, -131.6054)",
+          "released_lance_position": "(-55.91412, -208.0766)",
+          "released_lance_valid": true,
+          "released_lance_velocity": "(-15.33677, 310.7174)",
+          "stage": 2,
+          "visible": true
+        },
+        {
+          "age": 0.708333333333333,
+          "direction": -1,
+          "file": "level74-fall0-step3.png",
+          "held_lance_visible": false,
+          "position": "(-119.4775, -107.6202)",
+          "released_lance_position": "(-60.08911, -79.26147)",
+          "released_lance_valid": true,
+          "released_lance_velocity": "(-11.97428, 511.1682)",
+          "stage": 3,
+          "visible": true
+        },
+        {
+          "age": 1.20833333333333,
+          "direction": -1,
+          "file": "level74-fall0-step4.png",
+          "held_lance_visible": false,
+          "position": "(-122.689, -69.63292)",
+          "released_lance_position": "(-97.93207, -23.34357)",
+          "released_lance_valid": true,
+          "released_lance_velocity": "(0.0, 0.0)",
+          "stage": 4,
+          "visible": true
+        },
+        {
+          "age": 1.81666666666666,
+          "direction": -1,
+          "file": "level74-fall0-step5.png",
+          "held_lance_visible": false,
+          "position": "(-122.8161, -61.54849)",
+          "released_lance_position": "(-97.93207, -23.34357)",
+          "released_lance_valid": true,
+          "released_lance_velocity": "(0.0, 0.0)",
+          "stage": 5,
+          "visible": true
+        }
+      ],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 2,
+        "brows": 2,
+        "eyes": 1,
+        "face_shape": 1,
+        "hair": 1,
+        "skin": 4
+      },
+      "opponent_appearance": {
+        "beard": 4,
+        "brows": 1,
+        "eyes": 3,
+        "face_shape": 0,
+        "hair": 0,
+        "skin": 1
+      }
+    },
+    {
+      "run": "art108-campaign10",
+      "level": 75,
+      "winner": 1,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 1,
+        "brows": 2,
+        "eyes": 3,
+        "face_shape": 3,
+        "hair": 0,
+        "skin": 3
+      },
+      "opponent_appearance": {
+        "beard": 0,
+        "brows": 2,
+        "eyes": 4,
+        "face_shape": 0,
+        "hair": 2,
+        "skin": 5
+      }
+    },
+    {
+      "run": "art108-campaign10",
+      "level": 76,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [
+        {
+          "age": 0.0,
+          "direction": -1,
+          "file": "level76-fall0-step0.png",
+          "held_lance_visible": true,
+          "position": "(251.4975, -201.5294)",
+          "released_lance_position": "",
+          "released_lance_valid": false,
+          "released_lance_velocity": "",
+          "stage": 0,
+          "visible": true
+        },
+        {
+          "age": 0.208333333333333,
+          "direction": -1,
+          "file": "level76-fall0-step1.png",
+          "held_lance_visible": true,
+          "position": "(201.206, -184.8954)",
+          "released_lance_position": "",
+          "released_lance_valid": false,
+          "released_lance_velocity": "",
+          "stage": 1,
+          "visible": true
+        },
+        {
+          "age": 0.416666666666667,
+          "direction": -1,
+          "file": "level76-fall0-step2.png",
+          "held_lance_visible": false,
+          "position": "(150.9146, -129.1989)",
+          "released_lance_position": "(59.42804, -263.1198)",
+          "released_lance_valid": true,
+          "released_lance_velocity": "(-71.62289, 90.20562)",
+          "stage": 2,
+          "visible": true
+        },
+        {
+          "age": 0.708333333333333,
+          "direction": -1,
+          "file": "level76-fall0-step3.png",
+          "held_lance_visible": false,
+          "position": "(115.124, -88.62329)",
+          "released_lance_position": "(40.8653, -199.9347)",
+          "released_lance_valid": true,
+          "released_lance_velocity": "(-56.67314, 327.07)",
+          "stage": 3,
+          "visible": true
+        },
+        {
+          "age": 1.225,
+          "direction": -1,
+          "file": "level76-fall0-step4.png",
+          "held_lance_visible": false,
+          "position": "(108.9602, -61.12288)",
+          "released_lance_position": "(-18.08215, -57.66534)",
+          "released_lance_valid": true,
+          "released_lance_velocity": "(-90.5226, 313.8116)",
+          "stage": 4,
+          "visible": true
+        }
+      ],
+      "hits": 5,
+      "player_appearance": {
+        "beard": 4,
+        "brows": 3,
+        "eyes": 0,
+        "face_shape": 2,
+        "hair": 0,
+        "skin": 2
+      },
+      "opponent_appearance": {
+        "beard": 1,
+        "brows": 3,
+        "eyes": 0,
+        "face_shape": 1,
+        "hair": 3,
+        "skin": 4
+      }
+    },
+    {
+      "run": "art108-campaign10",
+      "level": 77,
+      "winner": 0,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 3,
+        "brows": 3,
+        "eyes": 2,
+        "face_shape": 0,
+        "hair": 3,
+        "skin": 1
+      },
+      "opponent_appearance": {
+        "beard": 2,
+        "brows": 0,
+        "eyes": 1,
+        "face_shape": 1,
+        "hair": 0,
+        "skin": 3
+      }
+    },
+    {
+      "run": "art108-campaign10",
+      "level": 78,
+      "winner": 1,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 2,
+        "brows": 0,
+        "eyes": 0,
+        "face_shape": 3,
+        "hair": 2,
+        "skin": 5
+      },
+      "opponent_appearance": {
+        "beard": 3,
+        "brows": 1,
+        "eyes": 2,
+        "face_shape": 1,
+        "hair": 2,
+        "skin": 2
+      }
+    },
+    {
+      "run": "art108-campaign10",
+      "level": 79,
+      "winner": 1,
+      "fall_identities_checked": 0,
+      "fall_frames": [],
+      "hits": 6,
+      "player_appearance": {
+        "beard": 0,
+        "brows": 1,
+        "eyes": 2,
+        "face_shape": 2,
+        "hair": 1,
+        "skin": 4
+      },
+      "opponent_appearance": {
+        "beard": 4,
+        "brows": 2,
+        "eyes": 3,
+        "face_shape": 2,
+        "hair": 3,
+        "skin": 1
+      }
+    },
+    {
+      "run": "art108-campaign10",
+      "level": 80,
+      "winner": 0,
+      "fall_identities_checked": 1,
+      "fall_frames": [
+        {
+          "age": 0.0,
+          "direction": -1,
+          "file": "level80-fall0-step0.png",
+          "held_lance_visible": true,
+          "position": "(40.30332, -204.0094)",
+          "released_lance_position": "",
+          "released_lance_valid": false,
+          "released_lance_velocity": "",
+          "stage": 0,
+          "visible": true
+        },
+        {
+          "age": 0.208333333333333,
+          "direction": -1,
+          "file": "level80-fall0-step1.png",
+          "held_lance_visible": true,
+          "position": "(-11.6375, -187.5013)",
+          "released_lance_position": "",
+          "released_lance_valid": false,
+          "released_lance_velocity": "",
+          "stage": 1,
+          "visible": true
+        },
+        {
+          "age": 0.408333333333334,
+          "direction": -1,
+          "file": "level80-fall0-step2.png",
+          "held_lance_visible": false,
+          "position": "(-61.50069, -134.9035)",
+          "released_lance_position": "(-18.49359, -203.6754)",
+          "released_lance_valid": true,
+          "released_lance_velocity": "(-109.5196, 322.6115)",
+          "stage": 2,
+          "visible": true
+        },
+        {
+          "age": 0.716666666666667,
+          "direction": -1,
+          "file": "level80-fall0-step3.png",
+          "held_lance_visible": false,
+          "position": "(-99.14218, -104.7944)",
+          "released_lance_position": "(-50.13721, -71.44012)",
+          "released_lance_valid": true,
+          "released_lance_velocity": "(-219.5335, 153.0934)",
+          "stage": 3,
+          "visible": true
+        },
+        {
+          "age": 1.21666666666666,
+          "direction": -1,
+          "file": "level80-fall0-step4.png",
+          "held_lance_visible": false,
+          "position": "(-104.831, -70.38173)",
+          "released_lance_position": "(-89.91296, -23.20001)",
+          "released_lance_valid": true,
+          "released_lance_velocity": "(0.0, 0.0)",
+          "stage": 4,
+          "visible": true
+        }
+      ],
+      "hits": 4,
+      "player_appearance": {
+        "beard": 4,
+        "brows": 1,
+        "eyes": 4,
+        "face_shape": 0,
+        "hair": 0,
+        "skin": 3
+      },
+      "opponent_appearance": {
+        "beard": 1,
+        "brows": 3,
+        "eyes": 4,
+        "face_shape": 2,
+        "hair": 0,
+        "skin": 0
+      }
     }
   ],
   "limits": [
@@ -1658,6 +3438,8 @@
     "Source PNG uniqueness does not prove historical accuracy. History review records 42 readable references and 6 unread source cases.",
     "Perceived motion, readability and sound still need human play feedback; these are not commercial certification."
   ],
+  "formal_profile_files_unchanged": true,
+  "formal_profile_evidence_sha256": "98B039E49E3B21BF72DBD8CA993450CD932B9FA825B62349F076304C98CE9D59",
   "campaign_levels_verified": [
     1,
     2,
@@ -1698,9 +3480,49 @@
     37,
     38,
     39,
-    40
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80
   ],
-  "campaign_fall_identities_checked": 14,
-  "campaign_fall_frames": 16,
+  "campaign_fall_identities_checked": 29,
+  "campaign_fall_frames": 95,
   "history_review_sha256": "CB1AD9847835A8669690DAEC4CE06F9BA65954211B35A770FA78FAF07C0F4F00"
 }

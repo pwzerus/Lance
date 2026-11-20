@@ -14,9 +14,12 @@ func check(ok:bool,why:String)->void:
 	if not ok and why not in failures:failures.append(why);push_error(why)
 func run()->void:
 	var region="eng"
+	var only_tier=-1;var raw_frames=false
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--folder="):folder=arg.trim_prefix("--folder=")
 		if arg.begins_with("--region="):region=arg.trim_prefix("--region=")
+		if arg.begins_with("--tier="):only_tier=int(arg.trim_prefix("--tier="))
+		if arg=="--raw-frames":raw_frames=true
 	if folder.is_empty() or DirAccess.dir_exists_absolute(folder) or region not in ["eng","fr","de","it"] or OS.get_environment("GALUMU_MEMORY_BOUND")!="1024" or DisplayServer.get_name()=="headless" or not root.get_node("GameState").save_path.contains("qa_"):quit(2);return
 	DirAccess.make_dir_recursive_absolute(folder)
 	root.size=Vector2i(640,480);root.content_scale_size=root.size
@@ -24,6 +27,7 @@ func run()->void:
 	var items=Catalogue.load_items()
 	var caption=Label.new();caption.position=Vector2(130,82);caption.z_index=100;root.add_child(caption)
 	for tier in range(6):
+		if only_tier>=0 and tier!=only_tier:continue
 		var sheet=Image.create_empty(6*384,6*300,false,Image.FORMAT_RGBA8)
 		var row=0
 		for facing in [1,-1]:
@@ -54,6 +58,9 @@ func run()->void:
 					# released weapon is tested by release105 and real match scenes;
 					# exclude it here rather than inventing a second flight clock.
 					if is_instance_valid(actor.loose_lance):actor.loose_lance.freeze=true;actor.loose_lance.visible=false
+					if tick>=36:
+						check(not actor.visual.detached_lance_visible,"Released weapon still held by detached renderer")
+						check(is_instance_valid(actor.loose_lance) and not actor.loose_lance.is_visible_in_tree(),"Excluded released weapon is visible in pose fixture")
 					check(actor.fighter.stats.appearance==kit.appearance and actor.visual.fighter.stats.appearance==kit.appearance,"Detached face changed")
 					check(actor.position.is_finite() and is_finite(actor.rotation),"Nonfinite fallen pose")
 					var neck=Rider.neck_geometry(actor.visual.detached_pose,actor.fighter)
@@ -65,6 +72,7 @@ func run()->void:
 						actor.visual.queue_redraw();actor.far_leg.queue_redraw()
 						await process_frame;await RenderingServer.frame_post_draw
 						var frame=root.get_texture().get_image()
+						if raw_frames:frame.save_png(folder+"/raw-%s-%d-%d-%s-%d.png"%[region,tier,facing,zone,tick])
 						sheet.blit_rect(frame,Rect2i(128,80,384,300),Vector2i(frame_index*384,row*300));frame_index+=1
 				check(maximum_neck<52,"Unbounded detached neck")
 				check(actor.grounded and actor.settled and actor.support_gap()<14.0,"Outfit fall failed to settle "+region+str(tier)+str(facing)+zone)

@@ -2,7 +2,7 @@
 
 ## DELIVERY-107–111 进行中（2026-11-20）
 
-第5项LEVEL-107完成源码与后台复核，功能提交26f1b0f；[交接](docs/collaboration/handoffs/2026-11-20-LEVEL-107-Codex.md)列出配置、成长与真实流程证据。现进入ART-108，每项至少90分钟，五项后另60分钟综合验证，正式启动包仍.58-c1。所有保护及后台隔离保持，未接管屏幕。任务时钟见[计划](docs/requirements/WINDOWS_PRODUCT_PLAN.md)，不要将中途提交当作最终Windows交付。
+第5项LEVEL-107完成源码与后台复核，功能提交26f1b0f；[交接](docs/collaboration/handoffs/2026-11-20-LEVEL-107-Codex.md)列出配置、成长与真实流程证据。第6项ART-108源码/80实际配置已复核，见[交接](docs/collaboration/handoffs/2026-11-20-ART-108-Codex.md)；现进入ECON-109，每项至少90分钟，五项后另60分钟综合验证，正式启动包仍.58-c1。所有保护及后台隔离保持，未接管屏幕。任务时钟见[计划](docs/requirements/WINDOWS_PRODUCT_PLAN.md)，不要将中途提交当作最终Windows交付。
 
 ## CORE-106：核心体验四项复核，v0.4.58-c1（2026-11-19/20）
 

@@ -31,7 +31,7 @@ result = {
         "Perceived motion, readability and sound still need human play feedback; these are not commercial certification.",
     ],
 }
-for relative in ["game/scripts/core/campaign.gd", "game/scripts/battle.gd", "game/data/history_v051_en_fr.json", "game/tools/battle_sprites_v090.gd"]:
+for relative in ["game/scripts/core/campaign.gd", "game/scripts/battle.gd", "game/data/history_v051_en_fr.json", "game/tools/battle_sprites_v090.gd", "game/data/caparisons_v066.json", "game/tools/caparison_v066.gd", "game/art_sources/v051/eng_armor_2_source01.md"]:
     result["production_files"][relative] = digest(ROOT / relative)
 
 for directory in sorted(LOGS.glob("art108-*")):

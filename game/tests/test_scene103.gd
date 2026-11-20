@@ -91,7 +91,9 @@ func run()->void:
 					var body_id=body.get_instance_id();var stage=int(fall_stages.get(body_id,0))
 					if stage<fall_stamps.size() and body.age>=float(fall_stamps[stage]):
 						var file="level%d-fall%d-step%d"%[n,fallen_seen.find(body_id),stage]
-						fall_frames.append({"file":file+".png","age":body.age,"stage":stage,"direction":body.fighter.direction,"position":str(body.position),"visible":body.visible})
+						var released_valid=is_instance_valid(body.loose_lance)
+						fall_frames.append({"file":file+".png","age":body.age,"stage":stage,"direction":body.fighter.direction,"position":str(body.position),"visible":body.visible,"held_lance_visible":body.visual.detached_lance_visible,"released_lance_valid":released_valid,"released_lance_position":str(body.loose_lance.position) if released_valid else "","released_lance_velocity":str(body.loose_lance.linear_velocity) if released_valid else ""})
+						if body.age>=.3:check(not body.visual.detached_lance_visible and released_valid,"Fallen rider releases the held lance "+str(n))
 						fall_stages[body_id]=stage+1
 						await capture(folder,file)
 			var gap=absf(p.x-enemy.x)

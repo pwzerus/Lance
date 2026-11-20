@@ -20,6 +20,7 @@ static func summarize(items: Array, equipped: Dictionary, item: Dictionary) -> D
 	var changes: Dictionary = {}
 	for key in ["armor","helmet","power","reach","durability","shield_capacity","speed","stability","caparison_renown"]:
 		changes[key] = direction(float(before.get(key,0)),float(after.get(key,0)))
+	changes.vision=direction(float(before.get("helmet_vision",1)),float(after.get("helmet_vision",1)))
 	changes.fatigue = direction(Condition.drain_rate(before),Condition.drain_rate(after),.05)
 	changes.lance_handling = direction(Condition.agility(before)*float(before.get("lance_handling",1)),Condition.agility(after)*float(after.get("lance_handling",1)))
 	changes.shield_handling = direction(Condition.agility(before)*float(before.get("shield_handling",1)),Condition.agility(after)*float(after.get("shield_handling",1)))
@@ -31,16 +32,20 @@ static func summarize(items: Array, equipped: Dictionary, item: Dictionary) -> D
 	else:
 		match slot:
 			"armor": rows.append(_change(changes.armor,"胸腹防护提高","胸腹防护降低","胸腹防护不变"))
-			"helmet": rows.append(_change(changes.helmet,"头部防护提高","头部防护降低","头部防护不变"))
+			"helmet":
+				var protection=_change(changes.helmet,"头部防护提高","头部防护降低","头部防护不变")
+				if changes.vision!=0:protection+="，"+_change(changes.vision,"视野更开阔","视野更窄","视野不变")
+				rows.append(protection)
 			"lance":
 				rows.append(_change(changes.reach,"枪更长","枪更短","枪长相同")+"，"+_change(changes.power,"冲击更强","冲击较弱","冲击相同"))
+				if changes.durability!=0:rows.append(_change(changes.durability,"枪身更耐用","枪身更易折断","枪身耐久相同"))
 			"shield":
 				rows.append(_change(changes.shield_capacity,"盾牌更耐打","盾牌耐久较低","盾牌耐久相同"))
 				var leak_before=float(before.get("shield_protection",{}).get("leak",.10))
 				var leak_after=float(after.get("shield_protection",{}).get("leak",.10))
 				rows.append(_change(direction(leak_before,leak_after),"挡住后受伤更多","挡住后受伤更少","挡伤能力相同"))
 			"horse": rows.append(_change(changes.stability,"鞍上更稳定","鞍上稳定性降低","鞍上稳定性相同"))
-			"caparison": rows.append(_change(changes.caparison_renown,"胜场声望增加","胜场声望减少","胜场声望相同")+"。不提供防护。")
+			"caparison": rows.append(_change(changes.caparison_renown,"自由对战胜场声望增加","自由对战胜场声望减少","自由对战胜场声望相同")+"。不提供防护。")
 			"crest": rows.append("只更换纹章，不改变防护与速度。")
 		if slot!="crest":
 			rows.append(_change(changes.fatigue,"催马更易疲劳","催马更耐久","催马消耗相同"))

@@ -257,3 +257,10 @@ static func reference_kit(items: Array, n: int, shield_line: String="mixed") -> 
 		shield_q=clampi(q/2,0,2)*2+(1 if shield_line=="heavy" else 0)
 	return Catalogue.stats(items,{"armor":"eng_armor_%d" % q,"helmet":"eng_helmet_%d" % q,"shield":"eng_shield_%d" % shield_q,
 		"lance":"eng_lance_long_%d" % q,"horse":["horse_bay","horse_grey","horse_e1","horse_e2","horse_e4","horse_e4"][q],"crest":"crest_bend"})
+
+## Read-only presentation query: duplicate/invalid clears cannot complete chapters.
+static func all_complete(profile: Dictionary) -> bool:
+	var clears: Array = profile.get("campaign_cleared",[])
+	for number in range(1,COUNT+1):
+		if number not in clears: return false
+	return true

@@ -1,0 +1,58 @@
+extends SceneTree
+## Presentation contract: mixed actual archived matches and explicit edge fixtures.
+const Report=preload("res://scripts/ui/combat_report.gd")
+const Campaign=preload("res://scripts/core/campaign.gd")
+const Comparison=preload("res://scripts/ui/equipment_comparison.gd")
+var failures=[]
+var rows=[]
+func _initialize()->void:call_deferred("run")
+func check(value:bool,note:String)->void:
+	if not value:failures.append(note)
+func run()->void:
+	var folder=""
+	for arg in OS.get_cmdline_user_args():
+		if arg.begins_with("--folder="):folder=arg.trim_prefix("--folder=")
+	if folder.is_empty() or DirAccess.dir_exists_absolute(folder) or OS.get_environment("GALUMU_MEMORY_BOUND").is_empty() or not root.get_node("GameState").save_path.contains("qa_"):quit(2);return
+	DirAccess.make_dir_recursive_absolute(folder)
+	for row in [
+		[[{"defender":0,"ko":true},{"defender":1,"ko":true}],"双方落马。"],
+		[[{"defender":0,"dead":true},{"defender":1,"dead":true}],"双方阵亡。"],
+		[[{"defender":0,"dead":true},{"defender":1,"ko":true}],"双方落马，你阵亡了。"],
+		[[{"defender":0,"ko":true},{"defender":1,"dead":true}],"双方落马，对手阵亡。"]]:
+		check(Report.summarize(row[0],"war")==row[1],"Simultaneous casualties keep both riders")
+		row[0].reverse();check(Report.summarize(row[0],"war")==row[1],"Simultaneous casualties independent of ordering")
+	check(Report.summarize([]).contains("未接触"),"No fabricated shield contact in empty exchange")
+	var shield={"attacker":1,"defender":0,"zone":"shield","ko":true,"ko_reason":"impact","damage":1,"impulse":80,"unsteady":.4}
+	check(Report.summarize([shield]).contains("虽用盾挡住"),"Shield stop explains transmitted impulse")
+	check(Report.next_action([shield]).contains("W"),"Keyboard advice shows current control")
+	check(Report.next_action([shield],true).contains("滚轮") and not Report.next_action([shield],true).contains("W"),"Mouse-only advice adapts controls")
+	shield.ko_reason="health"
+	check(Report.summarize([shield]).contains("累积伤势") and not Report.summarize([shield]).contains("掀下"),"Health exhaustion is not direct impact knockdown")
+	for path in ["econ109-earned11","econ109-earned13","econ109-earned15"]:
+		var source="E:/GALUMU/docs/development/logs/"+path+"/screens/report.json"
+		var data=JSON.parse_string(FileAccess.get_file_as_string(source))
+		check(data is Dictionary and data.get("passed",false),"Archived earned match evidence exists "+path)
+		if not data is Dictionary:continue
+		for row in data.rows:
+			if int(row.level) not in [55,64,75]:continue
+			var advice=Report.next_action(row.hits)
+			var cause=Report.summarize(row.hits,str(row.result.get("mode","arena")))
+			rows.append({"source":source,"level":row.level,"attempt":row.attempt,"cause":cause,"advice":advice})
+			if int(row.level)==64 and int(row.attempt)==1:
+				check(cause.contains("累积伤势"),"Actual level64 ended through accumulated injury")
+				check(advice.contains("头部受创最多"),"Actual level64 earlier head wounds outweigh final body hit")
+	check(rows.size()>=5,"Actual archived win/loss cases included")
+	check(not Campaign.all_complete({"campaign_cleared":[80]}),"Final chapter alone is not all chapters")
+	check(not Campaign.all_complete({"campaign_cleared":range(1,80)}),"Missing final chapter remains incomplete")
+	check(Campaign.all_complete({"campaign_cleared":range(1,81)}),"All eighty unique clears complete campaign")
+	var dup=range(1,80);dup.append(79)
+	check(not Campaign.all_complete({"campaign_cleared":dup}),"Duplicate clear does not substitute missing eighty")
+	var state=root.get_node("GameState")
+	var profile=state.default_profile()
+	var lengths={}
+	for item in state.items:
+		var comparison=Comparison.summarize(state.items,profile.equipped,item)
+		check(comparison.lines.size()<=5,"Comparison stays concise "+str(item.id))
+		lengths[item.id]=comparison.lines.size()
+	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"archived_rows":rows,"comparison_line_counts":lengths,"scope":"Pure presentation tests: archived natural matches plus clearly supplied edge states, no new battle/human-input evidence."},"\t"))
+	quit(0 if failures.is_empty() else 1)

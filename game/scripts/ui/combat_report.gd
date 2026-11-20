@@ -19,9 +19,13 @@ static func summarize(events: Array, mode: String = "arena", detailed: bool = fa
 			if dead.has(0): return "双方落马，你阵亡了。"
 			if dead.has(1): return "双方落马，对手阵亡。"
 			return "双方落马。"
-		if not dead.is_empty(): return "你阵亡了。" if dead.has(0) else "对手阵亡。"
-		if not fallen.is_empty(): return "你被击落了。" if fallen.has(0) else "你击落了对手。"
-		return "盾缘容易卸力，打正才能撼动骑手。"
+		if not fallen.is_empty():
+			var defender = 0 if fallen.has(0) else 1
+			for index in range(events.size()-1,-1,-1):
+				var hit: Dictionary = events[index]
+				if int(hit.get("defender",-1))==defender and (hit.get("ko",false) or hit.get("dead",false)):
+					return _terminal_cause(hit)
+		return "双方均未接触骑手或盾牌。" if events.is_empty() else "双方仍在马上，按本场规则比较结果。"
 	var latest: Dictionary = {}
 	for event in events:
 		latest[int(event.attacker)] = event
@@ -70,4 +74,51 @@ static func summarize(events: Array, mode: String = "arena", detailed: bool = fa
 	else:
 		lines.append("马累了就松开催马，趁机调好枪盾。")
 	return "\n".join(lines)
+
+static func _terminal_cause(hit: Dictionary) -> String:
+	var who = "你" if int(hit.get("defender",-1))==0 else "对手"
+	var zone = str(hit.get("zone",""))
+	var part = {"head":"头部","body":"胸部","flank":"腰腹","shield":"盾牌"}.get(zone,"身体")
+	var cause = str(hit.get("ko_reason",""))
+	if hit.get("dead",false):
+		return who+"伤势致命，实战结束。" if cause=="health" else who+"的"+part+"承受致命伤，实战结束。"
+	if cause=="health": return who+"累积伤势过重，无法继续骑乘。"
+	if zone=="shield":
+		return who+"虽用盾挡住来枪，仍被冲击掀下马。" if cause=="impact" else who+"持盾承压后失去平衡，落马出局。"
+	if cause=="impact": return who+"的"+part+"遭重击，被掀下马。"
+	if cause=="balance": return who+"的"+part+"受击后失去平衡，落马出局。"
+	return who+"被击落了。"
+
+static func next_action(events: Array, mouse_only: bool = false) -> String:
+	# Explain resolved contacts across the match. The final contact need not
+	# account for most of the injury, and a shield contact is not a flesh hit.
+	var injury = {"head":0.0,"body":0.0,"flank":0.0}
+	var shield_load = 0.0
+	var unstable_fall = false
+	var outgoing = 0
+	var shields = 0
+	var glances = 0
+	for event in events:
+		var zone = str(event.get("zone",""))
+		if int(event.get("defender",-1))==0:
+			if injury.has(zone): injury[zone]+=maxf(0,float(event.get("damage",0)))
+			if zone=="shield": shield_load+=maxf(0,float(event.get("impulse",0)))
+			if event.get("ko",false) and zone=="shield": shield_load+=100
+			if event.get("ko",false) and str(event.get("ko_reason","")) in ["impact","balance"] and float(event.get("unsteady",0))>=.25: unstable_fall=true
+		if int(event.get("attacker",-1))==0:
+			outgoing+=1
+			if zone=="shield": shields+=1
+			if event.get("glanced",false): glances+=1
+	if unstable_fall:
+		return "受击时重心不稳：提前调好枪盾，"+("滚轮向上前倾支撑。" if mouse_only else "按住 W 前倾支撑。")
+	var most = "head"
+	for zone in ["body","flank"]:
+		if injury[zone]>injury[most]: most=zone
+	if injury[most]>0:
+		return {"head":"头部受创最多：看清来枪，提前把盾抬高护头。","body":"胸部受创最多：提前用盾护胸，接触前稳住姿势。","flank":"腰腹受创最多：留意低枪，提前把盾放低护住腰腹。"}[most]
+	if shield_load>0: return "盾牌挡住了来枪，但冲击仍会传给骑手；提前前倾支撑。"
+	if outgoing==0: return "这场没有击中对手：先在练习场熟悉枪尖与目标的位置。"
+	if glances*2>=outgoing: return "多次擦过：接触前稳住枪尖，避免临近时大幅甩枪。"
+	if shields*2>=outgoing: return "来枪多被盾挡住：观察对手换盾，瞄准露出的部位。"
+	return "保留这次有效命中的时机，下一场仍要留意对手来枪。"
 

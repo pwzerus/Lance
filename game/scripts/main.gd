@@ -272,7 +272,8 @@ func show_home() -> void:
 	UI.button(screen,"历史手记",Rect2(78,672,172,46),show_history)
 	UI.button(screen,"设置",Rect2(268,672,172,46),show_settings)
 	UI.button(screen,"保存并退出",Rect2(458,672,172,46),_save_and_exit)
-	UI.label(screen,"已自动保存　v"+build_version,Vector2(80,750),15,UI.MUTED)
+	var save_caption = "进度待保存" if GameState.profile_save_pending else "自动保存已开启"
+	UI.label(screen,save_caption+"　v"+build_version,Vector2(80,750),15,UI.MUTED).name="HomeSaveStatus"
 	UI.button(screen,"玩法与制作说明",Rect2(384,742,246,36),show_help)
 	UI.label(screen,"你的骑士",Vector2(813,122),16,UI.GOLD)
 	UI.label(screen,Catalogue.REGIONS[region]+" · "+Catalogue.ERA_NAMES[era],Vector2(813,161),25,UI.INK)
@@ -436,7 +437,8 @@ func show_levels(chapter: int = -1, notice: String = "") -> void:
 		UI.label(card,"已通过" if done else ("可挑战" if unlocked else "未解锁"),Vector2(170,10),14,Color("9bd28a") if done else (UI.INK if unlocked else UI.MUTED))
 		UI.label(card,str(level.opponent) if unlocked else "？？？",Vector2(14,38),17,UI.INK if unlocked else UI.MUTED,226)
 		UI.label(card,"%s · %s" % [level.archetype_name,"实战" if level.mode=="war" else "竞技场"],Vector2(14,66),15,UI.MUTED,226)
-		UI.label(card,"品质 %d　%s" % [int(level.quality),Campaign.ai_label(level.ai)],Vector2(14,90),13,UI.MUTED,226)
+		var grade = ["新手装","初级装","中级装","中高级装","高级装","最高级装"][clampi(int(level.quality),0,5)]
+		UI.label(card,"%s · %s" % [grade,Campaign.ai_label(level.ai)],Vector2(14,90),13,UI.MUTED,226)
 		var purse = int(level.reward_coins) if not done else Campaign.replay_coins(number,bool(level.boss))
 		UI.label(card,("重玩 %d 银币" if done else "奖励 %d 银币") % purse,Vector2(14,126),15,UI.GOLD,130)
 		var pick = UI.button(card,"选择" if unlocked else "未解锁",Rect2(150,118,92,36),func():
@@ -454,13 +456,15 @@ func show_levels(chapter: int = -1, notice: String = "") -> void:
 		if not item.is_empty():
 			kit.append(str(item.name).split(" · ")[-1])
 	UI.label(detail,"装备：" + " / ".join(kit),Vector2(22,80),15,UI.MUTED,860)
-	UI.label(detail,"对策：" + str(selected.hint),Vector2(22,110),16,UI.INK,860)
+	var hint = str(selected.hint)
+	if bool(GameState.profile.settings.mouse_only): hint=hint.replace("按住 W","滚轮向上")
+	UI.label(detail,"对策：" + hint,Vector2(22,110),16,UI.INK,860)
 	var first_clear = int(selected.number) not in cleared
 	UI.label(detail,("首次通关 +%d 银币 +%d 声望" % [int(selected.reward_coins),int(selected.reward_renown)]) if first_clear else ("重复通关 +%d 银币" % Campaign.replay_coins(int(selected.number),bool(selected.boss))),Vector2(22,145),18,UI.GOLD,860)
 	var go = UI.button(detail,"出战",Rect2(960,40,330,70),func():_start_level(int(selected.number)),true)
 	go.add_theme_font_size_override("font_size",26)
 	go.disabled = not GameState.campaign_unlocked(int(selected.number))
-	UI.label(detail,"难度只改变对手装备与判断，不加生命或伤害。",Vector2(960,124),14,UI.MUTED,330)
+	UI.button(detail,"练习前倾与防盾" if int(selected.number)>=6 and int(selected.number)<=10 else "进入练习场",Rect2(960,124,330,43),show_practice_setup)
 	message_label = UI.label(screen,notice,Vector2(64,790),14,Color("efb566"),1300)
 	_queue_opponent_assets(Catalogue.stats(GameState.items,selected.equipment))
 	queue_redraw()
@@ -872,7 +876,11 @@ func show_result() -> void:
 	if not current_level.is_empty():
 		heading = "第 %d 关 · %s · %s" % [int(current_level.number),str(current_level.opponent),str(current_level.archetype_name)]
 	UI.label(panel,heading,Vector2(35,22),16,UI.GOLD,520)
-	UI.label(panel,"平局" if draw else ("你赢了" if won else "这场输了"),Vector2(35,62),42,UI.INK)
+	var campaign_complete = int(current_level.get("number",0))==Campaign.COUNT and won and Campaign.all_complete(GameState.profile)
+	var title = "八章挑战完成" if campaign_complete else ("平局" if draw else ("你赢了" if won else "这场输了"))
+	UI.label(panel,title,Vector2(35,62),42,UI.INK).name="ResultTitle"
+	if current_mode=="arena":
+		UI.label(panel,"比分 %d : %d" % [int(result.get("player_score",0)),int(result.get("enemy_score",0))],Vector2(485,76),25,UI.GOLD,255).name="ResultScore"
 	var explanation = "双方都未落马，伤势较轻者胜。"
 	if result.get("reason") == "terminal":
 		explanation = "双方同时落马。" if draw else "落马出局。"
@@ -900,7 +908,10 @@ func show_result() -> void:
 	result_detail_scroll.size = Vector2(706,157)
 	result_detail_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	panel.add_child(result_detail_scroll)
-	var numbers = "比分 %s : %s    生命 %s : %s\n" % [result.get("player_score",0),result.get("enemy_score",0),roundi(float(battle.match_model.fighters[0].hp)),roundi(float(battle.match_model.fighters[1].hp))] if battle else ""
+	var numbers = ""
+	if battle:
+		if current_mode=="arena": numbers="比分 %d : %d    " % [int(result.get("player_score",0)),int(result.get("enemy_score",0))]
+		numbers+="生命 %s : %s\n" % [roundi(float(battle.match_model.fighters[0].hp)),roundi(float(battle.match_model.fighters[1].hp))]
 	# Keep the complete report, but defer its hidden text layout until H.
 	# Opening the concise result must not shape an invisible scroll of text.
 	result_detail_text = numbers+report.summarize(contacts,current_mode,true)
@@ -909,21 +920,22 @@ func show_result() -> void:
 	result_debug = false
 	result_detail_scroll.visible = false
 	UI.label(panel,"H 查看数据",Vector2(620,24),12,UI.MUTED,125)
-	var reward_text = "银币  +%s           声望  +%s" % [reward.get("coins",0),reward.get("renown",0)]
-	if not current_level.is_empty():
-		if won:
-			reward_text = ("首次通关奖励：" if reward.get("first_clear",false) else "再次通关奖励：")+reward_text
-		else:
-			reward_text = "本关未通过。换身装备再试试。"
+	var reward_text = "银币 +%d · 声望 +%d" % [int(reward.get("coins",0)),int(reward.get("renown",0))]
+	if practice_match:
+		reward_text = "练习不计奖励"
+	elif not current_level.is_empty():
+		reward_text = (("首次通关 · " if reward.get("first_clear",false) else "重玩 · ")+reward_text) if won else "本关未通过，不计奖励。"
 	var reward_label = UI.label(panel,reward_text,Vector2(35,363),23 if won or current_level.is_empty() else 19,UI.GOLD,706)
 	reward_label.name = "ResultRewards"
 	result_rewards = reward_label
 	reward_label.set_meta("debug_text",reward_text)
-	reward_label.text = "练习不计奖励" if practice_match else ("银币和声望已入账" if int(reward.get("coins",0))>0 else "本局没有奖励")
-	reward_label.set_meta("normal_text",reward_label.text)
+	reward_label.set_meta("normal_text",reward_text)
 	var next_era = Catalogue.era_for_renown(int(GameState.profile.renown)) + 1
 	var progress = "全部时期已开放；继续收集工坊与纹章。" if next_era >= Catalogue.ERAS.size() else "%s 将在声望达到 %d 时开放（目前 %d）。" % [Catalogue.ERAS[next_era],Catalogue.ERA_REQUIREMENTS[next_era],GameState.profile.renown]
-	result_progress = UI.label(panel,"回营地挑选装备，准备下一场。",Vector2(35,408),15,UI.MUTED,706)
+	var advice = "八章已完成，可重玩挑战或继续收集装备。" if campaign_complete else report.next_action(contacts,bool(GameState.profile.settings.get("mouse_only",false)))
+	result_progress = UI.label(panel,advice,Vector2(35,408),15,UI.MUTED,706)
+	result_progress.name="ResultAdvice"
+	result_progress.set_meta("normal_text",advice)
 	result_progress.set_meta("debug_text",progress)
 	if GameState.profile_save_pending:
 		var save_status = UI.label(panel,"奖励已记入当前进度，但还未保存。",Vector2(35,439),16,Color("efb566"),490)
@@ -938,12 +950,20 @@ func show_result() -> void:
 				_start_level(number+1),true)
 		else:
 			UI.button(panel,"重新挑战  R",Rect2(35,470,222,56),func():_start_match(current_mode,practice_match,active_guide),true)
-		UI.button(panel,"关卡列表",Rect2(277,470,222,56),func():
+		if not won:
+			# Keep all navigation available, with a direct recovery path to gear.
+			for child in panel.get_children():
+				if child is Button and child.position.y==470: child.size.x=166
+			UI.button(panel,"调整装备",Rect2(215,470,166,56),func():
+				_close_battle()
+				show_armory())
+		UI.button(panel,"关卡列表",Rect2(395 if not won else 277,470,166 if not won else 222,56),func():
 			_close_battle()
 			show_levels())
-		UI.button(panel,"返回营地",Rect2(519,470,222,56),func():
+		UI.button(panel,"返回营地",Rect2(575 if not won else 519,470,166 if not won else 222,56),func():
 			_close_battle()
 			show_home())
+		Trace099.end("show_result",trace_started)
 		return
 	UI.button(panel,"再次对冲  R",Rect2(35,470,344,56),func():_start_match(current_mode,practice_match,active_guide),true)
 	UI.button(panel,"返回营地",Rect2(397,470,344,56),func():
@@ -977,6 +997,9 @@ func _show_lesson_result() -> void:
 		show_home())
 
 func show_armory() -> void:
+	# Family arms are common decoration, not country/period/quality tiers.
+	# Keep the player's gear filters so returning to armour restores them.
+	var family_arms = selected_slot=="crest"
 	var filter_key = "%s/%d/%d/%d" % [selected_slot,selected_era,selected_region,selected_quality]
 	if page=="armory" and is_instance_valid(armory_scroll):
 		armory_scroll_offset=armory_scroll.scroll_vertical
@@ -1002,15 +1025,16 @@ func show_armory() -> void:
 		if slot=="crest": slot_button.add_theme_font_size_override("font_size",16)
 		index += 1
 	if selected_slot in ["crest","shield"]:
-		UI.label(screen,"家族纹章用于罩袍、马衣和枪旗；盾纹随盾牌固定。",Vector2(56,215),13,UI.MUTED,810)
+		UI.label(screen,"家族纹章通用，不分年代与品质；用于衣饰，盾纹固定。" if family_arms else "家族纹章用于罩袍、马衣和枪旗；盾纹随盾牌固定。",Vector2(56,215),13,UI.MUTED,810)
 	var era_select = OptionButton.new()
 	era_select.theme = UI.theme()
 	era_select.position = Vector2(724,169)
 	era_select.size = Vector2(210,43)
-	era_select.add_item("全部年代")
+	era_select.add_item("不分年代" if family_arms else "全部年代")
 	for i in range(Catalogue.ERAS.size()):
 		era_select.add_item(Catalogue.ERAS[i])
-	era_select.selected = selected_era+1
+	era_select.selected = 0 if family_arms else selected_era+1
+	era_select.disabled = family_arms
 	era_select.item_selected.connect(func(value):
 		selected_era = value-1
 		selected_item = {}
@@ -1022,7 +1046,8 @@ func show_armory() -> void:
 	region_select.size = Vector2(199,43)
 	for region_name in ["全部地区"]+Catalogue.REGIONS+["欧洲共通"]:
 		region_select.add_item(region_name)
-	region_select.selected = selected_region
+	region_select.selected = 5 if family_arms else selected_region
+	region_select.disabled = family_arms
 	region_select.item_selected.connect(func(value):
 		selected_region = value
 		selected_item = {}
@@ -1032,9 +1057,10 @@ func show_armory() -> void:
 	quality_select.theme = UI.theme()
 	quality_select.position = Vector2(1157,169)
 	quality_select.size = Vector2(228,43)
-	for quality_name in ["全部品质","新手","初级","中级","中高级","高级","最高级"]:
+	for quality_name in ["不分品质" if family_arms else "全部品质","新手","初级","中级","中高级","高级","最高级"]:
 		quality_select.add_item(quality_name)
-	quality_select.selected = selected_quality
+	quality_select.selected = 0 if family_arms else selected_quality
+	quality_select.disabled = family_arms
 	quality_select.item_selected.connect(func(value):
 		selected_quality = value
 		selected_item = {}
@@ -1057,9 +1083,9 @@ func show_armory() -> void:
 	for item in GameState.items:
 		if bool(item.get("legacy",false)) and item.id not in GameState.profile.owned:
 			continue
-		var region_match = selected_region==0 or item.region==("欧洲共通" if selected_region==5 else Catalogue.REGIONS[maxi(0,selected_region-1)])
-		var quality_match = selected_quality==0 or int(item.get("quality",-1))==selected_quality-1
-		if item.slot == selected_slot and (selected_era<0 or int(item.era) == selected_era) and region_match and quality_match:
+		var region_match = family_arms or selected_region==0 or item.region==("欧洲共通" if selected_region==5 else Catalogue.REGIONS[maxi(0,selected_region-1)])
+		var quality_match = family_arms or selected_quality==0 or int(item.get("quality",-1))==selected_quality-1
+		if item.slot == selected_slot and (family_arms or selected_era<0 or int(item.era) == selected_era) and region_match and quality_match:
 			filtered.append(item)
 	var build_queue = preload("res://scripts/ui/build_queue.gd").new()
 	screen.add_child(build_queue)
@@ -1238,7 +1264,7 @@ func _update_item_panel() -> void:
 			"armor_kg","helmet_kg","shield_kg","lance_kg","caparison_kg":
 				detail += "重量  %.1f kg   " % value
 			"caparison_renown":
-				detail += "获胜额外声望  +%d   " % value
+				detail += "自由对战获胜额外声望  +%d   " % value
 	if item.slot=="caparison":
 		detail += "不提供防护"
 	elif item.slot=="armor" or item.slot=="helmet":
@@ -1335,7 +1361,8 @@ func show_settings() -> void:
 	UI.check(panel,"声音总开关",GameState.profile.settings.sound,Vector2(28,250),func(value):_change_setting("sound",value))
 	UI.check(panel,"纯鼠标姿态控制",GameState.profile.settings.mouse_only,Vector2(28,305),func(value):_change_setting("mouse_only",value))
 	UI.label(panel,"滚轮前后调倾身，中键回正；鼠标瞄准，左键加速。",Vector2(28,353),16,UI.MUTED,620)
-	UI.label(panel,"AI 难度",Vector2(28,406),19,UI.INK)
+	UI.label(panel,"自由对战难度",Vector2(28,406),19,UI.INK)
+	UI.label(panel,"不改变关卡对手",Vector2(478,411),14,UI.MUTED,160)
 	var difficulty = OptionButton.new()
 	difficulty.position = Vector2(183,398)
 	difficulty.size = Vector2(280,45)
@@ -1351,7 +1378,8 @@ func show_settings() -> void:
 	UI.panel(screen,Rect2(810,123,565,596),Color(.055,.10,.08,.95))
 	UI.label(screen,"操作",Vector2(844,150),32,UI.GOLD)
 	UI.button(screen,"音量与材质试听",Rect2(1105,150,235,45),show_sound_settings)
-	UI.label(screen,"移动鼠标　瞄准；大幅改向会失稳\n左键 / 空格　按住催马，松开减速\n1 / 2 / 3　护头 / 护胸 / 护腹（右键循环）\nW / S　　 前倾支撑 / 后仰避头\nH　　　　 显示判定范围\nEsc　　　 暂停与设置\nR 重开　　F11 全屏",Vector2(844,219),22,UI.INK,510)
+	var posture_controls = "滚轮上下　倾身；中键回正" if bool(GameState.profile.settings.mouse_only) else "W / S　　 前倾支撑 / 后仰避头"
+	UI.label(screen,"移动鼠标　瞄准；大幅改向会失稳\n左键 / 空格　按住催马，松开减速\n1 / 2 / 3　护头 / 护胸 / 护腹（右键循环）\n"+posture_controls+"\nH　　　　 显示判定范围\nEsc　　　 暂停；结算后返回营地\nR 重开　　F11 全屏",Vector2(844,219),22,UI.INK,510)
 	UI.label(screen,"触控输入已预留：左侧滑动倾身，右侧瞄准，\n右侧额外触点加速；尚未在手机设备验收。",Vector2(844,468),17,UI.MUTED,510)
 	# ART-090: closed helmets narrow the view during the charge.
 	UI.check(screen,"闭面头盔遮挡视野（眼缝效果）",bool(GameState.profile.settings.get("helmet_view",true)),Vector2(844,544),func(value):_change_setting("helmet_view",value))
@@ -1502,7 +1530,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if result_debug and result_details.text.is_empty(): result_details.text=result_detail_text
 		result_detail_scroll.visible = result_debug
 		result_rewards.text = result_rewards.get_meta("debug_text" if result_debug else "normal_text")
-		result_progress.text = result_progress.get_meta("debug_text") if result_debug else "回营地挑选装备，准备下一场。"
+		result_progress.text = result_progress.get_meta("debug_text" if result_debug else "normal_text")
 		result_timeline.visible = not result_debug
 		if not result_debug: result_timeline.queue_redraw()
 		get_viewport().set_input_as_handled()

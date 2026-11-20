@@ -1,5 +1,7 @@
 # 任务、审查建议与文件认领
 
+UX-110（第8项）于2026-11-20 09:01:53 UTC开始，至少90分钟，最早10:31:53结束。实际基线HEAD/origin均6e2e518c8f4c11cf072e5c1be8940f9347afdd10，工作区仅原三份历史差异，无新Claude功能改动。Codex认领game/scripts/main.gd、battle.gd仅界面/结果键盘路由、ui/{combat_report,combat_status098,equipment_comparison,help_pages,build_queue}.gd经证据需要的说明/构建接口、core/{practice_guide,campaign}.gd仅实践教学/提示接口；game/tests/*110*、test_parse065及直接受影响GUI/教学/结果/存档夹具，tools/ux110-*、docs/development/UX110_*、设计/需求/共享交接。先复现结果Esc、纹章筛选和说明延迟，再修；不改AI/伤害/奖励/画质/动作/保护。新包留QA111。
+
 ECON-109第7项于2026-11-20 08:58:53 UTC完成90分09秒源码/后台复核。29运行结束、80真实成长/89场、173商品门槛、重装/低余额恢复/真实重玩和正式档核对通过，详见交接；释放109专属文件与ART108夹具补充认领。以下过程认领保留作历史，下一步UX-110另登记后开始。
 
 ECON-109补充认领：game/tests/test_art_fall108.gd与ART108交接的夹具更正说明。旧档复核发现测试中曾使用不存在的crest_lion；实际回退为默认bend，将该测试输入显式改为既有crest_bend，并用目录解析等价检查证明几何/配装未变。生产收藏和素材不改。

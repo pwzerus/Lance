@@ -1211,6 +1211,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if event is InputEventKey and event.pressed and not event.echo:
 		var keys = [event.keycode,event.physical_keycode]
+		if is_finished:
+			# The result belongs to Main. Escape leaves it, R restarts once,
+			# and H reaches Main's report instead of toggling hidden hit zones.
+			if KEY_ESCAPE in keys:
+				get_viewport().set_input_as_handled()
+				exit_requested.emit()
+			elif KEY_R in keys:
+				get_viewport().set_input_as_handled()
+				replay_requested.emit()
+			return
 		if KEY_ESCAPE in keys:
 			_toggle_pause()
 			get_viewport().set_input_as_handled()
@@ -1267,7 +1277,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			_set_pointer_aim(event.position)
 
 func _input(event: InputEvent) -> void:
-	if not presentation_ready: return
+	if not presentation_ready or is_finished: return
 	# Godot supplies viewport coordinates after stretch/DPI conversion. Keep
 	# aiming on this event path rather than polling an OS cursor every tick;
 	# it also supports deterministic replay and injected input verification.

@@ -127,7 +127,7 @@ func _draw_history() -> void:
 			for event in events:
 				if int(event.attacker)==attacker and int(event.get("pass",1))==pass_index: hit=event
 			figure(at+Vector2(36,31),hit,.72)
-			text(("你" if attacker==0 else "对手")+"  "+["首轮","次轮","末轮"][pass_index-1],at+Vector2(67,18),MUTED,14)
+			text(("你出枪" if attacker==0 else "对手出枪")+"  "+["首轮","次轮","末轮"][pass_index-1],at+Vector2(67,18),MUTED,14)
 			var description = ("未进行" if pass_index>pass_number else "未命中") if hit.is_empty() else contact_text(hit)
 			text(description,at+Vector2(67,39),INK,17)
 			text("损伤",at+Vector2(67,61),MUTED,11)

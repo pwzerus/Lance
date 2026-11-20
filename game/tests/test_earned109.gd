@@ -5,12 +5,24 @@ extends "test_scene103.gd"
 const Catalogue109=preload("res://scripts/core/catalogue.gd")
 const TransactionTrace109=preload("res://scripts/core/frame_trace099.gd")
 var purchase_log=[]
+var ui_wait_log=[]
 func action_button(node:Node,prefix:String)->Button:
-	if node is Button and node.is_visible_in_tree() and node.text.begins_with(prefix):return node
+	if node is Button and not node.is_queued_for_deletion() and node.is_visible_in_tree() and node.text.begins_with(prefix):return node
 	for child in node.get_children():
 		var b=action_button(child,prefix)
 		if b:return b
 	return null
+func wait_item_action(main:Node,id:String,prefix:String)->Button:
+	# The production armory intentionally builds over multiple frames. Ten
+	# frames was not a completion signal on the release runtime (QA-111).
+	var started=Time.get_ticks_usec();var button:Button=null
+	while Time.get_ticks_usec()-started<1000000:
+		await process_frame
+		if main.selected_item.get("id","")==id and main.info_panel.get_meta("details_ready",false):
+			button=action_button(main.info_panel,prefix)
+			if button:break
+	ui_wait_log.append({"id":id,"action":prefix,"ready":button!=null,"milliseconds":(Time.get_ticks_usec()-started)/1000.0})
+	return button
 func buy_equipment(main:Node,state:Node,id:String,folder:String)->void:
 	var item=Catalogue109.find(state.items,id)
 	if item.is_empty() or state.profile.equipped.get(item.slot)==id:return
@@ -22,7 +34,7 @@ func buy_equipment(main:Node,state:Node,id:String,folder:String)->void:
 	main.armory_cards[id].pressed.emit()
 	for i in range(5):await process_frame
 	if id not in state.profile.owned:
-		var before=int(state.profile.coins);var button=action_button(main.info_panel,"购买 ·")
+		var before=int(state.profile.coins);var button=await wait_item_action(main,id,"购买 ·")
 		check(button!=null and not button.disabled,"Purchase button enabled "+id)
 		if not button or button.disabled:return
 		var trace_start=TransactionTrace109.rows.size()
@@ -32,8 +44,8 @@ func buy_equipment(main:Node,state:Node,id:String,folder:String)->void:
 		TransactionTrace109.enabled=false
 		check(id in state.profile.owned and state.profile.coins==before-int(item.price),"UI purchase debits once "+id)
 		purchase_log.append({"id":id,"price":item.price,"coins_before":before,"coins_after":state.profile.coins,"renown":state.profile.renown,"profile_matches":state.profile.matches,"transaction_trace":TransactionTrace109.rows.slice(trace_start).duplicate(true)})
-		await capture(folder,"purchase-%02d-%s"%[purchase_log.size(),id])
-	var button=action_button(main.info_panel,"装备")
+	var button=await wait_item_action(main,id,"装备")
+	await capture(folder,"purchase-%02d-%s"%[purchase_log.size(),id])
 	check(button!=null and not button.disabled,"Equip button enabled "+id)
 	if button and not button.disabled:click(button)
 	for i in range(8):await process_frame

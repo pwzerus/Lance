@@ -132,7 +132,7 @@ func run()->void:
 			var disk=state.sanitize(state._read_save(state.save_path))
 			check(disk==state.profile,"Natural result matches disk")
 			rows.append({"level":n,"attempt":attempt+1,"strategy":strategy,"result":main.pending_result.duplicate(true),"reward":main.reward.duplicate(true),"coins":state.profile.coins,"renown":state.profile.renown,"equipped":state.profile.equipped.duplicate(),"hits":b.exchange_log.duplicate(true)})
-			FileAccess.open(folder+"/partial.json",FileAccess.WRITE).store_string(JSON.stringify({"rows":rows,"purchases":purchase_log,"profile":state.profile},"\t"))
+			FileAccess.open(folder+"/partial.json",FileAccess.WRITE).store_string(JSON.stringify({"rows":rows,"purchases":purchase_log,"ui_waits":ui_wait_log,"profile":state.profile},"\t"))
 			if won:break
 			if attempt+1<max_attempts:
 				key110(KEY_R)
@@ -146,6 +146,6 @@ func run()->void:
 	await press(main,"关卡挑战")
 	for i in range(8):await process_frame
 	await capture(folder,"earned-progress")
-	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"completed_requested_segment":completed,"initial_profile":initial,"final_profile":state.profile,"first":first,"last":last,"heavy":heavy,"rows":rows,"purchases":purchase_log,"navigation":navigation,"scope":"Actual menu/chapter/card/next/R/camp viewport navigation with finite engine-local aim/guard/W; UI purchases and natural growth in persistent isolated save. Card selection in armory still uses its existing pressed signal; combat is scripted, not human. No granted coins/items/clears/outcomes, no OS input/human skill claim. A lost segment remains incomplete, never replaced by an invented win."},"\t"))
+	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"completed_requested_segment":completed,"initial_profile":initial,"final_profile":state.profile,"first":first,"last":last,"heavy":heavy,"rows":rows,"purchases":purchase_log,"ui_waits":ui_wait_log,"navigation":navigation,"scope":"Actual menu/chapter/card/next/R/camp viewport navigation with finite engine-local aim/guard/W; UI purchases and natural growth in persistent isolated save. Card selection in armory still uses its existing pressed signal; combat is scripted, not human. No granted coins/items/clears/outcomes, no OS input/human skill claim. A lost segment remains incomplete, never replaced by an invented win."},"\t"))
 	await main._shutdown_and_quit()
 	quit(0 if failures.is_empty() else 1)

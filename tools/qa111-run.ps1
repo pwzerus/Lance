@@ -15,6 +15,14 @@ if($Target -eq 'source'){
  $revision=(Get-Content -LiteralPath "$Bundle/build-manifest.json" -Raw -Encoding utf8 | ConvertFrom-Json).source_revision
 }
 $meta=[ordered]@{target=$Target;executable=$exe;pck_sha256=$packHash;source_revision=$revision;external_test=$driver;budget=$Budget;extra=$Extra;scope='Single protected process. GPU uses isolated desktop; engine/viewport input only, never OS input. External tests load res:// from the actual PCK for bundle targets.'}
+$chain=@();$testPath=Join-Path "$project/game/tests" $Script
+for($depth=0;$depth -lt 12 -and (Test-Path -LiteralPath $testPath);$depth++){
+ $chain+=@{path=$testPath;sha256=(Get-FileHash -LiteralPath $testPath -Algorithm SHA256).Hash}
+ $extends=[regex]::Match((Get-Content -LiteralPath $testPath -Raw),'(?m)^extends "([^"\r\n]+)"')
+ if(!$extends.Success -or $extends.Groups[1].Value.StartsWith('res://')){break}
+ $testPath=Join-Path (Split-Path -Parent $testPath) $extends.Groups[1].Value
+}
+$meta.external_driver_chain=$chain
 [IO.File]::WriteAllText("$run/target.json",($meta | ConvertTo-Json -Depth 5),[Text.UTF8Encoding]::new($false))
 $params=@{Executable=$exe;Arguments="$headless $mount --audio-driver Dummy --script `"$driver`" --log-file `"$run/engine.log`" -- --test-profile --folder=$run/$part --report=$run/$part $Extra";TimeoutSeconds=600;MemoryLog="$run/memory.log"}
 if($Budget -eq 'gpu'){$params.IsolatedDesktop=$true}elseif($Budget -eq 'parse'){$params.HeadlessDiagnostics=$true}else{$params.GeometryDiagnostics=$true}

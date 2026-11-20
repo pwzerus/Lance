@@ -1,6 +1,7 @@
 extends SceneTree
 ## Presentation contract: mixed actual archived matches and explicit edge fixtures.
 const Report=preload("res://scripts/ui/combat_report.gd")
+const Status=preload("res://scripts/ui/combat_status098.gd")
 const Campaign=preload("res://scripts/core/campaign.gd")
 const Comparison=preload("res://scripts/ui/equipment_comparison.gd")
 var failures=[]
@@ -42,6 +43,32 @@ func run()->void:
 				check(cause.contains("累积伤势"),"Actual level64 ended through accumulated injury")
 				check(advice.contains("头部受创最多"),"Actual level64 earlier head wounds outweigh final body hit")
 	check(rows.size()>=5,"Actual archived win/loss cases included")
+	var source7="E:/GALUMU/docs/development/logs/ux110-journey02/screens/report.json"
+	var record7=JSON.parse_string(FileAccess.get_file_as_string(source7))
+	var checked7=false
+	for row in record7.rows:
+		if int(row.level)!=7 or int(row.attempt)!=1:continue
+		checked7=true
+		var own=0;var enemy=0;var receipts=[]
+		for hit in row.hits:
+			var line=Status.score_text(hit);receipts.append(line)
+			if int(hit.attacker)==0:own+=int(hit.points)
+			else:enemy+=int(hit.points)
+			if hit.glanced:check(line=="未计分","Glancing broken lance has no tournament bonus")
+		check(own==3 and enemy==4,"Actual level7 score breakdown sums to displayed result")
+		check("2分 · 盾击＋断枪" in receipts and "1分 · 轻触" in receipts,"Blocked bonus and armor touch are explained")
+		check(Report.next_action(row.hits,false,row.result).contains("擦过不计分"),"Score loss recommends improving scoring rather than needless defense")
+		rows.append({"source":source7,"level":7,"cause":"Actual score loss","advice":Report.next_action(row.hits,false,row.result),"receipts":receipts})
+	check(checked7,"Actual newly observed score-loss case covered")
+	check(Status.score_text({}).is_empty(),"No invented score on unplayed contact")
+	var font=load("res://scripts/ui/ui_factory.gd").theme().default_font
+	for receipt in ["4分 · 实击＋断枪","2分 · 盾击＋断枪","1分 · 轻触","未计分"]:
+		check(font.get_string_size(receipt,HORIZONTAL_ALIGNMENT_LEFT,-1,14).x<=151,"Readable score receipt stays within its card: "+receipt)
+	var head_bonus=[{"attacker":1,"defender":0,"zone":"head","damage":35,"broke":true,"glanced":false,"attaint":true,"points":4},{"attacker":0,"defender":1,"zone":"body","damage":20,"broke":false,"glanced":false,"attaint":true,"points":2}]
+	var head_advice=Report.next_action(head_bonus,false,{"winner":1,"reason":"score"})
+	check(head_advice.contains("头部受创最多") and not head_advice.contains("盾击"),"Head strike bonus cannot be mislabeled shield-block feedback")
+	var shield_bonus=head_bonus.duplicate(true);shield_bonus[0].zone="shield";shield_bonus[0].damage=2;shield_bonus[0].impulse=40
+	check(Report.next_action(shield_bonus,false,{"winner":1,"reason":"score"}).contains("盾击"),"Actual shield-bonus branch explains that event")
 	check(not Campaign.all_complete({"campaign_cleared":[80]}),"Final chapter alone is not all chapters")
 	check(not Campaign.all_complete({"campaign_cleared":range(1,80)}),"Missing final chapter remains incomplete")
 	check(Campaign.all_complete({"campaign_cleared":range(1,81)}),"All eighty unique clears complete campaign")
@@ -49,6 +76,9 @@ func run()->void:
 	check(not Campaign.all_complete({"campaign_cleared":dup}),"Duplicate clear does not substitute missing eighty")
 	var state=root.get_node("GameState")
 	var profile=state.default_profile()
+	for level in Campaign.levels(state.items):
+		var heading="第 %d 关 · %s · %s · %s"%[int(level.number),"竞技场" if level.mode=="arena" else "实战",str(level.opponent),str(level.archetype_name)]
+		check(font.get_string_size(heading,HORIZONTAL_ALIGNMENT_LEFT,-1,16).x<=520,"Mode and opponent fit result header "+str(level.number))
 	var lengths={}
 	for item in state.items:
 		var comparison=Comparison.summarize(state.items,profile.equipped,item)

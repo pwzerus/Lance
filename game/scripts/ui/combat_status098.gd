@@ -14,6 +14,7 @@ var _signature = ""
 var _backdrop: Node2D
 
 func _ready() -> void:
+	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	_backdrop = Node2D.new()
 	# Behind the HUD's labels, not over the contact messages at y=110.
 	_backdrop.z_index = -1
@@ -33,7 +34,7 @@ func refresh(current: Array, contacts: Array, pass_index: int) -> void:
 	pass_number=pass_index
 	# Quantise only the readout, never physics. Redraw only while visible and
 	# when an actual meter or contact changes (prevents hidden result churn).
-	var values: Array = [history,pass_number,contacts.size()]
+	var values: Array = [history,arena,pass_number,contacts.size()]
 	for f in fighters:
 		values.append(bool(f.get("broken",false)))
 		for key in ["hp","balance","shield","score","stamina","speed","lance_stability"]:
@@ -70,6 +71,14 @@ static func contact_text(hit: Dictionary) -> String:
 	if part=="盾":return preload("res://scripts/core/contact_feedback.gd").shield_text(hit)
 	if hit.get("glanced",false): return part+(" 滑开" if part=="盾" else "擦过")
 	return part+(" 重击" if float(hit.get("damage",0))>=35 else " 命中")
+
+static func score_text(hit: Dictionary) -> String:
+	if hit.is_empty(): return ""
+	var points=int(hit.get("points",0))
+	if points<=0: return "未计分"
+	var contact="盾击" if hit.get("zone","")=="shield" else ("实击" if hit.get("attaint",false) else "轻触")
+	if hit.get("broke",false) and not hit.get("glanced",false): contact+="＋断枪"
+	return "%d分 · %s" % [points,contact]
 
 func figure(at: Vector2, hit: Dictionary, scale_value: float=1) -> void:
 	var base=Color("526357")
@@ -130,5 +139,8 @@ func _draw_history() -> void:
 			text(("你出枪" if attacker==0 else "对手出枪")+"  "+["首轮","次轮","末轮"][pass_index-1],at+Vector2(67,18),MUTED,14)
 			var description = ("未进行" if pass_index>pass_number else "未命中") if hit.is_empty() else contact_text(hit)
 			text(description,at+Vector2(67,39),INK,17)
-			text("损伤",at+Vector2(67,61),MUTED,11)
-			bar(Rect2(at+Vector2(97,52),Vector2(114,8)),float(hit.get("damage",0))/100,Color("cc7457"))
+			if arena:
+				text(score_text(hit),at+Vector2(67,61),Color("dfc485"),14)
+			else:
+				text("损伤",at+Vector2(67,61),MUTED,11)
+				bar(Rect2(at+Vector2(97,52),Vector2(114,8)),float(hit.get("damage",0))/100,Color("cc7457"))

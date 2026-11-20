@@ -347,6 +347,7 @@ func show_character() -> void:
 		var field: String = keys[row]
 		UI.label(panel,titles[row],Vector2(24,29+row*58),20,UI.GOLD)
 		var option = OptionButton.new()
+		option.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 		option.position = Vector2(190,20+row*58)
 		option.size = Vector2(374,46)
 		for label in Appearance.OPTIONS[field]:
@@ -510,6 +511,7 @@ func show_match_setup() -> void:
 	UI.label(screen,"难度改变反应与决策，不增加对手生命或伤害。练习场使用固定教学节奏。",Vector2(64,659),17,UI.MUTED,1200)
 	UI.label(screen,"地区线",Vector2(64,722),18,UI.GOLD)
 	var region = OptionButton.new()
+	region.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	region.position = Vector2(165,709)
 	region.size = Vector2(250,47)
 	for name_value in Catalogue.REGIONS:
@@ -874,20 +876,20 @@ func show_result() -> void:
 	panel.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	var heading = "练习结束，不计奖励" if practice_match else (("竞技场" if current_mode=="arena" else "实战")+" · "+preload("res://scripts/core/opponent_ai.gd").NAMES[int(GameState.profile.settings.difficulty)])
 	if not current_level.is_empty():
-		heading = "第 %d 关 · %s · %s" % [int(current_level.number),str(current_level.opponent),str(current_level.archetype_name)]
+		heading = "第 %d 关 · %s · %s · %s" % [int(current_level.number),"竞技场" if current_mode=="arena" else "实战",str(current_level.opponent),str(current_level.archetype_name)]
 	UI.label(panel,heading,Vector2(35,22),16,UI.GOLD,520)
 	var campaign_complete = int(current_level.get("number",0))==Campaign.COUNT and won and Campaign.all_complete(GameState.profile)
 	var title = "八章挑战完成" if campaign_complete else ("平局" if draw else ("你赢了" if won else "这场输了"))
 	UI.label(panel,title,Vector2(35,62),42,UI.INK).name="ResultTitle"
 	if current_mode=="arena":
 		UI.label(panel,"比分 %d : %d" % [int(result.get("player_score",0)),int(result.get("enemy_score",0))],Vector2(485,76),25,UI.GOLD,255).name="ResultScore"
-	var explanation = "双方都未落马，伤势较轻者胜。"
+	var explanation = "三轮后双方伤势相当。" if draw else ("三轮后双方仍在马上，对手的伤势较重。" if won else "三轮后双方仍在马上，你的伤势较重。")
 	if result.get("reason") == "terminal":
 		explanation = "双方同时落马。" if draw else "落马出局。"
 	elif result.get("reason") == "score":
 		explanation = "三轮结束，得分较高者胜。"
 	elif current_mode=="arena":
-		explanation = "同分，伤势较轻者胜。"
+		explanation = "双方同分，伤势也相当。" if draw else ("双方同分，对手的伤势较重。" if won else "双方同分，你的伤势较重。")
 	if result.get("player_dead",false) or result.get("enemy_dead",false):
 		explanation = "致命一击结束对局，收藏保留。"
 	if result.get("reason")=="terminal" and not contacts.is_empty():
@@ -897,6 +899,7 @@ func show_result() -> void:
 	UI.separator(panel,Vector2(35,177),706)
 	result_timeline = Status098.new()
 	result_timeline.history = true
+	result_timeline.arena = current_mode=="arena"
 	result_timeline.position = Vector2(35,192)
 	result_timeline.size = Vector2(706,151)
 	result_timeline.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -919,7 +922,7 @@ func show_result() -> void:
 	result_details.name = "ContactSummary"
 	result_debug = false
 	result_detail_scroll.visible = false
-	UI.label(panel,"H 查看数据",Vector2(620,24),12,UI.MUTED,125)
+	UI.label(panel,"H 查看数据",Vector2(620,24),14,UI.MUTED,125)
 	var reward_text = "银币 +%d · 声望 +%d" % [int(reward.get("coins",0)),int(reward.get("renown",0))]
 	if practice_match:
 		reward_text = "练习不计奖励"
@@ -932,16 +935,16 @@ func show_result() -> void:
 	reward_label.set_meta("normal_text",reward_text)
 	var next_era = Catalogue.era_for_renown(int(GameState.profile.renown)) + 1
 	var progress = "全部时期已开放；继续收集工坊与纹章。" if next_era >= Catalogue.ERAS.size() else "%s 将在声望达到 %d 时开放（目前 %d）。" % [Catalogue.ERAS[next_era],Catalogue.ERA_REQUIREMENTS[next_era],GameState.profile.renown]
-	var advice = "八章已完成，可重玩挑战或继续收集装备。" if campaign_complete else report.next_action(contacts,bool(GameState.profile.settings.get("mouse_only",false)))
+	var advice = "八章已完成，可重玩挑战或继续收集装备。" if campaign_complete else report.next_action(contacts,bool(GameState.profile.settings.get("mouse_only",false)),result)
 	result_progress = UI.label(panel,advice,Vector2(35,408),15,UI.MUTED,706)
 	result_progress.name="ResultAdvice"
 	result_progress.set_meta("normal_text",advice)
 	result_progress.set_meta("debug_text",progress)
 	if GameState.profile_save_pending:
-		var save_status = UI.label(panel,"奖励已记入当前进度，但还未保存。",Vector2(35,439),16,Color("efb566"),490)
+		var save_status = UI.label(panel,"本局进度暂未保存。",Vector2(35,439),16,Color("efb566"),490)
 		save_status.name = "PendingRewardSave"
 		UI.button(panel,"重试保存",Rect2(550,432,190,32),func():
-			save_status.text = "奖励与进度已保存。" if GameState.save_profile() else "仍未保存，请检查磁盘空间或写入权限。")
+			save_status.text = "本局进度已保存。" if GameState.save_profile() else "仍未保存，请检查磁盘空间或写入权限。")
 	if not current_level.is_empty():
 		var number = int(current_level.number)
 		if won and number<Campaign.COUNT:
@@ -1027,6 +1030,7 @@ func show_armory() -> void:
 	if selected_slot in ["crest","shield"]:
 		UI.label(screen,"家族纹章通用，不分年代与品质；用于衣饰，盾纹固定。" if family_arms else "家族纹章用于罩袍、马衣和枪旗；盾纹随盾牌固定。",Vector2(56,215),13,UI.MUTED,810)
 	var era_select = OptionButton.new()
+	era_select.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	era_select.theme = UI.theme()
 	era_select.position = Vector2(724,169)
 	era_select.size = Vector2(210,43)
@@ -1041,6 +1045,7 @@ func show_armory() -> void:
 		show_armory())
 	screen.add_child(era_select)
 	var region_select = OptionButton.new()
+	region_select.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	region_select.theme = UI.theme()
 	region_select.position = Vector2(946,169)
 	region_select.size = Vector2(199,43)
@@ -1054,6 +1059,7 @@ func show_armory() -> void:
 		show_armory())
 	screen.add_child(region_select)
 	var quality_select = OptionButton.new()
+	quality_select.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	quality_select.theme = UI.theme()
 	quality_select.position = Vector2(1157,169)
 	quality_select.size = Vector2(228,43)
@@ -1218,6 +1224,8 @@ func _add_item_icon(parent: Control, item: Dictionary, point: Vector2, dimension
 		texture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		texture.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 		icon = texture
+	# Text controls filter smoothly, but item artwork keeps its pixel sampling.
+	icon.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	icon.position = point
 	icon.size = dimensions
 	icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -1364,6 +1372,7 @@ func show_settings() -> void:
 	UI.label(panel,"自由对战难度",Vector2(28,406),19,UI.INK)
 	UI.label(panel,"不改变关卡对手",Vector2(478,411),14,UI.MUTED,160)
 	var difficulty = OptionButton.new()
+	difficulty.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	difficulty.position = Vector2(183,398)
 	difficulty.size = Vector2(280,45)
 	for value in preload("res://scripts/core/opponent_ai.gd").NAMES:
@@ -1379,7 +1388,7 @@ func show_settings() -> void:
 	UI.label(screen,"操作",Vector2(844,150),32,UI.GOLD)
 	UI.button(screen,"音量与材质试听",Rect2(1105,150,235,45),show_sound_settings)
 	var posture_controls = "滚轮上下　倾身；中键回正" if bool(GameState.profile.settings.mouse_only) else "W / S　　 前倾支撑 / 后仰避头"
-	UI.label(screen,"移动鼠标　瞄准；大幅改向会失稳\n左键 / 空格　按住催马，松开减速\n1 / 2 / 3　护头 / 护胸 / 护腹（右键循环）\n"+posture_controls+"\nH　　　　 显示判定范围\nEsc　　　 暂停；结算后返回营地\nR 重开　　F11 全屏",Vector2(844,219),22,UI.INK,510)
+	UI.label(screen,"移动鼠标　瞄准；大幅改向会失稳\n左键 / 空格　按住催马，松开减速\n1 / 2 / 3　护头 / 护胸 / 护腹（右键循环）\n"+posture_controls+"\nH　　　　 对局判定；结算详情\nEsc　　　 暂停；结算后返回营地\nR 重开　　F11 全屏",Vector2(844,219),22,UI.INK,510)
 	UI.label(screen,"触控输入已预留：左侧滑动倾身，右侧瞄准，\n右侧额外触点加速；尚未在手机设备验收。",Vector2(844,468),17,UI.MUTED,510)
 	# ART-090: closed helmets narrow the view during the charge.
 	UI.check(screen,"闭面头盔遮挡视野（眼缝效果）",bool(GameState.profile.settings.get("helmet_view",true)),Vector2(844,544),func(value):_change_setting("helmet_view",value))
@@ -1501,7 +1510,7 @@ func show_history() -> void:
 		if not str(entry[3]).is_empty():
 			var url = str(entry[3])
 			UI.button(card,"查阅来源 ↗",Rect2(255,207,150,31),func():OS.shell_open(url))
-	UI.label(screen,"这里是历史启发的游戏，装备数值与奖励属于设计；更多注释在项目 docs 中。",Vector2(56,750),16,UI.MUTED)
+	UI.label(screen,"这里是历史启发的游戏，装备数值与奖励属于设计；史料与改编说明见军械库详情。",Vector2(56,750),16,UI.MUTED)
 	queue_redraw()
 
 func show_help(credits: bool = false) -> void:
@@ -1525,7 +1534,7 @@ func _draw() -> void:
 	draw_rect(Rect2(0,786,1440,24),Color(.03,.055,.04,.7))
 
 func _unhandled_input(event: InputEvent) -> void:
-	if result_visible and is_instance_valid(result_details) and event is InputEventKey and event.pressed and not event.echo and event.keycode==KEY_H:
+	if result_visible and is_instance_valid(result_details) and event is InputEventKey and event.pressed and not event.echo and KEY_H in [event.keycode,event.physical_keycode]:
 		result_debug = not result_debug
 		if result_debug and result_details.text.is_empty(): result_details.text=result_detail_text
 		result_detail_scroll.visible = result_debug

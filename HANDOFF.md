@@ -2,7 +2,7 @@
 
 ## DELIVERY-107–111 进行中（2026-11-20）
 
-第5项LEVEL-107完成源码与后台复核，功能提交26f1b0f；[交接](docs/collaboration/handoffs/2026-11-20-LEVEL-107-Codex.md)列出配置、成长与真实流程证据。第6项ART-108源码/80实际配置已复核，见[交接](docs/collaboration/handoffs/2026-11-20-ART-108-Codex.md)；第7项[ECON-109](docs/collaboration/handoffs/2026-11-20-ECON-109-Codex.md)已完成80真实成长、交易和故障恢复，下一步UX-110；每项至少90分钟，五项后另60分钟综合验证，正式启动包仍.58-c1。所有保护及后台隔离保持，未接管屏幕。任务时钟见[计划](docs/requirements/WINDOWS_PRODUCT_PLAN.md)，不要将中途提交当作最终Windows交付。
+第5–8项源码与后台阶段已完成各自至少90分钟，最新[UX-110交接](docs/collaboration/handoffs/2026-11-20-UX-110-Codex.md)含可解释结算、输入/筛选/保存/文字修复、七步教学及80关真实按钮成长。UX-110第8项于2026-11-20 10:48:37 UTC完成，历时106分44秒。47次受保护运行均结束；两个早期夹具失败已修复并保留，正常复验通过。实际按钮成长80关/89场/21购买，余额34445、声望96，81场竞技场每击分数与总分一致，五个正式档状态/散列不变。最终parse08、filters03、text02三窗口、gallery06十类结果和copy03通过。源码阶段完成，正式包仍v0.4.58-c1；QA111及五项后另60分钟尚未开始。 之前关卡/美术/经济交接继续有效。所有保护与后台隔离保持，未接管屏幕；计时见[计划](docs/requirements/WINDOWS_PRODUCT_PLAN.md)，最后Windows包与综合复验仍需完成。
 
 ## CORE-106：核心体验四项复核，v0.4.58-c1（2026-11-19/20）
 

@@ -89,7 +89,7 @@ static func _terminal_cause(hit: Dictionary) -> String:
 	if cause=="balance": return who+"的"+part+"受击后失去平衡，落马出局。"
 	return who+"被击落了。"
 
-static func next_action(events: Array, mouse_only: bool = false) -> String:
+static func next_action(events: Array, mouse_only: bool = false, result: Dictionary = {}) -> String:
 	# Explain resolved contacts across the match. The final contact need not
 	# account for most of the injury, and a shield contact is not a flesh hit.
 	var injury = {"head":0.0,"body":0.0,"flank":0.0}
@@ -98,8 +98,11 @@ static func next_action(events: Array, mouse_only: bool = false) -> String:
 	var outgoing = 0
 	var shields = 0
 	var glances = 0
+	var touches = 0
+	var opponent_breaks = 0
 	for event in events:
 		var zone = str(event.get("zone",""))
+		if int(event.get("attacker",-1))==1 and zone=="shield" and event.get("broke",false) and not event.get("glanced",false): opponent_breaks+=1
 		if int(event.get("defender",-1))==0:
 			if injury.has(zone): injury[zone]+=maxf(0,float(event.get("damage",0)))
 			if zone=="shield": shield_load+=maxf(0,float(event.get("impulse",0)))
@@ -109,6 +112,11 @@ static func next_action(events: Array, mouse_only: bool = false) -> String:
 			outgoing+=1
 			if zone=="shield": shields+=1
 			if event.get("glanced",false): glances+=1
+			elif zone!="shield" and not event.get("attaint",false): touches+=1
+	if int(result.get("winner",-1))==1 and str(result.get("reason",""))=="score":
+		if glances>0: return "擦过不计分，断枪也不加分；提前稳住枪尖，争取实击。"
+		if touches>0: return "轻触基础只计1分；稳住枪与冲速，争取有效实击。"
+		if opponent_breaks>0: return "对手有盾击断枪加分；稳住自己的枪，争取有效实击。"
 	if unstable_fall:
 		return "受击时重心不稳：提前调好枪盾，"+("滚轮向上前倾支撑。" if mouse_only else "按住 W 前倾支撑。")
 	var most = "head"

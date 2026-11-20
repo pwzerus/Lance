@@ -32,4 +32,4 @@ static func build(parent: Control, credits: bool, on_rules: Callable, on_credits
 		button.disabled = license_path.is_empty() or not DirAccess.dir_exists_absolute(license_path)
 		UI.label(parent,"许可随完整发布包提供。" if not button.disabled else "完整版权与许可文件随 Windows 发布包提供。",Vector2(400,731),18,UI.MUTED,960)
 	else:
-		UI.label(parent,"Esc 暂停　·　R 重开　·　F11 全屏　·　H 显示真实判定范围　·　音量与慢动作可在设置中调整",Vector2(70,731),20,UI.MUTED,1300)
+		UI.label(parent,"Esc 暂停 / 结算回营地　·　R 重开　·　F11 全屏　·　H 对局判定 / 结算详情",Vector2(70,731),20,UI.MUTED,1300)

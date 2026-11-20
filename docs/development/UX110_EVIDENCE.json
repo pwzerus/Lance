@@ -1,0 +1,4395 @@
+{
+  "memory_note": "Private-byte samples at one-second intervals, not kernel high-water marks; null means no sample.",
+  "scope": "UX110 source evidence. Automated viewport/button navigation and engine controls, not OS or human evidence; archived-result and layout fixtures explicitly identified. No final package acceptance here.",
+  "journey_snapshot": {
+    "commit": "a6062272f4e65a6e14913406ecb7e07d072c81cd",
+    "note": "Journey01 preceded war-detail/integer-format/contact-header additions. Journey02–04 used these hashes. Checkpoint commit happened while journey02 ran; file contents were unchanged. The score-breakdown UI-only revision was written after journey04 had fully loaded Main; journey05 onward loads newer hashes below. A guarded earlier edit refused to run after journey03 exited and made no changes.",
+    "sha256": {
+      "game/scripts/main.gd": "4336F732142AE26FB13F3E920D1A22351372B897AABE3D4E3473F3D6DBBACDED",
+      "game/scripts/battle.gd": "C36649F65294816B3C860A67E7A1A952896E64CE3D395C9FC60194F6624A3B08",
+      "game/scripts/core/campaign.gd": "F0CD5DA90AE3F2CDE968E533FBB5BA46956CC19ADECB00E7764A9D05F867014E",
+      "game/scripts/ui/combat_report.gd": "89F4C3D4AB5B26C38298489E880E2002CC1373BFCE318C908BCBA5956AA80065",
+      "game/scripts/ui/combat_status098.gd": "023EC37D289586EEF2031D85AD7158FC31CF6809E20E52198B4DEB196C4892AB",
+      "game/scripts/ui/equipment_comparison.gd": "E6B9BB534EF4450658BA1BAC91D17E3F8C120D0051A37CFBD35B670A3B18484E",
+      "game/tests/test_journey110.gd": "718391EE88442355720FD4BF4F93940EE570098D24C36F6CEB4560D269C26E9E"
+    },
+    "segments": "02–04",
+    "next_revision": {
+      "segments": "05 onward",
+      "change": "Arena per-pass score receipt and score-loss advice; no physics/reward/AI changes; H accepts the physical key consistently with Escape/R",
+      "sha256": {
+        "game/scripts/main.gd": "98E20C93276B4A96572C21EFE7210D877EC967F2510533A4990FEFC56DA323DA",
+        "game/scripts/battle.gd": "C36649F65294816B3C860A67E7A1A952896E64CE3D395C9FC60194F6624A3B08",
+        "game/scripts/core/campaign.gd": "F0CD5DA90AE3F2CDE968E533FBB5BA46956CC19ADECB00E7764A9D05F867014E",
+        "game/scripts/ui/combat_report.gd": "41BA93E6C52F3484B85031ABF72F982A5400923574A2A152782139B9CECC86D4",
+        "game/scripts/ui/combat_status098.gd": "9255529FFC52DEF2F0A20F1458A3D719262E158EF1C0EC2B981453A9E5B716EF",
+        "game/scripts/ui/equipment_comparison.gd": "E6B9BB534EF4450658BA1BAC91D17E3F8C120D0051A37CFBD35B670A3B18484E",
+        "game/tests/test_journey110.gd": "718391EE88442355720FD4BF4F93940EE570098D24C36F6CEB4560D269C26E9E"
+      }
+    },
+    "final_ui_revision": {
+      "scope": "Written only after all 16 source journey processes exited and isolated desktops closed. Final copy/score receipt font/mode/H/help/pending/tie changes; targeted tests follow, actual PCK campaign belongs to QA111.",
+      "sha256": {
+        "game/scripts/main.gd": "44B6328977A882262700E8DD247C57842D850D69958324CAEFC1AAA4FCB9819B",
+        "game/scripts/ui/combat_report.gd": "ED995656DFDCD545FEC42FA7F8E355F2246143FE108E824FEA75A83B6DF2476D",
+        "game/scripts/ui/combat_status098.gd": "0E862B75B8D54007DDEC6FFE71FF445E5E35DA649EBB1E14CC2CD7129CDA3478",
+        "game/scripts/ui/help_pages.gd": "71DC6F0420AF854E05E7CC7025D9BCB84ED603A8DA077CBEDE5C9575C85C4B90"
+      }
+    },
+    "final_text_revision": {
+      "scope": "Text-only filtering plus explicit nearest sampling for all item icons; verified by parse08 and filters03, text02 at three sizes and gallery06. No world/motion/combat changes.",
+      "sha256": {
+        "game/scripts/main.gd": "F8CE4EC03548F1B0756878C6DCF248D6E36BECC7FAA9111E8F3922D66B4E4F19",
+        "game/scripts/ui/ui_factory.gd": "0B9D796B0E5A8A0D5609C8EB6FAF18EC356152BA81684FE9802505A35F48A585",
+        "game/scripts/ui/combat_status098.gd": "2F672CBAB382E4EBD86228BF17D42461A9444289ABC35544CAD91351E4F6E84E"
+      }
+    }
+  },
+  "runs": [
+    {
+      "name": "ux110-baseline01",
+      "exit_code": 0,
+      "wall_seconds": 67.5,
+      "private_peak_mib": 707.2,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Current source isolated GPU UI baseline. Pending-save UI state supplied; actual level1 battle outcome and viewport Escape input. No forced win, OS input, human blind test or new package claim.",
+      "report": "docs/development/logs/ux110-baseline01/screens/report.json",
+      "report_sha256": "04C0B50BE18D63127EB996B8EBAAA5F0A6C7025DC8D2595759F3BBBD983EFE5F",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-baseline01/screens/crest-common-region.png",
+          "sha256": "75ABA3884B3ED513B853B78E548DD7CFE8FEBC99D1F79A3B059F67FCE9A87789"
+        },
+        {
+          "file": "docs/development/logs/ux110-baseline01/screens/crest-inherited-quality.png",
+          "sha256": "4185BDCBCC0ADA664198EA1759AA9BCFB325D9CFACB19FA00885096AD23AF771"
+        },
+        {
+          "file": "docs/development/logs/ux110-baseline01/screens/helmet-comparison-ready.png",
+          "sha256": "680A0E98837B7B34135D8E1B210DAFAC929E7222FFF85B9036CA070A568C3A7E"
+        },
+        {
+          "file": "docs/development/logs/ux110-baseline01/screens/pending-home.png",
+          "sha256": "0CB8C9350A596B2DCAD2A7EF7447A9560971B3F54455744CE83CBAD5567C3E25"
+        },
+        {
+          "file": "docs/development/logs/ux110-baseline01/screens/result-after-escape.png",
+          "sha256": "5C79FA702B76C9A6282382D92E50010DF689E02B74B33CEC69B95C2E2DF3F221"
+        },
+        {
+          "file": "docs/development/logs/ux110-baseline01/screens/result-before-escape.png",
+          "sha256": "BC36E0AA74CB62D33AF89E76745EC69A72D463257EE5BDE57AA202E5998BFEA9"
+        }
+      ]
+    },
+    {
+      "name": "ux110-copy01",
+      "exit_code": 2,
+      "wall_seconds": 0.4,
+      "private_peak_mib": null,
+      "isolated_desktop_closed": false,
+      "passed": null,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Test guard treated the fixed protection marker as the actual Job budget; exited before assertions, fixed in copy02 without changing protection.",
+      "scope": "Baseline observations / compilation as documented",
+      "report": null,
+      "report_sha256": null,
+      "images": []
+    },
+    {
+      "name": "ux110-copy02",
+      "exit_code": 0,
+      "wall_seconds": 0.4,
+      "private_peak_mib": null,
+      "isolated_desktop_closed": false,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Pure presentation tests: archived natural matches plus clearly supplied edge states, no new battle/human-input evidence.",
+      "report": "docs/development/logs/ux110-copy02/evidence/report.json",
+      "report_sha256": "E2C3B2AFE5C36F240F5CDF10209528B698256661F7861E72C83D921FD6A9057C",
+      "images": []
+    },
+    {
+      "name": "ux110-copy03",
+      "exit_code": 0,
+      "wall_seconds": 0.5,
+      "private_peak_mib": null,
+      "isolated_desktop_closed": false,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Pure presentation tests: archived natural matches plus clearly supplied edge states, no new battle/human-input evidence.",
+      "report": "docs/development/logs/ux110-copy03/evidence/report.json",
+      "report_sha256": "BE9C36E8AFA659A2F8A6021C3602EFC02801D29373FC66D72A442901E806B986",
+      "images": []
+    },
+    {
+      "name": "ux110-filters01",
+      "exit_code": 0,
+      "wall_seconds": 11.7,
+      "private_peak_mib": 703.2,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual isolated GPU slot-tab and clear-filter clicks; initial restrictive filter is a declared fixture. No purchases or profile mutation, no OS input.",
+      "report": "docs/development/logs/ux110-filters01/screens/report.json",
+      "report_sha256": "945D4EAB512CA0D174929402971A2C8F46ECC4657141F8382C840B165C606158",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-filters01/screens/01-family-filters.png",
+          "sha256": "E63CB6E7F04BE357D1AA4CEA4FB330BAC899403F89998FD48EBD390D06DBD4A9"
+        },
+        {
+          "file": "docs/development/logs/ux110-filters01/screens/02-restored-armor.png",
+          "sha256": "C0CBF6C5F8D8394AB1D1D7A92D8644C9E6272A79B3074F25D9784258266C38D0"
+        },
+        {
+          "file": "docs/development/logs/ux110-filters01/screens/03-horse-empty.png",
+          "sha256": "147604A061B9E1F70F8E4149CA46484FB129A3CADE2C0E3EE270B0BE993CFB04"
+        },
+        {
+          "file": "docs/development/logs/ux110-filters01/screens/04-cloth.png",
+          "sha256": "2D954F442C3BFA05DCBB1F2CC35B86317D2FB0C97449C349DBD249BA6820CCCF"
+        },
+        {
+          "file": "docs/development/logs/ux110-filters01/screens/05-settings-context.png",
+          "sha256": "FB3BF81DC092716975B365EF7FE15EA27E24E610AED780D0B37B5B8099506C14"
+        },
+        {
+          "file": "docs/development/logs/ux110-filters01/screens/06-help-context.png",
+          "sha256": "FDBD9517112111684EC54084576FBD9BB94018AEB53F7719A9534D850DB9BFAD"
+        },
+        {
+          "file": "docs/development/logs/ux110-filters01/screens/07-history-context.png",
+          "sha256": "EFD28922C7685CF3AC9E7E1CF6D8055B17E80FD075AD7C084510EF16A4E88B53"
+        }
+      ]
+    },
+    {
+      "name": "ux110-filters02",
+      "exit_code": 0,
+      "wall_seconds": 11.3,
+      "private_peak_mib": 672.0,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual isolated GPU slot-tab and clear-filter clicks; initial restrictive filter is a declared fixture. No purchases or profile mutation, no OS input.",
+      "report": "docs/development/logs/ux110-filters02/screens/report.json",
+      "report_sha256": "945D4EAB512CA0D174929402971A2C8F46ECC4657141F8382C840B165C606158",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-filters02/screens/01-family-filters.png",
+          "sha256": "98B909C16D99BE237BE34346AD40DC77850D42255479E41123442736E2FDACB6"
+        },
+        {
+          "file": "docs/development/logs/ux110-filters02/screens/02-restored-armor.png",
+          "sha256": "7A019CF52F14A7DABE5EC3AE875B513BC7414F107EDED9FEEA13DFE4EF75D6E2"
+        },
+        {
+          "file": "docs/development/logs/ux110-filters02/screens/03-horse-empty.png",
+          "sha256": "FB0094C6BEE54BA08306310E89565D72D4A4B89F08DCD00A071DC31631AA9D2E"
+        },
+        {
+          "file": "docs/development/logs/ux110-filters02/screens/04-cloth.png",
+          "sha256": "50B9DA07DF8C5DE5D9330053692D7D52BDC54B48B1B88B6300E6E0A00440C8EB"
+        },
+        {
+          "file": "docs/development/logs/ux110-filters02/screens/05-settings-context.png",
+          "sha256": "C41E5F4BE610360C871020C843BEB93E195A466D34ADD3256D5DE6D56ECCA8F0"
+        },
+        {
+          "file": "docs/development/logs/ux110-filters02/screens/06-help-context.png",
+          "sha256": "52A9C6F8C119F42EF1B66DC3F358A010FA932B5DA542AD32EEBCF573F874DD6C"
+        },
+        {
+          "file": "docs/development/logs/ux110-filters02/screens/07-history-context.png",
+          "sha256": "4296310DA7F2B6FC81FC57DE62204A1269DDC8FB4AFE15F7A48370A6C8366A5F"
+        }
+      ]
+    },
+    {
+      "name": "ux110-filters03",
+      "exit_code": 0,
+      "wall_seconds": 11.4,
+      "private_peak_mib": 666.4,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual isolated GPU slot-tab and clear-filter clicks; initial restrictive filter is a declared fixture. No purchases or profile mutation, no OS input.",
+      "report": "docs/development/logs/ux110-filters03/screens/report.json",
+      "report_sha256": "945D4EAB512CA0D174929402971A2C8F46ECC4657141F8382C840B165C606158",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-filters03/screens/01-family-filters.png",
+          "sha256": "98B909C16D99BE237BE34346AD40DC77850D42255479E41123442736E2FDACB6"
+        },
+        {
+          "file": "docs/development/logs/ux110-filters03/screens/02-restored-armor.png",
+          "sha256": "7A019CF52F14A7DABE5EC3AE875B513BC7414F107EDED9FEEA13DFE4EF75D6E2"
+        },
+        {
+          "file": "docs/development/logs/ux110-filters03/screens/03-horse-empty.png",
+          "sha256": "FB0094C6BEE54BA08306310E89565D72D4A4B89F08DCD00A071DC31631AA9D2E"
+        },
+        {
+          "file": "docs/development/logs/ux110-filters03/screens/04-cloth.png",
+          "sha256": "50B9DA07DF8C5DE5D9330053692D7D52BDC54B48B1B88B6300E6E0A00440C8EB"
+        },
+        {
+          "file": "docs/development/logs/ux110-filters03/screens/05-settings-context.png",
+          "sha256": "C41E5F4BE610360C871020C843BEB93E195A466D34ADD3256D5DE6D56ECCA8F0"
+        },
+        {
+          "file": "docs/development/logs/ux110-filters03/screens/06-help-context.png",
+          "sha256": "52A9C6F8C119F42EF1B66DC3F358A010FA932B5DA542AD32EEBCF573F874DD6C"
+        },
+        {
+          "file": "docs/development/logs/ux110-filters03/screens/07-history-context.png",
+          "sha256": "4296310DA7F2B6FC81FC57DE62204A1269DDC8FB4AFE15F7A48370A6C8366A5F"
+        }
+      ]
+    },
+    {
+      "name": "ux110-frontdoor01",
+      "exit_code": 0,
+      "wall_seconds": 12.8,
+      "private_peak_mib": 706.0,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual isolated GPU fresh-user buttons and viewport controls, optional tutorial interruption/skip. No forced steps, coins, wins, OS input or human-user claim.",
+      "report": "docs/development/logs/ux110-frontdoor01/screens/report.json",
+      "report_sha256": "033D7C144AE69FD2A35CCB56286504A8BFCEE3274A96091E63AB5A6F2ADA1A74",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-frontdoor01/screens/01-first-brief.png",
+          "sha256": "36D91E9154E698EAFB3FF8BD1B50650022E75F0820E92916F457054465BEC2C8"
+        },
+        {
+          "file": "docs/development/logs/ux110-frontdoor01/screens/02-lesson-pause.png",
+          "sha256": "7C6FAB8016E0939F06A043C8E35A225215E9408BF6E3B552E81A3A3C6936CC62"
+        },
+        {
+          "file": "docs/development/logs/ux110-frontdoor01/screens/03-continue-choice.png",
+          "sha256": "9257C63A61836611550F44434B8D71FB525C5830F374069FA21B2897A7D95DF0"
+        },
+        {
+          "file": "docs/development/logs/ux110-frontdoor01/screens/04-home-after-skip.png",
+          "sha256": "2FD0A1067CE1A0620A55807948D933CE4EA3A3A6368B0992E0D03B497BFC2E46"
+        }
+      ]
+    },
+    {
+      "name": "ux110-guide-keyboard01",
+      "exit_code": 0,
+      "wall_seconds": 41.0,
+      "private_peak_mib": 687.8,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Real-time background Battle; viewport mouse/guard events and Input.parse_input_event keyboard. No OS input, forced hit or pose changes.",
+      "report": "docs/development/logs/ux110-guide-keyboard01/screens/report.json",
+      "report_sha256": "FA92A978DC25F34E78EADBD2E43DF22936E28A85C0D8CE8FF0AA6F0B64D73C27",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-guide-keyboard01/screens/00_practice_choice.png",
+          "sha256": "7F67B882D94F60A93B551444788ED6C547DE228A26EB088793BD266FC648CED0"
+        },
+        {
+          "file": "docs/development/logs/ux110-guide-keyboard01/screens/08_lesson_result.png",
+          "sha256": "3321F62D613922D2DB1984B1AC2C1A7DB6513FD094738F496516E979C7DB2F34"
+        },
+        {
+          "file": "docs/development/logs/ux110-guide-keyboard01/screens/pause_respected.png",
+          "sha256": "E16FF51F364C4DDDC6ED98613E7DEC4A82436579427BF5519AB767F82B76FE3B"
+        },
+        {
+          "file": "docs/development/logs/ux110-guide-keyboard01/screens/step_00.png",
+          "sha256": "8CC117EDD4CF999DC590DF05687FBC3239F12ABB43FC35F489CE05C0F4913F4C"
+        },
+        {
+          "file": "docs/development/logs/ux110-guide-keyboard01/screens/step_01.png",
+          "sha256": "68E13D22C06423B74E320D21D0B881C9F957B5120B1C19E7ADB8FFC4ED6EE53D"
+        },
+        {
+          "file": "docs/development/logs/ux110-guide-keyboard01/screens/step_02.png",
+          "sha256": "C2DE735B22F823022991F2C1B98078503286505A66C6199C33CA4BB95EC22536"
+        },
+        {
+          "file": "docs/development/logs/ux110-guide-keyboard01/screens/step_03.png",
+          "sha256": "3E8D9A6DEEE2625644859E86A2A974FE3377ECF90885E943537B8C41AABAF981"
+        },
+        {
+          "file": "docs/development/logs/ux110-guide-keyboard01/screens/step_04.png",
+          "sha256": "A178403693D0B4D6BE3D7F719F7BF2E93AF6C8FFD189788177E90BFC0A3E0266"
+        },
+        {
+          "file": "docs/development/logs/ux110-guide-keyboard01/screens/step_05.png",
+          "sha256": "447596B10FE0385BD41FBFE9BE6D32F4B9EA3007B8A31351251A4916BC746D51"
+        },
+        {
+          "file": "docs/development/logs/ux110-guide-keyboard01/screens/step_06.png",
+          "sha256": "3D58ED644330B3CBE1A6E89AA1B7BE3462E5696A01DD2679F2F0F3701696C8C9"
+        },
+        {
+          "file": "docs/development/logs/ux110-guide-keyboard01/screens/step_07.png",
+          "sha256": "274986E0C942DDD02D197D13564A9198AF3EB17B290C86D0E1F854FE8F457372"
+        }
+      ]
+    },
+    {
+      "name": "ux110-guide-mouse01",
+      "exit_code": 0,
+      "wall_seconds": 41.2,
+      "private_peak_mib": 699.0,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Real-time background Battle; viewport mouse/guard events and Input.parse_input_event keyboard. No OS input, forced hit or pose changes.",
+      "report": "docs/development/logs/ux110-guide-mouse01/screens/report.json",
+      "report_sha256": "625B6B235E42FCFB92AA8EFC2D0FC425C64E0F16917E55F084AB12F44E9020BD",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-guide-mouse01/screens/00_practice_choice.png",
+          "sha256": "07830759FAE096061886E1ED37FB49A671AC36F26DD11696ADF0303867789DCE"
+        },
+        {
+          "file": "docs/development/logs/ux110-guide-mouse01/screens/08_lesson_result.png",
+          "sha256": "1801042DA179797C398E6F0AAA07F7B09E91FE30D2A42B8DA76F8C6E8E8826BD"
+        },
+        {
+          "file": "docs/development/logs/ux110-guide-mouse01/screens/pause_respected.png",
+          "sha256": "AF68700035373B23E532B9B757662CF34A93CCFFA2E4ABD2B794B402DFB7A5AA"
+        },
+        {
+          "file": "docs/development/logs/ux110-guide-mouse01/screens/step_00.png",
+          "sha256": "65CB53A01FCDB09FD92EB20E9B38085098DB8524FDC86E59EC27E8963B6230E6"
+        },
+        {
+          "file": "docs/development/logs/ux110-guide-mouse01/screens/step_01.png",
+          "sha256": "9F1373F06793662C0C18DAB40B76DFF701C6225A9BF20976485515B87D429E79"
+        },
+        {
+          "file": "docs/development/logs/ux110-guide-mouse01/screens/step_02.png",
+          "sha256": "896636F3D64C53862F4E2093915C2092601C37797434CCA4CCE15B19BDAAFF71"
+        },
+        {
+          "file": "docs/development/logs/ux110-guide-mouse01/screens/step_03.png",
+          "sha256": "E08DC82555ABDEF649828068B31F492987D9990449D5988D29496F1D897C9B58"
+        },
+        {
+          "file": "docs/development/logs/ux110-guide-mouse01/screens/step_04.png",
+          "sha256": "2A6E0C47349A08B5D5F7F98B8FE19C711157F6FBECA6F8BF8FEDADC8E3A9B155"
+        },
+        {
+          "file": "docs/development/logs/ux110-guide-mouse01/screens/step_05.png",
+          "sha256": "25D06F8441CB85B2501E2F106998D0809C8E0B22970693F282C44861E987E22E"
+        },
+        {
+          "file": "docs/development/logs/ux110-guide-mouse01/screens/step_06.png",
+          "sha256": "1F57926624B4920A7B84288C95070F4D3A72055FAB45AF9288A70A43C8F308DA"
+        },
+        {
+          "file": "docs/development/logs/ux110-guide-mouse01/screens/step_07.png",
+          "sha256": "AB93847CD64DAC95414D217882F4999EA146097568B306DE85AD19BC8B30A80F"
+        }
+      ]
+    },
+    {
+      "name": "ux110-journey01",
+      "exit_code": 0,
+      "wall_seconds": 251.8,
+      "private_peak_mib": 715.3,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": true,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual menu/chapter/card/next/R/camp viewport navigation with finite engine-local aim/guard/W; UI purchases and natural growth in persistent isolated save. Card selection in armory still uses its existing pressed signal; combat is scripted, not human. No granted coins/items/clears/outcomes, no OS input/human skill claim. A lost segment remains incomplete, never replaced by an invented win.",
+      "report": "docs/development/logs/ux110-journey01/screens/report.json",
+      "report_sha256": "6753B18CD861525E04A4BC9ADEC0CE9BBF6CE07FE270FF3E3563135B6D757EC8",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-journey01/screens/earned-progress.png",
+          "sha256": "F4DC057E4953F6704D41A0E874FDC7ACB75D8268CD5EE59FF519FE6E35E03CBD"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey01/screens/level1-attempt1-hit.png",
+          "sha256": "46CF5EDC0D59A9DD852365D3A049B95CDE920EF59ACE86007E8DED9532C993B2"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey01/screens/level1-attempt1-result.png",
+          "sha256": "73C91AF41571B930ABDF44B42DBFB4772CD64A69DFCB68D20886DD7F9D8DE27F"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey01/screens/level2-attempt1-hit.png",
+          "sha256": "3AECD2ED3F9D820303F4F42C30395EA8B5B987EC26FCCABA1996DC057A823EAF"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey01/screens/level2-attempt1-result.png",
+          "sha256": "80FA1A0F134AC843D3C0C1BAB634B513F648960188C77B8BC31F57EFFE567283"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey01/screens/level3-attempt1-hit.png",
+          "sha256": "2CD05E59B1C6476AD7F8FFAAEED201A359BA4A446204FD4C68554D3312D1FDCB"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey01/screens/level3-attempt1-result.png",
+          "sha256": "14D908C24E90AE19B573E3D51C291D47FD3B1682329C2AA656F2F29E41A821B2"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey01/screens/level4-attempt1-hit.png",
+          "sha256": "3B1487C250158B3CD80D2EEA2CCDC5CFB26F85E53063159DDD979555C26E09CD"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey01/screens/level4-attempt1-result.png",
+          "sha256": "AD4CC57EB2761DCDCEA2EDCA78EA708E8504FEF879B7F23B6550E214F9BE540B"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey01/screens/level5-attempt1-hit.png",
+          "sha256": "0619EAACFF370FCD52D02E99979D91BA61FDE405AAF25E2AF41F10D3DC67BBE1"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey01/screens/level5-attempt1-result.png",
+          "sha256": "B3546B104A16D36B8F6931EC6571F696F8973D76B74944E13446BE33D675AF29"
+        }
+      ]
+    },
+    {
+      "name": "ux110-journey02",
+      "exit_code": 0,
+      "wall_seconds": 266.6,
+      "private_peak_mib": 784.7,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": true,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual menu/chapter/card/next/R/camp viewport navigation with finite engine-local aim/guard/W; UI purchases and natural growth in persistent isolated save. Card selection in armory still uses its existing pressed signal; combat is scripted, not human. No granted coins/items/clears/outcomes, no OS input/human skill claim. A lost segment remains incomplete, never replaced by an invented win.",
+      "report": "docs/development/logs/ux110-journey02/screens/report.json",
+      "report_sha256": "DA54CEC4DE3EF1BF42E22EBA1DB7CA639A51975691E9225EB2F6614A3C6BB800",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/earned-progress.png",
+          "sha256": "4C95022566A1134EACC81CA1585E782A1F79F46A82092CEF1A14EE9BC1C890E8"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/level10-attempt1-hit.png",
+          "sha256": "A01BE66B39663A4EDD8337D0CF7B7C96B4B9F6851328D433EDA08719B4BA5A19"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/level10-attempt1-result.png",
+          "sha256": "EB24BE60DF4CE06E4D0EBF9B6BA9CDDEB7A0E4BB416958960C330B7EFB71CF72"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/level6-attempt1-hit.png",
+          "sha256": "92BA48EF109659C4BAFEBE130BE3B9324D889C2FD7E6F988F07E6B7CB05A5DE3"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/level6-attempt1-result.png",
+          "sha256": "8BF2A222B82DD320BEDEC637C08BD2A60438B9FBF97BB486499C5E5ED195B5E6"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/level7-attempt1-hit.png",
+          "sha256": "8744C891524580999DDACFC898290763A1D7ECA8FFED26D906E3B25A6FF94F14"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/level7-attempt1-result.png",
+          "sha256": "72F1F12BFDA96C4CD6618BF9D6A8ECED2B1488E360BD45EF084292D687B70542"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/level7-attempt2-hit.png",
+          "sha256": "4D2D2C6B3A1509F414AB9DDBFC7A319F357C9E542041A5FC7A0D008737F4B3AD"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/level7-attempt2-result.png",
+          "sha256": "39BDC5799248C187F58BA660AA38F72AA05F74F9C80960BCF91B540B5C09F38C"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/level8-attempt1-hit.png",
+          "sha256": "4B6A1D44C29D2404BA1D0F09F25348DCB7134FF133235A740BE095138A00872F"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/level8-attempt1-result.png",
+          "sha256": "7F34BB94E281382B0FE7CFD90EB7F883107AC2264B68A94EABC9D9571AA187DD"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/level8-attempt2-hit.png",
+          "sha256": "F3D2A91E6D5FF3A2FFC6061A17C0FC60A4B0FE0F435AFD51574D5F3C410F8B54"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/level8-attempt2-result.png",
+          "sha256": "88FDEF3C630501FD035FC31B46A0BB152413CA81C3390543EBC2FDEAC141B285"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/level9-attempt1-hit.png",
+          "sha256": "D82EF4E44A986C4C72DE5DF82B9D849435D2A232E8BE18B1B747A1EC398F08EF"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/level9-attempt1-result.png",
+          "sha256": "0E340975D2D3475C28AAF29D3BE3FD28FE1114951DFB4CCE29CF257F07223F19"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/purchase-01-eng_lance_long_1.png",
+          "sha256": "12494A6E90086310F532A8CAD734E33E03D7DA612C19A4D57A27E490827A5835"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/purchase-02-eng_armor_1.png",
+          "sha256": "FBC0E0CED803F4E376B0618D1602BBBE6E8E5256325DA95676F0E728C001DDB8"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/purchase-03-eng_helmet_1.png",
+          "sha256": "C061EA0C12CB9F569C78789BCA0993C8DD66ACEBAF41CDD57E2712C5F7514D6E"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/purchase-04-horse_grey.png",
+          "sha256": "B25E545B07886C94C17BA4391464495E7F3D1165C51674FB0ADEF37D7B31CC33"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/purchase-05-eng_shield_0.png",
+          "sha256": "7D629FE33A6D5194FBD4DAA4C0C2D346E60335E2C7E74D564802FD3897DD2C05"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey02/screens/purchase-06-eng_lance_long_2.png",
+          "sha256": "7C96AEAF169BEE9B570DE27391EE6A8048FFD51370A1D3F0ACC335585E8A8347"
+        }
+      ]
+    },
+    {
+      "name": "ux110-journey03",
+      "exit_code": 0,
+      "wall_seconds": 264.4,
+      "private_peak_mib": 768.1,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": true,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual menu/chapter/card/next/R/camp viewport navigation with finite engine-local aim/guard/W; UI purchases and natural growth in persistent isolated save. Card selection in armory still uses its existing pressed signal; combat is scripted, not human. No granted coins/items/clears/outcomes, no OS input/human skill claim. A lost segment remains incomplete, never replaced by an invented win.",
+      "report": "docs/development/logs/ux110-journey03/screens/report.json",
+      "report_sha256": "7864B180A4340C70977E967B4864FC5E3AE9CEE87F7BF5745CE3EFE47E7BBD89",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-journey03/screens/earned-progress.png",
+          "sha256": "868B845BA621E8D0FB4CEF51D7695195ACA0E4C06AFEF004F06FDF4186BAAEAA"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey03/screens/level11-attempt1-hit.png",
+          "sha256": "E89221863DC4068C0C281BE929668CDE705FD8E3D13F2CE4E55C56AEF986235C"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey03/screens/level11-attempt1-result.png",
+          "sha256": "6C1AB73018BACD86847ADFC391FC53E9FF63BFD387987993046BABF0A56FCF0D"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey03/screens/level12-attempt1-hit.png",
+          "sha256": "9DDA3C1940D92F2E348578997CD83ADDEB44D90760C36AFA9FCC37F1866842CF"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey03/screens/level12-attempt1-result.png",
+          "sha256": "7312EB5AA4F063F9353E4996C9B3768C0C875A3B07044C65AB83ADB01FA15678"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey03/screens/level13-attempt1-hit.png",
+          "sha256": "702791FEAA49B54A1A32EAA521ADA4EE393304220D3DED4A0C3AAE822084A85F"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey03/screens/level13-attempt1-result.png",
+          "sha256": "5BE2D8B9A5A4A97F55CF752E6D75442E581FF324BB1A75D9D19B1DF034030E7C"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey03/screens/level14-attempt1-hit.png",
+          "sha256": "9818A076B4187DCD1BD78085EA7EF6DA5BF55D76D6C1E2A4C9FE10B684B6C9D3"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey03/screens/level14-attempt1-result.png",
+          "sha256": "DBB424562D1DE90941DAB2DD52CA06B65D59164B06CF1622E1DC9552C1B5E367"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey03/screens/level15-attempt1-hit.png",
+          "sha256": "CF2A3D7B0ED3E1B9C9E8C47252B80FA43F251C3D36291CD4CFA31A499B8604D5"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey03/screens/level15-attempt1-result.png",
+          "sha256": "283D13A7A3C0E7AFBFEE34D9B2D5EBC8B30526A65456687C7E81BE8CF255390B"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey03/screens/purchase-01-eng_armor_2.png",
+          "sha256": "BA823603CE6AB3FA5ACA4B1C1F0DB27AB838230EB9895C227FE5465FE9ADB3E1"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey03/screens/purchase-02-eng_shield_2.png",
+          "sha256": "C22EB36971DBB796F8DB8786FBA5A8A6B2C22CC9672402E8FED5AB0D735A53F0"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey03/screens/purchase-03-eng_helmet_2.png",
+          "sha256": "F4034980D6AA56135175361E5ED0D89F059688D64CB66DFD98BF605B4BD487FD"
+        }
+      ]
+    },
+    {
+      "name": "ux110-journey04",
+      "exit_code": 0,
+      "wall_seconds": 290.2,
+      "private_peak_mib": 779.1,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": true,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual menu/chapter/card/next/R/camp viewport navigation with finite engine-local aim/guard/W; UI purchases and natural growth in persistent isolated save. Card selection in armory still uses its existing pressed signal; combat is scripted, not human. No granted coins/items/clears/outcomes, no OS input/human skill claim. A lost segment remains incomplete, never replaced by an invented win.",
+      "report": "docs/development/logs/ux110-journey04/screens/report.json",
+      "report_sha256": "988E975A0D8FC3245830365936EF74A7E6D4C46E0BC4E0E0977C97C168F85A25",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-journey04/screens/earned-progress.png",
+          "sha256": "249DE7B58CE15053B369FB1757F427F2507F2BC71EBD309C117C800E9128EAC8"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey04/screens/level16-attempt1-hit.png",
+          "sha256": "EB7B4C37E0ADDD5F35F49ED7FD5B42195F3CCDA0C5318F64A603AD8A14AC9946"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey04/screens/level16-attempt1-result.png",
+          "sha256": "FC1F9AC0C7787AB5ECE0565A01559E988C01CF413B3A0CB7594E0E40B97363DA"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey04/screens/level17-attempt1-hit.png",
+          "sha256": "B7C5ABCCA26B6378ACBAC167B0822BF2DB88BBA54F9949AA8BDAF9E15A6457B6"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey04/screens/level17-attempt1-result.png",
+          "sha256": "C698F3CAAD74E283C63D827CE82815917634937D50E34611840EE3967EC35825"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey04/screens/level18-attempt1-hit.png",
+          "sha256": "89CC3536CDDB66992F171032B37AEB09BDAD26C2FC932B239DAD2DE4F87E8BA0"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey04/screens/level18-attempt1-result.png",
+          "sha256": "C1BDC97639DF8762F7CE1C32F0A1E240B3AB8B1B80ECA0412C70C63CB2983225"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey04/screens/level19-attempt1-hit.png",
+          "sha256": "9FD92B4EB1D35FEA3C9FC8E1BE05DD5EF0168F5AC58748497AFFF3E16CD22F32"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey04/screens/level19-attempt1-result.png",
+          "sha256": "93A701FF8B219F1351775918B6AD965FE9CA722E22BB15F8B25AAE1CBF32F3E8"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey04/screens/level20-attempt1-hit.png",
+          "sha256": "2B9B1910A5FBB33D5F1A28A6710268153A0309FBBE78D89F678E514898398439"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey04/screens/level20-attempt1-result.png",
+          "sha256": "22CA0D039AFE29D02D271D20BDC6ECC8F7226E07B570D5392B40F31B98EE4769"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey04/screens/purchase-01-eng_lance_long_3.png",
+          "sha256": "22D1C3FFFC2D9B085568F65FACD3E990FEFDC3CA28887CE0A467552F60AAF07C"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey04/screens/purchase-02-eng_helmet_3.png",
+          "sha256": "7F01C3CD5C69D2C10A9E036BDA590016A7CE95FE3E6EC95EFD3CDD9C2D2A2288"
+        }
+      ]
+    },
+    {
+      "name": "ux110-journey05",
+      "exit_code": 0,
+      "wall_seconds": 304.9,
+      "private_peak_mib": 755.8,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": true,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual menu/chapter/card/next/R/camp viewport navigation with finite engine-local aim/guard/W; UI purchases and natural growth in persistent isolated save. Card selection in armory still uses its existing pressed signal; combat is scripted, not human. No granted coins/items/clears/outcomes, no OS input/human skill claim. A lost segment remains incomplete, never replaced by an invented win.",
+      "report": "docs/development/logs/ux110-journey05/screens/report.json",
+      "report_sha256": "DBB097A58E4A1B2AABECD603586DC38B54A35348DBE9DCA9DAB67E24F64A286A",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-journey05/screens/earned-progress.png",
+          "sha256": "2B0E1F0926A6E2956E022C8F4B94DB2C1D582FC7009F77EDE4467CF6E337B4CA"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey05/screens/level21-attempt1-hit.png",
+          "sha256": "26E8AE478C50C3CD6DAD609B1FD2E5E3AD48C761A070F82BB95910EBB116C1A3"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey05/screens/level21-attempt1-result.png",
+          "sha256": "4396668B87D15CA6C27D280ECE14FA10F600F12098BB54F422FA5DC8441271AF"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey05/screens/level22-attempt1-hit.png",
+          "sha256": "5E9F00749D7B379CE4D762A002FED14D5925C239AC4EA2007303CF063DFE669C"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey05/screens/level22-attempt1-result.png",
+          "sha256": "B9F1F177358C7F02A4FA205DF08E76BED01A7C950B45EAEFEC24880E8303FEDC"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey05/screens/level23-attempt1-hit.png",
+          "sha256": "FA5BA6E26D89A59D3E51B354579D479A531875AA8635940499E68134FCCAA793"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey05/screens/level23-attempt1-result.png",
+          "sha256": "A63C659099DBE20C4207F8C1875A69A65432F8FFBBDB57A97CC3544AFC6DC098"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey05/screens/level24-attempt1-hit.png",
+          "sha256": "ED953DDDA1F754D69E603BCE492B5F7268DD14431266C29552129969797423E7"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey05/screens/level24-attempt1-result.png",
+          "sha256": "2E1773312F2286CB5D96E2819CC851E72AAF7224A8F25B6F396952BA45F9EEB0"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey05/screens/level25-attempt1-hit.png",
+          "sha256": "D13F6372FD55F5E805BD1B05C1B64576F88C4B45C392820C4031F8A31793F4DA"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey05/screens/level25-attempt1-result.png",
+          "sha256": "0FC05E3C3571DDD4E6DE5F3838102A5A548468562092860D8598AD01A0BCAA17"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey05/screens/purchase-01-eng_armor_3.png",
+          "sha256": "D74AFB1304A5EDA1CE593BD0887C779E1D1BB014C8211F1485264A1F1DC56D6D"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey05/screens/purchase-02-horse_e2.png",
+          "sha256": "7B82E7BCA9115E67E7D3F9F56C6063BF15B80586DF40F456F071F175D695FB15"
+        }
+      ]
+    },
+    {
+      "name": "ux110-journey06",
+      "exit_code": 0,
+      "wall_seconds": 272.5,
+      "private_peak_mib": 786.7,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": true,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual menu/chapter/card/next/R/camp viewport navigation with finite engine-local aim/guard/W; UI purchases and natural growth in persistent isolated save. Card selection in armory still uses its existing pressed signal; combat is scripted, not human. No granted coins/items/clears/outcomes, no OS input/human skill claim. A lost segment remains incomplete, never replaced by an invented win.",
+      "report": "docs/development/logs/ux110-journey06/screens/report.json",
+      "report_sha256": "17F4EEDEAB0FFF9787F1970EA6DDA5EF4FDB29B73BCF6A5E14D838BD79A65F70",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-journey06/screens/earned-progress.png",
+          "sha256": "F1B031A0FDEDDCDAAF4CA90526EFD6D93506EA1AAF7888ECB3A424AD48E968B8"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey06/screens/level26-attempt1-hit.png",
+          "sha256": "C84040D5E74B7314FA63EF799B8B49F8910E78D9E1F2B70EF6685B8A0EEEC8F0"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey06/screens/level26-attempt1-result.png",
+          "sha256": "C34882E03600498F9BF82D84A4E696C225A70E40014A41C9822A72CD1A6A4259"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey06/screens/level27-attempt1-hit.png",
+          "sha256": "D51C42C1861ADE0E61115827EE57DDC7F2BB71C695C17C42FD3FECBAF2012DBF"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey06/screens/level27-attempt1-result.png",
+          "sha256": "EC2E1D55044A32DD1DFEB404DDE4A50B6B3C994BEFE04AEEFDC0A8108E97278B"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey06/screens/level28-attempt1-hit.png",
+          "sha256": "9D8D5867EEDFC65C006CB6230CB4AE7A3DDE9D07C1319A9B2569AFDA0024E0CF"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey06/screens/level28-attempt1-result.png",
+          "sha256": "4518467F19D5A3FF60B03A99DFB2F74F7C69251E564F697505B90FE934DFFE16"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey06/screens/level29-attempt1-hit.png",
+          "sha256": "A0889D1B8810E3110BBC1754B7ABE143F1A4272230E279296746E490FA8E6A51"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey06/screens/level29-attempt1-result.png",
+          "sha256": "00AC2A0F2D7F6E5EB707D2AE1B7AC085618352B1B0E2F7089ED0E0E7B99A00F5"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey06/screens/level30-attempt1-hit.png",
+          "sha256": "A803F40C677FBABCBB9EAC6F6493F08BDF665D00763B09F20AF95D8511C18E13"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey06/screens/level30-attempt1-result.png",
+          "sha256": "F12F66550F49E8805E72675C4F07742C23EF559FEF69AE3CFEA2725211E7839B"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey06/screens/purchase-01-eng_lance_long_4.png",
+          "sha256": "555FE2534158A5A4025D79A85DD7B57FFCDD7B32EC0C6C0A8F9A3AB834214FCD"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey06/screens/purchase-02-eng_armor_4.png",
+          "sha256": "3D58414FC59E0A0C86F5B6DDC02F2E9600FFC9C6EFEFA0766092295F26D7A2AF"
+        }
+      ]
+    },
+    {
+      "name": "ux110-journey07",
+      "exit_code": 0,
+      "wall_seconds": 223.3,
+      "private_peak_mib": 763.5,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": true,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual menu/chapter/card/next/R/camp viewport navigation with finite engine-local aim/guard/W; UI purchases and natural growth in persistent isolated save. Card selection in armory still uses its existing pressed signal; combat is scripted, not human. No granted coins/items/clears/outcomes, no OS input/human skill claim. A lost segment remains incomplete, never replaced by an invented win.",
+      "report": "docs/development/logs/ux110-journey07/screens/report.json",
+      "report_sha256": "2ECCC955A5358F21B1137EFD0DA8E1D758F04C64F7C2B399A640667A6623F009",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-journey07/screens/earned-progress.png",
+          "sha256": "EE9912224B0DE483210B57640F96E672537C0B39B4B213E8F027171298AC8B22"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey07/screens/level31-attempt1-hit.png",
+          "sha256": "7038345E3B6469A8A83E1354B5F0ECBB8F6C8E445EBCB3A495F833D8CD09F4BD"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey07/screens/level31-attempt1-result.png",
+          "sha256": "34764AC442FB76400E0E8D09A14653C4F13F4176E034784FFA8D99B1AFCD85D4"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey07/screens/level32-attempt1-hit.png",
+          "sha256": "E1682F6964F203455126E03A047EE131AEAED39D33476E5891AAE52B38506739"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey07/screens/level32-attempt1-result.png",
+          "sha256": "EF1260FC0222784A883A5C162D9E2FA7F0E391AB809B6BE80C7A92B5109327B5"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey07/screens/level33-attempt1-hit.png",
+          "sha256": "D3ADD310E1020796982581148CA7590F2F771FF99FCD0791E0E5B64CC0B75AC7"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey07/screens/level33-attempt1-result.png",
+          "sha256": "B1D9B97D7D6734358FAE5752935C2DDAF83A6AC7209D083EFE206F4F28B7D009"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey07/screens/level34-attempt1-hit.png",
+          "sha256": "C584385140946487DF088AFC4141834B570277B2FB6B328180F7EB528E147356"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey07/screens/level34-attempt1-result.png",
+          "sha256": "B69C208D93D8C5A0AF66978D5D385A4B59F328AE48E7EB0500FDB25B777EC4A8"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey07/screens/level35-attempt1-hit.png",
+          "sha256": "10611BA7337B36A479638C99C5B326A350CD0B91EE4FC9FDDEA72E1FC2BE992B"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey07/screens/level35-attempt1-result.png",
+          "sha256": "DCB7C9C9BB24231A7C34F366109CDDEDB95AB6510A5ED7F20088DCF5B1566FDD"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey07/screens/purchase-01-eng_helmet_4.png",
+          "sha256": "8F89AA4E1A82E646D02FE52B7D8D4CBF15493D14EE1EFBEAC59456DD043AE5EF"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey07/screens/purchase-02-eng_shield_4.png",
+          "sha256": "D14D044491D9DB4A981366F68CF91B1BC9872144F70EDE7BCFFD3A6D7B5D7998"
+        }
+      ]
+    },
+    {
+      "name": "ux110-journey08",
+      "exit_code": 0,
+      "wall_seconds": 222.1,
+      "private_peak_mib": 756.0,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": true,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual menu/chapter/card/next/R/camp viewport navigation with finite engine-local aim/guard/W; UI purchases and natural growth in persistent isolated save. Card selection in armory still uses its existing pressed signal; combat is scripted, not human. No granted coins/items/clears/outcomes, no OS input/human skill claim. A lost segment remains incomplete, never replaced by an invented win.",
+      "report": "docs/development/logs/ux110-journey08/screens/report.json",
+      "report_sha256": "07892A0925CDAE3638C1CB79BE45F4EF4EC4628CCFBAF5EF34D757B7771E7982",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-journey08/screens/earned-progress.png",
+          "sha256": "979CC26DCEF34B72AD283733B6FB82C79662B1316F687B4286E083B08D6D7BEC"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey08/screens/level36-attempt1-hit.png",
+          "sha256": "5771AEE386503559074BE2F179B19EA88880D6C115E26EE197A61B515E34B4AC"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey08/screens/level36-attempt1-result.png",
+          "sha256": "FEF5C8EB1511830F74505DC6A87F2D50A84BF3160198F5528341FF01C8FACC97"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey08/screens/level37-attempt1-hit.png",
+          "sha256": "5F8916255EA58CE56781571C66CA0D382C8E1D02F1D45F2649DF32B9BCCDF2FF"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey08/screens/level37-attempt1-result.png",
+          "sha256": "745F9D24803465CF13C3AD553F270F3A5AC7F4C52E5A549C47E94838BCFF5198"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey08/screens/level38-attempt1-hit.png",
+          "sha256": "CF1C11DDA5E6AA8332C3C628DFF2ACCE0CD09840812B5B178A1E1B0AF82409E0"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey08/screens/level38-attempt1-result.png",
+          "sha256": "9DD53339EABF7E9D41F736DF3BB8459FF526D9EAAAD0377B0BA5D02CB2E2AA9D"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey08/screens/level39-attempt1-hit.png",
+          "sha256": "A72FFEE370F410806696954A3C6B53F216724736EEE982D39DA674D4E6CC7901"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey08/screens/level39-attempt1-result.png",
+          "sha256": "8EC0070867229B0C5ACA664FA67572E5247D6E525ECEAF327F20E5AA9BB6E4CA"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey08/screens/level40-attempt1-hit.png",
+          "sha256": "456A34B008AB79E32D3C944E2077E306CC269B64D29BAEE25BC73D9C47F33514"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey08/screens/level40-attempt1-result.png",
+          "sha256": "F992BF91EA0EF52DB7203AEC1824154E3CCD67960BB15B43A08BB4C23DC5E85B"
+        }
+      ]
+    },
+    {
+      "name": "ux110-journey09",
+      "exit_code": 0,
+      "wall_seconds": 249.7,
+      "private_peak_mib": 794.2,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": true,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual menu/chapter/card/next/R/camp viewport navigation with finite engine-local aim/guard/W; UI purchases and natural growth in persistent isolated save. Card selection in armory still uses its existing pressed signal; combat is scripted, not human. No granted coins/items/clears/outcomes, no OS input/human skill claim. A lost segment remains incomplete, never replaced by an invented win.",
+      "report": "docs/development/logs/ux110-journey09/screens/report.json",
+      "report_sha256": "AF1A7CA1578AE22CA9DC8C46A24803F33998A9AE09D4507D50673F8B6346E51E",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-journey09/screens/earned-progress.png",
+          "sha256": "27DB039EF75925D7CF4B800F9B551ADC6B7E90D7DAC798588CCB2B35C35E8D82"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey09/screens/level41-attempt1-hit.png",
+          "sha256": "1C09D5EA988F7F559A4F33937029D59D768DF521C26A9C2FB0DF177D94A897BA"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey09/screens/level41-attempt1-result.png",
+          "sha256": "4695DD7422AC125E35EACB412715A17F2FD9D382FB9A3763855199EC25CED1C3"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey09/screens/level42-attempt1-hit.png",
+          "sha256": "D17A362D14CF3A2BA1C51B5C6F7E59D546AA54804A422440BC2DBE9436DD9B98"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey09/screens/level42-attempt1-result.png",
+          "sha256": "A94486938CBFCC82EBA36714533B432DC95097886F8A5FAD35BEC839B8803FB2"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey09/screens/level43-attempt1-hit.png",
+          "sha256": "1DCD240EC660D3EB85DC1322ACAF53F23D68AE7B42694A283C1CF1800B04E721"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey09/screens/level43-attempt1-result.png",
+          "sha256": "7631C361A954D75A58462C1F5B4599129CC91FDCCB06FE4355F767C9834F2644"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey09/screens/level44-attempt1-hit.png",
+          "sha256": "7C20AC6EAEDE6942BDC1863D91434B064A6386AA683DF3D9253E45AA2F84013B"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey09/screens/level44-attempt1-result.png",
+          "sha256": "9AF6B0FDFE7E3409BC0052B4DD6A4AE304ACD9DDDAA4DB6B7C84939BAD482ABD"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey09/screens/level45-attempt1-hit.png",
+          "sha256": "F3BEBFA90E4CF6A266A0C4EF86CDC62584BB9A088399B60BAE8B27C69A951799"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey09/screens/level45-attempt1-result.png",
+          "sha256": "55ACE1D9A11BCC6540129D083E61531532567987DED6A1DB00567AA7196730C2"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey09/screens/purchase-01-eng_lance_long_5.png",
+          "sha256": "252DBBB3848CC12A4DF461EE1366B3D8E4543E5FAB003D6EAF31E9CB72767798"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey09/screens/purchase-02-eng_armor_5.png",
+          "sha256": "F739F6A8096EDF94D3014FAAC8CB290BC4F6EF4E7EA6D9FD09E2361F4FE47CAE"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey09/screens/purchase-03-eng_helmet_5.png",
+          "sha256": "BDCF1998E08579166DFE84794757A48A772B25C81CA82EB84A4BAF9A23DE7575"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey09/screens/purchase-04-horse_e4.png",
+          "sha256": "76E6753B88B6D655BCDA772EB637B20ACA254A78953EF87EBB2099D0E3873E77"
+        }
+      ]
+    },
+    {
+      "name": "ux110-journey10",
+      "exit_code": 0,
+      "wall_seconds": 248.4,
+      "private_peak_mib": 754.2,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": true,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual menu/chapter/card/next/R/camp viewport navigation with finite engine-local aim/guard/W; UI purchases and natural growth in persistent isolated save. Card selection in armory still uses its existing pressed signal; combat is scripted, not human. No granted coins/items/clears/outcomes, no OS input/human skill claim. A lost segment remains incomplete, never replaced by an invented win.",
+      "report": "docs/development/logs/ux110-journey10/screens/report.json",
+      "report_sha256": "9ED70967B8FE0CCA68862970F54EFBD21B4FBF313314353ADEFAE6DE867186F9",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-journey10/screens/earned-progress.png",
+          "sha256": "3055950FB135948565EE653719C883D6429EDB67E3ADC14D88F51C1734F0A9F5"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey10/screens/level46-attempt1-hit.png",
+          "sha256": "5637F75E21E83C4EC779A49B5AADC113CA1D126DFD1E749773ECC9D71E4EFF30"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey10/screens/level46-attempt1-result.png",
+          "sha256": "2C8FA14D02B363E6FC41BE5239CF470295C57E90D7CC532638B24BD9DDA92189"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey10/screens/level47-attempt1-hit.png",
+          "sha256": "EB8E55761DBE4AD5CDB710A41BEA74D347BCAE4E41B486C95AC326164068A031"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey10/screens/level47-attempt1-result.png",
+          "sha256": "8A5E6A223F7BACAFE7F822449FF977907BE65903D15B4123ED4503B92FA31B5D"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey10/screens/level48-attempt1-hit.png",
+          "sha256": "BBC4F86292C74C9997974C218222A545BF63742384AE69F40A3E8E1A34DD8F14"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey10/screens/level48-attempt1-result.png",
+          "sha256": "57DE8709ACB0C08B07B83D14FACC4767157A411E88888B2FF7DF6E42DB48E02D"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey10/screens/level49-attempt1-hit.png",
+          "sha256": "8C2D94D37F342457FBCBB4517F17150FCDC20A09E7C01A2CAAB1C53FC8E61922"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey10/screens/level49-attempt1-result.png",
+          "sha256": "67AA7F58D558AA4ABC2C74FF00A6EBF1A74B315B5C47B9050B8E0AE961658B1C"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey10/screens/level50-attempt1-hit.png",
+          "sha256": "9A9D1D70F7941BD198947FA9274A45AA22E1BCC283441FC3640585364D70A1F9"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey10/screens/level50-attempt1-result.png",
+          "sha256": "C6EF8FF9B3E96C0365BBA22D29B4BDBD673B55F42FCE81F74668BFA9F86F05C0"
+        }
+      ]
+    },
+    {
+      "name": "ux110-journey11",
+      "exit_code": 0,
+      "wall_seconds": 195.2,
+      "private_peak_mib": 746.4,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": true,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual menu/chapter/card/next/R/camp viewport navigation with finite engine-local aim/guard/W; UI purchases and natural growth in persistent isolated save. Card selection in armory still uses its existing pressed signal; combat is scripted, not human. No granted coins/items/clears/outcomes, no OS input/human skill claim. A lost segment remains incomplete, never replaced by an invented win.",
+      "report": "docs/development/logs/ux110-journey11/screens/report.json",
+      "report_sha256": "8F4FFE0A9DD05A7CC832EA6063D714F05E2E9AC37387B9C0C90845AC4F53C70C",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-journey11/screens/earned-progress.png",
+          "sha256": "DEB4A4DDA6CA9EDBA9DBF25BE4D0B28517D67811F4F5CAD7DA8914F189411F4D"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey11/screens/level51-attempt1-hit.png",
+          "sha256": "46F3AFA0002E9C4DD6620900D0F40DA9481084CBC8CAEBA1D7A76A1C5A3BD6FF"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey11/screens/level51-attempt1-result.png",
+          "sha256": "455F488DB0ABF729EEB186D218E7AD4695F45593F1344F687DCA5C778ED31A41"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey11/screens/level52-attempt1-hit.png",
+          "sha256": "540EB49E3D554CC0E867EDFFA3CA573F2AD7CD7532A3986A9DFFE960BB97570B"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey11/screens/level52-attempt1-result.png",
+          "sha256": "89C06B2BDD19C3A9AD99BF0BC7E6B14738ADBFC90424EECC455A8FB8AA319E26"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey11/screens/level53-attempt1-hit.png",
+          "sha256": "DAEF855984D9EA8E730D2CB9DF6C1F092901F952A93871D3D6698135FFB7E159"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey11/screens/level53-attempt1-result.png",
+          "sha256": "BC51871A03CBDCFDC9AC8FC5386AB9C5CF1C98F734411429DB50E9DC1EAACE6F"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey11/screens/level54-attempt1-hit.png",
+          "sha256": "50F2356BD94731232A8FC5F172A0B8A32C4730D67B433EB02E05A34BA9573776"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey11/screens/level54-attempt1-result.png",
+          "sha256": "D5B16CF27E7F39520172AF621EB2A57BC7077426F3CB315BD255A863E805A763"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey11/screens/level55-attempt1-hit.png",
+          "sha256": "FFFF21FA0457CE0EFA6B7C613D21E13154000F0CC7AC1E1CB2295F2A1FA0208F"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey11/screens/level55-attempt1-result.png",
+          "sha256": "FEA405A32604F6070B46640DEFE301D78A63A8500FDDE4939322D218C7BE5731"
+        }
+      ]
+    },
+    {
+      "name": "ux110-journey12",
+      "exit_code": 0,
+      "wall_seconds": 252.4,
+      "private_peak_mib": 740.8,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": true,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual menu/chapter/card/next/R/camp viewport navigation with finite engine-local aim/guard/W; UI purchases and natural growth in persistent isolated save. Card selection in armory still uses its existing pressed signal; combat is scripted, not human. No granted coins/items/clears/outcomes, no OS input/human skill claim. A lost segment remains incomplete, never replaced by an invented win.",
+      "report": "docs/development/logs/ux110-journey12/screens/report.json",
+      "report_sha256": "F4153BD561359B5FCA695F2310213BB539E295BC8FCBEB727D55C6C86EFD76F8",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-journey12/screens/earned-progress.png",
+          "sha256": "BC3952BE4D211FDA2F3C4BD7799352A36AF47176C7D2810F3DED29605CBA4173"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey12/screens/level56-attempt1-hit.png",
+          "sha256": "72434609A7F07A6301C88835398DCBB4D1A0BDD567DA76B5E9B239FFA1A207CE"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey12/screens/level56-attempt1-result.png",
+          "sha256": "1EDE7FFFE90F884B79C58C0477430E5F29B77F4D2EC65691CDF9FDAEA724D54F"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey12/screens/level57-attempt1-hit.png",
+          "sha256": "B617580DAC5C2E7891906B6B720AD0BF8339868AA08F4DAD8D23BD224360E703"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey12/screens/level57-attempt1-result.png",
+          "sha256": "29BB60F891AF8C254DA51ED5FF5172671B4F84C0E9162B216D266FD884BCA35D"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey12/screens/level58-attempt1-hit.png",
+          "sha256": "5D3CF343DF07635687291371C83F13FB9545F8DBA858BE2EB53F62BE6F7847A4"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey12/screens/level58-attempt1-result.png",
+          "sha256": "5CB1324D6BD72A9A8413D802B88B4F9CFD8DDC547C79ED81EF08D7C1E61DF836"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey12/screens/level59-attempt1-hit.png",
+          "sha256": "0AC10D07345EF8E4AC7BE1B0B2A932B875CDFDF8CB7596139ACBF29BDBEFAE37"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey12/screens/level59-attempt1-result.png",
+          "sha256": "B5AA30742004097D96C8F3D2E4B905FC61430CC768802703B9AE60518A5EE32E"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey12/screens/level60-attempt1-hit.png",
+          "sha256": "AD3B6D6A2474BD484358DED1A81FD3E435CA5AE129B52FEF63D2EB7D59B294C2"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey12/screens/level60-attempt1-result.png",
+          "sha256": "4A4FF1580566392A3D9BF83C8B30B34033433D4ED8E4259BC6181D0DFCFE7A79"
+        }
+      ]
+    },
+    {
+      "name": "ux110-journey13",
+      "exit_code": 0,
+      "wall_seconds": 325.0,
+      "private_peak_mib": 741.9,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": true,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual menu/chapter/card/next/R/camp viewport navigation with finite engine-local aim/guard/W; UI purchases and natural growth in persistent isolated save. Card selection in armory still uses its existing pressed signal; combat is scripted, not human. No granted coins/items/clears/outcomes, no OS input/human skill claim. A lost segment remains incomplete, never replaced by an invented win.",
+      "report": "docs/development/logs/ux110-journey13/screens/report.json",
+      "report_sha256": "C79AE51A4AD7AE20BABD6301274CA36622846598005D938E891EACBCA0B0F126",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-journey13/screens/earned-progress.png",
+          "sha256": "E41AF6762AB757072CAA11BDC121A3C2380EF1E9C642C0B1EA8D5EE350DA7D0B"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey13/screens/level61-attempt1-hit.png",
+          "sha256": "8495203494B47FD175F7140CBE017C357EBB9772EE08088A9BE6C2F06708AED7"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey13/screens/level61-attempt1-result.png",
+          "sha256": "0C5B5686F92360363E946967AB4737C842FB475B332D41D59F0B42E346FF18B3"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey13/screens/level62-attempt1-hit.png",
+          "sha256": "8FE34B050EFE033C433289086B3A8F9299F1CFAE17B6F02B27D36A1E59680089"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey13/screens/level62-attempt1-result.png",
+          "sha256": "670C884FDDB574F5D9B4071762B9C3904156B6FF6B9AE4FBAB0077F6C92B23B2"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey13/screens/level63-attempt1-hit.png",
+          "sha256": "6F6A820696DED315CECC78860BC750CF4F79887D3F961A3A775C618E98757CC6"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey13/screens/level63-attempt1-result.png",
+          "sha256": "CB78F5B88BFAC1BF29FD70DEC33F880F72BA11FCA2DB48D366AC7F08ABA3ECA9"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey13/screens/level63-attempt2-hit.png",
+          "sha256": "6E05A003E3BB759FD24DEDCA4B1C00C6FDCDB09E29628347C3AFDD7724FD6FEC"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey13/screens/level63-attempt2-result.png",
+          "sha256": "C14BA8FF1DF22ABAD9689FAD96A8D52371610B056ABAC9CF8872757216023F93"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey13/screens/level63-attempt3-hit.png",
+          "sha256": "A3DDFF39AAA61430588DD29B77371582726DD1AF37F4150EB77612ECEB07D21F"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey13/screens/level63-attempt3-result.png",
+          "sha256": "707317DD5E23CAC2E6408C8FF1F4ABA0A90A83B10FB82F0006F10A3C45C8D7A9"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey13/screens/level64-attempt1-hit.png",
+          "sha256": "13600C17CC19B3FFC80DB93F3B44D2E9C111922C408AFCABFCFF0385CC59BF97"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey13/screens/level64-attempt1-result.png",
+          "sha256": "CF00C2A4291EB1C578A8B89BC808E78F42729352C5E59D41D4DD8BFBFDAB735B"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey13/screens/level65-attempt1-hit.png",
+          "sha256": "F0684497FD7ADC185CE6A12BDB430B2E5554545DAD9E3726424FCC904DB73BC5"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey13/screens/level65-attempt1-result.png",
+          "sha256": "646500A982F93871F2F3BD735DE76982F607A5956A0F14429563D0373600DC01"
+        }
+      ]
+    },
+    {
+      "name": "ux110-journey14",
+      "exit_code": 0,
+      "wall_seconds": 348.6,
+      "private_peak_mib": 739.1,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": true,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual menu/chapter/card/next/R/camp viewport navigation with finite engine-local aim/guard/W; UI purchases and natural growth in persistent isolated save. Card selection in armory still uses its existing pressed signal; combat is scripted, not human. No granted coins/items/clears/outcomes, no OS input/human skill claim. A lost segment remains incomplete, never replaced by an invented win.",
+      "report": "docs/development/logs/ux110-journey14/screens/report.json",
+      "report_sha256": "4B3BB7409CDA621DE97C7FDEB0E072A82B36DCDC9D73E4D300DD6664F85B7F09",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-journey14/screens/earned-progress.png",
+          "sha256": "054ACEFB135EC657DD66F0EBC5A2238F17CECB005842B8A611C88EBADCBBF539"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey14/screens/level66-attempt1-hit.png",
+          "sha256": "F2BC0C9634EA2E1D46570EA3F973DB30D2ECA37FD32B9EDC9BED9FAFB33E521E"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey14/screens/level66-attempt1-result.png",
+          "sha256": "D090C5B65CC3A607000A8655AC40947663D49574241D6C9E42639A5CE75F7950"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey14/screens/level67-attempt1-hit.png",
+          "sha256": "E23E66C6E0FE9DB7F653BB66D151E4E3D4389351E2DC84E2D264C6D18645B754"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey14/screens/level67-attempt1-result.png",
+          "sha256": "9A0F1FA3E9B44ED48F752A90855701E7104F248E81EAC9481E40ABF1FC4BDCA3"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey14/screens/level68-attempt1-hit.png",
+          "sha256": "3AD662523B326D1E0C1F4B290FE77F394D3F783C2E1C614983BF2711A6BD6A32"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey14/screens/level68-attempt1-result.png",
+          "sha256": "87DF3193107AF30ED0233E12998145BD4803BF21BAD75EF4A9BAAC7E937205FD"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey14/screens/level69-attempt1-hit.png",
+          "sha256": "78A983238F533B2A25211D502ECCE976D4249574B0D11112CA2433E9AF706190"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey14/screens/level69-attempt1-result.png",
+          "sha256": "F5EB4771EAFD2B9FAFB26A13AE30CDF87D10814C558740220AD6608BB0C21DBC"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey14/screens/level70-attempt1-hit.png",
+          "sha256": "001B123C9982728B7E41ED8C8F601937BE500E1341001220482D390216DFEEE6"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey14/screens/level70-attempt1-result.png",
+          "sha256": "D798BCCA8DA30E10E3617DD50816187DE4C644D91E77717D2CB6C22DFBCB98FD"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey14/screens/level70-attempt2-hit.png",
+          "sha256": "14D5D3AEB0B45967029D8CAB0F8BD2C4E3970B2A40642B44F8147972580CAF93"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey14/screens/level70-attempt2-result.png",
+          "sha256": "810E294FA5814D6DF76FD5C6704F136957D92E367C13022EDBDE190C3E49F716"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey14/screens/level70-attempt3-hit.png",
+          "sha256": "6656F6234614549542AD513DCF3C64ABB5C01F1C026B14553D45527A3B9F6481"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey14/screens/level70-attempt3-result.png",
+          "sha256": "6659AFB1FC437DEACAF0C4A8F104FA0F3142CBE03E0BE9D9F52D51D259BDD0C7"
+        }
+      ]
+    },
+    {
+      "name": "ux110-journey15",
+      "exit_code": 0,
+      "wall_seconds": 293.3,
+      "private_peak_mib": 741.1,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": true,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual menu/chapter/card/next/R/camp viewport navigation with finite engine-local aim/guard/W; UI purchases and natural growth in persistent isolated save. Card selection in armory still uses its existing pressed signal; combat is scripted, not human. No granted coins/items/clears/outcomes, no OS input/human skill claim. A lost segment remains incomplete, never replaced by an invented win.",
+      "report": "docs/development/logs/ux110-journey15/screens/report.json",
+      "report_sha256": "0E61F4831E4471625D7ADC34F23EF54709E79A207D3E36C38A883E0641DA089B",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-journey15/screens/earned-progress.png",
+          "sha256": "5750A86F735AEF6E869B37CFDC4910CBA3B04F194A4A567CC013AB9467495615"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey15/screens/level71-attempt1-hit.png",
+          "sha256": "836D4EB1038C29008181C1D51E497AC11668964018FDB45E09E33242A30E39A7"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey15/screens/level71-attempt1-result.png",
+          "sha256": "37A6CE76EB1ED44E3FB4D05908CAF9F88E99836044A48606B36EA4FF4B87FAFA"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey15/screens/level72-attempt1-hit.png",
+          "sha256": "24B03D6C6F60711DD145B45A60BFF96DB07A63B53E303E7444DD6FA531D0034A"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey15/screens/level72-attempt1-result.png",
+          "sha256": "0F751E6F9054FC50C9C5FFA9C64E92635161A54B1BBB5BD43D2D5B043E1C2E5F"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey15/screens/level72-attempt2-hit.png",
+          "sha256": "A9186EDBB3D1262542F82A93253BE3901CE02DA582EDB8C9E63F6C25B05AB942"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey15/screens/level72-attempt2-result.png",
+          "sha256": "2B9C769A9BFD3AF7F5899FB59AF7A2C76C15A2A69074951BDF135686886CBFFF"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey15/screens/level73-attempt1-hit.png",
+          "sha256": "7C5465655B51377243A1EDE9C0CAE59C5D80E39DEFEFFB8045A27D48639C4123"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey15/screens/level73-attempt1-result.png",
+          "sha256": "32E127565AD620889D60A267C3466E82F5535A1A22F1DC73AE4DB77E6AA1078D"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey15/screens/level74-attempt1-hit.png",
+          "sha256": "7249E9D88FC1AB0CE1F456A50D35083386BE120CDC8B81CC630DB0D44316FE66"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey15/screens/level74-attempt1-result.png",
+          "sha256": "ADA1A1FD9B05774CF16FC213535BCC1C6FC4F9B22EBEDEE59BF3607DED0A0721"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey15/screens/level75-attempt1-hit.png",
+          "sha256": "CE4253A68201C109A23CDFAB9B9A7E49330E46E7ABCBD7379DE78E9725F9601F"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey15/screens/level75-attempt1-result.png",
+          "sha256": "68E3FE71AE91625FAEECB5FF3C1E979C8F8EF6B00E0C74E540D4AE5DECE569F1"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey15/screens/level75-attempt2-hit.png",
+          "sha256": "A0DE0E72BDB4CFDAB111F0D0FEB9A155BDF6C72F90CE7CD5C2FE15A546CFF459"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey15/screens/level75-attempt2-result.png",
+          "sha256": "9FE8F60D0D380D72CBE7291759019F7F6A0E717D812CBCCFAEF0A6C8433D2B7A"
+        }
+      ]
+    },
+    {
+      "name": "ux110-journey16",
+      "exit_code": 0,
+      "wall_seconds": 290.6,
+      "private_peak_mib": 742.6,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": true,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual menu/chapter/card/next/R/camp viewport navigation with finite engine-local aim/guard/W; UI purchases and natural growth in persistent isolated save. Card selection in armory still uses its existing pressed signal; combat is scripted, not human. No granted coins/items/clears/outcomes, no OS input/human skill claim. A lost segment remains incomplete, never replaced by an invented win.",
+      "report": "docs/development/logs/ux110-journey16/screens/report.json",
+      "report_sha256": "20E40CA790855C4F8465B36A722BA6741A0190E7566B8AB5DCFA6A7E39C6880E",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-journey16/screens/earned-progress.png",
+          "sha256": "9BFC8E3A6727958A0D90D56BC88AD04D5FA1B5046CE6D20A4F5C3E3F54BF16F4"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey16/screens/level76-attempt1-hit.png",
+          "sha256": "3C62DBC96E95CD11B30D0606FC084287290F6CCF6E974EDC1562D803B40D18CE"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey16/screens/level76-attempt1-result.png",
+          "sha256": "D013ECB81D601B1EB25617DA4D7CF8416C55064C237A00F50C91A17170C41550"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey16/screens/level77-attempt1-hit.png",
+          "sha256": "C4997724F0A0CAAC856505947F9BDAAF30C6A166D94F5DFA28DA41C80BADEAA3"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey16/screens/level77-attempt1-result.png",
+          "sha256": "B6D0831A84C0F48861299B467292CF0D1E735F382E755098AC03A15B4C058B92"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey16/screens/level77-attempt2-hit.png",
+          "sha256": "B0ECFC4DB8B1F8DABF793A577FFC533F0AA380D6E6C0819AF1639BA91762D1C2"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey16/screens/level77-attempt2-result.png",
+          "sha256": "A1BA1378AA96D4B8963784BD9EA951838B0D099FC4CB6F3DBBBDC473860AF01E"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey16/screens/level78-attempt1-hit.png",
+          "sha256": "DFEF0188216EF393A041C05F8369F1F0AFFB2D88F898148227F8729FC8F170B0"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey16/screens/level78-attempt1-result.png",
+          "sha256": "B0A61E80C2A80BF841C827BA1F594401C2D577A0D0DDAD739796EC65A021ED47"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey16/screens/level79-attempt1-hit.png",
+          "sha256": "5B7E7CF507C11E016E1D5F48BF5FE0BEF99D19FCE1A04BAF17A50FF9C8D5AC97"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey16/screens/level79-attempt1-result.png",
+          "sha256": "8495D654D6C88B1FF49C9ECD27F31E89B41619565FB4E8840C124D6B262DB3BD"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey16/screens/level80-attempt1-hit.png",
+          "sha256": "D52108369D2BD29FC890B085FDDDB967A744784765EB15D9E9F8D3DCA641D338"
+        },
+        {
+          "file": "docs/development/logs/ux110-journey16/screens/level80-attempt1-result.png",
+          "sha256": "EAAF43EAEC393A38262EA3B5EA212E3C724C99D67EE396FA7102677B946A52A2"
+        }
+      ]
+    },
+    {
+      "name": "ux110-layout-armory01",
+      "exit_code": 0,
+      "wall_seconds": 64.8,
+      "private_peak_mib": 673.9,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual isolated GPU menu layout, supplied all-unlocked profile only for display sweep; no earned progression or human readability claim.",
+      "report": "docs/development/logs/ux110-layout-armory01/screens/report.json",
+      "report_sha256": "DE26EB08A940512E562D4238BBD05B3CA558545D26ED3711950EAFE111BB5507",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-layout-armory01/screens/caparison_velvet.png",
+          "sha256": "C1F52A53950C007FF8E6936BF112F1827E78486114E488872C835027152CE588"
+        },
+        {
+          "file": "docs/development/logs/ux110-layout-armory01/screens/crest_quarterly.png",
+          "sha256": "B27CDD424CCAA61173D6E2B70136AFB5D08E1430E5257054763759C6556CA7C5"
+        },
+        {
+          "file": "docs/development/logs/ux110-layout-armory01/screens/de_lance_stout_5.png",
+          "sha256": "76BEC4DB6C8DD518B71A27610353935D9BA847CCF3698085DCA7C64845383A62"
+        },
+        {
+          "file": "docs/development/logs/ux110-layout-armory01/screens/eng_helmet_5.png",
+          "sha256": "7578FFF32DFEDFC353479412F5CBB780DB4962E7755FDA5A6207232049AD5388"
+        }
+      ]
+    },
+    {
+      "name": "ux110-layout-levels01",
+      "exit_code": 0,
+      "wall_seconds": 28.5,
+      "private_peak_mib": 630.9,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual isolated GPU menu layout, supplied all-unlocked profile only for display sweep; no earned progression or human readability claim.",
+      "report": "docs/development/logs/ux110-layout-levels01/screens/report.json",
+      "report_sha256": "0199AD931159FF1B069BA9288162A2C6738C085AE9D0999E6EB712376FF8BA4F",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-layout-levels01/screens/level06.png",
+          "sha256": "65F7978BD447EA41078772D53F474CAC1C952AA6693A33EE8E88CF55FC6C2ECF"
+        },
+        {
+          "file": "docs/development/logs/ux110-layout-levels01/screens/level07.png",
+          "sha256": "25EFBC563641AA5CFEF23BB926CCF3C40951D9B110DEC367D35BA4E20F5F4196"
+        },
+        {
+          "file": "docs/development/logs/ux110-layout-levels01/screens/level08.png",
+          "sha256": "54698C036DB1F63F5FB686173C3D497AA3FDAABF1A6326D23394F32A04F756B8"
+        },
+        {
+          "file": "docs/development/logs/ux110-layout-levels01/screens/level10.png",
+          "sha256": "B6B0761E858C39EFCE7679ABB5767B7B9910DA95E7AA2197CC86D59755292490"
+        },
+        {
+          "file": "docs/development/logs/ux110-layout-levels01/screens/level20.png",
+          "sha256": "0869AA3EFB305E7969C8078A5CF89B6C5FCF00F479CA627776AADB89AF7F8C0A"
+        },
+        {
+          "file": "docs/development/logs/ux110-layout-levels01/screens/level24.png",
+          "sha256": "3A2EF42607135200EDE8E2BE3CEAC708270272F255FADB23D1455A56CD6A1EC2"
+        },
+        {
+          "file": "docs/development/logs/ux110-layout-levels01/screens/level30.png",
+          "sha256": "0A5F1F71A346D949E5CCCA2AE1EEA5F79E8121EE5ECFE6882EB117AC3D2B2C19"
+        },
+        {
+          "file": "docs/development/logs/ux110-layout-levels01/screens/level40.png",
+          "sha256": "5786B0C1D3812574D57F3EAB2161FD7773340BCDECB2011F4CEF8DDE22E32845"
+        },
+        {
+          "file": "docs/development/logs/ux110-layout-levels01/screens/level50.png",
+          "sha256": "E0DA4D9DBF729D4B55FDF4DA836EB34B1C4C1BF67912AF27E182D62979B6C9B6"
+        },
+        {
+          "file": "docs/development/logs/ux110-layout-levels01/screens/level55.png",
+          "sha256": "403757FF5008B4C02EF61DF7C6C0F731D7F3129082EB18A048D32B669ABD8561"
+        },
+        {
+          "file": "docs/development/logs/ux110-layout-levels01/screens/level60.png",
+          "sha256": "A6E1581356890E1005CB42F07A68ED967F785C63936AE986CDD6A70AB0CF6AB0"
+        },
+        {
+          "file": "docs/development/logs/ux110-layout-levels01/screens/level70.png",
+          "sha256": "FB74833E5DA9F0AA2BFCC2B5545B2328B0A2885626E1F3D06450A3497209D2C7"
+        },
+        {
+          "file": "docs/development/logs/ux110-layout-levels01/screens/level80.png",
+          "sha256": "8A43C53AC844F06F2F896B050DF4187E1CB26EDAF8A1BD7B84FADDA86B03A6C9"
+        }
+      ]
+    },
+    {
+      "name": "ux110-parse01",
+      "exit_code": 0,
+      "wall_seconds": 2.6,
+      "private_peak_mib": 177.0,
+      "isolated_desktop_closed": false,
+      "passed": null,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Baseline observations / compilation as documented",
+      "report": null,
+      "report_sha256": null,
+      "images": []
+    },
+    {
+      "name": "ux110-parse02",
+      "exit_code": 0,
+      "wall_seconds": 2.4,
+      "private_peak_mib": 197.4,
+      "isolated_desktop_closed": false,
+      "passed": null,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Baseline observations / compilation as documented",
+      "report": null,
+      "report_sha256": null,
+      "images": []
+    },
+    {
+      "name": "ux110-parse03",
+      "exit_code": 0,
+      "wall_seconds": 2.5,
+      "private_peak_mib": 178.0,
+      "isolated_desktop_closed": false,
+      "passed": null,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Baseline observations / compilation as documented",
+      "report": null,
+      "report_sha256": null,
+      "images": []
+    },
+    {
+      "name": "ux110-parse04",
+      "exit_code": 0,
+      "wall_seconds": 2.4,
+      "private_peak_mib": 177.4,
+      "isolated_desktop_closed": false,
+      "passed": null,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Baseline observations / compilation as documented",
+      "report": null,
+      "report_sha256": null,
+      "images": []
+    },
+    {
+      "name": "ux110-parse05",
+      "exit_code": 0,
+      "wall_seconds": 2.4,
+      "private_peak_mib": 183.4,
+      "isolated_desktop_closed": false,
+      "passed": null,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Baseline observations / compilation as documented",
+      "report": null,
+      "report_sha256": null,
+      "images": []
+    },
+    {
+      "name": "ux110-parse06",
+      "exit_code": 0,
+      "wall_seconds": 2.7,
+      "private_peak_mib": 154.2,
+      "isolated_desktop_closed": false,
+      "passed": null,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Baseline observations / compilation as documented",
+      "report": null,
+      "report_sha256": null,
+      "images": []
+    },
+    {
+      "name": "ux110-parse07",
+      "exit_code": 0,
+      "wall_seconds": 2.5,
+      "private_peak_mib": 183.1,
+      "isolated_desktop_closed": false,
+      "passed": null,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Baseline observations / compilation as documented",
+      "report": null,
+      "report_sha256": null,
+      "images": []
+    },
+    {
+      "name": "ux110-parse08",
+      "exit_code": 0,
+      "wall_seconds": 2.4,
+      "private_peak_mib": 185.3,
+      "isolated_desktop_closed": false,
+      "passed": null,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Baseline observations / compilation as documented",
+      "report": null,
+      "report_sha256": null,
+      "images": []
+    },
+    {
+      "name": "ux110-result-gallery01",
+      "exit_code": 4294967295,
+      "wall_seconds": 79.8,
+      "private_peak_mib": 669.6,
+      "isolated_desktop_closed": true,
+      "passed": null,
+      "completed_segment": null,
+      "script_errors": 1,
+      "native_error_lines": 0,
+      "classification": "Archived JSON Array assigned to typed contact Array; isolated failed test child stopped and desktop cleaned; fixed with Array.assign in gallery02, presentation cleanup in gallery03.",
+      "scope": "Baseline observations / compilation as documented",
+      "report": null,
+      "report_sha256": null,
+      "images": []
+    },
+    {
+      "name": "ux110-result-gallery02",
+      "exit_code": 0,
+      "wall_seconds": 12.1,
+      "private_peak_mib": 746.5,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual isolated rendering and viewport navigation of archived natural results plus labeled supplied edge states. No newly played match, reward, physical fall or human testimony is claimed.",
+      "report": "docs/development/logs/ux110-result-gallery02/screens/report.json",
+      "report_sha256": "E1106C457E96BA975CA236DCA66BE75C8801C93D691E61299C645CBE246E83CF",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-result-gallery02/screens/actual-record-64-1-adjust.png",
+          "sha256": "9BE4F713E66AD6F926AC4EDC7A8E495ECB0FE537CC1D54387C33ABDD8BF632A4"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery02/screens/actual-record-64-1-details.png",
+          "sha256": "FDFEA98BDEF9F4D162E91D87FC3E8C28D8AD6C8C3B9621A95B27C67C718FBAA7"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery02/screens/actual-record-64-1.png",
+          "sha256": "7CA6A0FDA43E9E52AE563473699F7E94775E0FA272C4671B8412101536ABB008"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery02/screens/actual-record-75-2-details.png",
+          "sha256": "D9F2D379F92CE5A56C626AE14B6731329ADD62BE7445957C49716717A42E3294"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery02/screens/actual-record-75-2.png",
+          "sha256": "D4F4F1C7FA3B9B2951E6C9D3B9CE5013E614A16D8075D5CCF2DF15F6ADC62A97"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery02/screens/actual-record-80-1-details.png",
+          "sha256": "551C5ACE3586C6906E452D76558856C5F9199CB02A4EE194241A9832B88161D3"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery02/screens/actual-record-80-1.png",
+          "sha256": "981E8077043462C4BCA0FDF6D58B6F2E8C73D27B7AC8861972BE844447DF0940"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery02/screens/earlier-replay-after-completion-details.png",
+          "sha256": "616D8C6C06F63C8EECB2CB76D4F44A759C89827A92D1FCADA121F7443BE0AB4F"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery02/screens/earlier-replay-after-completion.png",
+          "sha256": "2C15723338316732C3DAD94294C55D2BF2AB1AC0A227681932CEC331EDAD4183"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery02/screens/negative-missing-prior-clears-details.png",
+          "sha256": "BAFA495F3797632B80DA93009A6301EC9B12A6FE46715DA60AE95029CFFD9519"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery02/screens/negative-missing-prior-clears.png",
+          "sha256": "6B319CBA2C89DEC9A3EF131B907EBB3A56167D85ED22DDFBF9DA8D8B41D70E07"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery02/screens/supplied-shield-impulse-adjust.png",
+          "sha256": "9BE4F713E66AD6F926AC4EDC7A8E495ECB0FE537CC1D54387C33ABDD8BF632A4"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery02/screens/supplied-shield-impulse-details.png",
+          "sha256": "7D409F61842F8194D8EF7739178D920D482322708C11FEF85259B2AA74FE9BC0"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery02/screens/supplied-shield-impulse.png",
+          "sha256": "1945E72A13797F5D03F6692EEDF89C74CE21AB0CF4377023D767D51B41D5D791"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery02/screens/supplied-simultaneous-death-details.png",
+          "sha256": "C694426DA0428177A7B5384D28E050F8DFF6AEF7B39B3DEEBD8EA95E60D5535E"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery02/screens/supplied-simultaneous-death.png",
+          "sha256": "F367A0172E84A9BD0025EB117CD030138ED94D593652790E01A631F5F0374513"
+        }
+      ]
+    },
+    {
+      "name": "ux110-result-gallery03",
+      "exit_code": 0,
+      "wall_seconds": 12.8,
+      "private_peak_mib": 750.6,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual isolated rendering and viewport navigation of archived natural results plus labeled supplied edge states. No newly played match, reward, physical fall or human testimony is claimed.",
+      "report": "docs/development/logs/ux110-result-gallery03/screens/report.json",
+      "report_sha256": "11D9B495B54D212AA29C202A0059EAA9FDF51BB3CA1F1CE3281B6B4FCB077094",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-result-gallery03/screens/actual-record-64-1-adjust.png",
+          "sha256": "9BE4F713E66AD6F926AC4EDC7A8E495ECB0FE537CC1D54387C33ABDD8BF632A4"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery03/screens/actual-record-64-1-details.png",
+          "sha256": "ED9897F390D64D842018376C3D152A75F17C5892595CA8D66A228D83DCCCB357"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery03/screens/actual-record-64-1.png",
+          "sha256": "4AB373118F7D3E0D0725B07AE6A38FEAFF8955B6ECEF6FFBCBA1DAD93B09EE75"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery03/screens/actual-record-75-2-details.png",
+          "sha256": "BD0F372302119FF9578A1F119D8CD304FF27A62A8D8D160E0D8BF967BE36C368"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery03/screens/actual-record-75-2.png",
+          "sha256": "D967ED5C6FBF3FAFE65F5C2CE041DDEC98C0B9587A02296EF1E6C1DB7A52DE19"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery03/screens/actual-record-80-1-details.png",
+          "sha256": "DB0001CADD6257E91E6F290204C319BEF230441D322C2E1FB79B46E887E84574"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery03/screens/actual-record-80-1.png",
+          "sha256": "FC4BCE7221185D5F1B75A93A1EC8A4E040B7B7BDCAC7A288E7F6F71ABF1FC983"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery03/screens/earlier-replay-after-completion-details.png",
+          "sha256": "572BF9CA26A4F535B67CFD69418C2A0D577984BD101980C9BFED38A66DBC3996"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery03/screens/earlier-replay-after-completion.png",
+          "sha256": "7F37005A7A7F28212976B52CC42384E4FE335FB0A88A3A13B5A503E878EB7BC2"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery03/screens/negative-missing-prior-clears-details.png",
+          "sha256": "77AC68E1FA643A1F3E6BD5F721E70A7C48C98CFCAD2A29418425CE9C254B7968"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery03/screens/negative-missing-prior-clears.png",
+          "sha256": "B37B4BC07180041916B05869DCB3CF2A256E0C55073DE73FD35C7D4E1306D9D4"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery03/screens/supplied-shield-impulse-adjust.png",
+          "sha256": "9BE4F713E66AD6F926AC4EDC7A8E495ECB0FE537CC1D54387C33ABDD8BF632A4"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery03/screens/supplied-shield-impulse-details.png",
+          "sha256": "94C697127CA336A86911FD7DED422AAC1FFD01DBD98898A73B02E1FC04BDC6B2"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery03/screens/supplied-shield-impulse.png",
+          "sha256": "7274FA8E745AFCE80FD35204D39B43504A189F2C08745D1D742FFF7F63B6D3FB"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery03/screens/supplied-simultaneous-death-details.png",
+          "sha256": "D5243ED122DADA62C1796788B6348FC118301E688F4DB969408DDAC2580FE0F6"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery03/screens/supplied-simultaneous-death.png",
+          "sha256": "06E69F483C745ABC1E46770465C3467B10B6003E5B83C9033DFA6692AB10352A"
+        }
+      ]
+    },
+    {
+      "name": "ux110-result-gallery04",
+      "exit_code": 0,
+      "wall_seconds": 15.3,
+      "private_peak_mib": 727.9,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual isolated rendering and viewport navigation of archived natural results plus labeled supplied edge states. No newly played match, reward, physical fall or human testimony is claimed.",
+      "report": "docs/development/logs/ux110-result-gallery04/screens/report.json",
+      "report_sha256": "FC4FA8901EA90DD7F6BE526FCF5102E6A02D89A72625E6FEA53E27B353D91E94",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/actual-record-64-1-adjust.png",
+          "sha256": "9BE4F713E66AD6F926AC4EDC7A8E495ECB0FE537CC1D54387C33ABDD8BF632A4"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/actual-record-64-1-details.png",
+          "sha256": "4C54889439D1C25A1B569D0815014D2A37F14917399785F62880DA26462DD7C2"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/actual-record-64-1.png",
+          "sha256": "469277E5DD16D20B756B5355721D820D7B162647A2721431F2FC16D543E4B876"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/actual-record-75-2-details.png",
+          "sha256": "B3C4F42114A349173F440766F88C92627180A81570AE71B3B60BBCBDE74719F1"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/actual-record-75-2.png",
+          "sha256": "2DD00A3F059A8B18DBBE9E3E13957274E3E95A0BE93C24FA91509E82C6E4C52E"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/actual-record-80-1-details.png",
+          "sha256": "9CB087FB34297915F1C26C6FFC7845FE8235D8281B6B2BCA698B2128AFECC579"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/actual-record-80-1.png",
+          "sha256": "8D2D692BAB566F9DA94740709C163574F4CA4F6FE09DB92B5E585B894F11CD79"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/actual-starter-score-tie-adjust.png",
+          "sha256": "9BE4F713E66AD6F926AC4EDC7A8E495ECB0FE537CC1D54387C33ABDD8BF632A4"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/actual-starter-score-tie-details.png",
+          "sha256": "F534725627EA37B1A8B640003CC91D3BF4BB608D9D01295050BC214D24FA934E"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/actual-starter-score-tie.png",
+          "sha256": "D0E39C638255CE1F56C6849490550716F9A1597661DC9AD1586E3266E5EAD82B"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/actual-war-condition-loss-adjust.png",
+          "sha256": "9BE4F713E66AD6F926AC4EDC7A8E495ECB0FE537CC1D54387C33ABDD8BF632A4"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/actual-war-condition-loss-details.png",
+          "sha256": "0665B9D6ED51871830C8882687EE98CF33ECCDBD962AE54A4E85A3E6D6699F5F"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/actual-war-condition-loss.png",
+          "sha256": "660B80436886A60D577EE4C92244206AC41CED6EE58F8E361371BA7A2C8FAA6B"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/earlier-replay-after-completion-details.png",
+          "sha256": "C965E3C881DF54B7B260E9E579FB5C3343A469AF9589874F2ABD48C2A272BB21"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/earlier-replay-after-completion.png",
+          "sha256": "CCDC161FA64050BC3371245230574EFA5B648CB110DD8036A311A47E22CAF390"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/negative-missing-prior-clears-details.png",
+          "sha256": "D4B3424112FACFA12A3A9E3C2BF1FD936978B0C1C1EE3F540B8E9656A643E69D"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/negative-missing-prior-clears.png",
+          "sha256": "8DD422240D9D088164EEF7F5AE593B13CC4CCE97CCE88B73A2FD05A1315AB235"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/supplied-pending-loss-adjust.png",
+          "sha256": "9BE4F713E66AD6F926AC4EDC7A8E495ECB0FE537CC1D54387C33ABDD8BF632A4"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/supplied-pending-loss-details.png",
+          "sha256": "43D9694F2E79C093B9B00A68ABA4577BEF81386F02047A794F7AB04EC21A64BE"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/supplied-pending-loss.png",
+          "sha256": "8A8643594CCAE973653D8CA8BE114D9B75F829F5D0D1BD755B964319EDEADC9C"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/supplied-shield-impulse-adjust.png",
+          "sha256": "9BE4F713E66AD6F926AC4EDC7A8E495ECB0FE537CC1D54387C33ABDD8BF632A4"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/supplied-shield-impulse-details.png",
+          "sha256": "0D61E663191C69E9F4A246A7716BE9D5FEBC876235ADB8DC3D2096240A745DCF"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/supplied-shield-impulse.png",
+          "sha256": "6E067F78824B7E396933965E48938ED1239F6C4C702FDD7F4DB503F19383966A"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/supplied-simultaneous-death-details.png",
+          "sha256": "CC42D7C163DEE6BD6A9E6356E8B446ADBB3ED472E9D21BD04422F77E7D3199EB"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery04/screens/supplied-simultaneous-death.png",
+          "sha256": "44A0B99EEB49AD4B18E853292CD3A8DB66FAD7AF827A1F99016A8F2159A6E99E"
+        }
+      ]
+    },
+    {
+      "name": "ux110-result-gallery05",
+      "exit_code": 0,
+      "wall_seconds": 17.0,
+      "private_peak_mib": 725.3,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual isolated rendering and viewport navigation of archived natural results plus labeled supplied edge states. No newly played match, reward, physical fall or human testimony is claimed.",
+      "report": "docs/development/logs/ux110-result-gallery05/screens/report.json",
+      "report_sha256": "9022FC7EDBD1A8CC273CA6026463737427F69259507B0075F66852198A40CA02",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/actual-record-64-1-adjust.png",
+          "sha256": "9BE4F713E66AD6F926AC4EDC7A8E495ECB0FE537CC1D54387C33ABDD8BF632A4"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/actual-record-64-1-details.png",
+          "sha256": "DF4560066873FD0062B6837EBA71689AD11EA5E55A731C5A418AC0C65799707D"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/actual-record-64-1-redrawn.png",
+          "sha256": "307F31563CD6743D73466B49D84F88F1D1A55C947F3CDB8913529CADE6E3A4EE"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/actual-record-64-1.png",
+          "sha256": "552D6012A081BF400EF26AE1547DA3795ADFA4ED2804914CB3A0FDB9AA00DFDD"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/actual-record-75-2-details.png",
+          "sha256": "B3A69729D9C992D5633620BA571C10175B4CF8C966FED506241ACF0F4757F64C"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/actual-record-75-2-redrawn.png",
+          "sha256": "9440F31DC5FD6E564A4438F4564D1AE90D1589BEB65ACB8CDBCD162E6B976B6B"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/actual-record-75-2.png",
+          "sha256": "6BA62DF441C514C37766E42B97BC4E8D3EB55E739CC60FA8B98929A18F2462C2"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/actual-record-80-1-details.png",
+          "sha256": "624B37C3911729477633F64849608D8D9D1A88DADFA91AE5524CFEAA1EBBEE65"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/actual-record-80-1-redrawn.png",
+          "sha256": "74BBFECF41E8C12B3A8AD859DDA1E37A8C0012A64B47AA69DD48DB48E5F9955D"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/actual-record-80-1.png",
+          "sha256": "01EB26D81084C467CA3DD7E109B369E9C3016832E28EFE8233153706572B9AC7"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/actual-starter-score-tie-adjust.png",
+          "sha256": "9BE4F713E66AD6F926AC4EDC7A8E495ECB0FE537CC1D54387C33ABDD8BF632A4"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/actual-starter-score-tie-details.png",
+          "sha256": "36691FA3F9EF40C06F583E2D5AB5BC275F74CAFB4928536A149E6C1D85CDBB54"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/actual-starter-score-tie-redrawn.png",
+          "sha256": "9D9CBBE2D0237322021341F25DEF37E6C8C2AC515F969BD4D3D3EACD77B83053"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/actual-starter-score-tie.png",
+          "sha256": "DCA82F3B4BFA99DE5D65AE788062AD0B6929F064762E8541386838ADD5CC0F3B"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/actual-war-condition-loss-adjust.png",
+          "sha256": "9BE4F713E66AD6F926AC4EDC7A8E495ECB0FE537CC1D54387C33ABDD8BF632A4"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/actual-war-condition-loss-details.png",
+          "sha256": "640B870008666A7CF56AB83662C47B14E06EC54C6804D39107D169C4744A382B"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/actual-war-condition-loss-redrawn.png",
+          "sha256": "6FDB0D2C84CEDF2010F7C118E1BC9AD4EC9F1E7427925837E546B380FA771196"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/actual-war-condition-loss.png",
+          "sha256": "D396EA62523BC13CC99F6F1B67D5B01A2693218A9E5C65A524C2E87A440E3C81"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/earlier-replay-after-completion-details.png",
+          "sha256": "FD295CC4E1A1127F07099B9A1B6647DAF830E7325E9F8466EB4E75F3BEB85DAA"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/earlier-replay-after-completion-redrawn.png",
+          "sha256": "A88507437AC8EC2661D9C50318E93F800B11B89091718EB57AFFE67772A175B8"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/earlier-replay-after-completion.png",
+          "sha256": "04E3831F99A68976A88BF47600684C0618E7502ECEBC7E3563708104EA92917C"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/negative-missing-prior-clears-details.png",
+          "sha256": "03F357405527E644673322BF8B896A0AB040809C861B38CEF0C24EB4FE556677"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/negative-missing-prior-clears-redrawn.png",
+          "sha256": "FE3FE3E1556B67F80350CA26027643EBD2AEAFA748BDFCF6F3ABE91467C9B1F8"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/negative-missing-prior-clears.png",
+          "sha256": "BEB91DCE438DBC0BE49F84E019B6FA8C534A0AB7F3927B26FB2EB20EDD46B549"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/supplied-pending-loss-adjust.png",
+          "sha256": "9BE4F713E66AD6F926AC4EDC7A8E495ECB0FE537CC1D54387C33ABDD8BF632A4"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/supplied-pending-loss-details.png",
+          "sha256": "BDC9CA5D6DF16F30A8731969BE65EECCA174EBC391AB035FA0845543BFC37248"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/supplied-pending-loss-redrawn.png",
+          "sha256": "8DD4457638764873F659DE0AF628A09E1A7977530DFC2F4208A3C075AAC8FAFE"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/supplied-pending-loss.png",
+          "sha256": "77466D92271FF061C0FF18226818EA1A04050855DFB5ED0CF269134F84C5C470"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/supplied-shield-impulse-adjust.png",
+          "sha256": "9BE4F713E66AD6F926AC4EDC7A8E495ECB0FE537CC1D54387C33ABDD8BF632A4"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/supplied-shield-impulse-details.png",
+          "sha256": "8CF76A6076E32201D09D94C973C964BB09D2E30B8CE16CE0EE0C85B5C67925FD"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/supplied-shield-impulse-redrawn.png",
+          "sha256": "16BDB2FD9AD787B2FBBDADB655088C47DB5DA1965E59BCFCE9368A17312E9FBC"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/supplied-shield-impulse.png",
+          "sha256": "33BBC6CC001FD2FDBD8FDE7D550FD5B8FFD342E541AFB6E34033963822B9A564"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/supplied-simultaneous-death-details.png",
+          "sha256": "BAA7744C49E6117BF9A88600D6C0CD2051EF13143D90DDFC16686A4F0385640A"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/supplied-simultaneous-death-redrawn.png",
+          "sha256": "F94501D4D475E4108B5AA2D8E0829642BACAC0094CD463F6BBEE1113C5B0D9CC"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery05/screens/supplied-simultaneous-death.png",
+          "sha256": "096789596A185A9F5073293548EE345851391C222D046DFEF44D49E7A95EA4FB"
+        }
+      ]
+    },
+    {
+      "name": "ux110-result-gallery06",
+      "exit_code": 0,
+      "wall_seconds": 17.3,
+      "private_peak_mib": 733.9,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Actual isolated rendering and viewport navigation of archived natural results plus labeled supplied edge states. No newly played match, reward, physical fall or human testimony is claimed.",
+      "report": "docs/development/logs/ux110-result-gallery06/screens/report.json",
+      "report_sha256": "9022FC7EDBD1A8CC273CA6026463737427F69259507B0075F66852198A40CA02",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/actual-record-64-1-adjust.png",
+          "sha256": "0E8B1F3C22B1C7839C1D7DC8F96C3D6468CC592DF726B71125654D3A90119952"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/actual-record-64-1-details.png",
+          "sha256": "1DCD513BB709C2F47C5745A8ED4FDE91C4C3B442BF6D1F09DC058B6BF1107303"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/actual-record-64-1-redrawn.png",
+          "sha256": "F6C9214F0422A185087CBA30F2D39B02E5E3351A23337B006AEC918A9A058784"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/actual-record-64-1.png",
+          "sha256": "F48BBA4EB84D8FF3B292500F195FE9130BBC245D3B27C37F6C1C163F99D79AEA"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/actual-record-75-2-details.png",
+          "sha256": "356931D0C8AAAD7D491C30E2169508383BBD83D5BA3944286425B378875891DD"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/actual-record-75-2-redrawn.png",
+          "sha256": "0030503888C558C2CE00FCD79C064DF3085826CC892C77CC4FB48B50C2F442E0"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/actual-record-75-2.png",
+          "sha256": "85F716E05DB4A0746754C5E758DA4DC997FAEE775147B34CBFAEF623D8F86B71"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/actual-record-80-1-details.png",
+          "sha256": "D465CE1D13DF90CF5703B17FE11745E11A7F04DD47BFA3E5666C226473B137CD"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/actual-record-80-1-redrawn.png",
+          "sha256": "C88AD224E4C016C78F5F83AAD94206D10C286081C6E119245521FE0B20D0ACCB"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/actual-record-80-1.png",
+          "sha256": "1EB570573582736E764FECEE8D5AA52DB165EEABCDFA6A68E7CF64A7DB9082B7"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/actual-starter-score-tie-adjust.png",
+          "sha256": "0E8B1F3C22B1C7839C1D7DC8F96C3D6468CC592DF726B71125654D3A90119952"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/actual-starter-score-tie-details.png",
+          "sha256": "ABD59E4B05D27DA7368C28215AF1D83E9D67A5491B10AC29F6B6D949C112DC12"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/actual-starter-score-tie-redrawn.png",
+          "sha256": "D8A11D7C40C508C60B6AD95007C9E96815FCF87E37445D6A87CEB52D9AC7BE02"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/actual-starter-score-tie.png",
+          "sha256": "AB746AFA44E63D0795E78F1F9248993F5AC345FF3D6FA47AFBF92499B1D75CDD"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/actual-war-condition-loss-adjust.png",
+          "sha256": "0E8B1F3C22B1C7839C1D7DC8F96C3D6468CC592DF726B71125654D3A90119952"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/actual-war-condition-loss-details.png",
+          "sha256": "18D0C4B6DC929577AF481DD3C7D895CADE2925DD72A1BF2C3A3AD5CE32C41356"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/actual-war-condition-loss-redrawn.png",
+          "sha256": "E770AEA673A773CDD95771905662BB297658B8DB93D4ACBE9AB52763B7CDE63C"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/actual-war-condition-loss.png",
+          "sha256": "07E2CF47CB7F75F7632C796E141CD5BFEE0878A2DCC4D3DF60FFA179B8AFC6C0"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/earlier-replay-after-completion-details.png",
+          "sha256": "31AF8896B2D3D54E7BB346D31DE01B4072DB16EBDE2C18E1DDACDBFB4BB9E82C"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/earlier-replay-after-completion-redrawn.png",
+          "sha256": "12A9BE130B6A08E79F6A0C54E604CABD85E9135E71882B2F640B4A9F84C18DA1"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/earlier-replay-after-completion.png",
+          "sha256": "0B92EF37D474A56161718213CA0F5DA0F56C6B62C98B570476ADFD431165757A"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/negative-missing-prior-clears-details.png",
+          "sha256": "4DC4A503E293DC69EC0E6EF44B34F1CD6D68E50F50D5036145C10C6DE665C963"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/negative-missing-prior-clears-redrawn.png",
+          "sha256": "6ACD59789FB4E3B4E787C6E8B84D612AA63E5B3DCC060E75DBFE220CA29A4C6E"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/negative-missing-prior-clears.png",
+          "sha256": "B65AD3C3DDE305F4A71255796CDD1530DEED66730834DFC712DE175F32AE8C1A"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/supplied-pending-loss-adjust.png",
+          "sha256": "0E8B1F3C22B1C7839C1D7DC8F96C3D6468CC592DF726B71125654D3A90119952"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/supplied-pending-loss-details.png",
+          "sha256": "D944F8AA05993E687B9BFED2E4EF1FE7A33E25D7486F46FCA34E0851EA4754B2"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/supplied-pending-loss-redrawn.png",
+          "sha256": "735AFCB6BA5BC6A465E56D597DDAE05952D20E204F2BFEEE9D7DA851E31B2769"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/supplied-pending-loss.png",
+          "sha256": "CEEA77158A7FE46133F064E4DACD6C32A0EBA9489A26C9904CD3B80821D67E16"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/supplied-shield-impulse-adjust.png",
+          "sha256": "0E8B1F3C22B1C7839C1D7DC8F96C3D6468CC592DF726B71125654D3A90119952"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/supplied-shield-impulse-details.png",
+          "sha256": "4B1A2A2308277F9662F37BA0A3BCAA2714F91EF5196C4613269925CB4DF2543D"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/supplied-shield-impulse-redrawn.png",
+          "sha256": "F20BEA9045D8944FD8C342EBE4CD604C703C87523EB707BC96623B4547CB4398"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/supplied-shield-impulse.png",
+          "sha256": "B7429530454A51DFCAE76CF5DAB2949501302918E40BC6FE13A4E4731116F3A1"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/supplied-simultaneous-death-details.png",
+          "sha256": "93B13AD3C8B839BCAD8CDE83C8A8D4C96BFE9E58E4B7D190B823299E3F1A7F89"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/supplied-simultaneous-death-redrawn.png",
+          "sha256": "81F9D5767579A2CF4D3DBE22826DA6BF742C7C185FA077EF6B2E6CB91DE83711"
+        },
+        {
+          "file": "docs/development/logs/ux110-result-gallery06/screens/supplied-simultaneous-death.png",
+          "sha256": "E9C7039655512330939F4811E7CCD138D1B4D9D9DD9727EADD838AD41AFCB912"
+        }
+      ]
+    },
+    {
+      "name": "ux110-save-ui01",
+      "exit_code": 0,
+      "wall_seconds": 7.3,
+      "private_peak_mib": 494.2,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 2,
+      "classification": "Two deliberate exact blocked_backup copy errors; no unexpected script/native errors.",
+      "scope": "Background real rendering and production UI callbacks, not OS input. Isolated save faults, recovery/cancel/overwrite/retry.",
+      "report": "docs/development/logs/ux110-save-ui01/screens/report.json",
+      "report_sha256": "3EF0B356BEA998B0ABA88ACCBC7B044068A86F1D741C4B8100F14E2D7B666EA4",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-save-ui01/screens/01_recovery_choice.png",
+          "sha256": "1EEF8090078C724C497FBA8D6F5F22C338C8F1E8E03EDBE25E5616B8D8B75650"
+        },
+        {
+          "file": "docs/development/logs/ux110-save-ui01/screens/02_recovery_confirmation.png",
+          "sha256": "2950F11BD6B12857FE17D81718AF2D470DFAB90142EDCD2D5C5F554ADD3097B7"
+        },
+        {
+          "file": "docs/development/logs/ux110-save-ui01/screens/03_recovered_saves.png",
+          "sha256": "4AEA4E033F4A373543346D91E737FE8E876D7DEB342C8FFA1717D8CAE2A22B8B"
+        },
+        {
+          "file": "docs/development/logs/ux110-save-ui01/screens/04_overwrite_confirmation.png",
+          "sha256": "CDBFFC3B6E2F60335C7E242674731FFCF75871077E63BE1619BF07D6C258582A"
+        },
+        {
+          "file": "docs/development/logs/ux110-save-ui01/screens/05_pending_current_progress.png",
+          "sha256": "4DB9C2A8888B5B8B14A03FB400A66B5F13BF3E7CB3E2DEAB7D5FD67E3DAF79DA"
+        },
+        {
+          "file": "docs/development/logs/ux110-save-ui01/screens/06_pending_reward_result.png",
+          "sha256": "9C51C3520A011FECC9ECF1434BDE4A53F7E09D48020A32A9BE48416BE6C329CF"
+        },
+        {
+          "file": "docs/development/logs/ux110-save-ui01/screens/07_reward_saved.png",
+          "sha256": "9C51C3520A011FECC9ECF1434BDE4A53F7E09D48020A32A9BE48416BE6C329CF"
+        },
+        {
+          "file": "docs/development/logs/ux110-save-ui01/screens/08_recovered_camp.png",
+          "sha256": "8C7092398A05FF924FCB833038B882CB82F287F58BBAA8192D56EFE7AB768920"
+        }
+      ]
+    },
+    {
+      "name": "ux110-save-ui02",
+      "exit_code": 0,
+      "wall_seconds": 7.0,
+      "private_peak_mib": 440.9,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 2,
+      "classification": "Two deliberate exact blocked_backup copy errors; no unexpected script/native errors.",
+      "scope": "Background real rendering and production UI callbacks, not OS input. Isolated save faults, recovery/cancel/overwrite/retry.",
+      "report": "docs/development/logs/ux110-save-ui02/screens/report.json",
+      "report_sha256": "F4E815C8115162B5EC00A4F9B6C87AE01FA2DDDF2EEE0734BFA72D585FC951E2",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-save-ui02/screens/01_recovery_choice.png",
+          "sha256": "BA130794FDC3FF2298C13EEBFED0E0062CE4CFEDFC8F8030A86428F0B9D4A817"
+        },
+        {
+          "file": "docs/development/logs/ux110-save-ui02/screens/02_recovery_confirmation.png",
+          "sha256": "0C002596FAD1D5BCC3AAD5313218CA8EC9E64C55B59C14C5FA706FFEC60BDC94"
+        },
+        {
+          "file": "docs/development/logs/ux110-save-ui02/screens/03_recovered_saves.png",
+          "sha256": "1A3EE9F3B762769CD4FF4EA34539CC2A22FA7B99C59F343F1F44CEC259A98873"
+        },
+        {
+          "file": "docs/development/logs/ux110-save-ui02/screens/04_overwrite_confirmation.png",
+          "sha256": "23FD76773F09C871FC08176B7F8CD7FA2AECEFA3A5CDF7EF499B5D04A0C376A7"
+        },
+        {
+          "file": "docs/development/logs/ux110-save-ui02/screens/05_pending_current_progress.png",
+          "sha256": "AE2CC32F9DB894874F537B76B9758AEC0043F49A5B515C56323F6CD19F6FDEDC"
+        },
+        {
+          "file": "docs/development/logs/ux110-save-ui02/screens/06_pending_reward_result.png",
+          "sha256": "9C51C3520A011FECC9ECF1434BDE4A53F7E09D48020A32A9BE48416BE6C329CF"
+        },
+        {
+          "file": "docs/development/logs/ux110-save-ui02/screens/07_reward_saved.png",
+          "sha256": "9C51C3520A011FECC9ECF1434BDE4A53F7E09D48020A32A9BE48416BE6C329CF"
+        },
+        {
+          "file": "docs/development/logs/ux110-save-ui02/screens/08_recovered_camp.png",
+          "sha256": "83B195CFE45B25265C0024839E4B314D579B7DBE7E8CF0B6DA1C395C88112A6B"
+        }
+      ]
+    },
+    {
+      "name": "ux110-text01",
+      "exit_code": 0,
+      "wall_seconds": 9.6,
+      "private_peak_mib": 549.9,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Isolated GPU comparison of original versus text-controls-only linear filtering at three actual window sizes; temporary presentation fixture, no production filtering edit or OS input.",
+      "report": "docs/development/logs/ux110-text01/screens/report.json",
+      "report_sha256": "4B5A94DC0ED9E8DFB5E926033F20657C52F70C18313C5D9685A9DDAC6960AC54",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-text01/screens/settings-1280-nearest.png",
+          "sha256": "A151C39CCEDE0D40512FF280FF905221685CAD44A1CCF5A8290E41DB9ACDD09F"
+        },
+        {
+          "file": "docs/development/logs/ux110-text01/screens/settings-1280-text-linear.png",
+          "sha256": "918A2E31F46AF99929156BCAFA344A709CBB375716CA1A343263AC8AA059FA3F"
+        },
+        {
+          "file": "docs/development/logs/ux110-text01/screens/settings-1440-nearest.png",
+          "sha256": "6EEA25B9AA013FA19E1E0AB56789F5672790B6311C0FF6E5EA40435446123691"
+        },
+        {
+          "file": "docs/development/logs/ux110-text01/screens/settings-1440-text-linear.png",
+          "sha256": "6EEA25B9AA013FA19E1E0AB56789F5672790B6311C0FF6E5EA40435446123691"
+        },
+        {
+          "file": "docs/development/logs/ux110-text01/screens/settings-960-nearest.png",
+          "sha256": "FB3BF81DC092716975B365EF7FE15EA27E24E610AED780D0B37B5B8099506C14"
+        },
+        {
+          "file": "docs/development/logs/ux110-text01/screens/settings-960-text-linear.png",
+          "sha256": "01AFCB231AE12EDEB13BF451197F92CB35F8A007A64B81475707D847F44BC267"
+        }
+      ]
+    },
+    {
+      "name": "ux110-text02",
+      "exit_code": 0,
+      "wall_seconds": 9.3,
+      "private_peak_mib": 531.3,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Isolated GPU checks of production text-only filtering at three actual sizes, plus explicit-filter control. Earlier text01 contains the original nearest-versus-linear baseline. No world-art filter or OS input changes.",
+      "report": "docs/development/logs/ux110-text02/screens/report.json",
+      "report_sha256": "F76A75754DCBB3DF551BC59ADD38FBA0A8F781773D7655D7CAA765DBFCCEE64B",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-text02/screens/settings-1280-explicit-linear.png",
+          "sha256": "918A2E31F46AF99929156BCAFA344A709CBB375716CA1A343263AC8AA059FA3F"
+        },
+        {
+          "file": "docs/development/logs/ux110-text02/screens/settings-1280-production.png",
+          "sha256": "918A2E31F46AF99929156BCAFA344A709CBB375716CA1A343263AC8AA059FA3F"
+        },
+        {
+          "file": "docs/development/logs/ux110-text02/screens/settings-1440-explicit-linear.png",
+          "sha256": "6EEA25B9AA013FA19E1E0AB56789F5672790B6311C0FF6E5EA40435446123691"
+        },
+        {
+          "file": "docs/development/logs/ux110-text02/screens/settings-1440-production.png",
+          "sha256": "6EEA25B9AA013FA19E1E0AB56789F5672790B6311C0FF6E5EA40435446123691"
+        },
+        {
+          "file": "docs/development/logs/ux110-text02/screens/settings-960-explicit-linear.png",
+          "sha256": "01AFCB231AE12EDEB13BF451197F92CB35F8A007A64B81475707D847F44BC267"
+        },
+        {
+          "file": "docs/development/logs/ux110-text02/screens/settings-960-production.png",
+          "sha256": "01AFCB231AE12EDEB13BF451197F92CB35F8A007A64B81475707D847F44BC267"
+        }
+      ]
+    },
+    {
+      "name": "ux110-ui01",
+      "exit_code": 0,
+      "wall_seconds": 67.8,
+      "private_peak_mib": 744.4,
+      "isolated_desktop_closed": true,
+      "passed": true,
+      "completed_segment": null,
+      "script_errors": 0,
+      "native_error_lines": 0,
+      "classification": "Inspect actual report scope; engine or fixture evidence only.",
+      "scope": "Current source isolated GPU regression. Pending-save UI state supplied; actual level1 battle outcome and viewport Escape input. No forced win, OS input, human blind test or new package claim.",
+      "report": "docs/development/logs/ux110-ui01/screens/report.json",
+      "report_sha256": "6F47A7CCE5653546155BF501F5412064F5A5DE1303666737D32CE090B78D7737",
+      "images": [
+        {
+          "file": "docs/development/logs/ux110-ui01/screens/crest-common-region.png",
+          "sha256": "FDAE6DEEE525D2C1CEFF31245136AC30927607875BFAD1E290786EA0C546444A"
+        },
+        {
+          "file": "docs/development/logs/ux110-ui01/screens/crest-inherited-quality.png",
+          "sha256": "FDAE6DEEE525D2C1CEFF31245136AC30927607875BFAD1E290786EA0C546444A"
+        },
+        {
+          "file": "docs/development/logs/ux110-ui01/screens/helmet-comparison-ready.png",
+          "sha256": "24352484741B4DD6845DCA904A3EC418BACB1592C7F5304B432F536392B295AD"
+        },
+        {
+          "file": "docs/development/logs/ux110-ui01/screens/mouse-level-six.png",
+          "sha256": "2D5B419C59AC44D5A379A70A6A18584DF9F7B145EAAE5FE7559E423470B2092A"
+        },
+        {
+          "file": "docs/development/logs/ux110-ui01/screens/mouse-settings.png",
+          "sha256": "D101BC6C7B5C33CDF5B6D4AF1DFE0E2CAB95B24705D9D71FA4DC15365D45086F"
+        },
+        {
+          "file": "docs/development/logs/ux110-ui01/screens/pending-home.png",
+          "sha256": "0AF249AA5470CA6384DC0B4748914E45A53FC865BB55E7CFBDD28000D6BA225B"
+        },
+        {
+          "file": "docs/development/logs/ux110-ui01/screens/result-after-escape.png",
+          "sha256": "7C670B2367C1DB34BE410EB97A319F0FDDD4A8C96FF6574A752FD132644DE787"
+        },
+        {
+          "file": "docs/development/logs/ux110-ui01/screens/result-before-escape.png",
+          "sha256": "14CFDFFF82B88E9775FD8036BA3196EEA0C2E0C8AEF0FDE1AD95E50C94F05808"
+        }
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "run": "ux110-journey01",
+      "passed": true,
+      "completed": true,
+      "first": 1,
+      "last": 5,
+      "attempts": [
+        {
+          "level": 1,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 120,
+            "first_clear": true,
+            "level": 1,
+            "renown": 1
+          }
+        },
+        {
+          "level": 2,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 132,
+            "first_clear": true,
+            "level": 2,
+            "renown": 1
+          }
+        },
+        {
+          "level": 3,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 144,
+            "first_clear": true,
+            "level": 3,
+            "renown": 1
+          }
+        },
+        {
+          "level": 4,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 156,
+            "first_clear": true,
+            "level": 4,
+            "renown": 1
+          }
+        },
+        {
+          "level": 5,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 168,
+            "first_clear": true,
+            "level": 5,
+            "renown": 1
+          }
+        }
+      ],
+      "navigation": [
+        {
+          "level": 1,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 2,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 3,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 4,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 5,
+          "route": "actual next-level button"
+        }
+      ],
+      "coins": 1240,
+      "renown": 5,
+      "clears": 5,
+      "purchases": 0
+    },
+    {
+      "run": "ux110-journey02",
+      "passed": true,
+      "completed": true,
+      "first": 6,
+      "last": 10,
+      "attempts": [
+        {
+          "level": 6,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 180,
+            "first_clear": true,
+            "level": 6,
+            "renown": 1
+          }
+        },
+        {
+          "level": 7,
+          "attempt": 1,
+          "winner": 1,
+          "reason": "score",
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 7,
+            "renown": 0
+          }
+        },
+        {
+          "level": 7,
+          "attempt": 2,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 192,
+            "first_clear": true,
+            "level": 7,
+            "renown": 1
+          }
+        },
+        {
+          "level": 8,
+          "attempt": 1,
+          "winner": 1,
+          "reason": "score",
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 8,
+            "renown": 0
+          }
+        },
+        {
+          "level": 8,
+          "attempt": 2,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 204,
+            "first_clear": true,
+            "level": 8,
+            "renown": 1
+          }
+        },
+        {
+          "level": 9,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 216,
+            "first_clear": true,
+            "level": 9,
+            "renown": 1
+          }
+        },
+        {
+          "level": 10,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 528,
+            "first_clear": true,
+            "level": 10,
+            "renown": 3
+          }
+        }
+      ],
+      "navigation": [
+        {
+          "level": 6,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 7,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 7,
+          "route": "viewport R retry"
+        },
+        {
+          "level": 8,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 8,
+          "route": "viewport R retry"
+        },
+        {
+          "level": 9,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 10,
+          "route": "actual next-level button"
+        }
+      ],
+      "coins": 770,
+      "renown": 12,
+      "clears": 10,
+      "purchases": 6
+    },
+    {
+      "run": "ux110-journey03",
+      "passed": true,
+      "completed": true,
+      "first": 11,
+      "last": 15,
+      "attempts": [
+        {
+          "level": 11,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 240,
+            "first_clear": true,
+            "level": 11,
+            "renown": 1
+          }
+        },
+        {
+          "level": 12,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 252,
+            "first_clear": true,
+            "level": 12,
+            "renown": 1
+          }
+        },
+        {
+          "level": 13,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 264,
+            "first_clear": true,
+            "level": 13,
+            "renown": 1
+          }
+        },
+        {
+          "level": 14,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 276,
+            "first_clear": true,
+            "level": 14,
+            "renown": 1
+          }
+        },
+        {
+          "level": 15,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "hp",
+          "reward": {
+            "coins": 288,
+            "first_clear": true,
+            "level": 15,
+            "renown": 1
+          }
+        }
+      ],
+      "navigation": [
+        {
+          "level": 11,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 12,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 13,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 14,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 15,
+          "route": "actual next-level button"
+        }
+      ],
+      "coins": 610,
+      "renown": 17,
+      "clears": 15,
+      "purchases": 3
+    },
+    {
+      "run": "ux110-journey04",
+      "passed": true,
+      "completed": true,
+      "first": 16,
+      "last": 20,
+      "attempts": [
+        {
+          "level": 16,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 300,
+            "first_clear": true,
+            "level": 16,
+            "renown": 1
+          }
+        },
+        {
+          "level": 17,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 312,
+            "first_clear": true,
+            "level": 17,
+            "renown": 1
+          }
+        },
+        {
+          "level": 18,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 324,
+            "first_clear": true,
+            "level": 18,
+            "renown": 1
+          }
+        },
+        {
+          "level": 19,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 336,
+            "first_clear": true,
+            "level": 19,
+            "renown": 1
+          }
+        },
+        {
+          "level": 20,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 648,
+            "first_clear": true,
+            "level": 20,
+            "renown": 3
+          }
+        }
+      ],
+      "navigation": [
+        {
+          "level": 16,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 17,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 18,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 19,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 20,
+          "route": "actual next-level button"
+        }
+      ],
+      "coins": 1025,
+      "renown": 24,
+      "clears": 20,
+      "purchases": 2
+    },
+    {
+      "run": "ux110-journey05",
+      "passed": true,
+      "completed": true,
+      "first": 21,
+      "last": 25,
+      "attempts": [
+        {
+          "level": 21,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 360,
+            "first_clear": true,
+            "level": 21,
+            "renown": 1
+          }
+        },
+        {
+          "level": 22,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 372,
+            "first_clear": true,
+            "level": 22,
+            "renown": 1
+          }
+        },
+        {
+          "level": 23,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 384,
+            "first_clear": true,
+            "level": 23,
+            "renown": 1
+          }
+        },
+        {
+          "level": 24,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 396,
+            "first_clear": true,
+            "level": 24,
+            "renown": 1
+          }
+        },
+        {
+          "level": 25,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "hp",
+          "reward": {
+            "coins": 408,
+            "first_clear": true,
+            "level": 25,
+            "renown": 1
+          }
+        }
+      ],
+      "navigation": [
+        {
+          "level": 21,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 22,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 23,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 24,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 25,
+          "route": "actual next-level button"
+        }
+      ],
+      "coins": 1215,
+      "renown": 29,
+      "clears": 25,
+      "purchases": 2
+    },
+    {
+      "run": "ux110-journey06",
+      "passed": true,
+      "completed": true,
+      "first": 26,
+      "last": 30,
+      "attempts": [
+        {
+          "level": 26,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 420,
+            "first_clear": true,
+            "level": 26,
+            "renown": 1
+          }
+        },
+        {
+          "level": 27,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 432,
+            "first_clear": true,
+            "level": 27,
+            "renown": 1
+          }
+        },
+        {
+          "level": 28,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 444,
+            "first_clear": true,
+            "level": 28,
+            "renown": 1
+          }
+        },
+        {
+          "level": 29,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 456,
+            "first_clear": true,
+            "level": 29,
+            "renown": 1
+          }
+        },
+        {
+          "level": 30,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 768,
+            "first_clear": true,
+            "level": 30,
+            "renown": 3
+          }
+        }
+      ],
+      "navigation": [
+        {
+          "level": 26,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 27,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 28,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 29,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 30,
+          "route": "actual next-level button"
+        }
+      ],
+      "coins": 1390,
+      "renown": 36,
+      "clears": 30,
+      "purchases": 2
+    },
+    {
+      "run": "ux110-journey07",
+      "passed": true,
+      "completed": true,
+      "first": 31,
+      "last": 35,
+      "attempts": [
+        {
+          "level": 31,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 480,
+            "first_clear": true,
+            "level": 31,
+            "renown": 1
+          }
+        },
+        {
+          "level": 32,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 492,
+            "first_clear": true,
+            "level": 32,
+            "renown": 1
+          }
+        },
+        {
+          "level": 33,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 504,
+            "first_clear": true,
+            "level": 33,
+            "renown": 1
+          }
+        },
+        {
+          "level": 34,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 516,
+            "first_clear": true,
+            "level": 34,
+            "renown": 1
+          }
+        },
+        {
+          "level": 35,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 528,
+            "first_clear": true,
+            "level": 35,
+            "renown": 1
+          }
+        }
+      ],
+      "navigation": [
+        {
+          "level": 31,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 32,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 33,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 34,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 35,
+          "route": "actual next-level button"
+        }
+      ],
+      "coins": 2210,
+      "renown": 41,
+      "clears": 35,
+      "purchases": 2
+    },
+    {
+      "run": "ux110-journey08",
+      "passed": true,
+      "completed": true,
+      "first": 36,
+      "last": 40,
+      "attempts": [
+        {
+          "level": 36,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 540,
+            "first_clear": true,
+            "level": 36,
+            "renown": 1
+          }
+        },
+        {
+          "level": 37,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 552,
+            "first_clear": true,
+            "level": 37,
+            "renown": 1
+          }
+        },
+        {
+          "level": 38,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 564,
+            "first_clear": true,
+            "level": 38,
+            "renown": 1
+          }
+        },
+        {
+          "level": 39,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 576,
+            "first_clear": true,
+            "level": 39,
+            "renown": 1
+          }
+        },
+        {
+          "level": 40,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 888,
+            "first_clear": true,
+            "level": 40,
+            "renown": 3
+          }
+        }
+      ],
+      "navigation": [
+        {
+          "level": 36,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 37,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 38,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 39,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 40,
+          "route": "actual next-level button"
+        }
+      ],
+      "coins": 5330,
+      "renown": 48,
+      "clears": 40,
+      "purchases": 0
+    },
+    {
+      "run": "ux110-journey09",
+      "passed": true,
+      "completed": true,
+      "first": 41,
+      "last": 45,
+      "attempts": [
+        {
+          "level": 41,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 600,
+            "first_clear": true,
+            "level": 41,
+            "renown": 1
+          }
+        },
+        {
+          "level": 42,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 612,
+            "first_clear": true,
+            "level": 42,
+            "renown": 1
+          }
+        },
+        {
+          "level": 43,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 624,
+            "first_clear": true,
+            "level": 43,
+            "renown": 1
+          }
+        },
+        {
+          "level": 44,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 636,
+            "first_clear": true,
+            "level": 44,
+            "renown": 1
+          }
+        },
+        {
+          "level": 45,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 648,
+            "first_clear": true,
+            "level": 45,
+            "renown": 1
+          }
+        }
+      ],
+      "navigation": [
+        {
+          "level": 41,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 42,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 43,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 44,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 45,
+          "route": "camp, chapter tab, card, battle buttons"
+        }
+      ],
+      "coins": 3005,
+      "renown": 53,
+      "clears": 45,
+      "purchases": 4
+    },
+    {
+      "run": "ux110-journey10",
+      "passed": true,
+      "completed": true,
+      "first": 46,
+      "last": 50,
+      "attempts": [
+        {
+          "level": 46,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 660,
+            "first_clear": true,
+            "level": 46,
+            "renown": 1
+          }
+        },
+        {
+          "level": 47,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 672,
+            "first_clear": true,
+            "level": 47,
+            "renown": 1
+          }
+        },
+        {
+          "level": 48,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 684,
+            "first_clear": true,
+            "level": 48,
+            "renown": 1
+          }
+        },
+        {
+          "level": 49,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 696,
+            "first_clear": true,
+            "level": 49,
+            "renown": 1
+          }
+        },
+        {
+          "level": 50,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 1008,
+            "first_clear": true,
+            "level": 50,
+            "renown": 3
+          }
+        }
+      ],
+      "navigation": [
+        {
+          "level": 46,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 47,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 48,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 49,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 50,
+          "route": "actual next-level button"
+        }
+      ],
+      "coins": 6725,
+      "renown": 60,
+      "clears": 50,
+      "purchases": 0
+    },
+    {
+      "run": "ux110-journey11",
+      "passed": true,
+      "completed": true,
+      "first": 51,
+      "last": 55,
+      "attempts": [
+        {
+          "level": 51,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 720,
+            "first_clear": true,
+            "level": 51,
+            "renown": 1
+          }
+        },
+        {
+          "level": 52,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 732,
+            "first_clear": true,
+            "level": 52,
+            "renown": 1
+          }
+        },
+        {
+          "level": 53,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 744,
+            "first_clear": true,
+            "level": 53,
+            "renown": 1
+          }
+        },
+        {
+          "level": 54,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 756,
+            "first_clear": true,
+            "level": 54,
+            "renown": 1
+          }
+        },
+        {
+          "level": 55,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 768,
+            "first_clear": true,
+            "level": 55,
+            "renown": 1
+          }
+        }
+      ],
+      "navigation": [
+        {
+          "level": 51,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 52,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 53,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 54,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 55,
+          "route": "actual next-level button"
+        }
+      ],
+      "coins": 10445,
+      "renown": 65,
+      "clears": 55,
+      "purchases": 0
+    },
+    {
+      "run": "ux110-journey12",
+      "passed": true,
+      "completed": true,
+      "first": 56,
+      "last": 60,
+      "attempts": [
+        {
+          "level": 56,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 780,
+            "first_clear": true,
+            "level": 56,
+            "renown": 1
+          }
+        },
+        {
+          "level": 57,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "hp",
+          "reward": {
+            "coins": 792,
+            "first_clear": true,
+            "level": 57,
+            "renown": 1
+          }
+        },
+        {
+          "level": 58,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 804,
+            "first_clear": true,
+            "level": 58,
+            "renown": 1
+          }
+        },
+        {
+          "level": 59,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 816,
+            "first_clear": true,
+            "level": 59,
+            "renown": 1
+          }
+        },
+        {
+          "level": 60,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 1128,
+            "first_clear": true,
+            "level": 60,
+            "renown": 3
+          }
+        }
+      ],
+      "navigation": [
+        {
+          "level": 56,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 57,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 58,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 59,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 60,
+          "route": "actual next-level button"
+        }
+      ],
+      "coins": 14765,
+      "renown": 72,
+      "clears": 60,
+      "purchases": 0
+    },
+    {
+      "run": "ux110-journey13",
+      "passed": true,
+      "completed": true,
+      "first": 61,
+      "last": 65,
+      "attempts": [
+        {
+          "level": 61,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 840,
+            "first_clear": true,
+            "level": 61,
+            "renown": 1
+          }
+        },
+        {
+          "level": 62,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 852,
+            "first_clear": true,
+            "level": 62,
+            "renown": 1
+          }
+        },
+        {
+          "level": 63,
+          "attempt": 1,
+          "winner": 1,
+          "reason": "terminal",
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 63,
+            "renown": 0
+          }
+        },
+        {
+          "level": 63,
+          "attempt": 2,
+          "winner": 1,
+          "reason": "terminal",
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 63,
+            "renown": 0
+          }
+        },
+        {
+          "level": 63,
+          "attempt": 3,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 864,
+            "first_clear": true,
+            "level": 63,
+            "renown": 1
+          }
+        },
+        {
+          "level": 64,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 876,
+            "first_clear": true,
+            "level": 64,
+            "renown": 1
+          }
+        },
+        {
+          "level": 65,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "hp",
+          "reward": {
+            "coins": 888,
+            "first_clear": true,
+            "level": 65,
+            "renown": 1
+          }
+        }
+      ],
+      "navigation": [
+        {
+          "level": 61,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 62,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 63,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 63,
+          "route": "viewport R retry"
+        },
+        {
+          "level": 63,
+          "route": "viewport R retry"
+        },
+        {
+          "level": 64,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 65,
+          "route": "actual next-level button"
+        }
+      ],
+      "coins": 19085,
+      "renown": 77,
+      "clears": 65,
+      "purchases": 0
+    },
+    {
+      "run": "ux110-journey14",
+      "passed": true,
+      "completed": true,
+      "first": 66,
+      "last": 70,
+      "attempts": [
+        {
+          "level": 66,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 900,
+            "first_clear": true,
+            "level": 66,
+            "renown": 1
+          }
+        },
+        {
+          "level": 67,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 912,
+            "first_clear": true,
+            "level": 67,
+            "renown": 1
+          }
+        },
+        {
+          "level": 68,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 924,
+            "first_clear": true,
+            "level": 68,
+            "renown": 1
+          }
+        },
+        {
+          "level": 69,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 936,
+            "first_clear": true,
+            "level": 69,
+            "renown": 1
+          }
+        },
+        {
+          "level": 70,
+          "attempt": 1,
+          "winner": 1,
+          "reason": "score",
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 70,
+            "renown": 0
+          }
+        },
+        {
+          "level": 70,
+          "attempt": 2,
+          "winner": 1,
+          "reason": "score",
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 70,
+            "renown": 0
+          }
+        },
+        {
+          "level": 70,
+          "attempt": 3,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 1248,
+            "first_clear": true,
+            "level": 70,
+            "renown": 3
+          }
+        }
+      ],
+      "navigation": [
+        {
+          "level": 66,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 67,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 68,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 69,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 70,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 70,
+          "route": "viewport R retry"
+        },
+        {
+          "level": 70,
+          "route": "viewport R retry"
+        }
+      ],
+      "coins": 24005,
+      "renown": 84,
+      "clears": 70,
+      "purchases": 0
+    },
+    {
+      "run": "ux110-journey15",
+      "passed": true,
+      "completed": true,
+      "first": 71,
+      "last": 75,
+      "attempts": [
+        {
+          "level": 71,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 960,
+            "first_clear": true,
+            "level": 71,
+            "renown": 1
+          }
+        },
+        {
+          "level": 72,
+          "attempt": 1,
+          "winner": 1,
+          "reason": "score",
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 72,
+            "renown": 0
+          }
+        },
+        {
+          "level": 72,
+          "attempt": 2,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 972,
+            "first_clear": true,
+            "level": 72,
+            "renown": 1
+          }
+        },
+        {
+          "level": 73,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 984,
+            "first_clear": true,
+            "level": 73,
+            "renown": 1
+          }
+        },
+        {
+          "level": 74,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 996,
+            "first_clear": true,
+            "level": 74,
+            "renown": 1
+          }
+        },
+        {
+          "level": 75,
+          "attempt": 1,
+          "winner": 1,
+          "reason": "hp",
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 75,
+            "renown": 0
+          }
+        },
+        {
+          "level": 75,
+          "attempt": 2,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 1008,
+            "first_clear": true,
+            "level": 75,
+            "renown": 1
+          }
+        }
+      ],
+      "navigation": [
+        {
+          "level": 71,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 72,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 72,
+          "route": "viewport R retry"
+        },
+        {
+          "level": 73,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 74,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 75,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 75,
+          "route": "viewport R retry"
+        }
+      ],
+      "coins": 28925,
+      "renown": 89,
+      "clears": 75,
+      "purchases": 0
+    },
+    {
+      "run": "ux110-journey16",
+      "passed": true,
+      "completed": true,
+      "first": 76,
+      "last": 80,
+      "attempts": [
+        {
+          "level": 76,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 1020,
+            "first_clear": true,
+            "level": 76,
+            "renown": 1
+          }
+        },
+        {
+          "level": 77,
+          "attempt": 1,
+          "winner": 1,
+          "reason": "score",
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 77,
+            "renown": 0
+          }
+        },
+        {
+          "level": 77,
+          "attempt": 2,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 1032,
+            "first_clear": true,
+            "level": 77,
+            "renown": 1
+          }
+        },
+        {
+          "level": 78,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 1044,
+            "first_clear": true,
+            "level": 78,
+            "renown": 1
+          }
+        },
+        {
+          "level": 79,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 1056,
+            "first_clear": true,
+            "level": 79,
+            "renown": 1
+          }
+        },
+        {
+          "level": 80,
+          "attempt": 1,
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 1368,
+            "first_clear": true,
+            "level": 80,
+            "renown": 3
+          }
+        }
+      ],
+      "navigation": [
+        {
+          "level": 76,
+          "route": "camp, chapter tab, card, battle buttons"
+        },
+        {
+          "level": 77,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 77,
+          "route": "viewport R retry"
+        },
+        {
+          "level": 78,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 79,
+          "route": "actual next-level button"
+        },
+        {
+          "level": 80,
+          "route": "actual next-level button"
+        }
+      ],
+      "coins": 34445,
+      "renown": 96,
+      "clears": 80,
+      "purchases": 0
+    }
+  ],
+  "independent_ledger": {
+    "coins": 34445,
+    "renown": 96,
+    "matches": 89,
+    "purchases": 21,
+    "issues": []
+  },
+  "score_audit": {
+    "arena_matches": 81,
+    "mismatches": [],
+    "duplicate_cells": [],
+    "natural_losses": [
+      {
+        "level": 7,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 8,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 63,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 63,
+        "attempt": 2,
+        "winner": 1
+      },
+      {
+        "level": 70,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 70,
+        "attempt": 2,
+        "winner": 1
+      },
+      {
+        "level": 72,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 75,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 77,
+        "attempt": 1,
+        "winner": 1
+      }
+    ]
+  },
+  "all_runs_closed": true,
+  "actual_journey_complete": true,
+  "remaining": "Final release/package and separate 60-minute integration must be documented in QA111.",
+  "formal_save_check": {
+    "before": "docs/development/logs/econ109-formal-after02.json",
+    "after": "docs/development/logs/ux110-formal-after02.json",
+    "unchanged": true,
+    "files": [
+      {
+        "name": "profile_v1.json",
+        "exists": true,
+        "sha256": "713385AFF6632FE96D03CF6BF0A20F0F78E0B828A63792F150FC94E0A94F7C58"
+      },
+      {
+        "name": "profile_v1.backup.json",
+        "exists": true,
+        "sha256": "713385AFF6632FE96D03CF6BF0A20F0F78E0B828A63792F150FC94E0A94F7C58"
+      },
+      {
+        "name": "profile_v1_slot_1.json",
+        "exists": false,
+        "sha256": null
+      },
+      {
+        "name": "profile_v1_slot_2.json",
+        "exists": false,
+        "sha256": null
+      },
+      {
+        "name": "profile_v1_slot_3.json",
+        "exists": false,
+        "sha256": null
+      }
+    ]
+  },
+  "phase": {
+    "start_utc": "2026-11-20 09:01:53",
+    "end_utc": "2026-11-20 10:48:37",
+    "elapsed_seconds": 6404,
+    "minimum_seconds": 5400
+  }
+}

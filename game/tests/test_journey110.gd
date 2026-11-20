@@ -3,6 +3,7 @@ extends "test_earned109.gd"
 ## ownership, clears, stats or outcomes are granted. UI purchases and normal
 ## match rewards supply all growth. Finite scripted controls are not humans.
 var navigation=[]
+func profile_root110()->String:return "E:/GALUMU/docs/development/logs/ux110-"
 func key110(code:int)->void:
 	var event=InputEventKey.new();event.keycode=code;event.physical_keycode=code;event.pressed=true
 	root.push_input(event,true);event=event.duplicate();event.pressed=false;root.push_input(event,true)
@@ -49,7 +50,7 @@ func run()->void:
 		if arg.begins_with("--attempts="):max_attempts=clampi(int(arg.trim_prefix("--attempts=")),1,3)
 		if arg=="--heavy":heavy=true
 	var state=root.get_node("GameState")
-	if folder.is_empty() or DirAccess.dir_exists_absolute(folder) or not profile_folder.begins_with("E:/GALUMU/docs/development/logs/ux110-") or not profile_folder.ends_with("qa_journey") or not state.save_path.contains("qa_") or OS.get_environment("GALUMU_MEMORY_BOUND")!="1024" or DisplayServer.get_name()=="headless" or first<1 or last>80 or last<first:quit(2);return
+	if folder.is_empty() or DirAccess.dir_exists_absolute(folder) or not profile_folder.begins_with(profile_root110()) or not profile_folder.ends_with("qa_journey") or not state.save_path.contains("qa_") or OS.get_environment("GALUMU_MEMORY_BOUND")!="1024" or DisplayServer.get_name()=="headless" or first<1 or last>80 or last<first:quit(2);return
 	DirAccess.make_dir_recursive_absolute(folder);DirAccess.make_dir_recursive_absolute(profile_folder)
 	state.save_path=profile_folder+"/qa_profile.json";state.backup_path=profile_folder+"/qa_backup.json";state.load_profile()
 	if state.recovery_required:quit(2);return

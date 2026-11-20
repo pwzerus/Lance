@@ -1,10 +1,10 @@
 {
   "task": "CORE-106",
-  "updated_utc": "2026-11-19T22:58:32.098793+00:00",
+  "updated_utc": "2026-11-20T04:02:49.949177+00:00",
   "baseline_sha": "d6d46cc567b606664e8faccd3ddbf0741ec86f80",
   "source_checkpoint_sha": "ac8cbfb05183cd540ee3a740af9ed04ed2070700",
-  "status": "Development checkpoint; latest user requests lightweight checks now, full GPU/release verification later.",
-  "validation_mode": "Guarded headless rules and earlier isolated GPU; no screen takeover, OS input, human play or hardware listening.",
+  "status": "Windows v0.4.58-c1 exported, actual-package and isolated GPU gates completed; Play-Latest updated. Historical failures and outstanding experience/performance limits remain below.",
+  "validation_mode": "Guarded headless rules, isolated GPU and actual release package; necessary desktop use authorized on resume but not used. No OS input, human play or hardware listening.",
   "protections": "Start-MemoryBound: original memory/CPU/single-instance guards; reserve500MiB; finite diagnostic profiles only for eligible scripts.",
   "runs": [
     {
@@ -146,6 +146,338 @@
       "has_script_error": false
     },
     {
+      "run": "core106-c1-audio01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-c1-audio01/report.json",
+          "sha256": "d61eeac7d97a0168ad2408ca25cf882a2f13f03a5b5c3a12e61d0a7b7a1ab16f",
+          "bytes": 30295,
+          "passed": true,
+          "failures": [],
+          "scope": "Real catalogue material fallback and explicit material fixtures, speed-aware contact strength distinct from damage, pure cue selection, bounded variants, original-event immutability, actual PCM/headroom and simultaneous/staggered contact-group peak budget, optional fixed-gain audition WAVs, live long-voice pause/resume, mute and bounded pool. No claim of human listening, whole-Master mix measurement, hardware loudness, real recorded material or player impact satisfaction.",
+          "rows_count": 62
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 96.1,
+        "sampled_system_available_min_mib": 2811,
+        "terminal": [
+          "EXIT code=0 seconds=2.5"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-c1-audioui01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-c1-audioui01/qa/report.json",
+          "sha256": "6845a42b9843d0d377b8e17799bcd809d13951e10d683066791e3f4820e674c0",
+          "bytes": 8828,
+          "passed": true,
+          "failures": [],
+          "scope": "Actual background GPU and audio buses; viewport keyboard slider plus production callbacks. Master muted, no OS input/listening. Isolated file failure is intentional."
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 414.8,
+        "sampled_system_available_min_mib": 2742,
+        "terminal": [
+          "EXIT code=0 seconds=9.1",
+          "QA_DESKTOP_CLOSED=True"
+        ]
+      },
+      "engine_error_lines": [
+        "ERROR: Failed to open 'E:/GALUMU/docs/development/logs/core106-c1-audioui01/qa/blocked_backup'.",
+        "WARNING: SAVE_IO: 无法备份原进度 [12: Can't open file]"
+      ],
+      "has_script_error": false,
+      "intentional_fault_scope": "Audio settings test deliberately makes its isolated QA backup destination a directory. Preserve the ERROR Failed to open .../blocked_backup and SAVE_IO warning as expected fault-injection evidence, not a clean-log claim. Verify report passes and retry succeeds."
+    },
+    {
+      "run": "core106-c1-beginner01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-c1-beginner01/qa/report.json",
+          "sha256": "586eb746acbd454945ee69b843eae63bf4254b7aa8d8d943b8b65fc435733021",
+          "bytes": 24631,
+          "passed": true,
+          "failures": [],
+          "scope": "Isolated rendered Main, starter inventory, coarse chest aim and held spur injected in engine. No OS input/human play. Default 1/3 fixture supplies level-2 unlock; explicit --levels uses natural results only.",
+          "rows_count": 3
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 689.5,
+        "sampled_system_available_min_mib": 2024,
+        "terminal": [
+          "EXIT code=0 seconds=182.2",
+          "QA_DESKTOP_CLOSED=True"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-c1-bundle01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-c1-bundle01/qa/report.json",
+          "sha256": "5d8229785b934efc20c2ab755d8c45ceb66ad8ba041d742d60567e5b09352789",
+          "bytes": 2859,
+          "passed": true,
+          "failures": [],
+          "scope": "Actual release engine/PCK load and inventory, no source project or GPU animation acceptance. Separate external script is excluded from distribution."
+        }
+      ],
+      "memory": {
+        "terminal": [
+          "EXIT code=0 seconds=0.6"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-c1-interruption01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-c1-interruption01/qa/report.json",
+          "sha256": "0b563e5531be5d274f3e88313c2dfee60db18eaefd543d6e58adf841f195dd0d",
+          "bytes": 7786,
+          "passed": true,
+          "failures": [],
+          "scope": "Actual isolated GPU/windows minimized during ordinary practice ready/charge/contact. Live autoplay, viewport mouse/Escape injection, 8s settled-hidden pose snapshots; no damage injection, no OS input/human feel.",
+          "cases_count": 3
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 660.8,
+        "sampled_system_available_min_mib": 2427,
+        "terminal": [
+          "EXIT code=0 seconds=50.6",
+          "QA_DESKTOP_CLOSED=True"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-c1-outer01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-c1-outer01/report.json",
+          "sha256": "eb7436ea1ff8ae5fc7fcfebde5487361a813eaee45c20f5249d673189fac83c9",
+          "bytes": 200,
+          "passed": true,
+          "scope": "Actual portable outer launcher, default game scene, engine smoke controls, isolated desktop and QA save; no OS input."
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 696.5,
+        "sampled_system_available_min_mib": 2064,
+        "terminal": [
+          "EXIT code=0 seconds=88.3",
+          "QA_DESKTOP_CLOSED=True"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-c1-portable01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-c1-portable01/results.json",
+          "sha256": "c8565d3e16072c286ae6e22de0be8c249da278c5ec83439d163af4bd076f0e51",
+          "bytes": 942,
+          "passed": true,
+          "cases_count": 10,
+          "cases": [
+            {
+              "name": "relocated-arguments",
+              "code": 0,
+              "expected": 0,
+              "passed": true
+            },
+            {
+              "name": "argument:--literal=two words",
+              "passed": true
+            },
+            {
+              "name": "argument:--literal=quote\"and\\end\\",
+              "passed": true
+            },
+            {
+              "name": "argument:--literal=尾部 空格\\",
+              "passed": true
+            },
+            {
+              "name": "isolated-save-and-guard",
+              "passed": true
+            },
+            {
+              "name": "duplicate-blocked",
+              "code": 2,
+              "expected": 2,
+              "passed": true
+            },
+            {
+              "name": "first-unaffected",
+              "code": 0,
+              "expected": 0,
+              "passed": true
+            },
+            {
+              "name": "finite-timeout",
+              "code": 124,
+              "expected": 124,
+              "passed": true
+            },
+            {
+              "name": "mutex-and-desktop-released",
+              "code": 0,
+              "expected": 0,
+              "passed": true
+            },
+            {
+              "name": "invalid-timeout-rejected",
+              "code": 2,
+              "expected": 2,
+              "passed": true
+            }
+          ]
+        }
+      ],
+      "memory": {
+        "terminal": []
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-c1-profile01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-c1-profile01/qa/report.json",
+          "sha256": "789e1126aa892cb155819c35fbb422d8a2f6e8833a278a91021e607a02b11b45",
+          "bytes": 49891,
+          "passed": true,
+          "failures": [],
+          "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+          "all_frames": {
+            "fps": 59.8732230886458,
+            "frames": 10778,
+            "max_ms": 30.146,
+            "over_33ms": 0,
+            "over_50ms": 0,
+            "p50_ms": 16.665,
+            "p95_ms": 17.81,
+            "p99_ms": 19.845
+          },
+          "phases": {
+            "charge": {
+              "fps": 59.9010041085647,
+              "frames": 7328,
+              "max_ms": 29.588,
+              "over_33ms": 0,
+              "over_50ms": 0,
+              "p50_ms": 16.666,
+              "p95_ms": 17.742,
+              "p99_ms": 19.485
+            },
+            "contact": {
+              "fps": 56.9726803961019,
+              "frames": 213,
+              "max_ms": 30.146,
+              "over_33ms": 0,
+              "over_50ms": 0,
+              "p50_ms": 16.738,
+              "p95_ms": 24.397,
+              "p99_ms": 28.661
+            },
+            "ended": {
+              "fps": 60.0652644430683,
+              "frames": 680,
+              "max_ms": 25.377,
+              "over_33ms": 0,
+              "over_50ms": 0,
+              "p50_ms": 16.652,
+              "p95_ms": 18.908,
+              "p99_ms": 21.582
+            },
+            "ready": {
+              "fps": 59.9815256900875,
+              "frames": 1580,
+              "max_ms": 20.49,
+              "over_33ms": 0,
+              "over_50ms": 0,
+              "p50_ms": 16.662,
+              "p95_ms": 17.259,
+              "p99_ms": 17.891
+            },
+            "result": {
+              "fps": 60.047537130651,
+              "frames": 398,
+              "max_ms": 24.137,
+              "over_33ms": 0,
+              "over_50ms": 0,
+              "p50_ms": 16.661,
+              "p95_ms": 16.925,
+              "p99_ms": 17.375
+            },
+            "turn": {
+              "fps": 60.0041287815038,
+              "frames": 579,
+              "max_ms": 19.466,
+              "over_33ms": 0,
+              "over_50ms": 0,
+              "p50_ms": 16.664,
+              "p95_ms": 17.581,
+              "p99_ms": 18.521
+            }
+          },
+          "wall_seconds": 180.01618,
+          "matches_count": 5
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 694.7,
+        "sampled_system_available_min_mib": 1954,
+        "terminal": [
+          "EXIT code=0 seconds=186.9",
+          "QA_DESKTOP_CLOSED=True"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-c1-result01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-c1-result01/qa/report.json",
+          "sha256": "16ab9070ac32d907fe883a6d7798470ea2683c2402fae24e5745e7c15ebb97aa",
+          "bytes": 7060,
+          "passed": true,
+          "failures": [],
+          "scope": "24 shortened real Main result/replay transitions, recorded contacts; no OS input or gameplay balance inference",
+          "rows_count": 24
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 670.8,
+        "sampled_system_available_min_mib": 2446,
+        "terminal": [
+          "EXIT code=0 seconds=20.8",
+          "QA_DESKTOP_CLOSED=True"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
       "run": "core106-cadence01",
       "reports": [
         {
@@ -163,6 +495,29 @@
         "sampled_system_available_min_mib": 1314,
         "terminal": [
           "EXIT code=0 seconds=4.7"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-charge01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-charge01/report.json",
+          "sha256": "314a06f0881dc21928f3918ef54f154110de7882100fef6bb10d1d98129b482a",
+          "bytes": 1050512,
+          "passed": true,
+          "failures": [],
+          "scope": "Actual production model input setters and RiderView rendered continuously in a fixed following diagnostic frame. Both directions, start/cruise/hold/release/re-hold, finite weapon/shield/posture commands. Not Battle camera, OS input, naturalness proof or measured real-time FPS. Rule contacts disabled by explicit wide separation and acted=true. Existing v050 anatomy/catalogue suite remains the geometry/10-horse regression."
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 593.8,
+        "sampled_system_available_min_mib": 2343,
+        "terminal": [
+          "EXIT code=0 seconds=16.7",
+          "QA_DESKTOP_CLOSED=True"
         ]
       },
       "engine_error_lines": [],
@@ -285,6 +640,19 @@
       "memory": {
         "terminal": [
           "EXIT code=0 seconds=0.5"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-export01",
+      "reports": [],
+      "memory": {
+        "sampled_private_peak_mib": 617.7,
+        "sampled_system_available_min_mib": 2289,
+        "terminal": [
+          "EXIT code=0 seconds=26.1"
         ]
       },
       "engine_error_lines": [],
@@ -590,6 +958,54 @@
       "has_script_error": false
     },
     {
+      "run": "core106-motion01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-motion01/qa/report.json",
+          "sha256": "9c2213316eb0275afdf7c02cdf136af3f3fe374d042f10cc46f4c5afbff0b6de",
+          "bytes": 1890842,
+          "passed": true,
+          "failures": [],
+          "scope": "Coat-only visual variants, unchanged horse stats. Production controls/pose sampling and isolated GPU images; no OS input or human rating.",
+          "records_count": 24
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 571.2,
+        "sampled_system_available_min_mib": 1860,
+        "terminal": [
+          "EXIT code=0 seconds=22.3",
+          "QA_DESKTOP_CLOSED=True"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-mounted01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-mounted01/qa/report.json",
+          "sha256": "88e0d8c8bfff0eac6afb3f36d6dc18847dcec848e6f4ccdf20d7f62a43cbd041",
+          "bytes": 6824,
+          "passed": true,
+          "failures": [],
+          "scope": "Isolated GPU, production control/reaction/gait with synthetic direct contacts and explicit 1000 HP/balance and 10000 KO threshold to keep riders mounted. Not CCD/KO rates or human motion approval.",
+          "records_count": 16
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 638.2,
+        "sampled_system_available_min_mib": 2379,
+        "terminal": [
+          "EXIT code=0 seconds=7.8",
+          "QA_DESKTOP_CLOSED=True"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
       "run": "core106-movement-audio01",
       "reports": [
         {
@@ -747,6 +1163,30 @@
       "has_script_error": false
     },
     {
+      "run": "core106-pennon02",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-pennon02/qa/report.json",
+          "sha256": "e8a082d2978abb11ebde6873a423f0916f9330a05163c61d7a5ad2e1eeb7ef6d",
+          "bytes": 366,
+          "passed": true,
+          "failures": [],
+          "scope": "Isolated actual Rider GPU; redraw after 180ms wall time at fixed game pose, then .18 game-clock advance. No OS input.",
+          "rows_count": 2
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 255.4,
+        "sampled_system_available_min_mib": 2000,
+        "terminal": [
+          "EXIT code=0 seconds=7.1",
+          "QA_DESKTOP_CLOSED=True"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
       "run": "core106-pose-cache01",
       "reports": [
         {
@@ -866,6 +1306,103 @@
       "engine_error_lines": [
         "ERROR: Can't create shader cache folder, no shader caching will happen: user://"
       ],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-profile-heavy02",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-profile-heavy02/qa/report.json",
+          "sha256": "741fc23ddfc85a796e47d245f8acb8d42dabfded55a85d723f1a69336886db6f",
+          "bytes": 67246,
+          "passed": true,
+          "failures": [],
+          "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+          "all_frames": {
+            "fps": 59.8260858725196,
+            "frames": 14359,
+            "max_ms": 39.544,
+            "over_33ms": 4,
+            "over_50ms": 0,
+            "p50_ms": 16.671,
+            "p95_ms": 18.33,
+            "p99_ms": 21.065
+          },
+          "phases": {
+            "charge": {
+              "fps": 59.9501714354196,
+              "frames": 9697,
+              "max_ms": 23.925,
+              "over_33ms": 0,
+              "over_50ms": 0,
+              "p50_ms": 16.678,
+              "p95_ms": 18.152,
+              "p99_ms": 19.726
+            },
+            "contact": {
+              "fps": 56.6133391213452,
+              "frames": 289,
+              "max_ms": 39.544,
+              "over_33ms": 3,
+              "over_50ms": 0,
+              "p50_ms": 16.753,
+              "p95_ms": 25.649,
+              "p99_ms": 30.464
+            },
+            "ended": {
+              "fps": 59.0810432388114,
+              "frames": 937,
+              "max_ms": 34.133,
+              "over_33ms": 1,
+              "over_50ms": 0,
+              "p50_ms": 16.619,
+              "p95_ms": 22.184,
+              "p99_ms": 24.416
+            },
+            "ready": {
+              "fps": 59.9274973938787,
+              "frames": 2108,
+              "max_ms": 27.18,
+              "over_33ms": 0,
+              "over_50ms": 0,
+              "p50_ms": 16.662,
+              "p95_ms": 17.497,
+              "p99_ms": 19.465
+            },
+            "result": {
+              "fps": 60.1272460323009,
+              "frames": 559,
+              "max_ms": 29.767,
+              "over_33ms": 0,
+              "over_50ms": 0,
+              "p50_ms": 16.663,
+              "p95_ms": 16.898,
+              "p99_ms": 17.223
+            },
+            "turn": {
+              "fps": 59.9647634885238,
+              "frames": 769,
+              "max_ms": 22.039,
+              "over_33ms": 0,
+              "over_50ms": 0,
+              "p50_ms": 16.667,
+              "p95_ms": 17.804,
+              "p99_ms": 19.994
+            }
+          },
+          "wall_seconds": 240.018441,
+          "matches_count": 7
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 715.4,
+        "sampled_system_available_min_mib": 1629,
+        "terminal": [
+          "EXIT code=0 seconds=248.6",
+          "QA_DESKTOP_CLOSED=True"
+        ]
+      },
+      "engine_error_lines": [],
       "has_script_error": false
     },
     {
@@ -994,6 +1531,28 @@
       "memory": {
         "terminal": [
           "EXIT code=0 seconds=0.5"
+        ]
+      },
+      "engine_error_lines": [],
+      "has_script_error": false
+    },
+    {
+      "run": "core106-scene01",
+      "reports": [
+        {
+          "path": "docs/development/logs/core106-scene01/report.json",
+          "sha256": "eb6b049435ad27f0acb8d6b9ed8e2bf57d6c8c598514157a0c0edf969f72cffc",
+          "bytes": 254837,
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "memory": {
+        "sampled_private_peak_mib": 691.2,
+        "sampled_system_available_min_mib": 2298,
+        "terminal": [
+          "EXIT code=0 seconds=29.5",
+          "QA_DESKTOP_CLOSED=True"
         ]
       },
       "engine_error_lines": [],
@@ -1642,9 +2201,80 @@
   ],
   "limits": [
     "Runs with no result/EXIT are not passes.",
-    "Exact pixel comparison excluded wall-clock pennon timing by fixing its QA lance quality to 3; gameplay pennons remain.",
-    "Microbenchmark timings do not establish whole-game FPS.",
+    "Exact armor pixel comparison used QA lance quality 3; actual pennons were separately GPU tested in pennon02.",
+    "Microbenchmark timings do not establish whole-game FPS; different host loads preclude attributing every before/after difference to code.",
     "Scripted strategy results are not human win rates.",
-    "Latest batch mesh, departure posture and pennon timing still require GPU integration verification; no new published Windows build yet."
-  ]
+    "Old 94ms spike was not reproduced or uniquely attributed. Residual long contact/ended frames prevent a locked-60 claim.",
+    "Hardware listening, OS input, mobile deployment and commercial-quality certification are outside this evidence."
+  ],
+  "candidate_manifest": {
+    "format": "galumu-windows-bundle-1",
+    "version": "0.4.58-c1",
+    "source_revision": "d0490e1238d2e4a498838de1ffd933bde87e5d62",
+    "built_utc": "2026-11-20T03:46:57.5298323Z",
+    "engine": "4.5.1.stable",
+    "platform": "Windows x64",
+    "entry": "LanceAndLaurel.exe",
+    "signed": false,
+    "launcher": {
+      "format": "galumu-launcher-1",
+      "guard_sha256": "E993D317EBACAC1F7C12025E4E3D68EDDCD66919E422790BC33C46E74B31D635",
+      "extracted_guard_sha256": "3C79B1FEC36EE3DF6A689D7BF5125A1648B29F4376DB42ECF3EB08F3AD7C187E",
+      "launcher_source_sha256": "9310EF7E406DB0CE2BFB027DBE4F03D0DF6F6F565FA4EED225E4F099C5444DB6",
+      "launcher_sha256": "17496E1E8DD198EC4874255C4702E99C4F01DF84C1B75D5E59FCC14AE80AA103",
+      "icon_sha256": "162216654BE34720045ED4B41A044FC855E1AA7ABF22DEBBDD494FA2D9FC4985",
+      "product_version": "0.4.58-c1",
+      "file_version": "0.4.58.1",
+      "built_utc": "2026-11-20T03:46:57.082869Z",
+      "note": "Compiled from the same MemoryBound source; 1024 MiB Job, 900 MiB early stop, 500 MiB system reserve, 25% CPU and one instance."
+    },
+    "files": [
+      {
+        "path": "LanceAndLaurel.exe",
+        "bytes": 44544,
+        "sha256": "17496E1E8DD198EC4874255C4702E99C4F01DF84C1B75D5E59FCC14AE80AA103"
+      },
+      {
+        "path": "licenses/ASSET-NOTICES.txt",
+        "bytes": 1815,
+        "sha256": "F4EE37FF877518B3705D5AC77E9560EF0797CB70F102B642B2346B8BFAF5F2D0"
+      },
+      {
+        "path": "licenses/GODOT-LICENSE.txt",
+        "bytes": 1149,
+        "sha256": "B0435E3B3E4E55238F05F4B306F30524A1B2E20147810D436EAA554FA6855C80"
+      },
+      {
+        "path": "licenses/GODOT-THIRD-PARTY.txt",
+        "bytes": 91338,
+        "sha256": "25EFD44DF9346C7469B21AE5CB0488CF6FFF63854D4473A6AF95E08508A87B17"
+      },
+      {
+        "path": "licenses/NOTO-SANS-SC-OFL.txt",
+        "bytes": 4388,
+        "sha256": "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9"
+      },
+      {
+        "path": "PLAYER-GUIDE.txt",
+        "bytes": 3566,
+        "sha256": "A48414CE48FA98BDE5FCFBD227DBC090CAF045422930249DDBD6E1EDD33B6D12"
+      },
+      {
+        "path": "RELEASE-NOTES.txt",
+        "bytes": 876,
+        "sha256": "5BCFD5B3DDB18CD840639A6A7753C19DC864865E815ACD30642CD5F36B5D3992"
+      },
+      {
+        "path": "runtime/LanceAndLaurel.exe",
+        "bytes": 96725504,
+        "sha256": "78CCC576E8F8BFFD7EF6AD6F36EBD72A41E609A1052225A55B3407C96EA84065"
+      },
+      {
+        "path": "runtime/LanceAndLaurel.pck",
+        "bytes": 38290328,
+        "sha256": "357ABDD8FA882976BF54F2BBADB2414A83995FDD686014C10145E19C22911D29"
+      }
+    ],
+    "status": "Candidate package; validation and platform approval are recorded separately."
+  }
 }

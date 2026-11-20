@@ -1,0 +1,467 @@
+{
+  "task": "ECON-109",
+  "baseline": "851600b7afadfc8ca59967e999ceb6f9db29ce21",
+  "source_hashes": {
+    "game/scripts/core/game_state.gd": "DC94407F19E6D46B5B35F2E332F3FE60175992717ACCCF13CC1ECF27DD614DAA",
+    "game/scripts/core/catalogue.gd": "C119FA082381A18C18CE2EF5B160ABCF85B87E8899F4F55482CEEF206CBB1BD4",
+    "game/scripts/core/campaign.gd": "06FDB10BC5A6068ABC7140FA4377EA33C3FFC81C994F0277DDE00B602D5EA66E",
+    "game/scripts/core/horse_condition.gd": "2BC368613E5339B15B9ED0A1A0893010F99592F6834EF4877BA57011E344951A"
+  },
+  "runs": [
+    {
+      "run": "econ109-earned01",
+      "memory_sha256": "CDF1622F0CD9DDD5B01F3356AC2D4D5A93D9C931F6DDEFC72E4172629E7F9553",
+      "exit_lines": [
+        "EXIT code=0 seconds=251.4",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 683.0,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-earned01/screens/report.json",
+      "report_sha256": "62BE0A2DEC6A67FC3D2BE9CB03D4284879810F3769D2B9D31AC295EA5F02E61F",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "econ109-earned02",
+      "memory_sha256": "77777628883DC77779300381EC70A6A7188D55E48EC64E349B6C37C96E71F6CF",
+      "exit_lines": [
+        "EXIT code=0 seconds=251.6",
+        "QA_DESKTOP_CLOSED=True"
+      ],
+      "private_peak_mib": 744.3,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-earned02/screens/report.json",
+      "report_sha256": "3A9919BF18682AF95A096518AC5FB210FAFC0951C12BB98D4366D171BDDA4F39",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "econ109-earned03",
+      "memory_sha256": "5C6BC635FCFF769E4E081AC001EE041B2C8BECEDF3920801A6752194DD21FD41",
+      "exit_lines": [],
+      "private_peak_mib": 738.5,
+      "finished": false,
+      "engine_issues": [],
+      "parse_result": []
+    },
+    {
+      "run": "econ109-fault01",
+      "memory_sha256": "1EE748E7C2FF1153B6AD381E626B9F7730025DC9B0974221CF2A518B73E72DB0",
+      "exit_lines": [
+        "EXIT code=1 seconds=0.4"
+      ],
+      "private_peak_mib": null,
+      "finished": true,
+      "engine_issues": [
+        "ERROR: Failed to open 'E:/GALUMU/docs/development/logs/econ109-fault01/evidence/blocked_backup'.",
+        "WARNING: SAVE_IO: 无法备份原进度 [12: Can't open file]",
+        "ERROR: Failed to open 'E:/GALUMU/docs/development/logs/econ109-fault01/evidence/blocked_backup'.",
+        "WARNING: SAVE_IO: 无法备份原进度 [12: Can't open file]",
+        "ERROR: Failed to open 'E:/GALUMU/docs/development/logs/econ109-fault01/evidence/blocked_backup'.",
+        "WARNING: SAVE_IO: 无法备份原进度 [12: Can't open file]",
+        "ERROR: Legacy currencies and owned equipment preserved"
+      ],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-fault01/evidence/report.json",
+      "report_sha256": "189F17A75EBA925DB1CE9A67CE86151336CE50DD8A571976684E3F7DFD11304C",
+      "passed": false,
+      "failures": [
+        "Legacy currencies and owned equipment preserved"
+      ]
+    },
+    {
+      "run": "econ109-fault02",
+      "memory_sha256": "654E1D62420D17C4EF46AEA2AF48DE083120CB64543A953B9F0F627C1DAE7438",
+      "exit_lines": [
+        "EXIT code=0 seconds=0.3"
+      ],
+      "private_peak_mib": null,
+      "finished": true,
+      "engine_issues": [
+        "ERROR: Failed to open 'E:/GALUMU/docs/development/logs/econ109-fault02/evidence/blocked_backup'.",
+        "WARNING: SAVE_IO: 无法备份原进度 [12: Can't open file]",
+        "ERROR: Failed to open 'E:/GALUMU/docs/development/logs/econ109-fault02/evidence/blocked_backup'.",
+        "WARNING: SAVE_IO: 无法备份原进度 [12: Can't open file]",
+        "ERROR: Failed to open 'E:/GALUMU/docs/development/logs/econ109-fault02/evidence/blocked_backup'.",
+        "WARNING: SAVE_IO: 无法备份原进度 [12: Can't open file]"
+      ],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-fault02/evidence/report.json",
+      "report_sha256": "8E7BDA84594DDD8A12A7F550D865A0020C15DA42BF55ECD3EC26214230603C64",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "run": "econ109-ledger01",
+      "memory_sha256": "0CADA449D74CCA7B1D379A26C7377D5B9F59D80674AAB4B82B8AA356E6F5759B",
+      "exit_lines": [
+        "EXIT code=0 seconds=10.0"
+      ],
+      "private_peak_mib": 58.0,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-ledger01/evidence/report.json",
+      "report_sha256": "2BA49626CDFBE7D37E09B5060CC461EF54F62E6E3A73D7A5F9FCD9947E1009E1",
+      "passed": true,
+      "failures": [],
+      "ledger_routes": [
+        {
+          "route": "light",
+          "spent": 16750,
+          "first_clear_coins": 49920,
+          "first_clear_renown": 96,
+          "last_purse": 33690
+        },
+        {
+          "route": "heavy",
+          "spent": 17310,
+          "first_clear_coins": 49920,
+          "first_clear_renown": 96,
+          "last_purse": 33130
+        },
+        {
+          "route": "early_light",
+          "spent": 15995,
+          "first_clear_coins": 49920,
+          "first_clear_renown": 96,
+          "last_purse": 34445
+        },
+        {
+          "route": "early_heavy",
+          "spent": 16940,
+          "first_clear_coins": 49920,
+          "first_clear_renown": 96,
+          "last_purse": 33500
+        }
+      ]
+    },
+    {
+      "run": "econ109-parse01",
+      "memory_sha256": "DCE8FF28A06D4CA630A836058DB90E10105A3A719CD8DC0CA5397B3602DD647D",
+      "exit_lines": [
+        "EXIT code=0 seconds=2.1"
+      ],
+      "private_peak_mib": 184.6,
+      "finished": true,
+      "engine_issues": [],
+      "parse_result": [
+        "PARSE065_RESULT failed=0"
+      ]
+    },
+    {
+      "run": "econ109-savebase01",
+      "memory_sha256": "C2497F73A09D26ED1C0E06548E0DB350693C70DF5EBD47857A01BFE36A5D6740",
+      "exit_lines": [
+        "EXIT code=0 seconds=0.5"
+      ],
+      "private_peak_mib": null,
+      "finished": true,
+      "engine_issues": [
+        "ERROR: Failed to open 'E:/GALUMU/docs/development/logs/econ109-savebase01/evidence/directory_not_a_file'.",
+        "WARNING: SAVE_IO: 无法备份原进度 [12: Can't open file]",
+        "ERROR: Failed to open 'E:/GALUMU/docs/development/logs/econ109-savebase01/evidence/directory_not_a_file'.",
+        "WARNING: SAVE_IO: 无法备份原进度 [12: Can't open file]",
+        "ERROR: Failed to open 'E:/GALUMU/docs/development/logs/econ109-savebase01/evidence/directory_not_a_file'.",
+        "WARNING: SAVE_IO: 无法备份原进度 [12: Can't open file]"
+      ],
+      "parse_result": [],
+      "report": "docs/development/logs/econ109-savebase01/evidence/report.json",
+      "report_sha256": "D72E4FF49C8171CBEDE278E9BD75BDCD8C2BDA058B7F19B16B7B3035BB2FABCA",
+      "passed": true,
+      "failures": []
+    }
+  ],
+  "earned_segments": [
+    {
+      "run": "econ109-earned01",
+      "completed_requested_segment": true,
+      "first": 1,
+      "last": 5,
+      "purchases": [],
+      "matches": [
+        {
+          "level": 1,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 120,
+            "first_clear": true,
+            "level": 1,
+            "renown": 1
+          },
+          "coins": 640,
+          "renown": 1
+        },
+        {
+          "level": 2,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 132,
+            "first_clear": true,
+            "level": 2,
+            "renown": 1
+          },
+          "coins": 772,
+          "renown": 2
+        },
+        {
+          "level": 3,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 144,
+            "first_clear": true,
+            "level": 3,
+            "renown": 1
+          },
+          "coins": 916,
+          "renown": 3
+        },
+        {
+          "level": 4,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 156,
+            "first_clear": true,
+            "level": 4,
+            "renown": 1
+          },
+          "coins": 1072,
+          "renown": 4
+        },
+        {
+          "level": 5,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 168,
+            "first_clear": true,
+            "level": 5,
+            "renown": 1
+          },
+          "coins": 1240,
+          "renown": 5
+        }
+      ],
+      "final_coins": 1240,
+      "final_renown": 5,
+      "cleared": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ledger_matches_final": true
+    },
+    {
+      "run": "econ109-earned02",
+      "completed_requested_segment": true,
+      "first": 6,
+      "last": 10,
+      "purchases": [
+        {
+          "id": "eng_lance_long_1",
+          "price": 295.0,
+          "coins_before": 1240,
+          "coins_after": 945
+        },
+        {
+          "id": "eng_armor_1",
+          "price": 290.0,
+          "coins_before": 945,
+          "coins_after": 655
+        },
+        {
+          "id": "eng_helmet_1",
+          "price": 240.0,
+          "coins_before": 655,
+          "coins_after": 415
+        },
+        {
+          "id": "horse_grey",
+          "price": 340.0,
+          "coins_before": 415,
+          "coins_after": 75
+        },
+        {
+          "id": "eng_shield_0",
+          "price": 70.0,
+          "coins_before": 75,
+          "coins_after": 5
+        },
+        {
+          "id": "eng_lance_long_2",
+          "price": 555.0,
+          "coins_before": 581,
+          "coins_after": 26
+        }
+      ],
+      "matches": [
+        {
+          "level": 6,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 180,
+            "first_clear": true,
+            "level": 6,
+            "renown": 1
+          },
+          "coins": 185,
+          "renown": 6
+        },
+        {
+          "level": 7,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 1,
+          "reason": "score",
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 7,
+            "renown": 0
+          },
+          "coins": 185,
+          "renown": 6
+        },
+        {
+          "level": 7,
+          "attempt": 2,
+          "strategy": "reserve",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 192,
+            "first_clear": true,
+            "level": 7,
+            "renown": 1
+          },
+          "coins": 377,
+          "renown": 7
+        },
+        {
+          "level": 8,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 204,
+            "first_clear": true,
+            "level": 8,
+            "renown": 1
+          },
+          "coins": 581,
+          "renown": 8
+        },
+        {
+          "level": 9,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "score",
+          "reward": {
+            "coins": 216,
+            "first_clear": true,
+            "level": 9,
+            "renown": 1
+          },
+          "coins": 242,
+          "renown": 9
+        },
+        {
+          "level": 10,
+          "attempt": 1,
+          "strategy": "forward",
+          "winner": 0,
+          "reason": "terminal",
+          "reward": {
+            "coins": 528,
+            "first_clear": true,
+            "level": 10,
+            "renown": 3
+          },
+          "coins": 770,
+          "renown": 12
+        }
+      ],
+      "final_coins": 770,
+      "final_renown": 12,
+      "cleared": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "ledger_matches_final": true
+    }
+  ],
+  "scope": "Protected isolated source-engine tests. Ledger/fault outcomes supplied to API; earned segments use actual battle outcomes and UI purchase/equip. No OS input, human skill/feel, hardware audio or new package acceptance.",
+  "earned_progress": {
+    "completed_levels": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "completed_matches": 11,
+    "purchase_count": 6,
+    "losses": [
+      {
+        "level": 7,
+        "attempt": 1,
+        "strategy": "forward",
+        "winner": 1,
+        "reason": "score",
+        "reward": {
+          "coins": 0,
+          "first_clear": false,
+          "level": 7,
+          "renown": 0
+        },
+        "coins": 185,
+        "renown": 6
+      }
+    ],
+    "cross_process_continuity": [
+      {
+        "segment": "econ109-earned02",
+        "initial_equals_previous_final": true
+      }
+    ]
+  }
+}

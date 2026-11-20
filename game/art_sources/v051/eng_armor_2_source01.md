@@ -1,5 +1,9 @@
 # eng_armor_2 — source 01
 
+## ART-108 source correction — 2026-11-20
+
+The original production record and exact prompt below are preserved as historical evidence, not current catalogue authority. The Science Museum Group article's present caption identifies the Black Prince's original jupon as **Figure 8**, not Figure 9. Current game metadata now cites “Canterbury 黑太子遗物 / SMG Fig.8” and dates this adaptation “14世纪；1376年以前”; the more specific 1360 lower bound and the inventory label 01107 have not been established from the primary pages read in this review. An image URL's filename is not evidence of the current figure number. Canterbury Cathedral's own exhibition announcement also confirms the original jupon among its holdings. See `docs/development/ART108_HISTORY_REVIEW.md` for the current source, context and limits. This correction does not change the source PNG, original prompt, gameplay stats or the acknowledged reconstruction of the garment and underlying protection.
+
 Built-in imagegen transparent output copied byte-for-byte as source and runtime PNG. Native: `C:\Users\yifei\.codex\generated_images\01a1858f-9c1e-75c2-8e55-c624311db411\exec-4a3a0f02-7fb6-4c92-b853-b1e2076cf164.png`. No CLI or raster edits. Canvas1254×1254; alpha≥128source region `[232,80,876,1108]`.
 
 Historical source: [Canterbury 01107 / SMG Fig.9](https://journal.sciencemuseum.ac.uk/article/panstereomachia/). 约1360–1376；1376前遗物；英格兰关联遗物；具体制作者未定。黑太子原物是覆在金属甲外的绗缝罩衣；本件保留防护槽，内层和数值为游戏适配。 The actual original garment in the upper-left of SMGfigure9 was viewed at https://journal.sciencemuseum.ac.uk/wp-content/uploads/sites/14/2020/05/figure-9-compox3-square-768x896.jpg . Quilting and fitted shape are the main construction reference; colored quartering and reduced heraldic motifs are game interpretations, not a claim that the monochrome image establishes every chosen color/pattern. Source-side inspection completed; rig and actual-size comparison remain parent-owned.

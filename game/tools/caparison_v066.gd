@@ -30,7 +30,8 @@ const FULL_FRONT = [Vector2(1236,10),Vector2(1290,330)]
 # dyed in the arms' tinctures as a cloth-wide livery: the charge repeats as a
 # continuous pattern (bend -> diagonal stripes, pale -> vertical stripes,
 # chequy -> checks, roundels/lozenges/lis -> scattered), so the horse reads as
-# the same house as the shield without wearing a copy of it.
+# the selected family arms. REQ-098: the equipped shield has its own fixed
+# heraldry and no longer determines this cloth's family identity.
 # Pattern tile, in shield-local units (charges are drawn in an 80x104 frame);
 # LIVERY_SCALE source px per unit. Tile centre offset keeps cuts on the seams.
 const LIVERY_SCALE = 2.1

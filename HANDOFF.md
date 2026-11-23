@@ -1,5 +1,11 @@
 # GALUMU 开发交接入口
 
+## REQ-112：本次玩家反馈已整理，尚未实施（2026-11-23）
+
+用户要求十分钟内先整理伤情、离鞍物理、小盾与中英文文案需求，不改代码。基线仍为 8184237 / v0.4.59-c1；本轮只增加[需求草案](docs/requirements/REQ112_INJURY_SEAT_SHIELD_LANGUAGE.md)、写作技能及协作记录，不运行或重新导出游戏。静态确认当前以冲击、平衡或生命耗尽触发 KO；主动晃动的平衡下限为 25，尚不能自行失衡落马。玩家本次两次腹部命中及小盾过耐用的具体条件尚未动态复现，不能用上轮通过结论替代本次诊断。
+
+接下来的文案工作阅读 `skills/tech-doc-style-chinese/SKILL.md` 和 `skills/writing-clearly-and-concisely/SKILL.md`，使用 REQ-112 的游戏术语和语气覆盖通用建议；两套固定 GitHub 版本已安装，MIT 许可及散列见 REQ112_SKILL_SOURCES.json。技能已由本轮读取，Codex 用户目录将在下一轮发现；Claude 可读取项目副本。具体伤害、盾耐久与昏厥时长仍为待确认提案。交接见[REQ-112](docs/collaboration/handoffs/2026-11-23-REQ-112-Codex.md)。下面 QA-111 为最新已运行发布包，不能把本次需求写成已经实现。
+
 ## DELIVERY-107–111 已交付：Windows v0.4.59-c1（2026-11-20）
 
 第5–9项各自超过90分钟，之后另完成64分37秒综合复验（其中八配置累计60分钟实际游戏／86场）。最新入口为根目录Play-Latest.cmd，走v0.4.59-c1外层保护程序；独立ZIP在builds，旧包均保留。运行源码e653fc940cf4acb1ed75e739e552cf60cec471ff，最终交出b2f3b2c73ddabcc26d8b5b41cc2f48b17f21ecc6已推送origin codex/v0.4并用ls-remote核对一致；后续本条回执只更新文档。

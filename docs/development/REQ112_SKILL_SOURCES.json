@@ -1,0 +1,152 @@
+{
+  "date": "2026-11-23",
+  "scope": "Writing skills only. No game code, tuning, save or build changed. Read and applied now; host discovery on next turn.",
+  "skills": [
+    {
+      "name": "tech-doc-style-chinese",
+      "repository": "https://github.com/Fenng/Tech-Doc-Style-Chinese",
+      "revision": "b119d01c9bb7cd132b3c62fafdff34227c4410d1",
+      "source_path": ".",
+      "license": "MIT",
+      "project_directory": "E:\\GALUMU\\skills\\tech-doc-style-chinese",
+      "host_directory": "C:\\Users\\yifei\\.codex\\skills\\tech-doc-style-chinese",
+      "files_identical": true,
+      "bundled_scripts_executed": false,
+      "files": [
+        {
+          "path": ".github/workflows/skill-lint.yml",
+          "sha256": "b2f9afa99df8645f8584855179445c8cdd447a70a2da0215588ee062e4f3fffa",
+          "bytes": 682
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "77ba19eacbd6520bf1f7ddd0c22087bbfa08ee7670feb560de0d772281c2be67",
+          "bytes": 282
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "fda04396a285dacbc12b03fa41c9a3a1c791944cb3ba6147b6a7a00bccf4b20f",
+          "bytes": 1062
+        },
+        {
+          "path": "NoCode-Skill.md",
+          "sha256": "ee56ca6ad16d77c72bd8cdefa6e751bf1b090b67865bb9209a8b90181bb1c419",
+          "bytes": 3038
+        },
+        {
+          "path": "README.md",
+          "sha256": "dd384b98751077708abeba66ae7362a0ecaecd73a8c2a05289f21ca739ef086f",
+          "bytes": 11799
+        },
+        {
+          "path": "references/api-status-copy.md",
+          "sha256": "2d8a429db092dc9679fce6b2b44e14b11ab1c861764c91a4eaee203fcebbe0cc",
+          "bytes": 2274
+        },
+        {
+          "path": "references/controlled-technical-chinese.md",
+          "sha256": "24306b6cb882916f2fdff543ef459f65111310d32a2ceca4b38e12487ed03449",
+          "bytes": 7930
+        },
+        {
+          "path": "references/project-overrides-example.md",
+          "sha256": "f3c28871305dcbdca0f450cf276831cc74d8cd192a9cf63df2fbff43b10d02b1",
+          "bytes": 1140
+        },
+        {
+          "path": "references/terminology-and-typography.md",
+          "sha256": "b489aaf362c8a80a18c74d8c878d23ea15a6b9064609691e69f2661ef818dd91",
+          "bytes": 10845
+        },
+        {
+          "path": "scripts/lint_copy_rules.py",
+          "sha256": "1171782dcaba2d0e153613afe47dd720aab18704aaa9cdcb4fdc73f765e793c2",
+          "bytes": 16898
+        },
+        {
+          "path": "scripts/unwrap_md_paragraphs.py",
+          "sha256": "6afb09d660aa7cb9042abb8c82123de5df9545aefd1a445fe6b54238d1ec8636",
+          "bytes": 23759
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "63449e740544d0b8b03f38f3e0adeec544baf63bfdca27af51996a8b2f43e0af",
+          "bytes": 8120
+        },
+        {
+          "path": "tests/test_lint_copy_rules.py",
+          "sha256": "8711a87cec6f28f579143ad9cc0e2e277f80c1e7e244ac39154639e721803ef9",
+          "bytes": 9436
+        },
+        {
+          "path": "tests/test_skill_structure.py",
+          "sha256": "9db26b54581715e4dcfa680a7e3fd5afd12eb236ca4e861f57da4dd82b793c39",
+          "bytes": 2010
+        },
+        {
+          "path": "tests/test_unwrap_md_paragraphs.py",
+          "sha256": "5fd9c5cadcebbcc9b60064a6a413cb2aecdaca1da6229ca30cf953253762dcc2",
+          "bytes": 16818
+        }
+      ]
+    },
+    {
+      "name": "writing-clearly-and-concisely",
+      "repository": "https://github.com/richyuh/claude-skills",
+      "revision": "77b048bd8b86fe83d130ee8fd2874f074dac80c5",
+      "source_path": "writing-clearly-and-concisely",
+      "license": "MIT",
+      "project_directory": "E:\\GALUMU\\skills\\writing-clearly-and-concisely",
+      "host_directory": "C:\\Users\\yifei\\.codex\\skills\\writing-clearly-and-concisely",
+      "files_identical": true,
+      "bundled_scripts_executed": false,
+      "files": [
+        {
+          "path": "elements-of-style/01-introductory.md",
+          "sha256": "248b18596fa18cf63605182688565d25d115c859f602068185f6014c26addbfe",
+          "bytes": 303
+        },
+        {
+          "path": "elements-of-style/02-elementary-rules-of-usage.md",
+          "sha256": "8cead3fc56b54ab5fc22e52c14423182fdce2d9535d4c1dda1f8319cac542027",
+          "bytes": 12168
+        },
+        {
+          "path": "elements-of-style/03-elementary-principles-of-composition.md",
+          "sha256": "3867f33512ff2f0e965386dbb558579aab43ca10f070bd48d732584b9b5119e0",
+          "bytes": 33622
+        },
+        {
+          "path": "elements-of-style/04-a-few-matters-of-form.md",
+          "sha256": "150feae0c201def056a96dd25fa5d23e015f53632b21f3bcd7b7266f8197c563",
+          "bytes": 4918
+        },
+        {
+          "path": "elements-of-style/05-words-and-expressions-commonly-misused.md",
+          "sha256": "60db286f5166b1b6f4d85a0cc39471b375fbd62d6057d3844533551fb09f2c2d",
+          "bytes": 22310
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9582a4e51d63ba623cea05de387f39f58d7f3545f8053ba0af46fab9e16e4edd",
+          "bytes": 1064
+        },
+        {
+          "path": "README.md",
+          "sha256": "cd8241146abf3e7514fdb07a6db2e06c8535a4f78dd1ab471901b2e7fe4db089",
+          "bytes": 6078
+        },
+        {
+          "path": "signs-of-ai-writing.md",
+          "sha256": "06d135c200e1bbfdbe90f433dfbdffeb9c4ea07f028a9a880f4026622e5c10fd",
+          "bytes": 94774
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "c5f4ecc8bfa7984d0df70d30cea3bfeb824f7b24d31db111d5a1a9a959880575",
+          "bytes": 3768
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,11 @@
 # 任务、审查建议与文件认领
 
+## REQ-112 文案、受创与离鞍需求整理（2026-11-23，Codex）
+
+需求整理与技能安装已完成，本轮文件认领释放。游戏实施未开始，具体数值和状态提案待用户确认；未运行引擎或接管屏幕。后续按 REQ112_INJURY_SEAT_SHIELD_LANGUAGE.md 的复现顺序重新认领。
+
+用户限定十分钟内整理需求，不修改游戏代码。基线 codex/v0.4 / 8184237001099219393a198de91da810fc56f570；三份既有历史差异保持。仅认领 docs/requirements/REQ112_INJURY_SEAT_SHIELD_LANGUAGE.md、skills/tech-doc-style-chinese/、skills/writing-clearly-and-concisely/、docs/development/REQ112_SKILL_SOURCES.json，以及本次 HANDOFF/PROJECT_STATE/WORK_LOG/TASK_BOARD/交接追加。安装两套固定来源的写作技能并静态核对当前实现，不启动游戏，不改生产代码、参数、存档或发布包。具体伤害目标和昏厥规则以需求草案标注，未进入实现。
+
 ## DELIVERY-107–111 已完成并释放（2026-11-20 13:38 UTC）
 
 第5–9项各自≥90分钟、独立综合期64分37秒完成；八配置实测3600.128秒／86场、实际80关成长／92场、全部保护和正式档核对通过。Play-Latest切至.59-c1，全部本轮生产、QA、README/共享交接/发布入口认领释放，无运行中的引擎。最终证据QA111_EVIDENCE.json，交接2026-11-20-QA-111-Codex.md。原三份历史差异不动，Claude下一轮可按实际工作区接手。

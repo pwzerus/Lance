@@ -1,0 +1,36 @@
+[
+  {
+    "path": "C:\\Users\\yifei\\AppData\\Roaming\\Godot\\app_userdata\\骑枪与桂冠 · Lance & Laurel\\profile_v1.json",
+    "exists": true,
+    "sha256": "88467DBDA0C72EA4804A6738AAB9C4EC6E206B01533FCA7B9773487C43E0B3CA"
+  },
+  {
+    "path": "C:\\Users\\yifei\\AppData\\Roaming\\Godot\\app_userdata\\骑枪与桂冠 · Lance & Laurel\\profile_v1.backup.json",
+    "exists": true,
+    "sha256": "88467DBDA0C72EA4804A6738AAB9C4EC6E206B01533FCA7B9773487C43E0B3CA"
+  },
+  {
+    "path": "C:\\Users\\yifei\\AppData\\Roaming\\Godot\\app_userdata\\骑枪与桂冠 · Lance & Laurel\\profile_v1_slot_1.json",
+    "exists": false
+  },
+  {
+    "path": "C:\\Users\\yifei\\AppData\\Roaming\\Godot\\app_userdata\\骑枪与桂冠 · Lance & Laurel\\profile_v1_slot_1.json.backup",
+    "exists": false
+  },
+  {
+    "path": "C:\\Users\\yifei\\AppData\\Roaming\\Godot\\app_userdata\\骑枪与桂冠 · Lance & Laurel\\profile_v1_slot_2.json",
+    "exists": false
+  },
+  {
+    "path": "C:\\Users\\yifei\\AppData\\Roaming\\Godot\\app_userdata\\骑枪与桂冠 · Lance & Laurel\\profile_v1_slot_2.json.backup",
+    "exists": false
+  },
+  {
+    "path": "C:\\Users\\yifei\\AppData\\Roaming\\Godot\\app_userdata\\骑枪与桂冠 · Lance & Laurel\\profile_v1_slot_3.json",
+    "exists": false
+  },
+  {
+    "path": "C:\\Users\\yifei\\AppData\\Roaming\\Godot\\app_userdata\\骑枪与桂冠 · Lance & Laurel\\profile_v1_slot_3.json.backup",
+    "exists": false
+  }
+]

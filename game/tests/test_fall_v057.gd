@@ -130,7 +130,7 @@ func inspect(actor, row: Dictionary) -> void:
 			var error = absf(now[pair[0]].distance_to(now[pair[1]])-initial[pair[0]].distance_to(initial[pair[1]]))
 			row.maximum_bone_error = maxf(row.maximum_bone_error,error)
 	check(row.maximum_bone_error<.002,"Arms and legs retain their captured bone lengths")
-	check(absf(float(actor.visual.detached_pose.get("head_rotation",0.0)))<=.2001,"Head motion stays inside neck articulation range")
+	check(absf(float(actor.visual.detached_pose.get("head_rotation",0.0)))<=Rider.DETACHED_NECK_LIMIT113+.0001,"Head motion stays inside neck articulation range")
 
 func remove_stage(stage: Node2D) -> void:
 	root.remove_child(stage)

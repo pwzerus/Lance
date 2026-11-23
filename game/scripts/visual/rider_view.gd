@@ -709,10 +709,12 @@ static func shield_pose_transform(pose: Dictionary, value: Dictionary) -> Transf
 	result.origin = pose.shield_center
 	return result
 
+const DETACHED_NECK_LIMIT113 = .34
+
 static func _head_hinge(pose: Dictionary, value: Dictionary) -> Transform2D:
 	# Detached neck articulation only; mounted head/target follows the core
 	# reaction pose. The default is precisely the previous head registration.
-	var angle = clampf(float(pose.get("head_rotation",0.0)),-.2,.2)
+	var angle = clampf(float(pose.get("head_rotation",0.0)),-DETACHED_NECK_LIMIT113,DETACHED_NECK_LIMIT113)
 	var fit = HeadFit.layout(value.stats)
 	var pivot = Vector2(float(fit.collar.center[0]),float(fit.collar.center[1])+2.0)
 	var hinge = Transform2D(angle,Vector2.ZERO)

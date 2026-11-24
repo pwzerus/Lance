@@ -1,0 +1,14 @@
+{
+  "bundle": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.60-c4",
+  "source_revision": "0e9b0be18f6acc8e5f928280b7211e6cd0fecc74",
+  "manifest_sha256": "987D5456D4333345D6536A93B7C0598A5A89C92C82E33CF3DDBA331980997528",
+  "pck_sha256": "C74838EB6A14C2C78B135417DF2253087F35625CAA3ADBB406DB710146C86881",
+  "pck_bytes": 38322468,
+  "archive": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.60-c4-Windows.zip",
+  "archive_bytes": 71305456,
+  "archive_sha256": "067C4691C33DE9AE91E2493DBEBA1EF246DFC297C654872EC70EEFB70D3E9B26",
+  "relocation": "E:\\GALUMU\\builds\\DEV113 0.4.60-c4 中文 空格验包\\LanceAndLaurel-v0.4.60-c4",
+  "crc_and_manifest_relocation": "Passed; protected final-candidate gameplay and outer launch pending.",
+  "previous_candidate": "0.4.60-c3",
+  "runtime_change_from_c3": "battle.gd terminal HUD notice only, plus project/export version. No other production script, data or asset changes."
+}

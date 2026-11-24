@@ -1,0 +1,84 @@
+{
+  "scope": "Fixed contact fixture only. Same-time strength repair does not change this already-resolved isolated fall input. No claim that all gameplay is byte-identical.",
+  "passed": true,
+  "rows": [
+    {
+      "file": "frame_000.png",
+      "c4_sha256": "abf592d003ca3c949360b5647c23c01d56d68e4ec9be1b07f92c83ed4fd1ec65",
+      "c5_sha256": "abf592d003ca3c949360b5647c23c01d56d68e4ec9be1b07f92c83ed4fd1ec65",
+      "identical": true
+    },
+    {
+      "file": "frame_012.png",
+      "c4_sha256": "52d79ec6efc4bfdc88be6d2e2c6f1d19fb9cf69afe9b91237c3b5a0a8997056f",
+      "c5_sha256": "52d79ec6efc4bfdc88be6d2e2c6f1d19fb9cf69afe9b91237c3b5a0a8997056f",
+      "identical": true
+    },
+    {
+      "file": "frame_030.png",
+      "c4_sha256": "69e2e469eaeb5113005983302c760f771468b6b2f52a27d9775d2f9959c556a1",
+      "c5_sha256": "69e2e469eaeb5113005983302c760f771468b6b2f52a27d9775d2f9959c556a1",
+      "identical": true
+    },
+    {
+      "file": "frame_048.png",
+      "c4_sha256": "e13026ac07b93bfdd11d9152713a9e7dab56fda39717e00e143d40893b5ec0bc",
+      "c5_sha256": "e13026ac07b93bfdd11d9152713a9e7dab56fda39717e00e143d40893b5ec0bc",
+      "identical": true
+    },
+    {
+      "file": "frame_066.png",
+      "c4_sha256": "502163be55a1a17445d3bfadae2773ac3eb5540abc7b6f407fe12f55e6ec88a0",
+      "c5_sha256": "502163be55a1a17445d3bfadae2773ac3eb5540abc7b6f407fe12f55e6ec88a0",
+      "identical": true
+    },
+    {
+      "file": "frame_084.png",
+      "c4_sha256": "c01c8d97d1a9f2a7582bfd21a7a77fcba30113154909b14de738a84984c1ef48",
+      "c5_sha256": "c01c8d97d1a9f2a7582bfd21a7a77fcba30113154909b14de738a84984c1ef48",
+      "identical": true
+    },
+    {
+      "file": "frame_102.png",
+      "c4_sha256": "5539db200b70defc74b5c3c15a0312da69f56ac96149da0cc3d8dda407ebab48",
+      "c5_sha256": "5539db200b70defc74b5c3c15a0312da69f56ac96149da0cc3d8dda407ebab48",
+      "identical": true
+    },
+    {
+      "file": "frame_120.png",
+      "c4_sha256": "f0135f5decbd8f83eb427e6e20efa977b213698fcfd989d4f6dcf75a4df843d3",
+      "c5_sha256": "f0135f5decbd8f83eb427e6e20efa977b213698fcfd989d4f6dcf75a4df843d3",
+      "identical": true
+    },
+    {
+      "file": "frame_150.png",
+      "c4_sha256": "5b4b03da459506e52cdeabda3a2ecff73cff3ced3a657535c12797faea3080ae",
+      "c5_sha256": "5b4b03da459506e52cdeabda3a2ecff73cff3ced3a657535c12797faea3080ae",
+      "identical": true
+    },
+    {
+      "file": "frame_180.png",
+      "c4_sha256": "7279b114744b06f9494df9f1f555f2edf66f6385e5bd63e915bd20e08f4e1897",
+      "c5_sha256": "7279b114744b06f9494df9f1f555f2edf66f6385e5bd63e915bd20e08f4e1897",
+      "identical": true
+    },
+    {
+      "file": "frame_240.png",
+      "c4_sha256": "71f06055f5d4d99758d3872ba3df94c25305eaad45f47b41816b743df3283799",
+      "c5_sha256": "71f06055f5d4d99758d3872ba3df94c25305eaad45f47b41816b743df3283799",
+      "identical": true
+    },
+    {
+      "file": "frame_360.png",
+      "c4_sha256": "417c382f1da2f1476b2aef790ab21ed1e1e70dbc350efe41bfe0a4f7ce02b8cc",
+      "c5_sha256": "417c382f1da2f1476b2aef790ab21ed1e1e70dbc350efe41bfe0a4f7ce02b8cc",
+      "identical": true
+    },
+    {
+      "file": "frame_480.png",
+      "c4_sha256": "6206a2078adbf8e68d829b71bd03e62aff2d48165ce459da04f7996bdc0e44ac",
+      "c5_sha256": "6206a2078adbf8e68d829b71bd03e62aff2d48165ce459da04f7996bdc0e44ac",
+      "identical": true
+    }
+  ]
+}

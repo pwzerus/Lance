@@ -1,4 +1,4 @@
-"""Read actual c3 gameplay evidence; do not run the engine or alter QA saves."""
+"""Read actual c5 gameplay evidence; do not run the engine or alter QA saves."""
 from pathlib import Path
 import argparse
 import hashlib
@@ -8,7 +8,7 @@ import statistics
 
 ROOT = Path('E:/GALUMU')
 LOGS = ROOT / 'docs/development/logs'
-PCK = '7E8D6521A382ECFDA736B8BCFAE609799DDF4CEFAF8FABDBD6E7A54FBB5E9744'
+PCK = json.loads((ROOT / 'docs/development/DEV113_PACKAGE_C5.json').read_text(encoding='utf-8-sig'))['pck_sha256']
 
 
 def read(path):
@@ -30,8 +30,8 @@ def proof(directory):
     values = [float(x) for x in re.findall(r'privateMiB=([\d.]+)', memory)]
     target = read(directory / 'target.json')
     expected_pck = PCK
-    if directory.name.startswith('dev113-c4-'):
-        meta = ROOT / 'docs/development/DEV113_PACKAGE_C4.json'
+    if directory.name.startswith('dev113-c5-'):
+        meta = ROOT / 'docs/development/DEV113_PACKAGE_C5.json'
         expected_pck = read(meta)['pck_sha256'] if meta.exists() else None
     return {
         'exit_code': int(exit_rows[-1][0]) if exit_rows else None,
@@ -54,7 +54,7 @@ def collect():
     previous = None
     # Serialized runs are chronological by their preserved end log. This also
     # retains genuine failed attempts before a same-save changed-input retry.
-    directories = [p for p in LOGS.glob('dev113-journey-*') if (p / 'screens/report.json').is_file()]
+    directories = [p for p in LOGS.glob('dev113-c5-journey-*') if (p / 'screens/report.json').is_file()]
     for directory in sorted(directories, key=lambda p: (p / 'memory.log').stat().st_mtime_ns):
         report = read(directory / 'screens/report.json')
         if previous is not None and report['initial_profile'] != previous:
@@ -91,7 +91,7 @@ def collect():
                ('war', 'steady', 1, False, False, True), ('arena', 'french_light', 1, False, True, False),
                ('war', 'italian_plate', 2, False, True, True), ('war', 'english_late', 2, False, False, False)]
     issues = []
-    soak_prefix = 'dev113-c4-soak' if (ROOT / 'docs/development/DEV113_PACKAGE_C4.json').exists() else 'dev113-soak'
+    soak_prefix = 'dev113-c5-soak'
     for n, config in enumerate(configs, 1):
         directory = LOGS / f'{soak_prefix}{n:02d}'
         if not (directory / 'screens/report.json').is_file():
@@ -105,6 +105,39 @@ def collect():
         saved = read(directory / 'screens/qa_profile.json')
         if saved['equipped'] != report['equipped'] or not set(saved['equipped'].values()) <= set(saved['owned']) or saved['matches'] < len(report['matches']):
             issues.append(directory.name + ': final QA equipment/results differ')
+        state_counts = {'arena_deaths': 0, 'mounted_incapacitations': 0, 'living_unseated': 0, 'war_deaths': 0}
+        for number, match in enumerate(report['matches'], 1):
+            result = match['result']
+            context = f'{directory.name} match {number}'
+            out = []
+            for side in ('player', 'enemy'):
+                dead = bool(result[side + '_dead'])
+                unseated = bool(result[side + '_unseated'])
+                unconscious = bool(result[side + '_unconscious'])
+                hp = float(result[side + '_hp'])
+                out.append(dead or unseated or unconscious)
+                state_counts['arena_deaths'] += int(dead and result['mode'] == 'arena')
+                state_counts['war_deaths'] += int(dead and result['mode'] == 'war')
+                state_counts['living_unseated'] += int(unseated and hp > 0 and not dead)
+                state_counts['mounted_incapacitations'] += int(unconscious and not unseated)
+                if dead and (result['mode'] != 'war' or hp > 0):
+                    issues.append(context + ': invalid fatal state')
+                if hp <= 0 and not unconscious:
+                    issues.append(context + ': exhausted rider still conscious')
+                if result['mode'] == 'war' and hp <= 0 and not dead:
+                    issues.append(context + ': war exhaustion lacks fatal state')
+            if result['reason'] == 'terminal':
+                expected = -1 if out[0] == out[1] else (1 if out[0] else 0)
+                if not any(out) or result['winner'] != expected:
+                    issues.append(context + ': terminal winner differs from actual state')
+            hits = [h for h in match['hits'] if h.get('type', 'hit') == 'hit' and int(h['attacker']) in (0, 1)]
+            keys = [(int(h['attacker']), int(h.get('pass', 1))) for h in hits]
+            if len(keys) != len(set(keys)):
+                issues.append(context + ': repeated weapon contact in one pass')
+            if result['mode'] == 'arena':
+                totals = [sum(int(h['points']) for h in hits if int(h['attacker']) == side) for side in (0, 1)]
+                if totals != [int(result['player_score']), int(result['enemy_score'])]:
+                    issues.append(context + ': actual contact score differs')
         trends = {}
         for phase in sorted({s['phase'] for s in report['samples']}):
             samples = [s for s in report['samples'] if s['phase'] == phase]
@@ -116,20 +149,20 @@ def collect():
         soaks.append({'name': directory.name, 'passed': report['passed'], 'failures': report['failures'],
                       'configuration': dict(zip(('mode', 'kit', 'difficulty', 'blood', 'slow_motion', 'shake'), actual)),
                       'seconds': report['wall_seconds'], 'matches': len(report['matches']), 'frames': report['all_frames'],
-                      'phases': report['phases'], 'trends': trends, 'proof': proof(directory),
+                      'phases': report['phases'], 'trends': trends, 'state_counts': state_counts, 'proof': proof(directory),
                       'qa_save_sha256': digest(directory / 'screens/qa_profile.json'),
                       'image_sha256': digest(directory / 'screens/after_timing.png')})
     after = ROOT / 'docs/development/DEV113_SAVE_AFTER.json'
     formal = {'unchanged': read(ROOT / 'docs/development/DEV113_SAVE_BEFORE.json') == read(after)} if after.exists() else {'unchanged': None}
     opening = None
-    opening_dir = LOGS / 'dev113-c4-journey01'
+    opening_dir = LOGS / 'dev113-c5-journey-01-05'
     if (opening_dir / 'screens/report.json').exists():
         report = read(opening_dir / 'screens/report.json')
-        opening = {'candidate': '0.4.60-c4', 'passed': report['passed'], 'complete': report['completed_requested_segment'],
+        opening = {'candidate': '0.4.60-c5', 'passed': report['passed'], 'complete': report['completed_requested_segment'],
                    'clears': report['final_profile']['campaign_cleared'], 'matches': len(report['rows']),
                    'coins': report['final_profile']['coins'], 'renown': report['final_profile']['renown'], 'proof': proof(opening_dir)}
-    return {'scope': 'Campaign chain uses actual c3; final c4 repeats opening, HUD/state/fall gates and sustained configurations after a display-only notice correction. Protected isolated GPU, engine/viewport input, normal rewards and persistence. No OS input or human acceptance.',
-            'journey_candidate': '0.4.60-c3', 'soak_prefix': soak_prefix, 'final_candidate_opening': opening,
+    return {'scope': 'All final campaign, HUD/state/fall gates and sustained configurations use actual c5. Historical c3/c4 evidence is separate. Protected isolated GPU, engine/viewport input, normal rewards and persistence. No OS input or human acceptance.',
+            'journey_candidate': '0.4.60-c5', 'soak_prefix': soak_prefix, 'final_candidate_opening': opening,
             'journey': route, 'independent_ledger': ledger, 'score': score,
             'clears': len(previous['campaign_cleared']) if previous else 0,
             'all_80_cleared': previous is not None and {int(v) for v in previous['campaign_cleared']} == set(range(1, 81)),

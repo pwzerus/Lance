@@ -26,11 +26,11 @@ def sha(path):
 
 def audit():
     issues, rows = [], []
-    meta = read(DOCS / 'DEV113_PACKAGE_C4.json')
-    gates = 'incapacity01 incapacity02 condition01 head01 shield01 hud01 terminal01 articulation01 boot01 shield-visual01 cinema02 motion01 gallery01 save01 guide01 interruption01 result01 window01 journey01'.split()
+    meta = read(DOCS / 'DEV113_PACKAGE_C5.json')
+    gates = 'incapacity01 incapacity02 order01 condition01 head01 shield01 hud01 terminal01 articulation01 boot01 shield-visual01 cinema01 motion01 gallery01 save01 guide01 interruption01 result01 window01 journey-01-05'.split()
     gates += [f'soak{n:02d}' for n in range(1, 9)]
     for gate in gates:
-        directory = LOGS / ('dev113-c4-' + gate)
+        directory = LOGS / ('dev113-c5-' + gate)
         paths = sorted(directory.rglob('report.json'))
         if len(paths) != 1 or not (directory / 'memory.log').exists():
             issues.append(gate + ': missing or ambiguous completed report')
@@ -46,7 +46,7 @@ def audit():
         backup_warning = "WARNING: SAVE_IO: 无法备份原进度 [12: Can't open file]"
         expected = [deliberate, backup_warning, deliberate, backup_warning] if gate == 'save01' else []
         exits = re.findall(r'EXIT code=(-?\d+) seconds=([\d.]+)', memory)
-        headless = target.get('budget') == 'rules' and gate in ('condition01', 'head01', 'shield01')
+        headless = target.get('budget') == 'rules' and gate in ('condition01', 'head01', 'shield01', 'order01')
         desktop_ok = ('OpenGL API' not in engine) if headless else 'QA_DESKTOP_CLOSED=True' in memory
         ok = (report.get('passed') is True and not report.get('failures') and
               bool(exits) and exits[-1][0] == '0' and desktop_ok and
@@ -80,13 +80,13 @@ def audit():
     if not archive_ok:
         issues.append('archive hash changed')
 
-    portable_path = LOGS / 'dev113-portable01/results.json'
+    portable_path = LOGS / 'dev113-portable02/results.json'
     portable = read(portable_path) if portable_path.exists() else []
     if len(portable) != 10 or not all(row.get('passed') is True for row in portable):
         issues.append('portable launcher probes incomplete or failed')
-    outer_path = ROOT / 'logs/perf088/dev113-outer-c4-receipt.json'
+    outer_path = ROOT / 'logs/perf088/dev113-outer-c5-receipt.json'
     outer = read(outer_path) if outer_path.exists() else {}
-    outer_memory = ROOT / 'logs/perf088/dev113-outer-c4-memory.log'
+    outer_memory = ROOT / 'logs/perf088/dev113-outer-c5-memory.log'
     outer_text = outer_memory.read_text(encoding='utf-8-sig') if outer_memory.exists() else ''
     if outer.get('passed') is not True or outer.get('exit') != 0 or 'QA_DESKTOP_CLOSED=True' not in outer_text:
         issues.append('actual relocated outer launcher GPU check incomplete or failed')
@@ -97,10 +97,21 @@ def audit():
         issues.append('formal save receipt missing or differs')
     flow_path = DOCS / 'DEV113_FLOW_EVIDENCE.json'
     flow = read(flow_path) if flow_path.exists() else {}
-    flow_ok = (flow.get('all_80_cleared') is True and not flow.get('independent_ledger', {}).get('issues', ['missing']) and
+    def verified_flow_run(row):
+        proof = row.get('proof', {})
+        return (row.get('passed') is True and not row.get('failures') and
+                proof.get('exit_code') == 0 and proof.get('desktop_closed') is True and
+                proof.get('correct_pck') is True and not proof.get('errors') and not proof.get('warnings'))
+
+    flow_ok = (flow.get('journey_candidate') == '0.4.60-c5' and flow.get('all_80_cleared') is True and
+               len(flow.get('journey', [])) >= 16 and all(verified_flow_run(row) and row.get('segment_complete') is True for row in flow.get('journey', [])) and
+               all(verified_flow_run(row) for row in flow.get('soaks', [])) and
+               not flow.get('independent_ledger', {}).get('issues', ['missing']) and
                not flow.get('score', {}).get('mismatches', ['missing']) and not flow.get('score', {}).get('duplicate_contacts', ['missing']) and
                len(flow.get('soaks', [])) == 8 and not flow.get('soak_issues', ['missing']) and
-               flow.get('final_candidate_opening', {}).get('passed') is True)
+               flow.get('final_candidate_opening', {}).get('passed') is True and
+               flow.get('final_candidate_opening', {}).get('complete') is True and
+               set(flow.get('final_candidate_opening', {}).get('clears', [])) == set(range(1, 6)))
     if not flow_ok:
         issues.append('campaign/sustained-run independent ledger incomplete or failed')
     runtime = subprocess.run([str(GIT), '-c', 'core.commitGraph=false', 'diff', '--name-only', meta['source_revision'], '--',
@@ -109,19 +120,27 @@ def audit():
     # These source sidecars were generated before the PCK was built, and are
     # being versioned at handoff. They do not change the shipped implementation.
     uid_receipt = read(DOCS / 'DEV113_UIDS.json')
-    uid_allowed = {r['path']: r['sha256'] for r in uid_receipt['rows']
+    uid_allowed = {r['path']: r['uid'] for r in uid_receipt['rows']
                    if r['path'] in ('game/scripts/core/horse_surface.gd.uid', 'game/scripts/core/rider_condition.gd.uid')}
-    metadata = [name for name in runtime if name in uid_allowed and sha(ROOT / name) == uid_allowed[name]]
+    # Git's Windows checkout may change only LF/CRLF. Preserve the exact UID
+    # identity; the receipt still retains the original byte hashes separately.
+    metadata = [name for name in runtime if name in uid_allowed and (ROOT / name).read_text(encoding='utf-8-sig').strip() == uid_allowed[name]]
     runtime = [name for name in runtime if name not in metadata]
     if runtime:
         issues.append('production source changed after export')
-    return {'task': 'DEV-113', 'candidate': '0.4.60-c4', 'source_revision': meta['source_revision'],
+    entry = ROOT / 'Play-Latest.cmd'
+    entry_ok = 'set "GALUMU_LAUNCH=%~dp0builds\\LanceAndLaurel-v0.4.60-c5\\LanceAndLaurel.exe"' in entry.read_text(encoding='utf-8-sig')
+    if not entry_ok:
+        issues.append('default entry has not been switched to the verified c5 outer launcher')
+    return {'task': 'DEV-113', 'candidate': '0.4.60-c5', 'source_revision': meta['source_revision'],
             'passed': not issues, 'issues': issues, 'gates': rows, 'bundles': bundles,
             'archive_unchanged': archive_ok, 'portable': portable, 'outer_gpu': outer,
             'formal_save_unchanged': unchanged, 'production_changes_since_export': runtime,
             'preexisting_uid_sidecars_now_versioned': metadata,
-            'scope': 'Actual c4 PCK, protected isolated GPU or explicitly headless rules. C3 full campaign is separate. No OS input, human playtest or hardware hearing.',
-            'preserved_failure': 'dev113-c4-cinema01 retains the invalid old double-fall fixture; cinema02 supersedes it without changing game physics.'}
+            'default_entry_c5': entry_ok, 'default_entry_sha256': sha(entry),
+            'flow_evidence_sha256': sha(flow_path) if flow_path.exists() else None,
+            'scope': 'Actual c5 PCK, protected isolated GPU or explicitly headless rules. Full 80-level campaign uses the same c5 PCK; historical C3 remains separate. No OS input, human playtest or hardware hearing.',
+            'preserved_failure': 'c4-cinema01 preserves the old invalid paired fixture; order-baseline01 reproduces the actual c4 same-step injury ordering bug. Both have explicit fixes and separate passing c5 checks.'}
 
 
 if __name__ == '__main__':

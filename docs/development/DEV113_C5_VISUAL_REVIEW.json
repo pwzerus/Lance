@@ -1,0 +1,50 @@
+{
+  "scope": "Codex inspected original GPU PNGs and a short ordered image sequence. Background isolated rendering; no foreground takeover, OS input, live human playtest, motion-video or hardware-audio acceptance.",
+  "items": [
+    {
+      "path": "docs/development/logs/dev113-c5-incapacity01/captures/aware_loss_war_1700.png",
+      "sha256": "EFE6A8D9E2F4C26567FD4022D9B8B932CD367474F79019FE63F6B45D6AEDD171",
+      "observation": "正生命昏厥：前伏与低垂枪盾可见，头颈保持连接，HUD未误报落马。"
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-incapacity01/captures/late_slip_right_2600.png",
+      "sha256": "C8FFBACE96A90EAE1EA9705A5CFE97412F7352E53AEB7F2F5EFCE2D61BFAE48A",
+      "observation": "后续滑脱：离鞍身体完整、腿与躯干折叠不同；存活骑手上部被画面边缘裁切，作为已知构图限制保留。"
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-hud01/screens/minimal_960.png",
+      "sha256": "40848AA9E00B79F094DCBDDE53B5E18B308FD9DAD3942833C69AB5384FDFDEA2",
+      "observation": "960×540极简界面：无伤害/意识/支撑数字墙，盾位按钮和必要状态条完整。"
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-hud01/screens/settings_details.png",
+      "sha256": "E8792849E46864275C94885B12C484397335D55D66A47EBA0B07008ACC437CA5",
+      "observation": "设置：详细战斗信息为可选开关，旁边说明默认简洁；画面未发现文字互相覆盖。"
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-cinema01/captures/double_body_1400.png",
+      "sha256": "D2B4A1D1A566B5D703BC7DE5A36EBDDAAF292CC4713EAF3F065BECF955D01EFB",
+      "observation": "双离鞍受控镜头：两个身体可见，没有以人物透明/消失解决遮挡；马匹淡化已有设计保留。"
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-articulation01/screens/frame_048.png",
+      "sha256": "E13026AC07B93BFDD11D9152713A9E7DAB56FDA39717E00E143D40893B5EC0BC",
+      "observation": "六种部位/方向受控落地连续帧，查看空中关节差异、先后触地和收势，未见肢体分离。"
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-articulation01/screens/frame_084.png",
+      "sha256": "C01C8D97D1A9F2A7582BFD21A7A77FCBA30113154909B14DE738A84984C1EF48",
+      "observation": "六种部位/方向受控落地连续帧，查看空中关节差异、先后触地和收势，未见肢体分离。"
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-articulation01/screens/frame_120.png",
+      "sha256": "F0135F5DECBD8F83EB427E6E20EFA977B213698FCFD989D4F6DCF75A4DF843D3",
+      "observation": "六种部位/方向受控落地连续帧，查看空中关节差异、先后触地和收势，未见肢体分离。"
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-articulation01/screens/frame_240.png",
+      "sha256": "71F06055F5D4D99758D3872BA3DF94C25305EAAD45F47B41816B743DF3283799",
+      "observation": "六种部位/方向受控落地连续帧，查看空中关节差异、先后触地和收势，未见肢体分离。"
+    }
+  ]
+}

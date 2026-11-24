@@ -70,7 +70,7 @@ for folder in sorted(folders):
 evidence = {'task': 'DEV-113', 'source_head_at_summary': (root / '.git/refs/heads/codex/v0.4').read_text().strip(),
             'scope': 'Preserved runs include failed and superseded fixtures. Interpret with DEV113_REVIEW.md; GPU is isolated, input is engine-injected, no OS input or human approval.',
             'runs': runs}
-bundle = root / 'builds/LanceAndLaurel-v0.4.60-c4'
+bundle = root / 'builds/LanceAndLaurel-v0.4.60-c5'
 if not (bundle / 'build-manifest.json').exists():
     bundle = root / 'builds/LanceAndLaurel-v0.4.60-c3'
 manifest = bundle / 'build-manifest.json'

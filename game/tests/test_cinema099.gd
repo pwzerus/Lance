@@ -74,7 +74,11 @@ func run_battle_case(c: Dictionary) -> void:
 	prepare(b.match_model,attacker,str(c.zone),c)
 	if c.get("double",false):
 		for f in b.match_model.fighters:
-			f.acted=false;f.hp=1.0;f.shield=0.0
+			# Pair two comparable, healthy seats. 1 HP alone no longer means a
+			# physical fall, and prepare() deliberately gives the lone attacker
+			# 3x stability. That asymmetry is inappropriate for this camera case.
+			f.acted=false;f.hp=100.0;f.shield=0.0;f.stats.stability=1.0
+			b.match_model._cache_pose(f)
 	b._update_views()
 	var contact_at=-1
 	var started=Time.get_ticks_msec()
@@ -82,6 +86,7 @@ func run_battle_case(c: Dictionary) -> void:
 	var captures=[] if capture_dir=="none" else [120,650,1400,2200,3200,4100]
 	var capture_index=0
 	var pause_tested=false
+	var paired_injected=false
 	while Time.get_ticks_msec()-started<15000:
 		await physics_frame
 		if b.match_model.phase=="charge":
@@ -98,29 +103,23 @@ func run_battle_case(c: Dictionary) -> void:
 				var first={}
 				for e in events:
 					if e.type=="hit":first=e
-				var other=first.duplicate(true)
-				other.attacker=1-int(first.attacker);other.defender=1-int(first.defender)
-				other.position=zone_point(b.match_model.fighters[other.defender],str(c.zone))
-				other.attacker_direction=-int(first.get("attacker_direction",1))
-				other.defender_direction=-int(first.get("defender_direction",-1))
+				var other={"type":"hit","attacker":1-int(first.attacker),"defender":1-int(first.defender),
+					"zone":str(c.zone),"speed":float(first.speed),"shaft_alignment":float(first.get("shaft_alignment",1.0)),
+					"combat_elevation":float(first.get("combat_elevation",0.0)),"fixture_paired_contact":true}
+				other.position=zone_point(b.match_model.fighters[int(other.defender)],str(c.zone))
 				var paired_attacker=b.match_model.fighters[int(other.attacker)]
-				var paired_defender=b.match_model.fighters[int(other.defender)]
-				other.break_hand=Model.hand_position(paired_attacker)
-				other.break_direction=int(paired_attacker.direction)
-				other.break_angle=float(paired_attacker.aim)
-				other.break_reach=float(paired_attacker.stats.get("reach",247.0))
-				other.break_tip=Vector2(other.break_hand)+Vector2(cos(other.break_angle)*other.break_direction,sin(other.break_angle))*other.break_reach
 				other.break_hand_velocity=Vector2(paired_attacker.direction*paired_attacker.speed,paired_attacker.get("mount_velocity_y",0.0))
 				other.break_angular_velocity=0.0
-				other.attacker_speed=float(paired_attacker.speed)
-				other.defender_speed=float(paired_defender.speed)
-				other.defender_ground_y=float(paired_defender.lane_y)+12.0
-				b.match_model.fighters[other.defender].ko=true
-				b.match_model.fighters[other.defender].hp=0.0
+				# Resolve the deliberate paired contact through the real rule path.
+				# Copying a resolved event left its model state inconsistent and
+				# silently borrowed the first defender's unseated/threshold fields.
+				b.match_model._apply_contact(other)
+				var paired_events=b.match_model.drain_events()
 				events=events.filter(func(e):return e.type!="end")
-				events.append(other)
+				events.append_array(paired_events)
 				b.match_model._finish("terminal")
 				events.append_array(b.match_model.drain_events())
+				paired_injected=true
 			b._consume_events(events)
 			for e in events:
 				if e.type=="hit":
@@ -160,9 +159,13 @@ func run_battle_case(c: Dictionary) -> void:
 	check(not hits.is_empty(),"Actual sweep reaches contact: "+str(c.name))
 	check(cropped==0,"Detached body remains inside HUD-safe view: "+str(c.name))
 	check(b.effects.bodies.size()==(2 if c.get("double",false) else 1),"Expected fall count: "+str(c.name))
+	if c.get("double",false):
+		for f in b.match_model.fighters:
+			check(f.unseated and f.hp>0.0,"Paired camera fall has actual support loss with life remaining")
+		check(int(b.match_model.result.winner)==-1,"Two real support losses produce a draw")
 	check(b.is_finished and is_equal_approx(Engine.time_scale,1.0),"Result restores time after fall: "+str(c.name))
 	check(not timeline.is_empty() and int(timeline[-1].ms)<=3900,"Result follows KO within shortened budget: "+str(c.name))
-	report.battle.append({"case":c,"hits":hits,"timeline":timeline,"frames":frames,"cropped_frames":cropped})
+	report.battle.append({"case":c,"hits":hits,"timeline":timeline,"frames":frames,"cropped_frames":cropped,"paired_contact_injected":paired_injected})
 	await after_result(c,b)
 	main._close_battle()
 	check(is_equal_approx(Engine.time_scale,1.0),"Exit restores time: "+str(c.name))

@@ -314,7 +314,8 @@ func prepare(model, attacker: int, zone: String, case: Dictionary) -> void:
 		fighter.boost = own>=400.0
 		fighter.stats.speed = 1.0 if own>=400.0 else own/Model.TROT_SPEED
 		# Stability also sets the horse's carrying capacity (and so its speed);
-		# keep it normal and unseat KO fixtures through 1 HP instead.
+		# keep it normal for the target. 1 HP guarantees incapacitation,
+		# not a physical fall; fall cases also need sufficient real impulse.
 		fighter.stats.stability = float(case.get("stability",1.0)) if index==defender else 3.0
 		fighter.stats.reach = 247.0
 		fighter.stats.armor = 0.0

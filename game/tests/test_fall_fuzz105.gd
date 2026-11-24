@@ -4,6 +4,7 @@ extends "test_fall_v057.gd"
 var first_case=0
 var count=128
 var fuzz_folder=""
+var broken_shield113=false
 func run()->void:
 	var path=""
 	for a in OS.get_cmdline_user_args():
@@ -11,6 +12,7 @@ func run()->void:
 		if a.begins_with("--first="):first_case=int(a.trim_prefix("--first="))
 		if a.begins_with("--count="):count=int(a.trim_prefix("--count="))
 		if a.begins_with("--captures="):fuzz_folder=a.trim_prefix("--captures=")
+		if a=="--broken-shield":broken_shield113=true
 	var state=root.get_node("GameState")
 	if path.is_empty() or FileAccess.file_exists(path) or not "qa_" in state.save_path or OS.get_environment("GALUMU_MEMORY_BOUND")!="1024":quit(2);return
 	if not fuzz_folder.is_empty():
@@ -29,6 +31,7 @@ func run()->void:
 		f.speed=rng.randf_range(100,520);f.gait_moving=true;f.gait_phase=rng.randf_range(0,TAU)
 		f.lean=rng.randf_range(-1,1);f.guard=rng.randf_range(0,1);f.aim=rng.randf_range(-.68,.58)
 		f.unsteady=rng.randf_range(0,1);f.sway=rng.randf_range(-.13,.13);f.broken=case_id%3==0
+		if broken_shield113:f.shield=0.0
 		var zone=["head","body","flank"][case_id%3]
 		var event={"zone":zone,"direction":-f.direction,"impulse":rng.randf_range(40,125),"attacker_speed":rng.randf_range(100,520),"defender_speed":f.speed,"ko_reason":"balance" if case_id%5==0 else "impact"}
 		var stage=Node2D.new();root.add_child(stage);stage.visible=not fuzz_folder.is_empty()

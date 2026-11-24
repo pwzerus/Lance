@@ -2,7 +2,7 @@ extends RefCounted
 ## Presentation only: explanations come from resolved contacts, never guessed
 ## from a sprite overlap or the opponent's intended target.
 const ZONES = {"head":"头盔 / 头部","body":"胸甲","flank":"腰腹","shield":"盾牌"}
-const CAUSES = {"fatal":"致命伤","health":"伤势过重，无法继续","unconscious":"头部受创后昏厥","impact":"重击导致离鞍","balance":"受击后失去鞍座支撑","seat":"持续失衡，失去鞍座支撑","slip":"失去意识后滑离鞍座"}
+const CAUSES = {"fatal":"致命伤","health":"伤势过重，无法继续","unconscious":"失去意识，无法继续","impact":"重击导致离鞍","balance":"受击后失去鞍座支撑","seat":"持续失衡，失去鞍座支撑","slip":"失去意识后滑离鞍座"}
 const ContactCues = preload("res://scripts/visual/combat_cues.gd")
 
 static func summarize(events: Array, mode: String = "arena", detailed: bool = false) -> String:
@@ -91,12 +91,14 @@ static func _terminal_cause(hit: Dictionary) -> String:
 	var cause = str(hit.get("ko_reason",""))
 	if hit.get("dead",false):
 		if zone=="seat":return who+"阵亡后滑离鞍座，实战结束。"
+		if zone=="shield":return who+"持盾受击后阵亡，实战结束。"
 		return who+"伤势致命，实战结束。" if cause=="health" else who+"的"+part+"承受致命伤，实战结束。"
 	if not hit.get("unseated",hit.get("ko",false)):
 		return who+"昏厥，失去战斗能力。" if cause=="unconscious" else who+"累积伤势过重，无法继续比赛。"
 	if cause=="seat": return who+"持续失衡，失去鞍座支撑后落马。"
 	if cause=="slip": return who+"失去意识后滑离鞍座。"
 	if zone=="shield":
+		if hit.get("shield_broke",false):return who+"的盾牌被击破，随后失去鞍座支撑而落马。"
 		return who+"虽用盾挡住来枪，仍被冲击掀下马。" if cause=="impact" else who+"持盾承压后失去平衡，落马出局。"
 	if cause=="impact": return who+"的"+part+"遭重击，被掀下马。"
 	if cause=="balance": return who+"的"+part+"受击后失去平衡，落马出局。"

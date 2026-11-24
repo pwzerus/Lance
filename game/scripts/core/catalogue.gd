@@ -27,7 +27,7 @@ static func load_items() -> Array:
 				items[items.find(previous)] = item
 			else:
 				items.append(item)
-	items.append({"id":"shield_basic","name":"旧式绘饰盾","slot":"shield","era":0,"price":0,"region":"欧洲共通","stats":{"shield_capacity":150.0,"shield_handling":1.0,"shield_quality":0,"shield_shape":"kite","shield_class":"light","shield_line_tier":1,"shield_kg":2.6,"shield_speed":1.0,"shield_protection":{"leak":.10,"absorb":0.0},"shield_scale":.85},"description":"已有骑手的基础盾牌。","source":"S33 · 游戏改编","historical_note":"旧藏按轻盾一档适配，收藏编号与购买记录保留。"})
+	items.append({"id":"shield_basic","name":"旧式绘饰盾","slot":"shield","era":0,"price":0,"region":"欧洲共通","stats":{"shield_capacity":95.0,"shield_handling":1.0,"shield_quality":0,"shield_shape":"kite","shield_class":"light","shield_line_tier":1,"shield_kg":2.6,"shield_speed":1.0,"shield_protection":{"leak":.10,"absorb":0.0},"shield_scale":.85},"description":"已有骑手的基础盾牌。","source":"S33 · 游戏改编","historical_note":"旧藏按轻盾一档适配，收藏编号与购买记录保留。"})
 	var caparisons = JSON.parse_string(FileAccess.get_file_as_string(CAPARISON_FILE)) if FileAccess.file_exists(CAPARISON_FILE) else null
 	if caparisons is Array:
 		items.append_array(caparisons)

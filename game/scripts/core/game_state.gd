@@ -43,7 +43,7 @@ func default_profile() -> Dictionary:
 		# saves without the slot load with an empty caparison slot unchanged.
 		"owned": ["mail_basic", "helm_nasal", "lance_ash", "horse_bay", "crest_bend", "shield_basic", "caparison_none"],
 		"equipped": {"armor": "mail_basic", "helmet": "helm_nasal", "lance": "lance_ash", "horse": "horse_bay", "crest": "crest_bend", "shield":"shield_basic", "caparison":"caparison_none"},
-		"settings": {"blood": false, "shake": true, "sound": true, "master_volume":1.0,"music_volume":1.0,"effects_volume":1.0,"ambience_volume":1.0,"mouse_only": false, "brief_seen":false,"combat_brief_v03":false,"combat_brief_v043":false,"combat_brief_v044":false,"guided_practice_v087":false,"aim_cues":true,"slow_motion":true,"vsync":false,"helmet_view":true, "difficulty": 1}}
+		"settings": {"blood": false, "shake": true, "sound": true, "master_volume":1.0,"music_volume":1.0,"effects_volume":1.0,"ambience_volume":1.0,"mouse_only": false, "brief_seen":false,"combat_brief_v03":false,"combat_brief_v043":false,"combat_brief_v044":false,"guided_practice_v087":false,"aim_cues":true,"slow_motion":true,"vsync":false,"helmet_view":true,"detailed_combat":false, "difficulty": 1}}
 
 func load_profile() -> void:
 	save_error = ""
@@ -127,7 +127,7 @@ func sanitize(raw: Dictionary) -> Dictionary:
 			if item_id in clean.owned and item.get("slot", "") == slot:
 				clean.equipped[slot] = item_id
 	if raw.get("settings") is Dictionary:
-		for key in ["blood", "shake", "sound", "mouse_only", "brief_seen","combat_brief_v03","combat_brief_v043","combat_brief_v044","guided_practice_v087","aim_cues","slow_motion","vsync","helmet_view"]:
+		for key in ["blood", "shake", "sound", "mouse_only", "brief_seen","combat_brief_v03","combat_brief_v043","combat_brief_v044","guided_practice_v087","aim_cues","slow_motion","vsync","helmet_view","detailed_combat"]:
 			if raw.settings.get(key) is bool:
 				clean.settings[key] = raw.settings[key]
 		clean.settings.difficulty = _safe_integer(raw.settings.get("difficulty"),1,0,2)

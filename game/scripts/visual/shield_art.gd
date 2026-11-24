@@ -186,16 +186,51 @@ static func draw(canvas: CanvasItem, stats: Dictionary, center: Vector2, project
 		if quality>=4:
 			canvas.draw_arc(boss,3.6*scale,0,TAU,12,metal.darkened(.35)*tint,maxf(1.0,1.0*scale))
 		canvas.draw_circle(boss+Vector2(-1.6,-1.6)*scale,1.8*scale,Color("f4f2e8")*tint)
-	if condition<.55:
+	if condition<.80:
 		# Damage stays on the shield face, inside every supported silhouette.
 		# No new texture or global cache entry for each durability value.
 		var cracks = [PackedVector2Array([Vector2(-13,-28),Vector2(-5,-14),Vector2(-10,-2),Vector2(2,10),Vector2(-3,28)])]
-		if condition<.30:
+		if condition<.45:
 			cracks.append(PackedVector2Array([Vector2(2,10),Vector2(14,15),Vector2(11,27)]))
 			cracks.append(PackedVector2Array([Vector2(-5,-14),Vector2(7,-22),Vector2(12,-31)]))
 		for crack in cracks:
 			var line=_mapped(_scaled(crack,scale),center,projected,shift)
-			canvas.draw_polyline(line,Color("151d1b")*tint,maxf(1.0,2.4*scale))
+			canvas.draw_polyline(line,Color("151d1b")*tint,maxf(1.0,(4.0 if condition<.45 else 2.5)*scale))
+			# Exposed wood is a split, iron facing a narrow bright dent. Shape,
+			# paint and heraldry remain intact until the actual shield breaks.
+			var scar=Color("a67b48") if not heavy else Color("a3aba0")
+			canvas.draw_polyline(line,scar*tint,maxf(1.0,1.2*scale))
+
+static func fracture_parts(stats: Dictionary) -> Array[PackedVector2Array]:
+	# Tessellate the existing silhouette around the strapped central remnant.
+	# Only called on break, never cached by changing durability or pose.
+	var face=Shield.outline(str(stats.get("shield_shape","kite")))
+	var masks=[Rect2(-80,-80,60,160),Rect2(10,-80,70,160),Rect2(-20,-80,30,62),Rect2(-20,20,30,60)]
+	var result: Array[PackedVector2Array]=[]
+	for box in masks:
+		var mask=PackedVector2Array([box.position,Vector2(box.end.x,box.position.y),box.end,Vector2(box.position.x,box.end.y)])
+		for piece in Geometry2D.intersect_polygons(face,mask):
+			if piece.size()>=3:result.append(_scaled(piece,float(stats.get("shield_scale",1.0))))
+	return result
+
+static func remnant_outline() -> PackedVector2Array:
+	return PackedVector2Array([Vector2(-20,-18),Vector2(-11,-14),Vector2(-5,-18),Vector2(10,-18),Vector2(6,-6),Vector2(10,7),Vector2(5,13),Vector2(10,20),Vector2(-3,17),Vector2(-10,20),Vector2(-20,20),Vector2(-16,7),Vector2(-20,0)])
+
+static func remnant_polygon(stats: Dictionary) -> PackedVector2Array:
+	return _mapped(_scaled(remnant_outline(),float(stats.get("shield_scale",1.0))),Vector2.ZERO,true,Vector2.ZERO)
+
+static func draw_broken(canvas: CanvasItem, stats: Dictionary, center: Vector2) -> void:
+	# The grip remains attached to the left hand. This small remnant has NO
+	# gameplay shield polygon; it cannot pretend to protect a body region.
+	var scale=float(stats.get("shield_scale",1.0))
+	var pieces=remnant_outline()
+	var mapped=_mapped(_scaled(pieces,scale),center,true,Vector2.ZERO)
+	canvas.draw_colored_polygon(mapped,Color("302820"))
+	var field=Color(str(ShieldArms.record(device(stats)).field)) if ShieldArms.DESIGNS.has(device(stats)) else Color("725638")
+	canvas.draw_colored_polygon(_mapped(_scaled(pieces,scale*.85),center,true,Vector2.ZERO),field.darkened(.28))
+	var edge=mapped.duplicate();edge.append(mapped[0])
+	canvas.draw_polyline(edge,Color("ac8353"),2.0)
+	canvas.draw_polyline(_mapped(_scaled(PackedVector2Array([Vector2(-17,-2),Vector2(-6,1),Vector2(7,-2)]),scale),center,true,Vector2.ZERO),Color("543c2b"),4.0)
 
 static func _scaled(points: PackedVector2Array, factor: float) -> PackedVector2Array:
 	var result = PackedVector2Array()

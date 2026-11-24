@@ -42,11 +42,15 @@ var rest_angle = 0.0
 var contact_history113: Array = []
 var contacted_parts113: Dictionary = {}
 var trunk_supported113 = false
+var shield_contact_outline113 = PackedVector2Array()
 const ROOT_INVERSE_MASS113 = 1.0/80.0
 const ROOT_INVERSE_INERTIA113 = 1.0/210000.0
 
 func setup(value: Dictionary, event: Dictionary, mounted: RiderView = null) -> void:
 	fighter = value.duplicate(true)
+	# A broken remnant still touches the floor, but never regains a combat
+	# blocking polygon. Cache this immutable gear outline for the whole fall.
+	shield_contact_outline113=Rider.Shield.polygon(str(fighter.stats.get("shield_shape","kite")),float(fighter.stats.get("shield_scale",1.0))) if float(fighter.get("shield",0.0))>0.0 else Rider.ShieldArt.remnant_polygon(fighter.stats)
 	direction = int(event.get("direction",-int(fighter.direction)))
 	zone = str(event.get("zone","body"))
 	strength = clampf(float(event.get("impulse",70.0))/110.0,.15,1.0)
@@ -226,9 +230,9 @@ func _ground_targets(targets: Dictionary, blend: float) -> void:
 		var arm: Dictionary = initial_pose[side]
 		var margin = 13.0
 		var support_offsets = PackedVector2Array()
-		if side=="left" and float(fighter.get("shield",0.0))>0.0:
+		if side=="left":
 			var initial_frame = Rider.shield_pose_transform(initial_pose,fighter)
-			for point in Rider.Shield.polygon(str(fighter.stats.get("shield_shape","kite")),float(fighter.stats.get("shield_scale",1.0))):
+			for point in shield_contact_outline113:
 				support_offsets.append((initial_frame*point-initial_pose.left.hand).rotated(spine+rotation))
 		var solution = _ground_chain(arm.shoulder.rotated(spine),(arm.elbow-arm.shoulder).rotated(spine),(arm.hand-arm.elbow).rotated(spine),side+"_upper",side+"_elbow",1.0,level,roll_direction,margin,true,support_offsets)
 		targets[side+"_upper"] = lerpf(float(targets[side+"_upper"]),solution.x,blend)
@@ -314,7 +318,7 @@ func _contact_groups113() -> Array:
 	# One lowest silhouette point per anatomical segment. This is bounded
 	# work (14 groups), using the same visible envelope as floor/camera QA.
 	var points = body_points()
-	var shield_count = Rider.Shield.polygon(str(fighter.stats.get("shield_shape","kite"))).size() if float(fighter.get("shield",0.0))>0.0 else 0
+	var shield_count = shield_contact_outline113.size()
 	var spans = [["head",0,4],["chest",4,2],["pelvis",6,2],
 		["left_shoulder",8,1],["left_elbow",9,1],["left_hand",10,1],
 		["right_shoulder",11,1],["right_elbow",12,1],["right_hand",13,1]]
@@ -581,10 +585,9 @@ func body_points() -> PackedVector2Array:
 		for joint in ["shoulder","elbow","hand"]:
 			points.append(pose[side][joint]+Vector2(0,9))
 	var mirror = Vector2(int(fighter.direction),1)
-	if float(fighter.get("shield",0.0))>0.0:
-		var shield_frame = Rider.shield_pose_transform(pose,fighter)
-		for point in Rider.Shield.polygon(str(fighter.stats.get("shield_shape","kite")),float(fighter.stats.get("shield_scale",1.0))):
-			points.append(shield_frame*point)
+	var shield_frame = Rider.shield_pose_transform(pose,fighter)
+	for point in shield_contact_outline113:
+		points.append(shield_frame*point)
 	for side in ["near","far"]:
 		for joint in ["hip","knee","ankle","foot"]:
 			var point: Vector2 = visual.detached_legs[side][joint]*mirror

@@ -10,6 +10,8 @@ var events: Array = []
 var pass_number = 1
 var history = false
 var arena = true
+var minimal113 = true
+var contact_active113 = false
 var _signature = ""
 var _backdrop: Node2D
 
@@ -23,6 +25,10 @@ func _ready() -> void:
 
 func _draw_backdrop() -> void:
 	if history or fighters.size()!=2: return
+	if minimal113:
+		for panel in [Rect2(14,58,410,62),Rect2(1016,58,410,62),Rect2(650,58,140,62)]:
+			_backdrop.draw_rect(panel,Color("14231d"))
+		return
 	for panel in [Rect2(14,58,538,84),Rect2(908,58,518,84)]:
 		_backdrop.draw_rect(panel,Color("14231d"))
 		_backdrop.draw_line(panel.position+Vector2(0,83),panel.end,Color("435244"),1)
@@ -34,10 +40,11 @@ func refresh(current: Array, contacts: Array, pass_index: int) -> void:
 	pass_number=pass_index
 	# Quantise only the readout, never physics. Redraw only while visible and
 	# when an actual meter or contact changes (prevents hidden result churn).
-	var values: Array = [history,arena,pass_number,contacts.size()]
+	var values: Array = [history,arena,pass_number,contacts.size(),minimal113,contact_active113]
 	for f in fighters:
 		values.append(bool(f.get("broken",false)))
-		for key in ["hp","balance","shield","score","stamina","speed","lance_stability"]:
+		for key in ["ko","dead","unseated","unconscious"]:values.append(bool(f.get(key,false)))
+		for key in ["hp","balance","shield","score","stamina","speed","lance_stability","injury"]:
 			values.append(roundi(float(f.get(key,0))* (100 if key=="lance_stability" else 1)))
 	var signature=str(values)
 	if signature!=_signature:
@@ -70,9 +77,9 @@ static func contact_text(hit: Dictionary) -> String:
 		return "昏厥后滑脱" if hit.get("ko_reason","")=="slip" else "失衡落马"
 	var part={"head":"头","body":"胸","flank":"腹","shield":"盾"}.get(str(hit.get("zone","")),"")
 	if hit.get("dead",false): return part+" 致命"
-	if hit.get("unseated",hit.get("ko",false)): return "失衡落马" if hit.get("zone","")=="seat" else part+" 击落"
+	if hit.get("unseated",hit.get("ko",false)): return "失衡落马" if hit.get("zone","")=="seat" else part+" 击落"+(" · 破盾" if hit.get("shield_broke",false) else "")
 	if hit.get("unconscious",false): return "伤重退赛" if hit.get("ko_reason","")=="health" else "昏厥"
-	if part=="盾":return preload("res://scripts/core/contact_feedback.gd").shield_text(hit)
+	if part=="盾":return "盾牌击破" if hit.get("shield_broke",false) else preload("res://scripts/core/contact_feedback.gd").shield_text(hit)
 	if hit.get("glanced",false): return part+(" 滑开" if part=="盾" else "擦过")
 	return part+(" 重击" if float(hit.get("damage",0))>=35 else " 命中")
 
@@ -108,6 +115,10 @@ func _draw() -> void:
 		_draw_history()
 		return
 	if fighters.size()!=2: return
+	if minimal113:
+		_draw_minimal113()
+		_draw_equipment113()
+		return
 	for i in range(2):
 		var f: Dictionary=fighters[i]
 		var x=24.0 if i==0 else 984.0
@@ -124,12 +135,40 @@ func _draw() -> void:
 		figure(Vector2(521 if i==0 else 933,89),latest,.85)
 	for i in range(3):
 		draw_circle(Vector2(702+i*18,69),4,Color("e1c27a") if i<pass_number else Color("394a3e"))
+	_draw_equipment113()
+
+func _draw_equipment113() -> void:
 	var player: Dictionary=fighters[0]
 	var broken = bool(player.get("broken",false))
 	text("残枪" if broken else "枪稳",Vector2(404,772),Color("e0ae59") if broken else MUTED,13)
 	bar(Rect2(446,761,194,9),0.0 if broken else float(player.lance_stability),Color("a5b484"))
 	text("盾牌",Vector2(658,772),MUTED,13)
 	bar(Rect2(700,761,194,9),float(player.shield)/maxf(1,float(player.stats.get("shield_capacity",150))),Color("7da7a6"))
+
+static func rider_state113(f: Dictionary) -> String:
+	if f.get("dead",false):return "阵亡"
+	if f.get("unseated",false):return "落马"
+	if f.get("unconscious",false):return "昏厥"
+	if float(f.get("hp",100))<35 or float(f.get("injury",0))>.60:return "重伤"
+	if float(f.get("injury",0))>.15:return "受创"
+	return ""
+
+func _draw_minimal113() -> void:
+	for i in range(2):
+		var f:Dictionary=fighters[i]
+		var x=24.0 if i==0 else 1066.0
+		var condition=rider_state113(f)
+		text(("你" if i==0 else "对手")+(" · "+condition if not condition.is_empty() else ""),Vector2(x,77),INK,15)
+		bar(Rect2(x,86,350,10),float(f.hp)/100,Color("b85d4c"),i==1)
+		if contact_active113:
+			var latest:Dictionary={}
+			for event in events:
+				if int(event.get("defender",-1))==i:latest=event
+			if not latest.is_empty():figure(Vector2(401 if i==0 else 1040,83),latest,.58)
+	var middle="%d : %d"%[int(fighters[0].get("score",0)),int(fighters[1].get("score",0))] if arena else "实战"
+	var font=UIFactory.theme().default_font
+	text(middle,Vector2(720-font.get_string_size(middle,HORIZONTAL_ALIGNMENT_LEFT,-1,22).x*.5,82),INK,22)
+	for i in range(3):draw_circle(Vector2(702+i*18,102),3.5,Color("e1c27a") if i<pass_number else Color("394a3e"))
 
 func _draw_history() -> void:
 	for attacker in range(2):

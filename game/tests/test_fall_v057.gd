@@ -58,7 +58,7 @@ func global_points(actor) -> PackedVector2Array:
 
 func support_parts(actor) -> Dictionary:
 	var result = {"helmet":-INF,"torso":-INF,"arms":-INF,"shield":-INF,"legs":-INF}
-	var shield_count = Rider.Shield.polygon(str(actor.fighter.stats.get("shield_shape","kite"))).size() if float(actor.fighter.get("shield",0.0))>0 else 0
+	var shield_count = actor.shield_contact_outline113.size() if "shield_contact_outline113" in actor else (Rider.Shield.polygon(str(actor.fighter.stats.get("shield_shape","kite"))).size() if float(actor.fighter.get("shield",0.0))>0 else 0)
 	var points = actor.body_points()
 	for index in range(points.size()):
 		var part = "helmet" if index<4 else ("torso" if index<8 else ("arms" if index<14 else ("shield" if index<14+shield_count else "legs")))

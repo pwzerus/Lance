@@ -855,6 +855,7 @@ func _draw_heraldry(center: Vector2, design: String) -> void:
 
 func _draw_shield(center: Vector2, design: String) -> void:
 	if float(fighter.shield)<=0:
+		ShieldArt.draw_broken(self,fighter.stats,center)
 		return
 	var ratio = float(fighter.shield)/float(fighter.stats.get("shield_capacity",78.0))
 	var tint = Color.WHITE.darkened(.18 if ratio<.32 else 0).lerp(Color(1.5,1.5,1.25),maxf(0,shield_recoil)*.55)

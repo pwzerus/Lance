@@ -136,7 +136,7 @@
     "slot": "shield",
     "price": 70,
     "stats": {
-      "shield_capacity": 150,
+      "shield_capacity": 95,
       "shield_handling": 1.1,
       "shield_quality": 0,
       "shield_shape": "kite",
@@ -448,7 +448,7 @@
     "slot": "shield",
     "price": 380,
     "stats": {
-      "shield_capacity": 200,
+      "shield_capacity": 120,
       "shield_handling": 1.01,
       "shield_quality": 2,
       "shield_shape": "heater",
@@ -760,7 +760,7 @@
     "slot": "shield",
     "price": 820,
     "stats": {
-      "shield_capacity": 250,
+      "shield_capacity": 145,
       "shield_handling": 0.9200000000000002,
       "shield_quality": 4,
       "shield_shape": "targe",
@@ -1072,7 +1072,7 @@
     "slot": "shield",
     "price": 70,
     "stats": {
-      "shield_capacity": 150,
+      "shield_capacity": 95,
       "shield_handling": 1.1,
       "shield_quality": 0,
       "shield_shape": "kite",
@@ -1384,7 +1384,7 @@
     "slot": "shield",
     "price": 380,
     "stats": {
-      "shield_capacity": 200,
+      "shield_capacity": 120,
       "shield_handling": 1.01,
       "shield_quality": 2,
       "shield_shape": "heater",
@@ -1696,7 +1696,7 @@
     "slot": "shield",
     "price": 820,
     "stats": {
-      "shield_capacity": 250,
+      "shield_capacity": 145,
       "shield_handling": 0.9200000000000002,
       "shield_quality": 4,
       "shield_shape": "targe",
@@ -2008,7 +2008,7 @@
     "slot": "shield",
     "price": 70,
     "stats": {
-      "shield_capacity": 150,
+      "shield_capacity": 95,
       "shield_handling": 1.1,
       "shield_quality": 0,
       "shield_shape": "kite",
@@ -2320,7 +2320,7 @@
     "slot": "shield",
     "price": 380,
     "stats": {
-      "shield_capacity": 200,
+      "shield_capacity": 120,
       "shield_handling": 1.01,
       "shield_quality": 2,
       "shield_shape": "heater",
@@ -2632,7 +2632,7 @@
     "slot": "shield",
     "price": 820,
     "stats": {
-      "shield_capacity": 250,
+      "shield_capacity": 145,
       "shield_handling": 0.9200000000000002,
       "shield_quality": 4,
       "shield_shape": "targe",
@@ -2944,7 +2944,7 @@
     "slot": "shield",
     "price": 70,
     "stats": {
-      "shield_capacity": 150,
+      "shield_capacity": 95,
       "shield_handling": 1.1,
       "shield_quality": 0,
       "shield_shape": "kite",
@@ -3256,7 +3256,7 @@
     "slot": "shield",
     "price": 380,
     "stats": {
-      "shield_capacity": 200,
+      "shield_capacity": 120,
       "shield_handling": 1.01,
       "shield_quality": 2,
       "shield_shape": "heater",
@@ -3568,7 +3568,7 @@
     "slot": "shield",
     "price": 820,
     "stats": {
-      "shield_capacity": 250,
+      "shield_capacity": 145,
       "shield_handling": 0.9200000000000002,
       "shield_quality": 4,
       "shield_shape": "targe",

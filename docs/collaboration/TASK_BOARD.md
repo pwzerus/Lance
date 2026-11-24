@@ -2,6 +2,8 @@
 
 ## DEV-113：受创、离鞍动作与极简战斗界面（2026-11-23，Codex，进行中）
 
+第三阶段开始：第二阶段0ccf664bdb8b8f5645fe9e9a886a44e78159f15a已推送并ls-remote核对。继续既有认领内的默认极简HUD、设置/暂停详细信息开关与轻盾取舍；新增catalogue.gd及shield_art.gd仅限盾牌耐久/受损显示所需改动。原发布入口尚未更换。
+
 昏厥支撑修复补充认领：game/scripts/core/horse_surface.gd（无纹理的马颈共享几何）、game/scripts/visual/horse_skin.gd（调用共享变换，保留原网格精度）。用于防止前伏头部穿入马颈；不修改马匹贴图。
 
 状态表情补充认领：game/scripts/visual/character_face.gd，失去意识时显示闭眼；只传入临时绘制状态，不修改自建脸数据或存档。

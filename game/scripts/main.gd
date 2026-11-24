@@ -1368,7 +1368,7 @@ func _update_item_panel() -> void:
 func show_settings() -> void:
 	page = "settings"
 	_clear_screen()
-	_header("设置 · 让每一次交锋更适合你。")
+	_header("设置 · 操作、画面与声音")
 	var panel = UI.panel(screen,Rect2(70,123,680,656))
 	UI.label(panel,"游戏设置",Vector2(28,24),34,UI.GOLD)
 	UI.check(panel,"显示血腥表现",GameState.profile.settings.blood,Vector2(28,104),func(value):_change_setting("blood",value))
@@ -1392,16 +1392,19 @@ func show_settings() -> void:
 	UI.label(panel,"关闭可减少显示等待；游戏仍限制为最高 60 帧。",Vector2(28,499),15,UI.MUTED,620)
 	settings_notice = UI.label(panel,"修改后自动保存",Vector2(28,538),15,UI.MUTED,620)
 	UI.button(panel,"返回营地",Rect2(28,581,620,49),show_home,true)
-	UI.panel(screen,Rect2(810,123,565,596),Color(.055,.10,.08,.95))
+	UI.panel(screen,Rect2(810,123,565,656),Color(.055,.10,.08,.95))
 	UI.label(screen,"操作",Vector2(844,150),32,UI.GOLD)
 	UI.button(screen,"音量与材质试听",Rect2(1105,150,235,45),show_sound_settings)
 	var posture_controls = "滚轮上下　倾身；中键回正" if bool(GameState.profile.settings.mouse_only) else "W / S　　 前倾支撑 / 后仰避头"
-	UI.label(screen,"移动鼠标　瞄准；大幅改向会失稳\n左键 / 空格　按住催马，松开减速\n1 / 2 / 3　护头 / 护胸 / 护腹（右键循环）\n"+posture_controls+"\nH　　　　 对局判定；结算详情\nEsc　　　 暂停；结算后返回营地\nR 重开　　F11 全屏",Vector2(844,219),22,UI.INK,510)
-	UI.label(screen,"触控输入已预留：左侧滑动倾身，右侧瞄准，\n右侧额外触点加速；尚未在手机设备验收。",Vector2(844,468),17,UI.MUTED,510)
+	UI.label(screen,"移动鼠标　瞄准；大幅改向会失稳\n左键 / 空格　按住催马，松开减速\n1 / 2 / 3　护头 / 护胸 / 护腹（右键循环）\n"+posture_controls+"\nEsc　　　 暂停；结算后返回营地\nR 重开　　F11 全屏\nH　　　　结算详情",Vector2(844,219),22,UI.INK,510)
+	UI.label(screen,"默认使用简洁战斗界面。需要查看数值时，\n开启下方“详细战斗信息”。",Vector2(844,468),17,UI.MUTED,510)
 	# ART-090: closed helmets narrow the view during the charge.
 	UI.check(screen,"闭面头盔遮挡视野（眼缝效果）",bool(GameState.profile.settings.get("helmet_view",true)),Vector2(844,544),func(value):_change_setting("helmet_view",value))
 	UI.check(screen,"接近时放缓与命中慢动作",GameState.profile.settings.slow_motion,Vector2(844,600),func(value):_change_setting("slow_motion",value))
 	UI.check(screen,"显示枪线颜色与部位提示",GameState.profile.settings.aim_cues,Vector2(844,656),func(value):_change_setting("aim_cues",value))
+	var details=UI.check(screen,"详细战斗信息",bool(GameState.profile.settings.get("detailed_combat",false)),Vector2(844,708),func(value):_change_setting("detailed_combat",value))
+	details.name="DetailedCombatSetting"
+	UI.label(screen,"显示数值；开启后可按 H 查看命中判定。",Vector2(844,753),14,UI.MUTED,510)
 	queue_redraw()
 
 func show_sound_settings() -> void:

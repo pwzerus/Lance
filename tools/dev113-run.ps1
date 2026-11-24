@@ -1,4 +1,4 @@
-param([Parameter(Mandatory=$true)][string]$Name,[Parameter(Mandatory=$true)][string]$Script,[ValidateSet('gpu','parse','rules')][string]$Budget='gpu',[ValidateSet('source','bundle')][string]$Target='source',[string]$Bundle='E:/GALUMU/builds/LanceAndLaurel-v0.4.60-c1',[string]$Extra='')
+param([Parameter(Mandatory=$true)][string]$Name,[Parameter(Mandatory=$true)][string]$Script,[ValidateSet('gpu','parse','rules')][string]$Budget='gpu',[ValidateSet('source','bundle')][string]$Target='source',[string]$Bundle='E:/GALUMU/builds/LanceAndLaurel-v0.4.60-c1',[string]$Extra='',[switch]$VerboseEngine)
 $ErrorActionPreference='Stop'
 if($Name -notmatch '^dev113-[a-z0-9-]+$'){throw 'Use a new DEV113 evidence name'}
 $project='E:/GALUMU';$run=Join-Path $project ('docs/development/logs/'+$Name)
@@ -7,7 +7,7 @@ New-Item -ItemType Directory -Path $run | Out-Null
 $part=if($Budget -eq 'gpu'){'screens'}else{'evidence'}
 $headless=if($Budget -eq 'gpu'){''}else{'--headless'}
 if($Target -eq 'source'){
- $exe="$project/tools/godot-4.5.1/Godot_v4.5.1-stable_win64.exe";$mount="--path $project/game";$driver="res://tests/$Script";$packHash=$null;$revision=$null
+ $exe="$project/tools/godot-4.5.1/Godot_v4.5.1-stable_win64.exe";$mount="--path $project/game";$driver="res://tests/$Script";$packHash=$null;$revision=(Get-Content -LiteralPath "$project/.git/refs/heads/codex/v0.4" -Raw).Trim()
 }else{
  $exe="$Bundle/runtime/LanceAndLaurel.exe";$pack="$Bundle/runtime/LanceAndLaurel.pck"
  $mount="--path `"$Bundle/runtime`" --main-pack `"$pack`"";$driver="$project/game/tests/$Script"
@@ -23,8 +23,12 @@ for($depth=0;$depth -lt 12 -and (Test-Path -LiteralPath $testPath);$depth++){
  $testPath=Join-Path (Split-Path -Parent $testPath) $extends.Groups[1].Value
 }
 $meta.external_driver_chain=$chain
+if($Target -eq 'source'){
+ $meta.source_fingerprints=@(Get-ChildItem -LiteralPath "$project/game/scripts","$project/game/data" -Recurse -File | Where-Object { $_.Extension -in @('.gd','.json') } | Sort-Object FullName | ForEach-Object { @{path=$_.FullName.Substring($project.Length+1);sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash} })
+}
 [IO.File]::WriteAllText("$run/target.json",($meta | ConvertTo-Json -Depth 5),[Text.UTF8Encoding]::new($false))
-$params=@{Executable=$exe;Arguments="$headless $mount --audio-driver Dummy --script `"$driver`" --log-file `"$run/engine.log`" -- --test-profile --folder=$run/$part --report=$run/$part $Extra";TimeoutSeconds=600;MemoryLog="$run/memory.log"}
+$verboseFlag=if($VerboseEngine){'--verbose'}else{''}
+$params=@{Executable=$exe;Arguments="$headless $verboseFlag $mount --audio-driver Dummy --script `"$driver`" --log-file `"$run/engine.log`" -- --test-profile --folder=$run/$part --report=$run/$part $Extra";TimeoutSeconds=600;MemoryLog="$run/memory.log"}
 if($Budget -eq 'gpu'){$params.IsolatedDesktop=$true}elseif($Budget -eq 'parse'){$params.HeadlessDiagnostics=$true}else{$params.GeometryDiagnostics=$true}
 & "$project/Start-MemoryBound.ps1" @params | Out-Null
 $memory=Get-Content -LiteralPath "$run/memory.log" -Raw

@@ -4,6 +4,9 @@ signal rider_landed(impact_speed: float)
 const Shard = preload("res://scripts/visual/lance_shard.gd")
 const Cues = preload("res://scripts/visual/combat_cues.gd")
 const WindowActivity = preload("res://scripts/core/window_activity.gd")
+const ShieldArt = preload("res://scripts/visual/shield_art.gd")
+const ShieldGeometry = preload("res://scripts/core/shield_geometry.gd")
+const Model = preload("res://scripts/core/joust_match.gd")
 
 var particles: Array = []
 var stains: Array = []
@@ -11,6 +14,7 @@ var bodies: Array = []
 var blood_enabled = false
 var bursts: Array = []
 var debris: Array = []
+var shield_fragments113: Array = []
 var rng = RandomNumberGenerator.new()
 var far_dust: Node2D
 
@@ -104,6 +108,23 @@ func dust(point: Vector2, direction: int, pace: float = 0.0) -> void:
 			"color": Color(.70,.59,.39,lerpf(.24,.42,pace)), "size": rng.randf_range(3,6+pace*4), "blood": false, "dust":true,"floor":point.y+2,
 			"trail":pace*pace*18.0,"direction":direction})
 
+func break_shield(fighter: Dictionary, event: Dictionary) -> void:
+	if not bool(event.get("shield_broke",false)):return
+	var transform=Model.shield_transform(fighter)
+	var field=Color(str(ShieldArt.ShieldArms.record(ShieldArt.device(fighter.stats)).field))
+	var heading=int(fighter.direction)
+	for polygon in ShieldArt.fracture_parts(fighter.stats):
+		var world=PackedVector2Array();var center=Vector2.ZERO
+		for point in polygon:
+			var transformed=transform*ShieldGeometry.project(point)
+			world.append(transformed);center+=transformed
+		center/=world.size()
+		for i in range(world.size()):world[i]-=center
+		var outward=center-transform.origin
+		var velocity=Vector2(heading*float(fighter.speed)*.8,0)+outward*3.0+Vector2(-heading*90,-70)
+		shield_fragments113.append({"p":center,"v":velocity,"polygon":world,"angle":0.0,"spin":clampf(outward.x*.15,-5,5),"life":3.0,"ground":float(event.get("defender_ground_y",12)),"field":field})
+	while shield_fragments113.size()>16:shield_fragments113.pop_front()
+
 func fall(fighter: Dictionary, direction: int, event: Dictionary = {}, mounted: RiderView = null) -> void:
 	# Capture the same skeleton, face, armor and hands used on horseback.
 	fighter.unseated=true
@@ -132,6 +153,15 @@ func _process(delta: float) -> void:
 		burst.life -= delta
 	bursts = bursts.filter(func(b):return b.life>0)
 	debris = debris.filter(func(b):return is_instance_valid(b))
+	for piece in shield_fragments113:
+		piece.life-=delta;piece.v.y+=900.0*delta;piece.p+=Vector2(piece.v)*delta;piece.angle+=float(piece.spin)*delta
+		var low=-INF
+		for point in piece.polygon:low=maxf(low,Vector2(point).rotated(float(piece.angle)).y)
+		if float(piece.p.y)+low>float(piece.ground):
+			piece.p.y=float(piece.ground)-low
+			piece.v.y=-absf(float(piece.v.y))*.12 if absf(float(piece.v.y))>35 else 0.0
+			piece.v.x*=exp(-10.0*delta);piece.spin*=exp(-14.0*delta)
+	shield_fragments113=shield_fragments113.filter(func(piece):return piece.life>0)
 	for particle in particles:
 		particle.life -= delta
 		particle.p += Vector2(particle.v) * delta
@@ -172,6 +202,13 @@ func _draw_dust_particle(canvas: Node2D, particle: Dictionary, color: Color) -> 
 func _draw() -> void:
 	if WindowActivity.suspended():
 		return
+	for piece in shield_fragments113:
+		var polygon=PackedVector2Array()
+		for point in piece.polygon:polygon.append(Vector2(piece.p)+Vector2(point).rotated(float(piece.angle)))
+		var alpha=clampf(float(piece.life)*2.0,0,1)
+		draw_colored_polygon(polygon,Color(piece.field,alpha))
+		polygon.append(polygon[0])
+		draw_polyline(polygon,Color(Color("b58b55"),alpha),2.0)
 	for burst in bursts:
 		_draw_contact_burst(burst)
 	for particle in particles:

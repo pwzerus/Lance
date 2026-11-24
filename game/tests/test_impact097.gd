@@ -476,6 +476,12 @@ func run() -> void:
 			await run_battle()
 		"timing":
 			run_timing()
+	if part=="battle":
+		# Fixtures dispose Main directly rather than calling its asynchronous
+		# production shutdown. AudioServer needs a mixer boundary after stop().
+		# Two process frames alone may be much shorter than that boundary.
+		var audio_release=Time.get_ticks_msec()+150
+		while Time.get_ticks_msec()<audio_release:await process_frame
 	report.passed = failures.is_empty()
 	report.failures = failures
 	var file = FileAccess.open(report_path,FileAccess.WRITE)

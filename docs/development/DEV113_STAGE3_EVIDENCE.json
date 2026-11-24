@@ -1,0 +1,412 @@
+{
+  "stage": "DEV-113 source stage 3",
+  "baseline_head": "0ccf664bdb8b8f5645fe9e9a886a44e78159f15a",
+  "runs": [
+    {
+      "name": "dev113-hud01",
+      "exit_code": 0,
+      "private_peak_mib": 615.8,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs\\development\\logs\\dev113-hud01\\screens\\report.json",
+          "sha256": "dfe34a394f4f0cb689733255fffe04267aedc03aa785f88f0a34782c29abf4f5",
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "png_count": 11
+    },
+    {
+      "name": "dev113-hud02",
+      "exit_code": 0,
+      "private_peak_mib": 668.6,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs\\development\\logs\\dev113-hud02\\screens\\report.json",
+          "sha256": "46f93e8ed1024c1aa5669cd075bb4dda1350a4d5e92cfedb7d137ef2e9f15660",
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "png_count": 11
+    },
+    {
+      "name": "dev113-hud03",
+      "exit_code": 0,
+      "private_peak_mib": 643.8,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs\\development\\logs\\dev113-hud03\\screens\\report.json",
+          "sha256": "243ae3189a5fba79ba7e3546e77ce145113cbf1cf0c8b109e6ee355c31d48b12",
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "png_count": 12
+    },
+    {
+      "name": "dev113-hud04",
+      "exit_code": 0,
+      "private_peak_mib": 652.3,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs\\development\\logs\\dev113-hud04\\screens\\report.json",
+          "sha256": "243ae3189a5fba79ba7e3546e77ce145113cbf1cf0c8b109e6ee355c31d48b12",
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "png_count": 12
+    },
+    {
+      "name": "dev113-shield-baseline01",
+      "exit_code": 0,
+      "private_peak_mib": 61.4,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs\\development\\logs\\dev113-shield-baseline01\\evidence\\report.json",
+          "sha256": "23d23968042c91182dd73b792434eaf6ac504e83f305389d20005f356e08522d",
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "png_count": 0
+    },
+    {
+      "name": "dev113-shield01",
+      "exit_code": 0,
+      "private_peak_mib": 0,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs\\development\\logs\\dev113-shield01\\evidence\\report.json",
+          "sha256": "04fe5ab91c1d0ead74054c583701c56c3a3a76d52e3bc43866c13023927ad264",
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "png_count": 0
+    },
+    {
+      "name": "dev113-shield02",
+      "exit_code": 0,
+      "private_peak_mib": 0,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs\\development\\logs\\dev113-shield02\\evidence\\report.json",
+          "sha256": "04fe5ab91c1d0ead74054c583701c56c3a3a76d52e3bc43866c13023927ad264",
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "png_count": 0
+    },
+    {
+      "name": "dev113-shield-visual01",
+      "exit_code": 1,
+      "private_peak_mib": 662.2,
+      "isolated_desktop_closed": true,
+      "errors": [
+        "ERROR: Can't create shader cache folder, no shader caching will happen: user://",
+        "ERROR: Fragments expire within their bounded lifetime"
+      ],
+      "warnings": [
+        "WARNING: ObjectDB instances leaked at exit (run with --verbose for details)."
+      ],
+      "reports": [
+        {
+          "path": "docs\\development\\logs\\dev113-shield-visual01\\report.json",
+          "sha256": "1d5ee3c103a89ab4c873ff4bf5dabff20bc14b7ce0b5fd3c689c8bbb6d351751",
+          "passed": false,
+          "failures": [
+            "Fragments expire within their bounded lifetime"
+          ]
+        }
+      ],
+      "png_count": 56
+    },
+    {
+      "name": "dev113-shield-visual02",
+      "exit_code": 1,
+      "private_peak_mib": 664.5,
+      "isolated_desktop_closed": true,
+      "errors": [
+        "ERROR: Can't create shader cache folder, no shader caching will happen: user://",
+        "ERROR: Fragments expire within their bounded lifetime"
+      ],
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs\\development\\logs\\dev113-shield-visual02\\report.json",
+          "sha256": "3a2267d56fb162f0fe73cd953770ab1aed54ec7e56cce39ec3ecd97de5372af6",
+          "passed": false,
+          "failures": [
+            "Fragments expire within their bounded lifetime"
+          ]
+        }
+      ],
+      "png_count": 56
+    },
+    {
+      "name": "dev113-shield-visual03",
+      "exit_code": 0,
+      "private_peak_mib": 663.3,
+      "isolated_desktop_closed": true,
+      "errors": [
+        "ERROR: Can't create shader cache folder, no shader caching will happen: user://"
+      ],
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs\\development\\logs\\dev113-shield-visual03\\report.json",
+          "sha256": "3c7a10c8d620321f281b7695989415e20e14658e76157c9af50ede4bc1e385ba",
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "png_count": 56
+    },
+    {
+      "name": "dev113-shield-visual04",
+      "exit_code": 0,
+      "private_peak_mib": 671.1,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs\\development\\logs\\dev113-shield-visual04\\report.json",
+          "sha256": "4e7ece92a8411a57c7970e50b90b2cf3c19990efee24faa804b7cb1e90e4385a",
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "png_count": 56
+    },
+    {
+      "name": "dev113-audit01",
+      "exit_code": 0,
+      "private_peak_mib": 0,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs\\development\\logs\\dev113-audit01\\report.json",
+          "sha256": "9a2c1e155239c523018031913d463c09ff7506654f09ac7c82ea95833e49dc53",
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "png_count": 0
+    },
+    {
+      "name": "dev113-openings01",
+      "exit_code": 0,
+      "private_peak_mib": 59.1,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs\\development\\logs\\dev113-openings01\\report.json",
+          "sha256": "823c348ece0ade20ae7ea1d57817a4b4fd2950bc73c47a2972fb6ff7ab109a90",
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "png_count": 0
+    },
+    {
+      "name": "dev113-openings-oldcap01",
+      "exit_code": 0,
+      "private_peak_mib": 59.8,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs\\development\\logs\\dev113-openings-oldcap01\\report.json",
+          "sha256": "4f8f4e375fc5ab9eda1af712e5bfb86643336f518ba906a78cbd66f901d081ac",
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "png_count": 0
+    },
+    {
+      "name": "dev113-fall-remnant01",
+      "exit_code": 0,
+      "private_peak_mib": 242.1,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs\\development\\logs\\dev113-fall-remnant01\\report.json",
+          "sha256": "1d5ef015fe8cfbf37100355838cc6eea01f8c783474e1e23fefa7ef5b4766620",
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "png_count": 0
+    },
+    {
+      "name": "dev113-parse04",
+      "exit_code": 0,
+      "private_peak_mib": 194.4,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "reports": [],
+      "png_count": 0
+    },
+    {
+      "name": "dev113-parse05",
+      "exit_code": 0,
+      "private_peak_mib": 190.9,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "reports": [],
+      "png_count": 0
+    },
+    {
+      "name": "dev113-rules098-02",
+      "exit_code": 0,
+      "private_peak_mib": 0,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs\\development\\logs\\dev113-rules098-02\\report.json",
+          "sha256": "2ba3a9010dbb035d78e73dade64127bc9bb3ce937c2c946591fc9b79d4b50b43",
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "png_count": 0
+    },
+    {
+      "name": "dev113-condition07",
+      "exit_code": 0,
+      "private_peak_mib": 48.6,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs\\development\\logs\\dev113-condition07\\evidence\\report.json",
+          "sha256": "111cfa66d1bd39b7f77595e35f0ed38f7ada20df5f8962f6d698896b2d2d5923",
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "png_count": 0
+    }
+  ],
+  "paired_openings": [
+    {
+      "level": 1,
+      "current": {
+        "draws": 0,
+        "losses": 2,
+        "timeouts": 0,
+        "wins": 6
+      },
+      "old_capacity_only": {
+        "draws": 0,
+        "losses": 2,
+        "timeouts": 0,
+        "wins": 6
+      },
+      "changed_winners": 0
+    },
+    {
+      "level": 2,
+      "current": {
+        "draws": 0,
+        "losses": 2,
+        "timeouts": 0,
+        "wins": 6
+      },
+      "old_capacity_only": {
+        "draws": 0,
+        "losses": 2,
+        "timeouts": 0,
+        "wins": 6
+      },
+      "changed_winners": 0
+    },
+    {
+      "level": 3,
+      "current": {
+        "draws": 0,
+        "losses": 2,
+        "timeouts": 0,
+        "wins": 6
+      },
+      "old_capacity_only": {
+        "draws": 0,
+        "losses": 2,
+        "timeouts": 0,
+        "wins": 6
+      },
+      "changed_winners": 0
+    },
+    {
+      "level": 4,
+      "current": {
+        "draws": 0,
+        "losses": 1,
+        "timeouts": 0,
+        "wins": 7
+      },
+      "old_capacity_only": {
+        "draws": 0,
+        "losses": 1,
+        "timeouts": 0,
+        "wins": 7
+      },
+      "changed_winners": 0
+    },
+    {
+      "level": 5,
+      "current": {
+        "draws": 0,
+        "losses": 2,
+        "timeouts": 0,
+        "wins": 6
+      },
+      "old_capacity_only": {
+        "draws": 0,
+        "losses": 2,
+        "timeouts": 0,
+        "wins": 6
+      },
+      "changed_winners": 0
+    }
+  ],
+  "scope": "Protected source diagnostics and isolated GPU rendering; viewport input only. Prior failed fixtures and restricted cache writes retained. No packaged build or OS/human acceptance."
+}

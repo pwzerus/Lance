@@ -36,6 +36,11 @@ var track: Node2D
 var backdrop: TextureRect
 var effects: ImpactFX
 var hud: Control
+var hud_brand113: Label
+var hud_context113: Label
+var hud_status_strip113: Control
+var hud_guard_help113: Label
+var hud_speed_caption113: Label
 const Status098 = preload("res://scripts/ui/combat_status098.gd")
 var status_gauges: Control
 var debug_numbers: Label
@@ -337,11 +342,11 @@ func _build_hud_top() -> void:
 	# Every normal HUD element stays in one of the edge bands. The middle
 	# rectangle belongs to the riders, including raised shields and hooves.
 	var top = UI.panel(hud,Rect2(0,0,1440,58),Color(.045,.08,.065,.96))
-	UI.label(top,"LANCE & LAUREL",Vector2(20,12),22,UI.GOLD)
+	hud_brand113=UI.label(top,"LANCE & LAUREL",Vector2(20,12),22,UI.GOLD)
 	var title = "跟教练练习" if practice_guide else ("练习场" if practice else (("竞技场" if mode=="arena" else "实战")+" · "+ai_controller.NAMES[int(GameState.profile.settings.difficulty)]))
 	if not level.is_empty():
 		title = str(level.opponent)+"  "+str(level.archetype_name)
-	UI.label(top,title,Vector2(290,17),17,UI.INK,740)
+	hud_context113=UI.label(top,title,Vector2(290,17),17,UI.INK,740)
 	pass_label = UI.label(top,"PASS  01 / 03",Vector2(1065,16),20,UI.GOLD)
 	if practice_guide:
 		lesson_result_button = UI.button(top,"查看练习小结",Rect2(1045,8,210,42),func():lesson_exit_requested.emit())
@@ -350,6 +355,7 @@ func _build_hud_top() -> void:
 	var pause_button = UI.button(top,"暂停 Esc",Rect2(1275,8,145,42),_toggle_pause)
 	pause_button.focus_mode = Control.FOCUS_NONE
 	var status = UI.panel(hud,Rect2(0,58,1440,40),Color(.045,.08,.065,.94))
+	hud_status_strip113=status
 	tactics_label = UI.label(status,"",Vector2(18,6),18,UI.INK,895)
 	speed_label = UI.label(status,"",Vector2(930,8),16,UI.GOLD,490)
 	ready_panel = UI.panel(hud,Rect2(0,98,1440,46),Color(.045,.08,.065,.90))
@@ -366,6 +372,7 @@ func _build_hud_top() -> void:
 	# otherwise keeps its 690px minimum when switched to compact mode.
 	contact_label.custom_minimum_size.x = 0
 	enemy_contact_label.custom_minimum_size.x = 0
+	callout.custom_minimum_size.x = 0
 	for label in [contact_label,enemy_contact_label,tactics_label,speed_label,intermission]:
 		label.autowrap_mode = TextServer.AUTOWRAP_OFF
 		label.clip_text = true
@@ -373,7 +380,7 @@ func _build_hud_top() -> void:
 
 func _build_hud_bottom() -> void:
 	var bottom = UI.panel(hud,Rect2(0,720,1440,90),Color(.045,.08,.065,.96))
-	UI.label(bottom,"右键或 Q 换盾位",Vector2(18,5),16,UI.MUTED)
+	hud_guard_help113=UI.label(bottom,"右键或 Q 换盾位",Vector2(18,5),16,UI.MUTED)
 	guard_buttons.clear()
 	for i in range(3):
 		var slot = i
@@ -427,7 +434,7 @@ func _build_hud_bottom() -> void:
 	hint.autowrap_mode = TextServer.AUTOWRAP_OFF
 	hint.clip_text = true
 	hint.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-	UI.label(bottom,"速度",Vector2(950,48),13,UI.MUTED,42)
+	hud_speed_caption113=UI.label(bottom,"速度",Vector2(950,48),13,UI.MUTED,42)
 	status_gauges = Status098.new()
 	status_gauges.arena = mode=="arena"
 	status_gauges.name = "CombatStatus"
@@ -633,6 +640,8 @@ func _handle_event(event: Dictionary) -> void:
 			riders[index].receive_contact(event)
 			riders[int(event.attacker)].receive_lance_contact(strength)
 			effects.hit(event.position,int(match_model.fighters[int(event.attacker)].direction),event.damage,event.zone=="shield",event.broke,event.zone,strength,event)
+			if bool(event.get("shield_broke",false)):
+				effects.break_shield(match_model.fighters[index],event)
 			# FEEL-097: a horse knocked back onto its haunches skids its hinds,
 			# spraying dirt forward; the slower horse of the pair skids hardest.
 			for jolted in [int(event.attacker),index]:
@@ -669,11 +678,12 @@ func _handle_event(event: Dictionary) -> void:
 						if label.has_meta(key): label.remove_meta(key)
 			# A hit belongs beside the RECEIVING rider's life bar and body map.
 			var actual_label = contact_label if int(event.defender)==0 else enemy_contact_label
+			if actual_label.has_meta("diagnostic_notice113"):actual_label.remove_meta("diagnostic_notice113")
 			var debug_hit = hit_text+"  冲击 %.1f  损伤 %.1f" % [float(event.impulse),float(event.damage)]
 			actual_label.set_meta("debug_hit",debug_hit)
 			actual_label.set_meta("compact_hit",Status098.contact_text(event))
-			actual_label.set_meta("display_debug",training_zones)
-			actual_label.text = debug_hit if training_zones else Status098.contact_text(event)
+			actual_label.set_meta("display_debug",_show_detailed_combat113())
+			actual_label.text = debug_hit if _show_detailed_combat113() else Status098.contact_text(event)
 			actual_label.add_theme_color_override("font_color",Cues.contact_color(event))
 			contact_until = now+2100
 			if bool(event.get("unseated",event.ko)):
@@ -684,10 +694,11 @@ func _handle_event(event: Dictionary) -> void:
 			recorded["pass"]=match_model.pass_number
 			exchange_log.append(recorded)
 			var label = contact_label if index==0 else enemy_contact_label
+			if label.has_meta("diagnostic_notice113"):label.remove_meta("diagnostic_notice113")
 			var brief = Status098.contact_text(event)
 			label.set_meta("compact_hit",brief)
 			label.set_meta("debug_hit",brief+" · 鞍座支撑已失去")
-			label.set_meta("display_debug",training_zones)
+			label.set_meta("display_debug",_show_detailed_combat113())
 			label.text=brief
 			label.add_theme_color_override("font_color",Color("e0ae59"))
 			contact_until=Time.get_ticks_msec()+2100
@@ -960,12 +971,16 @@ func _update_views() -> void:
 			for renderer in [fallen.visual,fallen.far_leg]:
 				renderer.blood_enabled = GameState.profile.settings.blood
 				renderer.queue_redraw()
-	zone_overlay.visible = training_zones
+	zone_overlay.visible = training_zones and _show_detailed_combat113()
 	combat_cues.enabled = GameState.profile.settings.get("aim_cues",true)
+
+func _show_detailed_combat113() -> bool:
+	return bool(GameState.profile.settings.get("detailed_combat",false))
 
 func _update_hud() -> void:
 	if not match_model or not callout:
 		return
+	var detailed = _show_detailed_combat113()
 	hud.visible = not is_finished
 	var phase = match_model.phase
 	runup_panel.visible = phase=="charge" and float(match_model.fighters[1].x)-float(match_model.fighters[0].x)>2000 and not is_finished
@@ -1000,7 +1015,7 @@ func _update_hud() -> void:
 	# Urging is an input, not proof of speed: a tired horse can still be slow.
 	# Keep the actual gait visible through acceleration AND release/coasting.
 	speed_label.text = "%s · %s" % [gait_name,pace_text] if phase=="charge" else pace_text
-	if training_zones:
+	if detailed:
 		speed_label.text = "%s · %s %d" % [pace_text,gait_name,roundi(float(f.speed))]
 	var pace_color = smoothstep(Model.TROT_SPEED,Model.GALLOP_SPEED,float(f.speed)) if phase=="charge" else 0.0
 	speed_label.add_theme_color_override("font_color",Color("c2d8ce").lerp(Color("f1bd67"),pace_color))
@@ -1013,7 +1028,7 @@ func _update_hud() -> void:
 	stamina_bar.size = Vector2(468.0*clampf(stamina/100.0,0,1),10)
 	stamina_bar.color = Color("6fae5a") if stamina>=C.TIRED+15 else (Color("d1a64a") if stamina>=C.TIRED else Color("c9573f"))
 	fatigue_label.text = "马力 %d · 全速上限 %d%% · %+.1f/秒 · 负重 %d/%dkg (%d%%)" % [roundi(stamina),roundi(C.gallop_ceiling(stamina)*100.0),rate,roundi(C.load_kg(f.stats)),roundi(C.capacity_kg(f.stats)),roundi(load_ratio*100.0)]
-	if not training_zones:
+	if not detailed:
 		fatigue_label.text = "马匹体力 · "+("力竭" if stamina<20 else ("疲惫" if tired else ("吃力" if stamina<80 else "充沛")))
 	fatigue_label.add_theme_color_override("font_color",UI.INK if stamina>=C.TIRED else Color("f08a6a"))
 	var guard_text = GUARD_NAMES[guard_slot]+" · "+["下身较易暴露","头腹较易暴露","头胸较易暴露"][guard_slot]
@@ -1025,14 +1040,14 @@ func _update_hud() -> void:
 		guard_buttons[i].button_pressed = i==guard_slot
 		guard_buttons[i].disabled = float(f.shield)<=0 or is_finished
 	tactics_label.text = "%s　|　枪稳 %d%%　|　平衡 %d%%　|　重心 %d%%　|　盾 %d%%　|　臂力 %d%%" % [guard_text,roundi(float(f.lance_stability)*100),roundi(f.balance),roundi((1.0-float(f.get("unsteady",0.0)))*100),roundi(float(f.shield)/float(f.stats.get("shield_capacity",78.0))*100),roundi(float(f.get("arm",100.0)))]
-	if not training_zones:
+	if not detailed:
 		tactics_label.text = guard_text
 		if mode=="war" and float(f.get("head_load",0.0))>=Model.WAR_HEAD_LOAD_LIMIT*.5:
 			tactics_label.text += "　· 头部重创，谨防再中"
 		elif float(f.hp)<35: tactics_label.text += "　· 重伤"
 		elif float(f.hp)<70: tactics_label.text += "　· 受伤"
 		# FEEL-094: flailing is the one balance problem the player can fix now.
-		if float(f.get("unsteady",0.0))>.45: tactics_label.text += "　· 重心不稳，别乱动"
+		if float(f.get("unsteady",0.0))>.45: tactics_label.text += "　· 重心不稳，减少急摆"
 		elif float(f.balance)<40: tactics_label.text += "　· 坐姿失衡"
 		elif not f.broken and float(f.lance_stability)<.65: tactics_label.text += "　· 枪未稳住"
 	if f.broken:
@@ -1045,7 +1060,7 @@ func _update_hud() -> void:
 		tactics_label.text += "　· 手臂酸软"
 	if approach_slow:
 		tactics_label.text += "　· 接近放缓"
-	if not training_zones and bool(f.ko):
+	if not detailed and bool(f.ko):
 		# Once unhorsed, further defensive advice is no longer actionable.
 		tactics_label.text = "骑手阵亡" if bool(f.dead) else ("落马出局" if bool(f.get("unseated",true)) else "伤重退赛")
 	tactics_label.modulate = Color(1.3,1.2,.7) if Time.get_ticks_msec()<input_flash_until else Color.WHITE
@@ -1058,22 +1073,26 @@ func _update_hud() -> void:
 		lesson_result_button.visible = practice_guide.complete() and not is_finished
 		pass_label.visible = not lesson_result_button.visible
 	var hud_now = pause_started if paused else Time.get_ticks_msec()
+	if not detailed and contact_label.has_meta("diagnostic_notice113"):
+		contact_label.text=""
+		contact_label.remove_meta("diagnostic_notice113")
+		if enemy_contact_label.text.is_empty():contact_until=0
 	contact_label.visible = hud_now<contact_until and phase in ["charge","ended"]
 	enemy_contact_label.visible = contact_label.visible
 	contact_label.position.y = 10
 	enemy_contact_label.position.y = 10
 	contact_panel.visible = contact_label.visible
 	for label in [contact_label,enemy_contact_label]:
-		if label.has_meta("compact_hit") and bool(label.get_meta("display_debug"))!=training_zones:
-			label.text = str(label.get_meta("debug_hit" if training_zones else "compact_hit"))
-			label.set_meta("display_debug",training_zones)
+		if label.has_meta("compact_hit") and bool(label.get_meta("display_debug"))!=detailed:
+			label.text = str(label.get_meta("debug_hit" if detailed else "compact_hit"))
+			label.set_meta("display_debug",detailed)
 	pass_label.text = "PASS  %02d / 03" % match_model.pass_number
 	if match_model.mode=="arena":
 		# EQUIP-067 tournament scoring: shown beside the pass count.
 		pass_label.text = "%02d/03 · 比分 %d : %d" % [match_model.pass_number,int(match_model.fighters[0].get("score",0)),int(match_model.fighters[1].get("score",0))]
 	intermission.visible = phase in ["ready","turn"]
 	if phase == "ready":
-		callout.text = "第 %s 次对冲" % ["一","二","三"][match_model.pass_number-1]
+		callout.text = "准备 · %d" % maxi(1,ceili(match_model.phase_time))
 		callout.modulate.a = 1
 		subcallout.text = "整装 · %d" % maxi(1,ceili(match_model.phase_time))
 		intermission.text = "每轮换新枪" if mode=="arena" else ("骑枪已断 · 残柄作战" if match_model.fighters[0].broken else "实战 · 留意防护")
@@ -1092,42 +1111,66 @@ func _update_hud() -> void:
 		subcallout.text = ""
 	callout.visible = not is_finished and phase in ["ready","turn","ended"] and not contact_panel.visible
 	subcallout.visible = not is_finished and not contact_panel.visible and not subcallout.text.is_empty()
-	# REQ-098: normal view is a compact readout; H keeps every diagnostic.
-	status_gauges.visible = not training_zones and not is_finished
+	# DEV-113: detailed values require an explicit setting; H only toggles geometry within that mode.
+	status_gauges.visible = not detailed and not is_finished
 	if status_gauges.visible:
+		status_gauges.minimal113=true
+		status_gauges.contact_active113=contact_label.visible
 		status_gauges.refresh(match_model.fighters,exchange_log,match_model.pass_number)
-	debug_numbers.visible = training_zones and not is_finished
+	debug_numbers.visible = detailed and not is_finished
 	if debug_numbers.visible:
 		var enemy = match_model.fighters[1]
-		debug_numbers.text = "你 HP %d 平衡 %d  |  对手 HP %d 平衡 %d  |  %s\n%s" % [roundi(f.hp),roundi(f.balance),roundi(enemy.hp),roundi(enemy.balance),fatigue_label.text,tactics_label.text]
+		debug_numbers.text = "你 HP %d 平衡 %d  |  对手 HP %d 平衡 %d  |  %s\n伤情 %d%% · 意识 %d · 鞍座支撑 %d%% · 滑移 %.1f · 臂力 %d · 枪稳 %d%% · 盾 %d%%  |  %s" % [roundi(f.hp),roundi(f.balance),roundi(enemy.hp),roundi(enemy.balance),fatigue_label.text,roundi(float(f.get("injury",0))*100),roundi(float(f.get("consciousness",100))),roundi(float(f.get("seat_support",1))*100),float(f.get("seat_offset",0)),roundi(float(f.get("arm",100))),roundi(float(f.lance_stability)*100),roundi(float(f.shield)/maxf(1,float(f.stats.get("shield_capacity",150)))*100),guard_text]
 	tactics_label.visible = false
-	speed_label.visible = training_zones
+	speed_label.visible = detailed
 	# Diagnostic pace shares the lower-right horse gauge, leaving the top
 	# contact row unobstructed. Parent is the status strip at y=58.
 	speed_label.position = Vector2(950,663)
-	fatigue_label.visible = not training_zones
-	pass_label.visible = training_zones
-	callout.visible = not training_zones and callout.visible
+	fatigue_label.visible = not detailed
+	pass_label.visible = detailed
 	subcallout.visible = false
 	intermission.visible = false
-	callout.position = Vector2(603,104)
+	callout.position = Vector2(603,116)
 	callout.size = Vector2(234,36)
 	callout.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	if not training_zones:
-		contact_label.position = Vector2(463,12)
-		contact_label.size = Vector2(116,29)
-		enemy_contact_label.position = Vector2(875,12)
-		enemy_contact_label.size = Vector2(116,29)
+	if not detailed:
+		contact_label.position = Vector2(24,1)
+		contact_label.size = Vector2(350,24)
+		enemy_contact_label.position = Vector2(1066,1)
+		enemy_contact_label.size = Vector2(350,24)
 		for label in [contact_label,enemy_contact_label]:
 			label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		fatigue_label.text = "马力："+("力竭" if stamina<20 else ("疲惫" if tired else "充沛"))
-		if practice_guide: hint.text = practice_guide.instruction(bool(GameState.profile.settings.mouse_only))
+		fatigue_label.text = "马力"+(" · 力竭" if stamina<20 else (" · 疲惫" if tired else ""))
+		if practice_guide:
+			hint.text = practice_guide.instruction(bool(GameState.profile.settings.mouse_only))
+			aim_label.get_parent().visible=true
+		else:
+			hint.visible=false
+			aim_label.text=notice.get_slice(" · ",0) if not notice.is_empty() else (("枪线 · "+Cues.NAMES[projection.zone]) if show_aim and projection.active else "")
+			if notice.begins_with("鞍座失稳"):aim_label.text="失稳 · 回正身体"
+			aim_label.get_parent().visible=not aim_label.text.is_empty()
+		# If the notice is absent, the weapon gauges remain readable without
+		# filling the empty centre with repeated control instructions.
+		hud_guard_help113.visible=practice_guide!=null or phase in ["ready","turn"]
+		hud_speed_caption113.text="速度"
 	else:
 		contact_label.position = Vector2(18,10)
 		contact_label.size = Vector2(690,30)
 		enemy_contact_label.position = Vector2(735,10)
 		enemy_contact_label.size = Vector2(685,30)
 		for label in [contact_label,enemy_contact_label]: label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+		hud_guard_help113.visible=true
+		hud_speed_caption113.text="速度"
+	hud_brand113.visible=detailed
+	hud_context113.position.x=290 if detailed else 24
+	hud_status_strip113.self_modulate.a=1.0 if detailed else 0.0
+	contact_panel.self_modulate.a=1.0 if detailed else 0.0
+	# Keep the short countdown legible over bright sky without restoring a
+	# full-width explanatory band. Both HUD modes retain this essential cue.
+	ready_panel.position=callout.position
+	ready_panel.size=callout.size
+	ready_panel.visible=callout.visible
+	runup_panel.visible=false
 	if not paused:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
@@ -1136,6 +1179,7 @@ func _combat_notice() -> String:
 	if bool(player.get("ko",false)):
 		return "骑手阵亡" if bool(player.get("dead",false)) else ("落马出局" if bool(player.get("unseated",true)) else "伤重退赛")
 	if match_model.phase=="ended": return ""
+	if float(player.get("seat_support",1.0))<.35: return "鞍座失稳 · 回正身体"
 	if float(player.get("shield",1.0))<=0.0: return "盾已破 · 用俯仰避开来枪"
 	if mode=="war" and float(player.get("head_load",0.0))>=Model.WAR_HEAD_LOAD_LIMIT*.5:
 		return "头部重创 · 提前护头"
@@ -1242,10 +1286,14 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 			replay_requested.emit()
 			return
-		elif KEY_H in keys:
+		elif KEY_H in keys and _show_detailed_combat113():
 			training_zones = not training_zones
 			zone_overlay.visible = training_zones
 			enemy_contact_label.text = ""
+			for label in [contact_label,enemy_contact_label]:
+				for meta in ["compact_hit","debug_hit","display_debug"]:
+					if label.has_meta(meta):label.remove_meta(meta)
+			contact_label.set_meta("diagnostic_notice113",true)
 			contact_label.add_theme_color_override("font_color",UI.GOLD)
 			contact_label.text = "判定显示：金色盾牌 · 青色头 / 胸 / 腰腹" if training_zones else "判定显示已关闭"
 			contact_until = Time.get_ticks_msec()+2300
@@ -1362,7 +1410,7 @@ func _toggle_pause() -> void:
 		pause_started = Time.get_ticks_msec()
 		_clear_touch()
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		pause_panel = UI.panel(hud,Rect2(465,185,510,430),Color(.055,.09,.07,.98))
+		pause_panel = UI.panel(hud,Rect2(465,160,510,480),Color(.055,.09,.07,.98))
 		UI.label(pause_panel,"暂停",Vector2(28,24),24,UI.GOLD)
 		var blood_switch = UI.check(pause_panel,"显示血腥表现",GameState.profile.settings.blood,Vector2(28,90),func(value):
 			_pause_setting("blood",value)
@@ -1370,12 +1418,17 @@ func _toggle_pause() -> void:
 				effects.clear_blood()
 			_update_views())
 		var shake_switch = UI.check(pause_panel,"镜头震动",GameState.profile.settings.shake,Vector2(28,140),func(value):_pause_setting("shake",value))
-		pause_save_notice = UI.label(pause_panel,"",Vector2(28,185),14,Color("efb566"),454)
-		var resume_button = UI.button(pause_panel,"继续对冲",Rect2(28,215,454,52),_toggle_pause,true)
-		var restart_button = UI.button(pause_panel,"重新比赛",Rect2(28,280,220,48),func():replay_requested.emit())
-		var exit_button = UI.button(pause_panel,"返回营地",Rect2(262,280,220,48),func():exit_requested.emit())
-		UI.label(pause_panel,"血腥设置只改变画面，不改变伤害或死亡结果。",Vector2(28,353),15,UI.MUTED,454)
-		UI.focus_actions([blood_switch,shake_switch,resume_button,restart_button,exit_button],2)
+		var detail_switch = UI.check(pause_panel,"详细战斗信息",_show_detailed_combat113(),Vector2(28,190),func(value):
+			_pause_setting("detailed_combat",value)
+			if not value:training_zones=false
+			_update_hud();_update_views())
+		detail_switch.name="DetailedCombatPause"
+		pause_save_notice = UI.label(pause_panel,"",Vector2(28,238),14,Color("efb566"),454)
+		var resume_button = UI.button(pause_panel,"继续对冲",Rect2(28,270,454,52),_toggle_pause,true)
+		var restart_button = UI.button(pause_panel,"重新比赛",Rect2(28,335,220,48),func():replay_requested.emit())
+		var exit_button = UI.button(pause_panel,"返回营地",Rect2(262,335,220,48),func():exit_requested.emit())
+		UI.label(pause_panel,"关闭详细信息可恢复简洁界面。\n血腥设置只改变画面，不改变伤害或死亡结果。",Vector2(28,412),15,UI.MUTED,454)
+		UI.focus_actions([blood_switch,shake_switch,detail_switch,resume_button,restart_button,exit_button],3)
 	else:
 		pause_panel.hide()
 		pause_panel.queue_free()

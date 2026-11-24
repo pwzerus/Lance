@@ -1065,7 +1065,7 @@ func _update_hud() -> void:
 		tactics_label.text += "　· 接近放缓"
 	if not detailed and bool(f.ko):
 		# Once unhorsed, further defensive advice is no longer actionable.
-		tactics_label.text = "骑手阵亡" if bool(f.dead) else ("落马出局" if bool(f.get("unseated",true)) else "伤重退赛")
+		tactics_label.text = _terminal_notice113(f)
 	tactics_label.modulate = Color(1.3,1.2,.7) if Time.get_ticks_msec()<input_flash_until else Color.WHITE
 	if practice:
 		hint.text = "练习 · 催马%s　调枪%s　防盾%s　俯仰%s" % ["✓" if learned.boost else "·","✓" if learned.aim else "·","✓" if learned.guard else "·","✓" if learned.posture else "·"]
@@ -1181,10 +1181,17 @@ func _update_hud() -> void:
 	if not paused:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
+func _terminal_notice113(fighter: Dictionary) -> String:
+	# Both HUD rows describe the current physical state. Consciousness loss
+	# is not health exhaustion, and war does not use tournament retirement.
+	if bool(fighter.get("dead",false)): return "骑手阵亡"
+	if bool(fighter.get("unseated",true)): return "落马出局"
+	return "骑手昏厥" if bool(fighter.get("unconscious",false)) else "无法继续"
+
 func _combat_notice() -> String:
 	var player: Dictionary = match_model.fighters[0]
 	if bool(player.get("ko",false)):
-		return "骑手阵亡" if bool(player.get("dead",false)) else ("落马出局" if bool(player.get("unseated",true)) else "伤重退赛")
+		return _terminal_notice113(player)
 	if match_model.phase=="ended": return ""
 	if float(player.get("seat_support",1.0))<.35: return "鞍座失稳 · 回正身体"
 	if float(player.get("shield",1.0))<=0.0: return "盾已破 · 用俯仰避开来枪"

@@ -14,6 +14,7 @@ func run_battle() -> void:
 		{"name":"mounted_right","defender":0,"mode":"arena","hp":1.0,"offset":0.0},
 		{"name":"mounted_left","defender":1,"mode":"arena","hp":1.0,"offset":0.0},
 		{"name":"aware_loss","defender":0,"mode":"arena","hp":90.0,"awareness":1.0,"offset":0.0},
+		{"name":"aware_loss_war","defender":0,"mode":"war","hp":90.0,"awareness":1.0,"offset":0.0},
 		{"name":"late_slip_right","defender":0,"mode":"arena","hp":1.0,"offset":22.8},
 		{"name":"late_slip_left","defender":1,"mode":"arena","hp":1.0,"offset":-22.8},
 		{"name":"war_mounted","defender":1,"mode":"war","hp":1.0,"offset":0.0}]:
@@ -39,6 +40,8 @@ func incapacity_case(c: Dictionary) -> void:
 		"head_incidence":.4,"position":Model.head_position(target),"combat_elevation":0.0,"shaft_alignment":1.0}
 	model._apply_contact(contact)
 	check(target.ko and not target.unseated,"Incapacity initially stays mounted: "+str(c.name))
+	if c.has("awareness"):
+		check(target.hp>0.0 and target.unconscious and target.consciousness<=0.0 and not target.dead,"Loss of consciousness ends combat with life remaining: "+str(c.name))
 	target.seat_offset=float(c.offset);target.seat_velocity=signf(float(c.offset))*24.0
 	model._finish("terminal")
 	b._consume_events(model.drain_events());b._update_views()
@@ -52,7 +55,7 @@ func incapacity_case(c: Dictionary) -> void:
 		await process_frame;await RenderingServer.frame_post_draw
 		var elapsed=Time.get_ticks_msec()-started
 		check(b.riders[int(c.defender)].visible,"Mounted renderer node remains available: "+str(c.name))
-		timeline.append({"ms":elapsed,"slump":target.slump,"unseated":target.unseated,"seat_offset":target.seat_offset,"bodies":b.effects.bodies.size(),"scale":Engine.time_scale,"finished":b.is_finished})
+		timeline.append({"ms":elapsed,"slump":target.slump,"unseated":target.unseated,"seat_offset":target.seat_offset,"bodies":b.effects.bodies.size(),"scale":Engine.time_scale,"finished":b.is_finished,"notice":b._combat_notice(),"tactics":b.tactics_label.text})
 		if next_frame<capture_ms.size() and elapsed>=capture_ms[next_frame]:
 			frames.append(save_frame(str(c.name)+"_"+str(capture_ms[next_frame])));next_frame+=1
 		if b.is_finished:break
@@ -60,11 +63,19 @@ func incapacity_case(c: Dictionary) -> void:
 	check(b.effects.bodies.size()==(1 if expects_slip else 0),"Physical body is spawned only for an actual support loss: "+str(c.name))
 	check(b.is_finished and is_equal_approx(Engine.time_scale,1.0),"Settlement completes and releases time: "+str(c.name))
 	if capture_dir=="none" and not expects_slip:check(float(target.slump)>.90,"Actual engine physics shows mounted collapse before settlement: "+str(c.name))
-	check(target.dead==(str(c.mode)=="war"),"Incapacity preserves arena nonfatal rule: "+str(c.name))
+	check(target.dead==(str(c.mode)=="war" and target.hp<=0.0),"Incapacity is distinct from death in either mode: "+str(c.name))
 	var summary=load("res://scripts/ui/combat_report.gd").summarize(b.exchange_log,str(c.mode))
 	if not expects_slip:check(not summary.contains("落马"),"Mounted result does not falsely report a fall: "+str(c.name))
+	if c.has("awareness"):
+		var detail=load("res://scripts/ui/combat_report.gd").summarize(b.exchange_log,str(c.mode),true)
+		check(summary.contains("昏厥") and not summary.contains("阵亡") and not summary.contains("累积伤势"),"Concise report names unconsciousness without claiming death or health exhaustion: "+str(c.name))
+		check(detail.contains("失去意识，无法继续"),"Detailed report retains the consciousness cause: "+str(c.name))
+		check(b._combat_notice()=="骑手昏厥" and b.tactics_label.text=="骑手昏厥","Both live HUD notices identify consciousness loss in either mode: "+str(c.name))
 	main.show_result();await process_frame;await RenderingServer.frame_post_draw
 	if capture_dir!="none":frames.append(save_frame(str(c.name)+"_result"))
 	check(main.pending_result.get("player_unseated" if int(c.defender)==0 else "enemy_unseated")==expects_slip,"Result snapshot includes post-incapacity physical slip: "+str(c.name))
-	report.battle.append({"fixture":c,"contact":contact,"summary":summary,"timeline":timeline,"frames":frames})
+	if c.has("awareness"):
+		check(float(main.pending_result.get("player_hp" if int(c.defender)==0 else "enemy_hp",0))>0.0,"Settlement retains remaining life after unconsciousness: "+str(c.name))
+	report.battle.append({"fixture":c,"contact":contact,"summary":summary,"timeline":timeline,"frames":frames,
+		"final_state":{"hp":target.hp,"consciousness":target.consciousness,"unconscious":target.unconscious,"unseated":target.unseated,"dead":target.dead,"slump":target.slump}})
 	main._close_battle();await process_frame

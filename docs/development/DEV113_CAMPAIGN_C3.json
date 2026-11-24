@@ -1,0 +1,2839 @@
+{
+  "journey_candidate": "0.4.60-c3",
+  "journey": [
+    {
+      "name": "dev113-journey-01-05",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 1,
+      "last": 5,
+      "clears": 5,
+      "matches": 5,
+      "purchases": 0,
+      "attempts": [
+        {
+          "level": 1,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 35.620457524615,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.2023283557838,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 120,
+            "first_clear": true,
+            "level": 1,
+            "renown": 1
+          }
+        },
+        {
+          "level": 2,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 35.5693737191515,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.2063501532478,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 132,
+            "first_clear": true,
+            "level": 2,
+            "renown": 1
+          }
+        },
+        {
+          "level": 3,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 35.6192446480854,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.2059701449074,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 144,
+            "first_clear": true,
+            "level": 3,
+            "renown": 1
+          }
+        },
+        {
+          "level": 4,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 37.5717983297207,
+            "enemy_score": 6,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 94.5230720522886,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 156,
+            "first_clear": true,
+            "level": 4,
+            "renown": 1
+          }
+        },
+        {
+          "level": 5,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 56.0675686416216,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 2,
+            "player_dead": false,
+            "player_hp": 97.1787666442718,
+            "player_score": 5,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 168,
+            "first_clear": true,
+            "level": 5,
+            "renown": 1
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 686.3,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "D47A21C1B8DA0774FA3D8723A09792E64941D3A9CDB69DBF8ADA34E8C880188A",
+        "memory_sha256": "599684FC47109F16650F0E50E2C4F4234AF3CCC68727056E9755A398652A678C",
+        "engine_sha256": "A3A2BCB8D5B4ECCF943C85AA4D5BFF1CC0A0EB8DE0283BED720DAD0A0E61121E",
+        "target_sha256": "A9AF6A73757174A08D163CB3D2122776CCB28EC916FD1E801E5697BE99F3A8E4"
+      }
+    },
+    {
+      "name": "dev113-journey-06-10",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 6,
+      "last": 10,
+      "clears": 10,
+      "matches": 7,
+      "purchases": 6,
+      "attempts": [
+        {
+          "level": 6,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 4.36970738682896,
+            "enemy_score": 6,
+            "enemy_unconscious": true,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 91.3141443397487,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 180,
+            "first_clear": true,
+            "level": 6,
+            "renown": 1
+          }
+        },
+        {
+          "level": 7,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 53.8689508693557,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 90.9714532341802,
+            "player_score": 2,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 1
+          },
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 7,
+            "renown": 0
+          }
+        },
+        {
+          "level": 7,
+          "attempt": 2,
+          "strategy": "reserve",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 50.1459801892576,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 1,
+            "player_dead": false,
+            "player_hp": 97.7688578334927,
+            "player_score": 3,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 192,
+            "first_clear": true,
+            "level": 7,
+            "renown": 1
+          }
+        },
+        {
+          "level": 8,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 54.5106126753482,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 91.8352952527025,
+            "player_score": 2,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 1
+          },
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 8,
+            "renown": 0
+          }
+        },
+        {
+          "level": 8,
+          "attempt": 2,
+          "strategy": "reserve",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 53.2563087234638,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 1,
+            "player_dead": false,
+            "player_hp": 96.3024610642969,
+            "player_score": 3,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 204,
+            "first_clear": true,
+            "level": 8,
+            "renown": 1
+          }
+        },
+        {
+          "level": 9,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 42.1908199071659,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 92.347243562119,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 216,
+            "first_clear": true,
+            "level": 9,
+            "renown": 1
+          }
+        },
+        {
+          "level": 10,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 27.3108577364066,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 2,
+            "player_dead": false,
+            "player_hp": 95.4649954185702,
+            "player_score": 6,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 528,
+            "first_clear": true,
+            "level": 10,
+            "renown": 3
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 752.3,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "39E5A40A7766066107187D3AD9D8CA3681A31024B22125C782084245F422B362",
+        "memory_sha256": "0DD0F0015C0EB4AB650D2FBFDC884E393B91A966D158DC6E519306DF8EE58736",
+        "engine_sha256": "A3A2BCB8D5B4ECCF943C85AA4D5BFF1CC0A0EB8DE0283BED720DAD0A0E61121E",
+        "target_sha256": "964086F45AF6B182AE6C8B8ECF16B3FB1ED509D712CAE9430FF0860726AE2862"
+      }
+    },
+    {
+      "name": "dev113-journey-11-15",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 11,
+      "last": 15,
+      "clears": 15,
+      "matches": 5,
+      "purchases": 3,
+      "attempts": [
+        {
+          "level": 11,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 27.4020062502312,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 93.9491182243316,
+            "player_score": 6,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 240,
+            "first_clear": true,
+            "level": 11,
+            "renown": 1
+          }
+        },
+        {
+          "level": 12,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 37.8766037665719,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.6105531362584,
+            "player_score": 6,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 252,
+            "first_clear": true,
+            "level": 12,
+            "renown": 1
+          }
+        },
+        {
+          "level": 13,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 10.48915629651,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.3789385691884,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 264,
+            "first_clear": true,
+            "level": 13,
+            "renown": 1
+          }
+        },
+        {
+          "level": 14,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 35.9107490150913,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.0573703539208,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 276,
+            "first_clear": true,
+            "level": 14,
+            "renown": 1
+          }
+        },
+        {
+          "level": 15,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 21.4596294663861,
+            "enemy_score": 1,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "war",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.7088747986258,
+            "player_score": 5,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "hp",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 288,
+            "first_clear": true,
+            "level": 15,
+            "renown": 1
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 742.9,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "DB2790F30A8A58B8144F3FCB9D11EB5C0EC497A07B9B2386872942BA0EFA4FA3",
+        "memory_sha256": "D307FAA8873E7E5F244AE567B58845DF91BDA4B7A7CB86FD014DFEDB3CC0032F",
+        "engine_sha256": "A3A2BCB8D5B4ECCF943C85AA4D5BFF1CC0A0EB8DE0283BED720DAD0A0E61121E",
+        "target_sha256": "8F295D2B016AF4E3E5C62AD4902BBD562C22C58690FC993FB028B81417BE28AE"
+      }
+    },
+    {
+      "name": "dev113-journey-16-20",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 16,
+      "last": 20,
+      "clears": 20,
+      "matches": 5,
+      "purchases": 2,
+      "attempts": [
+        {
+          "level": 16,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 24.1106518311351,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 94.518163675679,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 300,
+            "first_clear": true,
+            "level": 16,
+            "renown": 1
+          }
+        },
+        {
+          "level": 17,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 5.34540249915779,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 94.4990189506001,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 312,
+            "first_clear": true,
+            "level": 17,
+            "renown": 1
+          }
+        },
+        {
+          "level": 18,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 10.1612080653532,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 94.8288779054774,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 324,
+            "first_clear": true,
+            "level": 18,
+            "renown": 1
+          }
+        },
+        {
+          "level": 19,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 20.1036451276592,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 94.5000065244732,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 336,
+            "first_clear": true,
+            "level": 19,
+            "renown": 1
+          }
+        },
+        {
+          "level": 20,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 41.8943089937166,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.5414470379191,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 648,
+            "first_clear": true,
+            "level": 20,
+            "renown": 3
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 769.9,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "9A95D9DDC6EE7155F8DD7D25350642979555611B11CFBDD27E2D67659CF8224D",
+        "memory_sha256": "816547AAC4C39851F076392D9D6362D53DB402EB2C94177100618CFC5C00C78A",
+        "engine_sha256": "A3A2BCB8D5B4ECCF943C85AA4D5BFF1CC0A0EB8DE0283BED720DAD0A0E61121E",
+        "target_sha256": "A8B2E486B376A2DE1CA3A1967F0CB1EEACA80125EFCD5583109AA094ECF18DD2"
+      }
+    },
+    {
+      "name": "dev113-journey-21-25",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 21,
+      "last": 25,
+      "clears": 25,
+      "matches": 5,
+      "purchases": 2,
+      "attempts": [
+        {
+          "level": 21,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 12.9795695998876,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 94.7756130579199,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 360,
+            "first_clear": true,
+            "level": 21,
+            "renown": 1
+          }
+        },
+        {
+          "level": 22,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 15.1732922881742,
+            "enemy_score": 6,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.001001046379,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 372,
+            "first_clear": true,
+            "level": 22,
+            "renown": 1
+          }
+        },
+        {
+          "level": 23,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 10.6897374443711,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.1435127822032,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 384,
+            "first_clear": true,
+            "level": 23,
+            "renown": 1
+          }
+        },
+        {
+          "level": 24,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 13.9604443608258,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.3151634304121,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 396,
+            "first_clear": true,
+            "level": 24,
+            "renown": 1
+          }
+        },
+        {
+          "level": 25,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 45.7037974805209,
+            "enemy_score": 1,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "war",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.6208772030807,
+            "player_score": 5,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "hp",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 408,
+            "first_clear": true,
+            "level": 25,
+            "renown": 1
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 732.5,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "CBF08EE278D142F808CB9F867ECBA0102257BBD64D41453913706C26C67BFF72",
+        "memory_sha256": "1334720376FFBBFBD06AD3665B0845D84D00ADC00A820AF105EF0483A9C00371",
+        "engine_sha256": "A3A2BCB8D5B4ECCF943C85AA4D5BFF1CC0A0EB8DE0283BED720DAD0A0E61121E",
+        "target_sha256": "BC6C0FE1119998529B19A1B171E1E56CAFE85C488F4B5392FE0E5A0486FA0D7F"
+      }
+    },
+    {
+      "name": "dev113-journey-26-30",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 26,
+      "last": 30,
+      "clears": 30,
+      "matches": 5,
+      "purchases": 2,
+      "attempts": [
+        {
+          "level": 26,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 26.7053087726486,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.6739487082193,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 420,
+            "first_clear": true,
+            "level": 26,
+            "renown": 1
+          }
+        },
+        {
+          "level": 27,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 35.1600135530267,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 94.534802095164,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 432,
+            "first_clear": true,
+            "level": 27,
+            "renown": 1
+          }
+        },
+        {
+          "level": 28,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 47.8648103599129,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 90.4582469356945,
+            "player_score": 6,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 444,
+            "first_clear": true,
+            "level": 28,
+            "renown": 1
+          }
+        },
+        {
+          "level": 29,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 41.1281061452263,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.0778888460269,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 456,
+            "first_clear": true,
+            "level": 29,
+            "renown": 1
+          }
+        },
+        {
+          "level": 30,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 59.9502078686335,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 98.0103512530377,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 768,
+            "first_clear": true,
+            "level": 30,
+            "renown": 3
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 783.4,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "8A86F748C1334803AB110A0DFDF0A26CB1BEC79A56C5B804B9F912D95B55BC11",
+        "memory_sha256": "37C03071E65BB98F06BA3057A014F7A536FD381FE26E24714BD157BCB4D51E60",
+        "engine_sha256": "A3A2BCB8D5B4ECCF943C85AA4D5BFF1CC0A0EB8DE0283BED720DAD0A0E61121E",
+        "target_sha256": "01954469A91B1DE6E06A765CB7415790D01396DBFF21248EF6F6E6AB4539FE82"
+      }
+    },
+    {
+      "name": "dev113-journey-31-35",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 31,
+      "last": 35,
+      "clears": 35,
+      "matches": 5,
+      "purchases": 2,
+      "attempts": [
+        {
+          "level": 31,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 0.0,
+            "enemy_score": 0,
+            "enemy_unconscious": true,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.9897999262502,
+            "player_score": 10,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 480,
+            "first_clear": true,
+            "level": 31,
+            "renown": 1
+          }
+        },
+        {
+          "level": 32,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 84.7312201011982,
+            "enemy_score": 1,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.1306655535894,
+            "player_score": 4,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 492,
+            "first_clear": true,
+            "level": 32,
+            "renown": 1
+          }
+        },
+        {
+          "level": 33,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 41.3974427500021,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.0021274761276,
+            "player_score": 6,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 504,
+            "first_clear": true,
+            "level": 33,
+            "renown": 1
+          }
+        },
+        {
+          "level": 34,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 0.0,
+            "enemy_score": 2,
+            "enemy_unconscious": true,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.0504093714769,
+            "player_score": 11,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 516,
+            "first_clear": true,
+            "level": 34,
+            "renown": 1
+          }
+        },
+        {
+          "level": 35,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 66.8651635280448,
+            "enemy_score": 1,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "war",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.3680303207635,
+            "player_score": 4,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 528,
+            "first_clear": true,
+            "level": 35,
+            "renown": 1
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 740.8,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "DDB39FE10F8815F1BEDB538E9770E01803994ACDCB3AD69A022D5C32F9713A6C",
+        "memory_sha256": "23D79C7AD41099C905E72C79EC42B13FD88789BD79281B0B321E972DFB2CC211",
+        "engine_sha256": "A3A2BCB8D5B4ECCF943C85AA4D5BFF1CC0A0EB8DE0283BED720DAD0A0E61121E",
+        "target_sha256": "8A25808D476F4522019DD177EE51D2A9818423653A2553DA45411174893F002E"
+      }
+    },
+    {
+      "name": "dev113-journey-36-40",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 36,
+      "last": 40,
+      "clears": 40,
+      "matches": 5,
+      "purchases": 0,
+      "attempts": [
+        {
+          "level": 36,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 65.4652608356579,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 1,
+            "player_dead": false,
+            "player_hp": 99.6448288620514,
+            "player_score": 2,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 540,
+            "first_clear": true,
+            "level": 36,
+            "renown": 1
+          }
+        },
+        {
+          "level": 37,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 35.2685572086088,
+            "enemy_score": 1,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.0779301720724,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 552,
+            "first_clear": true,
+            "level": 37,
+            "renown": 1
+          }
+        },
+        {
+          "level": 38,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 3.29009473745218,
+            "enemy_score": 0,
+            "enemy_unconscious": true,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 98.4627051450692,
+            "player_score": 11,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 564,
+            "first_clear": true,
+            "level": 38,
+            "renown": 1
+          }
+        },
+        {
+          "level": 39,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 33.2647631095777,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.8395825114423,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 576,
+            "first_clear": true,
+            "level": 39,
+            "renown": 1
+          }
+        },
+        {
+          "level": 40,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 49.9412019680259,
+            "enemy_score": 3,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 82.6231825942536,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 888,
+            "first_clear": true,
+            "level": 40,
+            "renown": 3
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 741.1,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "0D3FD274AD4D4FEA67581B2C2C473D9544BE18E5D72527DF02892B30FA0CB906",
+        "memory_sha256": "A2B13B54006C274ECFCDB22F307A9460336548BC21A614429A3D59CE455C176D",
+        "engine_sha256": "A3A2BCB8D5B4ECCF943C85AA4D5BFF1CC0A0EB8DE0283BED720DAD0A0E61121E",
+        "target_sha256": "E1A7CEDE5E65AD6144CE357425E59688EC29DBBDDE698440F4BF2673ED348B4D"
+      }
+    },
+    {
+      "name": "dev113-journey-41-45",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 41,
+      "last": 45,
+      "clears": 45,
+      "matches": 6,
+      "purchases": 4,
+      "attempts": [
+        {
+          "level": 41,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 45.7988746855288,
+            "enemy_score": 1,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.1801877052299,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 600,
+            "first_clear": true,
+            "level": 41,
+            "renown": 1
+          }
+        },
+        {
+          "level": 42,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 70.8536914590532,
+            "enemy_score": 8,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 44.1226183100414,
+            "player_score": 3,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 1
+          },
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 42,
+            "renown": 0
+          }
+        },
+        {
+          "level": 42,
+          "attempt": 2,
+          "strategy": "reserve",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 34.1838706922492,
+            "enemy_score": 8,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 30.4874582755513,
+            "player_score": 6,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 612,
+            "first_clear": true,
+            "level": 42,
+            "renown": 1
+          }
+        },
+        {
+          "level": 43,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 74.6877029899451,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.0174378996443,
+            "player_score": 6,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 624,
+            "first_clear": true,
+            "level": 43,
+            "renown": 1
+          }
+        },
+        {
+          "level": 44,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 35.8903857248673,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 98.9373589237807,
+            "player_score": 10,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 636,
+            "first_clear": true,
+            "level": 44,
+            "renown": 1
+          }
+        },
+        {
+          "level": 45,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": true,
+            "enemy_hp": 0.0,
+            "enemy_score": 2,
+            "enemy_unconscious": true,
+            "enemy_unseated": false,
+            "mode": "war",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.2590848712735,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 648,
+            "first_clear": true,
+            "level": 45,
+            "renown": 1
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 761.2,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "C42215FFAE7A86EDC9F0378988FE45CE400593567083EAA082753615ED045390",
+        "memory_sha256": "736DF072DECEE4B4ED8924F7DC10F5730F0F29AF7A1DCB40ABF384600E22ED97",
+        "engine_sha256": "A3A2BCB8D5B4ECCF943C85AA4D5BFF1CC0A0EB8DE0283BED720DAD0A0E61121E",
+        "target_sha256": "10E92901E5CA665621747ACCD7E780DC2EB0E8644A12A25AA1FC5797B0544010"
+      }
+    },
+    {
+      "name": "dev113-journey-46-50",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 46,
+      "last": 50,
+      "clears": 50,
+      "matches": 5,
+      "purchases": 0,
+      "attempts": [
+        {
+          "level": 46,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 17.5187969266838,
+            "enemy_score": 6,
+            "enemy_unconscious": true,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 74.4940599174586,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 660,
+            "first_clear": true,
+            "level": 46,
+            "renown": 1
+          }
+        },
+        {
+          "level": 47,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 0.0,
+            "enemy_score": 0,
+            "enemy_unconscious": true,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 99.3951640884394,
+            "player_score": 12,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 672,
+            "first_clear": true,
+            "level": 47,
+            "renown": 1
+          }
+        },
+        {
+          "level": 48,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 43.5207891026742,
+            "enemy_score": 8,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 72.2413038163545,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "hp",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 684,
+            "first_clear": true,
+            "level": 48,
+            "renown": 1
+          }
+        },
+        {
+          "level": 49,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 94.7891747109398,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.6880560811404,
+            "player_score": 6,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 696,
+            "first_clear": true,
+            "level": 49,
+            "renown": 1
+          }
+        },
+        {
+          "level": 50,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 41.1131533372145,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 80.3574185025236,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 1008,
+            "first_clear": true,
+            "level": 50,
+            "renown": 3
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 726.5,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "7948D0D952B30A12C21F8A641A6D8F366D31C12B8B76F480B60F395D7B627474",
+        "memory_sha256": "E97D04C83C8125A44770F4FA60B5569ACF168961CB67F8F9A3748B355AF2FE2F",
+        "engine_sha256": "A3A2BCB8D5B4ECCF943C85AA4D5BFF1CC0A0EB8DE0283BED720DAD0A0E61121E",
+        "target_sha256": "7BCE06E9776EC94D9D5A3B3B50DF7C7A117798742C1057B95601184E78B6D75A"
+      }
+    },
+    {
+      "name": "dev113-journey-51-55",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 51,
+      "last": 55,
+      "clears": 55,
+      "matches": 5,
+      "purchases": 0,
+      "attempts": [
+        {
+          "level": 51,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 74.6038039608182,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 1,
+            "player_dead": false,
+            "player_hp": 100.0,
+            "player_score": 3,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 720,
+            "first_clear": true,
+            "level": 51,
+            "renown": 1
+          }
+        },
+        {
+          "level": 52,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 52.4650545407881,
+            "enemy_score": 6,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 76.814231186523,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 732,
+            "first_clear": true,
+            "level": 52,
+            "renown": 1
+          }
+        },
+        {
+          "level": 53,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 46.3929813780296,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.7876202493971,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 744,
+            "first_clear": true,
+            "level": 53,
+            "renown": 1
+          }
+        },
+        {
+          "level": 54,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 0.0,
+            "enemy_score": 0,
+            "enemy_unconscious": true,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 98.1589309974424,
+            "player_score": 10,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 756,
+            "first_clear": true,
+            "level": 54,
+            "renown": 1
+          }
+        },
+        {
+          "level": 55,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 20.2119922794714,
+            "enemy_score": 1,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "war",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.4040919685507,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 768,
+            "first_clear": true,
+            "level": 55,
+            "renown": 1
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 725.2,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "339267B12C18A416A68658191D791E5E78C9E852834FFBF91281853695EA993A",
+        "memory_sha256": "336A13A4A9C2DE61E909E245FFC6F670B5B8FC32BE201C9C260B9D876269B99F",
+        "engine_sha256": "A3A2BCB8D5B4ECCF943C85AA4D5BFF1CC0A0EB8DE0283BED720DAD0A0E61121E",
+        "target_sha256": "47C4149C9FC2D2D27310103BEE5CADACAAC3F124C6C3A73BAD7CC5C47FDEA052"
+      }
+    },
+    {
+      "name": "dev113-journey-56-60",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 56,
+      "last": 60,
+      "clears": 60,
+      "matches": 5,
+      "purchases": 0,
+      "attempts": [
+        {
+          "level": 56,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 15.3733209398335,
+            "enemy_score": 0,
+            "enemy_unconscious": true,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 2,
+            "player_dead": false,
+            "player_hp": 99.0462441619828,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 780,
+            "first_clear": true,
+            "level": 56,
+            "renown": 1
+          }
+        },
+        {
+          "level": 57,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 66.7653466019301,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 93.9147363085334,
+            "player_score": 4,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "hp",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 792,
+            "first_clear": true,
+            "level": 57,
+            "renown": 1
+          }
+        },
+        {
+          "level": 58,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 80.0190661365607,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 94.1594123202434,
+            "player_score": 4,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "hp",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 804,
+            "first_clear": true,
+            "level": 58,
+            "renown": 1
+          }
+        },
+        {
+          "level": 59,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 60.9819338098213,
+            "enemy_score": 5,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 61.9702298362127,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 816,
+            "first_clear": true,
+            "level": 59,
+            "renown": 1
+          }
+        },
+        {
+          "level": 60,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 51.3914979567782,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 94.9357769548764,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 1128,
+            "first_clear": true,
+            "level": 60,
+            "renown": 3
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 732.6,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "C43253476EA218FC0740C8F608F6054FEC655626A9624EF8DBB0438FA57A76FA",
+        "memory_sha256": "FA1A2A8DEAE09A5C0A0799E76A77EC7965C0BCD2A5BF1814395F933721EB524E",
+        "engine_sha256": "A3A2BCB8D5B4ECCF943C85AA4D5BFF1CC0A0EB8DE0283BED720DAD0A0E61121E",
+        "target_sha256": "8D7845D58E14DFD2B331D1F11805F4753A353AD91B57621D469CF09B1D8815A6"
+      }
+    },
+    {
+      "name": "dev113-journey-61-65",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 61,
+      "last": 65,
+      "clears": 65,
+      "matches": 5,
+      "purchases": 0,
+      "attempts": [
+        {
+          "level": 61,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 76.1186833594915,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.3464770790719,
+            "player_score": 5,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 840,
+            "first_clear": true,
+            "level": 61,
+            "renown": 1
+          }
+        },
+        {
+          "level": 62,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 62.8184166419559,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 98.2413092321239,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 852,
+            "first_clear": true,
+            "level": 62,
+            "renown": 1
+          }
+        },
+        {
+          "level": 63,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 2.348637015865,
+            "enemy_score": 0,
+            "enemy_unconscious": true,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 99.0789136394348,
+            "player_score": 11,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 864,
+            "first_clear": true,
+            "level": 63,
+            "renown": 1
+          }
+        },
+        {
+          "level": 64,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 31.1965803025006,
+            "enemy_score": 3,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 79.4731412630938,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 876,
+            "first_clear": true,
+            "level": 64,
+            "renown": 1
+          }
+        },
+        {
+          "level": 65,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 10.6518506277186,
+            "enemy_score": 6,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "war",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 66.8339557062099,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "hp",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 888,
+            "first_clear": true,
+            "level": 65,
+            "renown": 1
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 725.5,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "C1942E7C693ADA862C9F11F837810D8413835919FE9FF81B8C43F2F564892494",
+        "memory_sha256": "AA3D0FB8386ABC0BD905C278E936C2AE9F16019AA62A26B1ABD8D9172A9F8D76",
+        "engine_sha256": "A3A2BCB8D5B4ECCF943C85AA4D5BFF1CC0A0EB8DE0283BED720DAD0A0E61121E",
+        "target_sha256": "89F942A8296A1B63B285853771751550B7594BBEB498A0A70B92396D8DEA9CFF"
+      }
+    },
+    {
+      "name": "dev113-journey-66-70",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 66,
+      "last": 70,
+      "clears": 70,
+      "matches": 7,
+      "purchases": 0,
+      "attempts": [
+        {
+          "level": 66,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 56.1481258650612,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 71.1866831793474,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 900,
+            "first_clear": true,
+            "level": 66,
+            "renown": 1
+          }
+        },
+        {
+          "level": 67,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 56.3510957671258,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 63.1809492749139,
+            "player_score": 6,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 912,
+            "first_clear": true,
+            "level": 67,
+            "renown": 1
+          }
+        },
+        {
+          "level": 68,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 50.3120915780803,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.4699392151043,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 924,
+            "first_clear": true,
+            "level": 68,
+            "renown": 1
+          }
+        },
+        {
+          "level": 69,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 65.6129432260288,
+            "enemy_score": 6,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 70.2841468495423,
+            "player_score": 5,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 1
+          },
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 69,
+            "renown": 0
+          }
+        },
+        {
+          "level": 69,
+          "attempt": 2,
+          "strategy": "reserve",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 2.43920269046396,
+            "enemy_score": 4,
+            "enemy_unconscious": true,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 2,
+            "player_dead": false,
+            "player_hp": 58.2768063188776,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 936,
+            "first_clear": true,
+            "level": 69,
+            "renown": 1
+          }
+        },
+        {
+          "level": 70,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 99.3064586980505,
+            "enemy_score": 7,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 37.2035184063692,
+            "player_score": 0,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 1
+          },
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 70,
+            "renown": 0
+          }
+        },
+        {
+          "level": 70,
+          "attempt": 2,
+          "strategy": "reserve",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 44.1494272492854,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.6215314949691,
+            "player_score": 4,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 1248,
+            "first_clear": true,
+            "level": 70,
+            "renown": 3
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 724.6,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "2F9654A1972BCCDB937BD0222D031A9C1C224BD462D62F8EB0904E58E7A2D874",
+        "memory_sha256": "A53A11BA1B82658E6C4CEBD47A5F918E6959989567EC020D9CA22E012DA2C155",
+        "engine_sha256": "A3A2BCB8D5B4ECCF943C85AA4D5BFF1CC0A0EB8DE0283BED720DAD0A0E61121E",
+        "target_sha256": "D327FCDCBBA9260C575565E5EF9CB5E38FED711F6997196A59F2A32C5769DC8C"
+      }
+    },
+    {
+      "name": "dev113-journey-71-75",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 71,
+      "last": 75,
+      "clears": 75,
+      "matches": 7,
+      "purchases": 0,
+      "attempts": [
+        {
+          "level": 71,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 45.1000263496392,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 50.0480116569596,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 960,
+            "first_clear": true,
+            "level": 71,
+            "renown": 1
+          }
+        },
+        {
+          "level": 72,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 81.564655516385,
+            "enemy_score": 8,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 44.6225774457581,
+            "player_score": 2,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 1
+          },
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 72,
+            "renown": 0
+          }
+        },
+        {
+          "level": 72,
+          "attempt": 2,
+          "strategy": "reserve",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 61.2042717280327,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 1,
+            "player_dead": false,
+            "player_hp": 98.4975443412693,
+            "player_score": 3,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 972,
+            "first_clear": true,
+            "level": 72,
+            "renown": 1
+          }
+        },
+        {
+          "level": 73,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 67.2074245995266,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 68.8024891086593,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 984,
+            "first_clear": true,
+            "level": 73,
+            "renown": 1
+          }
+        },
+        {
+          "level": 74,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 38.2010754017893,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 98.5957712690619,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 996,
+            "first_clear": true,
+            "level": 74,
+            "renown": 1
+          }
+        },
+        {
+          "level": 75,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 55.8503781024425,
+            "enemy_score": 5,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "war",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 50.8047050004323,
+            "player_score": 5,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "hp",
+            "winner": 1
+          },
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 75,
+            "renown": 0
+          }
+        },
+        {
+          "level": 75,
+          "attempt": 2,
+          "strategy": "reserve",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 64.2210787480178,
+            "enemy_score": 3,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "war",
+            "passes": 2,
+            "player_dead": false,
+            "player_hp": 44.3682335613016,
+            "player_score": 3,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 1008,
+            "first_clear": true,
+            "level": 75,
+            "renown": 1
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 718.2,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "1AC2B2BC3E39A9DB1663436D28BDC2584C234ACB313F6DD37BECBA972EE7324D",
+        "memory_sha256": "7AE74EEF8A6DECE433ABF7E1A8CA5D0DCB1DAE80CB6D0C63C3A124DB078D75B9",
+        "engine_sha256": "A3A2BCB8D5B4ECCF943C85AA4D5BFF1CC0A0EB8DE0283BED720DAD0A0E61121E",
+        "target_sha256": "E227F05FE755AE0423A7A7128AE5C4D0BF27C4084A3F17E6CE71B8579BD1C41D"
+      }
+    },
+    {
+      "name": "dev113-journey-76-80",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 76,
+      "last": 80,
+      "clears": 80,
+      "matches": 6,
+      "purchases": 0,
+      "attempts": [
+        {
+          "level": 76,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 64.4693032782522,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.6857611116578,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 1020,
+            "first_clear": true,
+            "level": 76,
+            "renown": 1
+          }
+        },
+        {
+          "level": 77,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 33.6750311514676,
+            "enemy_score": 5,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 80.5799554646702,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 1032,
+            "first_clear": true,
+            "level": 77,
+            "renown": 1
+          }
+        },
+        {
+          "level": 78,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 30.4763573696582,
+            "enemy_score": 3,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 81.0888888969624,
+            "player_score": 10,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 1044,
+            "first_clear": true,
+            "level": 78,
+            "renown": 1
+          }
+        },
+        {
+          "level": 79,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 53.3714919323062,
+            "enemy_score": 8,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 44.9979910178853,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 1
+          },
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 79,
+            "renown": 0
+          }
+        },
+        {
+          "level": 79,
+          "attempt": 2,
+          "strategy": "reserve",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 66.7738460489163,
+            "enemy_score": 3,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 53.203670589166,
+            "player_score": 6,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 1056,
+            "first_clear": true,
+            "level": 79,
+            "renown": 1
+          }
+        },
+        {
+          "level": 80,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 51.4935960990197,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 2,
+            "player_dead": false,
+            "player_hp": 99.3130166968283,
+            "player_score": 6,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 1368,
+            "first_clear": true,
+            "level": 80,
+            "renown": 3
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 742.9,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "1C4E043607D8429B85131C53492147D7D97A75ED521000AA972A62E5A995C2CF",
+        "memory_sha256": "46BA3C5B675E1B3885D8A3CD6AC533EB3F216B6D59B1BBF3E8BA72C3163CF0C3",
+        "engine_sha256": "A3A2BCB8D5B4ECCF943C85AA4D5BFF1CC0A0EB8DE0283BED720DAD0A0E61121E",
+        "target_sha256": "64696A8244FAEAAE7EC5A93617A3CF8534672AD701F51CDBC490DD48FC500251"
+      }
+    }
+  ],
+  "independent_ledger": {
+    "coins": 34445.0,
+    "renown": 96,
+    "matches": 88,
+    "purchases": 21,
+    "issues": []
+  },
+  "score": {
+    "arena": 80,
+    "war": 8,
+    "mismatches": [],
+    "duplicate_contacts": [],
+    "natural_losses": [
+      {
+        "level": 7,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 8,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 42,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 69,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 70,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 72,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 75,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 79,
+        "attempt": 1,
+        "winner": 1
+      }
+    ]
+  },
+  "clears": 80,
+  "all_80_cleared": true,
+  "scope": "Actual c3 PCK campaign: normal earned purchases/rewards and finite engine-local inputs. c4 subsequently changes only terminal HUD wording; final-candidate verification is recorded separately."
+}

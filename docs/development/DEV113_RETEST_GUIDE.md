@@ -22,6 +22,7 @@
 - 实际对局：test_cinema099、test_motion105、profile_result099；后者采用正常Main结算/保存/重开，记录帧时间、资源和真实接触，不注入伤害。
 - 完整成长：tools/dev113-journey.ps1。仅使用dev113-campaign/qa_journey隔离目录，通过正常奖励购买和解锁，失败不得赠送通关或金币。
 - 连续配置：tools/dev113-soak.ps1八种有限配置，每种360秒、串行；不可称为同一个进程连续48分钟。
+- 独立核账：tools/dev113-flow-evidence.py只读实际成长/连续对局报告，复算奖励、购买、每击得分、跨进程档案和配置；缺项显示未完成。--write仅写本轮证据汇总，不运行引擎、不改QA或正式档。
 - 包与保护入口：launcher/Verify-Package.ps1、Test-Portable.ps1；外层实际GPU用Invoke-Perf088.ps1并明确传入本轮Bundle，不采用其旧默认包。
 
 ## 本轮参考检查表台账

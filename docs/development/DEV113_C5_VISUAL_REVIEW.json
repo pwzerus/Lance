@@ -50,6 +50,21 @@
       "path": "docs/development/logs/dev113-c5-journey-21-25/screens/level25-attempt1-result.png",
       "sha256": "796874A97199B6930BBB3AA540CC262957B6BAF385300AF079EBA7928B1912EC",
       "observation": "实际成长第25关：对手剩余生命7.499因失衡离鞍；实战结果不显示竞技场比分，分轮命中与终局原因对应日志。背景存活骑手靠右，枪和马体部分出框；该帧骑手头与躯干仍完整。"
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-journey-46-50/screens/level46-attempt1-result.png",
+      "sha256": "788811C6D78E74F40475AFD0E9DF405D8674156A122B822560DBBBB433864ECC",
+      "observation": "实际成长第46关，对手剩余生命12.841、未离鞍且非阵亡，结果明确说明昏厥失去战斗能力；不是受控接触夹具。"
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-journey-76-80/screens/level80-attempt1-result.png",
+      "sha256": "23930D1974EEFCA9F014C0A33783F2672401F2C1654D724A71ACC072CAB56FDE",
+      "observation": "最后一关正常获胜，显示八章挑战完成、正确比分和首通收益。"
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-journey-76-80/screens/earned-progress.png",
+      "sha256": "45317A3B2E0F802E95A49C067A5BA072AB7F5556F7CEA25A5708B0189AB98A1C",
+      "observation": "正常成长存档对应80/80，八章关卡卡片与余额、声望显示一致。"
     }
   ]
 }

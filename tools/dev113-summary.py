@@ -29,6 +29,8 @@ summary = {
     'campaign_coins': flow['independent_ledger']['coins'],
     'campaign_renown': flow['independent_ledger']['renown'],
     'natural_losses': flow['score']['natural_losses'],
+    'campaign_living_unseated': flow['score']['living_unseated'],
+    'campaign_positive_health_incapacitations': flow['score']['positive_health_incapacitations'],
     'soak_processes': len(flow['soaks']),
     'soak_seconds': flow['measured_soak_seconds'],
     'soak_matches': flow['completed_soak_matches'],

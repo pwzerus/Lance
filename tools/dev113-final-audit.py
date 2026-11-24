@@ -108,6 +108,7 @@ def audit():
                all(verified_flow_run(row) for row in flow.get('soaks', [])) and
                not flow.get('independent_ledger', {}).get('issues', ['missing']) and
                not flow.get('score', {}).get('mismatches', ['missing']) and not flow.get('score', {}).get('duplicate_contacts', ['missing']) and
+               not flow.get('score', {}).get('state_issues', ['missing']) and
                len(flow.get('soaks', [])) == 8 and not flow.get('soak_issues', ['missing']) and
                flow.get('final_candidate_opening', {}).get('passed') is True and
                flow.get('final_candidate_opening', {}).get('complete') is True and

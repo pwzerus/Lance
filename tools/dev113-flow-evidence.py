@@ -49,7 +49,8 @@ def proof(directory):
 
 def collect():
     ledger = {'coins': 520, 'renown': 0, 'matches': 0, 'purchases': 0, 'issues': []}
-    score = {'arena': 0, 'war': 0, 'mismatches': [], 'duplicate_contacts': [], 'natural_losses': []}
+    score = {'arena': 0, 'war': 0, 'mismatches': [], 'duplicate_contacts': [], 'natural_losses': [],
+             'state_issues': [], 'living_unseated': 0, 'positive_health_incapacitations': []}
     route = []
     previous = None
     # Serialized runs are chronological by their preserved end log. This also
@@ -69,6 +70,22 @@ def collect():
                 ledger['issues'].append(directory.name + ': independent ledger differs: ' + key)
         for row in report['rows']:
             result = row['result']
+            out = []
+            for side in ('player', 'enemy'):
+                hp = float(result[side + '_hp'])
+                dead = bool(result[side + '_dead'])
+                unseated = bool(result[side + '_unseated'])
+                unconscious = bool(result[side + '_unconscious'])
+                out.append(dead or unseated or unconscious)
+                score['living_unseated'] += int(unseated and hp > 0 and not dead)
+                if unconscious and hp > 0 and not unseated and not dead:
+                    score['positive_health_incapacitations'].append({'level': row['level'], 'attempt': row['attempt'], 'side': side, 'hp': hp})
+                if (dead and (result['mode'] != 'war' or hp > 0)) or (hp <= 0 and not unconscious) or (result['mode'] == 'war' and hp <= 0 and not dead):
+                    score['state_issues'].append({'level': row['level'], 'attempt': row['attempt'], 'side': side, 'issue': 'inconsistent injury/awareness/death'})
+            if result['reason'] == 'terminal':
+                expected = -1 if out[0] == out[1] else (1 if out[0] else 0)
+                if not any(out) or result['winner'] != expected:
+                    score['state_issues'].append({'level': row['level'], 'attempt': row['attempt'], 'issue': 'terminal outcome differs from rider states'})
             if result['winner'] != 0:
                 score['natural_losses'].append({'level': row['level'], 'attempt': row['attempt'], 'winner': result['winner']})
             score[result['mode']] += 1

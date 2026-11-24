@@ -1,6 +1,28 @@
 extends "test_incapacity113.gd"
 ## Combination fixtures: actual Battle physics, bounded control requests and
 ## one terminal result. Paired injuries are controlled contacts, not sweeps.
+var control113: Dictionary = {}
+
+func input_tick113() -> void:
+	if control113.is_empty(): return
+	var b=control113.battle
+	var p:Dictionary=control113.player
+	var kind:String=control113.kind
+	control113.peak=maxf(float(control113.peak),absf(float(p.seat_offset)))
+	control113.support=minf(float(control113.support),float(p.seat_support))
+	control113.stamina=minf(float(control113.stamina),float(p.stamina))
+	if bool(control113.paired) or p.ko: return
+	# Input belongs to every physics tick, independently of asynchronous PNG
+	# readback/report sampling. A render-frame coroutine skips controls when
+	# the engine catches up several physics ticks after a capture.
+	var t=float(p.pose_clock113)
+	var flailing=kind!="recover" or t<2.0
+	var period=.30 if kind in ["small_corrections","rapid_full"] else .80
+	var amplitude=.20 if kind=="small_corrections" else 1.0
+	b.wheel_lean=amplitude*(1.0 if int(t/period)%2==0 else -1.0) if flailing else 0.0
+	b.pointer_aim=(-.12 if int(t/.24)%2==0 else -.04) if kind=="small_corrections" else ((-.60 if int(t/.24)%2==0 else .50) if flailing else -.08)
+	b.guard_slot=1 if kind=="small_corrections" else ((0 if int(t/.29)%2==0 else 2) if flailing else 1)
+
 func run_battle() -> void:
 	var state=root.get_node("GameState")
 	state.profile=state.default_profile()
@@ -46,6 +68,8 @@ func combination(kind: String) -> void:
 		# Starts at a full charge to isolate repeated steering. Stamina and
 		# arm strength then use normal drain/recovery; neither is replenished.
 		b.mouse_held=true
+	control113={"battle":b,"player":p,"kind":kind,"paired":paired,"peak":0.0,"support":1.0,"stamina":100.0}
+	physics_frame.connect(input_tick113)
 	b._update_views();b.set_physics_process(true)
 	var start=Time.get_ticks_msec();var frames=[];var samples=[];var next_capture=0
 	var moments=[150,600,1300,2200] if paired else [200,1500,3000,4500,6000]
@@ -57,21 +81,15 @@ func combination(kind: String) -> void:
 		# full-weight movements by simulated pose time; a wall-clock timer
 		# would reverse before the rider can actually reach the target lean.
 		var control_time=float(p.pose_clock113)
-		if not paired and not p.ko:
-			var flailing=kind!="recover" or control_time<2.0
-			var period=.30 if kind in ["small_corrections","rapid_full"] else .80
-			var amplitude=.20 if kind=="small_corrections" else 1.0
-			b.wheel_lean=amplitude*(1.0 if int(control_time/period)%2==0 else -1.0) if flailing else 0.0
-			b.pointer_aim=(-.12 if int(control_time/.24)%2==0 else -.04) if kind=="small_corrections" else ((-.60 if int(control_time/.24)%2==0 else .50) if flailing else -.08)
-			b.guard_slot=1 if kind=="small_corrections" else ((0 if int(control_time/.29)%2==0 else 2) if flailing else 1)
-		peak_offset=maxf(peak_offset,absf(float(p.seat_offset)))
-		min_support=minf(min_support,float(p.seat_support));min_stamina=minf(min_stamina,float(p.stamina))
 		await process_frame
 		samples.append({"seconds":elapsed,"simulation_seconds":control_time,"offset":p.seat_offset,"support":p.seat_support,"stamina":p.stamina,"speed":p.speed,"lean":p.lean,"unsteady":p.unsteady,"strain":p.seat_strain,"ko":p.ko,"bodies":b.effects.bodies.size(),"phase":m.phase})
 		if capture_dir!="none" and next_capture<moments.size() and elapsed*1000>=moments[next_capture]:
 			await RenderingServer.frame_post_draw
 			frames.append(save_frame(kind+"_"+str(moments[next_capture])));next_capture+=1
 		if b.is_finished or (kind in ["recover","small_corrections","deep_flail"] and control_time>6.0):break
+	physics_frame.disconnect(input_tick113)
+	peak_offset=float(control113.peak);min_support=float(control113.support);min_stamina=float(control113.stamina)
+	control113.clear()
 	if paired:
 		check(m.result.winner==-1,"Both incapacitated yields one draw")
 		check(b.effects.bodies.size()==(1 if kind=="mixed" else 0),"Only the unsupported member becomes a detached body")

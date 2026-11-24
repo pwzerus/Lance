@@ -1,0 +1,106 @@
+{
+  "candidate": "0.4.60-c5",
+  "source_revision": "4da1e075a125bc92a37663f09f1835eb0f7d5c61",
+  "final_gates": 28,
+  "campaign_clears": 80,
+  "campaign_matches": 89,
+  "campaign_purchases": 21,
+  "campaign_coins": 34445.0,
+  "campaign_renown": 96,
+  "natural_losses": [
+    {
+      "level": 7,
+      "attempt": 1,
+      "winner": 1
+    },
+    {
+      "level": 8,
+      "attempt": 1,
+      "winner": 1
+    },
+    {
+      "level": 32,
+      "attempt": 1,
+      "winner": 1
+    },
+    {
+      "level": 47,
+      "attempt": 1,
+      "winner": 1
+    },
+    {
+      "level": 69,
+      "attempt": 1,
+      "winner": 1
+    },
+    {
+      "level": 70,
+      "attempt": 1,
+      "winner": 1
+    },
+    {
+      "level": 72,
+      "attempt": 1,
+      "winner": 1
+    },
+    {
+      "level": 75,
+      "attempt": 1,
+      "winner": 1
+    },
+    {
+      "level": 79,
+      "attempt": 1,
+      "winner": 1
+    }
+  ],
+  "campaign_living_unseated": 31,
+  "campaign_positive_health_incapacitations": [
+    {
+      "level": 34,
+      "attempt": 1,
+      "side": "enemy",
+      "hp": 22.8427664694278
+    },
+    {
+      "level": 46,
+      "attempt": 1,
+      "side": "enemy",
+      "hp": 12.8407903574001
+    },
+    {
+      "level": 56,
+      "attempt": 1,
+      "side": "enemy",
+      "hp": 15.2366012974394
+    }
+  ],
+  "soak_processes": 8,
+  "soak_seconds": 2880.120529,
+  "soak_matches": 78,
+  "soak_frames": 172791,
+  "soak_minimum_average_fps": 59.9747416088216,
+  "soak_maximum_average_fps": 60.0031642627843,
+  "soak_longest_frame_ms": 32.684,
+  "soak_frames_over_33ms": 0,
+  "soak_frames_over_50ms": 0,
+  "soak_private_peak_mib": 690.4,
+  "final_gates_private_peak_mib": 727.0,
+  "state_counts": {
+    "arena_deaths": 0,
+    "mounted_incapacitations": 69,
+    "living_unseated": 0,
+    "war_deaths": 53
+  },
+  "result_replay_cycles": 24,
+  "maximum_synchronous_start_ms": 3.709,
+  "maximum_result_frame_ms": 26.071,
+  "result_frames_over_33ms": 0,
+  "articulation_cases": 6,
+  "maximum_articulation_penetration_px": 0.0,
+  "maximum_bone_error_px": 7.62939453125e-06,
+  "minimum_final_slump": 0.983429730353779,
+  "maximum_final_slump": 0.986086346225765,
+  "formal_save_unchanged": true,
+  "scope": "Eight separate finite sustained runs, not one continuous 48-minute process. Isolated GPU and explicit headless rule gates; engine input, no OS input or human acceptance. Frame and memory samples do not guarantee all-PC or unlimited-time stability."
+}

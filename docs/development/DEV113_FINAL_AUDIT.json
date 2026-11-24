@@ -1,0 +1,538 @@
+{
+  "task": "DEV-113",
+  "candidate": "0.4.60-c5",
+  "source_revision": "4da1e075a125bc92a37663f09f1835eb0f7d5c61",
+  "passed": true,
+  "issues": [],
+  "gates": [
+    {
+      "gate": "incapacity01",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 26.3,
+      "private_peak_mib": 669.4,
+      "report": "docs/development/logs/dev113-c5-incapacity01/report.json",
+      "report_sha256": "89B0D9CE82F2059C6F78EFA2C188B02167AAA2859AB24BD83443C3CB3766D2A0",
+      "memory_sha256": "A4FF3FB3D20794D54E61299F1B20211B428A551F7BD7C8E32BE8232CBAADF3FE",
+      "engine_sha256": "EAA5052DD2B0E25E95F21A9E731A48289A69EB966388BF8084C668EF0BAD0EC3",
+      "target_sha256": "F037040B5853726C835206AA4250FD344C97728CBEC040CB0BB98DF3A835A261",
+      "expected_errors": []
+    },
+    {
+      "gate": "incapacity02",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 22.0,
+      "private_peak_mib": 640.0,
+      "report": "docs/development/logs/dev113-c5-incapacity02/report.json",
+      "report_sha256": "85DDC6B87A117228F1281E25D7A8D371513A1F9AC134EFFE6B641EDBC9823E63",
+      "memory_sha256": "14411C7D84F004E48DE5EF64673CB45D1B58CA8D6B59A711BEE6210DDD0E1C05",
+      "engine_sha256": "EAA5052DD2B0E25E95F21A9E731A48289A69EB966388BF8084C668EF0BAD0EC3",
+      "target_sha256": "8E438131F578259FBA823D63B3C40CA809ACEE18C38D8E6B3212017CF5733BDD",
+      "expected_errors": []
+    },
+    {
+      "gate": "order01",
+      "passed": true,
+      "verification": "headless rules",
+      "seconds": 0.4,
+      "private_peak_mib": null,
+      "report": "docs/development/logs/dev113-c5-order01/evidence/report.json",
+      "report_sha256": "A0A9172457A9519D7995180E6B0C65BBA54200ECF70089278B4B3D64120DE306",
+      "memory_sha256": "B7BFC345AB3ED1D79016EFBDF954B955340FB123665832AC650DC4E0D239D93D",
+      "engine_sha256": "4D29D37C8A895840A5221E427976A73226525F11D484384AD7ED87B08C47DA19",
+      "target_sha256": "98370C733FE3E2884C04AA36F9C6CA6EAF42965D0D0D657189C2671DD31126CC",
+      "expected_errors": []
+    },
+    {
+      "gate": "condition01",
+      "passed": true,
+      "verification": "headless rules",
+      "seconds": 3.4,
+      "private_peak_mib": 39.1,
+      "report": "docs/development/logs/dev113-c5-condition01/evidence/report.json",
+      "report_sha256": "6C8012AA704B3D7458E8076E7A32F45EBEE74C57931895514D2FA63FD6C1783D",
+      "memory_sha256": "A2C7B8DAE26A735A962C355D3C948C1269B232F12E46BB9F143B76654FEFA1B6",
+      "engine_sha256": "F5CA6666368A97465E06C2F898D96EAF04E128DBE7FC8AB7DBDD61D4DCB677DC",
+      "target_sha256": "7AD79B84C4592237AE35666002EE99665F65DE1631A10EB8C2AF27B49B73C0A6",
+      "expected_errors": []
+    },
+    {
+      "gate": "head01",
+      "passed": true,
+      "verification": "headless rules",
+      "seconds": 0.3,
+      "private_peak_mib": null,
+      "report": "docs/development/logs/dev113-c5-head01/report.json",
+      "report_sha256": "91F7EE797588AE4462E4C44F03EC7D74F0435B540820B6954139F8DF3B9E0033",
+      "memory_sha256": "3442972460F5995F2449A307051926D1204D74D1E42E8BD398402025DB4104AE",
+      "engine_sha256": "5AD76BF810DD136B90163DFAE4277FDE050A80425ADBF48A28886E555FD7D0C2",
+      "target_sha256": "31F642311E9DDB09255A7AA8D9F50B2CB814527A134E7991AB8CEE0A1281936B",
+      "expected_errors": []
+    },
+    {
+      "gate": "shield01",
+      "passed": true,
+      "verification": "headless rules",
+      "seconds": 0.5,
+      "private_peak_mib": null,
+      "report": "docs/development/logs/dev113-c5-shield01/evidence/report.json",
+      "report_sha256": "04FE5AB91C1D0EAD74054C583701C56C3A3A76D52E3BC43866C13023927AD264",
+      "memory_sha256": "5A29B1841BD933216F89099BBB5F1E9C26D1CF4B8425514CAB45F741E24D32D7",
+      "engine_sha256": "694ABC1349C09124F4ADDAE8D25ABD3610234F8C4812FF50DA3D50B7FFC22322",
+      "target_sha256": "A5571C1B005C59A01133348B40E52C97E9B8A2FAA25AC210FF7F55338B8876EE",
+      "expected_errors": []
+    },
+    {
+      "gate": "hud01",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 9.6,
+      "private_peak_mib": 660.8,
+      "report": "docs/development/logs/dev113-c5-hud01/screens/report.json",
+      "report_sha256": "243AE3189A5FBA79BA7E3546E77CE145113CBF1CF0C8B109E6EE355C31D48B12",
+      "memory_sha256": "59E896A0EB5DF246B619E24010217493417BA84AE5EFC8C6454733765CD9BC7F",
+      "engine_sha256": "86647EFC3E92C0F804187B894BEAD2C5427D46ED28DC4739D7CDE87B77A693D4",
+      "target_sha256": "1EF62E9A525616A861D0EB09F949ED20DE227CC66E1B82CF4438310CA87724C0",
+      "expected_errors": []
+    },
+    {
+      "gate": "terminal01",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 45.1,
+      "private_peak_mib": 657.5,
+      "report": "docs/development/logs/dev113-c5-terminal01/report.json",
+      "report_sha256": "A6856F55509509659772887A5ADC815081DB8157D0429DA3C6B46AF5CE507013",
+      "memory_sha256": "5C83A12268C9B4A2C2C96FFB073221945EEF947A1283E4693267B5DFE2BEA8F4",
+      "engine_sha256": "EAA5052DD2B0E25E95F21A9E731A48289A69EB966388BF8084C668EF0BAD0EC3",
+      "target_sha256": "6E6BF32EC3A33A6A199F8DB4FD45963D6A44B8FDE9B8F382AA06AF3F7703F894",
+      "expected_errors": []
+    },
+    {
+      "gate": "articulation01",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 5.7,
+      "private_peak_mib": 513.5,
+      "report": "docs/development/logs/dev113-c5-articulation01/screens/report.json",
+      "report_sha256": "B675997116CE8102C6D4B6123D9A7A1BA5AB48B1405E74508EC5AD3E18A3CB82",
+      "memory_sha256": "B4BC34802F705E884F412504E2DFA76F060D76D5EA5B219B1093DB100C89090D",
+      "engine_sha256": "F4AE34375067F06D07EBF444D1FF239A8DFF76D829F429A00C0230DA60322C9F",
+      "target_sha256": "09824ED177262068801436C2C13CE5793DB34CD2E61F46DE91D6DA3FC6A1B67B",
+      "expected_errors": []
+    },
+    {
+      "gate": "boot01",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 4.5,
+      "private_peak_mib": 230.2,
+      "report": "docs/development/logs/dev113-c5-boot01/screens/report.json",
+      "report_sha256": "2E754DB7A80A104E67A7F9E1BA0DE5FFAB560DFD167866C7CA5410B6CFEAF3BA",
+      "memory_sha256": "14A0C9FE3E27F0BF45511A8AE3E02F45D59DC86DAB6B228D38C9EB2D88F3E67A",
+      "engine_sha256": "BF49C4BFC1530EDB26C01BD2004B0BD2FDEC90323EDBF68D8D3CAF96EBEACC7D",
+      "target_sha256": "E97D4CB855BFAE012BDDDDDC3578AA8C3A5066E8438F6E316E8E6CF69F3F69CE",
+      "expected_errors": []
+    },
+    {
+      "gate": "shield-visual01",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 48.6,
+      "private_peak_mib": 653.3,
+      "report": "docs/development/logs/dev113-c5-shield-visual01/report.json",
+      "report_sha256": "B391F350FD9E697CC433D1771209E26CE27FE3ABF4E30710F60A12044CDEA2AB",
+      "memory_sha256": "47DED0956A0B08846A40000290B692C7A867B7E0781B7DF587F5585FC5A62E2F",
+      "engine_sha256": "EAA5052DD2B0E25E95F21A9E731A48289A69EB966388BF8084C668EF0BAD0EC3",
+      "target_sha256": "0CAA7A271ADEF42828A7F40FE01A1453FF3BD2FF161F808DC198761D9619D50F",
+      "expected_errors": []
+    },
+    {
+      "gate": "cinema01",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 27.6,
+      "private_peak_mib": 647.2,
+      "report": "docs/development/logs/dev113-c5-cinema01/report.json",
+      "report_sha256": "2A7F5A9854DF32A2107DB6DECF837A5F0CD4BEEF7AC84C28D83497D83F1DD2E2",
+      "memory_sha256": "9B66F97DE7A87366FFDA2A19460FC0135D8945BDEDEF0079484925629FBF35BD",
+      "engine_sha256": "EAA5052DD2B0E25E95F21A9E731A48289A69EB966388BF8084C668EF0BAD0EC3",
+      "target_sha256": "927F83707824DCC131F46AD89EB5506C15E42AB3E59A2F9335BF4B2D0C732474",
+      "expected_errors": []
+    },
+    {
+      "gate": "motion01",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 20.4,
+      "private_peak_mib": 580.9,
+      "report": "docs/development/logs/dev113-c5-motion01/screens/report.json",
+      "report_sha256": "4E447A9ECEE56F7B75D1753C61BB1E1DCC0546B4B42E1DBF407BFF220F19DF18",
+      "memory_sha256": "4BD7E7E65B4273A7DC3341997631A8CD6763563EC24BE68D224C3AA88B266FBB",
+      "engine_sha256": "5E461EDD543167ECE26F1DA72299930B3A93B2206502369390817E243ECD0072",
+      "target_sha256": "209ABDEB3EA57116FEEADE8D185FB46841BEBDDE3D65C1D81C8A7171149A4E33",
+      "expected_errors": []
+    },
+    {
+      "gate": "gallery01",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 15.9,
+      "private_peak_mib": 712.7,
+      "report": "docs/development/logs/dev113-c5-gallery01/screens/report.json",
+      "report_sha256": "3F43E03F9FDE68311060D2EE82F77708D94FA1ABC6F6D9BC468E394E80C2F8B8",
+      "memory_sha256": "0124C059CC212AAFA47CC3AB3387BC7168F96C3BBDECDFFB68E6F76A5BFB3DF6",
+      "engine_sha256": "24111E14DC087D62BCD3A365BA6222589B5476CD178AF85B56A6690B204CA6E6",
+      "target_sha256": "5633550113617F0A726739B58A8AC59C1B2BC7A3D7DE402D22C6085E1F331617",
+      "expected_errors": []
+    },
+    {
+      "gate": "save01",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 6.4,
+      "private_peak_mib": 408.1,
+      "report": "docs/development/logs/dev113-c5-save01/screens/report.json",
+      "report_sha256": "7C64270C9DB2E6B4703724ACEE8AA52C02C157B3EB6D6F8B45A5E634A5E2EBF4",
+      "memory_sha256": "B1C267BE285003086C6E777A22D433B448C3707C9E15B828C0644FA875772700",
+      "engine_sha256": "F2F0C392146370E39C3E39C03F3B9621F85D633B834585220ED4ED0B6FA594E7",
+      "target_sha256": "80B5338CF618EC5EABF83434923F503BDA94CE9B5C2FA07DAC33810646CB346B",
+      "expected_errors": [
+        "ERROR: Failed to open 'E:\\GALUMU\\docs\\development\\logs\\dev113-c5-save01/screens/blocked_backup'.",
+        "WARNING: SAVE_IO: 无法备份原进度 [12: Can't open file]",
+        "ERROR: Failed to open 'E:\\GALUMU\\docs\\development\\logs\\dev113-c5-save01/screens/blocked_backup'.",
+        "WARNING: SAVE_IO: 无法备份原进度 [12: Can't open file]"
+      ]
+    },
+    {
+      "gate": "guide01",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 39.4,
+      "private_peak_mib": 639.8,
+      "report": "docs/development/logs/dev113-c5-guide01/screens/report.json",
+      "report_sha256": "E6BF7C50BCAC4DC197BDE08B18057BFA7DA55A307CC27E8DD13F4EB462A266BE",
+      "memory_sha256": "9A31921FFDBCE037014EEF96529C3DF248FBDC2864C6E642FFC847E2C1DB461F",
+      "engine_sha256": "B68C27931A1CD684BE0E0351904F601B4BAB5E55C093B832DC07E3537D0BF303",
+      "target_sha256": "D571F0FDE3673121FC88464AA2945CF2CE3F78F55A20183E7C7796EEFA51C8ED",
+      "expected_errors": []
+    },
+    {
+      "gate": "interruption01",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 50.7,
+      "private_peak_mib": 655.1,
+      "report": "docs/development/logs/dev113-c5-interruption01/screens/report.json",
+      "report_sha256": "2582BF86501247F192A0E09296E9956867F52E40173CD14DB820D1DDCD798D33",
+      "memory_sha256": "0F5F20684CE67B31DB57A821D49BC5AFC4387A8F04CD926AE4B08AFBA90715B7",
+      "engine_sha256": "8149FBDF74367A71B27B4074F52F7A2C2A092A37517A468A8EF7D12204AA5AAC",
+      "target_sha256": "18E30F79D5EFD36E0A74388E884F7DBCACBB8125D5AD6443C7D32D9A7E5F19DE",
+      "expected_errors": []
+    },
+    {
+      "gate": "result01",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 21.1,
+      "private_peak_mib": 673.0,
+      "report": "docs/development/logs/dev113-c5-result01/screens/report.json",
+      "report_sha256": "F270A222F6610B247C7A374071D0833F1AA9DDCF5622C91425D0C3F3DC783A18",
+      "memory_sha256": "D221AB8F9A6E226215D2D245AAC0133CA9A27CA2B1E31B9CF36C42952D0C9232",
+      "engine_sha256": "BE4AE7F1E94555F9B28B1B282DD749388A80D5E2F5E4F7644FED05D9D2517773",
+      "target_sha256": "AC10FBDB406D8506EC3B30F3934DAE450D02F4A2B232A276C91578969981F265",
+      "expected_errors": []
+    },
+    {
+      "gate": "window01",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 27.2,
+      "private_peak_mib": 727.0,
+      "report": "docs/development/logs/dev113-c5-window01/screens/report.json",
+      "report_sha256": "726C8D1F35D63AA15878651C58EC5D31705FCE2D9162F6CBE4E26AD1C24030D6",
+      "memory_sha256": "C1C1E566D8F6BCBD69B2033F88180870ACC61C3B23045F363046E47BF4ABFDEE",
+      "engine_sha256": "8559889972973A54D967015C58903B12F75EC71EF39B04EB8E1B70095956A2D7",
+      "target_sha256": "F37A83AEC4E09FB3C230D650AD1772E3DBB65BA4228A0A72789861F750A45520",
+      "expected_errors": []
+    },
+    {
+      "gate": "journey-01-05",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 250.7,
+      "private_peak_mib": 685.3,
+      "report": "docs/development/logs/dev113-c5-journey-01-05/screens/report.json",
+      "report_sha256": "48F2306F56E1A894F53C139758A20D6078AC639E157AB702CDC227B015BC8984",
+      "memory_sha256": "882FDE4FEC3670F1EF4A5A749AEB4E45F35A510DCCC692D430D7D8BE24F244DD",
+      "engine_sha256": "24111E14DC087D62BCD3A365BA6222589B5476CD178AF85B56A6690B204CA6E6",
+      "target_sha256": "539477DF8D4F7D6AD1BABD416DE49D66C15A2CCF1A9D9D0E307756465D0C9FEB",
+      "expected_errors": []
+    },
+    {
+      "gate": "soak01",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 367.8,
+      "private_peak_mib": 658.6,
+      "report": "docs/development/logs/dev113-c5-soak01/screens/report.json",
+      "report_sha256": "35D695DC0F38C6D3F6D1D4004773F52BB3F64560B8D698C0B9F12FA0B703D01B",
+      "memory_sha256": "8E85208748DFCAD9677FA859E83937D8E35A3D5B698AE3D6D9343F8A4D85BE5D",
+      "engine_sha256": "2E78B1B9B5CFA382E81AB3A08C4634C0A5C59CA00F8872505DD6AAFAAF14296B",
+      "target_sha256": "60F4A01A660F02EF43764514D64809A1014B78781A0878D3F4F8A5DDDAC50133",
+      "expected_errors": []
+    },
+    {
+      "gate": "soak02",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 367.7,
+      "private_peak_mib": 641.4,
+      "report": "docs/development/logs/dev113-c5-soak02/screens/report.json",
+      "report_sha256": "F0FEEE418964709B17743615D2A0BC26FFA263EC65B7258BF247077D6A87153F",
+      "memory_sha256": "F26BC141B38F18DC9093165B13176B96525D8A373C4D7B7FB8015A1B0B9A4084",
+      "engine_sha256": "AEC73D035927B2A9A39A7671238C8A167912D61902F307A3B8A9BF76440B4617",
+      "target_sha256": "D25D9CDA5BB521FDEDF82ED2E75A11865D5D0F5CA8B299BB0261E4043FC879AD",
+      "expected_errors": []
+    },
+    {
+      "gate": "soak03",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 367.8,
+      "private_peak_mib": 668.8,
+      "report": "docs/development/logs/dev113-c5-soak03/screens/report.json",
+      "report_sha256": "6A98FF8F5AEF233420EF8F0E4B1B34EC17FB43981DDA96D31E3732207C2B26E6",
+      "memory_sha256": "38B2F115621BFA0EDAE0DB44591EA3118010FCC39F041E491C13F6234F53BE71",
+      "engine_sha256": "AEC73D035927B2A9A39A7671238C8A167912D61902F307A3B8A9BF76440B4617",
+      "target_sha256": "5D6794A352745755F82CA8FB34D4347F143B73E3A107EF570B244E14E0B830C1",
+      "expected_errors": []
+    },
+    {
+      "gate": "soak04",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 367.4,
+      "private_peak_mib": 680.4,
+      "report": "docs/development/logs/dev113-c5-soak04/screens/report.json",
+      "report_sha256": "DEA3A20230303B7CE7EEA5E58B4F60310592194024582D3125A929C307AC8568",
+      "memory_sha256": "8C0D71201164ABD137C1E6DFFE394BAC4E065304D38919EC63286051B79B6557",
+      "engine_sha256": "2062E79A88122246E065F5F4D99B05A0E0FB4A1A78A49AE028D760DE82A63C1F",
+      "target_sha256": "F059C3716A7F59E0F39E3BC5A52882CED1A1EF38D59451BA064535DBBDED3613",
+      "expected_errors": []
+    },
+    {
+      "gate": "soak05",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 367.7,
+      "private_peak_mib": 657.9,
+      "report": "docs/development/logs/dev113-c5-soak05/screens/report.json",
+      "report_sha256": "DB8523304255A495C50258C92F7D7FB9F286AE699A16205D8C2DF7C453387B5E",
+      "memory_sha256": "77123C2CC91EF9DC63C5BAC0D23CDD5351DF79662373D772E5938FD3E6A7DB4E",
+      "engine_sha256": "AEC73D035927B2A9A39A7671238C8A167912D61902F307A3B8A9BF76440B4617",
+      "target_sha256": "C83A377ABAF977A522D056A05CF687F38657C988186EB81449D97E50F4DE1725",
+      "expected_errors": []
+    },
+    {
+      "gate": "soak06",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 367.8,
+      "private_peak_mib": 666.6,
+      "report": "docs/development/logs/dev113-c5-soak06/screens/report.json",
+      "report_sha256": "21A92A9A410FE0EE6AC0C898C17DC30FB465A055819F598A1BD1E8C506533697",
+      "memory_sha256": "3B55C07DDE484C08CC9F1BB73ADA0B50D999BD56BE39FB9BAE221E0E419F1149",
+      "engine_sha256": "70E1C5CA460971376A91087238C3EA1A6B07D33ACB33EBD9B7DE362146896688",
+      "target_sha256": "A3F2D3BB6C4F7342255E4B014454FCA65B3510F04C19310F6F5022CDBC851216",
+      "expected_errors": []
+    },
+    {
+      "gate": "soak07",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 367.7,
+      "private_peak_mib": 690.4,
+      "report": "docs/development/logs/dev113-c5-soak07/screens/report.json",
+      "report_sha256": "ECD00EFE446BC720BEC5BF028BBCCC7D07F2093027A5835BF7AC32CDBA510D29",
+      "memory_sha256": "5EFE5455E70A15192407B095FFB63D3C1FEA6ADC384A32DD88BD612C2980D126",
+      "engine_sha256": "756F000029BA4841D302C5768224B215C3732D0BA257A98E62A189BC27636394",
+      "target_sha256": "2F213AFB3A3C824277E16FE1857E2BAB62D6E778538BA437B2089885D74E9374",
+      "expected_errors": []
+    },
+    {
+      "gate": "soak08",
+      "passed": true,
+      "verification": "isolated GPU",
+      "seconds": 367.6,
+      "private_peak_mib": 668.6,
+      "report": "docs/development/logs/dev113-c5-soak08/screens/report.json",
+      "report_sha256": "CD510191BC781C2EDC37E5F381D4676891CABF91FE34E18928AECD5B1CEFAD55",
+      "memory_sha256": "3BA440E6090F791F74C2C2DDACB701692E5E8C453309B53F7F0D933C04516EF5",
+      "engine_sha256": "AEC73D035927B2A9A39A7671238C8A167912D61902F307A3B8A9BF76440B4617",
+      "target_sha256": "7581E060AD7116A58B80FF8BCB067C9D0EC80EDE6B5166F6000C5E1CF8DB5E92",
+      "expected_errors": []
+    }
+  ],
+  "bundles": [
+    {
+      "directory": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.60-c5",
+      "passed": true,
+      "files": [
+        {
+          "path": "LanceAndLaurel.exe",
+          "passed": true
+        },
+        {
+          "path": "licenses/ASSET-NOTICES.txt",
+          "passed": true
+        },
+        {
+          "path": "licenses/GODOT-LICENSE.txt",
+          "passed": true
+        },
+        {
+          "path": "licenses/GODOT-THIRD-PARTY.txt",
+          "passed": true
+        },
+        {
+          "path": "licenses/NOTO-SANS-SC-OFL.txt",
+          "passed": true
+        },
+        {
+          "path": "PLAYER-GUIDE.txt",
+          "passed": true
+        },
+        {
+          "path": "RELEASE-NOTES.txt",
+          "passed": true
+        },
+        {
+          "path": "runtime/LanceAndLaurel.exe",
+          "passed": true
+        },
+        {
+          "path": "runtime/LanceAndLaurel.pck",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "directory": "E:\\GALUMU\\builds\\DEV113 0.4.60-c5 中文 空格验包\\LanceAndLaurel-v0.4.60-c5",
+      "passed": true,
+      "files": [
+        {
+          "path": "LanceAndLaurel.exe",
+          "passed": true
+        },
+        {
+          "path": "licenses/ASSET-NOTICES.txt",
+          "passed": true
+        },
+        {
+          "path": "licenses/GODOT-LICENSE.txt",
+          "passed": true
+        },
+        {
+          "path": "licenses/GODOT-THIRD-PARTY.txt",
+          "passed": true
+        },
+        {
+          "path": "licenses/NOTO-SANS-SC-OFL.txt",
+          "passed": true
+        },
+        {
+          "path": "PLAYER-GUIDE.txt",
+          "passed": true
+        },
+        {
+          "path": "RELEASE-NOTES.txt",
+          "passed": true
+        },
+        {
+          "path": "runtime/LanceAndLaurel.exe",
+          "passed": true
+        },
+        {
+          "path": "runtime/LanceAndLaurel.pck",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "archive_unchanged": true,
+  "portable": [
+    {
+      "name": "relocated-arguments",
+      "code": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "argument:--literal=two words",
+      "passed": true
+    },
+    {
+      "name": "argument:--literal=quote\"and\\end\\",
+      "passed": true
+    },
+    {
+      "name": "argument:--literal=尾部 空格\\",
+      "passed": true
+    },
+    {
+      "name": "isolated-save-and-guard",
+      "passed": true
+    },
+    {
+      "name": "duplicate-blocked",
+      "code": 2,
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "name": "first-unaffected",
+      "code": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "finite-timeout",
+      "code": 124,
+      "expected": 124,
+      "passed": true
+    },
+    {
+      "name": "mutex-and-desktop-released",
+      "code": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "invalid-timeout-rejected",
+      "code": 2,
+      "expected": 2,
+      "passed": true
+    }
+  ],
+  "outer_gpu": {
+    "name": "dev113-outer-c5",
+    "bundle": "E:\\GALUMU\\builds\\DEV113 0.4.60-c5 中文 空格验包\\LanceAndLaurel-v0.4.60-c5",
+    "script": "test_play087.gd",
+    "passed": true,
+    "exit": 0,
+    "seconds": 68.4402315,
+    "report": "E:\\GALUMU\\logs\\perf088\\dev113-outer-c5\\report.json",
+    "sha256": "D5C0FB1AEE16D9360A166B688712607D8B761DE0CB17A7A0578DC15FD6C00FB2",
+    "unexpected": null
+  },
+  "formal_save_unchanged": true,
+  "production_changes_since_export": [],
+  "preexisting_uid_sidecars_now_versioned": [],
+  "default_entry_c5": true,
+  "default_entry_sha256": "09540A85290CC3AC4B760C7417BC1D40B9FB99345654A75BEA96F38CEA7F5581",
+  "flow_evidence_sha256": "4253837BE3EF4CE4E214E07A20CE47D4859444D4032143AF88DD15C0189E134D",
+  "scope": "Actual c5 PCK, protected isolated GPU or explicitly headless rules. Full 80-level campaign uses the same c5 PCK; historical C3 remains separate. No OS input, human playtest or hardware hearing.",
+  "preserved_failure": "c4-cinema01 preserves the old invalid paired fixture; order-baseline01 reproduces the actual c4 same-step injury ordering bug. Both have explicit fixes and separate passing c5 checks."
+}

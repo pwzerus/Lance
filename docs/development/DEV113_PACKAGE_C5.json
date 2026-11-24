@@ -8,7 +8,8 @@
   "archive_bytes": 71305743,
   "archive_sha256": "0813E01B4586E621F851A682124E07FCB08A3B1EE85C7348162C7AA27A8BCD18",
   "relocation": "E:\\GALUMU\\builds\\DEV113 0.4.60-c5 中文 空格验包\\LanceAndLaurel-v0.4.60-c5",
-  "crc_and_manifest_relocation": "Passed; actual candidate verification running.",
+  "crc_and_manifest_relocation": "Passed; final candidate audit, full campaign and eight sustained configurations passed.",
   "previous_candidate": "0.4.60-c4",
-  "runtime_change_from_c4": "Snapshot strength for simultaneous contacts before either injury is resolved; project/export version. No art or movement reduction."
+  "runtime_change_from_c4": "Snapshot strength for simultaneous contacts before either injury is resolved; project/export version. No art or movement reduction.",
+  "final_audit": "docs/development/DEV113_FINAL_AUDIT.json"
 }

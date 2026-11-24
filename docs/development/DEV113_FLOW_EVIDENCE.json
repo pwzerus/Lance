@@ -1,0 +1,4474 @@
+{
+  "scope": "All final campaign, HUD/state/fall gates and sustained configurations use actual c5. Historical c3/c4 evidence is separate. Protected isolated GPU, engine/viewport input, normal rewards and persistence. No OS input or human acceptance.",
+  "journey_candidate": "0.4.60-c5",
+  "soak_prefix": "dev113-c5-soak",
+  "final_candidate_opening": {
+    "candidate": "0.4.60-c5",
+    "passed": true,
+    "complete": true,
+    "clears": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "matches": 5,
+    "coins": 1240,
+    "renown": 5,
+    "proof": {
+      "exit_code": 0,
+      "desktop_closed": true,
+      "private_peak_mib": 685.3,
+      "errors": [],
+      "warnings": [],
+      "correct_pck": true,
+      "report_sha256": "48F2306F56E1A894F53C139758A20D6078AC639E157AB702CDC227B015BC8984",
+      "memory_sha256": "882FDE4FEC3670F1EF4A5A749AEB4E45F35A510DCCC692D430D7D8BE24F244DD",
+      "engine_sha256": "24111E14DC087D62BCD3A365BA6222589B5476CD178AF85B56A6690B204CA6E6",
+      "target_sha256": "539477DF8D4F7D6AD1BABD416DE49D66C15A2CCF1A9D9D0E307756465D0C9FEB"
+    }
+  },
+  "journey": [
+    {
+      "name": "dev113-c5-journey-01-05",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 1,
+      "last": 5,
+      "clears": 5,
+      "matches": 5,
+      "purchases": 0,
+      "attempts": [
+        {
+          "level": 1,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 35.6198430733405,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.2020976326885,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 120,
+            "first_clear": true,
+            "level": 1,
+            "renown": 1
+          }
+        },
+        {
+          "level": 2,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 35.5806721472465,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.2052382244626,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 132,
+            "first_clear": true,
+            "level": 2,
+            "renown": 1
+          }
+        },
+        {
+          "level": 3,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 35.5368027250923,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.2095265935623,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 144,
+            "first_clear": true,
+            "level": 3,
+            "renown": 1
+          }
+        },
+        {
+          "level": 4,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 37.6274925042772,
+            "enemy_score": 6,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 94.5236167838288,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 156,
+            "first_clear": true,
+            "level": 4,
+            "renown": 1
+          }
+        },
+        {
+          "level": 5,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 56.0772573461624,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 2,
+            "player_dead": false,
+            "player_hp": 97.1840578602372,
+            "player_score": 5,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 168,
+            "first_clear": true,
+            "level": 5,
+            "renown": 1
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 685.3,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "48F2306F56E1A894F53C139758A20D6078AC639E157AB702CDC227B015BC8984",
+        "memory_sha256": "882FDE4FEC3670F1EF4A5A749AEB4E45F35A510DCCC692D430D7D8BE24F244DD",
+        "engine_sha256": "24111E14DC087D62BCD3A365BA6222589B5476CD178AF85B56A6690B204CA6E6",
+        "target_sha256": "539477DF8D4F7D6AD1BABD416DE49D66C15A2CCF1A9D9D0E307756465D0C9FEB"
+      }
+    },
+    {
+      "name": "dev113-c5-journey-06-10",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 6,
+      "last": 10,
+      "clears": 10,
+      "matches": 7,
+      "purchases": 6,
+      "attempts": [
+        {
+          "level": 6,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 4.80024938870093,
+            "enemy_score": 6,
+            "enemy_unconscious": true,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 91.5836861283554,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 180,
+            "first_clear": true,
+            "level": 6,
+            "renown": 1
+          }
+        },
+        {
+          "level": 7,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 53.7802561789758,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 90.9426945575956,
+            "player_score": 2,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 1
+          },
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 7,
+            "renown": 0
+          }
+        },
+        {
+          "level": 7,
+          "attempt": 2,
+          "strategy": "reserve",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 49.8097710197302,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 1,
+            "player_dead": false,
+            "player_hp": 97.7875012038479,
+            "player_score": 3,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 192,
+            "first_clear": true,
+            "level": 7,
+            "renown": 1
+          }
+        },
+        {
+          "level": 8,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 54.6509998058622,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 91.8901229916344,
+            "player_score": 2,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 1
+          },
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 8,
+            "renown": 0
+          }
+        },
+        {
+          "level": 8,
+          "attempt": 2,
+          "strategy": "reserve",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 53.1716943527209,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 1,
+            "player_dead": false,
+            "player_hp": 96.3196727051023,
+            "player_score": 3,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 204,
+            "first_clear": true,
+            "level": 8,
+            "renown": 1
+          }
+        },
+        {
+          "level": 9,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 41.3941617151501,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 92.3689941168072,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 216,
+            "first_clear": true,
+            "level": 9,
+            "renown": 1
+          }
+        },
+        {
+          "level": 10,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 26.9599796511306,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 2,
+            "player_dead": false,
+            "player_hp": 95.4388470589425,
+            "player_score": 6,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 528,
+            "first_clear": true,
+            "level": 10,
+            "renown": 3
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 755.2,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "1E998E52B437C6CFDEB6B3AACAAF52CE164CD4D0B0B824689E473ECE731AABD8",
+        "memory_sha256": "1F60AC076D82B83A67DA3D1C960D64979D059EB61134A2372FD4F22ADE64C573",
+        "engine_sha256": "24111E14DC087D62BCD3A365BA6222589B5476CD178AF85B56A6690B204CA6E6",
+        "target_sha256": "8F357C1AF6E7F5886DB104EF28F949CA0ECB34ECDDCBAFAFE85A94994DB04566"
+      }
+    },
+    {
+      "name": "dev113-c5-journey-11-15",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 11,
+      "last": 15,
+      "clears": 15,
+      "matches": 5,
+      "purchases": 3,
+      "attempts": [
+        {
+          "level": 11,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 27.7149251828169,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 93.9569974619992,
+            "player_score": 6,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 240,
+            "first_clear": true,
+            "level": 11,
+            "renown": 1
+          }
+        },
+        {
+          "level": 12,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 37.8804719270178,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.5763989266082,
+            "player_score": 6,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 252,
+            "first_clear": true,
+            "level": 12,
+            "renown": 1
+          }
+        },
+        {
+          "level": 13,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 10.4296502570696,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.377785167215,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 264,
+            "first_clear": true,
+            "level": 13,
+            "renown": 1
+          }
+        },
+        {
+          "level": 14,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 36.4275268127178,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.0589613403897,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 276,
+            "first_clear": true,
+            "level": 14,
+            "renown": 1
+          }
+        },
+        {
+          "level": 15,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 21.1633637350911,
+            "enemy_score": 1,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "war",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.6949115697124,
+            "player_score": 5,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "hp",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 288,
+            "first_clear": true,
+            "level": 15,
+            "renown": 1
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 740.6,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "196AF26090267011DCCD2BCA7EF54EA91F5AFA445AEE993520B3A8DED45C2D08",
+        "memory_sha256": "6402D7CDADF4BF1BA51269F6C914E6EC97E778129D4991AD131591293935F2B7",
+        "engine_sha256": "24111E14DC087D62BCD3A365BA6222589B5476CD178AF85B56A6690B204CA6E6",
+        "target_sha256": "779E8C46E34DEEE95EE157B281A8E31971FA2E57057BDD0F076538B116FC4D62"
+      }
+    },
+    {
+      "name": "dev113-c5-journey-16-20",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 16,
+      "last": 20,
+      "clears": 20,
+      "matches": 5,
+      "purchases": 2,
+      "attempts": [
+        {
+          "level": 16,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 24.8823346932481,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 94.5062153764386,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 300,
+            "first_clear": true,
+            "level": 16,
+            "renown": 1
+          }
+        },
+        {
+          "level": 17,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 5.07363330092745,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 94.513747418934,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 312,
+            "first_clear": true,
+            "level": 17,
+            "renown": 1
+          }
+        },
+        {
+          "level": 18,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 10.1422054051043,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 94.8200296524284,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 324,
+            "first_clear": true,
+            "level": 18,
+            "renown": 1
+          }
+        },
+        {
+          "level": 19,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 19.7991361131469,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 94.4987150982198,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 336,
+            "first_clear": true,
+            "level": 19,
+            "renown": 1
+          }
+        },
+        {
+          "level": 20,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 46.8426731681947,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.2946859665269,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 648,
+            "first_clear": true,
+            "level": 20,
+            "renown": 3
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 760.6,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "C94FF76D92E4FE9606EB4CE58899319EFAB6E5A1BFA9A1955C6BFCFF7DD7E7B0",
+        "memory_sha256": "F4D1FEFDB655DD0AEABFA924B050C4ACB678AD62DCC7B28A61896F2CF7A74803",
+        "engine_sha256": "24111E14DC087D62BCD3A365BA6222589B5476CD178AF85B56A6690B204CA6E6",
+        "target_sha256": "3B0C6A098D338F7C9D7F4F4472001DE2671F30125211DBB2D603269CA97B5B6F"
+      }
+    },
+    {
+      "name": "dev113-c5-journey-21-25",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 21,
+      "last": 25,
+      "clears": 25,
+      "matches": 5,
+      "purchases": 2,
+      "attempts": [
+        {
+          "level": 21,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 12.954210897128,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 94.7763518141986,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 360,
+            "first_clear": true,
+            "level": 21,
+            "renown": 1
+          }
+        },
+        {
+          "level": 22,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 14.6848515072346,
+            "enemy_score": 6,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 94.9772241945207,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 372,
+            "first_clear": true,
+            "level": 22,
+            "renown": 1
+          }
+        },
+        {
+          "level": 23,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 10.5700259165559,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.872860487789,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 384,
+            "first_clear": true,
+            "level": 23,
+            "renown": 1
+          }
+        },
+        {
+          "level": 24,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 17.838744121275,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.2964924661922,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 396,
+            "first_clear": true,
+            "level": 24,
+            "renown": 1
+          }
+        },
+        {
+          "level": 25,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 7.49918255210519,
+            "enemy_score": 1,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "war",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 98.0093066008807,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 408,
+            "first_clear": true,
+            "level": 25,
+            "renown": 1
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 729.6,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "6443537BCC2A6FF6D972869728057E6D1E5ECF40EAF483068EC3D1F78BE26593",
+        "memory_sha256": "7BE4D164E7F078AA5F3EC3BC5A1F16D303DF1331E85D74E892E8128AF37E30C0",
+        "engine_sha256": "24111E14DC087D62BCD3A365BA6222589B5476CD178AF85B56A6690B204CA6E6",
+        "target_sha256": "4C27CF1F9EDEBB7238ED38E6913E897EFFA452C78EEE2DFB9369395DF2A9A045"
+      }
+    },
+    {
+      "name": "dev113-c5-journey-26-30",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 26,
+      "last": 30,
+      "clears": 30,
+      "matches": 5,
+      "purchases": 2,
+      "attempts": [
+        {
+          "level": 26,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 26.9974859986591,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.6703962697854,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 420,
+            "first_clear": true,
+            "level": 26,
+            "renown": 1
+          }
+        },
+        {
+          "level": 27,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 43.8879223997986,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 94.5070176893894,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 432,
+            "first_clear": true,
+            "level": 27,
+            "renown": 1
+          }
+        },
+        {
+          "level": 28,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 48.2232714643693,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 90.4516212537551,
+            "player_score": 6,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 444,
+            "first_clear": true,
+            "level": 28,
+            "renown": 1
+          }
+        },
+        {
+          "level": 29,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 41.3059261294253,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.0782057648119,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 456,
+            "first_clear": true,
+            "level": 29,
+            "renown": 1
+          }
+        },
+        {
+          "level": 30,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 30.2382311443732,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.618287835719,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 768,
+            "first_clear": true,
+            "level": 30,
+            "renown": 3
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 777.2,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "7B2079D07DF74B89A80C58E765718C24B2BF7EAF89BA641BB177523E01944100",
+        "memory_sha256": "F3E271944174F098CDEFEEBB9C33D73DD97AB4FE92744BF88000CE2580E0AD42",
+        "engine_sha256": "24111E14DC087D62BCD3A365BA6222589B5476CD178AF85B56A6690B204CA6E6",
+        "target_sha256": "C51DDBA00C759092556D2AACD5C5CDBFCFCC18459BC7E7EC992C99A8749790B3"
+      }
+    },
+    {
+      "name": "dev113-c5-journey-31-35",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 31,
+      "last": 35,
+      "clears": 35,
+      "matches": 6,
+      "purchases": 2,
+      "attempts": [
+        {
+          "level": 31,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 0.0,
+            "enemy_score": 0,
+            "enemy_unconscious": true,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.9834400035419,
+            "player_score": 10,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 480,
+            "first_clear": true,
+            "level": 31,
+            "renown": 1
+          }
+        },
+        {
+          "level": 32,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 95.7208733992109,
+            "enemy_score": 3,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 93.5370411915645,
+            "player_score": 2,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 1
+          },
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 32,
+            "renown": 0
+          }
+        },
+        {
+          "level": 32,
+          "attempt": 2,
+          "strategy": "reserve",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 93.8734570518936,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 1,
+            "player_dead": false,
+            "player_hp": 100.0,
+            "player_score": 2,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 492,
+            "first_clear": true,
+            "level": 32,
+            "renown": 1
+          }
+        },
+        {
+          "level": 33,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 37.1958296097222,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.9859027761379,
+            "player_score": 6,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 504,
+            "first_clear": true,
+            "level": 33,
+            "renown": 1
+          }
+        },
+        {
+          "level": 34,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 22.8427664694278,
+            "enemy_score": 2,
+            "enemy_unconscious": true,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 2,
+            "player_dead": false,
+            "player_hp": 97.0986651093687,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 516,
+            "first_clear": true,
+            "level": 34,
+            "renown": 1
+          }
+        },
+        {
+          "level": 35,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 55.1716522510196,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "war",
+            "passes": 1,
+            "player_dead": false,
+            "player_hp": 98.721576965887,
+            "player_score": 2,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 528,
+            "first_clear": true,
+            "level": 35,
+            "renown": 1
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 736.4,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "964FCE484E1C4492A4B41767D51956C5EA28631A75C3C8D30F3C89CEB97A76DC",
+        "memory_sha256": "EE0F9F39D913C3D8B19FD558352B2309143E3F381F54A16953DB125AC550D2E6",
+        "engine_sha256": "24111E14DC087D62BCD3A365BA6222589B5476CD178AF85B56A6690B204CA6E6",
+        "target_sha256": "A358405A8F2A74F333B0F12B7729C94CCF9BD8CCC0F1FADE2E9DC2A7229EB8B4"
+      }
+    },
+    {
+      "name": "dev113-c5-journey-36-40",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 36,
+      "last": 40,
+      "clears": 40,
+      "matches": 5,
+      "purchases": 0,
+      "attempts": [
+        {
+          "level": 36,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 65.4653830781896,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 1,
+            "player_dead": false,
+            "player_hp": 99.6448287908489,
+            "player_score": 2,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 540,
+            "first_clear": true,
+            "level": 36,
+            "renown": 1
+          }
+        },
+        {
+          "level": 37,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 37.0380044243144,
+            "enemy_score": 1,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.076006335418,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 552,
+            "first_clear": true,
+            "level": 37,
+            "renown": 1
+          }
+        },
+        {
+          "level": 38,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 50.2433117041485,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.7020264604198,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 564,
+            "first_clear": true,
+            "level": 38,
+            "renown": 1
+          }
+        },
+        {
+          "level": 39,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 25.5564852531628,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.8486721013657,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 576,
+            "first_clear": true,
+            "level": 39,
+            "renown": 1
+          }
+        },
+        {
+          "level": 40,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 66.6169127256636,
+            "enemy_score": 3,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 82.6812588653809,
+            "player_score": 6,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 888,
+            "first_clear": true,
+            "level": 40,
+            "renown": 3
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 729.7,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "EC29844401D9D351B8A795C85500FE2414AF375665BB987D41E4996CC10DFDBC",
+        "memory_sha256": "D9E67AA80EF5B1780EFA5539B462DD343FA966312B8420D2964592C802845554",
+        "engine_sha256": "24111E14DC087D62BCD3A365BA6222589B5476CD178AF85B56A6690B204CA6E6",
+        "target_sha256": "B678A8B617BB4D8F07A4C008389031E3EC39818EDA7057CA98BFF2DB0B03BDCB"
+      }
+    },
+    {
+      "name": "dev113-c5-journey-41-45",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 41,
+      "last": 45,
+      "clears": 45,
+      "matches": 5,
+      "purchases": 4,
+      "attempts": [
+        {
+          "level": 41,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 45.7904669495962,
+            "enemy_score": 1,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.1582768518497,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 600,
+            "first_clear": true,
+            "level": 41,
+            "renown": 1
+          }
+        },
+        {
+          "level": 42,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 43.0532622665174,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 74.5515105609297,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 612,
+            "first_clear": true,
+            "level": 42,
+            "renown": 1
+          }
+        },
+        {
+          "level": 43,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 57.2304938843172,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.0846034795673,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 624,
+            "first_clear": true,
+            "level": 43,
+            "renown": 1
+          }
+        },
+        {
+          "level": 44,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 35.9069350931857,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 99.0769058537657,
+            "player_score": 10,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 636,
+            "first_clear": true,
+            "level": 44,
+            "renown": 1
+          }
+        },
+        {
+          "level": 45,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 89.5865035610672,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "war",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 98.7945082368517,
+            "player_score": 4,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 648,
+            "first_clear": true,
+            "level": 45,
+            "renown": 1
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 767.4,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "6454401E22688DB98DF5A6C8A8EA84C3C715FED52925EC899FF723D05925E823",
+        "memory_sha256": "FE6744450C498B31E099542C743A2FD0FDDBD29648F79EEA45739AA27E8785CC",
+        "engine_sha256": "24111E14DC087D62BCD3A365BA6222589B5476CD178AF85B56A6690B204CA6E6",
+        "target_sha256": "A0D1DB1700841A8C3278767A62FF57C71915F4C75C77461747E5DA92436BD862"
+      }
+    },
+    {
+      "name": "dev113-c5-journey-46-50",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 46,
+      "last": 50,
+      "clears": 50,
+      "matches": 6,
+      "purchases": 0,
+      "attempts": [
+        {
+          "level": 46,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 12.8407903574001,
+            "enemy_score": 2,
+            "enemy_unconscious": true,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.152237167424,
+            "player_score": 10,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 660,
+            "first_clear": true,
+            "level": 46,
+            "renown": 1
+          }
+        },
+        {
+          "level": 47,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 47.29575502792,
+            "enemy_score": 6,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 69.0528370595272,
+            "player_score": 5,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 1
+          },
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 47,
+            "renown": 0
+          }
+        },
+        {
+          "level": 47,
+          "attempt": 2,
+          "strategy": "reserve",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 64.4598076639063,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 2,
+            "player_dead": false,
+            "player_hp": 97.9913835284163,
+            "player_score": 5,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 672,
+            "first_clear": true,
+            "level": 47,
+            "renown": 1
+          }
+        },
+        {
+          "level": 48,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 41.6635539171708,
+            "enemy_score": 8,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 51.4464531691501,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 684,
+            "first_clear": true,
+            "level": 48,
+            "renown": 1
+          }
+        },
+        {
+          "level": 49,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 94.7858839128186,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.6605637066449,
+            "player_score": 6,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 696,
+            "first_clear": true,
+            "level": 49,
+            "renown": 1
+          }
+        },
+        {
+          "level": 50,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 40.4214711523315,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 80.7999772836588,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 1008,
+            "first_clear": true,
+            "level": 50,
+            "renown": 3
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 744.6,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "C0342937BC4DA6B70908F534F2958F600D3884104D3FDCC4ABC52A4565BA904B",
+        "memory_sha256": "BD5DF907CD215ACED31B2EF22A10D90E820481C747759B2EF586AECBF39EE9E4",
+        "engine_sha256": "24111E14DC087D62BCD3A365BA6222589B5476CD178AF85B56A6690B204CA6E6",
+        "target_sha256": "0549D46741F32E39608C682045B34523D2FE4AF21BDA441E45957EE3934D967E"
+      }
+    },
+    {
+      "name": "dev113-c5-journey-51-55",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 51,
+      "last": 55,
+      "clears": 55,
+      "matches": 5,
+      "purchases": 0,
+      "attempts": [
+        {
+          "level": 51,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 74.6383152539705,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 1,
+            "player_dead": false,
+            "player_hp": 100.0,
+            "player_score": 3,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 720,
+            "first_clear": true,
+            "level": 51,
+            "renown": 1
+          }
+        },
+        {
+          "level": 52,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 58.6225888437764,
+            "enemy_score": 5,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 76.7082850786574,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 732,
+            "first_clear": true,
+            "level": 52,
+            "renown": 1
+          }
+        },
+        {
+          "level": 53,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 42.4004386429028,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.9676260207057,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 744,
+            "first_clear": true,
+            "level": 53,
+            "renown": 1
+          }
+        },
+        {
+          "level": 54,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 8.40563004911753,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 98.2705640346525,
+            "player_score": 9,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 756,
+            "first_clear": true,
+            "level": 54,
+            "renown": 1
+          }
+        },
+        {
+          "level": 55,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 38.9296915977033,
+            "enemy_score": 1,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "war",
+            "passes": 2,
+            "player_dead": false,
+            "player_hp": 97.6835179619574,
+            "player_score": 4,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 768,
+            "first_clear": true,
+            "level": 55,
+            "renown": 1
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 724.2,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "9C95227CE59E3379806D5B8964A208A3517B64F653D5BAEFD6DB81FC846682B9",
+        "memory_sha256": "0A75486F647F280AA0CDC35FA9452A88CBEBC7AEBD9A959FE987A5721C545DE3",
+        "engine_sha256": "24111E14DC087D62BCD3A365BA6222589B5476CD178AF85B56A6690B204CA6E6",
+        "target_sha256": "937A0CBF98AA69D5998F10FC928A57E82F0CE57F7EC2FC69C54E0532EABE8AFD"
+      }
+    },
+    {
+      "name": "dev113-c5-journey-56-60",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 56,
+      "last": 60,
+      "clears": 60,
+      "matches": 5,
+      "purchases": 0,
+      "attempts": [
+        {
+          "level": 56,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 15.2366012974394,
+            "enemy_score": 0,
+            "enemy_unconscious": true,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 2,
+            "player_dead": false,
+            "player_hp": 99.0447803344644,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 780,
+            "first_clear": true,
+            "level": 56,
+            "renown": 1
+          }
+        },
+        {
+          "level": 57,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 66.9180583567878,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 93.9782418896422,
+            "player_score": 4,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "hp",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 792,
+            "first_clear": true,
+            "level": 57,
+            "renown": 1
+          }
+        },
+        {
+          "level": 58,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 79.9829388102373,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 94.1610845147611,
+            "player_score": 4,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "hp",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 804,
+            "first_clear": true,
+            "level": 58,
+            "renown": 1
+          }
+        },
+        {
+          "level": 59,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 73.1480535305059,
+            "enemy_score": 5,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 62.2218480963193,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 816,
+            "first_clear": true,
+            "level": 59,
+            "renown": 1
+          }
+        },
+        {
+          "level": 60,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 65.6624213395476,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 95.1509627768112,
+            "player_score": 5,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 1128,
+            "first_clear": true,
+            "level": 60,
+            "renown": 3
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 724.0,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "8679630455F71ED28FDE72A3618895BB4096BFB61D26CA086BDF3D0C2AA1EBAF",
+        "memory_sha256": "ED1E98E081C68573A57583AF2C50579ABCC65BA37EDC0316B908F5E80B5829F5",
+        "engine_sha256": "24111E14DC087D62BCD3A365BA6222589B5476CD178AF85B56A6690B204CA6E6",
+        "target_sha256": "93EED80B6D355DF84347B61F8527C67B897D15E151399DD02C6FCF92114DDDA0"
+      }
+    },
+    {
+      "name": "dev113-c5-journey-61-65",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 61,
+      "last": 65,
+      "clears": 65,
+      "matches": 5,
+      "purchases": 0,
+      "attempts": [
+        {
+          "level": 61,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 75.6803232554855,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 98.9383748330373,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 840,
+            "first_clear": true,
+            "level": 61,
+            "renown": 1
+          }
+        },
+        {
+          "level": 62,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 65.6970064025945,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 73.2076725385845,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 852,
+            "first_clear": true,
+            "level": 62,
+            "renown": 1
+          }
+        },
+        {
+          "level": 63,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 2.0479935365103,
+            "enemy_score": 0,
+            "enemy_unconscious": true,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 99.0790977647793,
+            "player_score": 11,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 864,
+            "first_clear": true,
+            "level": 63,
+            "renown": 1
+          }
+        },
+        {
+          "level": 64,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 74.4136395459963,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 96.5652501621109,
+            "player_score": 4,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 876,
+            "first_clear": true,
+            "level": 64,
+            "renown": 1
+          }
+        },
+        {
+          "level": 65,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 35.867477561687,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "war",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.2288508233727,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "hp",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 888,
+            "first_clear": true,
+            "level": 65,
+            "renown": 1
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 717.9,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "A42C0739769800E81890237EEDA7FEC271CDF19DFB2A84F403AF3FED007C694D",
+        "memory_sha256": "FF3E7699BB985986147701C6CDC600C5F206B5D4B17670F9857D69B994229EC9",
+        "engine_sha256": "24111E14DC087D62BCD3A365BA6222589B5476CD178AF85B56A6690B204CA6E6",
+        "target_sha256": "75E18C9B8533CF2D8D9ED3B90BE536310486206CDC66E436C648F4F7A1BC2E1B"
+      }
+    },
+    {
+      "name": "dev113-c5-journey-66-70",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 66,
+      "last": 70,
+      "clears": 70,
+      "matches": 7,
+      "purchases": 0,
+      "attempts": [
+        {
+          "level": 66,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 55.6785655910466,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 70.9300251327788,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 900,
+            "first_clear": true,
+            "level": 66,
+            "renown": 1
+          }
+        },
+        {
+          "level": 67,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 51.9848533585432,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 63.3597916881782,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 912,
+            "first_clear": true,
+            "level": 67,
+            "renown": 1
+          }
+        },
+        {
+          "level": 68,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 27.2821374806976,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.346666686498,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 924,
+            "first_clear": true,
+            "level": 68,
+            "renown": 1
+          }
+        },
+        {
+          "level": 69,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 74.49766535084,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 72.6457123602009,
+            "player_score": 4,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "hp",
+            "winner": 1
+          },
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 69,
+            "renown": 0
+          }
+        },
+        {
+          "level": 69,
+          "attempt": 2,
+          "strategy": "reserve",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 47.4745389389961,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 58.2988863376213,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 936,
+            "first_clear": true,
+            "level": 69,
+            "renown": 1
+          }
+        },
+        {
+          "level": 70,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 99.1985275073845,
+            "enemy_score": 7,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 40.5955410831588,
+            "player_score": 0,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 1
+          },
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 70,
+            "renown": 0
+          }
+        },
+        {
+          "level": 70,
+          "attempt": 2,
+          "strategy": "reserve",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 42.8023224887932,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 94.6831379023045,
+            "player_score": 4,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 1248,
+            "first_clear": true,
+            "level": 70,
+            "renown": 3
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 716.2,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "1BB5C7C3349F14631E3A0B3BAAE2831C00F3F40EFB7BC82D8FB16CE51BE2B440",
+        "memory_sha256": "3842738A157480C3380849E6C0F4D5CAF732BC10498DEDEF2ADA7A7255B48F9F",
+        "engine_sha256": "24111E14DC087D62BCD3A365BA6222589B5476CD178AF85B56A6690B204CA6E6",
+        "target_sha256": "3DB14E63ACABCAC6A1578224981AD86049780E19AF747CDA0BB6EDC65E1CF321"
+      }
+    },
+    {
+      "name": "dev113-c5-journey-71-75",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 71,
+      "last": 75,
+      "clears": 75,
+      "matches": 7,
+      "purchases": 0,
+      "attempts": [
+        {
+          "level": 71,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 47.2894813872422,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 51.1247452850711,
+            "player_score": 10,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 960,
+            "first_clear": true,
+            "level": 71,
+            "renown": 1
+          }
+        },
+        {
+          "level": 72,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 82.0827535146822,
+            "enemy_score": 10,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 44.0318311032221,
+            "player_score": 3,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 1
+          },
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 72,
+            "renown": 0
+          }
+        },
+        {
+          "level": 72,
+          "attempt": 2,
+          "strategy": "reserve",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 61.1402568986988,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 1,
+            "player_dead": false,
+            "player_hp": 98.6885660911195,
+            "player_score": 3,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 972,
+            "first_clear": true,
+            "level": 72,
+            "renown": 1
+          }
+        },
+        {
+          "level": 73,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 68.0406140228506,
+            "enemy_score": 4,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 68.186849197115,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 984,
+            "first_clear": true,
+            "level": 73,
+            "renown": 1
+          }
+        },
+        {
+          "level": 74,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 38.4854351661799,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 98.6015720041819,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 996,
+            "first_clear": true,
+            "level": 74,
+            "renown": 1
+          }
+        },
+        {
+          "level": 75,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 55.2827826716357,
+            "enemy_score": 5,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "war",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 49.7618846261294,
+            "player_score": 5,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "hp",
+            "winner": 1
+          },
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 75,
+            "renown": 0
+          }
+        },
+        {
+          "level": 75,
+          "attempt": 2,
+          "strategy": "reserve",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 64.6558244374377,
+            "enemy_score": 3,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "war",
+            "passes": 2,
+            "player_dead": false,
+            "player_hp": 44.8330890003931,
+            "player_score": 3,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 1008,
+            "first_clear": true,
+            "level": 75,
+            "renown": 1
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 720.7,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "ED30D6199DDBC1BC49F26BE0CA920DEC646FFD2D21C2336C77381A3AF0D9FF81",
+        "memory_sha256": "40ACFA49EEB2F8A05673B544FD86B7089D5B00868E30E1BF6FE5DC7C665E02CB",
+        "engine_sha256": "24111E14DC087D62BCD3A365BA6222589B5476CD178AF85B56A6690B204CA6E6",
+        "target_sha256": "1427C06B6A5B6D25299C1E02E776226A1A4E9343DEF3AD6F1CD176B14DD77D4A"
+      }
+    },
+    {
+      "name": "dev113-c5-journey-76-80",
+      "passed": true,
+      "failures": [],
+      "segment_complete": true,
+      "first": 76,
+      "last": 80,
+      "clears": 80,
+      "matches": 6,
+      "purchases": 0,
+      "attempts": [
+        {
+          "level": 76,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 64.5707599896592,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 97.0863579115912,
+            "player_score": 7,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 1020,
+            "first_clear": true,
+            "level": 76,
+            "renown": 1
+          }
+        },
+        {
+          "level": 77,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 34.7731472562283,
+            "enemy_score": 5,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 81.1635304470801,
+            "player_score": 8,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 1032,
+            "first_clear": true,
+            "level": 77,
+            "renown": 1
+          }
+        },
+        {
+          "level": 78,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 65.2777935661495,
+            "enemy_score": 3,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 68.7800516789279,
+            "player_score": 5,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 1044,
+            "first_clear": true,
+            "level": 78,
+            "renown": 1
+          }
+        },
+        {
+          "level": 79,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 68.3062423825088,
+            "enemy_score": 8,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 45.0791008559817,
+            "player_score": 5,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 1
+          },
+          "reward": {
+            "coins": 0,
+            "first_clear": false,
+            "level": 79,
+            "renown": 0
+          }
+        },
+        {
+          "level": 79,
+          "attempt": 2,
+          "strategy": "reserve",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 64.4886146837655,
+            "enemy_score": 2,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 2,
+            "player_dead": false,
+            "player_hp": 98.6250665334174,
+            "player_score": 4,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 1056,
+            "first_clear": true,
+            "level": 79,
+            "renown": 1
+          }
+        },
+        {
+          "level": 80,
+          "attempt": 1,
+          "strategy": "forward",
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 51.5161847666531,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 2,
+            "player_dead": false,
+            "player_hp": 99.2922181776815,
+            "player_score": 6,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          },
+          "reward": {
+            "coins": 1368,
+            "first_clear": true,
+            "level": 80,
+            "renown": 3
+          }
+        }
+      ],
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 737.3,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "9A980C2D27FB4ACC6C889A102A79A357FD35EE7FA193434E8DC00A36879165F2",
+        "memory_sha256": "EBBAA58CFAD5703269ED84CE35FB130947E17BE169165ECA1EB5685326351A7A",
+        "engine_sha256": "24111E14DC087D62BCD3A365BA6222589B5476CD178AF85B56A6690B204CA6E6",
+        "target_sha256": "8BF701EEA679CD176063E362845A769F2372A68441173821456920D8BE0E7207"
+      }
+    }
+  ],
+  "independent_ledger": {
+    "coins": 34445.0,
+    "renown": 96,
+    "matches": 89,
+    "purchases": 21,
+    "issues": []
+  },
+  "score": {
+    "arena": 81,
+    "war": 8,
+    "mismatches": [],
+    "duplicate_contacts": [],
+    "natural_losses": [
+      {
+        "level": 7,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 8,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 32,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 47,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 69,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 70,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 72,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 75,
+        "attempt": 1,
+        "winner": 1
+      },
+      {
+        "level": 79,
+        "attempt": 1,
+        "winner": 1
+      }
+    ],
+    "state_issues": [],
+    "living_unseated": 31,
+    "positive_health_incapacitations": [
+      {
+        "level": 34,
+        "attempt": 1,
+        "side": "enemy",
+        "hp": 22.8427664694278
+      },
+      {
+        "level": 46,
+        "attempt": 1,
+        "side": "enemy",
+        "hp": 12.8407903574001
+      },
+      {
+        "level": 56,
+        "attempt": 1,
+        "side": "enemy",
+        "hp": 15.2366012974394
+      }
+    ]
+  },
+  "clears": 80,
+  "all_80_cleared": true,
+  "soaks": [
+    {
+      "name": "dev113-c5-soak01",
+      "passed": true,
+      "failures": [],
+      "configuration": {
+        "mode": "arena",
+        "kit": "starter",
+        "difficulty": 0,
+        "blood": false,
+        "slow_motion": true,
+        "shake": true
+      },
+      "seconds": 360.007027,
+      "matches": 6,
+      "frames": {
+        "fps": 60.0026516055349,
+        "frames": 21601,
+        "max_ms": 26.557,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "p50_ms": 16.66,
+        "p95_ms": 17.691,
+        "p99_ms": 18.493
+      },
+      "phases": {
+        "charge": {
+          "fps": 60.0010773477594,
+          "frames": 15182,
+          "max_ms": 20.967,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.66,
+          "p95_ms": 17.742,
+          "p99_ms": 18.538
+        },
+        "contact": {
+          "fps": 60.0007374539978,
+          "frames": 1362,
+          "max_ms": 23.017,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.66,
+          "p95_ms": 17.807,
+          "p99_ms": 18.505
+        },
+        "ended": {
+          "fps": 60.0381915124414,
+          "frames": 665,
+          "max_ms": 20.261,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.659,
+          "p95_ms": 17.241,
+          "p99_ms": 18.184
+        },
+        "ready": {
+          "fps": 60.0062985533986,
+          "frames": 2562,
+          "max_ms": 22.08,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.657,
+          "p95_ms": 17.525,
+          "p99_ms": 18.21
+        },
+        "result": {
+          "fps": 60.0013854182103,
+          "frames": 479,
+          "max_ms": 26.557,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 16.928,
+          "p99_ms": 17.249
+        },
+        "turn": {
+          "fps": 59.9983230668548,
+          "frames": 1351,
+          "max_ms": 18.81,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.66,
+          "p95_ms": 17.576,
+          "p99_ms": 18.31
+        }
+      },
+      "trends": {
+        "charge": {
+          "nodes": {
+            "min": 75.0,
+            "max": 91.0,
+            "first_median": 77.0,
+            "last_median": 78.0
+          },
+          "resources": {
+            "min": 109.0,
+            "max": 111.0,
+            "first_median": 109.0,
+            "last_median": 111.0
+          }
+        },
+        "contact": {
+          "nodes": {
+            "min": 77.0,
+            "max": 91.0,
+            "first_median": 83.0,
+            "last_median": 83.5
+          },
+          "resources": {
+            "min": 109.0,
+            "max": 111.0,
+            "first_median": 111.0,
+            "last_median": 111.0
+          }
+        },
+        "ended": {
+          "nodes": {
+            "min": 77.0,
+            "max": 79.0,
+            "first_median": 77.5,
+            "last_median": 77.5
+          },
+          "resources": {
+            "min": 109.0,
+            "max": 111.0,
+            "first_median": 111.0,
+            "last_median": 111.0
+          }
+        },
+        "ready": {
+          "nodes": {
+            "min": 28.0,
+            "max": 79.0,
+            "first_median": 77.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 109.0,
+            "max": 111.0,
+            "first_median": 109.0,
+            "last_median": 111.0
+          }
+        },
+        "result": {
+          "nodes": {
+            "min": 95.0,
+            "max": 97.0,
+            "first_median": 96.0,
+            "last_median": 96.0
+          },
+          "resources": {
+            "min": 109.0,
+            "max": 111.0,
+            "first_median": 111.0,
+            "last_median": 111.0
+          }
+        },
+        "turn": {
+          "nodes": {
+            "min": 77.0,
+            "max": 84.0,
+            "first_median": 78.0,
+            "last_median": 78.0
+          },
+          "resources": {
+            "min": 109.0,
+            "max": 111.0,
+            "first_median": 111.0,
+            "last_median": 111.0
+          }
+        }
+      },
+      "state_counts": {
+        "arena_deaths": 0,
+        "mounted_incapacitations": 0,
+        "living_unseated": 0,
+        "war_deaths": 0
+      },
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 658.6,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "35D695DC0F38C6D3F6D1D4004773F52BB3F64560B8D698C0B9F12FA0B703D01B",
+        "memory_sha256": "8E85208748DFCAD9677FA859E83937D8E35A3D5B698AE3D6D9343F8A4D85BE5D",
+        "engine_sha256": "2E78B1B9B5CFA382E81AB3A08C4634C0A5C59CA00F8872505DD6AAFAAF14296B",
+        "target_sha256": "60F4A01A660F02EF43764514D64809A1014B78781A0878D3F4F8A5DDDAC50133"
+      },
+      "qa_save_sha256": "9E466D536C1D84A577BA3F8EADDEEA83EBD8E10B5CAFC7F435DBC2CA9E319EF3",
+      "image_sha256": "F086B9F8A593342AE54AA3B37B3A2C153D17F6BD6723D772899BFA8C9C170D75"
+    },
+    {
+      "name": "dev113-c5-soak02",
+      "passed": true,
+      "failures": [],
+      "configuration": {
+        "mode": "war",
+        "kit": "starter",
+        "difficulty": 1,
+        "blood": true,
+        "slow_motion": true,
+        "shake": true
+      },
+      "seconds": 360.020712,
+      "matches": 11,
+      "frames": {
+        "fps": 60.0029570941633,
+        "frames": 21602,
+        "max_ms": 31.391,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "p50_ms": 16.66,
+        "p95_ms": 17.627,
+        "p99_ms": 18.526
+      },
+      "phases": {
+        "charge": {
+          "fps": 59.998739202041,
+          "frames": 14264,
+          "max_ms": 22.051,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.658,
+          "p95_ms": 17.716,
+          "p99_ms": 18.591
+        },
+        "contact": {
+          "fps": 60.0344199895385,
+          "frames": 1567,
+          "max_ms": 21.725,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.663,
+          "p95_ms": 17.629,
+          "p99_ms": 18.754
+        },
+        "ended": {
+          "fps": 60.023355684788,
+          "frames": 573,
+          "max_ms": 19.669,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.659,
+          "p95_ms": 17.164,
+          "p99_ms": 17.607
+        },
+        "ready": {
+          "fps": 59.9977814288599,
+          "frames": 3163,
+          "max_ms": 28.767,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.662,
+          "p95_ms": 17.486,
+          "p99_ms": 18.226
+        },
+        "result": {
+          "fps": 60.0051229886323,
+          "frames": 878,
+          "max_ms": 31.391,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 17.001,
+          "p99_ms": 17.288
+        },
+        "turn": {
+          "fps": 60.0147811685755,
+          "frames": 1157,
+          "max_ms": 18.977,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.656,
+          "p95_ms": 17.518,
+          "p99_ms": 18.276
+        }
+      },
+      "trends": {
+        "charge": {
+          "nodes": {
+            "min": 75.0,
+            "max": 84.0,
+            "first_median": 76.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 109.0,
+            "max": 111.0,
+            "first_median": 109.0,
+            "last_median": 111.0
+          }
+        },
+        "contact": {
+          "nodes": {
+            "min": 76.0,
+            "max": 84.0,
+            "first_median": 77.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 109.0,
+            "max": 111.0,
+            "first_median": 109.0,
+            "last_median": 111.0
+          }
+        },
+        "ended": {
+          "nodes": {
+            "min": 77.0,
+            "max": 83.0,
+            "first_median": 78.0,
+            "last_median": 78.0
+          },
+          "resources": {
+            "min": 109.0,
+            "max": 111.0,
+            "first_median": 111.0,
+            "last_median": 111.0
+          }
+        },
+        "ready": {
+          "nodes": {
+            "min": 28.0,
+            "max": 78.0,
+            "first_median": 69.0,
+            "last_median": 69.0
+          },
+          "resources": {
+            "min": 109.0,
+            "max": 111.0,
+            "first_median": 109.0,
+            "last_median": 111.0
+          }
+        },
+        "result": {
+          "nodes": {
+            "min": 94.0,
+            "max": 100.0,
+            "first_median": 94.0,
+            "last_median": 94.0
+          },
+          "resources": {
+            "min": 109.0,
+            "max": 111.0,
+            "first_median": 109.0,
+            "last_median": 109.0
+          }
+        },
+        "turn": {
+          "nodes": {
+            "min": 76.0,
+            "max": 78.0,
+            "first_median": 77.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 109.0,
+            "max": 111.0,
+            "first_median": 109.0,
+            "last_median": 109.0
+          }
+        }
+      },
+      "state_counts": {
+        "arena_deaths": 0,
+        "mounted_incapacitations": 10,
+        "living_unseated": 0,
+        "war_deaths": 10
+      },
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 641.4,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "F0FEEE418964709B17743615D2A0BC26FFA263EC65B7258BF247077D6A87153F",
+        "memory_sha256": "F26BC141B38F18DC9093165B13176B96525D8A373C4D7B7FB8015A1B0B9A4084",
+        "engine_sha256": "AEC73D035927B2A9A39A7671238C8A167912D61902F307A3B8A9BF76440B4617",
+        "target_sha256": "D25D9CDA5BB521FDEDF82ED2E75A11865D5D0F5CA8B299BB0261E4043FC879AD"
+      },
+      "qa_save_sha256": "768408B386B15EF199A54ECE0AE4983F9EEC61D4800AC8A737B70DB900708CD2",
+      "image_sha256": "23BCBF0EAC527D6CB5B390A1C7D8B906C558DCF7FD937F4E7F0DD25B5DA04A16"
+    },
+    {
+      "name": "dev113-c5-soak03",
+      "passed": true,
+      "failures": [],
+      "configuration": {
+        "mode": "war",
+        "kit": "heavy",
+        "difficulty": 2,
+        "blood": true,
+        "slow_motion": true,
+        "shake": true
+      },
+      "seconds": 360.007011,
+      "matches": 11,
+      "frames": {
+        "fps": 59.9747416088216,
+        "frames": 21591,
+        "max_ms": 27.831,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "p50_ms": 16.665,
+        "p95_ms": 17.804,
+        "p99_ms": 18.91
+      },
+      "phases": {
+        "charge": {
+          "fps": 59.9786999051222,
+          "frames": 14375,
+          "max_ms": 22.739,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.668,
+          "p95_ms": 17.895,
+          "p99_ms": 18.948
+        },
+        "contact": {
+          "fps": 59.8395512347122,
+          "frames": 1489,
+          "max_ms": 24.649,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.669,
+          "p95_ms": 18.245,
+          "p99_ms": 20.699
+        },
+        "ended": {
+          "fps": 60.0240096038416,
+          "frames": 531,
+          "max_ms": 19.24,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.658,
+          "p95_ms": 17.194,
+          "p99_ms": 17.699
+        },
+        "ready": {
+          "fps": 59.995578434055,
+          "frames": 3161,
+          "max_ms": 19.329,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.66,
+          "p95_ms": 17.559,
+          "p99_ms": 18.236
+        },
+        "result": {
+          "fps": 60.0056434041824,
+          "frames": 877,
+          "max_ms": 27.831,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.663,
+          "p95_ms": 17.008,
+          "p99_ms": 17.325
+        },
+        "turn": {
+          "fps": 59.9970188009829,
+          "frames": 1158,
+          "max_ms": 18.924,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.656,
+          "p95_ms": 17.614,
+          "p99_ms": 18.323
+        }
+      },
+      "trends": {
+        "charge": {
+          "nodes": {
+            "min": 75.0,
+            "max": 82.0,
+            "first_median": 76.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        },
+        "contact": {
+          "nodes": {
+            "min": 76.0,
+            "max": 83.0,
+            "first_median": 77.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        },
+        "ended": {
+          "nodes": {
+            "min": 76.0,
+            "max": 82.0,
+            "first_median": 77.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        },
+        "ready": {
+          "nodes": {
+            "min": 28.0,
+            "max": 77.0,
+            "first_median": 69.0,
+            "last_median": 69.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        },
+        "result": {
+          "nodes": {
+            "min": 93.0,
+            "max": 100.0,
+            "first_median": 94.0,
+            "last_median": 94.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        },
+        "turn": {
+          "nodes": {
+            "min": 76.0,
+            "max": 77.0,
+            "first_median": 77.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        }
+      },
+      "state_counts": {
+        "arena_deaths": 0,
+        "mounted_incapacitations": 10,
+        "living_unseated": 0,
+        "war_deaths": 10
+      },
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 668.8,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "6A98FF8F5AEF233420EF8F0E4B1B34EC17FB43981DDA96D31E3732207C2B26E6",
+        "memory_sha256": "38B2F115621BFA0EDAE0DB44591EA3118010FCC39F041E491C13F6234F53BE71",
+        "engine_sha256": "AEC73D035927B2A9A39A7671238C8A167912D61902F307A3B8A9BF76440B4617",
+        "target_sha256": "5D6794A352745755F82CA8FB34D4347F143B73E3A107EF570B244E14E0B830C1"
+      },
+      "qa_save_sha256": "BFDD39CA5B2468409ED5CF73BD41A66DE533831837294606C654E00C73B83499",
+      "image_sha256": "94AEA552D20CA792B74C94D8C273D1BB832E812F36465BBDBF45AE54B05425CE"
+    },
+    {
+      "name": "dev113-c5-soak04",
+      "passed": true,
+      "failures": [],
+      "configuration": {
+        "mode": "arena",
+        "kit": "heavy",
+        "difficulty": 2,
+        "blood": false,
+        "slow_motion": true,
+        "shake": true
+      },
+      "seconds": 360.018989,
+      "matches": 7,
+      "frames": {
+        "fps": 59.9809965736751,
+        "frames": 21594,
+        "max_ms": 32.684,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "p50_ms": 16.662,
+        "p95_ms": 17.821,
+        "p99_ms": 18.912
+      },
+      "phases": {
+        "charge": {
+          "fps": 59.9670574497495,
+          "frames": 14713,
+          "max_ms": 30.656,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.662,
+          "p95_ms": 17.935,
+          "p99_ms": 19.007
+        },
+        "contact": {
+          "fps": 60.0229946915742,
+          "frames": 1530,
+          "max_ms": 21.049,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.661,
+          "p95_ms": 17.928,
+          "p99_ms": 19.35
+        },
+        "ended": {
+          "fps": 60.016500786685,
+          "frames": 320,
+          "max_ms": 18.276,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.656,
+          "p95_ms": 17.161,
+          "p99_ms": 17.352
+        },
+        "ready": {
+          "fps": 59.9986536187296,
+          "frames": 2926,
+          "max_ms": 22.554,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.661,
+          "p95_ms": 17.51,
+          "p99_ms": 18.243
+        },
+        "result": {
+          "fps": 60.0024967049612,
+          "frames": 559,
+          "max_ms": 32.684,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 16.978,
+          "p99_ms": 17.252
+        },
+        "turn": {
+          "fps": 60.0236553769392,
+          "frames": 1546,
+          "max_ms": 19.91,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.661,
+          "p95_ms": 17.533,
+          "p99_ms": 18.338
+        }
+      },
+      "trends": {
+        "charge": {
+          "nodes": {
+            "min": 75.0,
+            "max": 89.0,
+            "first_median": 76.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        },
+        "contact": {
+          "nodes": {
+            "min": 76.0,
+            "max": 89.0,
+            "first_median": 82.5,
+            "last_median": 83.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        },
+        "ended": {
+          "nodes": {
+            "min": 76.0,
+            "max": 84.0,
+            "first_median": 78.0,
+            "last_median": 78.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        },
+        "ready": {
+          "nodes": {
+            "min": 28.0,
+            "max": 78.0,
+            "first_median": 76.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        },
+        "result": {
+          "nodes": {
+            "min": 95.0,
+            "max": 102.0,
+            "first_median": 96.0,
+            "last_median": 96.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        },
+        "turn": {
+          "nodes": {
+            "min": 76.0,
+            "max": 84.0,
+            "first_median": 77.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        }
+      },
+      "state_counts": {
+        "arena_deaths": 0,
+        "mounted_incapacitations": 7,
+        "living_unseated": 0,
+        "war_deaths": 0
+      },
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 680.4,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "DEA3A20230303B7CE7EEA5E58B4F60310592194024582D3125A929C307AC8568",
+        "memory_sha256": "8C0D71201164ABD137C1E6DFFE394BAC4E065304D38919EC63286051B79B6557",
+        "engine_sha256": "2062E79A88122246E065F5F4D99B05A0E0FB4A1A78A49AE028D760DE82A63C1F",
+        "target_sha256": "F059C3716A7F59E0F39E3BC5A52882CED1A1EF38D59451BA064535DBBDED3613"
+      },
+      "qa_save_sha256": "5ECA85DB3FF8F523CB12C44218B9127942F3904F5C642E29D8C73D0F206004C3",
+      "image_sha256": "B49430B697CBDFFFC17076547D8F3863FAE5ADBD25F3DD98B391F9E2E5910335"
+    },
+    {
+      "name": "dev113-c5-soak05",
+      "passed": true,
+      "failures": [],
+      "configuration": {
+        "mode": "war",
+        "kit": "steady",
+        "difficulty": 1,
+        "blood": false,
+        "slow_motion": false,
+        "shake": true
+      },
+      "seconds": 360.019277,
+      "matches": 11,
+      "frames": {
+        "fps": 60.0031642627843,
+        "frames": 21602,
+        "max_ms": 25.3,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "p50_ms": 16.66,
+        "p95_ms": 17.654,
+        "p99_ms": 18.527
+      },
+      "phases": {
+        "charge": {
+          "fps": 60.0009180628281,
+          "frames": 14760,
+          "max_ms": 25.3,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.659,
+          "p95_ms": 17.749,
+          "p99_ms": 18.612
+        },
+        "contact": {
+          "fps": 60.1108009114567,
+          "frames": 421,
+          "max_ms": 23.714,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.66,
+          "p95_ms": 17.777,
+          "p99_ms": 20.392
+        },
+        "ended": {
+          "fps": 60.0120211579881,
+          "frames": 1024,
+          "max_ms": 18.556,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.658,
+          "p95_ms": 17.171,
+          "p99_ms": 17.533
+        },
+        "ready": {
+          "fps": 60.0017527117491,
+          "frames": 3270,
+          "max_ms": 19.881,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.661,
+          "p95_ms": 17.493,
+          "p99_ms": 18.149
+        },
+        "result": {
+          "fps": 60.0050942821501,
+          "frames": 878,
+          "max_ms": 24.454,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.663,
+          "p95_ms": 17.01,
+          "p99_ms": 17.326
+        },
+        "turn": {
+          "fps": 59.9885757545004,
+          "frames": 1249,
+          "max_ms": 19.229,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.657,
+          "p95_ms": 17.602,
+          "p99_ms": 18.393
+        }
+      },
+      "trends": {
+        "charge": {
+          "nodes": {
+            "min": 70.0,
+            "max": 82.0,
+            "first_median": 76.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        },
+        "contact": {
+          "nodes": {
+            "min": 76.0,
+            "max": 83.0,
+            "first_median": 76.0,
+            "last_median": 76.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        },
+        "ended": {
+          "nodes": {
+            "min": 76.0,
+            "max": 83.0,
+            "first_median": 77.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        },
+        "ready": {
+          "nodes": {
+            "min": 28.0,
+            "max": 77.0,
+            "first_median": 69.0,
+            "last_median": 69.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        },
+        "result": {
+          "nodes": {
+            "min": 93.0,
+            "max": 100.0,
+            "first_median": 93.0,
+            "last_median": 93.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        },
+        "turn": {
+          "nodes": {
+            "min": 76.0,
+            "max": 77.0,
+            "first_median": 76.0,
+            "last_median": 76.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        }
+      },
+      "state_counts": {
+        "arena_deaths": 0,
+        "mounted_incapacitations": 11,
+        "living_unseated": 0,
+        "war_deaths": 11
+      },
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 657.9,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "DB8523304255A495C50258C92F7D7FB9F286AE699A16205D8C2DF7C453387B5E",
+        "memory_sha256": "77123C2CC91EF9DC63C5BAC0D23CDD5351DF79662373D772E5938FD3E6A7DB4E",
+        "engine_sha256": "AEC73D035927B2A9A39A7671238C8A167912D61902F307A3B8A9BF76440B4617",
+        "target_sha256": "C83A377ABAF977A522D056A05CF687F38657C988186EB81449D97E50F4DE1725"
+      },
+      "qa_save_sha256": "6A934C1340B33EA4F757F9192A4AA6B3A7274382BAEB7068D646BBE26F9D1A24",
+      "image_sha256": "73D9A3A318418A74D03526E4621C3054528F457CDE21F9B77586855DC53C8E4A"
+    },
+    {
+      "name": "dev113-c5-soak06",
+      "passed": true,
+      "failures": [],
+      "configuration": {
+        "mode": "arena",
+        "kit": "french_light",
+        "difficulty": 1,
+        "blood": false,
+        "slow_motion": true,
+        "shake": false
+      },
+      "seconds": 360.021389,
+      "matches": 9,
+      "frames": {
+        "fps": 59.995087563676,
+        "frames": 21599,
+        "max_ms": 26.789,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "p50_ms": 16.661,
+        "p95_ms": 17.762,
+        "p99_ms": 18.711
+      },
+      "phases": {
+        "charge": {
+          "fps": 59.9895513861789,
+          "frames": 14411,
+          "max_ms": 23.651,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.662,
+          "p95_ms": 17.853,
+          "p99_ms": 18.839
+        },
+        "contact": {
+          "fps": 60.0112955548498,
+          "frames": 1537,
+          "max_ms": 21.968,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.659,
+          "p95_ms": 17.855,
+          "p99_ms": 19.0
+        },
+        "ended": {
+          "fps": 60.0221310650854,
+          "frames": 537,
+          "max_ms": 19.386,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.666,
+          "p95_ms": 17.116,
+          "p99_ms": 17.371
+        },
+        "ready": {
+          "fps": 60.0049056227276,
+          "frames": 3045,
+          "max_ms": 19.593,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.661,
+          "p95_ms": 17.567,
+          "p99_ms": 18.178
+        },
+        "result": {
+          "fps": 60.0032487114574,
+          "frames": 717,
+          "max_ms": 26.789,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.66,
+          "p95_ms": 16.994,
+          "p99_ms": 17.321
+        },
+        "turn": {
+          "fps": 59.998509800326,
+          "frames": 1352,
+          "max_ms": 21.137,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.659,
+          "p95_ms": 17.563,
+          "p99_ms": 18.39
+        }
+      },
+      "trends": {
+        "charge": {
+          "nodes": {
+            "min": 75.0,
+            "max": 89.0,
+            "first_median": 76.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 112.0,
+            "max": 112.0,
+            "first_median": 112.0,
+            "last_median": 112.0
+          }
+        },
+        "contact": {
+          "nodes": {
+            "min": 76.0,
+            "max": 89.0,
+            "first_median": 83.0,
+            "last_median": 83.0
+          },
+          "resources": {
+            "min": 112.0,
+            "max": 112.0,
+            "first_median": 112.0,
+            "last_median": 112.0
+          }
+        },
+        "ended": {
+          "nodes": {
+            "min": 77.0,
+            "max": 83.0,
+            "first_median": 83.0,
+            "last_median": 83.0
+          },
+          "resources": {
+            "min": 112.0,
+            "max": 112.0,
+            "first_median": 112.0,
+            "last_median": 112.0
+          }
+        },
+        "ready": {
+          "nodes": {
+            "min": 28.0,
+            "max": 77.0,
+            "first_median": 69.0,
+            "last_median": 76.0
+          },
+          "resources": {
+            "min": 112.0,
+            "max": 112.0,
+            "first_median": 112.0,
+            "last_median": 112.0
+          }
+        },
+        "result": {
+          "nodes": {
+            "min": 95.0,
+            "max": 101.0,
+            "first_median": 101.0,
+            "last_median": 101.0
+          },
+          "resources": {
+            "min": 112.0,
+            "max": 112.0,
+            "first_median": 112.0,
+            "last_median": 112.0
+          }
+        },
+        "turn": {
+          "nodes": {
+            "min": 76.0,
+            "max": 77.0,
+            "first_median": 77.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 112.0,
+            "max": 112.0,
+            "first_median": 112.0,
+            "last_median": 112.0
+          }
+        }
+      },
+      "state_counts": {
+        "arena_deaths": 0,
+        "mounted_incapacitations": 9,
+        "living_unseated": 0,
+        "war_deaths": 0
+      },
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 666.6,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "21A92A9A410FE0EE6AC0C898C17DC30FB465A055819F598A1BD1E8C506533697",
+        "memory_sha256": "3B55C07DDE484C08CC9F1BB73ADA0B50D999BD56BE39FB9BAE221E0E419F1149",
+        "engine_sha256": "70E1C5CA460971376A91087238C3EA1A6B07D33ACB33EBD9B7DE362146896688",
+        "target_sha256": "A3F2D3BB6C4F7342255E4B014454FCA65B3510F04C19310F6F5022CDBC851216"
+      },
+      "qa_save_sha256": "FBE0323E947FD5C762C27AE5E2F9AC30B6B755DC4ADCF2AAEAAF40BC5916E1D9",
+      "image_sha256": "26C54544872F67B2C983EA5FBA9E802C77C0ECB306AFA6E7F21F111936460A2C"
+    },
+    {
+      "name": "dev113-c5-soak07",
+      "passed": true,
+      "failures": [],
+      "configuration": {
+        "mode": "war",
+        "kit": "italian_plate",
+        "difficulty": 2,
+        "blood": false,
+        "slow_motion": true,
+        "shake": true
+      },
+      "seconds": 360.015369,
+      "matches": 12,
+      "frames": {
+        "fps": 60.0014837457787,
+        "frames": 21601,
+        "max_ms": 26.373,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "p50_ms": 16.664,
+        "p95_ms": 17.773,
+        "p99_ms": 18.808
+      },
+      "phases": {
+        "charge": {
+          "fps": 59.9969243306983,
+          "frames": 14148,
+          "max_ms": 22.534,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.666,
+          "p95_ms": 17.884,
+          "p99_ms": 18.965
+        },
+        "contact": {
+          "fps": 60.0348902705776,
+          "frames": 1543,
+          "max_ms": 23.644,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.661,
+          "p95_ms": 17.909,
+          "p99_ms": 19.315
+        },
+        "ended": {
+          "fps": 60.0529393154009,
+          "frames": 544,
+          "max_ms": 18.552,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.658,
+          "p95_ms": 17.324,
+          "p99_ms": 17.669
+        },
+        "ready": {
+          "fps": 59.9922061849377,
+          "frames": 3248,
+          "max_ms": 21.067,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.665,
+          "p95_ms": 17.492,
+          "p99_ms": 18.383
+        },
+        "result": {
+          "fps": 60.0088159089259,
+          "frames": 958,
+          "max_ms": 26.373,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.663,
+          "p95_ms": 17.04,
+          "p99_ms": 17.431
+        },
+        "turn": {
+          "fps": 60.0085025840387,
+          "frames": 1160,
+          "max_ms": 19.278,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.662,
+          "p95_ms": 17.67,
+          "p99_ms": 18.258
+        }
+      },
+      "trends": {
+        "charge": {
+          "nodes": {
+            "min": 70.0,
+            "max": 83.0,
+            "first_median": 76.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        },
+        "contact": {
+          "nodes": {
+            "min": 76.0,
+            "max": 83.0,
+            "first_median": 77.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        },
+        "ended": {
+          "nodes": {
+            "min": 76.0,
+            "max": 83.0,
+            "first_median": 77.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        },
+        "ready": {
+          "nodes": {
+            "min": 28.0,
+            "max": 77.0,
+            "first_median": 69.0,
+            "last_median": 69.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        },
+        "result": {
+          "nodes": {
+            "min": 93.0,
+            "max": 100.0,
+            "first_median": 94.0,
+            "last_median": 94.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        },
+        "turn": {
+          "nodes": {
+            "min": 76.0,
+            "max": 77.0,
+            "first_median": 77.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 113.0,
+            "max": 113.0,
+            "first_median": 113.0,
+            "last_median": 113.0
+          }
+        }
+      },
+      "state_counts": {
+        "arena_deaths": 0,
+        "mounted_incapacitations": 12,
+        "living_unseated": 0,
+        "war_deaths": 12
+      },
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 690.4,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "ECD00EFE446BC720BEC5BF028BBCCC7D07F2093027A5835BF7AC32CDBA510D29",
+        "memory_sha256": "5EFE5455E70A15192407B095FFB63D3C1FEA6ADC384A32DD88BD612C2980D126",
+        "engine_sha256": "756F000029BA4841D302C5768224B215C3732D0BA257A98E62A189BC27636394",
+        "target_sha256": "2F213AFB3A3C824277E16FE1857E2BAB62D6E778538BA437B2089885D74E9374"
+      },
+      "qa_save_sha256": "F12A21A5F96B43857D38167FCEE568A525DE35E2A178E11133F0DEAF4EE9578E",
+      "image_sha256": "B8843BBC0BBDC4EFF27246A9C53FA52895FCAF1A5D7E773FEF3EA1E8410D0CCA"
+    },
+    {
+      "name": "dev113-c5-soak08",
+      "passed": true,
+      "failures": [],
+      "configuration": {
+        "mode": "war",
+        "kit": "english_late",
+        "difficulty": 2,
+        "blood": false,
+        "slow_motion": false,
+        "shake": false
+      },
+      "seconds": 360.010755,
+      "matches": 11,
+      "frames": {
+        "fps": 60.0023135932131,
+        "frames": 21601,
+        "max_ms": 29.807,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "p50_ms": 16.662,
+        "p95_ms": 17.818,
+        "p99_ms": 18.775
+      },
+      "phases": {
+        "charge": {
+          "fps": 59.9961748827186,
+          "frames": 14952,
+          "max_ms": 21.663,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.664,
+          "p95_ms": 17.929,
+          "p99_ms": 18.906
+        },
+        "contact": {
+          "fps": 60.1484457886231,
+          "frames": 418,
+          "max_ms": 22.632,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.659,
+          "p95_ms": 18.019,
+          "p99_ms": 19.989
+        },
+        "ended": {
+          "fps": 60.0117490572405,
+          "frames": 1033,
+          "max_ms": 19.76,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.663,
+          "p95_ms": 17.211,
+          "p99_ms": 17.832
+        },
+        "ready": {
+          "fps": 60.0000645570316,
+          "frames": 3160,
+          "max_ms": 19.734,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.66,
+          "p95_ms": 17.6,
+          "p99_ms": 18.213
+        },
+        "result": {
+          "fps": 60.0041592860297,
+          "frames": 878,
+          "max_ms": 29.807,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.662,
+          "p95_ms": 17.111,
+          "p99_ms": 17.361
+        },
+        "turn": {
+          "fps": 60.0252551086279,
+          "frames": 1160,
+          "max_ms": 19.808,
+          "over_33ms": 0,
+          "over_50ms": 0,
+          "p50_ms": 16.657,
+          "p95_ms": 17.695,
+          "p99_ms": 18.518
+        }
+      },
+      "trends": {
+        "charge": {
+          "nodes": {
+            "min": 75.0,
+            "max": 82.0,
+            "first_median": 76.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 112.0,
+            "max": 112.0,
+            "first_median": 112.0,
+            "last_median": 112.0
+          }
+        },
+        "contact": {
+          "nodes": {
+            "min": 76.0,
+            "max": 82.0,
+            "first_median": 77.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 112.0,
+            "max": 112.0,
+            "first_median": 112.0,
+            "last_median": 112.0
+          }
+        },
+        "ended": {
+          "nodes": {
+            "min": 76.0,
+            "max": 83.0,
+            "first_median": 77.0,
+            "last_median": 77.0
+          },
+          "resources": {
+            "min": 112.0,
+            "max": 112.0,
+            "first_median": 112.0,
+            "last_median": 112.0
+          }
+        },
+        "ready": {
+          "nodes": {
+            "min": 28.0,
+            "max": 77.0,
+            "first_median": 69.0,
+            "last_median": 69.0
+          },
+          "resources": {
+            "min": 112.0,
+            "max": 112.0,
+            "first_median": 112.0,
+            "last_median": 112.0
+          }
+        },
+        "result": {
+          "nodes": {
+            "min": 93.0,
+            "max": 100.0,
+            "first_median": 94.0,
+            "last_median": 94.0
+          },
+          "resources": {
+            "min": 112.0,
+            "max": 112.0,
+            "first_median": 112.0,
+            "last_median": 112.0
+          }
+        },
+        "turn": {
+          "nodes": {
+            "min": 76.0,
+            "max": 77.0,
+            "first_median": 76.0,
+            "last_median": 76.0
+          },
+          "resources": {
+            "min": 112.0,
+            "max": 112.0,
+            "first_median": 112.0,
+            "last_median": 112.0
+          }
+        }
+      },
+      "state_counts": {
+        "arena_deaths": 0,
+        "mounted_incapacitations": 10,
+        "living_unseated": 0,
+        "war_deaths": 10
+      },
+      "proof": {
+        "exit_code": 0,
+        "desktop_closed": true,
+        "private_peak_mib": 668.6,
+        "errors": [],
+        "warnings": [],
+        "correct_pck": true,
+        "report_sha256": "CD510191BC781C2EDC37E5F381D4676891CABF91FE34E18928AECD5B1CEFAD55",
+        "memory_sha256": "3BA440E6090F791F74C2C2DDACB701692E5E8C453309B53F7F0D933C04516EF5",
+        "engine_sha256": "AEC73D035927B2A9A39A7671238C8A167912D61902F307A3B8A9BF76440B4617",
+        "target_sha256": "7581E060AD7116A58B80FF8BCB067C9D0EC80EDE6B5166F6000C5E1CF8DB5E92"
+      },
+      "qa_save_sha256": "64618863808AB6C85BDC865511A4D9F0D1080160C4E40272461F7CDA0D17AFF9",
+      "image_sha256": "290C3D423EC5B93B5734AF7EA117015BB50FFFAA5C74EACBFE360C5A6B4EBE57"
+    }
+  ],
+  "soak_issues": [],
+  "formal_save": {
+    "unchanged": true
+  },
+  "measured_soak_seconds": 2880.120529,
+  "completed_soak_matches": 78,
+  "limits": "Each soak is a separate finite process; memory samples are not kernel high-water marks. Automated results do not certify enjoyment, naturalness, hardware hearing or another PC."
+}

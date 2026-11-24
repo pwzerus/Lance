@@ -65,6 +65,36 @@
       "path": "docs/development/logs/dev113-c5-journey-76-80/screens/earned-progress.png",
       "sha256": "45317A3B2E0F802E95A49C067A5BA072AB7F5556F7CEA25A5708B0189AB98A1C",
       "observation": "正常成长存档对应80/80，八章关卡卡片与余额、声望显示一致。"
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-soak01/screens/after_timing.png",
+      "sha256": "F086B9F8A593342AE54AA3B37B3A2C153D17F6BD6723D772899BFA8C9C170D75",
+      "observation": "持续初装竞技场的默认界面保留状态条、盾位与马力；骑手与马体未见明显断接。"
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-soak02/screens/after_timing.png",
+      "sha256": "23BCBF0EAC527D6CB5B390A1C7D8B906C558DCF7FD937F4E7F0DD25B5DA04A16",
+      "observation": "持续初装实战的原始对局图：简洁状态区与实际模式一致，未见数字提示墙或新增肢体消失。"
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-soak04/screens/after_timing.png",
+      "sha256": "B49430B697CBDFFFC17076547D8F3863FAE5ADBD25F3DD98B391F9E2E5910335",
+      "observation": "持续重甲竞技场：重伤状态、比分、枪稳/盾臂与马力提示可读；头盔与胸甲连接保持。单帧不代表完整步态或接地自然度验收。"
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-soak05/screens/after_timing.png",
+      "sha256": "73D9A3A318418A74D03526E4621C3054528F457CDE21F9B77586855DC53C8E4A",
+      "observation": "关闭慢动作的实战截图仍显示受创和头部重创提示；冲击构图暗边仍保留。此单帧不用于评价动态时长或真人刺激感。"
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-soak07/screens/after_timing.png",
+      "sha256": "B8843BBC0BBDC4EFF27246A9C53FA52895FCAF1A5D7E773FEF3EA1E8410D0CCA",
+      "observation": "隔离全屏1920×1080：准备远景、双方末期装备与上下HUD完整，操作提示不重叠。远景单帧不作为头盔精细适配验收。"
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-soak08/screens/after_timing.png",
+      "sha256": "290C3D423EC5B93B5734AF7EA117015BB50FFFAA5C74EACBFE360C5A6B4EBE57",
+      "observation": "末期英格兰装备、无慢动作/无震动实战原图：骑手、盾面、马衣和必要HUD完整，冲击构图暗边保留；不以该单帧认定动态体验通过。"
     }
   ]
 }

@@ -6,7 +6,7 @@
   "eng_helmet_3": {"size":[65,73],"offset":[0,-147],"face":[0.28,0.29,0.77,0.69],"face_clip":[-22,-128,50,44]},
   "eng_helmet_4": {"size":[62,72],"offset":[0,-147]},
   "eng_helmet_5": {"size":[62,74],"offset":[0,-149]},
-  "fr_helmet_0": {"size":[70,34],"offset":[0,-138],"face":[0.24,0.34,0.72,1.55],"face_clip":[-25,-128,53,54]},
+  "fr_helmet_0": {"size":[70,34],"offset":[0,-138],"face":[0.24,0.34,0.72,1.55],"face_clip":[-25,-128,53,54],"coif":true},
   "fr_helmet_1": {"size":[60,73],"offset":[0,-148]},
   "fr_helmet_2": {"size":[62,74],"offset":[0,-149]},
   "fr_helmet_3": {"size":[64,73],"offset":[-2,-147],"face":[0.39,0.23,0.63,0.75],"face_clip":[-19,-130,49,46]},

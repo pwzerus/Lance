@@ -411,7 +411,7 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 	var head_box: Rect2 = head_fit.helmet
 	if not helmet_art.is_empty() and head_texture!=null:
 		if bool(helmet_art.get("open_face",false)):
-			Face.draw_face(self,appearance,head_fit.face,head_fit.face_clip,false,bool(fighter.get("unconscious",false)))
+			Face.draw_mounted_face(self,appearance,head_fit,bool(fighter.get("unconscious",false)))
 		draw_texture_rect(head_texture,head_box,false)
 	elif head_tier==0:
 		Face.draw_head(self,appearance,head_tier,Color(str(fighter.stats.get("helmet_color","8e999c"))),head_box,bool(fighter.get("unconscious",false)))

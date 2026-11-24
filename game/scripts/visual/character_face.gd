@@ -10,15 +10,121 @@ const INK = Color("2b2926")
 
 class FaceSurface:
 	extends RefCounted
-	var target: CanvasItem
+	var target: Object
 	var bounds: Rect2
-	func _init(canvas: CanvasItem, clip: Rect2) -> void:
+	func _init(canvas: Object, clip: Rect2) -> void:
 		target = canvas
 		bounds = clip
 	func draw_rect(rectangle: Rect2, color: Color) -> void:
 		var visible = rectangle.intersection(bounds) if bounds.has_area() else rectangle
 		if visible.has_area():
 			target.draw_rect(visible,color)
+
+## PHYS-114: records the face's pixel clusters once so they can be clipped to
+## a jaw-shaped polygon (not a rectangle) and cached in head space.
+class FaceRecorder:
+	extends RefCounted
+	var blocks: Array = []
+	func draw_rect(rectangle: Rect2, color: Color) -> void:
+		blocks.append([rectangle,color])
+
+static var _mounted: Dictionary = {}
+const MAX_MOUNTED = 32
+# Mail coif under a brimmed hat, in face-grid cells (32 x 40, facing right).
+# The hood wraps the skull, cheeks and chin and lies on the shoulders; the
+# face shows through an oval opening. Historically a kettle hat was worn over
+# a mail coif or aventail, not on a bare head.
+const COIF_HOOD = [Vector2(3,13),Vector2(5,6),Vector2(11,2.5),Vector2(21,2),Vector2(27,6),Vector2(29.5,13),Vector2(29.5,23),
+	Vector2(27.5,31),Vector2(26,35),Vector2(30,40),Vector2(31,45),Vector2(1,45),Vector2(1.5,35),Vector2(2,24)]
+const COIF_OPENING = [Vector2(11,12.5),Vector2(16,11),Vector2(24,11),Vector2(28,13.5),Vector2(28.5,20),Vector2(27,27),
+	Vector2(24,31.5),Vector2(19,32.5),Vector2(14,31),Vector2(11,27.5),Vector2(10,20)]
+
+static func _cells(rect: Rect2, cells: Array) -> PackedVector2Array:
+	var unit = rect.size/Vector2(32,40)
+	var result = PackedVector2Array()
+	for cell in cells:
+		result.append(rect.position+Vector2(cell)*unit)
+	return result
+
+static func _rect_polygon(rect: Rect2) -> PackedVector2Array:
+	return PackedVector2Array([rect.position,Vector2(rect.end.x,rect.position.y),rect.end,Vector2(rect.position.x,rect.end.y)])
+
+static func _clipped(blocks: Array, clip: PackedVector2Array, out: Array) -> void:
+	for block in blocks:
+		var polygon = _rect_polygon(block[0])
+		var inside = true
+		for corner in polygon:
+			if not Geometry2D.is_point_in_polygon(corner,clip):
+				inside = false
+				break
+		if inside:
+			# Whole blocks stay cheap rectangle commands; only the few blocks on
+			# the jaw/clip edge become polygons (hundreds of heads in one view
+			# otherwise grew canvas memory past the 1 GiB guard, lance055).
+			out.append([block[0],block[1]])
+			continue
+		for piece in Geometry2D.intersect_polygons(polygon,clip):
+			if piece.size()>=3: out.append([piece,block[1]])
+
+static func _coif(face: Rect2, out: Array) -> PackedVector2Array:
+	var hood = _cells(face,COIF_HOOD)
+	var opening = _cells(face,COIF_OPENING)
+	var unit = face.size/Vector2(32,40)
+	var outline = PackedVector2Array()
+	var center = Vector2.ZERO
+	for point in hood: center += point
+	center /= hood.size()
+	for point in hood: outline.append(point+(point-center).normalized()*maxf(1.0,unit.x*.8))
+	out.append([outline,INK])
+	# Same dark ring mail as the hauberk and shoulder underlaps (343c40 base,
+	# 929a9d highlights); a light grey fill read as a cloth hood.
+	out.append([hood,Color("3a4347")])
+	# Rows of riveted rings, offset every other row; none inside the opening.
+	var rings: Array = []
+	# Sparse enough that the battle pixel pass keeps the dark base visible
+	# (a 2-cell grid read as light grey, phys114-helmets02).
+	for row in range(4,45,3):
+		for column in range(2,31,3):
+			var cell = Vector2(column+(1.5 if (row/3)%2==1 else 0.0),row)
+			var point = face.position+cell*unit
+			if Geometry2D.is_point_in_polygon(point,hood) and not Geometry2D.is_point_in_polygon(point,opening):
+				rings.append([Rect2(point,unit*Vector2(1.0,.7)),Color("8a9396") if (row/3)%2==0 else Color("5f696e")])
+	_clipped(rings,hood,out)
+	out.append([opening,Color("2c2a28")])
+	return opening
+
+static func draw_mounted_face(canvas: CanvasItem, appearance: Dictionary, fit: Dictionary, eyes_closed: bool = false) -> void:
+	# Head-space geometry depends only on appearance, fit and the eye state;
+	# build it once and replay it every frame (bounded cache).
+	var a = Appearance.sanitize(appearance)
+	var face: Rect2 = fit.face
+	var clip: PackedVector2Array = fit.get("clip_polygon",_rect_polygon(fit.face_clip))
+	var coif = bool(fit.get("coif",false))
+	var key = [str(a),face,clip,coif,eyes_closed]
+	var pieces: Array = _mounted.get(key,[])
+	if pieces.is_empty():
+		var rim = PackedVector2Array()
+		if coif:
+			var opening = _coif(face,pieces)
+			var inside = Geometry2D.intersect_polygons(clip,opening)
+			clip = inside[0] if not inside.is_empty() else opening
+			rim = opening
+		var recorder = FaceRecorder.new()
+		draw_face(recorder,a,face,Rect2(),false,eyes_closed)
+		_clipped(recorder.blocks,clip,pieces)
+		if not rim.is_empty():
+			# The ring edge of the opening sits in front of the cheeks.
+			var unit = face.size/Vector2(32,40)
+			for i in range(rim.size()):
+				var from = rim[i]
+				var to = rim[(i+1)%rim.size()]
+				var across = (to-from).orthogonal().normalized()*maxf(1.0,unit.x*.7)
+				pieces.append([PackedVector2Array([from-across,to-across,to+across,from+across]),Color("7d868c")])
+		if _mounted.size()>=MAX_MOUNTED: _mounted.erase(_mounted.keys()[0])
+		_mounted[key] = pieces
+	for piece in pieces:
+		if piece[0] is Rect2: canvas.draw_rect(piece[0],piece[1])
+		else: canvas.draw_colored_polygon(piece[0],piece[1])
 
 static func block(canvas: Object, rect: Rect2, x: float, y: float, w: float, h: float, color: Color) -> void:
 	var unit = rect.size/Vector2(32,40)
@@ -56,7 +162,7 @@ static func face_span(shape: int, row: int) -> Vector2i:
 			if row<29: return Vector2i(10,23)
 			return Vector2i(12,22)
 
-static func draw_face(source_canvas: CanvasItem, appearance: Dictionary, rect: Rect2, clip: Rect2 = Rect2(), include_neck: bool = true, eyes_closed: bool = false) -> void:
+static func draw_face(source_canvas: Object, appearance: Dictionary, rect: Rect2, clip: Rect2 = Rect2(), include_neck: bool = true, eyes_closed: bool = false) -> void:
 	# Mounted faces are clipped to their aperture/jaw. Their collar is drawn
 	# behind the cuirass, rather than painting a second neck over the armour.
 	var canvas = FaceSurface.new(source_canvas,clip)

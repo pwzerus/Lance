@@ -16,6 +16,21 @@ const SLIM = {
 	"eng_helmet_1":Vector2(.78,.95), "eng_helmet_2":Vector2(.78,.95), "fr_helmet_1":Vector2(.78,.95), "de_helmet_1":Vector2(.78,.95),
 	"fr_helmet_0":Vector2(.95,.97)}  # kettle hat: the brim is meant to be wide
 static var _loaded = false
+const FACE_ASPECT = .80   # the face grid is 32 x 40 cells
+const NOSE_COLUMN = .64   # nose bridge column 20.5 of 32
+
+static func face_clip_polygon(clip: Rect2, face: Rect2) -> PackedVector2Array:
+	# The fitted back/top/collar limits stay exactly as calibrated per helmet
+	# (they keep hair inside the skull and the chin off the breastplate). The
+	# FRONT is opened past the nose, and the lower front corner follows a jaw
+	# line instead of a square cut.
+	var right = maxf(clip.end.x,face.end.x+6.0)
+	var jaw = minf(clip.size.y*.24,13.0)
+	# Keep the jaw corner right of the back corner so a narrow clip cannot
+	# fold the polygon over itself.
+	jaw = clampf(minf(jaw,(right-clip.position.x-6.0)/1.4),0.0,jaw)
+	return PackedVector2Array([clip.position,Vector2(right,clip.position.y),Vector2(right,clip.end.y-jaw),
+		Vector2(right-jaw*1.4,clip.end.y),Vector2(clip.position.x+5.0,clip.end.y),Vector2(clip.position.x,clip.end.y-5.0)])
 # Layout depends only on the two equipment art IDs, never on pose/appearance.
 # Bounded shared read-only data; live head/neck transforms still run each frame.
 static var _layouts: Dictionary = {}
@@ -42,10 +57,20 @@ static func layout(stats: Dictionary) -> Dictionary:
 	var height = float(size[1])*slim.y
 	var box = Rect2(float(offset[0])-width*.5,float(offset[1])+float(size[1])-height,width,height)
 	var face: Array = fit.get("face",entry.get("face_rect",[.2,.22,.6,.72]))
-	var face_box = Rect2(box.position+Vector2(float(face[0]),float(face[1]))*box.size,Vector2(float(face[2]),float(face[3]))*box.size)
+	var face_raw = Rect2(box.position+Vector2(float(face[0]),float(face[1]))*box.size,Vector2(float(face[2]),float(face[3]))*box.size)
+	# PHYS-114 (user: "a short rectangular head"): the 32x40 face grid had
+	# been stretched into boxes about as wide as tall (aspect ~1.0 instead of
+	# .8), and a rectangular clip cut the nose and chin flat. Keep each fit's
+	# height and nose position (the helmet's aperture registration) and give
+	# the face its own proportions.
+	var face_width = minf(face_raw.size.x,face_raw.size.y*FACE_ASPECT)
+	var nose_x = face_raw.position.x+face_raw.size.x*NOSE_COLUMN
+	var face_box = Rect2(Vector2(nose_x-face_width*NOSE_COLUMN,face_raw.position.y),Vector2(face_width,face_raw.size.y))
 	var clip: Array = fit.get("face_clip",[-26.0,-144.0,59.0,54.0])
+	var clip_rect = Rect2(float(clip[0]),float(clip[1]),float(clip[2]),float(clip[3]))
 	var collar: Dictionary = _data.get("_collars",{}).get(str(stats.get("armor_art","")),{"center":[4,-83],"width":26,"lip_y":-83})
-	var result = {"helmet":box,"face":face_box,"face_clip":Rect2(float(clip[0]),float(clip[1]),float(clip[2]),float(clip[3])),
+	var result = {"helmet":box,"face":face_box,"face_clip":clip_rect,"clip_polygon":face_clip_polygon(clip_rect,face_box),
+		"coif":bool(fit.get("coif",false)),
 		"collar":collar,"head_offset":float(collar.center[0]),"neck_x":float(fit.get("neck_x",3.0)),"open":bool(entry.get("open_face",false)),"authored":not entry.is_empty()}
 	result.make_read_only()
 	if _layouts.size()>=MAX_LAYOUTS: _layouts.erase(_layouts.keys()[0])

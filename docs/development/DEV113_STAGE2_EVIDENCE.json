@@ -1,0 +1,569 @@
+{
+  "created_utc": "2026-11-24T00:31:41.884105+00:00",
+  "scope": "DEV-113 stage checkpoint, source tests only. Failed runs retained. No final package or human acceptance. GPU screenshot stalls are not frame timing evidence.",
+  "runs": [
+    {
+      "name": "dev113-ai044-01",
+      "exit_zero": true,
+      "desktop_closed": false,
+      "peak_sampled_private_mib": null,
+      "warnings": [],
+      "reports": []
+    },
+    {
+      "name": "dev113-arm068-01",
+      "exit_zero": true,
+      "desktop_closed": false,
+      "peak_sampled_private_mib": null,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-arm068-01/report.json",
+          "sha256": "374e8b1456124e91f91a74dd31cf98f1f9d0dcba693cdc1b463293d519ef5ff8",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-articulation-baseline01",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 486.6,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-articulation-baseline01/screens/report.json",
+          "sha256": "2c0ff21d808d7cca23171ffc93c25c1919a467430f908db508e0880e8e6f743a",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-articulation01",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 544.7,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-articulation01/screens/report.json",
+          "sha256": "02e577e3e0b549b3daec577e0f2e9ea40383f7988a396f1358919b25af816503",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-articulation02",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 556.9,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-articulation02/screens/report.json",
+          "sha256": "fe8f0dfbba10f8aa3a2798128e0705237c9ad4e126001ff156f543c0af8d64bc",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-cinema01",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 671.8,
+      "warnings": [
+        "WARNING: ObjectDB instances leaked at exit (run with --verbose for details)."
+      ],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-cinema01/report.json",
+          "sha256": "d7d8a0e47ae9c25eff0239ca52a7139be86939cc7e50e58cc145677297ed4a93",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-condition01",
+      "exit_zero": true,
+      "desktop_closed": false,
+      "peak_sampled_private_mib": 45.6,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-condition01/evidence/report.json",
+          "sha256": "91647b0cef38cd5d4283573ed8308e5cf2ddfb6003abe7b319638a8035e55c32",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-condition02",
+      "exit_zero": false,
+      "desktop_closed": false,
+      "peak_sampled_private_mib": 45.8,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-condition02/evidence/report.json",
+          "sha256": "3a634efa7c67e119914c2fa8c390320d91f2dc7a6a81a9ee72255abf90134c8f",
+          "passed": false,
+          "failures": [
+            "Normal/recovered/slow control does not cause an unavoidable fall: recover30",
+            "Recentring restores physical support",
+            "Normal/recovered/slow control does not cause an unavoidable fall: recover60",
+            "Recentring restores physical support",
+            "Normal/recovered/slow control does not cause an unavoidable fall: recover120",
+            "Recentring restores physical support"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dev113-condition03",
+      "exit_zero": true,
+      "desktop_closed": false,
+      "peak_sampled_private_mib": 46.1,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-condition03/evidence/report.json",
+          "sha256": "17f94f06799aea4879ee3ac7d724e87fc4411f8d0cb5b843cdee52827401b352",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-condition04",
+      "exit_zero": false,
+      "desktop_closed": false,
+      "peak_sampled_private_mib": 48.4,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-condition04/evidence/report.json",
+          "sha256": "74dcebb4162c1806267e8128d7878a20f07873ce60c6775e6c11a5184be9cfae",
+          "passed": false,
+          "failures": [
+            "Centred body retains support; outward momentum at an edge slips once",
+            "Centred body retains support; outward momentum at an edge slips once"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dev113-condition05",
+      "exit_zero": true,
+      "desktop_closed": false,
+      "peak_sampled_private_mib": 49.0,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-condition05/evidence/report.json",
+          "sha256": "267e94f493c763177642f40cd530b7f5adadc5af3172b86bcb506cd3c4d8d9f3",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-condition06",
+      "exit_zero": true,
+      "desktop_closed": false,
+      "peak_sampled_private_mib": 49.1,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-condition06/evidence/report.json",
+          "sha256": "aa2818b88c64509ba1b46eb82c1ffe7f0138ccfaf78e18818344a2528344328e",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-fall-baseline01",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 584.2,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-fall-baseline01/report.json",
+          "sha256": "6297f0244837088b451284b518c9941e6e4691a5915000e82e233554c5654754",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-fall-fuzz01",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 241.6,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-fall-fuzz01/report.json",
+          "sha256": "04a796285e0a3650d01557d46aa308f972f121860067e632902c2ef4ae461c50",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-fall-rate01",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 587.0,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-fall-rate01/report.json",
+          "sha256": "508a7329c6371c564bad3c792af60c8f03f3da8ad1f264dd4b20de7034e368ff",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-head076-01",
+      "exit_zero": false,
+      "desktop_closed": false,
+      "peak_sampled_private_mib": null,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-head076-01/report.json",
+          "sha256": "b2e27b2bcbe50505ade25dfd7cdd62e9cb8c66b34a1932d90fad6bdc301c1cf0",
+          "passed": false,
+          "failures": [
+            "Helmet did not prevent the comparable fatal hit",
+            "Missing player-readable distinction"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dev113-head098-01",
+      "exit_zero": true,
+      "desktop_closed": false,
+      "peak_sampled_private_mib": null,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-head098-01/report.json",
+          "sha256": "91f7ee797588ae4462e4c44f03ec7d74f0435b540820b6954139f8df3b9e0033",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-incapacity01",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 674.9,
+      "warnings": [
+        "WARNING: ObjectDB instances leaked at exit (run with --verbose for details)."
+      ],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-incapacity01/report.json",
+          "sha256": "b52f7b9530d019ca6974c74933dc4b2bf0e2bea1df44ac016f4f2e29b11876a3",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-incapacity02",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 655.0,
+      "warnings": [
+        "WARNING: ObjectDB instances leaked at exit (run with --verbose for details)."
+      ],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-incapacity02/report.json",
+          "sha256": "f89277e11c4d02a3fe4588ddfa187f9eb4aec7ce96ae85e1228ca9b414a47525",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-incapacity03",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 683.8,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-incapacity03/report.json",
+          "sha256": "5f1b45b01920e81f9cc923b1fb1ae9d085ea3b073307eca984da8a5414099b80",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-incapacity04",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 685.3,
+      "warnings": [
+        "WARNING: ObjectDB instances leaked at exit (run with --verbose for details)."
+      ],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-incapacity04/report.json",
+          "sha256": "294baf9c9038a988ecdccf93c80a7a1fd9a1110de66709ff559a6952c8387667",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-injury-baseline01",
+      "exit_zero": true,
+      "desktop_closed": false,
+      "peak_sampled_private_mib": null,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-injury-baseline01/evidence/report.json",
+          "sha256": "82375be1cad76bf655d5594286e984675ae26e254945587e267353f3973cb587",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-parse01",
+      "exit_zero": true,
+      "desktop_closed": false,
+      "peak_sampled_private_mib": 184.2,
+      "warnings": [],
+      "reports": []
+    },
+    {
+      "name": "dev113-parse02",
+      "exit_zero": true,
+      "desktop_closed": false,
+      "peak_sampled_private_mib": 187.1,
+      "warnings": [],
+      "reports": []
+    },
+    {
+      "name": "dev113-parse03",
+      "exit_zero": true,
+      "desktop_closed": false,
+      "peak_sampled_private_mib": 192.6,
+      "warnings": [],
+      "reports": []
+    },
+    {
+      "name": "dev113-rules098-01",
+      "exit_zero": true,
+      "desktop_closed": false,
+      "peak_sampled_private_mib": null,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-rules098-01/report.json",
+          "sha256": "2ba3a9010dbb035d78e73dade64127bc9bb3ce937c2c946591fc9b79d4b50b43",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-slump-de0",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 445.5,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump-de0/screens/report.json",
+          "sha256": "15ff55d7ea62e686361372c6373522cf9769412e5b9cffbc97dae2e79ffa502e",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-slump-de3",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 458.8,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump-de3/screens/report.json",
+          "sha256": "789bbf1fbd953087880b76ba2694dae3c2a2bdac0173036f5eb7dfd1f0aea73b",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-slump-eng0",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 424.3,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump-eng0/screens/report.json",
+          "sha256": "b7297feff583fd0c8da7413fcccd4e531c3e800fb2e5a4dc917b32a2bb32662f",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-slump-eng3",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 448.8,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump-eng3/screens/report.json",
+          "sha256": "6050f5e7bd52affba61abed2eebaa036c22675bc31844ee035bf2028b6621ba4",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-slump-fast01",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 408.2,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump-fast01/screens/report.json",
+          "sha256": "7a5cbda4899019c7ec3ff2ce6a2169a7a4932010e713619e7a3b43fd705ce89d",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-slump-fr0",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 421.9,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump-fr0/screens/report.json",
+          "sha256": "23854b529135e6aab1f778311c38443ee6feed05d3847b581f8cacc5c3efe634",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-slump-fr3",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 483.7,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump-fr3/screens/report.json",
+          "sha256": "ff0f8857f59ef1548b205725dedd15793fcacc48f25f3dbd55748f5f3d0d5a83",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-slump-it0",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 517.9,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump-it0/screens/report.json",
+          "sha256": "77cae23ab3aa25dc14436711b74eca321f0b11451b5810a6dc364aebf9a79742",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-slump-it3",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 507.6,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump-it3/screens/report.json",
+          "sha256": "74d33e5f0249713ec2c95051692cac2bf5c893edbb735df24b498072664708e3",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-slump-rest01",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 340.5,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump-rest01/screens/report.json",
+          "sha256": "294e5b9694a204e0b6d76e9231ac887b51dde5e918b44350470368eb34330215",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-slump01",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 479.4,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump01/screens/report.json",
+          "sha256": "b2c4832b8768f895d1f709bb16c8c21d5fb2c3272c928aa1cbdabba48f3c349a",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "name": "dev113-slump02",
+      "exit_zero": true,
+      "desktop_closed": true,
+      "peak_sampled_private_mib": 455.3,
+      "warnings": [],
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump02/screens/report.json",
+          "sha256": "9b7318447a52f229554090e33e314a281b1822a0c4aa0ffbbd01aefebd3d3777",
+          "passed": true,
+          "failures": []
+        }
+      ]
+    }
+  ]
+}

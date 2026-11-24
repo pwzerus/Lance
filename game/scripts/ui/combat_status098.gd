@@ -65,9 +65,13 @@ func pips(origin: Vector2, count: int, reverse: bool=false) -> void:
 		draw_circle(at,3.3,Color("e2bd66") if i<count else Color("34483d"))
 
 static func contact_text(hit: Dictionary) -> String:
+	if hit.get("zone","")=="seat":
+		if hit.get("dead",false):return "阵亡后滑脱"
+		return "昏厥后滑脱" if hit.get("ko_reason","")=="slip" else "失衡落马"
 	var part={"head":"头","body":"胸","flank":"腹","shield":"盾"}.get(str(hit.get("zone","")),"")
 	if hit.get("dead",false): return part+" 致命"
-	if hit.get("ko",false): return part+" 击落"
+	if hit.get("unseated",hit.get("ko",false)): return "失衡落马" if hit.get("zone","")=="seat" else part+" 击落"
+	if hit.get("unconscious",false): return "伤重退赛" if hit.get("ko_reason","")=="health" else "昏厥"
 	if part=="盾":return preload("res://scripts/core/contact_feedback.gd").shield_text(hit)
 	if hit.get("glanced",false): return part+(" 滑开" if part=="盾" else "擦过")
 	return part+(" 重击" if float(hit.get("damage",0))>=35 else " 命中")

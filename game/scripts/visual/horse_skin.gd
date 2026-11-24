@@ -14,9 +14,10 @@ const COAT_KEYS = ["bay","grey","flaxen","black"]
 static var _coat_cache: Dictionary = {}
 var coat: Texture2D = coat_texture("bay")
 const Gait = preload("res://scripts/visual/horse_gait.gd")
-const PIVOT = Vector2(-18,-168)
-const SOURCE_SADDLE = Vector2(749,326)
-const SCALE = 180.0/666.0
+const Surface = preload("res://scripts/core/horse_surface.gd")
+const PIVOT = Surface.PIVOT
+const SOURCE_SADDLE = Surface.SOURCE_SADDLE
+const SCALE = Surface.SCALE
 const SOURCE_BOUNDS = Rect2(64,8,1436,986)
 # hip/shoulder, stifle/elbow, hock/carpus, fetlock, coronet, sole. The
 # coronet (v050 landmark) lets a planted hoof stay flat while the fetlock sinks.
@@ -26,8 +27,8 @@ const FORE = [Vector2(1080,450),Vector2(1011,585),Vector2(1013,752),Vector2(1009
 # rectangle also carried the chest front and belly edge, which swung out with
 # the far foreleg as a dark sliver in front of the chest and under the girth.
 const FAR_FORE_POLYGON = [Vector2(952,432),Vector2(1092,432),Vector2(1098,560),Vector2(1092,640),Vector2(1078,700),Vector2(1062,760),Vector2(1058,860),Vector2(1066,925),Vector2(1108,975),Vector2(1108,998),Vector2(998,998),Vector2(972,925),Vector2(976,850),Vector2(980,770),Vector2(970,700),Vector2(958,640),Vector2(952,560)]
-const NECK_BASE = Vector2(1090,390)
-const POLL = Vector2(1317,100)
+const NECK_BASE = Surface.NECK_BASE
+const POLL = Surface.POLL
 const MUZZLE = Vector2(1394,269)
 const TAIL_ROOT = Vector2(293,340)
 const COLUMNS = 52
@@ -189,7 +190,7 @@ func _create_mesh() -> void:
 	mesh.custom_aabb = AABB(Vector3(-320,-330,-1),Vector3(650,440,2))
 
 static func rest_point(source: Vector2) -> Vector2:
-	return PIVOT+(source-SOURCE_SADDLE)*SCALE
+	return Surface.rest_point(source)
 
 static func tail_seam_x(y: float) -> float:
 	# Measured alpha corridor of the shared 1536x1024 plate; all four coats
@@ -262,23 +263,13 @@ static func _coronet_fraction(anchors: Array) -> float:
 	return clampf((Vector2(anchors[4])-Vector2(anchors[3])).dot(distal)/distal.length_squared(),0.0,1.0)
 
 static func neck_point(source: Vector2, body_pose: Dictionary) -> Vector2:
-	var weight = smoothstep(0,.85,(source-NECK_BASE).dot(POLL-NECK_BASE)/(POLL-NECK_BASE).length_squared())*smoothstep(860,1000,source.x)
-	var pivot = rest_point(NECK_BASE)
-	var local = pivot+(rest_point(source)-pivot).rotated(float(body_pose.neck)*weight)+Vector2(body_pose.neck_offset)*weight
-	local = local.lerp(head_transform(body_pose)*rest_point(source),head_weight(source))
-	return PIVOT+(local-PIVOT).rotated(float(body_pose.pitch))+Vector2(body_pose.offset)
+	return Surface.neck_point(source,body_pose)
 
 static func head_weight(source: Vector2) -> float:
-	# Preserve a rigid skull past the poll; the neck keeps its smooth bend.
-	return smoothstep(1220,1300,source.x)*(1.0-smoothstep(300,380,source.y))
+	return Surface.head_weight(source)
 
 static func head_transform(body_pose: Dictionary) -> Transform2D:
-	var pivot = rest_point(NECK_BASE)
-	var poll = rest_point(POLL)
-	var base = pivot+(poll-pivot).rotated(float(body_pose.neck))+Vector2(body_pose.neck_offset)
-	var transform = Transform2D(float(body_pose.neck)+float(body_pose.get("head",0.0)),Vector2.ZERO)
-	transform.origin = base-transform.basis_xform(poll)
-	return transform
+	return Surface.head_transform(body_pose)
 
 static func muzzle_point(body_pose: Dictionary) -> Vector2:
 	return neck_point(MUZZLE,body_pose)

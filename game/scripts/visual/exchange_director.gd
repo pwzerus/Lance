@@ -175,7 +175,9 @@ func notify_contacts(events: Array) -> void:
 		var strength = contact_strength(event)
 		if bool(event.get("broke",false)):
 			strength = minf(1.0,strength+.08)
-		var ko = bool(event.get("ko",false)) or bool(event.get("dead",false))
+		# Exhaustion/unconsciousness can end a match without a mechanical
+		# launch. A tiny final touch must not inherit the full unhorsing jolt.
+		var ko = bool(event.get("unseated",event.get("ko",false)))
 		if ko:
 			strength = 1.0
 		var duration = KO_HITSTOP_DURATION if ko else lerpf(HITSTOP_MIN_DURATION,HITSTOP_HEAVY_DURATION,strength)

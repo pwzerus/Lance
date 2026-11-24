@@ -106,6 +106,7 @@ func dust(point: Vector2, direction: int, pace: float = 0.0) -> void:
 
 func fall(fighter: Dictionary, direction: int, event: Dictionary = {}, mounted: RiderView = null) -> void:
 	# Capture the same skeleton, face, armor and hands used on horseback.
+	fighter.unseated=true
 	var fall_event = event.duplicate(true)
 	fall_event.direction = direction
 	var rider = preload("res://scripts/visual/fallen_rider.gd").new()

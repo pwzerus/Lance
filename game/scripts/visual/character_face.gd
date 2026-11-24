@@ -56,7 +56,7 @@ static func face_span(shape: int, row: int) -> Vector2i:
 			if row<29: return Vector2i(10,23)
 			return Vector2i(12,22)
 
-static func draw_face(source_canvas: CanvasItem, appearance: Dictionary, rect: Rect2, clip: Rect2 = Rect2(), include_neck: bool = true) -> void:
+static func draw_face(source_canvas: CanvasItem, appearance: Dictionary, rect: Rect2, clip: Rect2 = Rect2(), include_neck: bool = true, eyes_closed: bool = false) -> void:
 	# Mounted faces are clipped to their aperture/jaw. Their collar is drawn
 	# behind the cuirass, rather than painting a second neck over the armour.
 	var canvas = FaceSurface.new(source_canvas,clip)
@@ -133,6 +133,14 @@ static func draw_face(source_canvas: CanvasItem, appearance: Dictionary, rect: R
 	block(canvas,rect,21.5,eye_y+.5,1,1.5,iris.darkened(.30))
 	block(canvas,rect,20.5,eye_y,3,.75,lid)
 	block(canvas,rect,21,eye_y+2,2.5,.5,skin.darkened(.12))
+	if eyes_closed:
+		# State-specific lids replace the iris clusters without changing the
+		# player's eye colour or saved appearance. No comic cross-shaped eyes.
+		block(canvas,rect,near_x-.5,eye_y,6.5,3,skin)
+		block(canvas,rect,20.5,eye_y,3.5,3,skin)
+		block(canvas,rect,near_x,eye_y+1,5.5,.75,lid)
+		block(canvas,rect,near_x+1,eye_y+1.75,3.5,.5,soft_shade)
+		block(canvas,rect,20.5,eye_y+1,3,.75,lid)
 	# Brows: tapered, thicker at the inner end.
 	var brow_color = hair.lerp(skin,.38) if a.brows==3 else hair
 	var brow_y = eye_y-2
@@ -227,7 +235,7 @@ static func draw_portrait(canvas: CanvasItem, appearance: Dictionary, rect: Rect
 	# Beard tips belong in front of the collar, including the long-face goatee.
 	draw_face(canvas,appearance,rect,Rect2(),false)
 
-static func draw_head(canvas: CanvasItem, appearance: Dictionary, helmet_tier: int, helmet_color: Color, head_rect: Rect2) -> void:
+static func draw_head(canvas: CanvasItem, appearance: Dictionary, helmet_tier: int, helmet_color: Color, head_rect: Rect2, eyes_closed: bool = false) -> void:
 	if helmet_tier>0:
 		# Enclosed helmets still obscure the real face, as they should.
 		canvas.draw_texture_rect(Equipment.helmet(helmet_tier),head_rect,false)
@@ -239,7 +247,7 @@ static func draw_head(canvas: CanvasItem, appearance: Dictionary, helmet_tier: i
 	block(canvas,head_rect,7,13,20,23,Color("56616b"))
 	block(canvas,head_rect,4,29,25,10,INK)
 	block(canvas,head_rect,5,30,23,8,Color("586470"))
-	draw_face(canvas,appearance,Rect2(head_rect.position+Vector2(4,5)*unit,Vector2(27,33)*unit))
+	draw_face(canvas,appearance,Rect2(head_rect.position+Vector2(4,5)*unit,Vector2(27,33)*unit),Rect2(),true,eyes_closed)
 	block(canvas,head_rect,5,14,4,20,Color("44515c"))
 	block(canvas,head_rect,6,16,2,17,Color("899197"))
 	block(canvas,head_rect,25,15,3,20,Color("44515c"))

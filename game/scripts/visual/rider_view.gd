@@ -340,7 +340,7 @@ func _draw_measured099() -> void:
 	# Independent coat textures carry markings; do not tint the saddle/white socks.
 	var horse_tint = Color(1,1,1,horse_opacity)
 	var seated = seated_leg_pose(fighter)
-	var rider_visible = not bool(fighter.get("ko",false)) and not bool(fighter.get("dead",false))
+	var rider_visible = not bool(fighter.get("unseated",fighter.get("ko",false)))
 	_draw_horse_leg(0,horse_tint.darkened(.29))
 	_draw_horse_leg(2,horse_tint.darkened(.25))
 	# A straddling rider's far thigh and shin are behind the horse barrel.
@@ -358,7 +358,7 @@ func _draw_measured099() -> void:
 	# Reins give on a driving launch and go taut when the horse is checked.
 	var rein_sag = 20.0+6.0*float(horse_pose.get("push",0.0))-17.0*float(horse_pose.get("brake",0.0))
 	draw_polyline(PackedVector2Array([muzzle,muzzle.lerp(rein_hand,.55)+Vector2(0,rein_sag),rein_hand]),Color(Color("493628"),horse_opacity),2.5,true)
-	if bool(fighter.get("ko",false)) or bool(fighter.get("dead",false)):
+	if not rider_visible:
 		draw_set_transform(Vector2.ZERO)
 		return
 	_draw_rider(arm_pose(fighter),seated,Vector2(float(fighter.x),float(fighter.get("lane_y",0.0))))
@@ -407,10 +407,10 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 	var head_box: Rect2 = head_fit.helmet
 	if not helmet_art.is_empty() and head_texture!=null:
 		if bool(helmet_art.get("open_face",false)):
-			Face.draw_face(self,appearance,head_fit.face,head_fit.face_clip,false)
+			Face.draw_face(self,appearance,head_fit.face,head_fit.face_clip,false,bool(fighter.get("unconscious",false)))
 		draw_texture_rect(head_texture,head_box,false)
 	elif head_tier==0:
-		Face.draw_head(self,appearance,head_tier,Color(str(fighter.stats.get("helmet_color","8e999c"))),head_box)
+		Face.draw_head(self,appearance,head_tier,Color(str(fighter.stats.get("helmet_color","8e999c"))),head_box,bool(fighter.get("unconscious",false)))
 	else:
 		# Keep enclosed/gilt equipment intact; it naturally hides facial detail.
 		draw_texture_rect(head_texture,head_box,false)
@@ -596,7 +596,7 @@ static func seated_leg_pose(value: Dictionary) -> Dictionary:
 		var rest_knee = Vector2(21,24) if far else Vector2(23,29)
 		var rest_ankle = Vector2(10,78) if far else Vector2(7,82)
 		var hip = pivot+hip_offset
-		hip.x += reaction_slide
+		hip.x += reaction_slide+float(value.get("seat_offset",0.0))
 		hip.y -= lift
 		# The stirrup leather swings a little behind the stride; bracing in a
 		# lean pushes the feet forward (more when leaning back) and heels down.
@@ -736,6 +736,8 @@ static func _head_hinge(pose: Dictionary, value: Dictionary) -> Transform2D:
 		# helmet off its collision centre or detaching its collar bridge.
 		var gait_counter = -.65*clampf(float(Model.gait_pose(value).rider_pitch),-.12,.20)
 		var counter = Transform2D((-.30*lean_angle+gait_counter+float(value.get("reaction_neck",0.0)))*int(value.get("direction",1)),Vector2.ZERO)
+		var slump = float(value.get("slump",0.0))
+		counter = Transform2D(lerpf(counter.get_rotation(),.18*int(value.get("direction",1)),slump),Vector2.ZERO)
 		var anchor = Vector2(0,-111)
 		counter.origin = anchor-counter.basis_xform(anchor)
 		hinge = counter*hinge

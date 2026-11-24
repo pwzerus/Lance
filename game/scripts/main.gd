@@ -865,6 +865,9 @@ func show_result() -> void:
 		_show_lesson_result()
 		return
 	var result = pending_result
+	if is_instance_valid(battle) and battle.match_model:
+		for side in [0,1]:
+			result["player_unseated" if side==0 else "enemy_unseated"]=bool(battle.match_model.fighters[side].get("unseated",false))
 	var contacts: Array = battle.exchange_log if battle else []
 	var report = preload("res://scripts/ui/combat_report.gd")
 	var won = int(result.get("winner",-1)) == 0
@@ -885,7 +888,12 @@ func show_result() -> void:
 		UI.label(panel,"比分 %d : %d" % [int(result.get("player_score",0)),int(result.get("enemy_score",0))],Vector2(485,76),25,UI.GOLD,255).name="ResultScore"
 	var explanation = "三轮后双方伤势相当。" if draw else ("三轮后双方仍在马上，对手的伤势较重。" if won else "三轮后双方仍在马上，你的伤势较重。")
 	if result.get("reason") == "terminal":
-		explanation = "双方同时落马。" if draw else "落马出局。"
+		var player_fallen = bool(result.get("player_unseated",false))
+		var enemy_fallen = bool(result.get("enemy_unseated",false))
+		var loser_fallen = enemy_fallen if won else player_fallen
+		if player_fallen and enemy_fallen: explanation="双方同时落马。"
+		elif draw: explanation="双方均已失去战斗能力。"
+		else: explanation=("对手" if won else "你")+("落马出局。" if loser_fallen else "伤重退赛。")
 	elif result.get("reason") == "score":
 		explanation = "三轮结束，得分较高者胜。"
 	elif current_mode=="arena":

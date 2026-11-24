@@ -2,6 +2,12 @@
 
 ## DEV-113：受创、离鞍动作与极简战斗界面（2026-11-23，Codex，进行中）
 
+昏厥支撑修复补充认领：game/scripts/core/horse_surface.gd（无纹理的马颈共享几何）、game/scripts/visual/horse_skin.gd（调用共享变换，保留原网格精度）。用于防止前伏头部穿入马颈；不修改马匹贴图。
+
+状态表情补充认领：game/scripts/visual/character_face.gd，失去意识时显示闭眼；只传入临时绘制状态，不修改自建脸数据或存档。
+
+第二阶段补充认领：game/scripts/core/rider_condition.gd（伤情、意识与有限鞍座支撑的独立规则模块），game/scripts/visual/combat_cues.gd（状态术语）。沿用现有 JoustMatch、RiderView 和输入电机，不重写整个对冲模型。第一阶段提交 0e37adc 已推送并 ls-remote 核对，仍未导出新包。
+
 - 用户已批准 REQ-112 全部实施，优先修复落马整体僵硬，并要求默认极简 HUD、设置中主动开启详细信息。正式计时 2026-11-23 23:39:22 UTC，8 小时截止 2026-11-24 07:39:22 UTC；提前完成则进行有效的组合、边界与实际包复验。
 - 基线 codex/v0.4 / 1aa4a2c1661a381f2d54e146341ccb4845cecd39；未见新增 Claude 游戏改动。三份历史差异及旧 QA 保留，不 reset/stash/pull。
 - 当前文件占用（Codex 独占）：game/scripts/visual/{fallen_rider,rider_view,impact_fx,exchange_director}.gd；core/{joust_match,horse_condition,contact_feedback,game_state,opponent_ai}.gd；game/scripts/{battle,main}.gd；ui/{combat_status098,combat_report,help_pages}.gd；装备数据中经对照确需调整的盾牌字段；game/tests/*113*、test_parse065.gd 与直接受影响的旧回归夹具；tools/dev113-*；本任务需求、设计、审查、证据及共享交接；最终版本入口、导出设置、launcher 文案。扩大范围须先补充登记。

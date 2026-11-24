@@ -2,25 +2,33 @@ extends RefCounted
 ## Presentation only: explanations come from resolved contacts, never guessed
 ## from a sprite overlap or the opponent's intended target.
 const ZONES = {"head":"头盔 / 头部","body":"胸甲","flank":"腰腹","shield":"盾牌"}
-const CAUSES = {"fatal":"致命伤","health":"骑手状态耗尽","impact":"被重击掀下马","balance":"连吃重击，没坐稳"}
+const CAUSES = {"fatal":"致命伤","health":"伤势过重，无法继续","unconscious":"头部受创后昏厥","impact":"重击导致离鞍","balance":"受击后失去鞍座支撑","seat":"持续失衡，失去鞍座支撑","slip":"失去意识后滑离鞍座"}
 const ContactCues = preload("res://scripts/visual/combat_cues.gd")
 
 static func summarize(events: Array, mode: String = "arena", detailed: bool = false) -> String:
 	if not detailed:
 		# Resolve the whole exchange before wording its outcome. Simultaneous
 		# knockouts cannot be described using whichever hit was listed first.
+		var eliminated={}
 		var fallen={}
 		var dead={}
 		for event in events:
 			if event.get("dead",false): dead[int(event.defender)]=true
-			if event.get("ko",false) or event.get("dead",false): fallen[int(event.defender)]=true
-		if fallen.size()==2:
+			if event.get("ko",false) or event.get("dead",false): eliminated[int(event.defender)]=true
+			if event.get("unseated",event.get("ko",false)): fallen[int(event.defender)]=true
+		if eliminated.size()==2:
 			if dead.size()==2: return "双方阵亡。"
-			if dead.has(0): return "双方落马，你阵亡了。"
-			if dead.has(1): return "双方落马，对手阵亡。"
-			return "双方落马。"
-		if not fallen.is_empty():
-			var defender = 0 if fallen.has(0) else 1
+			if fallen.size()==2:
+				if dead.has(0): return "双方落马，你阵亡。"
+				if dead.has(1): return "双方落马，对手阵亡。"
+				return "双方落马。"
+			if dead.has(0): return "你阵亡，对手也已失去战斗能力。"
+			if dead.has(1): return "对手阵亡，你也已失去战斗能力。"
+			if fallen.has(0): return "你落马，对手伤重退赛。"
+			if fallen.has(1): return "对手落马，你伤重退赛。"
+			return "双方均已失去战斗能力。"
+		if not eliminated.is_empty():
+			var defender = 0 if eliminated.has(0) else 1
 			for index in range(events.size()-1,-1,-1):
 				var hit: Dictionary = events[index]
 				if int(hit.get("defender",-1))==defender and (hit.get("ko",false) or hit.get("dead",false)):
@@ -28,7 +36,7 @@ static func summarize(events: Array, mode: String = "arena", detailed: bool = fa
 		return "双方均未接触骑手或盾牌。" if events.is_empty() else "双方仍在马上，按本场规则比较结果。"
 	var latest: Dictionary = {}
 	for event in events:
-		latest[int(event.attacker)] = event
+		if int(event.get("attacker",-1)) in [0,1]: latest[int(event.attacker)] = event
 	var lines: Array[String] = []
 	for attacker in range(2):
 		var prefix = "你的最后一击" if attacker==0 else "对手的最后一击"
@@ -59,20 +67,21 @@ static func summarize(events: Array, mode: String = "arena", detailed: bool = fa
 	for event in events:
 		if event.get("ko",false):
 			var who = "你" if int(event.defender)==0 else "对手"
-			cause += ("；" if not cause.is_empty() else "")+who+"落马："+CAUSES.get(event.get("ko_reason",""),"失去战斗能力")
+			var outcome = "阵亡" if event.get("dead",false) else ("落马" if event.get("unseated",true) else "失去战斗能力")
+			cause += ("；" if not cause.is_empty() else "")+who+outcome+"："+CAUSES.get(event.get("ko_reason",""),"无法继续")
 			# FEEL-094: say when flailing made the fall easier.
 			if float(event.get("unsteady",0.0))>=.25 and str(event.get("ko_reason","")) in ["impact","balance"]:
 				cause += "（受击时重心不稳 %d%%）" % roundi(float(event.unsteady)*100)
 	if not cause.is_empty():
 		lines.append(cause)
 	elif latest.has(1) and float(latest[1].get("unsteady",0.0))>=.35:
-		lines.append("接近后少扭身、甩枪。坐稳才扛得住。")
+		lines.append("接触前减少大幅扭身和挥枪，保持鞍座支撑。")
 	elif latest.has(0) and float(latest[0].get("support",1.0))<.70:
-		lines.append("接近后少甩枪，稳住枪尖才有力。")
+		lines.append("接触前稳住枪尖，使冲击充分传递。")
 	elif latest.has(0) and latest[0].zone=="shield":
-		lines.append("看对手挡住哪里，瞄他露出的地方。")
+		lines.append("观察对手盾位，瞄准未受保护的部位。")
 	else:
-		lines.append("马累了就松开催马，趁机调好枪盾。")
+		lines.append("马匹疲劳时松开催马，并提前调整枪盾位置。")
 	return "\n".join(lines)
 
 static func _terminal_cause(hit: Dictionary) -> String:
@@ -81,13 +90,17 @@ static func _terminal_cause(hit: Dictionary) -> String:
 	var part = {"head":"头部","body":"胸部","flank":"腰腹","shield":"盾牌"}.get(zone,"身体")
 	var cause = str(hit.get("ko_reason",""))
 	if hit.get("dead",false):
+		if zone=="seat":return who+"阵亡后滑离鞍座，实战结束。"
 		return who+"伤势致命，实战结束。" if cause=="health" else who+"的"+part+"承受致命伤，实战结束。"
-	if cause=="health": return who+"累积伤势过重，无法继续骑乘。"
+	if not hit.get("unseated",hit.get("ko",false)):
+		return who+"昏厥，失去战斗能力。" if cause=="unconscious" else who+"累积伤势过重，无法继续比赛。"
+	if cause=="seat": return who+"持续失衡，失去鞍座支撑后落马。"
+	if cause=="slip": return who+"失去意识后滑离鞍座。"
 	if zone=="shield":
 		return who+"虽用盾挡住来枪，仍被冲击掀下马。" if cause=="impact" else who+"持盾承压后失去平衡，落马出局。"
 	if cause=="impact": return who+"的"+part+"遭重击，被掀下马。"
 	if cause=="balance": return who+"的"+part+"受击后失去平衡，落马出局。"
-	return who+"被击落了。"
+	return who+"落马出局。"
 
 static func next_action(events: Array, mouse_only: bool = false, result: Dictionary = {}) -> String:
 	# Explain resolved contacts across the match. The final contact need not
@@ -104,6 +117,7 @@ static func next_action(events: Array, mouse_only: bool = false, result: Diction
 		var zone = str(event.get("zone",""))
 		if int(event.get("attacker",-1))==1 and zone=="shield" and event.get("broke",false) and not event.get("glanced",false): opponent_breaks+=1
 		if int(event.get("defender",-1))==0:
+			if event.get("ko_reason","")=="seat": unstable_fall=true
 			if injury.has(zone): injury[zone]+=maxf(0,float(event.get("damage",0)))
 			if zone=="shield": shield_load+=maxf(0,float(event.get("impulse",0)))
 			if event.get("ko",false) and zone=="shield": shield_load+=100

@@ -1,5 +1,6 @@
 class_name JoustMatch
 extends RefCounted
+const HorseSurface113 = preload("res://scripts/core/horse_surface.gd")
 
 const MAX_PASSES = 3
 # EQUIP-069: post-armour damage a body/helm strike needs to score in full.
@@ -71,6 +72,7 @@ const Gait = preload("res://scripts/visual/horse_gait.gd")
 const Shield = preload("res://scripts/core/shield_geometry.gd")
 const Feedback = preload("res://scripts/core/contact_feedback.gd")
 const Condition = preload("res://scripts/core/horse_condition.gd")
+const RiderCondition = preload("res://scripts/core/rider_condition.gd")
 var mode = "arena"
 var phase = "ready"
 var phase_time = 2.6
@@ -90,7 +92,7 @@ func _init(match_mode: String = "arena", player_stats: Dictionary = {}, opponent
 	_reset_positions()
 
 func _make_fighter(x: float, direction: int, stats: Dictionary) -> Dictionary:
-	return {"x": x, "prev_x": x, "direction": direction, "speed": TROT_SPEED, "stamina": 100.0,
+	var fighter = {"x": x, "prev_x": x, "direction": direction, "speed": TROT_SPEED, "stamina": 100.0,
 		"hp": 100.0, "head_load": 0.0, "shield": float(stats.get("shield_capacity",78.0)), "lean": 0.0, "aim": -0.08, "boost": false,
 		"broken": false, "durability": float(stats.get("durability", 100.0)), "acted": false,
 		"ko": false, "dead": false, "stats": stats.duplicate(true), "prev_tip": Vector2.ZERO,
@@ -106,6 +108,8 @@ func _make_fighter(x: float, direction: int, stats: Dictionary) -> Dictionary:
 		"gait_phase":0.0,"gait_moving":false,"acceleration":0.0,"accel_command":0.0,"motion_drive":0.0,"motion_drive_velocity":0.0,"seat_drive":0.0,"seat_drive_velocity":0.0,"mount_velocity_y":0.0,"lane_y":32.0 if direction==1 else -32.0,
 		"fidget":0.0,"unsteady":0.0,"sway":0.0,"sway_velocity":0.0,
 		"reaction_legs":0.0,"reaction_legs_velocity":0.0,"reaction_horse":0.0,"reaction_horse_velocity":0.0}
+	RiderCondition.initialize(fighter)
+	return fighter
 
 func _reset_positions() -> void:
 	for i in range(2):
@@ -131,6 +135,8 @@ func _reset_positions() -> void:
 		fighter.reaction_neck_velocity = 0.0
 		fighter.arm_rest_delay = 0.0
 		fighter.guard_stun = 0.0
+		for key in ["seat_offset","seat_velocity","seat_escape_time","seat_strain"]: fighter[key]=0.0
+		fighter.seat_support=1.0
 		for key in ["reaction_angle","reaction_angular_velocity","reaction_shift","reaction_shift_velocity","shield_compression","shield_compression_velocity","lance_compression","lance_compression_velocity","shield_twist","shield_twist_velocity","fidget","unsteady","sway","sway_velocity","reaction_legs","reaction_legs_velocity","reaction_horse","reaction_horse_velocity"]:
 			fighter[key] = 0.0
 		if mode == "arena":
@@ -139,23 +145,55 @@ func _reset_positions() -> void:
 		_cache_pose(fighter)
 
 static func pose_angle(fighter: Dictionary) -> float:
-	return float(fighter.lean)*(deg_to_rad(25.0) if float(fighter.lean)>=0 else deg_to_rad(45.0))+gait_pose(fighter).rider_pitch+float(fighter.get("reaction_angle",0.0))+float(fighter.get("sway",0.0))
+	var active = float(fighter.lean)*(deg_to_rad(25.0) if float(fighter.lean)>=0 else deg_to_rad(45.0))+gait_pose(fighter).rider_pitch+float(fighter.get("reaction_angle",0.0))+float(fighter.get("sway",0.0))+float(fighter.get("injury_pose",0.0))
+	var slump = float(fighter.get("slump",0.0))
+	if slump<=0: return active
+	var angle = lerpf(active,1.15+gait_pose(fighter).rider_pitch*.30,slump)
+	return minf(angle,slump_contact_angle113(fighter))
+
+static func slump_contact_angle113(fighter: Dictionary) -> float:
+	# The jaw/helmet rests against the moving crest. Solve the same torso
+	# angle used by the hands, head target and fallen-pose capture, not a
+	# separate sprite correction. No art textures enter the rule model.
+	var phase = float(fighter.get("gait_phase",0.0))
+	var speed = float(fighter.get("speed",0.0))
+	var moving = bool(fighter.get("gait_moving",false))
+	var drive = float(fighter.get("motion_drive",0.0))
+	var key = [phase,speed,moving,drive,seat_inertia(fighter),float(fighter.get("pose_clock113",0.0)),float(fighter.get("unsteady",0.0)),float(fighter.get("reaction_horse",0.0)),float(fighter.stats.get("stability",1.0)),float(fighter.get("stamina",100.0)),float(fighter.get("reaction_shift",0.0)),float(fighter.get("seat_offset",0.0)),seat_lift(fighter)]
+	if fighter.get("_slump_contact_key113")==key: return float(fighter._slump_contact_value113)
+	var body = Gait.visual(gait_pose(fighter),phase,speed,moving,drive,seat_inertia(fighter),float(fighter.get("pose_clock113",0.0)),float(fighter.get("unsteady",0.0)),float(fighter.get("reaction_horse",0.0)))
+	var points = HorseSurface113.crest_points(body)
+	var origin = HIP+saddle_offset(fighter)+Vector2(float(fighter.get("reaction_shift",0.0))+float(fighter.get("seat_offset",0.0)),-seat_lift(fighter))
+	var low = .35
+	var high = 1.20
+	for iteration in range(12):
+		var angle = (low+high)*.5
+		var head = origin+Vector2(sin(angle)*111.0,-cos(angle)*111.0)
+		# A compact head capsule excludes plumes and loose mail. Positive gap
+		# means the head can continue falling; contact preserves the neck chain.
+		var gap = HorseSurface113.crest_height(points,head.x)-head.y-19.0
+		if gap>=0: low=angle
+		else: high=angle
+	fighter._slump_contact_key113=key
+	fighter._slump_contact_value113=low
+	return low
 
 static func rider_origin(fighter: Dictionary) -> Vector2:
-	return mount_origin(fighter)+(HIP+Vector2(float(fighter.get("reaction_shift",0.0)),-seat_lift(fighter)))*Vector2(int(fighter.direction),1)
+	return mount_origin(fighter)+(HIP+Vector2(float(fighter.get("reaction_shift",0.0))+float(fighter.get("seat_offset",0.0)),-seat_lift(fighter)))*Vector2(int(fighter.direction),1)
 
 static func seat_lift(fighter: Dictionary) -> float:
 	# FEEL-094: an unsteady rider no longer sits the stride; the seat bounces
 	# out of the saddle once per stride. Zero for a steady rider.
 	var unsteady = float(fighter.get("unsteady",0.0))
+	var support_lift = smoothstep(.20,.90,1.0-float(fighter.get("seat_support",1.0)))*6.0
 	if unsteady<=0.0 or not bool(fighter.get("gait_moving",false)):
-		return 0.0
+		return support_lift
 	# Enter and leave saddle contact at zero vertical speed. Clipping a
 	# plain sine left a velocity jump at each half-stride boundary, making
 	# loose-seat motion look like a repeated hard tug. Keep one lift, its
 	# original 9px peak, and the same unsteadiness/balance consequences.
 	var lift = maxf(0.0,sin(float(fighter.get("gait_phase",0.0))+.4))
-	return unsteady*9.0*lift*lift*smoothstep(0.0,120.0,float(fighter.get("speed",0.0)))
+	return unsteady*9.0*lift*lift*smoothstep(0.0,120.0,float(fighter.get("speed",0.0)))+support_lift
 
 static func add_fidget(fighter: Dictionary, amount: float) -> void:
 	# Heavier riders sit deeper (Condition.seat .90-1.12), so the same jerk
@@ -167,8 +205,8 @@ static func advance_unsteady(fighter: Dictionary, delta: float, riding: bool) ->
 	fighter.fidget = float(fighter.get("fidget",0.0))*exp(-FIDGET_DECAY*dt_total)
 	var unsteady = smoothstep(UNSTEADY_RANGE.x,UNSTEADY_RANGE.y,float(fighter.fidget))
 	fighter.unsteady = unsteady
-	# Badly unsettled at speed, the rider slowly loses balance even unhit, but
-	# flailing alone never throws him: the drain stops at 25.
+	# The legacy balance budget retains a floor. Physical saddle support is
+	# separate below: sustained violent motion can now slide past its edge.
 	if riding and unsteady>.55 and float(fighter.balance)>25.0:
 		var pace = smoothstep(TROT_SPEED,GALLOP_SPEED,float(fighter.speed))
 		fighter.balance = maxf(25.0,float(fighter.balance)-(unsteady-.55)*5.0*pace*dt_total)
@@ -189,6 +227,7 @@ static func advance_unsteady(fighter: Dictionary, delta: float, riding: bool) ->
 		fighter.sway = next
 		fighter.sway_velocity = velocity
 		remaining -= dt
+	RiderCondition.advance_support(fighter,delta,riding)
 
 static func gait_pose(fighter: Dictionary) -> Dictionary:
 	# Fatigue only lowers neck/head carriage; it never moves the saddle, rider
@@ -304,6 +343,7 @@ static func reaction_strength(event: Dictionary) -> float:
 static func advance_reaction(fighter: Dictionary, delta: float) -> void:
 	# Same constrained spring pose drives visible shoulders, grips AND targets.
 	# Impacts add velocity only, never a new position or a free aim command.
+	RiderCondition.advance_pose(fighter,delta)
 	var remaining = maxf(0.0,minf(delta,.25))
 	while remaining>.000001:
 		var dt = minf(remaining,1.0/120.0)
@@ -370,6 +410,7 @@ func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float
 	# near-target convergence tolerances must not move a limb without time.
 	if delta<=0.0: return
 	var fighter = fighters[index]
+	if bool(fighter.get("ko",false)) or bool(fighter.get("dead",false)): return
 	var distance = absf(float(fighters[0].x)-float(fighters[1].x))
 	# Remaining reaction time, not a fixed distance, determines the close pass.
 	# Releasing the spur buys adjustment time at the cost of one's own drive.
@@ -381,7 +422,7 @@ func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float
 	var previous_rates = Vector3(float(fighter.get("aim_rate",0.0)),float(fighter.get("guard_rate",0.0)),float(fighter.get("lean_velocity",0.0)))
 	# EQUIP-066: armour weight slows lance redirection, guard moves and the
 	# recovery of lance support (light kit = quicker hands, heavy = slower).
-	var agility = Condition.agility(fighter.stats)
+	var agility = Condition.agility(fighter.stats)*RiderCondition.control_factor(fighter)
 	# EQUIP-068: tired arms (from waving lance and shield) move slower too.
 	var arm_factor = Condition.arm_factor(float(fighter.get("arm",100.0)))
 	# EQUIP-068 (user request): the lance and shield ease in and out like the
@@ -445,6 +486,7 @@ func set_controls(index: int, aim: float, lean: float, boost: bool, delta: float
 	# Throwing the weight forward leaves the torso behind for a moment;
 	# dropping the lance pulls it forward. Velocity kicks on the sway spring.
 	fighter.sway_velocity = float(fighter.get("sway_velocity",0.0))+(-.16*lean_jerk+.05*aim_jerk*(1.0+float(fighter.get("unsteady",0.0))))*unsteady_scale
+	fighter.seat_velocity = float(fighter.get("seat_velocity",0.0))+(-lean_jerk*9.0+aim_jerk*2.5)*pace_load
 
 ## Critically damped-ish follower used for lance aim and shield guard:
 ## desired speed shrinks near the target (ease-out) and speed changes at a
@@ -465,7 +507,11 @@ func step(delta: float) -> void:
 	for fighter in fighters:
 		advance_reaction(fighter,delta)
 		advance_unsteady(fighter,delta,phase=="charge")
+	_consume_seat_exits113()
 	if phase == "ended":
+		return
+	if bool(fighters[0].ko) or bool(fighters[1].ko):
+		_finish("terminal")
 		return
 	time_elapsed += delta
 	if phase == "ready" or phase == "turn":
@@ -649,6 +695,7 @@ func _apply_contact(contact: Dictionary) -> void:
 	var support = lerpf(.38,1.0,float(attacker.get("lance_stability",1.0)))
 	var power = float(attacker.stats.get("power",1.0))*(.66 if attacker.broken else 1.0)*(1.0+maxf(float(attacker.lean),0)*.08-maxf(-float(attacker.lean),0)*.28)*support
 	power *= Condition.drive(float(attacker.speed),GALLOP_SPEED)
+	power *= RiderCondition.strength_factor(attacker)
 	contact["drive"] = Condition.drive(float(attacker.speed),GALLOP_SPEED)
 	var alignment = clampf(float(contact.get("shaft_alignment",cos(float(attacker.aim)))), 0.4, 1.0)
 	var impulse = speed * 0.085 * power * alignment
@@ -750,6 +797,7 @@ func _apply_contact(contact: Dictionary) -> void:
 	# FEEL-094: a rider caught mid-flail has a weaker seat and loses more balance.
 	var unsteady = float(defender.get("unsteady",0.0))
 	var threshold = float(tuning.ko_threshold) * float(defender.stats.get("stability", 1.0))*brace*seat*(1.0-UNSTEADY_THRESHOLD_LOSS*unsteady)
+	threshold *= RiderCondition.support_factor(defender)
 	if continuous:
 		# A nearly stationary mount cannot carry the rider through the same
 		# impulse. At full gallop the table's neutral-seat thresholds stay exact.
@@ -758,11 +806,9 @@ func _apply_contact(contact: Dictionary) -> void:
 	contact["unsteady"] = unsteady
 	contact["ko_threshold"] = threshold
 	contact["impulse_ratio"] = impulse/maxf(.001,threshold)
-	defender.ko = impulse > threshold or float(defender.balance)<=0 or float(defender.hp) <= 0.0
-	defender.dead = mode == "war" and float(defender.hp) <= 0.0
-	var ko_reason = ""
-	if defender.ko:
-		ko_reason = "fatal" if defender.dead else ("health" if float(defender.hp)<=0 else ("impact" if impulse>threshold else "balance"))
+	var condition = RiderCondition.apply_hit(defender,contact,damage,impulse,threshold,mode)
+	contact.merge(condition,true)
+	var ko_reason = str(condition.ko_reason)
 	var stress = speed * 0.062 * (1.15 if zone == "shield" else 0.8)
 	attacker.durability = maxf(0.0, float(attacker.durability) - stress)
 	var break_probability = break_chance(mode, impulse, float(attacker.stats.get("durability", 100.0)))
@@ -847,6 +893,26 @@ static func break_chance(match_mode: String, impulse: float, durability: float =
 	var quality = clampf(100.0 / maxf(durability, 60.0), 0.55, 1.5)
 	return clampf(((0.48 + impulse * 0.0030) if match_mode == "arena" else (0.055 + impulse * 0.0011)) * quality, 0.02, 0.94)
 
+func advance_terminal_pose113(delta: float) -> void:
+	for fighter in fighters:
+		advance_reaction(fighter,delta)
+		release_drive_pose(fighter,delta)
+		advance_unsteady(fighter,delta,false)
+	_consume_seat_exits113()
+
+func _consume_seat_exits113() -> void:
+	for index in range(fighters.size()):
+		var f: Dictionary = fighters[index]
+		if not bool(f.get("seat_exit_pending",false)): continue
+		f.seat_exit_pending=false
+		var reason = str(f.get("seat_exit_reason","seat"))
+		var direction = int(signf(float(f.get("seat_velocity",-1.0))))*int(f.direction)
+		if direction==0: direction=-int(f.direction)
+		events.append({"type":"unseat","zone":"seat","attacker":-1,"defender":index,"position":rider_origin(f),"speed":f.speed,
+			"damage":0.0,"impulse":0.0,"points":0,"broke":false,"attaint":false,"ko":true,"dead":f.dead,"unseated":true,
+			"ko_reason":reason,"defender_speed":f.speed,"attacker_speed":0.0,"direction":direction,"balance_left":f.balance})
+		if not result.is_empty(): result["player_unseated" if index==0 else "enemy_unseated"]=true
+
 func _finish(reason: String) -> void:
 	phase = "ended"
 	var out_a = bool(fighters[0].ko) or bool(fighters[0].dead)
@@ -868,6 +934,8 @@ func _finish(reason: String) -> void:
 				winner = 0 if difference > 0.0 else 1
 	result = {"winner": winner, "reason": reason, "passes": pass_number, "mode": mode,
 		"player_hp": fighters[0].hp, "enemy_hp": fighters[1].hp, "player_dead": fighters[0].dead, "enemy_dead": fighters[1].dead,
+		"player_unseated":fighters[0].get("unseated",false),"enemy_unseated":fighters[1].get("unseated",false),
+		"player_unconscious":fighters[0].get("unconscious",false),"enemy_unconscious":fighters[1].get("unconscious",false),
 		"player_score": int(fighters[0].get("score",0)), "enemy_score": int(fighters[1].get("score",0))}
 	events.append({"type": "end", "result": result.duplicate(true)})
 

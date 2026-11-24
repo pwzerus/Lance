@@ -81,7 +81,7 @@ func setup(value: Dictionary, event: Dictionary, mounted: RiderView = null) -> v
 	# travelling while his torso is stopped (the horse runs on from under him);
 	# a slow rider met by a fast lance is driven back the way it came. A seat
 	# lost to balance alone slides off with the horse's momentum, slowly.
-	toppled = str(event.get("ko_reason","impact"))=="balance"
+	toppled = str(event.get("ko_reason","impact")) in ["balance","seat","slip"]
 	var own = float(event.get("defender_speed",fighter.speed))*int(fighter.direction)
 	var other = float(event.get("attacker_speed",fighter.speed))*direction
 	var carry = (lerpf(.16,.30,strength) if toppled else lerpf(.42,.80,strength))*float({"head":.85,"flank":.80}.get(zone,1.0))
@@ -95,6 +95,11 @@ func setup(value: Dictionary, event: Dictionary, mounted: RiderView = null) -> v
 	target_rotation = roll_direction*PI*.47-float(initial_pose.torso_transform.get_rotation())
 	var spin = lerpf(.55,.95,strength) if toppled else (1.0+1.3*absf(stopped)*lever)*lerpf(.85,1.12,strength)
 	angular_velocity = roll_direction*clampf(spin,.4,4.6)
+	if str(event.get("ko_reason","")) in ["seat","slip"]:
+		# No opposing lance supplied an impulse. Retain ground travel and the
+		# actual outward seat velocity instead of inventing a recoil or lift.
+		velocity=Vector2(own+float(fighter.get("seat_velocity",0.0))*int(fighter.direction),float(fighter.get("mount_velocity_y",0.0)))
+		angular_velocity=float(direction)*.65
 	_make_joints()
 	for far_only in [true,false]:
 		var renderer = Rider.new()
@@ -504,6 +509,11 @@ func advance_measured099(delta: float) -> void:
 			step_remainder = 0.0
 			break
 	far_leg.z_index = 0 if age>.23 else (-3 if ground_y>12 else -1)
+	# After leaving the saddle, a distant fallen rider must remain readable
+	# in front of the surviving rider's boots as well as the horse and rail.
+	# Keep the initial lane layering for capture continuity; promote once,
+	# without fading either person or moving the physical trajectory.
+	if age>.23 and ground_y<12.0: z_index=-7
 	visual.queue_redraw()
 	far_leg.queue_redraw()
 

@@ -458,10 +458,8 @@ func _physics_measured106(delta: float) -> void:
 	if match_model.phase=="ended":
 		# A terminal state can be queued outside step() (e.g. a scripted end).
 		# Stop controls, but still deliver the pending result exactly once.
+		match_model.advance_terminal_pose113(delta)
 		_consume_events(match_model.drain_events())
-		for fighter in match_model.fighters:
-			Model.advance_reaction(fighter,delta)
-			Model.release_drive_pose(fighter,delta)
 		_update_views()
 		return
 	var fighter = match_model.fighters[0]
@@ -538,7 +536,7 @@ func _load_camera_impulse(events: Array) -> void:
 		if event.get("type","")!="hit": continue
 		var strength = clampf(Exchange.contact_strength(event),.15,1.0)
 		# FEEL-097: an unhorsing blow is always the full jolt.
-		if bool(event.get("ko",false)) or bool(event.get("dead",false)):
+		if bool(event.get("unseated",event.get("ko",false))):
 			strength = 1.0
 		var attacker = int(event.attacker)
 		if strength<camera_impact_strength or (strength==camera_impact_strength and attacker>=camera_impact_attacker): continue
@@ -654,8 +652,10 @@ func _handle_event(event: Dictionary) -> void:
 			var hit_text = ("你命中 · " if int(event.attacker)==0 else "对手命中 · ")+Cues.contact_name(event)
 			if bool(event.get("glanced",false)):
 				hit_text += " · 擦偏"
-			if event.ko:
-				hit_text += " · 击落！"
+			if bool(event.get("unseated",event.ko)):
+				hit_text += " · 落马"
+			elif event.ko:
+				hit_text += " · 阵亡" if event.dead else " · 失去战斗能力"
 			elif event.zone!="shield" and (not event.has("head_outcome") or training_zones):
 				hit_text += (" · 重击" if float(event.impulse)>=70.0 else " · 命中") if not training_zones else " · 冲击 %d" % roundi(event.impulse)
 				if float(event.get("support",1.0))<.70:
@@ -676,8 +676,22 @@ func _handle_event(event: Dictionary) -> void:
 			actual_label.text = debug_hit if training_zones else Status098.contact_text(event)
 			actual_label.add_theme_color_override("font_color",Cues.contact_color(event))
 			contact_until = now+2100
-			if bool(event.ko) or bool(event.dead):
+			if bool(event.get("unseated",event.ko)):
 				effects.fall(match_model.fighters[index],int(match_model.fighters[int(event.attacker)].direction),event,riders[index])
+		"unseat":
+			var index = int(event.defender)
+			var recorded = event.duplicate(true)
+			recorded["pass"]=match_model.pass_number
+			exchange_log.append(recorded)
+			var label = contact_label if index==0 else enemy_contact_label
+			var brief = Status098.contact_text(event)
+			label.set_meta("compact_hit",brief)
+			label.set_meta("debug_hit",brief+" · 鞍座支撑已失去")
+			label.set_meta("display_debug",training_zones)
+			label.text=brief
+			label.add_theme_color_override("font_color",Color("e0ae59"))
+			contact_until=Time.get_ticks_msec()+2100
+			effects.fall(match_model.fighters[index],int(event.direction),event,riders[index])
 		"charge":
 			sound.play("horn",-10)
 		"end":
@@ -1033,7 +1047,7 @@ func _update_hud() -> void:
 		tactics_label.text += "　· 接近放缓"
 	if not training_zones and bool(f.ko):
 		# Once unhorsed, further defensive advice is no longer actionable.
-		tactics_label.text = "骑手阵亡" if bool(f.dead) else "落马出局"
+		tactics_label.text = "骑手阵亡" if bool(f.dead) else ("落马出局" if bool(f.get("unseated",true)) else "伤重退赛")
 	tactics_label.modulate = Color(1.3,1.2,.7) if Time.get_ticks_msec()<input_flash_until else Color.WHITE
 	if practice:
 		hint.text = "练习 · 催马%s　调枪%s　防盾%s　俯仰%s" % ["✓" if learned.boost else "·","✓" if learned.aim else "·","✓" if learned.guard else "·","✓" if learned.posture else "·"]
@@ -1120,7 +1134,7 @@ func _update_hud() -> void:
 func _combat_notice() -> String:
 	var player: Dictionary = match_model.fighters[0]
 	if bool(player.get("ko",false)):
-		return "骑手阵亡" if bool(player.get("dead",false)) else "落马出局"
+		return "骑手阵亡" if bool(player.get("dead",false)) else ("落马出局" if bool(player.get("unseated",true)) else "伤重退赛")
 	if match_model.phase=="ended": return ""
 	if float(player.get("shield",1.0))<=0.0: return "盾已破 · 用俯仰避开来枪"
 	if mode=="war" and float(player.get("head_load",0.0))>=Model.WAR_HEAD_LOAD_LIMIT*.5:

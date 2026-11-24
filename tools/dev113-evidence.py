@@ -40,6 +40,14 @@ for folder in sorted(folders):
         target = json.loads(target_path.read_text(encoding='utf-8-sig'))
         row['target'] = {k: target.get(k) for k in ['target', 'source_revision', 'pck_sha256', 'external_test', 'budget', 'extra']}
         row['target_sha256'] = sha(target_path)
+    row['expected_errors'] = []
+    if str(row.get('target', {}).get('external_test', '')).endswith('test_save_ui087.gd'):
+        expected = "ERROR: Failed to open '" + folder.as_posix() + "/screens/blocked_backup'."
+        if row['errors'].count(expected) == 2:
+            row['expected_errors'] = [expected, expected]
+    # Keep the raw error list; classify only the exact two deliberate backup
+    # faults already asserted by the runner. Never suppress arbitrary errors.
+    row['unexpected_errors'] = [s for s in row['errors'] if s not in row['expected_errors']]
     for path in sorted(folder.rglob('report.json')):
         report = json.loads(path.read_text(encoding='utf-8-sig'))
         result = {'path': path.relative_to(root).as_posix(), 'sha256': sha(path)}
@@ -62,5 +70,5 @@ if manifest.exists():
     evidence['bundle_manifest_sha256'] = sha(manifest)
 output.write_text(json.dumps(evidence, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 print(json.dumps({'runs': len(runs), 'incomplete': [r['name'] for r in runs if r['exit_code'] is None],
-                  'failed_engine_runs': [r['name'] for r in runs if r['exit_code'] not in (0, None) or r['errors']],
+                  'failed_engine_runs': [r['name'] for r in runs if r['exit_code'] not in (0, None) or r['unexpected_errors']],
                   'private_peak_mib': max((r['private_peak_mib'] or 0) for r in runs)}, ensure_ascii=False))

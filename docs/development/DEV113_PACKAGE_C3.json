@@ -1,0 +1,12 @@
+{
+  "bundle": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.60-c3",
+  "source_revision": "76746a5276ab18810f02ac41ff7f309785ada74a",
+  "manifest_sha256": "3E8377A2F1F279EE453C02B66349CA65F9ACF1F077B186C607D1B374DC2A2140",
+  "pck_sha256": "7E8D6521A382ECFDA736B8BCFAE609799DDF4CEFAF8FABDBD6E7A54FBB5E9744",
+  "pck_bytes": 38322340,
+  "archive": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.60-c3-Windows.zip",
+  "archive_bytes": 71305313,
+  "archive_sha256": "F7F2CFE497F9E404B0EC5F2D621338ECBF52FF49A34FD4885602F7D63FB276EB",
+  "relocation": "E:/GALUMU/builds/DEV113 0.4.60-c3 中文 空格验包/LanceAndLaurel-v0.4.60-c3",
+  "crc_and_manifest_relocation": "Passed; outer protected launch and sustained gameplay pending."
+}

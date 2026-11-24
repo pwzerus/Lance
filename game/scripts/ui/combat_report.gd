@@ -102,6 +102,10 @@ static func _terminal_cause(hit: Dictionary) -> String:
 		return who+"虽用盾挡住来枪，仍被冲击掀下马。" if cause=="impact" else who+"持盾承压后失去平衡，落马出局。"
 	if cause=="impact": return who+"的"+part+"遭重击，被掀下马。"
 	if cause=="balance": return who+"的"+part+"受击后失去平衡，落马出局。"
+	# Archived pre-113 contacts may combine health exhaustion and a real
+	# fall without separate flags. Preserve their recorded injury cause;
+	# this wording does not introduce an HP-based launch into current rules.
+	if cause=="health": return who+"累积伤势过重，失去支撑后落马。"
 	return who+"落马出局。"
 
 static func next_action(events: Array, mouse_only: bool = false, result: Dictionary = {}) -> String:

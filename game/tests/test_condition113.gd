@@ -9,6 +9,7 @@ func _initialize() -> void:
 	items=Catalogue.load_items()
 	var records=[]
 	var report_script=load("res://scripts/ui/combat_report.gd")
+	check(report_script.summarize([{"attacker":1,"defender":0,"zone":"body","ko":true,"ko_reason":"health"}]).contains("累积伤势"),"Archived combined health/fall contact retains its cause without changing current physical rules")
 	for mode in ["arena","war"]:
 		var weak=prepare(3,"eng_shield_5",.5); weak.mode=mode
 		weak.fighters[1].hp=1.0

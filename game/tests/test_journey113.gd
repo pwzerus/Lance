@@ -2,5 +2,5 @@ extends "test_journey110.gd"
 ## Actual new PCK only; persistent progress is isolated from all earlier QA.
 func profile_root110()->String:return "E:/GALUMU/docs/development/logs/dev113-"
 func run()->void:
-	if OS.has_feature("editor") or ProjectSettings.get_setting("application/config/version")!="0.4.60-c1":quit(2);return
+	if OS.has_feature("editor") or ProjectSettings.get_setting("application/config/version")!="0.4.60-c2":quit(2);return
 	await super.run()

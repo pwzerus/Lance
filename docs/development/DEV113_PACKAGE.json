@@ -1,0 +1,9 @@
+{
+  "bundle": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.60-c1",
+  "manifest_sha256": "A6E00393120F99A67FCBCD4DC910BB8CAE1DBB5571B3DE599E9B6C6B1A9FF8CE",
+  "archive": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.60-c1-Windows.zip",
+  "archive_bytes": 71304979,
+  "archive_sha256": "007572FE5763B110DB19E277EC35B4FAD74625AC2115F57F80F6C51F1EB4371B",
+  "relocation": "E:/GALUMU/builds/DEV113 0.4.60-c1 中文 空格验包/LanceAndLaurel-v0.4.60-c1",
+  "crc_and_manifest_relocation": "Passed by dev113-package.py; gameplay/portable entry verification separate."
+}

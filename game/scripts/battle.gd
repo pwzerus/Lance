@@ -429,6 +429,9 @@ func _build_hud_bottom() -> void:
 	stamina_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	stamina_back.add_child(stamina_bar)
 	fatigue_label = UI.label(bottom,"",Vector2(950,0),18,UI.INK,470)
+	# Pace belongs to the horse area. Drawing it as a child of the older
+	# top strip at a bottom-screen offset put it behind this opaque panel.
+	speed_label.reparent(bottom)
 	fatigue_label.autowrap_mode = TextServer.AUTOWRAP_OFF
 	hint = UI.label(aim_panel,"按住左键催马，松手收速",Vector2(12,48),13,UI.MUTED,486)
 	hint.autowrap_mode = TextServer.AUTOWRAP_OFF
@@ -1123,9 +1126,8 @@ func _update_hud() -> void:
 		debug_numbers.text = "你 HP %d 平衡 %d  |  对手 HP %d 平衡 %d  |  %s\n伤情 %d%% · 意识 %d · 鞍座支撑 %d%% · 滑移 %.1f · 臂力 %d · 枪稳 %d%% · 盾 %d%%  |  %s" % [roundi(f.hp),roundi(f.balance),roundi(enemy.hp),roundi(enemy.balance),fatigue_label.text,roundi(float(f.get("injury",0))*100),roundi(float(f.get("consciousness",100))),roundi(float(f.get("seat_support",1))*100),float(f.get("seat_offset",0)),roundi(float(f.get("arm",100))),roundi(float(f.lance_stability)*100),roundi(float(f.shield)/maxf(1,float(f.stats.get("shield_capacity",150)))*100),guard_text]
 	tactics_label.visible = false
 	speed_label.visible = detailed
-	# Diagnostic pace shares the lower-right horse gauge, leaving the top
-	# contact row unobstructed. Parent is the status strip at y=58.
-	speed_label.position = Vector2(950,663)
+	# Diagnostic pace shares the lower-right horse gauge.
+	speed_label.position = Vector2(950,1)
 	fatigue_label.visible = not detailed
 	pass_label.visible = detailed
 	subcallout.visible = false
@@ -1154,15 +1156,20 @@ func _update_hud() -> void:
 		hud_guard_help113.visible=practice_guide!=null or phase in ["ready","turn"]
 		hud_speed_caption113.text="速度"
 	else:
-		contact_label.position = Vector2(18,10)
+		contact_label.position = Vector2(18,0)
 		contact_label.size = Vector2(690,30)
-		enemy_contact_label.position = Vector2(735,10)
+		enemy_contact_label.position = Vector2(735,0)
 		enemy_contact_label.size = Vector2(685,30)
 		for label in [contact_label,enemy_contact_label]: label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 		hud_guard_help113.visible=true
 		hud_speed_caption113.text="速度"
 	hud_brand113.visible=detailed
 	hud_context113.position.x=290 if detailed else 24
+	# Two CJK text lines are taller than the original one-line 40px band.
+	# Fit the existing 58..144px HUD area without covering the riders.
+	hud_status_strip113.size.y=maxf(40.0,ceilf(debug_numbers.get_minimum_size().y)+4.0) if detailed else 40.0
+	contact_panel.position.y=58.0+hud_status_strip113.size.y if detailed else 98.0
+	contact_panel.size.y=144.0-contact_panel.position.y if detailed else 46.0
 	hud_status_strip113.self_modulate.a=1.0 if detailed else 0.0
 	contact_panel.self_modulate.a=1.0 if detailed else 0.0
 	# Keep the short countdown legible over bright sky without restoring a

@@ -12,7 +12,10 @@ def sha(path):
     return h.hexdigest().upper()
 
 runs = []
-for folder in sorted((root / 'docs/development/logs').glob('dev113-*')):
+logs = root / 'docs/development/logs'
+folders = list(logs.glob('dev113-*'))
+folders += list(logs.glob('dev113-export*/import')) + list(logs.glob('dev113-export*/export'))
+for folder in sorted(folders):
     if not folder.is_dir():
         continue
     memory_path = folder / 'memory.log'
@@ -23,7 +26,7 @@ for folder in sorted((root / 'docs/development/logs').glob('dev113-*')):
     engine = engine_path.read_text(encoding='utf-8-sig', errors='replace') if engine_path.exists() else ''
     ends = re.findall(r'EXIT code=(-?\d+) seconds=([\d.]+)', memory)
     peaks = [float(x) for x in re.findall(r'privateMiB=([\d.]+)', memory)]
-    row = {'name': folder.name, 'exit_code': int(ends[-1][0]) if ends else None,
+    row = {'name': folder.relative_to(logs).as_posix(), 'exit_code': int(ends[-1][0]) if ends else None,
            'wall_seconds': float(ends[-1][1]) if ends else None,
            'private_peak_mib': max(peaks) if peaks else None,
            'isolated_desktop_closed': 'QA_DESKTOP_CLOSED=True' in memory,
@@ -52,7 +55,7 @@ for folder in sorted((root / 'docs/development/logs').glob('dev113-*')):
 evidence = {'task': 'DEV-113', 'source_head_at_summary': (root / '.git/refs/heads/codex/v0.4').read_text().strip(),
             'scope': 'Preserved runs include failed and superseded fixtures. Interpret with DEV113_REVIEW.md; GPU is isolated, input is engine-injected, no OS input or human approval.',
             'runs': runs}
-bundle = root / 'builds/LanceAndLaurel-v0.4.60-c1'
+bundle = root / 'builds/LanceAndLaurel-v0.4.60-c2'
 manifest = bundle / 'build-manifest.json'
 if manifest.exists():
     evidence['bundle_manifest'] = json.loads(manifest.read_text(encoding='utf-8-sig'))

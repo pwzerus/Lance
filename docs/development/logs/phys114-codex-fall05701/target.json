@@ -1,0 +1,10 @@
+{
+  "name": "fall057",
+  "script": "test_fall_v057.gd",
+  "head": "595399263de1c18bee7e9d126f790e7330e6e31b",
+  "base": "Claude PHYS-114 round 1 and 2 uncommitted working tree",
+  "arguments": " --path E:/GALUMU/game --audio-driver Dummy --script res://tests/test_fall_v057.gd --log-file E:/GALUMU/docs/development/logs/phys114-codex-fall05701/engine.log -- --test-profile --report=E:/GALUMU/docs/development/logs/phys114-codex-fall05701/report.json --captures=E:/GALUMU/docs/development/logs/phys114-codex-fall05701/screens",
+  "test_sha256": "C37368689C479C38A8B469E490135345EDF785B48DBBA5CD5FC6F2ED93C910FD",
+  "body_sha256": "8F93B6F7913977CAF444ADF168C34969A76E0B6EA2B2271FEC759269F38E7A76",
+  "fallen_sha256": "CFCFFCA9D79D1CDFFE25C9ACADFDC9BB15132E353BA71F9AA0AE9F5F18997863"
+}

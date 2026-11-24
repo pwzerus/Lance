@@ -1,0 +1,252 @@
+{
+  "task": "PHYS-114",
+  "reviewer": "Codex",
+  "utc": "2026-11-24T23:27:33.328421+00:00",
+  "baseline_head": "595399263de1c18bee7e9d126f790e7330e6e31b",
+  "baseline_remote_verified": true,
+  "ownership": "Claude two uncommitted rounds accepted; historical three differences excluded",
+  "body_commit": "475106596f98aab22277b866d8719b18f5d012c6",
+  "head_commit": "b830d30394ef2d9a3b1bad524fab90a5534b81ff",
+  "disposition": "development checkpoint accepted; release acceptance FAILED; no new export",
+  "runtime_production_changed_by_codex": false,
+  "protected_background_only": true,
+  "os_input": false,
+  "human_playtest": false,
+  "guards_changed": false,
+  "play_latest": "v0.4.60-c5 unchanged",
+  "source_sha256": {
+    "game/scripts/visual/rider_body114.gd": "8F93B6F7913977CAF444ADF168C34969A76E0B6EA2B2271FEC759269F38E7A76",
+    "game/scripts/visual/fallen_rider.gd": "CFCFFCA9D79D1CDFFE25C9ACADFDC9BB15132E353BA71F9AA0AE9F5F18997863",
+    "game/scripts/visual/character_face.gd": "BFED6560CF309146FDAE2ACA9E346A4C71E8AA662ED9AC8D3F1A6D422C14E564",
+    "game/scripts/visual/head_fit.gd": "454BAC0B2C30E7CE1CC24E4DC5B13D3BA67C199329AFEDA5C6F5E0F9C0CA7B79",
+    "game/scripts/visual/rider_view.gd": "1FC15AAFFA801591D76AD8DB35D11F6BCE0D27280603567E7C3B2D87793E8B34",
+    "game/data/equipment_fit_v052.json": "D50A5A923FACB9159D7822B011FF6C3D4EFECF2020D1F93104C6A9984ACEB352",
+    "game/tests/test_body114.gd": "316BA41E7AB438FD9E89D8FA3DCBB6063EE9B6CBE08C0CA2F62D1AC283718D21",
+    "game/tests/test_trace114.gd": "87056515744588DFF76A4C1F150662B0FB9BB7D2305B93D13F13F6EDBE49EEB0",
+    "game/tests/test_probe114.gd": "DC97D81D81015138BA35CE0C469A92D5C0CD5A995853E28102FD1D74D597A213",
+    "game/tests/test_edge114.gd": "1695DCF2A4CFA66D462506F3C7AA6B4EF0920562787AF3B586A6766330F6AE2B",
+    "game/tests/test_games114.gd": "D10AACC22990F6707E2DAE65FCE6A11C9D6FEAD142C252E6A924AE230D9FCB3F",
+    "game/tests/test_parse065.gd": "7AA6E70D68E1D8458E05D7F6791E634A78DD5284D9A68589FD9F0AE4090450FA",
+    "game/tests/test_fall_v057.gd": "99FB18FA66700655DBC9462B8DCE20F2610153874C0F5547F9B780F9F243B29A"
+  },
+  "runs": [
+    {
+      "directory": "docs/development/logs/phys114-codex-articulation01",
+      "status": "exit=0",
+      "sampled_private_peak_mib": 496.5,
+      "isolated_desktop_closed": true,
+      "script_errors": [],
+      "passed": true,
+      "failures": [],
+      "case_count": 6
+    },
+    {
+      "directory": "docs/development/logs/phys114-codex-body01",
+      "status": "exit=1",
+      "passed": false,
+      "failures": [
+        "Settled legs are not raised in the air",
+        "Fall settles within six game seconds"
+      ],
+      "case_count": 34,
+      "fixtures": null,
+      "sampled_private_peak_mib": 121.3,
+      "isolated_desktop_closed": false,
+      "script_errors": []
+    },
+    {
+      "directory": "docs/development/logs/phys114-codex-edge01",
+      "status": "exit=0",
+      "sampled_private_peak_mib": 413.0,
+      "isolated_desktop_closed": true,
+      "script_errors": []
+    },
+    {
+      "directory": "docs/development/logs/phys114-codex-fall05701",
+      "status": "exit=0",
+      "passed": true,
+      "failures": [],
+      "case_count": 36,
+      "fixtures": null,
+      "sampled_private_peak_mib": 582.5,
+      "isolated_desktop_closed": true,
+      "script_errors": []
+    },
+    {
+      "directory": "docs/development/logs/phys114-codex-fall05702",
+      "status": "exit=0",
+      "passed": true,
+      "failures": [],
+      "case_count": 36,
+      "fixtures": null,
+      "sampled_private_peak_mib": 577.3,
+      "isolated_desktop_closed": true,
+      "script_errors": []
+    },
+    {
+      "directory": "docs/development/logs/phys114-codex-fall05703",
+      "status": "exit=1",
+      "sampled_private_peak_mib": 56.2,
+      "isolated_desktop_closed": true,
+      "script_errors": [
+        "SCRIPT ERROR: Parse Error: Cannot call non-static function \"get_script_constant_map()\" on the class \"FallenRider\" directly. Make an instance instead."
+      ]
+    },
+    {
+      "directory": "docs/development/logs/phys114-codex-fall05704",
+      "status": "exit=0",
+      "passed": true,
+      "failures": [],
+      "case_count": 36,
+      "fixtures": null,
+      "sampled_private_peak_mib": 580.6,
+      "isolated_desktop_closed": true,
+      "script_errors": []
+    },
+    {
+      "directory": "docs/development/logs/phys114-codex-fall09801",
+      "status": "exit=1",
+      "passed": false,
+      "failures": [
+        "Four-second rest: [0.85, \"head\", -1, -1.0, 1.0]",
+        "Four-second rest: [0.85, \"body\", -1, 1.0, 1.0]",
+        "Four-second rest: [1.18, \"body\", -1, 1.0, 1.0]"
+      ],
+      "case_count": 72,
+      "fixtures": null,
+      "sampled_private_peak_mib": 243.3,
+      "isolated_desktop_closed": true,
+      "script_errors": []
+    },
+    {
+      "directory": "docs/development/logs/phys114-codex-fallscene01",
+      "status": "exit=0",
+      "passed": true,
+      "failures": [],
+      "case_count": 8,
+      "fixtures": null,
+      "sampled_private_peak_mib": 668.0,
+      "isolated_desktop_closed": true,
+      "script_errors": []
+    },
+    {
+      "directory": "docs/development/logs/phys114-codex-fuzz10501",
+      "status": "blocked before launch",
+      "script_errors": []
+    },
+    {
+      "directory": "docs/development/logs/phys114-codex-fuzz10502",
+      "status": "exit=1",
+      "passed": false,
+      "failures": [
+        "Four-second synthetic pose rest: 4",
+        "Four-second synthetic pose rest: 6",
+        "Four-second synthetic pose rest: 10"
+      ],
+      "case_count": 12,
+      "fixtures": null,
+      "sampled_private_peak_mib": 243.0,
+      "isolated_desktop_closed": true,
+      "script_errors": []
+    },
+    {
+      "directory": "docs/development/logs/phys114-codex-fuzz10503",
+      "status": "exit=1",
+      "passed": false,
+      "failures": [
+        "Four-second synthetic pose rest: 4",
+        "Four-second synthetic pose rest: 6",
+        "Four-second synthetic pose rest: 10"
+      ],
+      "case_count": 12,
+      "fixtures": null,
+      "sampled_private_peak_mib": 244.6,
+      "isolated_desktop_closed": true,
+      "script_errors": []
+    },
+    {
+      "directory": "docs/development/logs/phys114-codex-helmets01",
+      "status": "exit=0",
+      "sampled_private_peak_mib": 387.0,
+      "isolated_desktop_closed": true,
+      "script_errors": []
+    },
+    {
+      "directory": "docs/development/logs/phys114-codex-impact09701",
+      "status": "exit=2",
+      "sampled_private_peak_mib": 168.1,
+      "isolated_desktop_closed": true,
+      "script_errors": []
+    },
+    {
+      "directory": "docs/development/logs/phys114-codex-impact09702",
+      "status": "exit=0",
+      "passed": true,
+      "failures": [],
+      "case_count": 5,
+      "fixtures": null,
+      "sampled_private_peak_mib": 660.6,
+      "isolated_desktop_closed": true,
+      "script_errors": []
+    },
+    {
+      "directory": "docs/development/logs/phys114-codex-lance05501",
+      "status": "exit=0",
+      "passed": true,
+      "failures": [],
+      "case_count": 0,
+      "fixtures": 44,
+      "sampled_private_peak_mib": 895.1,
+      "isolated_desktop_closed": true,
+      "script_errors": []
+    },
+    {
+      "directory": "docs/development/logs/phys114-codex-parse01",
+      "status": "exit=0",
+      "sampled_private_peak_mib": 191.6,
+      "isolated_desktop_closed": false,
+      "script_errors": []
+    },
+    {
+      "directory": "docs/development/logs/phys114-codex-shield10501",
+      "status": "exit=1",
+      "passed": false,
+      "failures": [
+        "Shield cannot snap between fall frames"
+      ],
+      "case_count": 18,
+      "fixtures": null,
+      "sampled_private_peak_mib": 226.2,
+      "isolated_desktop_closed": true,
+      "script_errors": []
+    }
+  ],
+  "helper_fix": {
+    "problem": "Probe constant-map lookup missed inherited outline; 24 arm samples still partitioned as six",
+    "changed_reports": 36,
+    "other_case_fields_identical": true,
+    "final_run": "phys114-codex-fall05704"
+  },
+  "known_failures": {
+    "body114": "4/34 cases fail elevated-leg gate; one also fails six-second settle",
+    "fall098": "3/72 fail four-second rest",
+    "fuzz105": "3/12 fail four-second rest",
+    "shield105": "18/18 exceed 0.15 rad/120Hz step; max 0.41984748840332; grip remains connected"
+  },
+  "intermediate_runs": {
+    "fuzz10501": "launch budget blocked; no engine launch; later retried without weakening protection",
+    "impact09701": "review command omitted required captures; exit 2; corrected in impact09702",
+    "fall05702": "24-sample correction alone ineffective for subclass constants; reports unchanged",
+    "fall05703": "review helper attempted non-static API on class; parse failure; replaced by direct base constant in fall05704"
+  },
+  "scope_notes": [
+    "Source QA, not a new package verification.",
+    "Fallscene eight controlled cases start defender at 1 HP with no shield; not AI balance.",
+    "Edge images manually advance rider; loose RigidBody lance uses engine clock, so floating lance in these sheets is not flight evidence.",
+    "Claude games01-08 are 26 head-aim/always-spur autoplay games; gear mode grants QA currency. Not human win rate or general fall frequency.",
+    "Seven-second fallback may freeze remaining motion; constrained display hides raw solver residual.",
+    "Quasi-static pose updates and guide torque are gameplay approximations; no global exact-conservation or anatomical-validity certification."
+  ],
+  "sampled_private_peak_mib": 895.1,
+  "hash_basis": "SHA256 values describe local evidence/source bytes at review time; Git may normalize text line endings. The manifest also provides LF-normalized hashes for text."
+}

@@ -1,0 +1,12 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+GAMES114 gear={ "armor": "eng_armor_5", "helmet": "eng_helmet_5", "lance": "eng_lance_stout_5", "horse": "horse_courser", "crest": "crest_fleur", "shield": "eng_shield_5", "caparison": "caparison_velvet" }
+GALUMU_BUILD v0.4.60-c5
+GAMES114 game=6 mode=arena falls=0 result={ "winner": 1, "reason": "terminal", "score": [] } wall=50.25
+GAMES114 game=7 mode=war falls=0 result={ "winner": 1, "reason": "terminal", "score": [] } wall=33.645
+GAMES114 game=8 mode=arena falls=0 result={ "winner": 1, "reason": "terminal", "score": [] } wall=50.378
+GAMES114 game=9 mode=war falls=0 result={ "winner": 1, "reason": "terminal", "score": [] } wall=33.69
+GAMES114_DONE failures=[]
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2514)

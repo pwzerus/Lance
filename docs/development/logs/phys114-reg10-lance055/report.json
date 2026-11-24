@@ -1,0 +1,1323 @@
+{
+	"anchors": [
+		{
+			"aim": 0.12,
+			"broken": false,
+			"direction": 1,
+			"hand_after": [
+				29.9281234741211,
+				-217.406707763672
+			],
+			"hand_before": [
+				29.9281234741211,
+				-217.406707763672
+			],
+			"helmet": "",
+			"id": "back_lean_whole_fr_helmet_0_dir1_lean0.00_aim0.12",
+			"kind": "held",
+			"lean": 0.0,
+			"length": 247.0,
+			"renderer_hand": [
+				29.9281234741211,
+				-217.406707763672
+			],
+			"tip_after": [
+				275.15185546875,
+				-187.837799072266
+			],
+			"tip_before": [
+				275.15185546875,
+				-187.837799072266
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": false,
+			"direction": -1,
+			"hand_after": [
+				-29.9281234741211,
+				-217.406707763672
+			],
+			"hand_before": [
+				-29.9281234741211,
+				-217.406707763672
+			],
+			"helmet": "",
+			"id": "back_lean_whole_fr_helmet_0_dir-1_lean0.00_aim0.12",
+			"kind": "held",
+			"lean": 0.0,
+			"length": 247.0,
+			"renderer_hand": [
+				-29.9281234741211,
+				-217.406707763672
+			],
+			"tip_after": [
+				-275.15185546875,
+				-187.837799072266
+			],
+			"tip_before": [
+				-275.15185546875,
+				-187.837799072266
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": false,
+			"direction": 1,
+			"hand_after": [
+				29.9281234741211,
+				-217.406707763672
+			],
+			"hand_before": [
+				29.9281234741211,
+				-217.406707763672
+			],
+			"helmet": "",
+			"id": "back_lean_whole_eng_helmet_0_dir1_lean0.00_aim0.12",
+			"kind": "held",
+			"lean": 0.0,
+			"length": 247.0,
+			"renderer_hand": [
+				29.9281234741211,
+				-217.406707763672
+			],
+			"tip_after": [
+				275.15185546875,
+				-187.837799072266
+			],
+			"tip_before": [
+				275.15185546875,
+				-187.837799072266
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": false,
+			"direction": -1,
+			"hand_after": [
+				-29.9281234741211,
+				-217.406707763672
+			],
+			"hand_before": [
+				-29.9281234741211,
+				-217.406707763672
+			],
+			"helmet": "",
+			"id": "back_lean_whole_eng_helmet_0_dir-1_lean0.00_aim0.12",
+			"kind": "held",
+			"lean": 0.0,
+			"length": 247.0,
+			"renderer_hand": [
+				-29.9281234741211,
+				-217.406707763672
+			],
+			"tip_after": [
+				-275.15185546875,
+				-187.837799072266
+			],
+			"tip_before": [
+				-275.15185546875,
+				-187.837799072266
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": false,
+			"direction": 1,
+			"hand_after": [
+				7.90838050842285,
+				-224.984359741211
+			],
+			"hand_before": [
+				7.90838050842285,
+				-224.984359741211
+			],
+			"helmet": "",
+			"id": "back_lean_whole_fr_helmet_0_dir1_lean-0.50_aim0.12",
+			"kind": "held",
+			"lean": -0.5,
+			"length": 247.0,
+			"renderer_hand": [
+				7.90838432312012,
+				-224.984344482422
+			],
+			"tip_after": [
+				253.132125854492,
+				-195.415451049805
+			],
+			"tip_before": [
+				253.132125854492,
+				-195.415451049805
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": false,
+			"direction": -1,
+			"hand_after": [
+				-7.90838050842285,
+				-224.984359741211
+			],
+			"hand_before": [
+				-7.90838050842285,
+				-224.984359741211
+			],
+			"helmet": "",
+			"id": "back_lean_whole_fr_helmet_0_dir-1_lean-0.50_aim0.12",
+			"kind": "held",
+			"lean": -0.5,
+			"length": 247.0,
+			"renderer_hand": [
+				-7.90838432312012,
+				-224.984344482422
+			],
+			"tip_after": [
+				-253.132125854492,
+				-195.415451049805
+			],
+			"tip_before": [
+				-253.132125854492,
+				-195.415451049805
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": false,
+			"direction": 1,
+			"hand_after": [
+				7.90838050842285,
+				-224.984359741211
+			],
+			"hand_before": [
+				7.90838050842285,
+				-224.984359741211
+			],
+			"helmet": "",
+			"id": "back_lean_whole_eng_helmet_0_dir1_lean-0.50_aim0.12",
+			"kind": "held",
+			"lean": -0.5,
+			"length": 247.0,
+			"renderer_hand": [
+				7.90838432312012,
+				-224.984344482422
+			],
+			"tip_after": [
+				253.132125854492,
+				-195.415451049805
+			],
+			"tip_before": [
+				253.132125854492,
+				-195.415451049805
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": false,
+			"direction": -1,
+			"hand_after": [
+				-7.90838050842285,
+				-224.984359741211
+			],
+			"hand_before": [
+				-7.90838050842285,
+				-224.984359741211
+			],
+			"helmet": "",
+			"id": "back_lean_whole_eng_helmet_0_dir-1_lean-0.50_aim0.12",
+			"kind": "held",
+			"lean": -0.5,
+			"length": 247.0,
+			"renderer_hand": [
+				-7.90838432312012,
+				-224.984344482422
+			],
+			"tip_after": [
+				-253.132125854492,
+				-195.415451049805
+			],
+			"tip_before": [
+				-253.132125854492,
+				-195.415451049805
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": false,
+			"direction": 1,
+			"hand_after": [
+				-15.3350467681885,
+				-223.55859375
+			],
+			"hand_before": [
+				-15.3350467681885,
+				-223.55859375
+			],
+			"helmet": "",
+			"id": "back_lean_whole_fr_helmet_0_dir1_lean-1.00_aim0.12",
+			"kind": "held",
+			"lean": -1.0,
+			"length": 247.0,
+			"renderer_hand": [
+				-15.3350563049316,
+				-223.55859375
+			],
+			"tip_after": [
+				229.888687133789,
+				-193.989685058594
+			],
+			"tip_before": [
+				229.888687133789,
+				-193.989685058594
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": false,
+			"direction": -1,
+			"hand_after": [
+				15.3350467681885,
+				-223.55859375
+			],
+			"hand_before": [
+				15.3350467681885,
+				-223.55859375
+			],
+			"helmet": "",
+			"id": "back_lean_whole_fr_helmet_0_dir-1_lean-1.00_aim0.12",
+			"kind": "held",
+			"lean": -1.0,
+			"length": 247.0,
+			"renderer_hand": [
+				15.3350563049316,
+				-223.55859375
+			],
+			"tip_after": [
+				-229.888687133789,
+				-193.989685058594
+			],
+			"tip_before": [
+				-229.888687133789,
+				-193.989685058594
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": false,
+			"direction": 1,
+			"hand_after": [
+				-15.3350467681885,
+				-223.55859375
+			],
+			"hand_before": [
+				-15.3350467681885,
+				-223.55859375
+			],
+			"helmet": "",
+			"id": "back_lean_whole_eng_helmet_0_dir1_lean-1.00_aim0.12",
+			"kind": "held",
+			"lean": -1.0,
+			"length": 247.0,
+			"renderer_hand": [
+				-15.3350563049316,
+				-223.55859375
+			],
+			"tip_after": [
+				229.888687133789,
+				-193.989685058594
+			],
+			"tip_before": [
+				229.888687133789,
+				-193.989685058594
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": false,
+			"direction": -1,
+			"hand_after": [
+				15.3350467681885,
+				-223.55859375
+			],
+			"hand_before": [
+				15.3350467681885,
+				-223.55859375
+			],
+			"helmet": "",
+			"id": "back_lean_whole_eng_helmet_0_dir-1_lean-1.00_aim0.12",
+			"kind": "held",
+			"lean": -1.0,
+			"length": 247.0,
+			"renderer_hand": [
+				15.3350563049316,
+				-223.55859375
+			],
+			"tip_after": [
+				-229.888687133789,
+				-193.989685058594
+			],
+			"tip_before": [
+				-229.888687133789,
+				-193.989685058594
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": true,
+			"direction": 1,
+			"hand_after": [
+				29.9281234741211,
+				-217.406707763672
+			],
+			"hand_before": [
+				29.9281234741211,
+				-217.406707763672
+			],
+			"helmet": "",
+			"id": "back_lean_broken_fr_helmet_0_dir1_lean0.00_aim0.12",
+			"kind": "held",
+			"lean": 0.0,
+			"length": 66.0,
+			"renderer_hand": [
+				29.9281234741211,
+				-217.406707763672
+			],
+			"tip_after": [
+				95.4534912109375,
+				-209.505706787109
+			],
+			"tip_before": [
+				95.4534912109375,
+				-209.505706787109
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": true,
+			"direction": -1,
+			"hand_after": [
+				-29.9281234741211,
+				-217.406707763672
+			],
+			"hand_before": [
+				-29.9281234741211,
+				-217.406707763672
+			],
+			"helmet": "",
+			"id": "back_lean_broken_fr_helmet_0_dir-1_lean0.00_aim0.12",
+			"kind": "held",
+			"lean": 0.0,
+			"length": 66.0,
+			"renderer_hand": [
+				-29.9281234741211,
+				-217.406707763672
+			],
+			"tip_after": [
+				-95.4534912109375,
+				-209.505706787109
+			],
+			"tip_before": [
+				-95.4534912109375,
+				-209.505706787109
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": true,
+			"direction": 1,
+			"hand_after": [
+				29.9281234741211,
+				-217.406707763672
+			],
+			"hand_before": [
+				29.9281234741211,
+				-217.406707763672
+			],
+			"helmet": "",
+			"id": "back_lean_broken_eng_helmet_0_dir1_lean0.00_aim0.12",
+			"kind": "held",
+			"lean": 0.0,
+			"length": 66.0,
+			"renderer_hand": [
+				29.9281234741211,
+				-217.406707763672
+			],
+			"tip_after": [
+				95.4534912109375,
+				-209.505706787109
+			],
+			"tip_before": [
+				95.4534912109375,
+				-209.505706787109
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": true,
+			"direction": -1,
+			"hand_after": [
+				-29.9281234741211,
+				-217.406707763672
+			],
+			"hand_before": [
+				-29.9281234741211,
+				-217.406707763672
+			],
+			"helmet": "",
+			"id": "back_lean_broken_eng_helmet_0_dir-1_lean0.00_aim0.12",
+			"kind": "held",
+			"lean": 0.0,
+			"length": 66.0,
+			"renderer_hand": [
+				-29.9281234741211,
+				-217.406707763672
+			],
+			"tip_after": [
+				-95.4534912109375,
+				-209.505706787109
+			],
+			"tip_before": [
+				-95.4534912109375,
+				-209.505706787109
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": true,
+			"direction": 1,
+			"hand_after": [
+				7.90838050842285,
+				-224.984359741211
+			],
+			"hand_before": [
+				7.90838050842285,
+				-224.984359741211
+			],
+			"helmet": "",
+			"id": "back_lean_broken_fr_helmet_0_dir1_lean-0.50_aim0.12",
+			"kind": "held",
+			"lean": -0.5,
+			"length": 66.0,
+			"renderer_hand": [
+				7.90838432312012,
+				-224.984344482422
+			],
+			"tip_after": [
+				73.4337463378906,
+				-217.083358764648
+			],
+			"tip_before": [
+				73.4337463378906,
+				-217.083358764648
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": true,
+			"direction": -1,
+			"hand_after": [
+				-7.90838050842285,
+				-224.984359741211
+			],
+			"hand_before": [
+				-7.90838050842285,
+				-224.984359741211
+			],
+			"helmet": "",
+			"id": "back_lean_broken_fr_helmet_0_dir-1_lean-0.50_aim0.12",
+			"kind": "held",
+			"lean": -0.5,
+			"length": 66.0,
+			"renderer_hand": [
+				-7.90838432312012,
+				-224.984344482422
+			],
+			"tip_after": [
+				-73.4337463378906,
+				-217.083358764648
+			],
+			"tip_before": [
+				-73.4337463378906,
+				-217.083358764648
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": true,
+			"direction": 1,
+			"hand_after": [
+				7.90838050842285,
+				-224.984359741211
+			],
+			"hand_before": [
+				7.90838050842285,
+				-224.984359741211
+			],
+			"helmet": "",
+			"id": "back_lean_broken_eng_helmet_0_dir1_lean-0.50_aim0.12",
+			"kind": "held",
+			"lean": -0.5,
+			"length": 66.0,
+			"renderer_hand": [
+				7.90838432312012,
+				-224.984344482422
+			],
+			"tip_after": [
+				73.4337463378906,
+				-217.083358764648
+			],
+			"tip_before": [
+				73.4337463378906,
+				-217.083358764648
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": true,
+			"direction": -1,
+			"hand_after": [
+				-7.90838050842285,
+				-224.984359741211
+			],
+			"hand_before": [
+				-7.90838050842285,
+				-224.984359741211
+			],
+			"helmet": "",
+			"id": "back_lean_broken_eng_helmet_0_dir-1_lean-0.50_aim0.12",
+			"kind": "held",
+			"lean": -0.5,
+			"length": 66.0,
+			"renderer_hand": [
+				-7.90838432312012,
+				-224.984344482422
+			],
+			"tip_after": [
+				-73.4337463378906,
+				-217.083358764648
+			],
+			"tip_before": [
+				-73.4337463378906,
+				-217.083358764648
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": true,
+			"direction": 1,
+			"hand_after": [
+				-15.3350467681885,
+				-223.55859375
+			],
+			"hand_before": [
+				-15.3350467681885,
+				-223.55859375
+			],
+			"helmet": "",
+			"id": "back_lean_broken_fr_helmet_0_dir1_lean-1.00_aim0.12",
+			"kind": "held",
+			"lean": -1.0,
+			"length": 66.0,
+			"renderer_hand": [
+				-15.3350563049316,
+				-223.55859375
+			],
+			"tip_after": [
+				50.1903228759766,
+				-215.657592773438
+			],
+			"tip_before": [
+				50.1903228759766,
+				-215.657592773438
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": true,
+			"direction": -1,
+			"hand_after": [
+				15.3350467681885,
+				-223.55859375
+			],
+			"hand_before": [
+				15.3350467681885,
+				-223.55859375
+			],
+			"helmet": "",
+			"id": "back_lean_broken_fr_helmet_0_dir-1_lean-1.00_aim0.12",
+			"kind": "held",
+			"lean": -1.0,
+			"length": 66.0,
+			"renderer_hand": [
+				15.3350563049316,
+				-223.55859375
+			],
+			"tip_after": [
+				-50.1903228759766,
+				-215.657592773438
+			],
+			"tip_before": [
+				-50.1903228759766,
+				-215.657592773438
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": true,
+			"direction": 1,
+			"hand_after": [
+				-15.3350467681885,
+				-223.55859375
+			],
+			"hand_before": [
+				-15.3350467681885,
+				-223.55859375
+			],
+			"helmet": "",
+			"id": "back_lean_broken_eng_helmet_0_dir1_lean-1.00_aim0.12",
+			"kind": "held",
+			"lean": -1.0,
+			"length": 66.0,
+			"renderer_hand": [
+				-15.3350563049316,
+				-223.55859375
+			],
+			"tip_after": [
+				50.1903228759766,
+				-215.657592773438
+			],
+			"tip_before": [
+				50.1903228759766,
+				-215.657592773438
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": true,
+			"direction": -1,
+			"hand_after": [
+				15.3350467681885,
+				-223.55859375
+			],
+			"hand_before": [
+				15.3350467681885,
+				-223.55859375
+			],
+			"helmet": "",
+			"id": "back_lean_broken_eng_helmet_0_dir-1_lean-1.00_aim0.12",
+			"kind": "held",
+			"lean": -1.0,
+			"length": 66.0,
+			"renderer_hand": [
+				15.3350563049316,
+				-223.55859375
+			],
+			"tip_after": [
+				-50.1903228759766,
+				-215.657592773438
+			],
+			"tip_before": [
+				-50.1903228759766,
+				-215.657592773438
+			]
+		},
+		{
+			"aim": -0.68,
+			"broken": false,
+			"direction": 1,
+			"hand_after": [
+				-19.2092895507813,
+				-237.031692504883
+			],
+			"hand_before": [
+				-19.2092895507813,
+				-237.031692504883
+			],
+			"helmet": "",
+			"id": "back_lean_aim_extremes_fr_helmet_0_dir1_lean-1.00_aim-0.68",
+			"kind": "held",
+			"lean": -1.0,
+			"length": 247.0,
+			"renderer_hand": [
+				-19.2092971801758,
+				-237.031707763672
+			],
+			"tip_after": [
+				172.851165771484,
+				-392.343566894531
+			],
+			"tip_before": [
+				172.851165771484,
+				-392.343566894531
+			]
+		},
+		{
+			"aim": -0.68,
+			"broken": false,
+			"direction": -1,
+			"hand_after": [
+				19.2092895507813,
+				-237.031692504883
+			],
+			"hand_before": [
+				19.2092895507813,
+				-237.031692504883
+			],
+			"helmet": "",
+			"id": "back_lean_aim_extremes_fr_helmet_0_dir-1_lean-1.00_aim-0.68",
+			"kind": "held",
+			"lean": -1.0,
+			"length": 247.0,
+			"renderer_hand": [
+				19.2092971801758,
+				-237.031707763672
+			],
+			"tip_after": [
+				-172.851165771484,
+				-392.343566894531
+			],
+			"tip_before": [
+				-172.851165771484,
+				-392.343566894531
+			]
+		},
+		{
+			"aim": -0.68,
+			"broken": false,
+			"direction": 1,
+			"hand_after": [
+				-19.2092895507813,
+				-237.031692504883
+			],
+			"hand_before": [
+				-19.2092895507813,
+				-237.031692504883
+			],
+			"helmet": "",
+			"id": "back_lean_aim_extremes_eng_helmet_0_dir1_lean-1.00_aim-0.68",
+			"kind": "held",
+			"lean": -1.0,
+			"length": 247.0,
+			"renderer_hand": [
+				-19.2092971801758,
+				-237.031707763672
+			],
+			"tip_after": [
+				172.851165771484,
+				-392.343566894531
+			],
+			"tip_before": [
+				172.851165771484,
+				-392.343566894531
+			]
+		},
+		{
+			"aim": -0.68,
+			"broken": false,
+			"direction": -1,
+			"hand_after": [
+				19.2092895507813,
+				-237.031692504883
+			],
+			"hand_before": [
+				19.2092895507813,
+				-237.031692504883
+			],
+			"helmet": "",
+			"id": "back_lean_aim_extremes_eng_helmet_0_dir-1_lean-1.00_aim-0.68",
+			"kind": "held",
+			"lean": -1.0,
+			"length": 247.0,
+			"renderer_hand": [
+				19.2092971801758,
+				-237.031707763672
+			],
+			"tip_after": [
+				-172.851165771484,
+				-392.343566894531
+			],
+			"tip_before": [
+				-172.851165771484,
+				-392.343566894531
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": false,
+			"direction": 1,
+			"hand_after": [
+				-15.3350467681885,
+				-223.55859375
+			],
+			"hand_before": [
+				-15.3350467681885,
+				-223.55859375
+			],
+			"helmet": "",
+			"id": "back_lean_aim_extremes_fr_helmet_0_dir1_lean-1.00_aim0.12",
+			"kind": "held",
+			"lean": -1.0,
+			"length": 247.0,
+			"renderer_hand": [
+				-15.3350563049316,
+				-223.55859375
+			],
+			"tip_after": [
+				229.888687133789,
+				-193.989685058594
+			],
+			"tip_before": [
+				229.888687133789,
+				-193.989685058594
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": false,
+			"direction": -1,
+			"hand_after": [
+				15.3350467681885,
+				-223.55859375
+			],
+			"hand_before": [
+				15.3350467681885,
+				-223.55859375
+			],
+			"helmet": "",
+			"id": "back_lean_aim_extremes_fr_helmet_0_dir-1_lean-1.00_aim0.12",
+			"kind": "held",
+			"lean": -1.0,
+			"length": 247.0,
+			"renderer_hand": [
+				15.3350563049316,
+				-223.55859375
+			],
+			"tip_after": [
+				-229.888687133789,
+				-193.989685058594
+			],
+			"tip_before": [
+				-229.888687133789,
+				-193.989685058594
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": false,
+			"direction": 1,
+			"hand_after": [
+				-15.3350467681885,
+				-223.55859375
+			],
+			"hand_before": [
+				-15.3350467681885,
+				-223.55859375
+			],
+			"helmet": "",
+			"id": "back_lean_aim_extremes_eng_helmet_0_dir1_lean-1.00_aim0.12",
+			"kind": "held",
+			"lean": -1.0,
+			"length": 247.0,
+			"renderer_hand": [
+				-15.3350563049316,
+				-223.55859375
+			],
+			"tip_after": [
+				229.888687133789,
+				-193.989685058594
+			],
+			"tip_before": [
+				229.888687133789,
+				-193.989685058594
+			]
+		},
+		{
+			"aim": 0.12,
+			"broken": false,
+			"direction": -1,
+			"hand_after": [
+				15.3350467681885,
+				-223.55859375
+			],
+			"hand_before": [
+				15.3350467681885,
+				-223.55859375
+			],
+			"helmet": "",
+			"id": "back_lean_aim_extremes_eng_helmet_0_dir-1_lean-1.00_aim0.12",
+			"kind": "held",
+			"lean": -1.0,
+			"length": 247.0,
+			"renderer_hand": [
+				15.3350563049316,
+				-223.55859375
+			],
+			"tip_after": [
+				-229.888687133789,
+				-193.989685058594
+			],
+			"tip_before": [
+				-229.888687133789,
+				-193.989685058594
+			]
+		},
+		{
+			"aim": 0.58,
+			"broken": false,
+			"direction": 1,
+			"hand_after": [
+				-18.1492729187012,
+				-215.848999023438
+			],
+			"hand_before": [
+				-18.1492729187012,
+				-215.848999023438
+			],
+			"helmet": "",
+			"id": "back_lean_aim_extremes_fr_helmet_0_dir1_lean-1.00_aim0.58",
+			"kind": "held",
+			"lean": -1.0,
+			"length": 247.0,
+			"renderer_hand": [
+				-18.149284362793,
+				-215.848999023438
+			],
+			"tip_after": [
+				188.457000732422,
+				-80.4870910644531
+			],
+			"tip_before": [
+				188.457000732422,
+				-80.4870910644531
+			]
+		},
+		{
+			"aim": 0.58,
+			"broken": false,
+			"direction": -1,
+			"hand_after": [
+				18.1492729187012,
+				-215.848999023438
+			],
+			"hand_before": [
+				18.1492729187012,
+				-215.848999023438
+			],
+			"helmet": "",
+			"id": "back_lean_aim_extremes_fr_helmet_0_dir-1_lean-1.00_aim0.58",
+			"kind": "held",
+			"lean": -1.0,
+			"length": 247.0,
+			"renderer_hand": [
+				18.149284362793,
+				-215.848999023438
+			],
+			"tip_after": [
+				-188.457000732422,
+				-80.4870910644531
+			],
+			"tip_before": [
+				-188.457000732422,
+				-80.4870910644531
+			]
+		},
+		{
+			"aim": 0.58,
+			"broken": false,
+			"direction": 1,
+			"hand_after": [
+				-18.1492729187012,
+				-215.848999023438
+			],
+			"hand_before": [
+				-18.1492729187012,
+				-215.848999023438
+			],
+			"helmet": "",
+			"id": "back_lean_aim_extremes_eng_helmet_0_dir1_lean-1.00_aim0.58",
+			"kind": "held",
+			"lean": -1.0,
+			"length": 247.0,
+			"renderer_hand": [
+				-18.149284362793,
+				-215.848999023438
+			],
+			"tip_after": [
+				188.457000732422,
+				-80.4870910644531
+			],
+			"tip_before": [
+				188.457000732422,
+				-80.4870910644531
+			]
+		},
+		{
+			"aim": 0.58,
+			"broken": false,
+			"direction": -1,
+			"hand_after": [
+				18.1492729187012,
+				-215.848999023438
+			],
+			"hand_before": [
+				18.1492729187012,
+				-215.848999023438
+			],
+			"helmet": "",
+			"id": "back_lean_aim_extremes_eng_helmet_0_dir-1_lean-1.00_aim0.58",
+			"kind": "held",
+			"lean": -1.0,
+			"length": 247.0,
+			"renderer_hand": [
+				18.149284362793,
+				-215.848999023438
+			],
+			"tip_after": [
+				-188.457000732422,
+				-80.4870910644531
+			],
+			"tip_before": [
+				-188.457000732422,
+				-80.4870910644531
+			]
+		},
+		{
+			"broken": false,
+			"direction": 1,
+			"grip_after": [
+				-15.3350601196289,
+				-223.55859375
+			],
+			"grip_before": [
+				-15.3350563049316,
+				-223.55859375
+			],
+			"id": "released_arena_whole_dir1",
+			"kind": "production_release_boundary",
+			"length": 247.0,
+			"mode": "arena",
+			"physics_frozen": true,
+			"released_renderer": "RiderView.lance_only",
+			"tip_after": [
+				229.888671875,
+				-193.989685058594
+			],
+			"tip_before": [
+				229.888687133789,
+				-193.989685058594
+			]
+		},
+		{
+			"broken": false,
+			"direction": -1,
+			"grip_after": [
+				15.3350601196289,
+				-223.55859375
+			],
+			"grip_before": [
+				15.3350563049316,
+				-223.55859375
+			],
+			"id": "released_arena_whole_dir-1",
+			"kind": "production_release_boundary",
+			"length": 247.0,
+			"mode": "arena",
+			"physics_frozen": true,
+			"released_renderer": "RiderView.lance_only",
+			"tip_after": [
+				-229.888671875,
+				-193.989669799805
+			],
+			"tip_before": [
+				-229.888687133789,
+				-193.989685058594
+			]
+		},
+		{
+			"broken": true,
+			"direction": 1,
+			"grip_after": [
+				-15.3350563049316,
+				-223.55859375
+			],
+			"grip_before": [
+				-15.3350563049316,
+				-223.55859375
+			],
+			"id": "released_arena_broken_dir1",
+			"kind": "production_release_boundary",
+			"length": 66.0,
+			"mode": "arena",
+			"physics_frozen": true,
+			"released_renderer": "RiderView.lance_only",
+			"tip_after": [
+				50.1903114318848,
+				-215.657592773438
+			],
+			"tip_before": [
+				50.1903228759766,
+				-215.657592773438
+			]
+		},
+		{
+			"broken": true,
+			"direction": -1,
+			"grip_after": [
+				15.3350563049316,
+				-223.55859375
+			],
+			"grip_before": [
+				15.3350563049316,
+				-223.55859375
+			],
+			"id": "released_arena_broken_dir-1",
+			"kind": "production_release_boundary",
+			"length": 66.0,
+			"mode": "arena",
+			"physics_frozen": true,
+			"released_renderer": "RiderView.lance_only",
+			"tip_after": [
+				-50.1903114318848,
+				-215.657592773438
+			],
+			"tip_before": [
+				-50.1903228759766,
+				-215.657592773438
+			]
+		},
+		{
+			"broken": false,
+			"direction": 1,
+			"grip_after": [
+				-15.3350601196289,
+				-223.55859375
+			],
+			"grip_before": [
+				-15.3350563049316,
+				-223.55859375
+			],
+			"id": "released_war_whole_dir1",
+			"kind": "production_release_boundary",
+			"length": 247.0,
+			"mode": "war",
+			"physics_frozen": true,
+			"released_renderer": "RiderView.lance_only",
+			"tip_after": [
+				229.888671875,
+				-193.989685058594
+			],
+			"tip_before": [
+				229.888687133789,
+				-193.989685058594
+			]
+		},
+		{
+			"broken": false,
+			"direction": -1,
+			"grip_after": [
+				15.3350601196289,
+				-223.55859375
+			],
+			"grip_before": [
+				15.3350563049316,
+				-223.55859375
+			],
+			"id": "released_war_whole_dir-1",
+			"kind": "production_release_boundary",
+			"length": 247.0,
+			"mode": "war",
+			"physics_frozen": true,
+			"released_renderer": "RiderView.lance_only",
+			"tip_after": [
+				-229.888671875,
+				-193.989669799805
+			],
+			"tip_before": [
+				-229.888687133789,
+				-193.989685058594
+			]
+		},
+		{
+			"broken": true,
+			"direction": 1,
+			"grip_after": [
+				-15.3350563049316,
+				-223.55859375
+			],
+			"grip_before": [
+				-15.3350563049316,
+				-223.55859375
+			],
+			"id": "released_war_broken_dir1",
+			"kind": "production_release_boundary",
+			"length": 66.0,
+			"mode": "war",
+			"physics_frozen": true,
+			"released_renderer": "RiderView.lance_only",
+			"tip_after": [
+				50.1903114318848,
+				-215.657592773438
+			],
+			"tip_before": [
+				50.1903228759766,
+				-215.657592773438
+			]
+		},
+		{
+			"broken": true,
+			"direction": -1,
+			"grip_after": [
+				15.3350563049316,
+				-223.55859375
+			],
+			"grip_before": [
+				15.3350563049316,
+				-223.55859375
+			],
+			"id": "released_war_broken_dir-1",
+			"kind": "production_release_boundary",
+			"length": 66.0,
+			"mode": "war",
+			"physics_frozen": true,
+			"released_renderer": "RiderView.lance_only",
+			"tip_after": [
+				-50.1903114318848,
+				-215.657592773438
+			],
+			"tip_before": [
+				-50.1903228759766,
+				-215.657592773438
+			]
+		}
+	],
+	"captures": [
+		{
+			"capture": "back_lean_whole",
+			"height": 1090,
+			"saved": true,
+			"width": 1640
+		},
+		{
+			"capture": "back_lean_broken",
+			"height": 1090,
+			"saved": true,
+			"width": 1640
+		},
+		{
+			"capture": "back_lean_aim_extremes",
+			"height": 1090,
+			"saved": true,
+			"width": 1640
+		},
+		{
+			"capture": "released_whole_and_broken",
+			"height": 740,
+			"saved": true,
+			"width": 1640
+		}
+	],
+	"failures": [],
+	"fixtures": 44,
+	"passed": true,
+	"scope": "GPU fixed production RiderView poses and staged production FallenRider._release_lance boundary. No injected or OS input, no live fight, no free-flight timing test, no profile mutation. Model/renderer anchor invariants checked; occlusion and continuity require image review.",
+	"visual_acceptance": "pending manual image review"
+}

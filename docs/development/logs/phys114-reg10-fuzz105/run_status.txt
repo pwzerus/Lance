@@ -1,0 +1,4 @@
+﻿RUN_DONE phys114-reg10-fuzz105 exit=1 desktopClosed=True
+ERROR: Four-second synthetic pose rest: 4
+ERROR: Four-second synthetic pose rest: 6
+ERROR: Four-second synthetic pose rest: 10

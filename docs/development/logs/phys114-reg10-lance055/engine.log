@@ -1,0 +1,8 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.8132 - Compatibility - Using Device: Intel - Intel(R) Graphics
+
+HEAD_WEAR_V053 capture=back_lean_whole saved=true
+HEAD_WEAR_V053 capture=back_lean_broken saved=true
+HEAD_WEAR_V053 capture=back_lean_aim_extremes saved=true
+HEAD_WEAR_V053 capture=released_whole_and_broken saved=true
+LANCE_LAYER_V055 completed=true fixtures=44 captures=4 visual_acceptance=pending

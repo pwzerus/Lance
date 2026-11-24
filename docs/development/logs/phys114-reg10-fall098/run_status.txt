@@ -1,0 +1,4 @@
+﻿RUN_DONE phys114-reg10-fall098 exit=1 desktopClosed=True
+ERROR: Four-second rest: [0.85, "head", -1, -1.0, 1.0]
+ERROR: Four-second rest: [0.85, "body", -1, 1.0, 1.0]
+ERROR: Four-second rest: [1.18, "body", -1, 1.0, 1.0]

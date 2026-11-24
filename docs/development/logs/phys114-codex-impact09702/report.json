@@ -1,0 +1,2549 @@
+{
+	"battle": [
+		{
+			"case": {
+				"att": 480.0,
+				"def": 480.0,
+				"gap": 2600.0,
+				"ko": true,
+				"name": "equal_body_ko",
+				"zone": "body"
+			},
+			"frames": [
+				{
+					"ms": 2,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/equal_body_ko_0000.png",
+					"target_ms": 0
+				},
+				{
+					"ms": 315,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/equal_body_ko_0110.png",
+					"target_ms": 110
+				},
+				{
+					"ms": 666,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/equal_body_ko_0280.png",
+					"target_ms": 280
+				},
+				{
+					"ms": 1063,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/equal_body_ko_0620.png",
+					"target_ms": 620
+				},
+				{
+					"ms": 1432,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/equal_body_ko_1000.png",
+					"target_ms": 1000
+				},
+				{
+					"ms": 1811,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/equal_body_ko_1600.png",
+					"target_ms": 1600
+				}
+			],
+			"hits": [
+				{
+					"attacker": 0,
+					"attacker_direction": 1,
+					"attacker_speed": 504.0,
+					"attacker_strength113": 1.0,
+					"attaint": true,
+					"balance_left": 0.0,
+					"break_angle": -0.223688662052155,
+					"break_angular_velocity": -0.00422180146159627,
+					"break_direction": 1,
+					"break_hand": "(-99.69975, -187.2238)",
+					"break_hand_velocity": "(523.5862, 24.02378)",
+					"break_reach": 247.0,
+					"break_tip": "(141.1465, -242.0153)",
+					"broke": false,
+					"combat_elevation": 0.0373054546800448,
+					"consciousness": 0.0,
+					"damage": 56.1912585935303,
+					"dead": false,
+					"defender": 1,
+					"defender_direction": -1,
+					"defender_ground_y": -20.0,
+					"defender_speed": 471.139804998354,
+					"drive": 1.0225,
+					"glanced": false,
+					"impulse": 89.2576530735693,
+					"impulse_ratio": 1.45125053296352,
+					"injury": 0.561912585935303,
+					"injury_before": 0.0,
+					"ko": true,
+					"ko_reason": "impact",
+					"ko_threshold": 61.5039588590546,
+					"points": 2,
+					"position": "(139.1916, -242.1012)",
+					"seat_support": 0.996276893104524,
+					"shaft_alignment": 0.999304232222664,
+					"shield_broke": false,
+					"speed": 1018.25085449219,
+					"support": 1.0,
+					"type": "hit",
+					"unconscious": true,
+					"unseated": true,
+					"unsteady": 0.0,
+					"zone": "body"
+				}
+			],
+			"restored_time_scale": 1.0,
+			"timeline": [
+				{
+					"bodies": [
+						[
+							171.111999511719,
+							-198.179550170898,
+							0.0,
+							false
+						]
+					],
+					"camera_x": 729.823913574219,
+					"impact_elapsed": 0.0,
+					"ms": 2,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "contact",
+					"strength": 1.0,
+					"time_scale": 0.8,
+					"zoom": 0.921794235706329
+				},
+				{
+					"bodies": [
+						[
+							172.661743164063,
+							-199.235046386719,
+							0.00742036802694201,
+							false
+						]
+					],
+					"camera_x": 751.43359375,
+					"impact_elapsed": 0.0,
+					"ms": 315,
+					"offset": [
+						15.868595123291,
+						-7.87905931472778
+					],
+					"state": "contact",
+					"strength": 1.0,
+					"time_scale": 0.8,
+					"zoom": 1.03564763069153
+				},
+				{
+					"bodies": [
+						[
+							180.153594970703,
+							-203.664825439453,
+							0.0409874804317951,
+							false
+						]
+					],
+					"camera_x": 816.633117675781,
+					"impact_elapsed": 0.309,
+					"ms": 666,
+					"offset": [
+						-1.33447420597076,
+						1.07890570163727
+					],
+					"state": "read",
+					"strength": 1.0,
+					"time_scale": 0.1,
+					"zoom": 1.35426354408264
+				},
+				{
+					"bodies": [
+						[
+							181.64436340332,
+							-204.348815917969,
+							0.0441209338605404,
+							false
+						]
+					],
+					"camera_x": 881.541625976563,
+					"impact_elapsed": 0.66,
+					"ms": 1063,
+					"offset": [
+						0.499775469303131,
+						-0.164633497595787
+					],
+					"state": "read",
+					"strength": 1.0,
+					"time_scale": 0.105196860950997,
+					"zoom": 1.50142312049866
+				},
+				{
+					"bodies": [
+						[
+							183.113632202148,
+							-204.969879150391,
+							0.0476331859827042,
+							false
+						]
+					],
+					"camera_x": 888.944213867188,
+					"impact_elapsed": 1.057,
+					"ms": 1432,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "read",
+					"strength": 1.0,
+					"time_scale": 0.264887338715215,
+					"zoom": 1.51477313041687
+				},
+				{
+					"bodies": [
+						[
+							185.991195678711,
+							-206.025100708008,
+							0.055774312466383,
+							false
+						]
+					],
+					"camera_x": 891.124084472656,
+					"impact_elapsed": 1.426,
+					"ms": 1811,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "release",
+					"strength": 1.0,
+					"time_scale": 0.544006018370025,
+					"zoom": 1.51598405838013
+				},
+				{
+					"bodies": [
+						[
+							191.527648925781,
+							-207.39599609375,
+							0.076077051460743,
+							false
+						]
+					],
+					"camera_x": 892.283996582031,
+					"impact_elapsed": 1.66,
+					"ms": 2209,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51602387428284
+				},
+				{
+					"bodies": [
+						[
+							203.131713867188,
+							-206.946563720703,
+							0.13747476041317,
+							false
+						]
+					],
+					"camera_x": 894.578857421875,
+					"impact_elapsed": 1.66,
+					"ms": 2226,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51605069637299
+				},
+				{
+					"bodies": [
+						[
+							205.58137512207,
+							-206.193923950195,
+							0.153481766581535,
+							false
+						]
+					],
+					"camera_x": 895.364624023438,
+					"impact_elapsed": 1.66,
+					"ms": 2237,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51605427265167
+				},
+				{
+					"bodies": [
+						[
+							206.791564941406,
+							-205.729644775391,
+							0.161754131317139,
+							false
+						]
+					],
+					"camera_x": 895.916625976563,
+					"impact_elapsed": 1.66,
+					"ms": 2255,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51605641841888
+				},
+				{
+					"bodies": [
+						[
+							209.184478759766,
+							-204.626052856445,
+							0.178798049688339,
+							false
+						]
+					],
+					"camera_x": 896.826843261719,
+					"impact_elapsed": 1.66,
+					"ms": 2272,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51605975627899
+				},
+				{
+					"bodies": [
+						[
+							211.543273925781,
+							-203.289993286133,
+							0.196459546685219,
+							false
+						]
+					],
+					"camera_x": 897.738220214844,
+					"impact_elapsed": 1.66,
+					"ms": 2288,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51606273651123
+				},
+				{
+					"bodies": [
+						[
+							213.871047973633,
+							-201.722610473633,
+							0.214685723185539,
+							false
+						]
+					],
+					"camera_x": 898.645446777344,
+					"impact_elapsed": 1.66,
+					"ms": 2304,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.5160653591156
+				},
+				{
+					"bodies": [
+						[
+							216.170471191406,
+							-199.924850463867,
+							0.233426719903946,
+							false
+						]
+					],
+					"camera_x": 899.601379394531,
+					"impact_elapsed": 1.66,
+					"ms": 2313,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51606786251068
+				},
+				{
+					"bodies": [
+						[
+							218.443923950195,
+							-197.897766113281,
+							0.252636820077896,
+							false
+						]
+					],
+					"camera_x": 900.172973632813,
+					"impact_elapsed": 1.66,
+					"ms": 2326,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51606917381287
+				},
+				{
+					"bodies": [
+						[
+							219.571624755859,
+							-196.798522949219,
+							0.262404143810272,
+							false
+						]
+					],
+					"camera_x": 901.049682617188,
+					"impact_elapsed": 1.66,
+					"ms": 2343,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51607096195221
+				},
+				{
+					"bodies": [
+						[
+							221.810577392578,
+							-194.429077148438,
+							0.282237857580185,
+							false
+						]
+					],
+					"camera_x": 902.185852050781,
+					"impact_elapsed": 1.66,
+					"ms": 2359,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51607322692871
+				},
+				{
+					"bodies": [
+						[
+							224.029296875,
+							-191.832168579102,
+							0.302438110113144,
+							false
+						]
+					],
+					"camera_x": 903.310913085938,
+					"impact_elapsed": 1.66,
+					"ms": 2376,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51607513427734
+				},
+				{
+					"bodies": [
+						[
+							226.229888916016,
+							-189.008361816406,
+							0.322968125343323,
+							false
+						]
+					],
+					"camera_x": 904.568542480469,
+					"impact_elapsed": 1.66,
+					"ms": 2393,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51607704162598
+				},
+				{
+					"bodies": [
+						[
+							228.414184570313,
+							-185.958419799805,
+							0.343794703483582,
+							false
+						]
+					],
+					"camera_x": 905.882507324219,
+					"impact_elapsed": 1.66,
+					"ms": 2409,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51607894897461
+				},
+				{
+					"bodies": [
+						[
+							230.583953857422,
+							-182.682739257813,
+							0.364886105060577,
+							false
+						]
+					],
+					"camera_x": 907.172119140625,
+					"impact_elapsed": 1.66,
+					"ms": 2426,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51608061790466
+				},
+				{
+					"bodies": [
+						[
+							232.740936279297,
+							-179.18180847168,
+							0.386211335659027,
+							false
+						]
+					],
+					"camera_x": 908.595458984375,
+					"impact_elapsed": 1.66,
+					"ms": 2443,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51608228683472
+				},
+				{
+					"bodies": [
+						[
+							233.815063476563,
+							-177.347015380859,
+							0.396954774856567,
+							false
+						]
+					],
+					"camera_x": 910.066650390625,
+					"impact_elapsed": 1.66,
+					"ms": 2459,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51608371734619
+				},
+				{
+					"bodies": [
+						[
+							235.955673217773,
+							-173.508895874023,
+							0.418581813573837,
+							false
+						]
+					],
+					"camera_x": 911.429809570313,
+					"impact_elapsed": 1.66,
+					"ms": 2476,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51608502864838
+				},
+				{
+					"bodies": [
+						[
+							238.087295532227,
+							-169.446136474609,
+							0.440374851226807,
+							false
+						]
+					],
+					"camera_x": 912.92822265625,
+					"impact_elapsed": 1.66,
+					"ms": 2493,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51608633995056
+				},
+				{
+					"bodies": [
+						[
+							240.211334228516,
+							-165.158752441406,
+							0.462304383516312,
+							false
+						]
+					],
+					"camera_x": 914.471496582031,
+					"impact_elapsed": 1.66,
+					"ms": 2509,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51608753204346
+				},
+				{
+					"bodies": [
+						[
+							242.329040527344,
+							-160.64697265625,
+							0.484342455863953,
+							false
+						]
+					],
+					"camera_x": 915.967041015625,
+					"impact_elapsed": 1.66,
+					"ms": 2526,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51608860492706
+				},
+				{
+					"bodies": [
+						[
+							244.441558837891,
+							-155.910766601563,
+							0.506460666656494,
+							false
+						]
+					],
+					"camera_x": 917.644775390625,
+					"impact_elapsed": 1.66,
+					"ms": 2543,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51608967781067
+				},
+				{
+					"bodies": [
+						[
+							246.550201416016,
+							-150.950119018555,
+							0.528634667396545,
+							false
+						]
+					],
+					"camera_x": 919.406677246094,
+					"impact_elapsed": 1.66,
+					"ms": 2560,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51609075069427
+				},
+				{
+					"bodies": [
+						[
+							248.655990600586,
+							-145.765029907227,
+							0.550840795040131,
+							false
+						]
+					],
+					"camera_x": 921.248657226563,
+					"impact_elapsed": 1.66,
+					"ms": 2576,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51609170436859
+				},
+				{
+					"bodies": [
+						[
+							250.759872436523,
+							-140.355361938477,
+							0.57305634021759,
+							false
+						]
+					],
+					"camera_x": 923.057678222656,
+					"impact_elapsed": 1.66,
+					"ms": 2592,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51609253883362
+				},
+				{
+					"bodies": [
+						[
+							252.862762451172,
+							-134.720977783203,
+							0.59526139497757,
+							false
+						]
+					],
+					"camera_x": 924.942077636719,
+					"impact_elapsed": 1.66,
+					"ms": 2609,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 1.0,
+					"time_scale": 1.0,
+					"zoom": 1.51609337329865
+				}
+			]
+		},
+		{
+			"case": {
+				"att": 150.0,
+				"def": 480.0,
+				"gap": 2600.0,
+				"ko": true,
+				"name": "deffast_body_ko",
+				"zone": "body"
+			},
+			"frames": [
+				{
+					"ms": 0,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/deffast_body_ko_0000.png",
+					"target_ms": 0
+				},
+				{
+					"ms": 324,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/deffast_body_ko_0110.png",
+					"target_ms": 110
+				},
+				{
+					"ms": 661,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/deffast_body_ko_0280.png",
+					"target_ms": 280
+				},
+				{
+					"ms": 1019,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/deffast_body_ko_0620.png",
+					"target_ms": 620
+				},
+				{
+					"ms": 1419,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/deffast_body_ko_1000.png",
+					"target_ms": 1000
+				},
+				{
+					"ms": 1850,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/deffast_body_ko_1600.png",
+					"target_ms": 1600
+				}
+			],
+			"hits": [
+				{
+					"attacker": 0,
+					"attacker_direction": 1,
+					"attacker_speed": 157.5,
+					"attacker_strength113": 1.0,
+					"attaint": true,
+					"balance_left": 60.6016371116011,
+					"break_angle": -0.212432757019997,
+					"break_angular_velocity": 0.137486006625251,
+					"break_direction": 1,
+					"break_hand": "(-672.0384, -190.9896)",
+					"break_hand_velocity": "(157.035, -9.537592)",
+					"break_reach": 247.0,
+					"break_tip": "(-430.5907, -243.0667)",
+					"broke": false,
+					"combat_elevation": 0.0475979142096978,
+					"consciousness": 0.0,
+					"damage": 19.8900323870213,
+					"dead": false,
+					"defender": 1,
+					"defender_direction": -1,
+					"defender_ground_y": -20.0,
+					"defender_speed": 339.157860034805,
+					"drive": 0.69765625,
+					"glanced": false,
+					"impulse": 31.5945514455376,
+					"impulse_ratio": 0.537795162272373,
+					"injury": 0.198900323870213,
+					"injury_before": 0.0,
+					"ko": true,
+					"ko_reason": "health",
+					"ko_threshold": 58.7482998397374,
+					"points": 2,
+					"position": "(-431.4348, -243.1883)",
+					"seat_support": 0.99815512022329,
+					"shaft_alignment": 0.998867433130652,
+					"shield_broke": false,
+					"speed": 510.555084228516,
+					"support": 1.0,
+					"type": "hit",
+					"unconscious": true,
+					"unseated": false,
+					"unsteady": 0.0,
+					"zone": "body"
+				}
+			],
+			"restored_time_scale": 1.0,
+			"timeline": [
+				{
+					"bodies": [],
+					"camera_x": 165.743209838867,
+					"impact_elapsed": 0.0,
+					"ms": 0,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "contact",
+					"strength": 0.42546257019043,
+					"time_scale": 0.8,
+					"zoom": 0.921817779541016
+				},
+				{
+					"bodies": [],
+					"camera_x": 174.108871459961,
+					"impact_elapsed": 0.0,
+					"ms": 324,
+					"offset": [
+						-16.2683277130127,
+						-1.83074462413788
+					],
+					"state": "contact",
+					"strength": 0.42546257019043,
+					"time_scale": 0.8,
+					"zoom": 1.00892341136932
+				},
+				{
+					"bodies": [],
+					"camera_x": 189.207412719727,
+					"impact_elapsed": 0.324,
+					"ms": 661,
+					"offset": [
+						-5.59774446487427,
+						-0.16898749768734
+					],
+					"state": "read",
+					"strength": 0.42546257019043,
+					"time_scale": 0.228944491577148,
+					"zoom": 1.16613340377808
+				},
+				{
+					"bodies": [],
+					"camera_x": 190.577117919922,
+					"impact_elapsed": 0.661,
+					"ms": 1019,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "read",
+					"strength": 0.42546257019043,
+					"time_scale": 0.228944491577148,
+					"zoom": 1.18039524555206
+				},
+				{
+					"bodies": [],
+					"camera_x": 162.059692382813,
+					"impact_elapsed": 1.019,
+					"ms": 1419,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "release",
+					"strength": 0.42546257019043,
+					"time_scale": 0.989246016101742,
+					"zoom": 1.06292462348938
+				},
+				{
+					"bodies": [],
+					"camera_x": 160.974822998047,
+					"impact_elapsed": 1.03953216781616,
+					"ms": 1850,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.42546257019043,
+					"time_scale": 1.0,
+					"zoom": 1.05866360664368
+				},
+				{
+					"bodies": [],
+					"camera_x": 160.247604370117,
+					"impact_elapsed": 1.03953216781616,
+					"ms": 2338,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.42546257019043,
+					"time_scale": 1.0,
+					"zoom": 1.05580735206604
+				},
+				{
+					"bodies": [],
+					"camera_x": 159.760131835938,
+					"impact_elapsed": 1.03953216781616,
+					"ms": 2349,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.42546257019043,
+					"time_scale": 1.0,
+					"zoom": 1.05389273166656
+				},
+				{
+					"bodies": [],
+					"camera_x": 159.717468261719,
+					"impact_elapsed": 1.03953216781616,
+					"ms": 2359,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.42546257019043,
+					"time_scale": 1.0,
+					"zoom": 1.05372512340546
+				},
+				{
+					"bodies": [],
+					"camera_x": 159.680282592773,
+					"impact_elapsed": 1.03953216781616,
+					"ms": 2371,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.42546257019043,
+					"time_scale": 1.0,
+					"zoom": 1.05357909202576
+				},
+				{
+					"bodies": [],
+					"camera_x": 159.637573242188,
+					"impact_elapsed": 1.03953216781616,
+					"ms": 2388,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.42546257019043,
+					"time_scale": 1.0,
+					"zoom": 1.05341136455536
+				},
+				{
+					"bodies": [],
+					"camera_x": 159.580474853516,
+					"impact_elapsed": 1.03953216781616,
+					"ms": 2404,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.42546257019043,
+					"time_scale": 1.0,
+					"zoom": 1.05318713188171
+				},
+				{
+					"bodies": [],
+					"camera_x": 159.527130126953,
+					"impact_elapsed": 1.03953216781616,
+					"ms": 2421,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.42546257019043,
+					"time_scale": 1.0,
+					"zoom": 1.05297756195068
+				},
+				{
+					"bodies": [],
+					"camera_x": 159.480133056641,
+					"impact_elapsed": 1.03953216781616,
+					"ms": 2438,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.42546257019043,
+					"time_scale": 1.0,
+					"zoom": 1.05279290676117
+				},
+				{
+					"bodies": [],
+					"camera_x": 159.433380126953,
+					"impact_elapsed": 1.03953216781616,
+					"ms": 2454,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.42546257019043,
+					"time_scale": 1.0,
+					"zoom": 1.05260932445526
+				},
+				{
+					"bodies": [],
+					"camera_x": 159.389709472656,
+					"impact_elapsed": 1.03953216781616,
+					"ms": 2471,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.42546257019043,
+					"time_scale": 1.0,
+					"zoom": 1.0524377822876
+				},
+				{
+					"bodies": [],
+					"camera_x": 159.351226806641,
+					"impact_elapsed": 1.03953216781616,
+					"ms": 2488,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.42546257019043,
+					"time_scale": 1.0,
+					"zoom": 1.05228662490845
+				},
+				{
+					"bodies": [],
+					"camera_x": 159.312957763672,
+					"impact_elapsed": 1.03953216781616,
+					"ms": 2505,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.42546257019043,
+					"time_scale": 1.0,
+					"zoom": 1.05213630199432
+				},
+				{
+					"bodies": [],
+					"camera_x": 159.277191162109,
+					"impact_elapsed": 1.03953216781616,
+					"ms": 2521,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.42546257019043,
+					"time_scale": 1.0,
+					"zoom": 1.05199587345123
+				},
+				{
+					"bodies": [],
+					"camera_x": 159.245681762695,
+					"impact_elapsed": 1.03953216781616,
+					"ms": 2538,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.42546257019043,
+					"time_scale": 1.0,
+					"zoom": 1.05187213420868
+				},
+				{
+					"bodies": [],
+					"camera_x": 159.214340209961,
+					"impact_elapsed": 1.03953216781616,
+					"ms": 2554,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.42546257019043,
+					"time_scale": 1.0,
+					"zoom": 1.05174911022186
+				},
+				{
+					"bodies": [],
+					"camera_x": 159.18505859375,
+					"impact_elapsed": 1.03953216781616,
+					"ms": 2571,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.42546257019043,
+					"time_scale": 1.0,
+					"zoom": 1.05163407325745
+				},
+				{
+					"bodies": [],
+					"camera_x": 159.159271240234,
+					"impact_elapsed": 1.03953216781616,
+					"ms": 2588,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.42546257019043,
+					"time_scale": 1.0,
+					"zoom": 1.05153274536133
+				},
+				{
+					"bodies": [],
+					"camera_x": 159.13362121582,
+					"impact_elapsed": 1.03953216781616,
+					"ms": 2604,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.42546257019043,
+					"time_scale": 1.0,
+					"zoom": 1.05143201351166
+				}
+			]
+		},
+		{
+			"case": {
+				"att": 480.0,
+				"def": 150.0,
+				"gap": 2600.0,
+				"ko": true,
+				"name": "defslow_body_ko",
+				"zone": "body"
+			},
+			"frames": [
+				{
+					"ms": 0,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/defslow_body_ko_0000.png",
+					"target_ms": 0
+				},
+				{
+					"ms": 400,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/defslow_body_ko_0110.png",
+					"target_ms": 110
+				},
+				{
+					"ms": 776,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/defslow_body_ko_0280.png",
+					"target_ms": 280
+				},
+				{
+					"ms": 1146,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/defslow_body_ko_0620.png",
+					"target_ms": 620
+				},
+				{
+					"ms": 1549,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/defslow_body_ko_1000.png",
+					"target_ms": 1000
+				},
+				{
+					"ms": 1944,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/defslow_body_ko_1600.png",
+					"target_ms": 1600
+				}
+			],
+			"hits": [
+				{
+					"attacker": 0,
+					"attacker_direction": 1,
+					"attacker_speed": 429.690169924715,
+					"attacker_strength113": 1.0,
+					"attaint": true,
+					"balance_left": 40.3608369739786,
+					"break_angle": -0.216318547725677,
+					"break_angular_velocity": -0.170604586601257,
+					"break_direction": 1,
+					"break_hand": "(492.5974, -192.3648)",
+					"break_hand_velocity": "(406.9226, 44.82238)",
+					"break_reach": 247.0,
+					"break_tip": "(733.8409, -245.3798)",
+					"broke": false,
+					"combat_elevation": 0.0455690089559802,
+					"consciousness": 0.0,
+					"damage": 30.1084816006834,
+					"dead": false,
+					"defender": 1,
+					"defender_direction": -1,
+					"defender_ground_y": -20.0,
+					"defender_speed": 157.5,
+					"drive": 0.95283453430442,
+					"glanced": false,
+					"impulse": 47.8261650041625,
+					"impulse_ratio": 0.881878207309061,
+					"injury": 0.301084816006834,
+					"injury_before": 0.0,
+					"ko": true,
+					"ko_reason": "health",
+					"ko_threshold": 54.2321656298753,
+					"points": 2,
+					"position": "(731.2637, -245.4035)",
+					"seat_support": 1.0,
+					"shaft_alignment": 0.998961912365443,
+					"shield_broke": false,
+					"speed": 568.889831542969,
+					"support": 1.0,
+					"type": "hit",
+					"unconscious": true,
+					"unseated": false,
+					"unsteady": 0.0,
+					"zone": "body"
+				}
+			],
+			"restored_time_scale": 1.0,
+			"timeline": [
+				{
+					"bodies": [],
+					"camera_x": 1311.68225097656,
+					"impact_elapsed": 0.0,
+					"ms": 0,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "contact",
+					"strength": 0.562660764754853,
+					"time_scale": 0.8,
+					"zoom": 0.921817064285278
+				},
+				{
+					"bodies": [],
+					"camera_x": 1326.79968261719,
+					"impact_elapsed": 0.0,
+					"ms": 400,
+					"offset": [
+						21.2624969482422,
+						-1.51430892944336
+					],
+					"state": "contact",
+					"strength": 0.562660764754853,
+					"time_scale": 0.8,
+					"zoom": 1.00472319126129
+				},
+				{
+					"bodies": [],
+					"camera_x": 1356.16247558594,
+					"impact_elapsed": 0.4,
+					"ms": 776,
+					"offset": [
+						5.98424625396729,
+						0.0587319657206535
+					],
+					"state": "read",
+					"strength": 0.562660764754853,
+					"time_scale": 0.212480708229418,
+					"zoom": 1.16575241088867
+				},
+				{
+					"bodies": [],
+					"camera_x": 1358.826171875,
+					"impact_elapsed": 0.776,
+					"ms": 1146,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "read",
+					"strength": 0.562660764754853,
+					"time_scale": 0.212480708229418,
+					"zoom": 1.18036067485809
+				},
+				{
+					"bodies": [],
+					"camera_x": 1347.05920410156,
+					"impact_elapsed": 1.12322306650046,
+					"ms": 1549,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.562660764754853,
+					"time_scale": 1.0,
+					"zoom": 1.13738334178925
+				},
+				{
+					"bodies": [],
+					"camera_x": 1339.17150878906,
+					"impact_elapsed": 1.12322306650046,
+					"ms": 1944,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.562660764754853,
+					"time_scale": 1.0,
+					"zoom": 1.10857474803925
+				},
+				{
+					"bodies": [],
+					"camera_x": 1333.88427734375,
+					"impact_elapsed": 1.12322306650046,
+					"ms": 2373,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.562660764754853,
+					"time_scale": 1.0,
+					"zoom": 1.08926379680634
+				},
+				{
+					"bodies": [],
+					"camera_x": 1330.34008789063,
+					"impact_elapsed": 1.12322306650046,
+					"ms": 2385,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.562660764754853,
+					"time_scale": 1.0,
+					"zoom": 1.07631933689117
+				},
+				{
+					"bodies": [],
+					"camera_x": 1330.00231933594,
+					"impact_elapsed": 1.12322306650046,
+					"ms": 2397,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.562660764754853,
+					"time_scale": 1.0,
+					"zoom": 1.07508587837219
+				},
+				{
+					"bodies": [],
+					"camera_x": 1329.68041992188,
+					"impact_elapsed": 1.12322306650046,
+					"ms": 2407,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.562660764754853,
+					"time_scale": 1.0,
+					"zoom": 1.07391023635864
+				},
+				{
+					"bodies": [],
+					"camera_x": 1329.42370605469,
+					"impact_elapsed": 1.12322306650046,
+					"ms": 2423,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.562660764754853,
+					"time_scale": 1.0,
+					"zoom": 1.07297265529633
+				},
+				{
+					"bodies": [],
+					"camera_x": 1329.01025390625,
+					"impact_elapsed": 1.12322306650046,
+					"ms": 2440,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.562660764754853,
+					"time_scale": 1.0,
+					"zoom": 1.07146239280701
+				},
+				{
+					"bodies": [],
+					"camera_x": 1328.64599609375,
+					"impact_elapsed": 1.12322306650046,
+					"ms": 2457,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.562660764754853,
+					"time_scale": 1.0,
+					"zoom": 1.07013177871704
+				},
+				{
+					"bodies": [],
+					"camera_x": 1328.28369140625,
+					"impact_elapsed": 1.12322306650046,
+					"ms": 2473,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.562660764754853,
+					"time_scale": 1.0,
+					"zoom": 1.06880831718445
+				},
+				{
+					"bodies": [],
+					"camera_x": 1327.96447753906,
+					"impact_elapsed": 1.12322306650046,
+					"ms": 2490,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.562660764754853,
+					"time_scale": 1.0,
+					"zoom": 1.06764233112335
+				},
+				{
+					"bodies": [],
+					"camera_x": 1327.64697265625,
+					"impact_elapsed": 1.12322306650046,
+					"ms": 2507,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.562660764754853,
+					"time_scale": 1.0,
+					"zoom": 1.06648254394531
+				},
+				{
+					"bodies": [],
+					"camera_x": 1327.35034179688,
+					"impact_elapsed": 1.12322306650046,
+					"ms": 2523,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.562660764754853,
+					"time_scale": 1.0,
+					"zoom": 1.0653989315033
+				},
+				{
+					"bodies": [],
+					"camera_x": 1327.08898925781,
+					"impact_elapsed": 1.12322306650046,
+					"ms": 2540,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.562660764754853,
+					"time_scale": 1.0,
+					"zoom": 1.06444430351257
+				},
+				{
+					"bodies": [],
+					"camera_x": 1326.82897949219,
+					"impact_elapsed": 1.12322306650046,
+					"ms": 2557,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.562660764754853,
+					"time_scale": 1.0,
+					"zoom": 1.06349468231201
+				},
+				{
+					"bodies": [],
+					"camera_x": 1326.58605957031,
+					"impact_elapsed": 1.12322306650046,
+					"ms": 2573,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.562660764754853,
+					"time_scale": 1.0,
+					"zoom": 1.06260752677917
+				},
+				{
+					"bodies": [],
+					"camera_x": 1326.3720703125,
+					"impact_elapsed": 1.12322306650046,
+					"ms": 2590,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.562660764754853,
+					"time_scale": 1.0,
+					"zoom": 1.06182587146759
+				},
+				{
+					"bodies": [],
+					"camera_x": 1326.1591796875,
+					"impact_elapsed": 1.12322306650046,
+					"ms": 2607,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.562660764754853,
+					"time_scale": 1.0,
+					"zoom": 1.06104838848114
+				}
+			]
+		},
+		{
+			"case": {
+				"att": 480.0,
+				"def": 480.0,
+				"gap": 2600.0,
+				"name": "equal_head_stay",
+				"stability": 3.0,
+				"zone": "head"
+			},
+			"frames": [
+				{
+					"ms": 0,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/equal_head_stay_0000.png",
+					"target_ms": 0
+				},
+				{
+					"ms": 322,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/equal_head_stay_0110.png",
+					"target_ms": 110
+				},
+				{
+					"ms": 648,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/equal_head_stay_0280.png",
+					"target_ms": 280
+				},
+				{
+					"ms": 970,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/equal_head_stay_0620.png",
+					"target_ms": 620
+				},
+				{
+					"ms": 1358,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/equal_head_stay_1000.png",
+					"target_ms": 1000
+				},
+				{
+					"ms": 1726,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/equal_head_stay_1600.png",
+					"target_ms": 1600
+				}
+			],
+			"hits": [
+				{
+					"attacker": 0,
+					"attacker_direction": 1,
+					"attacker_speed": 504.0,
+					"attacker_strength113": 1.0,
+					"attaint": true,
+					"balance_left": 29.9967152964248,
+					"break_angle": -0.493909388780594,
+					"break_angular_velocity": -0.0105200730168717,
+					"break_direction": 1,
+					"break_hand": "(-98.46291, -191.6501)",
+					"break_hand_velocity": "(524.1144, 20.56307)",
+					"break_reach": 247.0,
+					"break_tip": "(119.0172, -308.7458)",
+					"broke": false,
+					"combat_elevation": -0.216621880702027,
+					"consciousness": 0.0,
+					"damage": 90.6373830169366,
+					"dead": false,
+					"defender": 1,
+					"defender_direction": -1,
+					"defender_ground_y": -20.0,
+					"defender_speed": 504.0,
+					"drive": 1.0225,
+					"glanced": false,
+					"head_incidence": 0.999999940395355,
+					"impulse": 70.9104231838386,
+					"impulse_ratio": 0.383789938090279,
+					"injury": 0.906373830169366,
+					"injury_before": 0.0,
+					"ko": true,
+					"ko_reason": "unconscious",
+					"ko_threshold": 184.763632774443,
+					"points": 3,
+					"position": "(117.286, -308.8063)",
+					"seat_support": 0.99999999980517,
+					"shaft_alignment": 0.976629085315316,
+					"shield_broke": false,
+					"speed": 1028.64721679688,
+					"support": 1.0,
+					"type": "hit",
+					"unconscious": true,
+					"unseated": false,
+					"unsteady": 0.0,
+					"zone": "head"
+				}
+			],
+			"restored_time_scale": 1.0,
+			"timeline": [
+				{
+					"bodies": [],
+					"camera_x": 719.999572753906,
+					"impact_elapsed": 0.0,
+					"ms": 0,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "contact",
+					"strength": 0.834240272751043,
+					"time_scale": 0.8,
+					"zoom": 0.921799123287201
+				},
+				{
+					"bodies": [],
+					"camera_x": 734.707641601563,
+					"impact_elapsed": 0.0,
+					"ms": 322,
+					"offset": [
+						13.3904724121094,
+						-7.29713582992554
+					],
+					"state": "contact",
+					"strength": 0.834240272751043,
+					"time_scale": 0.8,
+					"zoom": 1.00891101360321
+				},
+				{
+					"bodies": [],
+					"camera_x": 761.253112792969,
+					"impact_elapsed": 0.322,
+					"ms": 648,
+					"offset": [
+						-1.95349550247192,
+						1.53199112415314
+					],
+					"state": "read",
+					"strength": 0.834240272751043,
+					"time_scale": 0.179891167269875,
+					"zoom": 1.16613233089447
+				},
+				{
+					"bodies": [],
+					"camera_x": 763.661315917969,
+					"impact_elapsed": 0.649,
+					"ms": 970,
+					"offset": [
+						0.0740935429930687,
+						-0.0650304332375526
+					],
+					"state": "read",
+					"strength": 0.834240272751043,
+					"time_scale": 0.179891167269875,
+					"zoom": 1.18039512634277
+				},
+				{
+					"bodies": [],
+					"camera_x": 763.811645507813,
+					"impact_elapsed": 0.97,
+					"ms": 1358,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "release",
+					"strength": 0.834240272751043,
+					"time_scale": 0.181289493669837,
+					"zoom": 1.16958427429199
+				},
+				{
+					"bodies": [],
+					"camera_x": 749.367797851563,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 1726,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.13015973567963
+				},
+				{
+					"bodies": [],
+					"camera_x": 739.685852050781,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2135,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.10373270511627
+				},
+				{
+					"bodies": [],
+					"camera_x": 733.19580078125,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2150,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.08601808547974
+				},
+				{
+					"bodies": [],
+					"camera_x": 732.427307128906,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2160,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.08392059803009
+				},
+				{
+					"bodies": [],
+					"camera_x": 731.940002441406,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2168,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.08259057998657
+				},
+				{
+					"bodies": [],
+					"camera_x": 731.56396484375,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2185,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.08156418800354
+				},
+				{
+					"bodies": [],
+					"camera_x": 730.803771972656,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2202,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.07948911190033
+				},
+				{
+					"bodies": [],
+					"camera_x": 730.093566894531,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2218,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.07755053043365
+				},
+				{
+					"bodies": [],
+					"camera_x": 729.467834472656,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2235,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.07584249973297
+				},
+				{
+					"bodies": [],
+					"camera_x": 728.845397949219,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2252,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.07414364814758
+				},
+				{
+					"bodies": [],
+					"camera_x": 728.263916015625,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2268,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.0725564956665
+				},
+				{
+					"bodies": [],
+					"camera_x": 727.751586914063,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2285,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.07115805149078
+				},
+				{
+					"bodies": [],
+					"camera_x": 727.242004394531,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2302,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.06976711750031
+				},
+				{
+					"bodies": [],
+					"camera_x": 726.765930175781,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2318,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.06846761703491
+				},
+				{
+					"bodies": [],
+					"camera_x": 726.346496582031,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2335,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.06732273101807
+				},
+				{
+					"bodies": [],
+					"camera_x": 725.929260253906,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2352,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.06618392467499
+				},
+				{
+					"bodies": [],
+					"camera_x": 725.539489746094,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2368,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.06511998176575
+				},
+				{
+					"bodies": [],
+					"camera_x": 725.196044921875,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2385,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.06418263912201
+				},
+				{
+					"bodies": [],
+					"camera_x": 724.854431152344,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2402,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.06325030326843
+				},
+				{
+					"bodies": [],
+					"camera_x": 724.535278320313,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2418,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.06237924098969
+				},
+				{
+					"bodies": [],
+					"camera_x": 724.254089355469,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2435,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.06161177158356
+				},
+				{
+					"bodies": [],
+					"camera_x": 723.974426269531,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2452,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.06084847450256
+				},
+				{
+					"bodies": [],
+					"camera_x": 723.713134765625,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2468,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.06013524532318
+				},
+				{
+					"bodies": [],
+					"camera_x": 723.48291015625,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2485,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.05950689315796
+				},
+				{
+					"bodies": [],
+					"camera_x": 723.253967285156,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2501,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.05888187885284
+				},
+				{
+					"bodies": [],
+					"camera_x": 723.0400390625,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2518,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.05829799175262
+				},
+				{
+					"bodies": [],
+					"camera_x": 722.8515625,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2535,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.05778360366821
+				},
+				{
+					"bodies": [],
+					"camera_x": 722.664123535156,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2552,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.05727195739746
+				},
+				{
+					"bodies": [],
+					"camera_x": 722.489013671875,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2568,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.05679392814636
+				},
+				{
+					"bodies": [],
+					"camera_x": 722.334716796875,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2585,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.05637276172638
+				},
+				{
+					"bodies": [],
+					"camera_x": 722.181213378906,
+					"impact_elapsed": 1.28888656637814,
+					"ms": 2601,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.834240272751043,
+					"time_scale": 1.0,
+					"zoom": 1.0559538602829
+				}
+			]
+		},
+		{
+			"case": {
+				"att": 210.0,
+				"def": 210.0,
+				"gap": 1800.0,
+				"name": "slow_shield_light",
+				"stability": 3.0,
+				"zone": "shield"
+			},
+			"frames": [
+				{
+					"ms": 0,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/slow_shield_light_0000.png",
+					"target_ms": 0
+				},
+				{
+					"ms": 321,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/slow_shield_light_0110.png",
+					"target_ms": 110
+				},
+				{
+					"ms": 728,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/slow_shield_light_0280.png",
+					"target_ms": 280
+				},
+				{
+					"ms": 1091,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/slow_shield_light_0620.png",
+					"target_ms": 620
+				},
+				{
+					"ms": 1548,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/slow_shield_light_1000.png",
+					"target_ms": 1000
+				},
+				{
+					"ms": 1993,
+					"path": "E:/GALUMU/docs/development/logs/phys114-codex-impact09702/screens/slow_shield_light_1600.png",
+					"target_ms": 1600
+				}
+			],
+			"hits": [
+				{
+					"angle_factor": 1.0,
+					"attacker": 0,
+					"attacker_direction": 1,
+					"attacker_speed": 220.5,
+					"attacker_strength113": 1.0,
+					"attaint": false,
+					"balance_left": 69.2111978235474,
+					"break_angle": -0.234381422400475,
+					"break_angular_velocity": -0.0103295947545708,
+					"break_direction": 1,
+					"break_hand": "(-130.4557, -190.9013)",
+					"break_hand_velocity": "(214.8991, -23.57035)",
+					"break_reach": 247.0,
+					"break_tip": "(109.7909, -248.2649)",
+					"broke": false,
+					"combat_elevation": 0.0269042620878192,
+					"consciousness": 99.6472810677562,
+					"contact_local": "(14.64742, -0.017595)",
+					"damage": 3.52718932243773,
+					"dead": false,
+					"defender": 1,
+					"defender_direction": -1,
+					"defender_ground_y": -20.0,
+					"defender_speed": 220.5,
+					"drive": 0.75671875,
+					"eccentricity": 0.00134902201932257,
+					"glanced": false,
+					"impulse": 24.6903252570641,
+					"impulse_ratio": 0.149171281308961,
+					"injury": 0.012345162628532,
+					"injury_before": 0.0,
+					"ko": false,
+					"ko_reason": "",
+					"ko_threshold": 165.516613120229,
+					"lever": 0.00134902201932257,
+					"points": 1,
+					"position": "(109.0855, -248.1791)",
+					"position_factor": 1.0,
+					"seat_support": 1.0,
+					"shaft_alignment": 0.999638102171202,
+					"shield_angle_difference": 0.0283382573608586,
+					"shield_broke": false,
+					"shield_region": "center",
+					"shield_transfer": 1.0,
+					"speed": 430.014709472656,
+					"support": 1.0,
+					"type": "hit",
+					"unconscious": false,
+					"unseated": false,
+					"unsteady": 0.0,
+					"zone": "shield"
+				}
+			],
+			"restored_time_scale": 1.0,
+			"timeline": [
+				{
+					"bodies": [],
+					"camera_x": 719.999694824219,
+					"impact_elapsed": 0.0,
+					"ms": 0,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "contact",
+					"strength": 0.391791179741753,
+					"time_scale": 0.8,
+					"zoom": 0.921817898750305
+				},
+				{
+					"bodies": [],
+					"camera_x": 730.860229492188,
+					"impact_elapsed": 0.0,
+					"ms": 321,
+					"offset": [
+						8.61909484863281,
+						-4.01473903656006
+					],
+					"state": "contact",
+					"strength": 0.391791179741753,
+					"time_scale": 0.8,
+					"zoom": 1.01302349567413
+				},
+				{
+					"bodies": [],
+					"camera_x": 749.136474609375,
+					"impact_elapsed": 0.321,
+					"ms": 728,
+					"offset": [
+						0.836506247520447,
+						-0.490483015775681
+					],
+					"state": "read",
+					"strength": 0.391791179741753,
+					"time_scale": 0.23298505843099,
+					"zoom": 1.16650545597076
+				},
+				{
+					"bodies": [],
+					"camera_x": 750.355651855469,
+					"impact_elapsed": 0.728,
+					"ms": 1091,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "release",
+					"strength": 0.391791179741753,
+					"time_scale": 0.244941592912681,
+					"zoom": 1.18042898178101
+				},
+				{
+					"bodies": [],
+					"camera_x": 740.348022460938,
+					"impact_elapsed": 0.997804558429362,
+					"ms": 1548,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.391791179741753,
+					"time_scale": 1.0,
+					"zoom": 1.18088698387146
+				},
+				{
+					"bodies": [],
+					"camera_x": 733.639709472656,
+					"impact_elapsed": 0.997804558429362,
+					"ms": 1993,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.391791179741753,
+					"time_scale": 1.0,
+					"zoom": 1.18119394779205
+				},
+				{
+					"bodies": [],
+					"camera_x": 729.142944335938,
+					"impact_elapsed": 0.997804558429362,
+					"ms": 2436,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.391791179741753,
+					"time_scale": 1.0,
+					"zoom": 1.18139970302582
+				},
+				{
+					"bodies": [],
+					"camera_x": 726.128723144531,
+					"impact_elapsed": 0.997804558429362,
+					"ms": 2452,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.391791179741753,
+					"time_scale": 1.0,
+					"zoom": 1.18153762817383
+				},
+				{
+					"bodies": [],
+					"camera_x": 725.748779296875,
+					"impact_elapsed": 0.997804558429362,
+					"ms": 2467,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.391791179741753,
+					"time_scale": 1.0,
+					"zoom": 1.1815550327301
+				},
+				{
+					"bodies": [],
+					"camera_x": 725.414001464844,
+					"impact_elapsed": 0.997804558429362,
+					"ms": 2480,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.391791179741753,
+					"time_scale": 1.0,
+					"zoom": 1.18157041072845
+				},
+				{
+					"bodies": [],
+					"camera_x": 725.1396484375,
+					"impact_elapsed": 0.997804558429362,
+					"ms": 2489,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.391791179741753,
+					"time_scale": 1.0,
+					"zoom": 1.18158292770386
+				},
+				{
+					"bodies": [],
+					"camera_x": 724.957885742188,
+					"impact_elapsed": 0.997804558429362,
+					"ms": 2504,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.391791179741753,
+					"time_scale": 1.0,
+					"zoom": 1.18159127235413
+				},
+				{
+					"bodies": [],
+					"camera_x": 724.669189453125,
+					"impact_elapsed": 0.997804558429362,
+					"ms": 2519,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.391791179741753,
+					"time_scale": 1.0,
+					"zoom": 1.18160450458527
+				},
+				{
+					"bodies": [],
+					"camera_x": 724.379699707031,
+					"impact_elapsed": 0.997804558429362,
+					"ms": 2536,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.391791179741753,
+					"time_scale": 1.0,
+					"zoom": 1.18161773681641
+				},
+				{
+					"bodies": [],
+					"camera_x": 724.108154296875,
+					"impact_elapsed": 0.997804558429362,
+					"ms": 2553,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.391791179741753,
+					"time_scale": 1.0,
+					"zoom": 1.18163013458252
+				},
+				{
+					"bodies": [],
+					"camera_x": 723.838073730469,
+					"impact_elapsed": 0.997804558429362,
+					"ms": 2569,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.391791179741753,
+					"time_scale": 1.0,
+					"zoom": 1.18164253234863
+				},
+				{
+					"bodies": [],
+					"camera_x": 723.600158691406,
+					"impact_elapsed": 0.997804558429362,
+					"ms": 2586,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.391791179741753,
+					"time_scale": 1.0,
+					"zoom": 1.18165338039398
+				},
+				{
+					"bodies": [],
+					"camera_x": 723.363464355469,
+					"impact_elapsed": 0.997804558429362,
+					"ms": 2603,
+					"offset": [
+						0.0,
+						0.0
+					],
+					"state": "runup",
+					"strength": 0.391791179741753,
+					"time_scale": 1.0,
+					"zoom": 1.18166422843933
+				}
+			]
+		}
+	],
+	"failures": [],
+	"part": "battle",
+	"passed": true,
+	"version": "0.4.60-c5"
+}

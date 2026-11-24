@@ -1,0 +1,2 @@
+﻿RUN_DONE phys114-trace08 exit=0 desktopClosed=False
+

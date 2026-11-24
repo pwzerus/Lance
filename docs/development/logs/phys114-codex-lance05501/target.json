@@ -1,0 +1,11 @@
+{
+  "support_helper_sha256": "99FB18FA66700655DBC9462B8DCE20F2610153874C0F5547F9B780F9F243B29A",
+  "body_sha256": "8F93B6F7913977CAF444ADF168C34969A76E0B6EA2B2271FEC759269F38E7A76",
+  "name": "lance05501",
+  "fallen_sha256": "CFCFFCA9D79D1CDFFE25C9ACADFDC9BB15132E353BA71F9AA0AE9F5F18997863",
+  "test_sha256": "0B97F32B7462949C59F004CCD3DDAD2CC48B6E30882F26FACAED60F92E856BA8",
+  "base": "Claude PHYS-114 two rounds; Codex explicit base outline and 24 arm samples",
+  "arguments": "--path E:/GALUMU/game --audio-driver Dummy --script res://tests/test_lance_layer_v055.gd --log-file E:/GALUMU/docs/development/logs/phys114-codex-lance05501/engine.log -- --test-profile --report=E:/GALUMU/docs/development/logs/phys114-codex-lance05501/report.json --captures=E:/GALUMU/docs/development/logs/phys114-codex-lance05501/screens",
+  "script": "test_lance_layer_v055.gd",
+  "head": "595399263de1c18bee7e9d126f790e7330e6e31b"
+}

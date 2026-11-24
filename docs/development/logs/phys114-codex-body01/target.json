@@ -1,0 +1,10 @@
+{
+  "name": "body",
+  "script": "test_body114.gd",
+  "head": "595399263de1c18bee7e9d126f790e7330e6e31b",
+  "base": "Claude PHYS-114 round 1 and 2 uncommitted working tree",
+  "arguments": "--headless --path E:/GALUMU/game --audio-driver Dummy --script res://tests/test_body114.gd --log-file E:/GALUMU/docs/development/logs/phys114-codex-body01/engine.log -- --test-profile --report=E:/GALUMU/docs/development/logs/phys114-codex-body01/report.json ",
+  "test_sha256": "316BA41E7AB438FD9E89D8FA3DCBB6063EE9B6CBE08C0CA2F62D1AC283718D21",
+  "body_sha256": "8F93B6F7913977CAF444ADF168C34969A76E0B6EA2B2271FEC759269F38E7A76",
+  "fallen_sha256": "CFCFFCA9D79D1CDFFE25C9ACADFDC9BB15132E353BA71F9AA0AE9F5F18997863"
+}

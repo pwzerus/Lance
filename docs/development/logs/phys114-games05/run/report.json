@@ -1,0 +1,71 @@
+{
+	"failures": [],
+	"games": [
+		{
+			"falls": [],
+			"frames": 1996,
+			"frames_over_33ms": 0,
+			"game": 3,
+			"max_frame_ms": 23.463,
+			"mode": "war",
+			"pass_number": 2,
+			"renown": 60,
+			"result": {
+				"reason": "terminal",
+				"score": [],
+				"winner": 1
+			},
+			"wall_seconds": 33.605
+		},
+		{
+			"falls": [],
+			"frames": 2999,
+			"frames_over_33ms": 0,
+			"game": 4,
+			"max_frame_ms": 22.82,
+			"mode": "arena",
+			"pass_number": 3,
+			"renown": 60,
+			"result": {
+				"reason": "terminal",
+				"score": [],
+				"winner": 1
+			},
+			"wall_seconds": 50.376
+		},
+		{
+			"falls": [
+				{
+					"age_at_rest_shot": 3.89999999999999,
+					"air_shot": true,
+					"conscious": true,
+					"hand_above_trunk": 10.3573760986328,
+					"legs_above_hip": 12.290657043457,
+					"rest_shot": true,
+					"rider": "opponent",
+					"settled_age": 3.89999999999999,
+					"strength": 0.348829175548925,
+					"support_gap": 45.7589416503906,
+					"toppled": true,
+					"trunk_degrees": 39.4875451108713,
+					"zone": "shield"
+				}
+			],
+			"frames": 3056,
+			"frames_over_33ms": 2,
+			"game": 5,
+			"max_frame_ms": 389.669,
+			"mode": "war",
+			"pass_number": 3,
+			"renown": 60,
+			"result": {
+				"reason": "terminal",
+				"score": [],
+				"winner": 0
+			},
+			"wall_seconds": 52.04
+		}
+	],
+	"passed": true,
+	"scope": "Real Main matches, random seeds, player driven by Battle.autoplay (aims at the head, always spurs) against the real level-free AI; arena/war alternate, renown 0 then 40. GPU isolated desktop, audio muted at Master. Not OS input or human play."
+}

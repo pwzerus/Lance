@@ -1,0 +1,11 @@
+{
+  "name": "fall05703",
+  "script": "test_fall_v057.gd",
+  "arguments": "--path E:/GALUMU/game --audio-driver Dummy --script res://tests/test_fall_v057.gd --log-file E:/GALUMU/docs/development/logs/phys114-codex-fall05703/engine.log -- --test-profile --report=E:/GALUMU/docs/development/logs/phys114-codex-fall05703/report.json --captures=E:/GALUMU/docs/development/logs/phys114-codex-fall05703/screens",
+  "support_helper_sha256": "E7A7129EBC3AD47197120351457EB4B576F5E42DA07BEA898EEEA4B119DF2CF9",
+  "body_sha256": "8F93B6F7913977CAF444ADF168C34969A76E0B6EA2B2271FEC759269F38E7A76",
+  "head": "595399263de1c18bee7e9d126f790e7330e6e31b",
+  "test_sha256": "E7A7129EBC3AD47197120351457EB4B576F5E42DA07BEA898EEEA4B119DF2CF9",
+  "fallen_sha256": "CFCFFCA9D79D1CDFFE25C9ACADFDC9BB15132E353BA71F9AA0AE9F5F18997863",
+  "base": "Claude PHYS-114 two rounds; Codex support_parts base constants and 24 arms correction"
+}

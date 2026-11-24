@@ -1,0 +1,29 @@
+QA_DESKTOP GALUMU_QA_aa5abe35f16a4c0ca13479694d49fd98 (not switched to input desktop)
+START utc=2026-11-24T23:15:35.4569711Z pid=15380 jobMiB=1024 executable=E:\GALUMU\tools\godot-4.5.1\Godot_v4.5.1-stable_win64.exe reserveMiB=500 startupMiB=1780
+MEM seconds=1 privateMiB=55.9 workingMiB=86.4 availableRamMiB=1888 availableCommitMiB=4791
+MEM seconds=2 privateMiB=55.9 workingMiB=86.5 availableRamMiB=1875 availableCommitMiB=4771
+MEM seconds=3 privateMiB=55.9 workingMiB=86.5 availableRamMiB=1895 availableCommitMiB=4799
+MEM seconds=4 privateMiB=55.9 workingMiB=86.5 availableRamMiB=1879 availableCommitMiB=4786
+MEM seconds=5 privateMiB=82.8 workingMiB=134.7 availableRamMiB=1814 availableCommitMiB=4736
+MEM seconds=6 privateMiB=269.5 workingMiB=309.3 availableRamMiB=1623 availableCommitMiB=4541
+MEM seconds=7 privateMiB=270.0 workingMiB=327.8 availableRamMiB=1631 availableCommitMiB=4492
+MEM seconds=8 privateMiB=269.9 workingMiB=327.8 availableRamMiB=1670 availableCommitMiB=4538
+MEM seconds=9 privateMiB=269.9 workingMiB=327.8 availableRamMiB=1679 availableCommitMiB=4562
+MEM seconds=10 privateMiB=270.2 workingMiB=327.9 availableRamMiB=1670 availableCommitMiB=4553
+MEM seconds=11 privateMiB=265.6 workingMiB=324.1 availableRamMiB=1657 availableCommitMiB=4546
+MEM seconds=12 privateMiB=265.3 workingMiB=323.7 availableRamMiB=1600 availableCommitMiB=4477
+MEM seconds=13 privateMiB=265.3 workingMiB=323.8 availableRamMiB=1640 availableCommitMiB=4549
+MEM seconds=14 privateMiB=265.3 workingMiB=323.7 availableRamMiB=1590 availableCommitMiB=4384
+MEM seconds=15 privateMiB=265.3 workingMiB=323.7 availableRamMiB=1658 availableCommitMiB=4583
+MEM seconds=16 privateMiB=357.4 workingMiB=404.6 availableRamMiB=1572 availableCommitMiB=4441
+MEM seconds=17 privateMiB=569.6 workingMiB=588.4 availableRamMiB=1427 availableCommitMiB=4282
+MEM seconds=18 privateMiB=574.2 workingMiB=633.3 availableRamMiB=1369 availableCommitMiB=4279
+MEM seconds=19 privateMiB=577.4 workingMiB=642.1 availableRamMiB=1364 availableCommitMiB=4279
+MEM seconds=20 privateMiB=579.7 workingMiB=647.6 availableRamMiB=1332 availableCommitMiB=4241
+MEM seconds=21 privateMiB=582.5 workingMiB=651.5 availableRamMiB=1336 availableCommitMiB=4245
+MEM seconds=22 privateMiB=582.4 workingMiB=651.3 availableRamMiB=1335 availableCommitMiB=4237
+MEM seconds=23 privateMiB=575.1 workingMiB=649.8 availableRamMiB=1331 availableCommitMiB=4201
+MEM seconds=24 privateMiB=575.1 workingMiB=650.0 availableRamMiB=1334 availableCommitMiB=4242
+MEM seconds=25 privateMiB=434.9 workingMiB=502.5 availableRamMiB=1384 availableCommitMiB=4297
+EXIT code=0 seconds=25.5
+QA_DESKTOP_CLOSED=True

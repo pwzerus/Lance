@@ -1,0 +1,1071 @@
+{
+	"failures": [
+		"Shield cannot snap between fall frames"
+	],
+	"passed": false,
+	"rows": [
+		{
+			"facing": 1,
+			"guard": 0.0,
+			"max_frame_turn": 0.334691792726517,
+			"max_grip_error": 0.00000786419968790142,
+			"max_relative_angle_error": 0.000000298023223876953,
+			"samples": [
+				{
+					"age": 0.00833333333333333,
+					"forearm_turn": 0.00186446157749742,
+					"grounded": false,
+					"shield_error": 0.0000000298023188349816
+				},
+				{
+					"age": 0.508333333333334,
+					"forearm_turn": 0.280229210853577,
+					"grounded": false,
+					"shield_error": 0.0000000596046376699633
+				},
+				{
+					"age": 1.00833333333333,
+					"forearm_turn": 1.16511940956116,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 1.50833333333333,
+					"forearm_turn": -1.44268000125885,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.00833333333333,
+					"forearm_turn": 3.1375675201416,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.50833333333333,
+					"forearm_turn": -2.93464493751526,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.69999999999999,
+					"forearm_turn": -2.92635464668274,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.69999999999999,
+					"forearm_turn": -2.92635464668274,
+					"grounded": true,
+					"shield_error": 0.0
+				}
+			],
+			"settled": true,
+			"zone": "head"
+		},
+		{
+			"facing": 1,
+			"guard": 0.43,
+			"max_frame_turn": 0.398972600698471,
+			"max_grip_error": 0.0000095367431640625,
+			"max_relative_angle_error": 0.000000298023223876953,
+			"samples": [
+				{
+					"age": 0.00833333333333333,
+					"forearm_turn": 0.00130966189317405,
+					"grounded": false,
+					"shield_error": 0.0000000298023188349816
+				},
+				{
+					"age": 0.508333333333334,
+					"forearm_turn": 2.62558436393738,
+					"grounded": false,
+					"shield_error": 0.0
+				},
+				{
+					"age": 1.00833333333333,
+					"forearm_turn": 1.27596139907837,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 1.50833333333333,
+					"forearm_turn": -1.51799917221069,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.00833333333333,
+					"forearm_turn": -1.28729009628296,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.50833333333333,
+					"forearm_turn": -1.37746441364288,
+					"grounded": true,
+					"shield_error": 0.000000104308128356934
+				},
+				{
+					"age": 2.69999999999999,
+					"forearm_turn": -1.40210437774658,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.69999999999999,
+					"forearm_turn": -1.40210437774658,
+					"grounded": true,
+					"shield_error": 0.0
+				}
+			],
+			"settled": true,
+			"zone": "head"
+		},
+		{
+			"facing": 1,
+			"guard": 1.0,
+			"max_frame_turn": 0.41984748840332,
+			"max_grip_error": 0.000024982808099594,
+			"max_relative_angle_error": 0.000000327825546264648,
+			"samples": [
+				{
+					"age": 0.00833333333333333,
+					"forearm_turn": 0.00400480628013611,
+					"grounded": false,
+					"shield_error": 0.000000119209289550781
+				},
+				{
+					"age": 0.508333333333334,
+					"forearm_turn": 1.31387412548065,
+					"grounded": false,
+					"shield_error": 0.0
+				},
+				{
+					"age": 1.00833333333333,
+					"forearm_turn": -3.10098552703857,
+					"grounded": true,
+					"shield_error": 0.000000268220901489258
+				},
+				{
+					"age": 1.50833333333333,
+					"forearm_turn": 1.02410268783569,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.00833333333333,
+					"forearm_turn": -0.00616941275075078,
+					"grounded": true,
+					"shield_error": 0.0000000894069600576586
+				},
+				{
+					"age": 2.50833333333333,
+					"forearm_turn": 0.0864104852080345,
+					"grounded": true,
+					"shield_error": 0.0000000298023223876953
+				},
+				{
+					"age": 2.79999999999999,
+					"forearm_turn": 0.0972538739442825,
+					"grounded": true,
+					"shield_error": 0.000000119209289550781
+				},
+				{
+					"age": 2.79999999999999,
+					"forearm_turn": 0.0972538739442825,
+					"grounded": true,
+					"shield_error": 0.000000119209289550781
+				}
+			],
+			"settled": true,
+			"zone": "head"
+		},
+		{
+			"facing": 1,
+			"guard": 0.0,
+			"max_frame_turn": 0.344904243946075,
+			"max_grip_error": 0.00000786419968790142,
+			"max_relative_angle_error": 0.000000268220929910967,
+			"samples": [
+				{
+					"age": 0.00833333333333333,
+					"forearm_turn": -0.0011750248959288,
+					"grounded": false,
+					"shield_error": 0.000000029802325940409
+				},
+				{
+					"age": 0.508333333333334,
+					"forearm_turn": 0.266475766897202,
+					"grounded": false,
+					"shield_error": 0.0000000894069671630859
+				},
+				{
+					"age": 1.00833333333333,
+					"forearm_turn": -1.90677618980408,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 1.50833333333333,
+					"forearm_turn": -3.02472543716431,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.00833333333333,
+					"forearm_turn": -2.92346692085266,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.39999999999999,
+					"forearm_turn": -2.92491030693054,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.39999999999999,
+					"forearm_turn": -2.92491030693054,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.39999999999999,
+					"forearm_turn": -2.92491030693054,
+					"grounded": true,
+					"shield_error": 0.0
+				}
+			],
+			"settled": true,
+			"zone": "body"
+		},
+		{
+			"facing": 1,
+			"guard": 0.43,
+			"max_frame_turn": 0.394977241754532,
+			"max_grip_error": 0.0000095367431640625,
+			"max_relative_angle_error": 0.000000327825546264648,
+			"samples": [
+				{
+					"age": 0.00833333333333333,
+					"forearm_turn": -0.00402835942804813,
+					"grounded": false,
+					"shield_error": 0.0
+				},
+				{
+					"age": 0.508333333333334,
+					"forearm_turn": 2.63666319847107,
+					"grounded": false,
+					"shield_error": 0.0
+				},
+				{
+					"age": 1.00833333333333,
+					"forearm_turn": -0.404221504926682,
+					"grounded": true,
+					"shield_error": 0.0000000894069671630859
+				},
+				{
+					"age": 1.50833333333333,
+					"forearm_turn": -1.58377528190613,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.00833333333333,
+					"forearm_turn": -1.39587736129761,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.50833333333333,
+					"forearm_turn": -1.39270174503326,
+					"grounded": true,
+					"shield_error": 0.000000119209289550781
+				},
+				{
+					"age": 2.59999999999999,
+					"forearm_turn": -1.37889206409454,
+					"grounded": true,
+					"shield_error": 0.000000119209275339927
+				},
+				{
+					"age": 2.59999999999999,
+					"forearm_turn": -1.37889206409454,
+					"grounded": true,
+					"shield_error": 0.000000119209275339927
+				}
+			],
+			"settled": true,
+			"zone": "body"
+		},
+		{
+			"facing": 1,
+			"guard": 1.0,
+			"max_frame_turn": 0.405330330133438,
+			"max_grip_error": 0.000024982808099594,
+			"max_relative_angle_error": 0.000000268220901489258,
+			"samples": [
+				{
+					"age": 0.00833333333333333,
+					"forearm_turn": 0.00531979976221919,
+					"grounded": false,
+					"shield_error": 0.0000000596046447753906
+				},
+				{
+					"age": 0.508333333333334,
+					"forearm_turn": 1.12645936012268,
+					"grounded": false,
+					"shield_error": 0.0000000894069671630859
+				},
+				{
+					"age": 1.00833333333333,
+					"forearm_turn": 1.62380087375641,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 1.50833333333333,
+					"forearm_turn": -0.00869528762996197,
+					"grounded": true,
+					"shield_error": 0.0000000596046447753906
+				},
+				{
+					"age": 2.00833333333333,
+					"forearm_turn": 0.113202355802059,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.39999999999999,
+					"forearm_turn": 0.087141789495945,
+					"grounded": true,
+					"shield_error": 0.0000000298023188349816
+				},
+				{
+					"age": 2.39999999999999,
+					"forearm_turn": 0.087141789495945,
+					"grounded": true,
+					"shield_error": 0.0000000298023188349816
+				},
+				{
+					"age": 2.39999999999999,
+					"forearm_turn": 0.087141789495945,
+					"grounded": true,
+					"shield_error": 0.0000000298023188349816
+				}
+			],
+			"settled": true,
+			"zone": "body"
+		},
+		{
+			"facing": 1,
+			"guard": 0.0,
+			"max_frame_turn": 0.323007017374039,
+			"max_grip_error": 0.0000152587890625,
+			"max_relative_angle_error": 0.000000283122062683105,
+			"samples": [
+				{
+					"age": 0.00833333333333333,
+					"forearm_turn": -0.000986094353720546,
+					"grounded": false,
+					"shield_error": 0.0
+				},
+				{
+					"age": 0.508333333333334,
+					"forearm_turn": 0.220778837800026,
+					"grounded": false,
+					"shield_error": 0.0000000745058059692383
+				},
+				{
+					"age": 1.00833333333333,
+					"forearm_turn": -2.61003088951111,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 1.50833333333333,
+					"forearm_turn": -3.0525233745575,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.00833333333333,
+					"forearm_turn": -2.99673390388489,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.50833333333333,
+					"forearm_turn": -2.93626236915588,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 3.00833333333333,
+					"forearm_turn": -2.9289402961731,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 3.50833333333332,
+					"forearm_turn": -2.90954756736755,
+					"grounded": true,
+					"shield_error": 0.0
+				}
+			],
+			"settled": false,
+			"zone": "flank"
+		},
+		{
+			"facing": 1,
+			"guard": 0.43,
+			"max_frame_turn": 0.278598308563232,
+			"max_grip_error": 0.0000095367431640625,
+			"max_relative_angle_error": 0.000000298023223876953,
+			"samples": [
+				{
+					"age": 0.00833333333333333,
+					"forearm_turn": -0.00304579990915954,
+					"grounded": false,
+					"shield_error": 0.0
+				},
+				{
+					"age": 0.508333333333334,
+					"forearm_turn": 2.55475306510925,
+					"grounded": false,
+					"shield_error": 0.0
+				},
+				{
+					"age": 1.00833333333333,
+					"forearm_turn": 0.322892487049103,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 1.50833333333333,
+					"forearm_turn": -0.201554030179977,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.00833333333333,
+					"forearm_turn": -0.984635412693024,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.50833333333333,
+					"forearm_turn": -0.658022701740265,
+					"grounded": true,
+					"shield_error": 0.000000149011611938477
+				},
+				{
+					"age": 2.59999999999999,
+					"forearm_turn": -0.707017481327057,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.59999999999999,
+					"forearm_turn": -0.707017481327057,
+					"grounded": true,
+					"shield_error": 0.0
+				}
+			],
+			"settled": true,
+			"zone": "flank"
+		},
+		{
+			"facing": 1,
+			"guard": 1.0,
+			"max_frame_turn": 0.400566667318344,
+			"max_grip_error": 0.000024982808099594,
+			"max_relative_angle_error": 0.000000327825546264648,
+			"samples": [
+				{
+					"age": 0.00833333333333333,
+					"forearm_turn": 0.00403776345774531,
+					"grounded": false,
+					"shield_error": 0.000000119209289550781
+				},
+				{
+					"age": 0.508333333333334,
+					"forearm_turn": 1.12478148937225,
+					"grounded": false,
+					"shield_error": 0.0
+				},
+				{
+					"age": 1.00833333333333,
+					"forearm_turn": 3.08732414245605,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 1.50833333333333,
+					"forearm_turn": -2.89778852462769,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.00833333333333,
+					"forearm_turn": -3.0166335105896,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.50833333333333,
+					"forearm_turn": -3.1389594078064,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 3.00833333333333,
+					"forearm_turn": -2.66856217384338,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 3.19999999999999,
+					"forearm_turn": -2.67226409912109,
+					"grounded": true,
+					"shield_error": 0.0
+				}
+			],
+			"settled": true,
+			"zone": "flank"
+		},
+		{
+			"facing": -1,
+			"guard": 0.0,
+			"max_frame_turn": 0.191240072250366,
+			"max_grip_error": 0.00000786419968790142,
+			"max_relative_angle_error": 0.000000268220901489258,
+			"samples": [
+				{
+					"age": 0.00833333333333333,
+					"forearm_turn": 0.00116594193968922,
+					"grounded": false,
+					"shield_error": 0.000000119209275339927
+				},
+				{
+					"age": 0.508333333333334,
+					"forearm_turn": -0.178685784339905,
+					"grounded": false,
+					"shield_error": 0.000000119209289550781
+				},
+				{
+					"age": 1.00833333333333,
+					"forearm_turn": -0.623850107192993,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 1.50833333333333,
+					"forearm_turn": -1.04303097724915,
+					"grounded": true,
+					"shield_error": 0.000000178813962747881
+				},
+				{
+					"age": 2.00833333333333,
+					"forearm_turn": -0.70116400718689,
+					"grounded": true,
+					"shield_error": 0.000000208616256713867
+				},
+				{
+					"age": 2.49999999999999,
+					"forearm_turn": -0.738468527793884,
+					"grounded": true,
+					"shield_error": 0.0000000894069600576586
+				},
+				{
+					"age": 2.49999999999999,
+					"forearm_turn": -0.738468527793884,
+					"grounded": true,
+					"shield_error": 0.0000000894069600576586
+				},
+				{
+					"age": 2.49999999999999,
+					"forearm_turn": -0.738468527793884,
+					"grounded": true,
+					"shield_error": 0.0000000894069600576586
+				}
+			],
+			"settled": true,
+			"zone": "head"
+		},
+		{
+			"facing": -1,
+			"guard": 0.43,
+			"max_frame_turn": 0.264871329069138,
+			"max_grip_error": 0.0000095367431640625,
+			"max_relative_angle_error": 0.000000298023223876953,
+			"samples": [
+				{
+					"age": 0.00833333333333333,
+					"forearm_turn": 0.0018450744682923,
+					"grounded": false,
+					"shield_error": 0.0000000596046447753906
+				},
+				{
+					"age": 0.508333333333334,
+					"forearm_turn": -1.02583587169647,
+					"grounded": false,
+					"shield_error": 0.0
+				},
+				{
+					"age": 1.00833333333333,
+					"forearm_turn": -1.16285109519959,
+					"grounded": true,
+					"shield_error": 0.000000149011597727622
+				},
+				{
+					"age": 1.50833333333333,
+					"forearm_turn": -1.32718288898468,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.00833333333333,
+					"forearm_turn": -1.52772521972656,
+					"grounded": true,
+					"shield_error": 0.000000119209275339927
+				},
+				{
+					"age": 2.49999999999999,
+					"forearm_turn": -1.52773451805115,
+					"grounded": true,
+					"shield_error": 0.000000149011611938477
+				},
+				{
+					"age": 2.49999999999999,
+					"forearm_turn": -1.52773451805115,
+					"grounded": true,
+					"shield_error": 0.000000149011611938477
+				},
+				{
+					"age": 2.49999999999999,
+					"forearm_turn": -1.52773451805115,
+					"grounded": true,
+					"shield_error": 0.000000149011611938477
+				}
+			],
+			"settled": true,
+			"zone": "head"
+		},
+		{
+			"facing": -1,
+			"guard": 1.0,
+			"max_frame_turn": 0.329503118991852,
+			"max_grip_error": 0.000024982808099594,
+			"max_relative_angle_error": 0.000000327825546264648,
+			"samples": [
+				{
+					"age": 0.00833333333333333,
+					"forearm_turn": -0.00215478125028312,
+					"grounded": false,
+					"shield_error": 0.0000000596046447753906
+				},
+				{
+					"age": 0.508333333333334,
+					"forearm_turn": -0.408545225858688,
+					"grounded": false,
+					"shield_error": 0.0000000903382897377014
+				},
+				{
+					"age": 1.00833333333333,
+					"forearm_turn": -1.98488283157349,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 1.50833333333333,
+					"forearm_turn": -2.14388465881348,
+					"grounded": true,
+					"shield_error": 0.000000208616270924722
+				},
+				{
+					"age": 2.00833333333333,
+					"forearm_turn": -2.44148564338684,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.50833333333333,
+					"forearm_turn": -2.58548951148987,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 3.00833333333333,
+					"forearm_turn": -2.51891732215881,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 3.50833333333332,
+					"forearm_turn": -1.73513567447662,
+					"grounded": true,
+					"shield_error": 0.000000134110450744629
+				}
+			],
+			"settled": false,
+			"zone": "head"
+		},
+		{
+			"facing": -1,
+			"guard": 0.0,
+			"max_frame_turn": 0.263816386461258,
+			"max_grip_error": 0.00000786419968790142,
+			"max_relative_angle_error": 0.000000327825517842939,
+			"samples": [
+				{
+					"age": 0.00833333333333333,
+					"forearm_turn": 0.00290365959517658,
+					"grounded": false,
+					"shield_error": 0.000000178813934326172
+				},
+				{
+					"age": 0.508333333333334,
+					"forearm_turn": -0.0701560899615288,
+					"grounded": false,
+					"shield_error": 0.000000029802325940409
+				},
+				{
+					"age": 1.00833333333333,
+					"forearm_turn": 0.294919490814209,
+					"grounded": true,
+					"shield_error": 0.000000208616256713867
+				},
+				{
+					"age": 1.50833333333333,
+					"forearm_turn": -0.833698868751526,
+					"grounded": true,
+					"shield_error": 0.0000000894069600576586
+				},
+				{
+					"age": 2.00833333333333,
+					"forearm_turn": -0.756842613220215,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.49999999999999,
+					"forearm_turn": -0.738395690917969,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.49999999999999,
+					"forearm_turn": -0.738395690917969,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.49999999999999,
+					"forearm_turn": -0.738395690917969,
+					"grounded": true,
+					"shield_error": 0.0
+				}
+			],
+			"settled": true,
+			"zone": "body"
+		},
+		{
+			"facing": -1,
+			"guard": 0.43,
+			"max_frame_turn": 0.284175187349319,
+			"max_grip_error": 0.0000152587890625,
+			"max_relative_angle_error": 0.000000298023223876953,
+			"samples": [
+				{
+					"age": 0.00833333333333333,
+					"forearm_turn": 0.00371824996545911,
+					"grounded": false,
+					"shield_error": 0.000000149011597727622
+				},
+				{
+					"age": 0.508333333333334,
+					"forearm_turn": -0.99122154712677,
+					"grounded": false,
+					"shield_error": 0.000000208616256713867
+				},
+				{
+					"age": 1.00833333333333,
+					"forearm_turn": -0.0898713767528534,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 1.50833333333333,
+					"forearm_turn": 1.28971791267395,
+					"grounded": true,
+					"shield_error": 0.0000000894069671630859
+				},
+				{
+					"age": 2.00833333333333,
+					"forearm_turn": 1.32214415073395,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.39999999999999,
+					"forearm_turn": 1.3169116973877,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.39999999999999,
+					"forearm_turn": 1.3169116973877,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.39999999999999,
+					"forearm_turn": 1.3169116973877,
+					"grounded": true,
+					"shield_error": 0.0
+				}
+			],
+			"settled": true,
+			"zone": "body"
+		},
+		{
+			"facing": -1,
+			"guard": 1.0,
+			"max_frame_turn": 0.270108133554459,
+			"max_grip_error": 0.000024982808099594,
+			"max_relative_angle_error": 0.000000298023195455244,
+			"samples": [
+				{
+					"age": 0.00833333333333333,
+					"forearm_turn": -0.00322034861892462,
+					"grounded": false,
+					"shield_error": 0.0000000298023188349816
+				},
+				{
+					"age": 0.508333333333334,
+					"forearm_turn": -0.344946563243866,
+					"grounded": false,
+					"shield_error": 0.0000000894069671630859
+				},
+				{
+					"age": 1.00833333333333,
+					"forearm_turn": 0.243586763739586,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 1.50833333333333,
+					"forearm_turn": 0.43162739276886,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.00833333333333,
+					"forearm_turn": 0.454845249652863,
+					"grounded": true,
+					"shield_error": 0.0000000298023188349816
+				},
+				{
+					"age": 2.50833333333333,
+					"forearm_turn": 0.667279541492462,
+					"grounded": true,
+					"shield_error": 0.0000000596046376699633
+				},
+				{
+					"age": 3.00833333333333,
+					"forearm_turn": 0.707597672939301,
+					"grounded": true,
+					"shield_error": 0.0000000894069600576586
+				},
+				{
+					"age": 3.09999999999999,
+					"forearm_turn": 0.710550129413605,
+					"grounded": true,
+					"shield_error": 0.000000119209275339927
+				}
+			],
+			"settled": true,
+			"zone": "body"
+		},
+		{
+			"facing": -1,
+			"guard": 0.0,
+			"max_frame_turn": 0.293107479810715,
+			"max_grip_error": 0.0000107895930341328,
+			"max_relative_angle_error": 0.000000312924385070801,
+			"samples": [
+				{
+					"age": 0.00833333333333333,
+					"forearm_turn": 0.00225319713354111,
+					"grounded": false,
+					"shield_error": 0.000000178813934326172
+				},
+				{
+					"age": 0.508333333333334,
+					"forearm_turn": -0.0500616282224655,
+					"grounded": true,
+					"shield_error": 0.000000119209289550781
+				},
+				{
+					"age": 1.00833333333333,
+					"forearm_turn": 1.03791773319244,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 1.50833333333333,
+					"forearm_turn": 2.30444765090942,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.00833333333333,
+					"forearm_turn": 2.04820847511292,
+					"grounded": true,
+					"shield_error": 0.000000208616256713867
+				},
+				{
+					"age": 2.49999999999999,
+					"forearm_turn": 2.25184273719788,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.49999999999999,
+					"forearm_turn": 2.25184273719788,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.49999999999999,
+					"forearm_turn": 2.25184273719788,
+					"grounded": true,
+					"shield_error": 0.0
+				}
+			],
+			"settled": true,
+			"zone": "flank"
+		},
+		{
+			"facing": -1,
+			"guard": 0.43,
+			"max_frame_turn": 0.258690237998962,
+			"max_grip_error": 0.0000152587890625,
+			"max_relative_angle_error": 0.000000298023223876953,
+			"samples": [
+				{
+					"age": 0.00833333333333333,
+					"forearm_turn": 0.00287713739089668,
+					"grounded": false,
+					"shield_error": 0.000000149011611938477
+				},
+				{
+					"age": 0.508333333333334,
+					"forearm_turn": -0.975430607795715,
+					"grounded": false,
+					"shield_error": 0.0000000596046376699633
+				},
+				{
+					"age": 1.00833333333333,
+					"forearm_turn": 0.349874377250671,
+					"grounded": true,
+					"shield_error": 0.000000029802325940409
+				},
+				{
+					"age": 1.50833333333333,
+					"forearm_turn": 1.03363025188446,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.00833333333333,
+					"forearm_turn": 1.32215774059296,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.49999999999999,
+					"forearm_turn": 1.31961071491241,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.49999999999999,
+					"forearm_turn": 1.31961071491241,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.49999999999999,
+					"forearm_turn": 1.31961071491241,
+					"grounded": true,
+					"shield_error": 0.0
+				}
+			],
+			"settled": true,
+			"zone": "flank"
+		},
+		{
+			"facing": -1,
+			"guard": 1.0,
+			"max_frame_turn": 0.2568678855896,
+			"max_grip_error": 0.000024982808099594,
+			"max_relative_angle_error": 0.00000025331974029541,
+			"samples": [
+				{
+					"age": 0.00833333333333333,
+					"forearm_turn": -0.00244426657445729,
+					"grounded": false,
+					"shield_error": 0.0
+				},
+				{
+					"age": 0.508333333333334,
+					"forearm_turn": -0.333302885293961,
+					"grounded": false,
+					"shield_error": 0.0000000298023188349816
+				},
+				{
+					"age": 1.00833333333333,
+					"forearm_turn": 0.403317332267761,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 1.50833333333333,
+					"forearm_turn": -0.112612687051296,
+					"grounded": true,
+					"shield_error": 0.000000029802325940409
+				},
+				{
+					"age": 2.00833333333333,
+					"forearm_turn": 1.59094834327698,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.50833333333333,
+					"forearm_turn": 0.600704610347748,
+					"grounded": true,
+					"shield_error": 0.0000000596046376699633
+				},
+				{
+					"age": 2.99999999999999,
+					"forearm_turn": 0.712080001831055,
+					"grounded": true,
+					"shield_error": 0.0
+				},
+				{
+					"age": 2.99999999999999,
+					"forearm_turn": 0.712080001831055,
+					"grounded": true,
+					"shield_error": 0.0
+				}
+			],
+			"settled": true,
+			"zone": "flank"
+		}
+	],
+	"scope": "18 real articulated falls, anatomical forearm/strapped shield orientation, handle continuity and finite turn. No mounted collision or human quality claim."
+}

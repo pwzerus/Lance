@@ -5,6 +5,10 @@ signal hoof_contact(leg_index: int)
 signal armor_motion(strength: float)
 
 const ATLAS = preload("res://assets/art/pixel_v03/rider_atlas.png")
+# Alpha>=16/255 convex outline of the unchanged boot crop. Using atlas
+# points keeps the floor envelope aligned with the anisotropically skinned
+# boot, including its long toe; no per-frame image reads or new textures.
+const BOOT_OUTLINE113 = [Vector2(744,736),Vector2(868,736),Vector2(873,900),Vector2(873,926),Vector2(872,928),Vector2(870,930),Vector2(798,930),Vector2(761,918),Vector2(749,912),Vector2(744,813)]
 const WindowActivity = preload("res://scripts/core/window_activity.gd")
 const Model = preload("res://scripts/core/joust_match.gd")
 const Art = preload("res://scripts/visual/equipment_art.gd")
@@ -662,18 +666,27 @@ func _draw_leg_ornament(pose: Dictionary, tint: Color) -> void:
 				draw_line(center+along*5,center-along*4+across*4*sign_value,trim,1.5,false)
 
 func _draw_rider_leg_patch(region: Rect2, source_a: Vector2, source_b: Vector2, a: Vector2, b: Vector2, thickness: float, tint: Color) -> void:
+	var points = PackedVector2Array()
+	var uv = PackedVector2Array()
+	for corner in [region.position,Vector2(region.end.x,region.position.y),region.end,Vector2(region.position.x,region.end.y)]:
+		points.append(leg_patch_point113(corner,source_a,source_b,a,b,thickness))
+		uv.append(corner/ATLAS.get_size())
+	draw_polygon(points,PackedColorArray([tint]),uv,ATLAS)
+
+static func leg_patch_point113(point: Vector2, source_a: Vector2, source_b: Vector2, a: Vector2, b: Vector2, thickness: float) -> Vector2:
 	var source_axis = (source_b-source_a).normalized()
 	var source_side = Vector2(-source_axis.y,source_axis.x)
 	var axis = (b-a).normalized()
 	var side = Vector2(-axis.y,axis.x)
 	var longitudinal = a.distance_to(b)/source_a.distance_to(source_b)
+	var relative=point-source_a
+	return a+axis*relative.dot(source_axis)*longitudinal+side*relative.dot(source_side)*thickness
+
+static func boot_outline113(pose: Dictionary) -> PackedVector2Array:
 	var points = PackedVector2Array()
-	var uv = PackedVector2Array()
-	for corner in [region.position,Vector2(region.end.x,region.position.y),region.end,Vector2(region.position.x,region.end.y)]:
-		var relative: Vector2 = corner-source_a
-		points.append(a+axis*relative.dot(source_axis)*longitudinal+side*relative.dot(source_side)*thickness)
-		uv.append(corner/ATLAS.get_size())
-	draw_polygon(points,PackedColorArray([tint]),uv,ATLAS)
+	for point in BOOT_OUTLINE113:
+		points.append(leg_patch_point113(point,Vector2(823,748),Vector2(804,862),pose.knee,pose.ankle,.29))
+	return points
 
 static func arm_pose(value: Dictionary) -> Dictionary:
 	var facing = int(value.direction)

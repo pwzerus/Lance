@@ -14,6 +14,7 @@ const PATHS = [
 	"res://tests/test_shield_visual113.gd",
 	"res://tests/test_campaign113.gd",
 	"res://tests/test_articulation113.gd",
+	"res://tests/test_boot113.gd",
 	"res://tests/test_injury113.gd",
 	"res://tests/test_filters110.gd",
 	"res://tests/test_text110.gd",

@@ -217,13 +217,13 @@ func _ground_targets(targets: Dictionary, blend: float) -> void:
 	var mirror = Vector2(int(fighter.direction),1)
 	for side in ["near","far"]:
 		var leg: Dictionary = initial_legs[side]
-		var foot_turn = float(joints[side+"_hip"].angle)+float(joints[side+"_knee"].angle)
-		var foot_below_ankle = ((leg.foot-leg.ankle).rotated(foot_turn)*mirror).rotated(rotation).y
-		# On a forward fall the boot points DOWN from its ankle. Account for
-		# that live orientation, or a 19-unit ankle margin still leaves the
-		# sole supporting the torso sixteen units above the floor.
-		var clearance = maxf(19.0,foot_below_ankle+17.0)
-		var solution = _ground_chain(leg.hip*mirror,(leg.knee-leg.hip)*mirror,(leg.ankle-leg.knee)*mirror,side+"_hip",side+"_knee",float(fighter.direction),level,-roll_direction,clearance)
+		var support_offsets=PackedVector2Array()
+		for point in Rider.boot_outline113(leg):
+			support_offsets.append(((point-Vector2(leg.ankle))*mirror).rotated(rotation))
+		# Solve the future boot corner with the knee, just like the strapped
+		# shield. Reusing last frame's ankle clearance made the leg chase a
+		# moving margin and delayed rest in extreme forward-lean captures.
+		var solution = _ground_chain(leg.hip*mirror,(leg.knee-leg.hip)*mirror,(leg.ankle-leg.knee)*mirror,side+"_hip",side+"_knee",float(fighter.direction),level,-roll_direction,8.0,false,support_offsets)
 		targets[side+"_hip"] = lerpf(float(targets[side+"_hip"]),solution.x,blend)
 		targets[side+"_knee"] = lerpf(float(targets[side+"_knee"]),solution.y,blend)
 	for side in ["left","right"]:
@@ -259,7 +259,7 @@ func _ground_chain(origin: Vector2, upper: Vector2, lower: Vector2, upper_key: S
 		if arm_support:
 			var present = u.rotated(float(upper_joint.angle)*angle_sign)+distal.rotated((float(upper_joint.angle)+float(lower_joint.angle))*angle_sign)
 			offsets.append_array([-along*length*.40,-along*length*.70,present.x,0.0])
-		var contact_margin = margin if support_offsets.is_empty() else (13.0 if endpoint==Vector2.ZERO else 7.0)
+		var contact_margin = margin if support_offsets.is_empty() or endpoint==Vector2.ZERO else 7.0
 		for candidate in range(offsets.size()):
 			var target = Vector2(start.x+float(offsets[candidate]),level-contact_margin)
 			var ray = target-start
@@ -274,7 +274,7 @@ func _ground_chain(origin: Vector2, upper: Vector2, lower: Vector2, upper_key: S
 				var turn = (first+second)*angle_sign
 				var end = elbow+v.rotated(turn)
 				var contact_end = elbow+distal.rotated(turn)
-				var candidate_margin = margin if support_offsets.is_empty() else 13.0
+				var candidate_margin = margin
 				var down = Vector2(sin(turn),cos(turn))
 				for point in support_offsets:
 					candidate_margin = maxf(candidate_margin,point.dot(down)+7.0)
@@ -326,8 +326,8 @@ func _contact_groups113() -> Array:
 	var first = 14+shield_count
 	for side in ["near","far"]:
 		spans.append([side+"_thigh",first,8])
-		spans.append([side+"_shin",first+8,8])
-		first += 16
+		spans.append([side+"_shin",first+8,Rider.BOOT_OUTLINE113.size()])
+		first += 8+Rider.BOOT_OUTLINE113.size()
 	var result = []
 	for span in spans:
 		var point = Vector2.ZERO
@@ -589,12 +589,13 @@ func body_points() -> PackedVector2Array:
 	for point in shield_contact_outline113:
 		points.append(shield_frame*point)
 	for side in ["near","far"]:
-		for joint in ["hip","knee","ankle","foot"]:
+		for joint in ["hip","knee"]:
 			var point: Vector2 = visual.detached_legs[side][joint]*mirror
-			var radius = 12.0 if joint=="foot" else 8.0
-			# Include the boot/calf silhouette, not only a zero-width skeleton.
+			var radius = 8.0
 			for offset in [Vector2(radius,0),Vector2(-radius,0),Vector2(0,radius),Vector2(0,-radius)]:
 				points.append(point+offset)
+		for point in Rider.boot_outline113(visual.detached_legs[side]):
+			points.append(point*mirror)
 	pose_points099=points
 	return points
 

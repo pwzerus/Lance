@@ -1,0 +1,12 @@
+{
+  "bundle": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.60-c2",
+  "source_revision": "dd497ab2789d14750cd5ed9f4a6a574d20cd5f85",
+  "manifest_sha256": "42CBA573463D77D6A9B1F2750CAF1379EF677144738CD1A7F400A3C884A617A2",
+  "pck_sha256": "457EAB2B5641BF10FD62FC18BA2983A3354EDC7B8739B1157C6FC6686A2E7E4B",
+  "pck_bytes": 38322132,
+  "archive": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.4.60-c2-Windows.zip",
+  "archive_bytes": 71305138,
+  "archive_sha256": "5CCB0DA1E905A7E984ECDDF1A804607C78A00D60543BA122C9D93F742AB5CE29",
+  "relocation": "E:/GALUMU/builds/DEV113 0.4.60-c2 中文 空格验包/LanceAndLaurel-v0.4.60-c2",
+  "crc_and_manifest_relocation": "Passed by dev113-package.py; guarded outer launch still pending."
+}

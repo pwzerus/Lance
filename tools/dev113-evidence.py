@@ -55,7 +55,7 @@ for folder in sorted(folders):
 evidence = {'task': 'DEV-113', 'source_head_at_summary': (root / '.git/refs/heads/codex/v0.4').read_text().strip(),
             'scope': 'Preserved runs include failed and superseded fixtures. Interpret with DEV113_REVIEW.md; GPU is isolated, input is engine-injected, no OS input or human approval.',
             'runs': runs}
-bundle = root / 'builds/LanceAndLaurel-v0.4.60-c2'
+bundle = root / 'builds/LanceAndLaurel-v0.4.60-c3'
 manifest = bundle / 'build-manifest.json'
 if manifest.exists():
     evidence['bundle_manifest'] = json.loads(manifest.read_text(encoding='utf-8-sig'))

@@ -1,4 +1,4 @@
-param([Parameter(Mandatory=$true)][string]$Name,[Parameter(Mandatory=$true)][string]$Script,[ValidateSet('gpu','parse','rules')][string]$Budget='gpu',[ValidateSet('source','bundle')][string]$Target='source',[string]$Bundle='E:/GALUMU/builds/LanceAndLaurel-v0.4.60-c2',[string]$Extra='',[switch]$VerboseEngine)
+param([Parameter(Mandatory=$true)][string]$Name,[Parameter(Mandatory=$true)][string]$Script,[ValidateSet('gpu','parse','rules')][string]$Budget='gpu',[ValidateSet('source','bundle')][string]$Target='source',[string]$Bundle='E:/GALUMU/builds/LanceAndLaurel-v0.4.60-c3',[string]$Extra='',[switch]$VerboseEngine)
 $ErrorActionPreference='Stop'
 if($Name -notmatch '^dev113-[a-z0-9-]+$'){throw 'Use a new DEV113 evidence name'}
 $project='E:/GALUMU';$run=Join-Path $project ('docs/development/logs/'+$Name)

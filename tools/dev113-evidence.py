@@ -41,13 +41,20 @@ for folder in sorted(folders):
         row['target'] = {k: target.get(k) for k in ['target', 'source_revision', 'pck_sha256', 'external_test', 'budget', 'extra']}
         row['target_sha256'] = sha(target_path)
     row['expected_errors'] = []
+    row['expected_warnings'] = []
     if str(row.get('target', {}).get('external_test', '')).endswith('test_save_ui087.gd'):
-        expected = "ERROR: Failed to open '" + folder.as_posix() + "/screens/blocked_backup'."
-        if row['errors'].count(expected) == 2:
-            row['expected_errors'] = [expected, expected]
+        for directory in (str(folder), folder.as_posix()):
+            expected = "ERROR: Failed to open '" + directory + "/screens/blocked_backup'."
+            if row['errors'].count(expected) == 2:
+                row['expected_errors'] = [expected, expected]
+                warning = "WARNING: SAVE_IO: 无法备份原进度 [12: Can't open file]"
+                if row['warnings'].count(warning) == 2:
+                    row['expected_warnings'] = [warning, warning]
+                break
     # Keep the raw error list; classify only the exact two deliberate backup
     # faults already asserted by the runner. Never suppress arbitrary errors.
     row['unexpected_errors'] = [s for s in row['errors'] if s not in row['expected_errors']]
+    row['unexpected_warnings'] = [s for s in row['warnings'] if s not in row['expected_warnings']]
     for path in sorted(folder.rglob('report.json')):
         report = json.loads(path.read_text(encoding='utf-8-sig'))
         result = {'path': path.relative_to(root).as_posix(), 'sha256': sha(path)}

@@ -1,0 +1,89 @@
+{
+  "scope": "Existing engine-generated UID sidecars, generated before c4 export; recorded now without editing or regenerating. Runtime source and exported PCK unchanged.",
+  "rows": [
+    {
+      "path": "game/scripts/core/horse_surface.gd.uid",
+      "uid": "uid://qssif5feiu2m",
+      "sha256": "52D64521B82E4231F3CB9BBB5D4E5FFACB569FE22ACDEBEBCC29AD001D243CB3",
+      "modified_utc": "2026-11-24T01:34:40.211906+00:00"
+    },
+    {
+      "path": "game/scripts/core/rider_condition.gd.uid",
+      "uid": "uid://djfq1qy651r35",
+      "sha256": "5AF898910E2703FA88C757DF5134F9BE27568BC26BA5D9D570E805236D4CF87C",
+      "modified_utc": "2026-11-24T01:34:40.240236+00:00"
+    },
+    {
+      "path": "game/tests/test_articulation113.gd.uid",
+      "uid": "uid://ceyt2snqo3yy3",
+      "sha256": "2C59D7A1C373C37E4CB0569489544D12657E8DF45CF4C84301047E39B0B83BEA",
+      "modified_utc": "2026-11-24T01:34:40.413145+00:00"
+    },
+    {
+      "path": "game/tests/test_boot113.gd.uid",
+      "uid": "uid://cy06pp5e1x8f6",
+      "sha256": "DEA050260E4E0E2213A80A9FFF5162B1C85787DD5EC49662B8BE682924BE2606",
+      "modified_utc": "2026-11-24T02:00:55.005689+00:00"
+    },
+    {
+      "path": "game/tests/test_campaign113.gd.uid",
+      "uid": "uid://c6aj8eott27oo",
+      "sha256": "83DA32A2B989C5C479A5D59F2EE5FDE61E91BA4E1527B25533481A6423EA65ED",
+      "modified_utc": "2026-11-24T01:34:40.430158+00:00"
+    },
+    {
+      "path": "game/tests/test_condition113.gd.uid",
+      "uid": "uid://nb05yrg3mrtt",
+      "sha256": "116CE3E1EDDE7C56A35B7AEB34FA9C318705AA73551BB58F4A8ACDA9497C75AA",
+      "modified_utc": "2026-11-24T01:34:40.442240+00:00"
+    },
+    {
+      "path": "game/tests/test_hud113.gd.uid",
+      "uid": "uid://b0o5lyct3uia7",
+      "sha256": "2D11D2FF8038A5817C7968A2BC382D9EABDA3DBA5D3A70DB0D7ADBA225BE0961",
+      "modified_utc": "2026-11-24T01:34:40.541691+00:00"
+    },
+    {
+      "path": "game/tests/test_incapacity113.gd.uid",
+      "uid": "uid://d0rffcny103gw",
+      "sha256": "A7B33FB3B4FF06737278BA0185D409189593FBB3B60BEDDA8BF0591768082DCF",
+      "modified_utc": "2026-11-24T01:34:40.575633+00:00"
+    },
+    {
+      "path": "game/tests/test_injury113.gd.uid",
+      "uid": "uid://bhwxfoxtnvecj",
+      "sha256": "ADDAC103AF8A297C153A8282B346F5273F74B3BF0B9E5F7A8D4F2868F093461C",
+      "modified_utc": "2026-11-24T01:34:40.578959+00:00"
+    },
+    {
+      "path": "game/tests/test_journey113.gd.uid",
+      "uid": "uid://bx5c6ln3tkeq4",
+      "sha256": "2CC4CC190AB02B989EF66CC0F3249A8AF0FE9EDA26FD100F6D870B9CC393C31C",
+      "modified_utc": "2026-11-24T01:34:40.597525+00:00"
+    },
+    {
+      "path": "game/tests/test_shield113.gd.uid",
+      "uid": "uid://87i3nr73eqen",
+      "sha256": "95072FC1878B8D59111ECA121899C1446D4877BC98F198CFC79915AF96A9C172",
+      "modified_utc": "2026-11-24T01:34:40.678397+00:00"
+    },
+    {
+      "path": "game/tests/test_shield_visual113.gd.uid",
+      "uid": "uid://ceu88inkjjbch",
+      "sha256": "0CF5CB5B989A32C15FC4E2D9605729CB8AD2A3CE34BAC5EF13EF227B8C8FC65C",
+      "modified_utc": "2026-11-24T01:34:40.686878+00:00"
+    },
+    {
+      "path": "game/tests/test_slump113.gd.uid",
+      "uid": "uid://s5v6lvol7rhm",
+      "sha256": "447B050B63D6C0EE7077349B68D072C863372896F71D21C49505CD6EDA598E7E",
+      "modified_utc": "2026-11-24T01:34:40.699017+00:00"
+    },
+    {
+      "path": "game/tests/test_terminal113.gd.uid",
+      "uid": "uid://kmgknqa3k5ni",
+      "sha256": "7006174ECC62732401FB8CB0677A0B1C2DDFD1A94936290D3C0E94AD1671A2F6",
+      "modified_utc": "2026-11-24T01:34:40.720388+00:00"
+    }
+  ]
+}

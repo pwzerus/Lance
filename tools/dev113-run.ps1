@@ -2,6 +2,7 @@ param([Parameter(Mandatory=$true)][string]$Name,[Parameter(Mandatory=$true)][str
 $ErrorActionPreference='Stop'
 if($Name -notmatch '^dev113-[a-z0-9-]+$'){throw 'Use a new DEV113 evidence name'}
 $project='E:/GALUMU';$run=Join-Path $project ('docs/development/logs/'+$Name)
+if(Test-Path -LiteralPath ($run+'.stop-before')){throw "Requested safe batch boundary before $Name; no engine launched."}
 if(Test-Path -LiteralPath $run){throw "Preserve existing evidence: $run"}
 New-Item -ItemType Directory -Path $run | Out-Null
 $part=if($Budget -eq 'gpu'){'screens'}else{'evidence'}

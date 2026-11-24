@@ -5,6 +5,7 @@ const PATHS = [
 	"res://scripts/core/rider_condition.gd",
 	"res://scripts/core/horse_surface.gd",
 	"res://tests/test_condition113.gd",
+	"res://tests/test_simultaneous113.gd",
 	"res://tests/test_slump113.gd",
 	"res://tests/test_incapacity113.gd",
 	"res://tests/test_terminal113.gd",

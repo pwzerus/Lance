@@ -1,0 +1,11 @@
+{
+  "baseline_candidate": "0.4.60-c4",
+  "baseline_passed": false,
+  "baseline_failures": 105,
+  "baseline_max_order_difference": 15.7055231201718,
+  "fixed_passed": true,
+  "fixed_failures": 0,
+  "fixed_max_order_difference": 0.0,
+  "cases": 48,
+  "scope": "Controlled raw candidates in production Model.step; forward/reverse enumeration, isolated strike comparison and pre-existing injuries. No natural-sweep, GPU or player-feel claim."
+}

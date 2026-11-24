@@ -585,6 +585,11 @@ func step(delta: float) -> void:
 			var contact = _detect_contact(i, delta)
 			if not contact.is_empty():
 				contacts.append(contact)
+	# Both strikes were already committed before this batch landed. Newly
+	# received injury cannot retroactively weaken the second enumerated hit.
+	# Existing injuries still affect strength; later physics steps recapture it.
+	for contact in contacts:
+		contact["attacker_strength113"] = RiderCondition.strength_factor(fighters[int(contact.attacker)])
 	for contact in contacts:
 		_apply_contact(contact)
 	for fighter in fighters:
@@ -695,7 +700,7 @@ func _apply_contact(contact: Dictionary) -> void:
 	var support = lerpf(.38,1.0,float(attacker.get("lance_stability",1.0)))
 	var power = float(attacker.stats.get("power",1.0))*(.66 if attacker.broken else 1.0)*(1.0+maxf(float(attacker.lean),0)*.08-maxf(-float(attacker.lean),0)*.28)*support
 	power *= Condition.drive(float(attacker.speed),GALLOP_SPEED)
-	power *= RiderCondition.strength_factor(attacker)
+	power *= float(contact.get("attacker_strength113",RiderCondition.strength_factor(attacker)))
 	contact["drive"] = Condition.drive(float(attacker.speed),GALLOP_SPEED)
 	var alignment = clampf(float(contact.get("shaft_alignment",cos(float(attacker.aim)))), 0.4, 1.0)
 	var impulse = speed * 0.085 * power * alignment

@@ -1,0 +1,70 @@
+{
+  "scope": "Completed segments only. Actual c5 full journey still ongoing; not a final acceptance receipt.",
+  "source_revision": "4da1e075a125bc92a37663f09f1835eb0f7d5c61",
+  "rows": [
+    {
+      "path": "docs/development/logs/dev113-c5-journey-01-05/screens/report.json",
+      "sha256": "48F2306F56E1A894F53C139758A20D6078AC639E157AB702CDC227B015BC8984",
+      "passed": true,
+      "first": 1,
+      "last": 5,
+      "matches": 5
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-journey-06-10/screens/report.json",
+      "sha256": "1E998E52B437C6CFDEB6B3AACAAF52CE164CD4D0B0B824689E473ECE731AABD8",
+      "passed": true,
+      "first": 6,
+      "last": 10,
+      "matches": 7
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-journey-11-15/screens/report.json",
+      "sha256": "196AF26090267011DCCD2BCA7EF54EA91F5AFA445AEE993520B3A8DED45C2D08",
+      "passed": true,
+      "first": 11,
+      "last": 15,
+      "matches": 5
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-journey-16-20/screens/report.json",
+      "sha256": "C94FF76D92E4FE9606EB4CE58899319EFAB6E5A1BFA9A1955C6BFCFF7DD7E7B0",
+      "passed": true,
+      "first": 16,
+      "last": 20,
+      "matches": 5
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-journey-21-25/screens/report.json",
+      "sha256": "6443537BCC2A6FF6D972869728057E6D1E5ECF40EAF483068EC3D1F78BE26593",
+      "passed": true,
+      "first": 21,
+      "last": 25,
+      "matches": 5
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-journey-26-30/screens/report.json",
+      "sha256": "7B2079D07DF74B89A80C58E765718C24B2BF7EAF89BA641BB177523E01944100",
+      "passed": true,
+      "first": 26,
+      "last": 30,
+      "matches": 5
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-journey-31-35/screens/report.json",
+      "sha256": "964FCE484E1C4492A4B41767D51956C5EA28631A75C3C8D30F3C89CEB97A76DC",
+      "passed": true,
+      "first": 31,
+      "last": 35,
+      "matches": 6
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-journey-36-40/screens/report.json",
+      "sha256": "EC29844401D9D351B8A795C85500FE2414AF375665BB987D41E4996CC10DFDBC",
+      "passed": true,
+      "first": 36,
+      "last": 40,
+      "matches": 5
+    }
+  ]
+}

@@ -45,6 +45,11 @@
       "path": "docs/development/logs/dev113-c5-articulation01/screens/frame_240.png",
       "sha256": "71F06055F5D4D99758D3872BA3DF94C25305EAAD45F47B41816B743DF3283799",
       "observation": "六种部位/方向受控落地连续帧，查看空中关节差异、先后触地和收势，未见肢体分离。"
+    },
+    {
+      "path": "docs/development/logs/dev113-c5-journey-21-25/screens/level25-attempt1-result.png",
+      "sha256": "796874A97199B6930BBB3AA540CC262957B6BAF385300AF079EBA7928B1912EC",
+      "observation": "实际成长第25关：对手剩余生命7.499因失衡离鞍；实战结果不显示竞技场比分，分轮命中与终局原因对应日志。背景存活骑手靠右，枪和马体部分出框；该帧骑手头与躯干仍完整。"
     }
   ]
 }

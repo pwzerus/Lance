@@ -2,6 +2,10 @@
 
 ## DEV-113：受创、离鞍动作与极简战斗界面（2026-11-23，Codex，进行中）
 
+第四阶段文案审查补充认领：game/scripts/ui/result_prewarm099.gd，仅随main结果标题变更同步字形预热。实际自行失衡画面发现结算建议误写“受击时”，在已认领combat_report.gd修正并增加terminal113回归。
+
+第四阶段：14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88已推送并核对。组合流程/性能/实际包验收继续；补充认领README.md、launcher/PLAYER-GUIDE.txt的现行控制与伤情说明，以及DEV113发布说明、证据和验包脚本。保护器及启动器安全参数不改。
+
 第三阶段开始：第二阶段0ccf664bdb8b8f5645fe9e9a886a44e78159f15a已推送并ls-remote核对。继续既有认领内的默认极简HUD、设置/暂停详细信息开关与轻盾取舍；新增catalogue.gd及shield_art.gd仅限盾牌耐久/受损显示所需改动。原发布入口尚未更换。
 
 昏厥支撑修复补充认领：game/scripts/core/horse_surface.gd（无纹理的马颈共享几何）、game/scripts/visual/horse_skin.gd（调用共享变换，保留原网格精度）。用于防止前伏头部穿入马颈；不修改马匹贴图。

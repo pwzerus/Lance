@@ -78,11 +78,15 @@ static func advance_support(fighter: Dictionary, delta: float, riding: bool) -> 
 		advance_limp_support(fighter,delta)
 		return
 	var pace = smoothstep(210.0,480.0,float(fighter.get("speed",0.0))) if riding else 0.0
-	var unsettled = float(fighter.get("unsteady",0.0))*pace
+	var unsettled = clampf(float(fighter.get("unsteady",0.0)),0.0,1.0)
 	var injury = float(fighter.injury)
 	# Thigh support fatigues under sustained violent movement, not one
 	# correction. Releasing the movement rebuilds support before a slip.
-	var strain_rate = maxf(0.0,(unsettled-.55)/.45)*.32-.45*(1.0-smoothstep(.25,.55,unsettled))
+	# Pace scales the load once. Multiplying it into unsteadiness as well
+	# restored thigh stiffness and erased fatigue as soon as the horse slowed
+	# a little, so only an artificially replenished horse could lose its seat.
+	var strain_rate = maxf(0.0,(unsettled-.55)/.45)*.32*pace-.45*(1.0-smoothstep(.25,.55,unsettled))
+	strain_rate-=.45*(1.0-smoothstep(.10,.35,pace))
 	fighter.seat_strain=clampf(float(fighter.seat_strain)+strain_rate*delta,0,1)
 	var stiffness = lerpf(90.0,9.0,unsettled)*(1.0-injury*.30)
 	var damping = lerpf(16.0,3.5,unsettled)
@@ -99,7 +103,7 @@ static func advance_support(fighter: Dictionary, delta: float, riding: bool) -> 
 		# the weakened thigh support. A single deliberate lean retains strong
 		# support; frantic small aim corrections alone do not eject the rider.
 		var lean = float(fighter.get("lean",0.0))
-		drive += signf(lean)*smoothstep(.35,.80,absf(lean))*unsettled*380.0*smoothstep(.45,.90,float(fighter.seat_strain))
+		drive += signf(lean)*smoothstep(.35,.80,absf(lean))*unsettled*480.0*smoothstep(.45,.90,float(fighter.seat_strain))
 		rate += (-stiffness*offset-damping*rate+drive*pace)*dt
 		fighter.seat_velocity=clampf(rate,-120,120)
 		fighter.seat_offset=offset+float(fighter.seat_velocity)*dt

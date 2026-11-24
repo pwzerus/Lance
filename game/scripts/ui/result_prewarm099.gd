@@ -8,7 +8,7 @@ var drawable_frames = 0
 func _ready() -> void:
 	theme=UI.theme()
 	add_theme_font_size_override("font_size",42)
-	text="你赢了 这场输了 平局"
+	text="本场获胜 本场落败 平局"
 	mouse_filter=Control.MOUSE_FILTER_IGNORE
 func _process(_delta: float) -> void:
 	if Activity.suspended() or not is_visible_in_tree(): return

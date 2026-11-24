@@ -1,0 +1,2469 @@
+{
+  "task": "DEV-113",
+  "source_head_at_summary": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+  "scope": "Preserved runs include failed and superseded fixtures. Interpret with DEV113_REVIEW.md; GPU is isolated, input is engine-injected, no OS input or human approval.",
+  "runs": [
+    {
+      "name": "dev113-ai044-01",
+      "exit_code": 0,
+      "wall_seconds": 0.5,
+      "private_peak_mib": null,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "6F9C192E31FE27645C15554D74C00F152AAF8C7474870B78E680CBEDDAF6C6A4",
+      "engine_log_sha256": "4F189AC525B59B3C9862616F2892650EBBD631362D1B2A094CCD474B516C5D40",
+      "png_count": 0,
+      "reports": [],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_ai_v044.gd",
+        "budget": "rules",
+        "extra": "--report=E:/GALUMU/docs/development/logs/dev113-ai044-01/report.json"
+      },
+      "target_sha256": "A655C50F9DAC35F78928A53BD0D923953AF32CA898E35A31B0E6A64EEE8661B3"
+    },
+    {
+      "name": "dev113-arm068-01",
+      "exit_code": 0,
+      "wall_seconds": 0.4,
+      "private_peak_mib": null,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "65EAEF5EFF9EE6987CD93801CFBCA03892D8A9BFEBE3344563AF016DA52E5F8D",
+      "engine_log_sha256": "E1D2A1699C6F544CF58F2BF4EBC5519AB5118D3339D9694D002BD0847B745ABE",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-arm068-01/report.json",
+          "sha256": "374E8B1456124E91F91A74DD31CF98F1F9D0DCBA693CDC1B463293D519EF5FF8",
+          "passed": true,
+          "failures": []
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_arm068.gd",
+        "budget": "rules",
+        "extra": "--report=E:/GALUMU/docs/development/logs/dev113-arm068-01/report.json"
+      },
+      "target_sha256": "EB2D24516324A3D270701BBE9794031A55622DC7CD6774820F61F5EAA7274D6E"
+    },
+    {
+      "name": "dev113-articulation-baseline01",
+      "exit_code": 0,
+      "wall_seconds": 6.2,
+      "private_peak_mib": 486.6,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "837ECD381371D32A6E9D413D458B4EBFC456F669E216C495DC7D98AF13E5E704",
+      "engine_log_sha256": "F4AE34375067F06D07EBF444D1FF239A8DFF76D829F429A00C0230DA60322C9F",
+      "png_count": 13,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-articulation-baseline01/screens/report.json",
+          "sha256": "2C0FF21D808D7CCA23171FFC93C25C1919A467430F908DB508E0880E8E6F743A",
+          "passed": true,
+          "failures": [],
+          "scope": "Six production captured falls, 120Hz integration and isolated GPU milestone frames. Bone lengths, ground support and angular/contact traces; not genuine battle hits, normal camera, OS input or subjective acceptance.",
+          "cases_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_articulation113.gd",
+        "budget": "gpu",
+        "extra": ""
+      },
+      "target_sha256": "BA36AA7D519A78816468E94E4D54534CAD285C2A55B4CB93293947A15AB64A73"
+    },
+    {
+      "name": "dev113-articulation01",
+      "exit_code": 0,
+      "wall_seconds": 6.5,
+      "private_peak_mib": 544.7,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "C127680FBA40C22133C9790EF5E3303A41107700697ACED20D6621CAC97CAB92",
+      "engine_log_sha256": "F4AE34375067F06D07EBF444D1FF239A8DFF76D829F429A00C0230DA60322C9F",
+      "png_count": 13,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-articulation01/screens/report.json",
+          "sha256": "02E577E3E0B549B3DAEC577E0F2E9EA40383F7988A396F1358919B25AF816503",
+          "passed": true,
+          "failures": [],
+          "scope": "Six production captured falls, 120Hz integration and isolated GPU milestone frames. Bone lengths, ground support and angular/contact traces; not genuine battle hits, normal camera, OS input or subjective acceptance.",
+          "cases_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_articulation113.gd",
+        "budget": "gpu",
+        "extra": ""
+      },
+      "target_sha256": "BA36AA7D519A78816468E94E4D54534CAD285C2A55B4CB93293947A15AB64A73"
+    },
+    {
+      "name": "dev113-articulation02",
+      "exit_code": 0,
+      "wall_seconds": 6.4,
+      "private_peak_mib": 556.9,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "66B557CC2FF186EC3C28C68B1404E8569104058DB6D1E00227716B1654C58AC6",
+      "engine_log_sha256": "F4AE34375067F06D07EBF444D1FF239A8DFF76D829F429A00C0230DA60322C9F",
+      "png_count": 13,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-articulation02/screens/report.json",
+          "sha256": "FE8F0DFBBA10F8AA3A2798128E0705237C9AD4E126001FF156F543C0AF8D64BC",
+          "passed": true,
+          "failures": [],
+          "scope": "Six production captured falls, 120Hz integration and isolated GPU milestone frames. Bone lengths, ground support and angular/contact traces; not genuine battle hits, normal camera, OS input or subjective acceptance.",
+          "cases_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_articulation113.gd",
+        "budget": "gpu",
+        "extra": ""
+      },
+      "target_sha256": "F2E8975F18FBAA84A193765827ACC2F97DED3D6292A4DB516E3ABC2133BCCCA0"
+    },
+    {
+      "name": "dev113-audit01",
+      "exit_code": 0,
+      "wall_seconds": 0.6,
+      "private_peak_mib": null,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "4F4C8F17C3FC5EC5D9D93F646BA735C64F8375E03205318403EF4C7BDE4164C1",
+      "engine_log_sha256": "413B17F11025C340076A6CDB760D33D9DB2EC2F6900E29EDD68B8A6D170DCDE8",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-audit01/report.json",
+          "sha256": "9A2C1E155239C523018031913D463C09FF7506654F09AC7C82EA95833E49DC53",
+          "passed": true,
+          "failures": [],
+          "version": "0.4.59-c1",
+          "scope": "Actual campaign catalogue snapshot. Legacy reference affordability assumes buying each reference upgrade once and winning all previous levels, not actual purchase/progression or human play evidence.",
+          "rows_count": 80
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "0ccf664bdb8b8f5645fe9e9a886a44e78159f15a",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_campaign_audit107.gd",
+        "budget": "rules",
+        "extra": "--report=E:/GALUMU/docs/development/logs/dev113-audit01/report.json"
+      },
+      "target_sha256": "1D4943FA2CCFC877B5A90DEF3FCF208D4F4596BF845023645D5CBE45B9C44C2F"
+    },
+    {
+      "name": "dev113-cinema01",
+      "exit_code": 0,
+      "wall_seconds": 29.1,
+      "private_peak_mib": 671.8,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [
+        "WARNING: ObjectDB instances leaked at exit (run with --verbose for details)."
+      ],
+      "memory_log_sha256": "CA996B977DBB59C48BA0D2CD63A444802E3DD231F6A44D9FA837A47BDA1257F9",
+      "engine_log_sha256": "E953D6A197A81F37FF0145AAA45C4E2C803A3C37530039E68F6E5C0E1863A9CA",
+      "png_count": 20,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-cinema01/report.json",
+          "sha256": "D7D8A0E47AE9C25EFF0239CA52A7139BE86939CC7E50E58CC145677297ED4A93",
+          "passed": true,
+          "failures": [],
+          "version": "0.4.59-c1",
+          "battle_count": 4
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_cinema099.gd",
+        "budget": "gpu",
+        "extra": "--part=battle --report=E:/GALUMU/docs/development/logs/dev113-cinema01/report.json --captures=E:/GALUMU/docs/development/logs/dev113-cinema01/captures"
+      },
+      "target_sha256": "D0863C96B7D22FBAB2BB01122110D3D99209BE5EF4F6075D3F481825C2C13171"
+    },
+    {
+      "name": "dev113-cinema02",
+      "exit_code": 0,
+      "wall_seconds": 28.8,
+      "private_peak_mib": 663.8,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "39B20A03D5BF8C9C34B9EE1A8724BB6D02D95193EB4988B5FDFB7BB97BEDA698",
+      "engine_log_sha256": "FC23E5BB1DE23764975376B9354E03E34B340AEDA112827C694B8D4116A44505",
+      "png_count": 20,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-cinema02/report.json",
+          "sha256": "C20A10DD89A0B3997C0F744407DC848B6AB56C4FA10A166BC4C59D9CAE7C8896",
+          "passed": true,
+          "failures": [],
+          "version": "0.4.59-c1",
+          "battle_count": 4
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_cinema099.gd",
+        "budget": "gpu",
+        "extra": "--part=battle --report=E:/GALUMU/docs/development/logs/dev113-cinema02/report.json --captures=E:/GALUMU/docs/development/logs/dev113-cinema02/captures"
+      },
+      "target_sha256": "C4F75572BE2C684CF92E7832EB6407E566AC04B258BAA4719D4901078DA5654F"
+    },
+    {
+      "name": "dev113-condition01",
+      "exit_code": 0,
+      "wall_seconds": 7.8,
+      "private_peak_mib": 45.6,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "8475ED5E6BE098C584068D03D2773655D2EA0A0730101F05E24D2C7D1CAC85BF",
+      "engine_log_sha256": "F5CA6666368A97465E06C2F898D96EAF04E128DBE7FC8AB7DBDD61D4DCB677DC",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-condition01/evidence/report.json",
+          "sha256": "91647B0CEF38CD5D4283573ED8308E5CF2DDFB6003ABE7B319638A8035E55C32",
+          "passed": true,
+          "failures": [],
+          "scope": "Direct injury contacts and genuine finite-rate controls/Model.step at three display steps. No GPU or subjective acceptance; flail escape frequency measured before tuning.",
+          "cases_count": 19
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_condition113.gd",
+        "budget": "rules",
+        "extra": ""
+      },
+      "target_sha256": "FB64BCB7181CE4D56B3492A94042A891C1B9CD999B55FBF8F7171AAF9056F7D4"
+    },
+    {
+      "name": "dev113-condition02",
+      "exit_code": 1,
+      "wall_seconds": 3.1,
+      "private_peak_mib": 45.8,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "6D2D063C6D72C2CAE761687F179319FE55DCB8C7441057544BD74271E67699EF",
+      "engine_log_sha256": "1DDD65761F694F18FEB8D291E149558F299DBBA61C70984EA33D6E4D13C973F8",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-condition02/evidence/report.json",
+          "sha256": "3A634EFA7C67E119914C2FA8C390320D91F2DC7A6A81A9EE72255ABF90134C8F",
+          "passed": false,
+          "failures": [
+            "Normal/recovered/slow control does not cause an unavoidable fall: recover30",
+            "Recentring restores physical support",
+            "Normal/recovered/slow control does not cause an unavoidable fall: recover60",
+            "Recentring restores physical support",
+            "Normal/recovered/slow control does not cause an unavoidable fall: recover120",
+            "Recentring restores physical support"
+          ],
+          "scope": "Direct injury contacts and genuine finite-rate controls/Model.step at three display steps. No GPU or subjective acceptance; flail escape frequency measured before tuning.",
+          "cases_count": 22
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_condition113.gd",
+        "budget": "rules",
+        "extra": ""
+      },
+      "target_sha256": "F11D325AF5B02F9F29198BBC0E363EA4D4F19E5AEF03E8CE468731595F904531"
+    },
+    {
+      "name": "dev113-condition03",
+      "exit_code": 0,
+      "wall_seconds": 6.5,
+      "private_peak_mib": 46.1,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "80575C4CE3FAB7EE8C1DE7F9B95DAADF9EB1796DD8BF4C24B425A3F4F28720F6",
+      "engine_log_sha256": "F5CA6666368A97465E06C2F898D96EAF04E128DBE7FC8AB7DBDD61D4DCB677DC",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-condition03/evidence/report.json",
+          "sha256": "17F94F06799AEA4879EE3AC7D724E87FC4411F8D0CB5B843CDEE52827401B352",
+          "passed": true,
+          "failures": [],
+          "scope": "Direct injury contacts and genuine finite-rate controls/Model.step at three display steps. No GPU or subjective acceptance; flail escape frequency measured before tuning.",
+          "cases_count": 22
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_condition113.gd",
+        "budget": "rules",
+        "extra": ""
+      },
+      "target_sha256": "9566908BA0E4CB1658346ADD9A30419DE58A11683C2A08E201C920D574E5D112"
+    },
+    {
+      "name": "dev113-condition04",
+      "exit_code": 1,
+      "wall_seconds": 5.0,
+      "private_peak_mib": 48.4,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "8E7E19319B26F28ED401855A47058D22B52FD7E5D122121B22CDE69CF2518639",
+      "engine_log_sha256": "3A551158B22399328AFEE9E006BB34BAE6F05BB220176DDA70120BC6B23CF442",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-condition04/evidence/report.json",
+          "sha256": "74DCEBB4162C1806267E8128D7878A20F07873CE60C6775E6C11A5184BE9CFAE",
+          "passed": false,
+          "failures": [
+            "Centred body retains support; outward momentum at an edge slips once",
+            "Centred body retains support; outward momentum at an edge slips once"
+          ],
+          "scope": "Direct injury contacts, passive post-incapacity support, result wording and genuine finite-rate controls/Model.step at three display steps. No GPU or subjective acceptance.",
+          "cases_count": 25
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_condition113.gd",
+        "budget": "rules",
+        "extra": ""
+      },
+      "target_sha256": "EE151F496F4A960CF64CB2BF30E4509BD2C5000C77C10ECCD0FBE53D09D5F558"
+    },
+    {
+      "name": "dev113-condition05",
+      "exit_code": 0,
+      "wall_seconds": 5.0,
+      "private_peak_mib": 49.0,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "1478F5C50D1A1BB348DA4FA6CF71D841D8B31A578724453929E97C63ED283D4B",
+      "engine_log_sha256": "F5CA6666368A97465E06C2F898D96EAF04E128DBE7FC8AB7DBDD61D4DCB677DC",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-condition05/evidence/report.json",
+          "sha256": "267E94F493C763177642F40CD530B7F5ADADC5AF3172B86BCB506CD3C4D8D9F3",
+          "passed": true,
+          "failures": [],
+          "scope": "Direct injury contacts, passive post-incapacity support, result wording and genuine finite-rate controls/Model.step at three display steps. No GPU or subjective acceptance.",
+          "cases_count": 25
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_condition113.gd",
+        "budget": "rules",
+        "extra": ""
+      },
+      "target_sha256": "37F4EB32EE486C51AE0D5E8D98AAB844D8F71CD485B02425B8E8E2D72B6001BE"
+    },
+    {
+      "name": "dev113-condition06",
+      "exit_code": 0,
+      "wall_seconds": 5.8,
+      "private_peak_mib": 49.1,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "2CC8F3F72B752CDE7B02CD0F32599CAC522A3D24DA08E968974055489DEB2952",
+      "engine_log_sha256": "F5CA6666368A97465E06C2F898D96EAF04E128DBE7FC8AB7DBDD61D4DCB677DC",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-condition06/evidence/report.json",
+          "sha256": "AA2818B88C64509BA1B46EB82C1FFE7F0138CCFAF78E18818344A2528344328E",
+          "passed": true,
+          "failures": [],
+          "scope": "Direct injury contacts, passive post-incapacity support, result wording and genuine finite-rate controls/Model.step at three display steps. No GPU or subjective acceptance.",
+          "cases_count": 27
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_condition113.gd",
+        "budget": "rules",
+        "extra": "--report=E:/GALUMU/docs/development/logs/dev113-condition06/report.json"
+      },
+      "target_sha256": "03300D0A7A7F64E120224BC2F291ABDC0AEA9C4169C10E4D2385331DB4829997"
+    },
+    {
+      "name": "dev113-condition07",
+      "exit_code": 0,
+      "wall_seconds": 6.0,
+      "private_peak_mib": 48.6,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "6290FAD6D0B5657B545AFF52D21C6A3937EB5C86C85EEE7DEBE89CEDEC31CE5D",
+      "engine_log_sha256": "F5CA6666368A97465E06C2F898D96EAF04E128DBE7FC8AB7DBDD61D4DCB677DC",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-condition07/evidence/report.json",
+          "sha256": "111CFA66D1BD39B7F77595E35F0ED38F7ADA20DF5F8962F6D698896B2D2D5923",
+          "passed": true,
+          "failures": [],
+          "scope": "Direct injury contacts, passive post-incapacity support, result wording and genuine finite-rate controls/Model.step at three display steps. No GPU or subjective acceptance.",
+          "cases_count": 27
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "0ccf664bdb8b8f5645fe9e9a886a44e78159f15a",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_condition113.gd",
+        "budget": "rules",
+        "extra": ""
+      },
+      "target_sha256": "827A4A4F9F85B500418D6986C79161B11B56EEFBFA1BC52C2D9693221AC22812"
+    },
+    {
+      "name": "dev113-condition08",
+      "exit_code": 0,
+      "wall_seconds": 5.4,
+      "private_peak_mib": 48.9,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "168D081694725C2048CAC70D7E1DA849B4A744DE9EED0C5B2469E1734E7A4533",
+      "engine_log_sha256": "F5CA6666368A97465E06C2F898D96EAF04E128DBE7FC8AB7DBDD61D4DCB677DC",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-condition08/evidence/report.json",
+          "sha256": "D5DEFC7807D64E1B6205EB4A04AE15725D71076D5B4FFB283732D2959D5EA0D6",
+          "passed": true,
+          "failures": [],
+          "scope": "Direct injury contacts, passive post-incapacity support, result wording and genuine finite-rate controls/Model.step at three display steps. No GPU or subjective acceptance.",
+          "cases_count": 27
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_condition113.gd",
+        "budget": "rules",
+        "extra": ""
+      },
+      "target_sha256": "6C3BC839D43182675B1F48AFAF36065108C4C86F1A67F150E5EE88821FC0BBCA"
+    },
+    {
+      "name": "dev113-condition09",
+      "exit_code": 0,
+      "wall_seconds": 5.5,
+      "private_peak_mib": 47.9,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "958F58187626D61A1E383867BEFB2E0523E910A692178225ACB9AD59DEAF5B41",
+      "engine_log_sha256": "F5CA6666368A97465E06C2F898D96EAF04E128DBE7FC8AB7DBDD61D4DCB677DC",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-condition09/evidence/report.json",
+          "sha256": "6C8012AA704B3D7458E8076E7A32F45EBEE74C57931895514D2FA63FD6C1783D",
+          "passed": true,
+          "failures": [],
+          "scope": "Direct injury contacts, passive post-incapacity support, result wording and genuine finite-rate controls/Model.step at three display steps. No GPU or subjective acceptance.",
+          "cases_count": 27
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_condition113.gd",
+        "budget": "rules",
+        "extra": ""
+      },
+      "target_sha256": "FEFA1152C3510C8489C0A4F3131B875BBBA8927379D25BEF095222E3374840A9"
+    },
+    {
+      "name": "dev113-fall-baseline01",
+      "exit_code": 0,
+      "wall_seconds": 13.4,
+      "private_peak_mib": 584.2,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "F839922C854E0EC927AB211C73A394B9D2C6ED0AA30F29931D94509683B75D33",
+      "engine_log_sha256": "27AEA441ED692AAD586EAE4D24FB301770BB704956240C518B85E6BB71547A64",
+      "png_count": 10,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-fall-baseline01/report.json",
+          "sha256": "6297F0244837088B451284B518C9941E6E4691A5915000E82E233554C5654754",
+          "passed": true,
+          "failures": [],
+          "scope": "Actual FallenRider setup/advance/weapon release and Rider drawing, three zones and two directions at 30/60/120 steps with blood on/off. Geometric initial handover, bone lengths, neck range, finite held wrist, exact release boundary, ground/rest and postlanding joint motion. GPU 60-step sequence, camera-free staged grid. Direct visual-event fixtures, not genuine swept hits, normal Battle camera, OS input, full loose-weapon flight physics or player quality approval.",
+          "cases_count": 36
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_fall_v057.gd",
+        "budget": "gpu",
+        "extra": "--report=E:/GALUMU/docs/development/logs/dev113-fall-baseline01/report.json --captures=E:/GALUMU/docs/development/logs/dev113-fall-baseline01/captures"
+      },
+      "target_sha256": "A694E704836B33CB4719F2617E542C848D1927BDBFF1511093F4D787063BAC72"
+    },
+    {
+      "name": "dev113-fall-eng01",
+      "exit_code": 0,
+      "wall_seconds": 5.2,
+      "private_peak_mib": 355.4,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "61143C202E5C398F1595CF47D3BF667302DF06584A6B0D9905E5F489B7F93A0E",
+      "engine_log_sha256": "58D4BDD8BFB41E182A34DB3F5401E0CF6A1AC68698D8E993221B341AD2DC2895",
+      "png_count": 37,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-fall-eng01/screens/report.json",
+          "sha256": "248FBEA55E2BF4D11E8418FADD1FEACE95B20DCD87EE0096B40F686945F19ED2",
+          "passed": true,
+          "failures": [],
+          "scope": "Controlled detached outfit sequence, zero-time registration and stable identity; real GPU frames from fixed 120Hz stepping. Recentered crop excludes the released weapon and is not the actual match camera; no OS input/human feel acceptance.",
+          "rows_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_art_fall108.gd",
+        "budget": "gpu",
+        "extra": "--region=eng --tier=0 --raw-frames"
+      },
+      "target_sha256": "93E9AA5A872C283188D9F985900AB25D65A2E418746F508BB9B894A0D38401C7"
+    },
+    {
+      "name": "dev113-fall-fuzz01",
+      "exit_code": 0,
+      "wall_seconds": 11.6,
+      "private_peak_mib": 241.6,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "CFF0EDD5356FBA8A54A4E9069DA01BB2C258F8415A1606741764C7522ED48C6D",
+      "engine_log_sha256": "3AE3DA00BDA03000E375545CF0F52598C4ADF612B61F18D03B59599DE098CF41",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-fall-fuzz01/report.json",
+          "sha256": "04A796285E0A3650D01557D46AA308F972F121860067E632902C2EF4AE461C50",
+          "passed": true,
+          "failures": [],
+          "scope": "Deterministic synthetic captured poses: campaign gear, varied lean/guard/aim/hoof phase/unsteady, impact and speed ratios; production fall integration and constraints. Optional isolated GPU captures. Not human gameplay or probability evidence.",
+          "cases_count": 64
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_fall_fuzz105.gd",
+        "budget": "gpu",
+        "extra": "--count=64 --report=E:/GALUMU/docs/development/logs/dev113-fall-fuzz01/report.json"
+      },
+      "target_sha256": "8BB1712532739561A09779C35A8F01C6B25B9FC568FFA027DA01258FBA68B409"
+    },
+    {
+      "name": "dev113-fall-it01",
+      "exit_code": 0,
+      "wall_seconds": 5.5,
+      "private_peak_mib": 493.9,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "C71DBADF37DA257E4C41C2B7F4FE4DA9D5A0ECC0E28FD6756C8054D1C7D16A14",
+      "engine_log_sha256": "F2FBCA3D9128098C423DFA7E783124EB5EAED00D528D670E1D989AE01AEB9B28",
+      "png_count": 37,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-fall-it01/screens/report.json",
+          "sha256": "CA070E738C05F75F89587F621DE2B521DD9277E0BC11BA0CC4BB4415D8F63BD8",
+          "passed": true,
+          "failures": [],
+          "scope": "Controlled detached outfit sequence, zero-time registration and stable identity; real GPU frames from fixed 120Hz stepping. Recentered crop excludes the released weapon and is not the actual match camera; no OS input/human feel acceptance.",
+          "rows_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_art_fall108.gd",
+        "budget": "gpu",
+        "extra": "--region=it --tier=5 --raw-frames"
+      },
+      "target_sha256": "AE4A4BCDECA64055D8DAE8B0A8ACAD7B9303ED2AE3A1F1D28F63EB18027FF4CC"
+    },
+    {
+      "name": "dev113-fall-rate01",
+      "exit_code": 0,
+      "wall_seconds": 12.8,
+      "private_peak_mib": 587.0,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "21A4C4EA69CEC94D5E292AA2311DC6AA3553A246E9EED54FC8BD11F2763546E4",
+      "engine_log_sha256": "27AEA441ED692AAD586EAE4D24FB301770BB704956240C518B85E6BB71547A64",
+      "png_count": 10,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-fall-rate01/report.json",
+          "sha256": "508A7329C6371C564BAD3C792AF60C8F03F3DA8AD1F264DD4B20DE7034E368FF",
+          "passed": true,
+          "failures": [],
+          "scope": "Actual FallenRider setup/advance/weapon release and Rider drawing, three zones and two directions at 30/60/120 steps with blood on/off. Geometric initial handover, bone lengths, neck range, finite held wrist, exact release boundary, ground/rest and postlanding joint motion. GPU 60-step sequence, camera-free staged grid. Direct visual-event fixtures, not genuine swept hits, normal Battle camera, OS input, full loose-weapon flight physics or player quality approval.",
+          "cases_count": 36
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_fall_v057.gd",
+        "budget": "gpu",
+        "extra": "--report=E:/GALUMU/docs/development/logs/dev113-fall-rate01/report.json --captures=E:/GALUMU/docs/development/logs/dev113-fall-rate01/captures"
+      },
+      "target_sha256": "5AF506D62F8D526EB299496FD85877A5321F9C64FDA2BC229ADC59D809756CC7"
+    },
+    {
+      "name": "dev113-fall-remnant01",
+      "exit_code": 0,
+      "wall_seconds": 13.9,
+      "private_peak_mib": 242.1,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "DB1101BD7BF110285914C00372014DD1DDDD5A29D97A3FA85574D0110488870F",
+      "engine_log_sha256": "3AE3DA00BDA03000E375545CF0F52598C4ADF612B61F18D03B59599DE098CF41",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-fall-remnant01/report.json",
+          "sha256": "1D5EF015FE8CFBF37100355838CC6EEA01F8C783474E1E23FEFA7EF5B4766620",
+          "passed": true,
+          "failures": [],
+          "scope": "Deterministic synthetic captured poses: campaign gear, varied lean/guard/aim/hoof phase/unsteady, impact and speed ratios; production fall integration and constraints. Optional isolated GPU captures. Not human gameplay or probability evidence.",
+          "cases_count": 64
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "0ccf664bdb8b8f5645fe9e9a886a44e78159f15a",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_fall_fuzz105.gd",
+        "budget": "gpu",
+        "extra": "--count=64 --broken-shield --report=E:/GALUMU/docs/development/logs/dev113-fall-remnant01/report.json"
+      },
+      "target_sha256": "18844009D47F341CA64A7FFBF80D8B41EE0FB2CC78C11B14400E05556F85305A"
+    },
+    {
+      "name": "dev113-guide01",
+      "exit_code": 0,
+      "wall_seconds": 40.3,
+      "private_peak_mib": 654.0,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "F1450AD1381B462438E46AC39A5EF28BC32F9190372573985BB8BEE50AF757CD",
+      "engine_log_sha256": "9DD2B400751754033049EDAE7B53742DCA3DCDFD3BC811B5ABF3FA57763E7531",
+      "png_count": 11,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-guide01/screens/report.json",
+          "sha256": "6B3D9487B118DAE80B0FE4A7041D795F64A9BD1657CE598168A7211395EC3A06",
+          "passed": true,
+          "failures": [],
+          "scope": "Real-time background Battle; viewport mouse/guard events and Input.parse_input_event keyboard. No OS input, forced hit or pose changes.",
+          "wall_seconds": 34.259
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_guide087.gd",
+        "budget": "gpu",
+        "extra": "--compact --resume-test"
+      },
+      "target_sha256": "468AAED440826F5B16C5D8F7EE2478E7484E22F31AABFBF0D031C23EC95CA1D8"
+    },
+    {
+      "name": "dev113-head076-01",
+      "exit_code": 1,
+      "wall_seconds": 0.7,
+      "private_peak_mib": null,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "22368E93E414395E1DE28CFAECDBE8948A6822462AF69262FFEA4C59DA540696",
+      "engine_log_sha256": "0808FE5A66482B6AF1AC3546B6AD2D9D034F190F2805BFB6E24707ABAD178F84",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-head076-01/report.json",
+          "sha256": "B2E27B2BCBE50505ADE25DFD7CDD62E9CB8C66B34A1932D90FAD6BDC301C1CF0",
+          "passed": false,
+          "failures": [
+            "Helmet did not prevent the comparable fatal hit",
+            "Missing player-readable distinction"
+          ],
+          "cases_count": 18
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_head076.gd",
+        "budget": "rules",
+        "extra": "--report=E:/GALUMU/docs/development/logs/dev113-head076-01/report.json"
+      },
+      "target_sha256": "BF57567788A57EEEE1F102D66F9E9A0F785161328C4663FC63FED01500DB2F7C"
+    },
+    {
+      "name": "dev113-head098-01",
+      "exit_code": 0,
+      "wall_seconds": 0.4,
+      "private_peak_mib": null,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "A6C85852FBA885DCA00A33FCE7E7D87A00CA0F95202801385FE419334340DAA0",
+      "engine_log_sha256": "5AD76BF810DD136B90163DFAE4277FDE050A80425ADBF48A28886E555FD7D0C2",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-head098-01/report.json",
+          "sha256": "91F7EE797588AE4462E4C44F03EC7D74F0435B540820B6954139F8DF3B9E0033",
+          "passed": true,
+          "failures": [],
+          "rows_count": 24
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_head098.gd",
+        "budget": "rules",
+        "extra": "--report=E:/GALUMU/docs/development/logs/dev113-head098-01/report.json"
+      },
+      "target_sha256": "9069A1B47C5AD409F4B180E19862297CDB63BE843293321C9CAAD6230500D1DB"
+    },
+    {
+      "name": "dev113-hud01",
+      "exit_code": 0,
+      "wall_seconds": 10.3,
+      "private_peak_mib": 615.8,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "4EA11D20263AAA260A39D31AA2604FE934A4FAA4C8BC662CED8194C7C9610565",
+      "engine_log_sha256": "CB2A1A9E95CACA60D11CA3B20E2F038B1A15BE76FBD437CDDD5A11C9F1DD3C7C",
+      "png_count": 11,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-hud01/screens/report.json",
+          "sha256": "DFE34A394F4F0CB689733255FFFE04267AEDC03AA785F88F0A34782C29ABF4F5",
+          "passed": true,
+          "failures": [],
+          "scope": "Source GPU HUD/settings/pause with viewport-injected input; save migration in isolated QA file. Three output sizes. No OS input or player acceptance.",
+          "records_count": 5
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_hud113.gd",
+        "budget": "gpu",
+        "extra": ""
+      },
+      "target_sha256": "40D7D96B3960B9B4D4360A4B49BAB08E4CAB97FC9DA0B536F2CE672E06BD93F6"
+    },
+    {
+      "name": "dev113-hud02",
+      "exit_code": 0,
+      "wall_seconds": 9.7,
+      "private_peak_mib": 668.6,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "0288CBE58B99A5FA88B3241673353789CBE2A5343EF40A2567C6632401B74289",
+      "engine_log_sha256": "CB2A1A9E95CACA60D11CA3B20E2F038B1A15BE76FBD437CDDD5A11C9F1DD3C7C",
+      "png_count": 11,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-hud02/screens/report.json",
+          "sha256": "46F93E8ED1024C1AA5669CD075BB4DDA1350A4D5E92CFEDB7D137EF2E9F15660",
+          "passed": true,
+          "failures": [],
+          "scope": "Source GPU HUD/settings/pause with viewport-injected input; save migration in isolated QA file. Three output sizes. No OS input or player acceptance.",
+          "records_count": 5
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_hud113.gd",
+        "budget": "gpu",
+        "extra": ""
+      },
+      "target_sha256": "96E7F8624AA180631D82E22172383201246543E29220AA5BAF70F0DABC3BA007"
+    },
+    {
+      "name": "dev113-hud03",
+      "exit_code": 0,
+      "wall_seconds": 10.9,
+      "private_peak_mib": 643.8,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "903A273CC1352182B34813E2DB36D517DF640EE345EBDD14CE42A475C192D06B",
+      "engine_log_sha256": "CB2A1A9E95CACA60D11CA3B20E2F038B1A15BE76FBD437CDDD5A11C9F1DD3C7C",
+      "png_count": 12,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-hud03/screens/report.json",
+          "sha256": "243AE3189A5FBA79BA7E3546E77CE145113CBF1CF0C8B109E6EE355C31D48B12",
+          "passed": true,
+          "failures": [],
+          "scope": "Source GPU HUD/settings/pause with viewport-injected input; save migration in isolated QA file. Three output sizes. No OS input or player acceptance.",
+          "records_count": 5
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "0ccf664bdb8b8f5645fe9e9a886a44e78159f15a",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_hud113.gd",
+        "budget": "gpu",
+        "extra": ""
+      },
+      "target_sha256": "6867A4BFA573008E58FFB372BF117EED24D1C89CE066F73F77E5AD21B387762F"
+    },
+    {
+      "name": "dev113-hud04",
+      "exit_code": 0,
+      "wall_seconds": 11.0,
+      "private_peak_mib": 652.3,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "C8FA26D4C842D414C3DC49B664D6DBEA15F10DBAF2B40AD0575ED4CAFDB65137",
+      "engine_log_sha256": "CB2A1A9E95CACA60D11CA3B20E2F038B1A15BE76FBD437CDDD5A11C9F1DD3C7C",
+      "png_count": 12,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-hud04/screens/report.json",
+          "sha256": "243AE3189A5FBA79BA7E3546E77CE145113CBF1CF0C8B109E6EE355C31D48B12",
+          "passed": true,
+          "failures": [],
+          "scope": "Source GPU HUD/settings/pause with viewport-injected input; save migration in isolated QA file. Three output sizes. No OS input or player acceptance.",
+          "records_count": 5
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "0ccf664bdb8b8f5645fe9e9a886a44e78159f15a",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_hud113.gd",
+        "budget": "gpu",
+        "extra": ""
+      },
+      "target_sha256": "A27051721CAB780CF4437ABB761593B44ECD942D5A8583B7071312C084C7DCCB"
+    },
+    {
+      "name": "dev113-incapacity01",
+      "exit_code": 0,
+      "wall_seconds": 24.2,
+      "private_peak_mib": 674.9,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [
+        "WARNING: ObjectDB instances leaked at exit (run with --verbose for details)."
+      ],
+      "memory_log_sha256": "4506661B4A221C8974B3BA71124B365E906D9C8E37CD11F437C85ACA3AFCDBC3",
+      "engine_log_sha256": "E953D6A197A81F37FF0145AAA45C4E2C803A3C37530039E68F6E5C0E1863A9CA",
+      "png_count": 32,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-incapacity01/report.json",
+          "sha256": "B52F7B9530D019CA6974C74933DC4B2BF0E2BEA1DF44AC016F4F2E29B11876A3",
+          "passed": true,
+          "failures": [],
+          "version": "0.4.59-c1",
+          "battle_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_incapacity113.gd",
+        "budget": "gpu",
+        "extra": "--part=battle --report=E:/GALUMU/docs/development/logs/dev113-incapacity01/report.json --captures=E:/GALUMU/docs/development/logs/dev113-incapacity01/captures"
+      },
+      "target_sha256": "4539D387E95BF164E5079E1E1E2632DA2A129C5BF96D443C3235F5404A549F4C"
+    },
+    {
+      "name": "dev113-incapacity02",
+      "exit_code": 0,
+      "wall_seconds": 20.6,
+      "private_peak_mib": 655.0,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [
+        "WARNING: ObjectDB instances leaked at exit (run with --verbose for details)."
+      ],
+      "memory_log_sha256": "6BDBDE466D841A04EB093035B3030B1BB72871719FDCE41C9702E8FF464AEEA7",
+      "engine_log_sha256": "E953D6A197A81F37FF0145AAA45C4E2C803A3C37530039E68F6E5C0E1863A9CA",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-incapacity02/report.json",
+          "sha256": "F89277E11C4D02A3FE4588DDFA187F9EB4AEC7CE96AE85E1228CA9B414A47525",
+          "passed": true,
+          "failures": [],
+          "version": "0.4.59-c1",
+          "battle_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_incapacity113.gd",
+        "budget": "gpu",
+        "extra": "--part=battle --report=E:/GALUMU/docs/development/logs/dev113-incapacity02/report.json --captures=none"
+      },
+      "target_sha256": "6EADC7D44D043195803206A3FEA0030C93BB6875FF9319B62547A63D2F965A8B"
+    },
+    {
+      "name": "dev113-incapacity03",
+      "exit_code": 0,
+      "wall_seconds": 24.1,
+      "private_peak_mib": 683.8,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "8B8A89263DA64B4B0197B7095F233870FF23441322282CA27C93D7B1CE9791DF",
+      "engine_log_sha256": "AC60592E5158D58683253032C32435201D2F93F8F432FA68D721D9D045CC485C",
+      "png_count": 32,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-incapacity03/report.json",
+          "sha256": "5F1B45B01920E81F9CC923B1FB1AE9D085EA3B073307ECA984DA8A5414099B80",
+          "passed": true,
+          "failures": [],
+          "version": "0.4.59-c1",
+          "battle_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_incapacity113.gd",
+        "budget": "gpu",
+        "extra": "--part=battle --report=E:/GALUMU/docs/development/logs/dev113-incapacity03/report.json --captures=E:/GALUMU/docs/development/logs/dev113-incapacity03/captures"
+      },
+      "target_sha256": "AC78CE2878B6545B6B41CB318A32EDA0E391B8D480DB125F716B9046E575B696"
+    },
+    {
+      "name": "dev113-incapacity04",
+      "exit_code": 0,
+      "wall_seconds": 23.9,
+      "private_peak_mib": 685.3,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [
+        "WARNING: ObjectDB instances leaked at exit (run with --verbose for details)."
+      ],
+      "memory_log_sha256": "71A962BA2C2EF3BF46873B8DD55DAAFF4924F0C92DDD412424F0099BD0480394",
+      "engine_log_sha256": "E953D6A197A81F37FF0145AAA45C4E2C803A3C37530039E68F6E5C0E1863A9CA",
+      "png_count": 32,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-incapacity04/report.json",
+          "sha256": "294BAF9C9038A988ECDCCF93C80A7A1FD9A1110DE66709FF559A6952C8387667",
+          "passed": true,
+          "failures": [],
+          "version": "0.4.59-c1",
+          "battle_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_incapacity113.gd",
+        "budget": "gpu",
+        "extra": "--part=battle --report=E:/GALUMU/docs/development/logs/dev113-incapacity04/report.json --captures=E:/GALUMU/docs/development/logs/dev113-incapacity04/captures"
+      },
+      "target_sha256": "EBE8637F98F5C70D4C2663CA94AA28460CA8D43C2B43AAC92B55E7F5CF1535CF"
+    },
+    {
+      "name": "dev113-incapacity05",
+      "exit_code": 0,
+      "wall_seconds": 20.4,
+      "private_peak_mib": 656.6,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "A5C4C59B3DA4FAEFB59E6A3BDDEB50B6C900D54A300FE3B498105DBB3D8104CA",
+      "engine_log_sha256": "AC60592E5158D58683253032C32435201D2F93F8F432FA68D721D9D045CC485C",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-incapacity05/report.json",
+          "sha256": "6D0DE9503A848B77C194B5B4E3742DE6AF04F6F9DCC3F58359F33645309B38A5",
+          "passed": true,
+          "failures": [],
+          "version": "0.4.59-c1",
+          "battle_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_incapacity113.gd",
+        "budget": "gpu",
+        "extra": "--part=battle --report=E:/GALUMU/docs/development/logs/dev113-incapacity05/report.json --captures=none"
+      },
+      "target_sha256": "7614235D0839F916640E2434A826E5907305BCE2D9A6000E799576905FC88832"
+    },
+    {
+      "name": "dev113-injury-baseline01",
+      "exit_code": 0,
+      "wall_seconds": 0.4,
+      "private_peak_mib": null,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "B2A7199C36DC6009224DB8CA2E5D1FA8C1C282C1E0B67CE8A96BD96F3BA00A5D",
+      "engine_log_sha256": "62866CE802CE11B165831807CE57BF33366EBAF4A15A1497E3AD5E3115D7357C",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-injury-baseline01/evidence/report.json",
+          "sha256": "82375BE1CAD76BF655D5594286E984675AE26E254945587E267353F3973CB587",
+          "passed": true,
+          "failures": [],
+          "scope": "90 normalized direct-contact configurations: two modes, three armour tiers, three speeds, body/head/flank and shield centre/edge. Stops at first incapacity. No AI, swept geometry or player-incident reproduction claim.",
+          "cases_count": 90
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_injury113.gd",
+        "budget": "rules",
+        "extra": ""
+      },
+      "target_sha256": "9C462C3EC1DC326FCBF07EE4C72AB00B3340FAFBA56849A9FD8B1EFB3BAD57B8"
+    },
+    {
+      "name": "dev113-interruption01",
+      "exit_code": 0,
+      "wall_seconds": 51.0,
+      "private_peak_mib": 669.5,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "EE0197E4F5A22124DD1A0E5F4ECA983E449080A4AAB781A598386178FCC7EB85",
+      "engine_log_sha256": "3E37BDF47D2402A3811F4C10ECD194220C7A313996288B9C19973F10B64C0002",
+      "png_count": 3,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-interruption01/screens/report.json",
+          "sha256": "DE9788913CEFF68C22579271DFF92D88A28C255D2218F60ABFFC2347C2E038CA",
+          "passed": true,
+          "failures": [],
+          "version": "0.4.59-c1",
+          "scope": "Actual isolated GPU/windows minimized during ordinary practice ready/charge/contact. Live autoplay, viewport mouse/Escape injection, 8s settled-hidden pose snapshots; no damage injection, no OS input/human feel.",
+          "cases_count": 3
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_interruption105.gd",
+        "budget": "gpu",
+        "extra": ""
+      },
+      "target_sha256": "82CBF1DD3E9E2E6BB786D9C735F6C38549246F24D7479CE21A89E21751FB20D6"
+    },
+    {
+      "name": "dev113-motion01",
+      "exit_code": 0,
+      "wall_seconds": 22.2,
+      "private_peak_mib": 568.4,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "7BB43C6EA4929A307817631F84DE5BECD30541F3BED9EE904B9CD2A081D7E5D3",
+      "engine_log_sha256": "5E461EDD543167ECE26F1DA72299930B3A93B2206502369390817E243ECD0072",
+      "png_count": 24,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-motion01/screens/report.json",
+          "sha256": "365E684EBAD6A0ECCADDCC66A2E9A544D74C2A9950CE11B8BBBC9A36EA44E62D",
+          "passed": true,
+          "failures": [],
+          "version": "0.4.59-c1",
+          "scope": "Coat-only visual variants, unchanged horse stats. Production controls/pose sampling and isolated GPU images; no OS input or human rating.",
+          "records_count": 24
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_motion105.gd",
+        "budget": "gpu",
+        "extra": "--coats=bay,black,flaxen,grey --kinds=ride,lean,fatigue --expect-animated-grip"
+      },
+      "target_sha256": "84ECDE86129086FC5E7DF702159A8E5506A4EDA541FCF09A14A5B71590517C99"
+    },
+    {
+      "name": "dev113-mounted01",
+      "exit_code": 0,
+      "wall_seconds": 8.7,
+      "private_peak_mib": 652.2,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "514D8B7CAF429C8646F07D93FD212B73BCA3BB1CB54D3172BB7766CE06B83804",
+      "engine_log_sha256": "85F8882E6A7A9B0463EFB18B811260C8E988A7DE22FA7A2125542DBC324F40B6",
+      "png_count": 16,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-mounted01/screens/report.json",
+          "sha256": "7DFD1F63B892AF6F1B1FE122EC90DE6D7965A0F0B4096241CA23149AB4C91ACE",
+          "passed": true,
+          "failures": [],
+          "version": "0.4.59-c1",
+          "scope": "Isolated GPU, production control/reaction/gait with synthetic direct contacts and explicit 1000 HP/balance and 10000 KO threshold to keep riders mounted. Not CCD/KO rates or human motion approval.",
+          "records_count": 16
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_mounted_contact105.gd",
+        "budget": "gpu",
+        "extra": ""
+      },
+      "target_sha256": "9100B2A6859506EC0A952C1F37B32C1657C68512E40BB0D59664B782901CCDAB"
+    },
+    {
+      "name": "dev113-openings-oldcap01",
+      "exit_code": 0,
+      "wall_seconds": 200.9,
+      "private_peak_mib": 59.8,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "AE62D167C993F1C0F5C6FB9E0C65BFE4BC12393F7CE77A1208C288D71B110E0F",
+      "engine_log_sha256": "219F332ED4AD671AC89B61216DCD582A76DC1DC6BEB36B67C4701FF191015210",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-openings-oldcap01/report.json",
+          "sha256": "4F8F4E375FC5AB9EDA1AF712E5BFB86643336F518BA906A78CBD66F901D081AC",
+          "passed": true,
+          "failures": [],
+          "scope": "120Hz rule simulation; each seed played on BOTH sides; 250ms visible-pose delay plus 600ms command cadence, +/-8px aim error. Default no lean/spur inside 3000; brace=.55 or forward=1 inside 1600, backlean=-1 throughout, continuous=spur throughout. Legal-budget snapshots assume preceding first clears, not actual earned wins or real purchases. No human or visual acceptance. Reserve urges inside 1500; coast urges outside 1500 then releases. Suffix _forward combines that throttle with full forward lean inside 1600. Any horse/AI/pace overrides are explicit counterfactuals."
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "0ccf664bdb8b8f5645fe9e9a886a44e78159f15a",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_campaign113.gd",
+        "budget": "rules",
+        "extra": "--report=E:/GALUMU/docs/development/logs/dev113-openings-oldcap01/report.json --audit=E:/GALUMU/docs/development/logs/dev113-audit01/report.json --kit=starter --levels=1,2,3,4,5 --cases=2 --strategies=opening,head --old-shield-capacity"
+      },
+      "target_sha256": "3321A51145C02386AEF05953BF3687E0675B2A320A0BCF8E2AA98543FDD3C0C6"
+    },
+    {
+      "name": "dev113-openings01",
+      "exit_code": 0,
+      "wall_seconds": 198.0,
+      "private_peak_mib": 59.1,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "8E679777F64FCED9661A43EC24E174FE677CEDC366A169D76440A3A427EAC422",
+      "engine_log_sha256": "219F332ED4AD671AC89B61216DCD582A76DC1DC6BEB36B67C4701FF191015210",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-openings01/report.json",
+          "sha256": "823C348ECE0ADE20AE7EA1D57817A4B4FD2950BC73C47A2972FB6FF7AB109A90",
+          "passed": true,
+          "failures": [],
+          "scope": "120Hz rule simulation; each seed played on BOTH sides; 250ms visible-pose delay plus 600ms command cadence, +/-8px aim error. Default no lean/spur inside 3000; brace=.55 or forward=1 inside 1600, backlean=-1 throughout, continuous=spur throughout. Legal-budget snapshots assume preceding first clears, not actual earned wins or real purchases. No human or visual acceptance. Reserve urges inside 1500; coast urges outside 1500 then releases. Suffix _forward combines that throttle with full forward lean inside 1600. Any horse/AI/pace overrides are explicit counterfactuals."
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "0ccf664bdb8b8f5645fe9e9a886a44e78159f15a",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_campaign_probe107.gd",
+        "budget": "rules",
+        "extra": "--report=E:/GALUMU/docs/development/logs/dev113-openings01/report.json --audit=E:/GALUMU/docs/development/logs/dev113-audit01/report.json --kit=starter --levels=1,2,3,4,5 --cases=2 --strategies=opening,head"
+      },
+      "target_sha256": "672A63EF41A9D21C0FDB11311B483351EAD0AC56F08EB8E8CC82B796F495FEF8"
+    },
+    {
+      "name": "dev113-openings02",
+      "exit_code": 0,
+      "wall_seconds": 201.6,
+      "private_peak_mib": 58.7,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "EFA32F20CB3AAA64D1CA89B55197A30402B590A5D274525AC995ECDA8C396C84",
+      "engine_log_sha256": "219F332ED4AD671AC89B61216DCD582A76DC1DC6BEB36B67C4701FF191015210",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-openings02/report.json",
+          "sha256": "B508684FAA2A06A61230A069405AFB09AC3BA6B6F64654FDFDF38759E6E7E7BB",
+          "passed": true,
+          "failures": [],
+          "scope": "120Hz rule simulation; each seed played on BOTH sides; 250ms visible-pose delay plus 600ms command cadence, +/-8px aim error. Default no lean/spur inside 3000; brace=.55 or forward=1 inside 1600, backlean=-1 throughout, continuous=spur throughout. Legal-budget snapshots assume preceding first clears, not actual earned wins or real purchases. No human or visual acceptance. Reserve urges inside 1500; coast urges outside 1500 then releases. Suffix _forward combines that throttle with full forward lean inside 1600. Any horse/AI/pace overrides are explicit counterfactuals."
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_campaign_probe107.gd",
+        "budget": "rules",
+        "extra": "--report=E:/GALUMU/docs/development/logs/dev113-openings02/report.json --audit=E:/GALUMU/docs/development/logs/dev113-audit01/report.json --kit=starter --levels=1,2,3,4,5 --cases=2 --strategies=opening,head"
+      },
+      "target_sha256": "70D56E9E629C4ED383C9E7E11ABA6390AB3DCA13868845564E43C6D151A91F3B"
+    },
+    {
+      "name": "dev113-parse01",
+      "exit_code": 0,
+      "wall_seconds": 5.8,
+      "private_peak_mib": 184.2,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "2D99170BF75C09065519DD7748C36D80CA4F6C1B4ECD2FFA0EC6FDB836BC9CF3",
+      "engine_log_sha256": "CF67AD9F0BC347675E777FED7385371B07725C9F038030CF454C298A3C6C038E",
+      "png_count": 0,
+      "reports": [],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_parse065.gd",
+        "budget": "parse",
+        "extra": ""
+      },
+      "target_sha256": "9295BC16C01AC04E67C8BA02B1A159F79693380002489CAEE232F94B23DA9A93"
+    },
+    {
+      "name": "dev113-parse02",
+      "exit_code": 0,
+      "wall_seconds": 2.1,
+      "private_peak_mib": 187.1,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "D6DDE01E0FC79D9B2B452A46108B2B2889079A08317AC95E743C0397CC30A3F2",
+      "engine_log_sha256": "E168D1D751A26EBFA508B6D25A579C0C079B4B91775347A882435D637B4B1B7A",
+      "png_count": 0,
+      "reports": [],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_parse065.gd",
+        "budget": "parse",
+        "extra": ""
+      },
+      "target_sha256": "22964CFF546942C2C68329477A6A25625C36B74A3E7F44F3C7D85D69A9104D1A"
+    },
+    {
+      "name": "dev113-parse03",
+      "exit_code": 0,
+      "wall_seconds": 2.1,
+      "private_peak_mib": 192.6,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "142428604D42E5484F1B73858343242953955301500ADBDD12ED99EF3512F5E2",
+      "engine_log_sha256": "ABA21D8A0B79D642F9EB228FA07AD7394B11B93864E4D22AFCEA9D59C2B9EEE0",
+      "png_count": 0,
+      "reports": [],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_parse065.gd",
+        "budget": "parse",
+        "extra": ""
+      },
+      "target_sha256": "945BB9ADA2CB190EAAE70F460C03B7264DAA1D7871B3CB089003439713BD634E"
+    },
+    {
+      "name": "dev113-parse04",
+      "exit_code": 0,
+      "wall_seconds": 2.5,
+      "private_peak_mib": 194.4,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "F498EBAD45A56BB0FC9C739FC56652882CFB98FE34D10561C74F64B1937DC3EB",
+      "engine_log_sha256": "6081ECF1AD31D6CA11602EBD1009CE5B83135EF42C3402441A6E01BDF000E936",
+      "png_count": 0,
+      "reports": [],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_parse065.gd",
+        "budget": "parse",
+        "extra": ""
+      },
+      "target_sha256": "9D890FA22AA7444432693EA2E659181FB0B7831CF65F01D2E904991146EF5F94"
+    },
+    {
+      "name": "dev113-parse05",
+      "exit_code": 0,
+      "wall_seconds": 2.1,
+      "private_peak_mib": 190.9,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "E185FCF2FBCD689026C1AD67F8C4D77BB159874CBEF50E79F7931870693778E8",
+      "engine_log_sha256": "890107B1B3C2A64281C5A4867DF6501F84CA8B71DB6F6A18C166F9F08DB5459E",
+      "png_count": 0,
+      "reports": [],
+      "target": {
+        "target": "source",
+        "source_revision": "0ccf664bdb8b8f5645fe9e9a886a44e78159f15a",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_parse065.gd",
+        "budget": "parse",
+        "extra": ""
+      },
+      "target_sha256": "110B7D3C521F70F98B61E840CF1380AF19A18F0DB3F7752BBC6FDB658EBC9F00"
+    },
+    {
+      "name": "dev113-parse06",
+      "exit_code": 0,
+      "wall_seconds": 2.3,
+      "private_peak_mib": 187.9,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "7A9A0FBEC88CD8F8C2B61E2068D689C54A730A659D6121B229B58F1FC9179472",
+      "engine_log_sha256": "0991C49B5B913346960CCE9858B73EE4EA940901D8E78ACB46430CA6397EB7B4",
+      "png_count": 0,
+      "reports": [],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_parse065.gd",
+        "budget": "parse",
+        "extra": ""
+      },
+      "target_sha256": "A0E45D8D63D7FAB8631BAFDDF143375EE72E056CE82A4FE5B2CCDE82DCC0A70F"
+    },
+    {
+      "name": "dev113-parse07",
+      "exit_code": 0,
+      "wall_seconds": 2.2,
+      "private_peak_mib": 187.8,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "3DD9ADB3FE2067FBE59A7DF797F06AFA2D967334ECD8715B5F82435F44AE1133",
+      "engine_log_sha256": "271F5C5F19EB78D28681214CCBE66F5A28C29F4D31E449E43BB6E9565EE5F82C",
+      "png_count": 0,
+      "reports": [],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_parse065.gd",
+        "budget": "parse",
+        "extra": ""
+      },
+      "target_sha256": "2C89235EC221DE220B7CB877B6069883856EF16900A200B3221FC1ACC0B892F1"
+    },
+    {
+      "name": "dev113-performance01",
+      "exit_code": 0,
+      "wall_seconds": 247.8,
+      "private_peak_mib": 688.4,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "8B83273BB096110A1C30B11B0D744B922847D460DF27E268F3852CA4093E28E9",
+      "engine_log_sha256": "E0B3C6F0B96910F606D668DA9F949B997E2B53AF007D350ACE7250145CD1723D",
+      "png_count": 1,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-performance01/screens/report.json",
+          "sha256": "3F7A16947B208728A6F890B572EA05E39A81B074B5383EEC765AFFB2D6CD6832",
+          "passed": true,
+          "failures": [],
+          "version": "0.4.59-c1",
+          "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+          "all_frames": {
+            "fps": 59.9040668265552,
+            "frames": 14377,
+            "max_ms": 33.411,
+            "over_33ms": 1,
+            "over_50ms": 0,
+            "p50_ms": 16.674,
+            "p95_ms": 18.638,
+            "p99_ms": 20.241
+          },
+          "wall_seconds": 240.006121,
+          "matches_count": 7
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/profile_result099.gd",
+        "budget": "gpu",
+        "extra": "--seconds=240 --mode=war --kit=heavy --difficulty=2 --capture-render --trace099"
+      },
+      "target_sha256": "48F2CEC8729C810FC1384FE717B5ACA17FCA4D782AEAB37053DE6F0CE00C1E93"
+    },
+    {
+      "name": "dev113-result01",
+      "exit_code": 0,
+      "wall_seconds": 21.8,
+      "private_peak_mib": 685.3,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "0EE066E5C496FCC409E74A20639ECF2EBC97572794F086E75B5AE4E9E25502E3",
+      "engine_log_sha256": "9A322B5B26D5663F8D823B52042E201067F9DF2656552C755ED80AEF154AEA98",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-result01/screens/report.json",
+          "sha256": "88A8536CDA19939C0CDAB240B4DF24C3D852458329CBB49B8B9DE503E63ABB3A",
+          "passed": true,
+          "failures": [],
+          "version": "0.4.59-c1",
+          "scope": "24 shortened real Main result/replay transitions, recorded contacts; no OS input or gameplay balance inference",
+          "rows_count": 24
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_result099.gd",
+        "budget": "gpu",
+        "extra": "--fixture=E:/GALUMU/docs/development/logs/dev113-performance01/screens/report.json"
+      },
+      "target_sha256": "3C858F382576D9F7BA4B37721BEEB84E049C58A212A8DB429B6F3D29ECA12E94"
+    },
+    {
+      "name": "dev113-rules098-01",
+      "exit_code": 0,
+      "wall_seconds": 0.4,
+      "private_peak_mib": null,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "45E8D81414BEB070137CB775F219E3061205C357C1D45B16FA060A1A0086D2F7",
+      "engine_log_sha256": "D16FC20D6E27C521D39F5571343C699E5D5F0DC576AFC28628A6380B6976BD44",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-rules098-01/report.json",
+          "sha256": "2BA3A9010DBB035D78E73DADE64127BC9BB3CE937C2C946591FC9B79D4B50B43",
+          "passed": true,
+          "failures": [],
+          "rows_count": 20
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_rules098.gd",
+        "budget": "rules",
+        "extra": "--report=E:/GALUMU/docs/development/logs/dev113-rules098-01/report.json"
+      },
+      "target_sha256": "29898144379E5F7F49A006C844A06B74987831C0D1942DD693CE97AEEF938185"
+    },
+    {
+      "name": "dev113-rules098-02",
+      "exit_code": 0,
+      "wall_seconds": 0.4,
+      "private_peak_mib": null,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "60E3A1D68877725C551DFB272E3ACB6F652CCC7570375208A397F333796F0623",
+      "engine_log_sha256": "D16FC20D6E27C521D39F5571343C699E5D5F0DC576AFC28628A6380B6976BD44",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-rules098-02/report.json",
+          "sha256": "2BA3A9010DBB035D78E73DADE64127BC9BB3CE937C2C946591FC9B79D4B50B43",
+          "passed": true,
+          "failures": [],
+          "rows_count": 20
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "0ccf664bdb8b8f5645fe9e9a886a44e78159f15a",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_rules098.gd",
+        "budget": "rules",
+        "extra": "--report=E:/GALUMU/docs/development/logs/dev113-rules098-02/report.json"
+      },
+      "target_sha256": "4A42383CD6F30761DE10E91BAFE557FC0910F3BBF0CF63535065FB2E9C2D3F62"
+    },
+    {
+      "name": "dev113-shield-baseline01",
+      "exit_code": 0,
+      "wall_seconds": 5.6,
+      "private_peak_mib": 61.4,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "4180136DF0AD01B24D4B9F17DCA316BE429DE65D155E8251F947B9F4050043FA",
+      "engine_log_sha256": "694ABC1349C09124F4ADDAE8D25ABD3610234F8C4812FF50DA3D50B7FFC22322",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-shield-baseline01/evidence/report.json",
+          "sha256": "23D23968042C91182DD73B792434EAF6AC504E83F305389D20005F356E08522D",
+          "passed": true,
+          "failures": [],
+          "scope": "144 fixed-contact material sequences. Rider restored between blows; not actual rounds, AI win rate or player acceptance.",
+          "records_count": 144
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_shield113.gd",
+        "budget": "rules",
+        "extra": "--baseline"
+      },
+      "target_sha256": "E7BAC7391B10C36B0F217E5EFAD70DB812AD230BC7F06A0D2923F467DE1B0C93"
+    },
+    {
+      "name": "dev113-shield-visual01",
+      "exit_code": 1,
+      "wall_seconds": 48.9,
+      "private_peak_mib": 662.2,
+      "isolated_desktop_closed": true,
+      "errors": [
+        "ERROR: Can't create shader cache folder, no shader caching will happen: user://",
+        "ERROR: Fragments expire within their bounded lifetime"
+      ],
+      "warnings": [
+        "WARNING: ObjectDB instances leaked at exit (run with --verbose for details)."
+      ],
+      "memory_log_sha256": "D8F472564F23E98ED9C84B7322763C079AD48F011BFF25E726546331E59B09C4",
+      "engine_log_sha256": "3DE2108D1FE85BCFAC4289279C76A2C459E84205ECEC8C52A82F0956C03B565A",
+      "png_count": 56,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-shield-visual01/report.json",
+          "sha256": "1D5EE3C103A89AB4C873FF4BF5DABFF20BC14B7CE0B5FD3C689C8BBB6D351751",
+          "passed": false,
+          "failures": [
+            "Fragments expire within their bounded lifetime"
+          ],
+          "version": "0.4.59-c1",
+          "battle_count": 8
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "0ccf664bdb8b8f5645fe9e9a886a44e78159f15a",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_shield_visual113.gd",
+        "budget": "gpu",
+        "extra": "--part=battle --report=E:/GALUMU/docs/development/logs/dev113-shield-visual01/report.json --captures=E:/GALUMU/docs/development/logs/dev113-shield-visual01/captures"
+      },
+      "target_sha256": "89A62D4E70DA9F771601FC453E51E6A9088E45CE5B19E0AE4BC9193BEADCCCB3"
+    },
+    {
+      "name": "dev113-shield-visual02",
+      "exit_code": 1,
+      "wall_seconds": 48.4,
+      "private_peak_mib": 664.5,
+      "isolated_desktop_closed": true,
+      "errors": [
+        "ERROR: Can't create shader cache folder, no shader caching will happen: user://",
+        "ERROR: Fragments expire within their bounded lifetime"
+      ],
+      "warnings": [],
+      "memory_log_sha256": "905A283E44E35637E0FB8484AED1B5F503C0788D8F151873D953252CEF0FB7B0",
+      "engine_log_sha256": "F10621B1F9EB6A220F54BDD1BCD0849B1FC5776E9FB7548E7B35C726DBBBC11B",
+      "png_count": 56,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-shield-visual02/report.json",
+          "sha256": "3A2267D56FB162F0FE73CD953770AB1AED54EC7E56CCE39EC3ECD97DE5372AF6",
+          "passed": false,
+          "failures": [
+            "Fragments expire within their bounded lifetime"
+          ],
+          "version": "0.4.59-c1",
+          "battle_count": 8
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "0ccf664bdb8b8f5645fe9e9a886a44e78159f15a",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_shield_visual113.gd",
+        "budget": "gpu",
+        "extra": "--part=battle --report=E:/GALUMU/docs/development/logs/dev113-shield-visual02/report.json --captures=E:/GALUMU/docs/development/logs/dev113-shield-visual02/captures"
+      },
+      "target_sha256": "3BDBA05AC201EDCE29CAC8BA6F39577415A9DF3A4665EA84D28B91CBB70430C8"
+    },
+    {
+      "name": "dev113-shield-visual03",
+      "exit_code": 0,
+      "wall_seconds": 52.2,
+      "private_peak_mib": 663.3,
+      "isolated_desktop_closed": true,
+      "errors": [
+        "ERROR: Can't create shader cache folder, no shader caching will happen: user://"
+      ],
+      "warnings": [],
+      "memory_log_sha256": "5440025EE81657D8477F1AFAF72B7CFD32BB05919BA70A310CE70C6D19B4A801",
+      "engine_log_sha256": "42626C38E6223CA6155539A227CCA8FCA9AE4FE9576F2C9510E72A3E01CD046B",
+      "png_count": 56,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-shield-visual03/report.json",
+          "sha256": "3C7A10C8D620321F281B7695989415E20E14658E76157C9AF50EDE4BC1E385BA",
+          "passed": true,
+          "failures": [],
+          "version": "0.4.59-c1",
+          "battle_count": 8
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "0ccf664bdb8b8f5645fe9e9a886a44e78159f15a",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_shield_visual113.gd",
+        "budget": "gpu",
+        "extra": "--part=battle --report=E:/GALUMU/docs/development/logs/dev113-shield-visual03/report.json --captures=E:/GALUMU/docs/development/logs/dev113-shield-visual03/captures"
+      },
+      "target_sha256": "9874A91E6ACCA97718061A29BF9F5FE27B514A869E348CC2D29D383C608306A9"
+    },
+    {
+      "name": "dev113-shield-visual04",
+      "exit_code": 0,
+      "wall_seconds": 51.0,
+      "private_peak_mib": 671.1,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "AC8B838738C40C301D8054ED8D125408013C4361B1A5EC81E8A1D20477AE7CEB",
+      "engine_log_sha256": "7AFC259FBD0A4EC2DB896C7F57A83BD6BB46ADEF16E7E127FD0ABE9510EFE2BD",
+      "png_count": 56,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-shield-visual04/report.json",
+          "sha256": "4E7ECE92A8411A57C7970E50B90B2CF3C19990EFEE24FAA804B7CB1E90E4385A",
+          "passed": true,
+          "failures": [],
+          "version": "0.4.59-c1",
+          "battle_count": 8
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "0ccf664bdb8b8f5645fe9e9a886a44e78159f15a",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_shield_visual113.gd",
+        "budget": "gpu",
+        "extra": "--part=battle --report=E:/GALUMU/docs/development/logs/dev113-shield-visual04/report.json --captures=E:/GALUMU/docs/development/logs/dev113-shield-visual04/captures"
+      },
+      "target_sha256": "21A637C3DF6A651CE9E6C8CB1A8ED382C2D6E1DA45CD7DAE787186CE13C1966E"
+    },
+    {
+      "name": "dev113-shield01",
+      "exit_code": 0,
+      "wall_seconds": 0.7,
+      "private_peak_mib": null,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "C5C819535D6387A2651A6D13F8A6FBAFF46AC403AC34F0D442BE74198CEA4339",
+      "engine_log_sha256": "694ABC1349C09124F4ADDAE8D25ABD3610234F8C4812FF50DA3D50B7FFC22322",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-shield01/evidence/report.json",
+          "sha256": "04FE5AB91C1D0EAD74054C583701C56C3A3A76D52E3BC43866C13023927AD264",
+          "passed": true,
+          "failures": [],
+          "scope": "144 fixed-contact material sequences. Rider restored between blows; not actual rounds, AI win rate or player acceptance.",
+          "records_count": 144
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "0ccf664bdb8b8f5645fe9e9a886a44e78159f15a",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_shield113.gd",
+        "budget": "rules",
+        "extra": ""
+      },
+      "target_sha256": "609CD1833C4149360DB5B311A87E559CA4A28892B5A43C46DE37961B7C1FEDC3"
+    },
+    {
+      "name": "dev113-shield02",
+      "exit_code": 0,
+      "wall_seconds": 0.6,
+      "private_peak_mib": null,
+      "isolated_desktop_closed": false,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "7C114E46F68E65CC327FF5A56D4892F571529B6C0342D75E9CC426B9F102F7CB",
+      "engine_log_sha256": "694ABC1349C09124F4ADDAE8D25ABD3610234F8C4812FF50DA3D50B7FFC22322",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-shield02/evidence/report.json",
+          "sha256": "04FE5AB91C1D0EAD74054C583701C56C3A3A76D52E3BC43866C13023927AD264",
+          "passed": true,
+          "failures": [],
+          "scope": "144 fixed-contact material sequences. Rider restored between blows; not actual rounds, AI win rate or player acceptance.",
+          "records_count": 144
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "0ccf664bdb8b8f5645fe9e9a886a44e78159f15a",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_shield113.gd",
+        "budget": "rules",
+        "extra": ""
+      },
+      "target_sha256": "371A9043A5C323EBF00480D76F4177FCCED1748FBD1C775669CB4CA141A93BFB"
+    },
+    {
+      "name": "dev113-slump-de0",
+      "exit_code": 0,
+      "wall_seconds": 5.4,
+      "private_peak_mib": 445.5,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "0B9C60528FB3CB978B4E9E368B1C5316A07DA07FD2717322AFCECEB400AC713E",
+      "engine_log_sha256": "4C83BA3B52A7C6CA79B87151EA0E7D9334BE9AF7A86582D1142D574ADF19FABE",
+      "png_count": 6,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump-de0/screens/report.json",
+          "sha256": "15FF55D7EA62E686361372C6373522CF9769412E5B9CFFBC97DAE2E79FFA502E",
+          "passed": true,
+          "failures": [],
+          "scope": "Six mounted low-health glance fixtures, actual shared Model/Rider transforms and three equipment tiers, both directions. GPU frames for neck/helmet/horse/arm inspection; no Battle camera or human gameplay.",
+          "cases_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_slump113.gd",
+        "budget": "gpu",
+        "extra": "--region=de --tier-start=0"
+      },
+      "target_sha256": "EE57B2814E5900EB2B39F182D77918B52DB163814F1F6B7A9B07C2E1DA237BFB"
+    },
+    {
+      "name": "dev113-slump-de3",
+      "exit_code": 0,
+      "wall_seconds": 5.4,
+      "private_peak_mib": 458.8,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "6F58A774AC1F2A70EBAF8FF68F55B44E5CC658099EB6D5EC21D093CB9D92244F",
+      "engine_log_sha256": "4C83BA3B52A7C6CA79B87151EA0E7D9334BE9AF7A86582D1142D574ADF19FABE",
+      "png_count": 6,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump-de3/screens/report.json",
+          "sha256": "789BBF1FBD953087880B76BA2694DAE3C2A2BDAC0173036F5EB7DFD1F0AEA73B",
+          "passed": true,
+          "failures": [],
+          "scope": "Six mounted low-health glance fixtures, actual shared Model/Rider transforms and three equipment tiers, both directions. GPU frames for neck/helmet/horse/arm inspection; no Battle camera or human gameplay.",
+          "cases_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_slump113.gd",
+        "budget": "gpu",
+        "extra": "--region=de --tier-start=3"
+      },
+      "target_sha256": "6E81283153CFDA10F61C77EB8543F5EB8937E0C5AED1B8DE416DD07DF0CDE33E"
+    },
+    {
+      "name": "dev113-slump-eng0",
+      "exit_code": 0,
+      "wall_seconds": 5.7,
+      "private_peak_mib": 424.3,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "52D44825DB36DA7407980765AB950E1B9700DB73ADA76E2C360BDB9D47D927A2",
+      "engine_log_sha256": "4C83BA3B52A7C6CA79B87151EA0E7D9334BE9AF7A86582D1142D574ADF19FABE",
+      "png_count": 6,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump-eng0/screens/report.json",
+          "sha256": "B7297FEFF583FD0C8DA7413FCCCD4E531C3E800FB2E5A4DC917B32A2BB32662F",
+          "passed": true,
+          "failures": [],
+          "scope": "Six mounted low-health glance fixtures, actual shared Model/Rider transforms and three equipment tiers, both directions. GPU frames for neck/helmet/horse/arm inspection; no Battle camera or human gameplay.",
+          "cases_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_slump113.gd",
+        "budget": "gpu",
+        "extra": "--region=eng --tier-start=0"
+      },
+      "target_sha256": "273405350F947DEDF74A5B2C919A39EC409A613BDD466964DD88301A7E50FC82"
+    },
+    {
+      "name": "dev113-slump-eng3",
+      "exit_code": 0,
+      "wall_seconds": 5.3,
+      "private_peak_mib": 448.8,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "D3ED8F5786534A6D2D46156D1F833E2B9728DF8E2E35DDAB423FFEC9DE48FB0D",
+      "engine_log_sha256": "4C83BA3B52A7C6CA79B87151EA0E7D9334BE9AF7A86582D1142D574ADF19FABE",
+      "png_count": 6,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump-eng3/screens/report.json",
+          "sha256": "6050F5E7BD52AFFBA61ABED2EEBAA036C22675BC31844EE035BF2028B6621BA4",
+          "passed": true,
+          "failures": [],
+          "scope": "Six mounted low-health glance fixtures, actual shared Model/Rider transforms and three equipment tiers, both directions. GPU frames for neck/helmet/horse/arm inspection; no Battle camera or human gameplay.",
+          "cases_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_slump113.gd",
+        "budget": "gpu",
+        "extra": "--region=eng --tier-start=3"
+      },
+      "target_sha256": "20DDAF675B3706E66D19528594F73C6918CC2578FA639812565DCE5CA5B870C5"
+    },
+    {
+      "name": "dev113-slump-fast01",
+      "exit_code": 0,
+      "wall_seconds": 5.1,
+      "private_peak_mib": 408.2,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "878C9EDFBD676DDB0D3E653EB20C6804F1BF5DF74B30A14FB36EF0E77F8B5B35",
+      "engine_log_sha256": "4C83BA3B52A7C6CA79B87151EA0E7D9334BE9AF7A86582D1142D574ADF19FABE",
+      "png_count": 6,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump-fast01/screens/report.json",
+          "sha256": "7A5CBDA4899019C7EC3FF2CE6A2169A7A4932010E713619E7A3B43FD705CE89D",
+          "passed": true,
+          "failures": [],
+          "scope": "Six mounted low-health glance fixtures, actual shared Model/Rider transforms and three equipment tiers, both directions. GPU frames for neck/helmet/horse/arm inspection; no Battle camera or human gameplay.",
+          "cases_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_slump113.gd",
+        "budget": "gpu",
+        "extra": "--region=it --tier-start=3 --pace=480"
+      },
+      "target_sha256": "5B464E4A44C6B885B53F509C31CFC9EA50517E29253DD650721BB0E61B80E676"
+    },
+    {
+      "name": "dev113-slump-fr0",
+      "exit_code": 0,
+      "wall_seconds": 5.3,
+      "private_peak_mib": 421.9,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "6A128086049569BF557FB6371B1DF0842A4F310679C9F43726CE8A95C178232C",
+      "engine_log_sha256": "4C83BA3B52A7C6CA79B87151EA0E7D9334BE9AF7A86582D1142D574ADF19FABE",
+      "png_count": 6,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump-fr0/screens/report.json",
+          "sha256": "23854B529135E6AAB1F778311C38443EE6FEED05D3847B581F8CACC5C3EFE634",
+          "passed": true,
+          "failures": [],
+          "scope": "Six mounted low-health glance fixtures, actual shared Model/Rider transforms and three equipment tiers, both directions. GPU frames for neck/helmet/horse/arm inspection; no Battle camera or human gameplay.",
+          "cases_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_slump113.gd",
+        "budget": "gpu",
+        "extra": "--region=fr --tier-start=0"
+      },
+      "target_sha256": "E286A5CB013CE2646085962ABFD2D348E92C69FD9B6352800DFB514AED68DCF3"
+    },
+    {
+      "name": "dev113-slump-fr3",
+      "exit_code": 0,
+      "wall_seconds": 5.4,
+      "private_peak_mib": 483.7,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "5B4BD8D1E4D118AC1A17E9DF4217930E928BF8AE62B93DC6CBCCC36526BFCAC3",
+      "engine_log_sha256": "4C83BA3B52A7C6CA79B87151EA0E7D9334BE9AF7A86582D1142D574ADF19FABE",
+      "png_count": 6,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump-fr3/screens/report.json",
+          "sha256": "FF0F8857F59EF1548B205725DEDD15793FCACC48F25F3DBD55748F5F3D0D5A83",
+          "passed": true,
+          "failures": [],
+          "scope": "Six mounted low-health glance fixtures, actual shared Model/Rider transforms and three equipment tiers, both directions. GPU frames for neck/helmet/horse/arm inspection; no Battle camera or human gameplay.",
+          "cases_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_slump113.gd",
+        "budget": "gpu",
+        "extra": "--region=fr --tier-start=3"
+      },
+      "target_sha256": "383418637686B01C06DAF6288B271195D7A543474C3EF903335354BC932CB4DD"
+    },
+    {
+      "name": "dev113-slump-it0",
+      "exit_code": 0,
+      "wall_seconds": 5.5,
+      "private_peak_mib": 517.9,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "20CDACB786DC18294A68C0641C9E2BD6C8E36443024F426C3A694C44EC5D5AB7",
+      "engine_log_sha256": "4C83BA3B52A7C6CA79B87151EA0E7D9334BE9AF7A86582D1142D574ADF19FABE",
+      "png_count": 6,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump-it0/screens/report.json",
+          "sha256": "77CAE23AB3AA25DC14436711B74ECA321F0B11451B5810A6DC364AEBF9A79742",
+          "passed": true,
+          "failures": [],
+          "scope": "Six mounted low-health glance fixtures, actual shared Model/Rider transforms and three equipment tiers, both directions. GPU frames for neck/helmet/horse/arm inspection; no Battle camera or human gameplay.",
+          "cases_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_slump113.gd",
+        "budget": "gpu",
+        "extra": "--region=it --tier-start=0"
+      },
+      "target_sha256": "813EC0565FFC209FA332559C40C05C0C0D5626C827FD85C528CB75237779ECFD"
+    },
+    {
+      "name": "dev113-slump-it3",
+      "exit_code": 0,
+      "wall_seconds": 5.4,
+      "private_peak_mib": 507.6,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "AE204E5A548C092A7C4348EE3F72B0C9BD6E0FD21FD96ACFA7D98E7F99677EF4",
+      "engine_log_sha256": "4C83BA3B52A7C6CA79B87151EA0E7D9334BE9AF7A86582D1142D574ADF19FABE",
+      "png_count": 6,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump-it3/screens/report.json",
+          "sha256": "74D33E5F0249713EC2C95051692CAC2BF5C893EDBB735DF24B498072664708E3",
+          "passed": true,
+          "failures": [],
+          "scope": "Six mounted low-health glance fixtures, actual shared Model/Rider transforms and three equipment tiers, both directions. GPU frames for neck/helmet/horse/arm inspection; no Battle camera or human gameplay.",
+          "cases_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_slump113.gd",
+        "budget": "gpu",
+        "extra": "--region=it --tier-start=3"
+      },
+      "target_sha256": "2BD37CF72071305DE273DEBCEBE6780A6B9294730134B051D2BA945A157EA8B7"
+    },
+    {
+      "name": "dev113-slump-rest01",
+      "exit_code": 0,
+      "wall_seconds": 5.1,
+      "private_peak_mib": 340.5,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "AF27A348F71F8200A605A9239A8560458DDFD672E4D46E338D4BC79A60072362",
+      "engine_log_sha256": "4C83BA3B52A7C6CA79B87151EA0E7D9334BE9AF7A86582D1142D574ADF19FABE",
+      "png_count": 6,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump-rest01/screens/report.json",
+          "sha256": "294E5B9694A204E0B6D76E9231AC887B51DDE5E918B44350470368EB34330215",
+          "passed": true,
+          "failures": [],
+          "scope": "Six mounted low-health glance fixtures, actual shared Model/Rider transforms and three equipment tiers, both directions. GPU frames for neck/helmet/horse/arm inspection; no Battle camera or human gameplay.",
+          "cases_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_slump113.gd",
+        "budget": "gpu",
+        "extra": "--region=eng --tier-start=0 --pace=0"
+      },
+      "target_sha256": "40AD212ED6FF82FC3BE24C70C309B53266A3860F5F8422118831E2569022CFF9"
+    },
+    {
+      "name": "dev113-slump01",
+      "exit_code": 0,
+      "wall_seconds": 6.4,
+      "private_peak_mib": 479.4,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "0ADB7880A7AC24D691565DB5B160F92450395A064D68764F98B3BB4A9B96F926",
+      "engine_log_sha256": "4C83BA3B52A7C6CA79B87151EA0E7D9334BE9AF7A86582D1142D574ADF19FABE",
+      "png_count": 6,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump01/screens/report.json",
+          "sha256": "B2C4832B8768F895D1F709BB16C8C21D5FB2C3272C928AA1CBDABBA48F3C349A",
+          "passed": true,
+          "failures": [],
+          "scope": "Six mounted low-health glance fixtures, actual shared Model/Rider transforms and three equipment tiers, both directions. GPU frames for neck/helmet/horse/arm inspection; no Battle camera or human gameplay.",
+          "cases_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_slump113.gd",
+        "budget": "gpu",
+        "extra": ""
+      },
+      "target_sha256": "813148BFDF2366EA8D95330C5092A713D7AAFA4180FDBB0F385E92C3808AEDE8"
+    },
+    {
+      "name": "dev113-slump02",
+      "exit_code": 0,
+      "wall_seconds": 5.6,
+      "private_peak_mib": 455.3,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "D134AB3DBA7216CE609D73859189B5CBF9CC344A0251B518F80FD92143B7738F",
+      "engine_log_sha256": "4C83BA3B52A7C6CA79B87151EA0E7D9334BE9AF7A86582D1142D574ADF19FABE",
+      "png_count": 6,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-slump02/screens/report.json",
+          "sha256": "9B7318447A52F229554090E33E314A281B1822A0C4AA0FFBBD01AEFEBD3D3777",
+          "passed": true,
+          "failures": [],
+          "scope": "Six mounted low-health glance fixtures, actual shared Model/Rider transforms and three equipment tiers, both directions. GPU frames for neck/helmet/horse/arm inspection; no Battle camera or human gameplay.",
+          "cases_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": null,
+        "pck_sha256": null,
+        "external_test": "res://tests/test_slump113.gd",
+        "budget": "gpu",
+        "extra": ""
+      },
+      "target_sha256": "BB2DCD82ADE7B1E19ECFB38F9E93F7DFAEF196153CD04F0CF5D186FF51874501"
+    },
+    {
+      "name": "dev113-terminal01",
+      "exit_code": 1,
+      "wall_seconds": 30.7,
+      "private_peak_mib": 692.8,
+      "isolated_desktop_closed": true,
+      "errors": [
+        "ERROR: Normal fatigue permits conscious loss of seat from sustained violent controls",
+        "ERROR: Self-unseating gets a visible body and result",
+        "ERROR: Self-unseating is logged once"
+      ],
+      "warnings": [],
+      "memory_log_sha256": "7040B241F5BF67380AA154986EDE6303BB7D684AFB3D7B004F00F937C71521CB",
+      "engine_log_sha256": "47108295006EA3FB4F29D39B4BD0B5E6D6B6758FC9F4EEF10FAE23F42D0B0ACB",
+      "png_count": 19,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-terminal01/report.json",
+          "sha256": "ACC1EEB9799D411E3E028C0C48DA5243C00551F826D7C68B4AFFE0F2AA488B97",
+          "passed": false,
+          "failures": [
+            "Normal fatigue permits conscious loss of seat from sustained violent controls",
+            "Self-unseating gets a visible body and result",
+            "Self-unseating is logged once"
+          ],
+          "version": "0.4.59-c1",
+          "battle_count": 4
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_terminal113.gd",
+        "budget": "gpu",
+        "extra": "--part=battle --report=E:/GALUMU/docs/development/logs/dev113-terminal01/report.json --captures=E:/GALUMU/docs/development/logs/dev113-terminal01/captures"
+      },
+      "target_sha256": "4551E3C3EE5C0C3B4DB02634D711803411DCC25BF27CD5A6F095FE99311CA3D9"
+    },
+    {
+      "name": "dev113-terminal02",
+      "exit_code": 1,
+      "wall_seconds": 37.4,
+      "private_peak_mib": 689.1,
+      "isolated_desktop_closed": true,
+      "errors": [
+        "ERROR: Normal fatigue permits conscious loss of seat from sustained violent controls",
+        "ERROR: Self-unseating gets a visible body and result",
+        "ERROR: Self-unseating is logged once"
+      ],
+      "warnings": [],
+      "memory_log_sha256": "A68169DF660C7576ABD208E3DB9BBA7A2BC7EC5B6D2D2C7A06808776A76EEBAC",
+      "engine_log_sha256": "1302D9324AA674E7F74A25E102300C4A21CAB4ACDF3673BC6D019D16066401CF",
+      "png_count": 24,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-terminal02/report.json",
+          "sha256": "9E4E1DF96337B4AEB8D79D71E255AC195B78B49E3D1B1CFAA825B1D8D32A32DD",
+          "passed": false,
+          "failures": [
+            "Normal fatigue permits conscious loss of seat from sustained violent controls",
+            "Self-unseating gets a visible body and result",
+            "Self-unseating is logged once"
+          ],
+          "version": "0.4.59-c1",
+          "battle_count": 5
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_terminal113.gd",
+        "budget": "gpu",
+        "extra": "--part=battle --report=E:/GALUMU/docs/development/logs/dev113-terminal02/report.json --captures=E:/GALUMU/docs/development/logs/dev113-terminal02/captures"
+      },
+      "target_sha256": "EB9A567B4E169534794619D0ED65CB11842E794AF546FCAF2B442669395CA163"
+    },
+    {
+      "name": "dev113-terminal03",
+      "exit_code": 1,
+      "wall_seconds": 44.7,
+      "private_peak_mib": 662.7,
+      "isolated_desktop_closed": true,
+      "errors": [
+        "ERROR: Normal fatigue permits conscious loss of seat from sustained violent controls",
+        "ERROR: Self-unseating gets a visible body and result",
+        "ERROR: Self-unseating is logged once"
+      ],
+      "warnings": [],
+      "memory_log_sha256": "74B17233A92CC9F1B9F4E23C0B731AE09D05B03473DC959EC0F3E014BE7F5D35",
+      "engine_log_sha256": "790EA4D0A00C0F4977D2528DDC24EF73C9375F76DBDBCBFAE198EBBDBFFBB7D2",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-terminal03/report.json",
+          "sha256": "C370E61B31F8E57299E5D35AF4B382CE12A469E36EE3A87FF28195D65AA32D7D",
+          "passed": false,
+          "failures": [
+            "Normal fatigue permits conscious loss of seat from sustained violent controls",
+            "Self-unseating gets a visible body and result",
+            "Self-unseating is logged once"
+          ],
+          "version": "0.4.59-c1",
+          "battle_count": 5
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_terminal113.gd",
+        "budget": "gpu",
+        "extra": "--part=battle --report=E:/GALUMU/docs/development/logs/dev113-terminal03/report.json --captures=none"
+      },
+      "target_sha256": "EBD2CD67A5C918327531EF4D5710E282D5EFB855A339C6F9FB2CED95F647BEE8"
+    },
+    {
+      "name": "dev113-terminal04",
+      "exit_code": 1,
+      "wall_seconds": 44.9,
+      "private_peak_mib": 658.5,
+      "isolated_desktop_closed": true,
+      "errors": [
+        "ERROR: Small actual lean arcs do not guarantee a fall just from frequent input",
+        "ERROR: Normal fatigue permits conscious loss of seat from sustained violent controls",
+        "ERROR: Self-unseating gets a visible body and result",
+        "ERROR: Self-unseating is logged once"
+      ],
+      "warnings": [],
+      "memory_log_sha256": "7856DA4471156B131A509DCA99FAE3D7F09186F1EBE7BF5E7EB26F52C86E06BB",
+      "engine_log_sha256": "632780940E0F390323AFFAFD800A07A39AF7F761A16AF02378FA93933700E8C0",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-terminal04/report.json",
+          "sha256": "835C5F70DAD212CFFDC97D6532A083B047D1E20684C0D17990E7223F0F402957",
+          "passed": false,
+          "failures": [
+            "Small actual lean arcs do not guarantee a fall just from frequent input",
+            "Normal fatigue permits conscious loss of seat from sustained violent controls",
+            "Self-unseating gets a visible body and result",
+            "Self-unseating is logged once"
+          ],
+          "version": "0.4.59-c1",
+          "battle_count": 5
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_terminal113.gd",
+        "budget": "gpu",
+        "extra": "--part=battle --report=E:/GALUMU/docs/development/logs/dev113-terminal04/report.json --captures=none"
+      },
+      "target_sha256": "7ADF114F015B5DB95405B26785BCBB588E882635562B9A246512C230290B891E"
+    },
+    {
+      "name": "dev113-terminal05",
+      "exit_code": 1,
+      "wall_seconds": 52.4,
+      "private_peak_mib": 660.4,
+      "isolated_desktop_closed": true,
+      "errors": [
+        "ERROR: Normal fatigue permits conscious loss of seat from sustained violent controls",
+        "ERROR: Self-unseating gets a visible body and result",
+        "ERROR: Self-unseating is logged once"
+      ],
+      "warnings": [],
+      "memory_log_sha256": "69B5A3F5AD6E758DDE1414DFE4AEAC3656242A6C41755E3FA7E90040DA18525F",
+      "engine_log_sha256": "F85969AB349F4C909FAB5B7800E70C998AB0521820481A14C68C861A4537D291",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-terminal05/report.json",
+          "sha256": "CAB5444BA15AA6EDC56E3BD12D0618EA294CC5E736F86C9DF338A52BF12A0C0B",
+          "passed": false,
+          "failures": [
+            "Normal fatigue permits conscious loss of seat from sustained violent controls",
+            "Self-unseating gets a visible body and result",
+            "Self-unseating is logged once"
+          ],
+          "version": "0.4.59-c1",
+          "battle_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_terminal113.gd",
+        "budget": "gpu",
+        "extra": "--part=battle --report=E:/GALUMU/docs/development/logs/dev113-terminal05/report.json --captures=none"
+      },
+      "target_sha256": "023DDAAD52356362A8011FD63D0E07A4E30EA14924E4C41D51CFCE3C698722C5"
+    },
+    {
+      "name": "dev113-terminal06",
+      "exit_code": 0,
+      "wall_seconds": 38.1,
+      "private_peak_mib": 666.9,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "37115629772D1041D0AABFFB87ED2174924CA38E822290B96B7499C04E917980",
+      "engine_log_sha256": "AC60592E5158D58683253032C32435201D2F93F8F432FA68D721D9D045CC485C",
+      "png_count": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-terminal06/report.json",
+          "sha256": "7705CAE10FBA17B6B8FCFFBE75A0671394E51FCBCBFEFC63C67D79DF8167E5E5",
+          "passed": true,
+          "failures": [],
+          "version": "0.4.59-c1",
+          "battle_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_terminal113.gd",
+        "budget": "gpu",
+        "extra": "--part=battle --report=E:/GALUMU/docs/development/logs/dev113-terminal06/report.json --captures=none"
+      },
+      "target_sha256": "C174459EF0A716A3AE6E38030DA540274AF4E3330AD2B9649DE6A3236D2C0CB5"
+    },
+    {
+      "name": "dev113-terminal07",
+      "exit_code": 0,
+      "wall_seconds": 45.3,
+      "private_peak_mib": 693.9,
+      "isolated_desktop_closed": true,
+      "errors": [],
+      "warnings": [],
+      "memory_log_sha256": "152A8730B7BC40AA820D7B140F0811C5E4687C6B6C52849CB182F7F6B4DE4A05",
+      "engine_log_sha256": "AC60592E5158D58683253032C32435201D2F93F8F432FA68D721D9D045CC485C",
+      "png_count": 30,
+      "reports": [
+        {
+          "path": "docs/development/logs/dev113-terminal07/report.json",
+          "sha256": "7452223783BB9644023B7CC77649610E7D5C47DB29AEBC72576CE0D442447ACC",
+          "passed": true,
+          "failures": [],
+          "version": "0.4.59-c1",
+          "battle_count": 6
+        }
+      ],
+      "target": {
+        "target": "source",
+        "source_revision": "14a03e78ecbb9ffb3ebb3d551abe38f58e55eb88",
+        "pck_sha256": null,
+        "external_test": "res://tests/test_terminal113.gd",
+        "budget": "gpu",
+        "extra": "--part=battle --report=E:/GALUMU/docs/development/logs/dev113-terminal07/report.json --captures=E:/GALUMU/docs/development/logs/dev113-terminal07/captures"
+      },
+      "target_sha256": "26104409D1C511DE843892320EB37F3883345E8116A92A4F823A4D180B248A43"
+    }
+  ]
+}

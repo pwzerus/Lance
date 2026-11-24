@@ -882,7 +882,7 @@ func show_result() -> void:
 		heading = "第 %d 关 · %s · %s · %s" % [int(current_level.number),"竞技场" if current_mode=="arena" else "实战",str(current_level.opponent),str(current_level.archetype_name)]
 	UI.label(panel,heading,Vector2(35,22),16,UI.GOLD,520)
 	var campaign_complete = int(current_level.get("number",0))==Campaign.COUNT and won and Campaign.all_complete(GameState.profile)
-	var title = "八章挑战完成" if campaign_complete else ("平局" if draw else ("你赢了" if won else "这场输了"))
+	var title = "八章挑战完成" if campaign_complete else ("平局" if draw else ("本场获胜" if won else "本场落败"))
 	UI.label(panel,title,Vector2(35,62),42,UI.INK).name="ResultTitle"
 	if current_mode=="arena":
 		UI.label(panel,"比分 %d : %d" % [int(result.get("player_score",0)),int(result.get("enemy_score",0))],Vector2(485,76),25,UI.GOLD,255).name="ResultScore"

@@ -110,6 +110,7 @@ static func next_action(events: Array, mouse_only: bool = false, result: Diction
 	var injury = {"head":0.0,"body":0.0,"flank":0.0}
 	var shield_load = 0.0
 	var unstable_fall = false
+	var lost_seat_without_hit = false
 	var outgoing = 0
 	var shields = 0
 	var glances = 0
@@ -119,7 +120,7 @@ static func next_action(events: Array, mouse_only: bool = false, result: Diction
 		var zone = str(event.get("zone",""))
 		if int(event.get("attacker",-1))==1 and zone=="shield" and event.get("broke",false) and not event.get("glanced",false): opponent_breaks+=1
 		if int(event.get("defender",-1))==0:
-			if event.get("ko_reason","")=="seat": unstable_fall=true
+			if event.get("ko_reason","")=="seat": lost_seat_without_hit=true
 			if injury.has(zone): injury[zone]+=maxf(0,float(event.get("damage",0)))
 			if zone=="shield": shield_load+=maxf(0,float(event.get("impulse",0)))
 			if event.get("ko",false) and zone=="shield": shield_load+=100
@@ -133,6 +134,8 @@ static func next_action(events: Array, mouse_only: bool = false, result: Diction
 		if glances>0: return "擦过不计分，断枪也不加分；提前稳住枪尖，争取实击。"
 		if touches>0: return "轻触基础只计1分；稳住枪与冲速，争取有效实击。"
 		if opponent_breaks>0: return "对手有盾击断枪加分；稳住自己的枪，争取有效实击。"
+	if lost_seat_without_hit:
+		return "持续失衡：减少大幅急摆，出现失稳提示时及时回正身体。"
 	if unstable_fall:
 		return "受击时重心不稳：提前调好枪盾，"+("滚轮向上前倾支撑。" if mouse_only else "按住 W 前倾支撑。")
 	var most = "head"

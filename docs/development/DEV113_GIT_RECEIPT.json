@@ -1,0 +1,12 @@
+{
+  "task": "DEV-113",
+  "branch": "codex/v0.4",
+  "remote": "https://github.com/pwzerus/Lance.git",
+  "release_content_commit": "c10648401c983741ab0f9257c6812eaf7593afb6",
+  "verified_remote_commit": "c10648401c983741ab0f9257c6812eaf7593afb6",
+  "verification": "git ls-remote origin refs/heads/codex/v0.4 matched the pushed release content commit",
+  "verified_at_utc": "2026-11-24 06:48:38 UTC",
+  "runtime_source_commit": "4da1e075a125bc92a37663f09f1835eb0f7d5c61",
+  "candidate": "0.4.60-c5",
+  "note": "This receipt is committed afterwards; its documentation-only wrapper commit is separately verified in the delivery response. No force push or binary Release upload."
+}

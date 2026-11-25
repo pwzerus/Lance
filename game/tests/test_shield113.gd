@@ -39,5 +39,10 @@ func _initialize() -> void:
 		var outcome=contact(prepare(3,"eng_shield_0"),"shield",1,0,0,1)
 		var wording=load("res://scripts/ui/combat_report.gd").summarize([outcome])
 		check(outcome.shield_broke and wording.contains("击破") and not wording.contains("挡住"),"Unhorsing summary does not claim a broken shield held intact")
+		var report_script=load("res://scripts/ui/combat_report.gd")
+		var other=outcome.duplicate(true);other.defender=0
+		check(report_script.summarize([outcome,other]).contains("双方盾牌均被击破"),"Both broken shields remain visible before any physical release")
+		other.ko=true;other.unseated=true;other.ko_reason="impact"
+		check(report_script.summarize([outcome,other]).contains("落马"),"A resolved fall takes precedence over the nonterminal shield summary")
 	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"records":records,"baseline":baseline,"scope":"144 fixed-contact material sequences. Rider restored between blows; not actual rounds, AI win rate or player acceptance."},"\t"))
 	print("SHIELD113 ",failures);quit(0 if failures.is_empty() else 1)

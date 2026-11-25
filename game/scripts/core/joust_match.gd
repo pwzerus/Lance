@@ -987,7 +987,7 @@ static func physical_targets115(fighter: Dictionary) -> Dictionary:
 	var old_origin=rider_origin(desired)
 	var shift=origin-old_origin
 	var pose=Rig115.arms(desired,Transform2D(pose_angle(desired)*facing,origin),hand_position(desired)+shift,shield_grip(desired)+shift,shield_position(desired)+shift)
-	var legs=Rig115.world_legs(desired,Rig115.seated_legs(desired,visual,saddle,saddle,seat_inertia(desired),0.0))
+	var legs=Rig115.world_legs(desired,Rig115.seated_legs(desired,visual,saddle,saddle,seat_inertia(desired),0.0,true))
 	var crest=PackedVector2Array()
 	for point in HorseSurface113.crest_points(visual):crest.append(world+point*Vector2(facing,1))
 	return {"pose":pose,"legs":legs,"gait_pitch":float(gait.rider_pitch),"crest":crest,

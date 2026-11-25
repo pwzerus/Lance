@@ -34,7 +34,7 @@ func run()->void:
 				var initial_axis=shield_frame(initial,f).x.normalized()
 				var initial_arm=Vector2(initial.left.hand)-Vector2(initial.left.elbow)
 				var initial_grip_error=(shield_frame(initial,f)*Vector2(-10,4)).distance_to(initial.left.hand)
-				var max_error=0.0;var max_grip=initial_grip_error;var max_joint_turn=0.0;var max_step=0.0;var max_strap=0.0;var last=initial_axis;var samples=[]
+				var max_error=0.0;var max_grip=initial_grip_error;var max_joint_turn=0.0;var max_step=0.0;var max_strap=0.0;var last=initial_axis;var samples=[];var peak_frame={}
 				for tick in range(480):
 					actor.advance(1.0/120)
 					var p:Dictionary=actor.visual.detached_pose;var t=shield_frame(p,f)
@@ -44,7 +44,9 @@ func run()->void:
 					var physical_forearm=(actor.body.p[actor.body.HAND_L]-actor.body.p[actor.body.ELBOW_L]).angle()-float(actor.body.extensions.shield.angle0)
 					max_strap=maxf(max_strap,absf(wrapf(actor.body.shield_theta115-physical_forearm,-PI,PI)))
 					max_error=maxf(max_error,error);max_joint_turn=maxf(max_joint_turn,absf(turn))
-					max_step=maxf(max_step,absf(last.angle_to(t.x)));last=t.x.normalized()
+					var step_turn=absf(last.angle_to(t.x))
+					if step_turn>max_step:peak_frame={"tick":tick,"age":actor.age,"turn":step_turn,"shield_world":actor.body.shield_theta115,"root":actor.rotation,"strap":wrapf(actor.body.shield_theta115-physical_forearm,-PI,PI),"grounded":actor.grounded}
+					max_step=maxf(max_step,step_turn);last=t.x.normalized()
 					max_grip=maxf(max_grip,(t*Vector2(-10,4)).distance_to(p.left.hand))
 					if tick%60==0:samples.append({"age":actor.age,"forearm_turn":turn,"shield_error":error,"grounded":actor.grounded})
 				check(max_joint_turn>.1,"Fall fixture actually moves the shield arm")
@@ -52,7 +54,7 @@ func run()->void:
 				check(max_strap<2.05,"Shield strap stays within its finite angular range")
 				check(max_grip<.002,"Shield handle stays in the same hand")
 				check(max_step<.15,"Shield cannot snap between fall frames")
-				rows.append({"facing":facing,"zone":zone,"guard":guard,"max_relative_angle_error":max_error,"max_strap_angle":max_strap,"max_grip_error":max_grip,"max_frame_turn":max_step,"settled":actor.settled,"samples":samples})
+				rows.append({"facing":facing,"zone":zone,"guard":guard,"max_relative_angle_error":max_error,"max_strap_angle":max_strap,"max_grip_error":max_grip,"max_frame_turn":max_step,"settled":actor.settled,"samples":samples,"peak_frame":peak_frame})
 				if is_instance_valid(actor.loose_lance):actor.loose_lance.free()
 				actor.free()
 	FileAccess.open(path,FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"rows":rows,"scope":"18 real articulated falls, anatomical forearm/strapped shield orientation, handle continuity and finite turn. No mounted collision or human quality claim."},"\t"))

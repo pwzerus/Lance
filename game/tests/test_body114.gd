@@ -40,6 +40,10 @@ func make_actor(stage: Node2D, zone: String, facing: int, impulse: float, reason
 	var actor = Fallen.new()
 	stage.add_child(actor)
 	actor.setup(fighter,{"zone":zone,"impulse":impulse,"direction":-facing,"ko_reason":reason,"defender_speed":speeds.x,"attacker_speed":speeds.y},source)
+	# Optional isolated solver experiment; the default remains production.
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--solver="):
+			actor.body=load("res://tests/test_solver_pair115.gd").clone_body115(actor.body,load(argument.trim_prefix("--solver=")))
 	actor.set_process(false)
 	actor.visual.set_process(false)
 	actor.far_leg.set_process(false)

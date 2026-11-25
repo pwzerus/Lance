@@ -9,6 +9,11 @@ const Catalogue=preload("res://scripts/core/catalogue.gd")
 var failures=[]
 var dt=1.0/120.0
 func _initialize()->void:call_deferred("run")
+func observe_terminal115(_model) -> void:
+	pass
+func observe_step115(_model, _side: int, _tick: int) -> void:
+	pass
+
 func simulate(level:Dictionary,stats:Dictionary,enemy_stats:Dictionary,seed_value:int,side:int,strategy:String,fixed_guard:bool)->Dictionary:
 	var m=Model.new(level.mode,stats if side==0 else enemy_stats,enemy_stats if side==0 else stats,seed_value)
 	var brain=Brain.new();brain.configure(level.ai)
@@ -55,11 +60,13 @@ func simulate(level:Dictionary,stats:Dictionary,enemy_stats:Dictionary,seed_valu
 				if committed_line.is_empty():committed_line=brain.zone
 				if brain.zone!=committed_line:failures.append("committed line changed: "+str([level.number,seed_value,side,pass_id]))
 		m.step(dt)
+		observe_step115(m,side,tick)
 		for event in m.drain_events():
 			if event.type=="hit":
 				var e=event.duplicate(true)
 				hits.append({"player":e.attacker==side,"pass":pass_id,"time":m.time_elapsed,"zone":e.zone,"glanced":e.glanced,"impulse":e.impulse,"damage":e.damage,"ko":e.ko,"dead":e.dead,"reason":e.get("ko_reason",""),"player_speed":p.speed,"enemy_speed":enemy.speed,"player_stamina":p.stamina,"player_balance":p.balance,"player_arm":p.arm})
 		if m.phase=="ended":
+			observe_terminal115(m)
 			return {"ended":true,"winner":-1 if m.result.winner==-1 else (0 if m.result.winner==side else 1),"result":m.result,"seconds":m.time_elapsed,"strategy":strategy,"seed":seed_value,"side":side,"hits":hits,"lines":lines,"minimum_observation_age":min_age,"max_aim_rate":aim_rate,"max_guard_rate":guard_rate}
 	failures.append("timeout: "+str([level.number,seed_value,side,strategy]))
 	return {"ended":false,"winner":-1,"strategy":strategy,"seed":seed_value,"side":side,"hits":hits,"lines":lines}

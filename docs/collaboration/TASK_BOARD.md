@@ -2,6 +2,8 @@
 
 ## PHYS-115：统一骑乘与落马身体、物理支撑决定离鞍（2026-11-24，Codex，进行中）
 
+2026-11-25 03:30 UTC 补充：认领 game/tests/test_campaign_probe107.gd 的默认空终局/单步观察扩展点；新增test_campaign115.gd推进真实延迟身体结果，避免以首次KO事件提前统计胜负。不改AI或关卡配置；旧探针默认语义保持。
+
 2026-11-25 02:23 UTC 补充：认领 core/frame_trace099.gd 和 tests/profile_result099.gd 的显式 QA 计数诊断，核对每帧落地子步和绘图次数；不改默认游戏追踪开关或保护器。
 
 补充认领（2026-11-25 01:25 UTC）：game/tests/test_games114.gd 的测试退出流程和可复现种子扩展点；condition113/incapacity113/injury113/simultaneous113/shield113 仅在旧断言直接依赖被替换的座位弹簧或即时离鞍时同步夹具。保留旧失败证据，新增物理状态／实际支撑验收，不关闭 physics115 来制造通过。生产 main.gd 尚不认领；先区分测试强制退出与游戏自身泄漏。

@@ -36,7 +36,7 @@ static func arms(value: Dictionary, transform: Transform2D, hand_right: Vector2,
 		result[side] = {"shoulder":transform*shoulder,"elbow":transform*elbow,"hand":transform*hand,"projection":projection}
 	return result
 
-static func seated_legs(value: Dictionary, body: Dictionary, pivot: Vector2, saddle: Vector2, inertia: float, lift: float) -> Dictionary:
+static func seated_legs(value: Dictionary, body: Dictionary, pivot: Vector2, saddle: Vector2, inertia: float, lift: float, physical_supports: bool = false) -> Dictionary:
 	# Local side-view projection. Depth is supplied by draw order, not by
 	# moving both thighs to the visible side.
 	# RIDER-064: the hip rides with the rider (seat lag, impact shift) while
@@ -92,7 +92,8 @@ static func seated_legs(value: Dictionary, body: Dictionary, pivot: Vector2, sad
 			cos(phase-1.1)*(.5*w.y+.9*run))*activity
 		var brace = Vector2((3.0 if lean>0.0 else 8.0)*absf(lean),-1.5*absf(lean))
 		var spur = Vector2(-15.0,-8.0)*kick*(1.0 if far else .9)+Vector2(9.0,3.0)*check
-		var ankle = saddle+(hip_offset+rest_ankle).rotated(pitch*.6)+swing+brace+spur+flap*(1.0 if far else .85)
+		var iron_ankle = saddle+(hip_offset+rest_ankle).rotated(pitch*.6)+swing
+		var ankle = iron_ankle+brace+spur+flap*(1.0 if far else .85)
 		# The iron hangs from its leather and trails only a fraction of a thrown
 		# foot. Without a blow it stays exactly under the boot as before.
 		var free_iron = ankle+thrown*(.30 if far else .26)+Vector2(9,11)
@@ -107,6 +108,10 @@ static func seated_legs(value: Dictionary, body: Dictionary, pivot: Vector2, sad
 		var knee = hip+reach.normalized().rotated(-bend)*thigh
 		var bar = saddle+(hip_offset+Vector2(-3,-1)).rotated(pitch)
 		var stirrup = (ankle+Vector2(9,11)).lerp(free_iron,smoothstep(.05,.35,absf(fling)))
+		# A heel jab is a muscle target, not motion of the iron's support plane.
+		# Tying the iron to the kicked foot teleported support upwards when the
+		# spur was first held and could catapult a calm, unstruck rider.
+		if physical_supports:stirrup=iron_ankle+Vector2(9,11)
 		result[side] = {"hip":hip,"knee":knee,"ankle":ankle,"foot":ankle+Vector2(17,8).rotated(pitch*.6),"bar":bar,"stirrup":stirrup}
 	return result
 
@@ -291,6 +296,22 @@ static func body_pose(body, captured: Dictionary, targets: Dictionary = {}) -> D
 		"flank":lower*Transform2D(original.torso_transform)*Vector2(-6*body.facing,-10),
 		"rider_origin":torso.origin,"angle":torso.get_rotation()*body.facing,"hand":points[body.HAND_R],
 		"shield_transform":shield,"shield_center":shield.origin,"shield_grip":points[body.HAND_L]}
+
+static func translate_frame115(frame: Dictionary, offset: Vector2) -> void:
+	# A rendering-only floor correction, never written back into the body.
+	# Frame is a newly built value snapshot, not an older shared capture.
+	var pose:Dictionary=frame.pose
+	pose.torso_transform.origin+=offset
+	pose.shield_transform.origin+=offset
+	for side in ["left","right"]:
+		for key in ["shoulder","elbow","hand"]:pose[side][key]+=offset
+	for key in ["shield_center","shield_grip"]:pose[key]+=offset
+	for side in ["near","far"]:
+		for key in ["hip","knee","ankle","foot","bar","stirrup"]:frame.legs[side][key]+=offset
+	for key in ["head","body","flank","rider_origin","hand","shield_center","shield_grip"]:frame[key]+=offset
+	frame.shield_transform.origin+=offset
+	frame.pelvis_frame.origin+=offset
+	for index in range(frame.points.size()):frame.points[index]+=offset
 
 static func interpolate115(a: Dictionary, b: Dictionary, weight: float, value: Dictionary) -> Dictionary:
 	# Interpolate directions, not endpoint positions: bone lengths and grip

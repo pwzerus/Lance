@@ -60,6 +60,8 @@ func run() -> void:
 				var identity=false
 				var max_spine=0.0
 				var max_turn=0.0
+				var surface_penetration=0.0
+				var surface_gap=0.0
 				var samples=[]
 				for tick in range(720):
 					f.x+=380.0*facing/120.0
@@ -103,14 +105,17 @@ func run() -> void:
 							var local_aim=float(actor.visual.fighter.aim)
 							var shown_ray=Vector2(cos(local_aim)*facing,sin(local_aim)).rotated(actor.rotation)
 							lance_error=absf(ray.angle_to(shown_ray))
-					else:actor.advance(1.0/120.0)
+					else:
+						actor.advance(1.0/120.0)
+						surface_penetration=maxf(surface_penetration,actor.position.y+actor.lowest_body_point()-actor.ground_y)
+						if actor.settled:surface_gap=actor.support_gap()
 					if tick in [119,126,144,180,240,360,719]:
 						var body=actor.body if actor!=null else model.bodies115[0].body
 						samples.append({"tick":tick,"detached":actor!=null,"x":[body.x.x,body.x.y],"pelvis":[body.pelvis_x.x,body.pelvis_x.y],"angle":body.theta,"spine":body.spine_flex()})
 				if detach>=0.0 and (not identity or position_error>.001 or velocity_error>.001):failures.append("Discontinuous ownership transfer: %s/%s/%s" % [facing,zone,force])
 				if drawn_error>.002 or lance_error>.0001:failures.append("Drawing/weapon jumps on transfer: %s/%s/%s" % [facing,zone,force])
 				if force==12.0 and detach>=0.0:failures.append("Minor blow ejects settled rider: %s/%s" % [facing,zone])
-				rows.append({"facing":facing,"zone":zone,"force":force,"detach_time":detach,"max_spine":max_spine,"max_turn":max_turn,"same_body":identity,"position_error":position_error,"velocity_error":velocity_error,"drawing_error":drawn_error,"lance_error":lance_error,"settled":actor.settled if actor!=null else false,"samples":samples})
+				rows.append({"facing":facing,"zone":zone,"force":force,"detach_time":detach,"max_spine":max_spine,"max_turn":max_turn,"surface_penetration":surface_penetration,"surface_gap":surface_gap,"same_body":identity,"position_error":position_error,"velocity_error":velocity_error,"drawing_error":drawn_error,"lance_error":lance_error,"settled":actor.settled if actor!=null else false,"samples":samples})
 				if actor!=null:actor.free()
 	FileAccess.open(path,FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"invariants":invariant,"cases":rows},"\t"))
 	print("SUPPORT115 ",failures)

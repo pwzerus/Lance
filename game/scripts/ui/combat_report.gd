@@ -33,6 +33,14 @@ static func summarize(events: Array, mode: String = "arena", detailed: bool = fa
 				var hit: Dictionary = events[index]
 				if int(hit.get("defender",-1))==defender and (hit.get("ko",false) or hit.get("dead",false)):
 					return _terminal_cause(hit)
+		# Breaking a shield no longer implies an immediate scripted ejection.
+		# Keep the resolved material outcome visible while both bodies stay seated.
+		var broken={}
+		for event in events:
+			if event.get("shield_broke",false):broken[int(event.get("defender",-1))]=true
+		if broken.has(0) and broken.has(1):return "双方盾牌均被击破，骑手仍在马上。"
+		if broken.has(0):return "你的盾牌被击破，仍保持骑乘。"
+		if broken.has(1):return "对手的盾牌被击破，仍保持骑乘。"
 		return "双方均未接触骑手或盾牌。" if events.is_empty() else "双方仍在马上，按本场规则比较结果。"
 	var latest: Dictionary = {}
 	for event in events:

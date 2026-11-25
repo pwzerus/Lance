@@ -101,9 +101,12 @@ func _initialize() -> void:
 				check(is_finite(float(f.seat_offset)),"Finite saddle offset")
 				if f.unseated:exit_time=time;break
 			if scenario in ["calm","one_lean","recover","slow_flail"]:check(not f.unseated,"Normal/recovered/slow control does not cause an unavoidable fall: "+scenario+str(hz))
-			if scenario=="deep_flail":check(f.unseated and exit_time>2.5 and exit_time<7.0,"Sustained full body swings can exhaust support, with time to recover: "+str(hz))
+			# The requirement is a recoverable warning followed by possible
+			# physical loss of support, not a scripted seven-second launch.
+			# These vary MODEL/control step sizes; production uses fixed 120Hz.
+			if scenario=="deep_flail":check(f.unseated and exit_time>2.5 and exit_time<12.0 and support_min<.7,"Sustained full body swings exhaust actual support after a warning: "+str(hz))
 			if scenario=="flail":check(f.seat_strain>.5 and (not f.unseated or exit_time>2.5),"Rapid requests cause fatigue but cannot bypass finite body movement: "+str(hz))
 			if scenario=="recover":check(absf(float(f.seat_offset))<8.0 and f.seat_support>.75,"Recentring restores physical support")
 			records.append({"case":scenario,"hz":hz,"peak_offset":peak,"minimum_support":support_min,"exit_time":exit_time,"final_offset":f.seat_offset,"fidget":f.fidget,"unsteady":f.unsteady})
-	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"cases":records,"scope":"Direct injury contacts, passive post-incapacity support, result wording and genuine finite-rate controls/Model.step at three display steps. No GPU or subjective acceptance."},"\t"))
+	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"cases":records,"scope":"Direct injury contacts, passive post-incapacity support, result wording and genuine finite-rate controls/Model.step at three model/control step sizes (production is fixed 120Hz). This does not assert identical trajectories across physics step rates; clock115 separately covers display/slow-motion cadence. No GPU or subjective acceptance."},"\t"))
 	print("CONDITION113 ",failures);quit(0 if failures.is_empty() else 1)

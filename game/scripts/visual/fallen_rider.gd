@@ -501,17 +501,19 @@ func advance_measured099(delta: float) -> void:
 		_sync_joints(dt)
 		_update_pose()
 		Trace099.measure("fall_pose115",pose_started115)
-		# A small positional correction keeps the DRAWN silhouette (boot art,
-		# shield rim, helmet box) on the floor; velocities are untouched.
+		# Exact-length drawing can differ slightly from the constraint solver.
+		# Keep that DISPLAY silhouette above the floor without moving physics.
+		# Feeding its projection back into every mass was an artificial lift,
+		# capable of supporting a folded body and slowing a real collapse.
 		var ground_started115=Trace099.begin()
 		var overlap = position.y+lowest_body_point()-ground_y
 		Trace099.measure("fall_hull115",ground_started115)
 		if overlap>0.0:
 			surface_correction115=maxf(surface_correction115,overlap)
 			position.y -= overlap
-			body.translate(Vector2(0,-overlap))
 		if shared115:
 			render_current115=Model.Rig115.body_pose(body,capture115)
+			if overlap>0.0:Model.Rig115.translate_frame115(render_current115,Vector2(0,-overlap))
 			render_current115.lance_aim=held_aim114+rotation*int(fighter.direction)
 		if age>=.22 and not is_instance_valid(loose_lance):
 			_release_lance()

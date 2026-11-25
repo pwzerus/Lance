@@ -40,7 +40,7 @@ func initialize(value: Dictionary, targets: Dictionary) -> void:
 	body.build(data)
 	shield_broken=float(value.get("shield",0.0))<=0.0
 	body.guide_strength=0.0
-	body.motor_torque115={"shoulder":1800000.0,"elbow":1500000.0,"hip":3500000.0,"knee":2400000.0,"spine":8000000.0,"neck":450000.0}
+	# Muscle bounds belong to Body so riding and compatibility falls agree.
 	previous_targets=targets
 	simulated_targets=targets
 	snapshot=Rig.body_pose(body,captured,targets)
@@ -108,8 +108,8 @@ func _support(targets: Dictionary, before: Dictionary, value: Dictionary) -> Dic
 	return {"saddle":centre,"saddle_previous":old,"seat_points":seat_points,"width":31.0,"friction":.95,
 		"pelvis_angle":float(targets.get("lean",value.get("lean",0.0)))*.14*body.facing,
 		"brace_torque":3000000.0*(1.0-float(value.get("injury",0.0))*.35)*(1.0-float(value.get("seat_strain",0.0))*.95) if body.conscious else 0.0,
-		"feet":{"near":targets.legs.near.ankle,"far":targets.legs.far.ankle},
-		"feet_previous":{"near":before.legs.near.ankle,"far":before.legs.far.ankle},
+		"feet":{"near":Vector2(targets.legs.near.stirrup)-Vector2(9*body.facing,11),"far":Vector2(targets.legs.far.stirrup)-Vector2(9*body.facing,11)},
+		"feet_previous":{"near":Vector2(before.legs.near.stirrup)-Vector2(9*body.facing,11),"far":Vector2(before.legs.far.stirrup)-Vector2(9*body.facing,11)},
 		"rein":rein,"rein_previous":rein_old,"rein_length":108.0,"rein_force":10000.0,
 		"rein_grip":not bool(value.get("unconscious",false)) and not bool(value.get("dead",false)),
 		"crest":targets.get("crest",PackedVector2Array())}

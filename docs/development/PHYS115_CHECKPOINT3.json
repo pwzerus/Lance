@@ -1,0 +1,271 @@
+{
+  "status": "development_checkpoint_not_released",
+  "utc": "2026-11-25T04:12:30.363958+00:00",
+  "base": "4195685910778c1a9c524d625fe9f1674a8c833d",
+  "scope": "Protected background QA. No desktop/real input/human approval. Source hashes and full reports are retained in the referenced run directories.",
+  "evidence": [
+    {
+      "path": "docs/development/logs/phys115-gate125-test-body114/report.json",
+      "sha256": "8661b1448b2655da1a1ee8020a382d2c0a7cf1d83f213ada1b25d67e5d90b213",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-gate125-test-body114/receipt.json",
+      "sha256": "9a72e5acf2c1cefeda687c021075ecb3eced19e575c2bac81a391e8a38481570",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-gate125-test-clock115/report.json",
+      "sha256": "906ffe74963275bb1a5a8260813d8aa652ea4f6ea38c7c5f490249adf5e93336",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-gate125-test-clock115/receipt.json",
+      "sha256": "e1389678f74473b9d330ac0fd98bfbd826b7dd40044256c0c44a1b2a78b94f7f",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-gate125-test-fall-fuzz105/report.json",
+      "sha256": "6036e7aeeae696908928a153224ced14e1563916fbffe74bb14703495cd99b62",
+      "passed": false,
+      "failures": [
+        "Four-second synthetic pose rest: 60",
+        "Four-second synthetic pose rest: 80",
+        "Four-second synthetic pose rest: 88"
+      ],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-gate125-test-fall-fuzz105/receipt.json",
+      "sha256": "a947afe44a1f8dd216f82b24e46b1ebf913679d0c70042a6c3ae9a727176a5e6",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": false,
+      "unexpected_engine_error": true
+    },
+    {
+      "path": "docs/development/logs/phys115-gate125-test-fall098/report.json",
+      "sha256": "d56e73e70fe66f010aeeb091951d4404d7aa4e48cc3f39c81e9dd976a397bcd9",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-gate125-test-fall098/receipt.json",
+      "sha256": "3c74ee21163de42a0fd533c6cc5e9e73c4b93d503dac37378c1635742f62278b",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-gate125-test-guard115/report.json",
+      "sha256": "b0d88f463a64f8d65fb69836c19f9bb991d084ccb3b242c0328787c16428af14",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-gate125-test-guard115/receipt.json",
+      "sha256": "0c235b13716fea5baa07b5df4f9c441806a22a0738fb79ce41d349bd8dad5abe",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-gate125-test-mounted-motion115/report.json",
+      "sha256": "2ba4b685cb6a4fde43a981406af976f38e62a4f41ef561cac4ec2037a40bce25",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-gate125-test-mounted-motion115/receipt.json",
+      "sha256": "7f73f2d8dc3f69816315d4c5bba5ddef444bf35a88d614f6bd7fb176221f217b",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-gate125-test-parse065/receipt.json",
+      "sha256": "bc8995976f8ae005293158b0e6aa9ce3392558448138e6dabbd80e187f401d6f",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-gate125-test-shield105/report.json",
+      "sha256": "93a3cfc328de496b63d492a6d06e7f6dfb691b1f09a6c6d7c17ca73e2b6885a3",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-gate125-test-shield105/receipt.json",
+      "sha256": "8852c83944860e7034eb5dcd43ea1f7aefe9caf8e8e3c4467e58d44427de0820",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-gate125-test-shield113/results/report.json",
+      "sha256": "c32023e33a8cea34be8c93a4166e7b86cf109ed7dca078f5b53ec6c43d6d4cc3",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-gate125-test-shield113/receipt.json",
+      "sha256": "e9558f9313a7141ce4b92ed2ff06109a9b708fc658825ba114cbafaab74a0d84",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-gate125-test-support115/report.json",
+      "sha256": "608cf485e01195df23bfba429f3ac2f9d0021dfab8641567981c6f712024f4c8",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-gate125-test-support115/receipt.json",
+      "sha256": "89d53f992697ce0bf58790a9c30056140be8eeeea261d4594974cee9a72da803",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-opening127/report.json",
+      "sha256": "73fbff6f4a1134eeea6face399c438a150d38d13272e79de92319d436ece96b4",
+      "failures": [],
+      "outcomes": [
+        {
+          "side": 0,
+          "strategy": "opening",
+          "winner": 0,
+          "seconds": 53.3416666666643,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 52.7014024859832,
+            "enemy_score": 5,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 89.65115781615,
+            "player_score": 6,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 0
+          }
+        },
+        {
+          "side": 1,
+          "strategy": "opening",
+          "winner": 1,
+          "seconds": 6.67500000000012,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 100.0,
+            "enemy_score": 0,
+            "enemy_unconscious": false,
+            "enemy_unseated": true,
+            "mode": "arena",
+            "passes": 1,
+            "player_dead": false,
+            "player_hp": 100.0,
+            "player_score": 0,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "terminal",
+            "winner": 0
+          }
+        }
+      ]
+    },
+    {
+      "path": "docs/development/logs/phys115-opening128/report.json",
+      "sha256": "dd462290ae91fef80bd10f010a9963099fe37f58331fc51fd1180ec8c8c87c37",
+      "failures": [],
+      "outcomes": [
+        {
+          "side": 0,
+          "strategy": "opening",
+          "winner": 0,
+          "seconds": 53.3416666666643,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 54.9347889456698,
+            "enemy_score": 5,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 89.3194484421352,
+            "player_score": 5,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "hp",
+            "winner": 0
+          }
+        },
+        {
+          "side": 1,
+          "strategy": "opening",
+          "winner": 0,
+          "seconds": 53.3416666666643,
+          "result": {
+            "enemy_dead": false,
+            "enemy_hp": 89.5495817165712,
+            "enemy_score": 8,
+            "enemy_unconscious": false,
+            "enemy_unseated": false,
+            "mode": "arena",
+            "passes": 3,
+            "player_dead": false,
+            "player_hp": 44.9957139737269,
+            "player_score": 5,
+            "player_unconscious": false,
+            "player_unseated": false,
+            "reason": "score",
+            "winner": 1
+          }
+        }
+      ]
+    }
+  ],
+  "open": [
+    "Three synthetic fuzz poses exceed the original four-second settle gate, including case 80 still moving after eight seconds.",
+    "New iron-support separation needs broadened control and actual-Battle GPU regression.",
+    "No PHYS-115 candidate export yet; Play-Latest remains 0.4.60-c5."
+  ]
+}

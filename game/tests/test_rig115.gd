@@ -69,6 +69,19 @@ func run() -> void:
 				for key in body.extensions:
 					for i in range(body.extensions[key].offsets.size()):
 						capture_error=maxf(capture_error,Vector2(body.extensions[key].offsets[i]).distance_to(Vector2(actor.body.extensions[key].offsets[i])))
+				# Display/floor correction must translate every landmark together
+				# without adding a positional impulse to the physical body.
+				var captured115=Rig.capture(f,pose,Rig.world_legs(f,legs),float(gait.rider_pitch))
+				var shown115=Rig.body_pose(body,captured115)
+				var before115=shown115.duplicate(true)
+				var physics_x=body.x;var physics_points=body.p.duplicate()
+				var offset115=Vector2(3.25,-.75)
+				Rig.translate_frame115(shown115,offset115)
+				for key in ["head","body","flank","rider_origin","hand","shield_center","shield_grip"]:
+					if Vector2(shown115[key]).distance_to(Vector2(before115[key])+offset115)>.0001:failures.append("Display translation misses landmark: "+key)
+				for part in range(shown115.points.size()):
+					if Vector2(shown115.points[part]).distance_to(Vector2(before115.points[part])+offset115)>.0001:failures.append("Display points failed to move")
+				if body.x!=physics_x or body.p!=physics_points:failures.append("Display correction moved physical masses")
 				actor.free()
 				rows.append({"facing":facing,"lean":lean,"guard":guard,"points":original if record else points})
 				index+=1

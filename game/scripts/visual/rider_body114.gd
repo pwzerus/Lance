@@ -57,6 +57,10 @@ class Joint115:
 	var maximum_rate: float
 
 enum {ELBOW_L, HAND_L, ELBOW_R, HAND_R, KNEE_N, ANKLE_N, KNEE_F, ANKLE_F, HEAD, COUNT}
+const HINGE_AXES115 = [Vector2.RIGHT,Vector2.DOWN]
+const FLOOR_PARTICLES115 = [ELBOW_L,HAND_L,ELBOW_R,HAND_R,KNEE_N,KNEE_F]
+const SHOULDER_ANCHORS115 = ["shoulder_l","shoulder_r"]
+const SHOULDER_PARTS115 = ["left_shoulder","right_shoulder"]
 const PARTICLE_NAMES = ["left_elbow","left_hand","right_elbow","right_hand","near_thigh","near_shin","far_thigh","far_shin","head"]
 
 # Anatomical ranges in the rider's facing frame (radians). See _flex().
@@ -122,6 +126,8 @@ var grounded_age: float = -1.0
 var contacts: Dictionary = {}
 var core_contact: bool = false
 var torso_contact: bool = false
+var chest_contact115: bool = false
+var pelvis_contact115: bool = false
 var touching: PackedByteArray = PackedByteArray()
 var shield_roll: float = 0.0
 # The shield has rotational inertia about its hand strap. In 2.5D the
@@ -129,6 +135,7 @@ var shield_roll: float = 0.0
 # Locking the face rigidly to the projected forearm inverted a low guard.
 var shield_theta115: float = 0.0
 var shield_previous115: float = 0.0
+var shield_strap_previous115: float = 0.0
 var shield_omega115: float = 0.0
 var shield_inertia115: float = 3000.0
 var shield_mass115: float = 3.0
@@ -148,17 +155,21 @@ var torso_reach: float = 0.0
 # 0..1 extra energy loss once a body lies on the floor (armour, cloth and
 # flesh absorb; the fall must come to rest rather than rock for seconds).
 var rest: float = 0.0
-# After the trunk has lain still for a while every part loses energy, so a
-# loose limb finishes its last sway instead of creeping (fall057 head/-1).
+# Legacy diagnostic field, retained for old snapshots. Floor dissipation
+# now affects only the actual contacting body/limb, never every loose part.
 var rest_all: bool = false
 # Floor contact couples the waist, two legs and the strapped shield. Five
 # sweeps left enough residual to prop the trunk on a straight arm or make a
-# resting pelvis creep sideways; ten resolves these chains without changing
+# resting pelvis creep sideways. Forward/backward sweeps carry endpoint
+# contacts back to the trunk; ten resolves these chains without changing
 # the two-sweep mounted/airborne budget.
 var contact_iterations115: int = 10
 # Optional riding contacts. Values only: the solver never retains its owner.
 var support_contacts115: Dictionary = {}
-var motor_torque115: Dictionary = {}
+# Also bounds compatibility captures and standalone bodies. An empty map
+# made their reflex motors effectively infinite while mounted bodies had
+# finite muscle torque, producing different landings from the same anatomy.
+var motor_torque115: Dictionary = {"shoulder":1800000.0,"elbow":1500000.0,"hip":3500000.0,"knee":2400000.0,"spine":8000000.0,"neck":450000.0}
 var motor_step115: float = 0.0
 
 static func wrap_angle(angle: float) -> float:
@@ -186,7 +197,7 @@ func hip_down_axis() -> Vector2:
 	return pelvis_down0.rotated(pelvis_theta)
 
 func spine_flex() -> float:
-	return facing*wrap_angle(down_axis().angle()-hip_down_axis().angle())
+	return facing*wrapf(down0.rotated(theta).angle()-pelvis_down0.rotated(pelvis_theta).angle(),-PI,PI)
 
 func down_axis() -> Vector2:
 	return down0.rotated(theta)
@@ -348,13 +359,20 @@ func _joint_anchor115(joint: Joint115) -> Vector2:
 	return pelvis_x+joint.local.rotated(pelvis_theta) if joint.pelvic else x+joint.local.rotated(theta)
 
 func _fast_flex115(joint: Joint115) -> float:
-	match joint.kind:
-		"shoulder","hip":
-			return wrap_angle(af(hip_down_axis() if joint.kind=="hip" else down_axis())-af(p[joint.child]-_joint_anchor115(joint)))
-		"elbow":
-			return wrap_angle(af(p[joint.parent]-_joint_anchor115(joint))-af(p[joint.child]-p[joint.parent]))
-		_:
-			return wrap_angle(af(p[joint.child]-p[joint.parent])-af(p[joint.parent]-_joint_anchor115(joint)))
+	# Same atan2/subtraction/wrap arithmetic as af()/wrap_angle(), inlined
+	# inside the solver to avoid hundreds of interpreted calls per body tick.
+	var base:Vector2=pelvis_x+joint.local.rotated(pelvis_theta) if joint.pelvic else x+joint.local.rotated(theta)
+	var upper:Vector2
+	var lower:Vector2
+	if joint.rooted:
+		upper=pelvis_down0.rotated(pelvis_theta) if joint.pelvic else down0.rotated(theta)
+		lower=p[joint.child]-base
+	else:
+		upper=p[joint.parent]-base
+		lower=p[joint.child]-p[joint.parent]
+	var upper_angle:float=atan2(upper.y,upper.x*facing)
+	var lower_angle:float=atan2(lower.y,lower.x*facing)
+	return wrapf(lower_angle-upper_angle if joint.kind=="knee" else upper_angle-lower_angle,-PI,PI)
 
 func flex(name: String) -> float:
 	for joint in joints:
@@ -426,7 +444,7 @@ func _project_angle115(joint: Joint115, change: float, damping_keep: float = -1.
 	var root_mass: float = pelvis_mass if pelvic else mass
 	var root_inertia: float = pelvis_inertia if pelvic else inertia
 	if joint.rooted:
-		var pivot: Vector2 = _joint_anchor115(joint)
+		var pivot: Vector2 = pelvis_x+joint.local.rotated(pelvis_theta) if joint.pelvic else x+joint.local.rotated(theta)
 		var arm: Vector2 = p[child]-pivot
 		child_gradient = -facing*Vector2(-arm.y,arm.x)/maxf(arm.length_squared(),.001)
 		root_gradient = -child_gradient
@@ -434,7 +452,7 @@ func _project_angle115(joint: Joint115, change: float, damping_keep: float = -1.
 		theta_gradient = facing+root_gradient.dot(Vector2(-r.y,r.x))
 	else:
 		parent = joint.parent
-		var pivot: Vector2 = _joint_anchor115(joint)
+		var pivot: Vector2 = pelvis_x+joint.local.rotated(pelvis_theta) if joint.pelvic else x+joint.local.rotated(theta)
 		var upper: Vector2 = p[parent]-pivot
 		var lower: Vector2 = p[child]-p[parent]
 		var sense: float = float(facing)*(1.0 if joint.kind=="elbow" else -1.0)
@@ -451,11 +469,21 @@ func _project_angle115(joint: Joint115, change: float, damping_keep: float = -1.
 		var rate: float = root_gradient.dot(pelvis_v if pelvic else v)+theta_gradient*(pelvis_omega if pelvic else omega)+child_gradient.dot(vel[child])
 		if parent>=0: rate+=parent_gradient.dot(vel[parent])
 		impulse = -rate*(1.0-damping_keep)/weight
-		_root_impulse115(pelvic,root_gradient,theta_gradient,impulse,true)
+		if pelvic:
+			pelvis_v+=root_gradient*impulse/pelvis_mass
+			pelvis_omega+=theta_gradient*impulse/pelvis_inertia
+		else:
+			v+=root_gradient*impulse/mass
+			omega+=theta_gradient*impulse/inertia
 		vel[child] = vel[child]+child_gradient*impulse*inv_mass[child]
 		if parent>=0: vel[parent]=vel[parent]+parent_gradient*impulse*inv_mass[parent]
 	else:
-		_root_impulse115(pelvic,root_gradient,theta_gradient,impulse,false)
+		if pelvic:
+			pelvis_x+=root_gradient*impulse/pelvis_mass
+			pelvis_theta+=theta_gradient*impulse/pelvis_inertia
+		else:
+			x+=root_gradient*impulse/mass
+			theta+=theta_gradient*impulse/inertia
 		p[child] = p[child]+child_gradient*impulse*inv_mass[child]
 		if parent>=0: p[parent]=p[parent]+parent_gradient*impulse*inv_mass[parent]
 
@@ -479,6 +507,16 @@ func _solve_joint(joint: Joint115, h: float) -> void:
 		var stiffness: float =8000000.0 if joint.kind=="hip" else 800000.0
 		var torque: float =minf(1800000.0 if joint.kind=="hip" else 400000.0,stiffness*pow(value-soft_end,2))
 		_project_angle115(joint,soft_end-value,-1.0,torque*motor_step115*h)
+	# Passive terminal extension resistance in the elbow/knee capsule. A
+	# perfectly straight, freely hinged limb with an infinitely hard stop
+	# acts as a rigid prop under compression; a relaxed joint yields slightly.
+	var soft_start:float=.12 if joint.kind=="elbow" else .08 if joint.kind=="knee" else -INF
+	if value<soft_start:
+		var torque:float=minf(1200000.0,80000000.0*pow(soft_start-value,2))
+		_project_angle115(joint,soft_start-value,-1.0,torque*motor_step115*h)
+	if joint.kind=="shoulder" and value<-.90:
+		var torque:float=minf(1200000.0,18000000.0*pow(-.90-value,2))
+		_project_angle115(joint,-.90-value,-1.0,torque*motor_step115*h)
 	# Limp limbs have damping and anatomical end stops, not a straightening
 	# motor. The old broad 'soft range' extended a knee under body weight,
 	# lifting an unconscious chest back up after it had reached the floor.
@@ -513,21 +551,43 @@ func _posterior_tissue115(h: float) -> void:
 		_project_angle115(hip,-strain,-1.0,tension*motor_step115*h)
 		_project_angle115(knee,strain*.70,-1.0,tension*.70*motor_step115*h)
 
+func _anterior_tissue115(h: float) -> void:
+	# The anterior thigh crosses the hip and knee as well. Deep knee flexion
+	# together with an extended hip cannot sit at two unrelated hard stops.
+	for pair in posterior_pairs115:
+		var hip: Joint115 = pair[0]
+		var knee: Joint115 = pair[1]
+		var strain: float=maxf(0.0,_fast_flex115(knee)-.70*_fast_flex115(hip)-2.15)
+		if strain<=0.0:continue
+		var tension: float=minf(1800000.0,8000000.0*strain*strain)
+		_project_angle115(knee,-strain,-1.0,tension*motor_step115*h)
+		_project_angle115(hip,strain*.70,-1.0,tension*.70*motor_step115*h)
+
 func _shield_joint115(h: float) -> void:
 	if not extensions.has("shield"):return
 	var bone: Vector2 = p[HAND_L]-p[ELBOW_L]
-	var turn: float =wrap_angle(bone.angle()-float(extensions.shield.angle0))
-	var relative: float =wrap_angle(shield_theta115-turn)
+	var turn: float =wrapf(bone.angle()-float(extensions.shield.angle0),-PI,PI)
+	var relative: float =wrapf(shield_theta115-turn,-PI,PI)
 	var wanted: float =clampf(relative,-1.95,1.95)
 	var hard_limit: bool =not is_equal_approx(wanted,relative)
-	if not hard_limit:
-		if tone<=0.0 or not targets.has("shield_relative"):return
-		wanted=clampf(float(targets.shield_relative),-1.95,1.95)
-	var change: float =wrap_angle(wanted-relative)
-	if not hard_limit:change=clampf(change*(1.0-exp(-38.0*tone*h)),-5.5*h,5.5*h)
+	if hard_limit or (tone>0.0 and targets.has("shield_relative")):
+		if not hard_limit:wanted=clampf(float(targets.shield_relative),-1.95,1.95)
+		var change: float =wrapf(wanted-relative,-PI,PI)
+		if not hard_limit:change=clampf(change*(1.0-exp(-38.0*tone*h)),-5.5*h,5.5*h)
+		_project_shield115(change,INF if hard_limit else 600000.0*tone*motor_step115*h)
+	# The strap/wrist has finite strain rate even when muscles are limp.
+	# A velocity clamp alone cannot limit a contact's positional correction.
+	# Share this reaction with the forearm instead of rotating only the art.
+	turn=(p[HAND_L]-p[ELBOW_L]).angle()-float(extensions.shield.angle0)
+	var change: float =wrapf(shield_theta115-turn-shield_strap_previous115,-PI,PI)
+	var maximum: float =5.5*motor_step115
+	if absf(change)>maximum:_project_shield115(clampf(change,-maximum,maximum)-change)
+
+func _project_shield115(change: float, limit: float = INF) -> void:
+	if change==0.0:return
+	var bone:Vector2=p[HAND_L]-p[ELBOW_L]
 	var gradient: Vector2 =Vector2(-bone.y,bone.x)/maxf(bone.length_squared(),.001)
 	var weight: float =1.0/shield_inertia115+gradient.length_squared()*(inv_mass[HAND_L]+inv_mass[ELBOW_L])
-	var limit: float =INF if hard_limit else 600000.0*tone*motor_step115*h
 	var impulse: float =clampf(change/weight,-limit,limit)
 	shield_theta115+=impulse/shield_inertia115
 	p[HAND_L]=p[HAND_L]-gradient*impulse*inv_mass[HAND_L]
@@ -585,15 +645,17 @@ func _anchor_push115(name: String, impulse: Vector2) -> void:
 	_root_impulse115(pelvic,impulse,r.cross(impulse),1.0,false)
 
 func _waist_hinge115() -> void:
-	for axis in [Vector2.RIGHT,Vector2.DOWN]:
+	for axis in HINGE_AXES115:
 		var chest_r: Vector2 = waist_chest.rotated(theta)
 		var hip_r: Vector2 = waist_pelvis.rotated(pelvis_theta)
 		var error: float =(pelvis_x+hip_r-x-chest_r).dot(axis)
 		var wa: float =1.0/mass+pow(chest_r.cross(axis),2)/inertia
 		var wb: float =1.0/pelvis_mass+pow(hip_r.cross(axis),2)/pelvis_inertia
 		var impulse: Vector2 = axis*(-error/(wa+wb))
-		_rigid_push(chest_r,-impulse)
-		_root_impulse115(true,impulse,hip_r.cross(impulse),1.0,false)
+		x+=-impulse/mass
+		theta+=chest_r.cross(-impulse)/inertia
+		pelvis_x+=impulse*1.0/pelvis_mass
+		pelvis_theta+=hip_r.cross(impulse)*1.0/pelvis_inertia
 
 func _spine_angle115(change: float, limit: float = INF) -> void:
 	if change == 0.0: return
@@ -642,7 +704,12 @@ func _solve_bone(bone: Bone115) -> void:
 		var s: float = error/(wa+wb)
 		p[b] -= n*s*wb
 		var impulse: Vector2 = n*s
-		_root_impulse115(pelvic,impulse,r.cross(impulse),1.0,false)
+		if pelvic:
+			pelvis_x+=impulse*1.0/pelvis_mass
+			pelvis_theta+=r.cross(impulse)*1.0/pelvis_inertia
+		else:
+			x+=impulse*1.0/mass
+			theta+=r.cross(impulse)*1.0/inertia
 	else:
 		var wa: float = inv_mass[a]
 		var s: float = error/(wa+wb)
@@ -686,7 +753,7 @@ func _solve_torso_contacts() -> void:
 		if index<corners.size():
 			local = corners[index]
 		else:
-			var name: String = ["shoulder_l","shoulder_r","hip_n","hip_f"][index-corners.size()]
+			var name: String = SHOULDER_ANCHORS115[index-corners.size()]
 			local = anchors[name]
 			lift = 9.0 if name.begins_with("shoulder") else 8.0
 		var r: Vector2 = local.rotated(theta)
@@ -703,9 +770,10 @@ func _solve_torso_contacts() -> void:
 		if index<corners.size():
 			core_contact = true
 			torso_contact = true
+			chest_contact115=true
 			_record("chest" if local.y<-40.0 else "pelvis")
 		else:
-			_record(["left_shoulder","right_shoulder","near_thigh","far_thigh"][index-corners.size()])
+			_record(SHOULDER_PARTS115[index-corners.size()])
 
 func _solve_pelvis_contacts115() -> void:
 	if pelvis_x.y+60.0<ground: return
@@ -728,6 +796,7 @@ func _solve_pelvis_contacts115() -> void:
 		_root_impulse115(true,Vector2.RIGHT,r.cross(Vector2.RIGHT),tangent,false)
 		core_contact=true
 		torso_contact=true
+		pelvis_contact115=true
 		_record("pelvis")
 
 func _point_contact(index: int, lift: float, part: String) -> void:
@@ -793,8 +862,10 @@ func _extension_contact(key: String, part: String) -> void:
 	# FallenRider's final positional correction.
 	deepest = minf(deepest,EXTENSION_PUSH)
 	_record(part)
-	touching[data.b] = 1
-	if data.a is int: touching[data.a] = 1
+	# The outline's friction is already distributed through its Jacobian.
+	# A boot touching the floor does not mean its elevated knee is touching,
+	# nor does a shield rim place the elbow on the floor. Extra rest damping
+	# belongs only to actual joint-disc/chest/pelvis contact.
 	# Friction acts on the actual contact point's travel this substep.
 	var travel: float = point.x-_extension_point(data,true,chosen).x
 	# A rim sits OFF the forearm/shin line. Its contact Jacobian must include
@@ -908,7 +979,11 @@ func _damp_joints(h: float) -> void:
 	# Apply dissipative internal angular impulses through the same Jacobian
 	# as the joint limit. Contact need not borrow a global momentum correction.
 	var keep: float = exp(-JOINT_DAMPING*h)
-	for joint in fast_joints115: _project_angle115(joint,0.0,keep)
+	var limit_keep: float = exp(-24.0*h)
+	for joint in fast_joints115:
+		var angle: float=_fast_flex115(joint)
+		var strained: bool=(joint.kind=="hip" and angle>1.75) or (joint.kind=="knee" and (angle>2.10 or angle<.08)) or (joint.kind=="elbow" and angle<.12) or (joint.kind=="shoulder" and angle<-.90)
+		_project_angle115(joint,0.0,limit_keep if strained else keep)
 	var impulse: float =-(omega-pelvis_omega)*(1.0-keep)/(1.0/inertia+1.0/pelvis_inertia)
 	omega+=impulse/inertia
 	pelvis_omega-=impulse/pelvis_inertia
@@ -932,10 +1007,12 @@ func step(dt: float, support: Dictionary = {}) -> void:
 	contacts.clear()
 	core_contact = false
 	torso_contact = false
+	chest_contact115=false
+	pelvis_contact115=false
 	touching.resize(COUNT)
 	touching.fill(0)
-	# From the end of the previous step, so a lift applied by the caller between
-	# steps (fallen_rider keeps the drawn body out of the floor) counts too.
+	# Measure the physical trajectory; rendering-only floor correction never
+	# writes back into these positions.
 	var step_x: Vector2 = last_x if has_last else x
 	var step_theta: float = last_theta if has_last else theta
 	for substep in range(SUBSTEPS):
@@ -949,6 +1026,7 @@ func step(dt: float, support: Dictionary = {}) -> void:
 		pelvis_prev=pelvis_x
 		pelvis_theta_prev=pelvis_theta
 		shield_previous115=shield_theta115
+		shield_strap_previous115=shield_theta115-(p[HAND_L]-p[ELBOW_L]).angle()+float(extensions.shield.angle0) if extensions.has("shield") else 0.0
 		v.y += GRAVITY*h
 		pelvis_v.y+=GRAVITY*h
 		if guide_strength>0.0 and (grounded_age<0.0 or (grounded_age<2.5 and absf(down_axis().y)>.5)):
@@ -979,16 +1057,17 @@ func step(dt: float, support: Dictionary = {}) -> void:
 			_waist_hinge115()
 			for joint in fast_joints115: _solve_joint(joint,h/iterations)
 			_posterior_tissue115(h/iterations)
+			_anterior_tissue115(h/iterations)
 			_shield_joint115(h/iterations)
 			_spine_constraint115(h,previous_spine115,h/iterations)
 			_solve_neck(h/iterations)
 			_joint_rates115(previous_flex115,h)
-			for bone in fast_bones115: _solve_bone(bone)
+			for index in range(fast_bones115.size()-1,-1,-1): _solve_bone(fast_bones115[index])
 			_waist_hinge115()
 			if not support.is_empty(): _mounted_contacts115(support,h,float(substep+1)/SUBSTEPS)
 			_solve_torso_contacts()
 			_solve_pelvis_contacts115()
-			for i in [ELBOW_L,HAND_L,ELBOW_R,HAND_R,KNEE_N,KNEE_F]:
+			for i in FLOOR_PARTICLES115:
 				_point_contact(i,radius[i],PARTICLE_NAMES[i])
 			_extension_contact("boot_n","near_shin")
 			_extension_contact("boot_f","far_shin")
@@ -1015,13 +1094,15 @@ func step(dt: float, support: Dictionary = {}) -> void:
 		# limb still dropping must finish its fall (a global damping froze a
 		# shield arm in the air, phys114-articulation02).
 		var keep: float = exp(-8.0*rest*dt)
-		v *= keep
-		omega *= keep
-		pelvis_v*=keep
-		pelvis_omega*=keep
-		if contacts.has("shield") or rest_all:shield_omega115*=keep
+		if chest_contact115:
+			v *= keep
+			omega *= keep
+		if pelvis_contact115:
+			pelvis_v*=keep
+			pelvis_omega*=keep
+		if contacts.has("shield"):shield_omega115*=keep
 		for i in range(COUNT):
-			if touching[i] or rest_all: vel[i] = vel[i]*keep
+			if touching[i]: vel[i] = vel[i]*keep
 	if grounded_age<0.0 and not contacts.is_empty(): grounded_age = 0.0
 	elif grounded_age>=0.0: grounded_age += dt
 	# Measured trunk motion (smoothed over ~0.15 s). The derived velocity of a

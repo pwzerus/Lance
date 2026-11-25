@@ -1,0 +1,47 @@
+# PHYS-115 复验入口
+
+当前开发分支为 `codex/v0.5`。以实际 HEAD、工作区和最新交接为准。旧包与三份历史差异不得覆盖。
+
+## 保护与证据
+
+全部引擎运行使用 `Start-MemoryBound.ps1` 或已封装同等保护的包外层启动器。GPU 加 `-IsolatedDesktop`，使用 `-- --test-profile`；禁止抢焦点或操作真实键鼠。内存、CPU、500MiB 系统余量、单实例和超时保护均保持。
+
+`game/tests/run_phys115.ps1` 为每次运行创建新目录，保存源码/包 SHA、外部测试脚本链、参数、内存与引擎日志及结果。名称必须唯一，不重用旧目录；多项测试串行执行。`receipt.json` 中 `guardian_exit_zero` 必须为真，GPU 的 `isolated_desktop_closed` 必须为真。测试报告失败、超时或非已分类的引擎错误均不得判通过。
+
+## 实际候选包
+
+```powershell
+$bundle='E:/GALUMU/builds/LanceAndLaurel-v0.5.0-c1'
+& ./launcher/Verify-Package.ps1 -Directory $bundle
+& ./game/tests/run_phys115.ps1 -Name phys115-review-physical -Script test_physical_fuzz115.gd -Target bundle -Bundle $bundle -Budget normal -TimeoutSeconds 300
+& ./game/tests/run_phys115.ps1 -Name phys115-review-games -Script test_games115.gd -Target bundle -Bundle $bundle -Budget gpu -Extra '--count=4 --gear=240' -TimeoutSeconds 300
+& ./game/tests/run_phys115.ps1 -Name phys115-review-profile -Script profile_result099.gd -Target bundle -Bundle $bundle -Budget gpu -Extra '--seconds=120 --mode=war --kit=heavy --trace099' -TimeoutSeconds 180
+```
+
+`test_physical_fuzz115` 从真实骑乘状态施加命中点冲量并自然失去支撑，默认64组。它不强制落马、不扣血触发抛人。`test_games115` 使用实际 Main/Battle、AI、结算与保存；自动驾驶的胜率不等同真人难度。抓图与状态快照会影响计时，专门的 `profile_result099` 用于持续性能测量。`--trace099` 才是有效的内部追踪开关。
+
+## 关节、画面和正常流程
+
+| 测试 | 运行方式 | 核对内容 |
+| --- | --- | --- |
+| test_ankle115.gd | normal | 双向足部图形/接触登记与内部冲量 |
+| test_damping115.gd | normal | 肩关节跨 PI 的普通/末端阻尼 |
+| test_support115.gd | normal | 命中点冲量、支撑释放、位置/速度所有权交接 |
+| test_rules115.gd | normal | 装备、伤情、物理离鞍及命中原因 |
+| test_clock115.gd | normal | 固定游戏时钟与渲染步长 |
+| test_irons115.gd | normal | 马镫固定在鞍具，催马不产生无击离鞍 |
+| test_body114.gd / test_fall098.gd / test_shield105.gd | normal | 原身体、极端落地和盾臂连续性 |
+| test_mounted_contact105.gd / test_slump113.gd | gpu | 骑乘受击、头盔/颈部、昏厥滑落；不能以 headless 运行 |
+| test_skinfloor115.gd | normal 加 -FolderOutput | 独立读取贴图透明度边缘、实际三角网格变形与落地间隙 |
+| test_frontdoor110.gd / test_flow082.gd | gpu | 新手入口、取消、练习、设置、暂停与返回 |
+| test_journey115.gd | gpu | 正常奖励、购买和关卡成长；需要独立持久 QA 目录 |
+
+成长示例：在 `-Extra` 中传 `--profile=E:/GALUMU/docs/development/logs/phys115-review-earned-qa_journey --first=1 --last=5 --attempts=3`。源码运行还要加 `--source-workspace`；发布包版本必须以 `0.5.0-` 开头。自然失利保留，不能给测试存档赠送金币或解锁来伪造通过。
+
+## 已保留的失败
+
+`test_fall_fuzz105.gd` 是旧的128组人工捕获姿势，区别于实际骑乘释放。155版本剩余10/75四秒收势、105/110躯干离地间隙失败；输入与结果摘要在 `PHYS115_EDGE_FIXTURES.json`。不修改原四秒/14px门槛。单向限位阻尼候选157/158导致更多失败，已否决；不要将候选结果归入交付代码。
+
+全部失败、脚本参数错误、权限告警与修复记录在 `PHYS115_REVIEW.md`。引擎注入、后台画面、规则模拟、OS输入和真人试玩分别记录。没有真人动作、声音听感、第二台电脑或商店认证的通过结论。
+
+最终采用c1源码bdcc2f4；165–172新增网格接地候选已否决，不能复用其通过结果作为c1证据。test_skinfloor115在c1仍有4/6例未过0.03px门，最大1.619px；失败必须保留。Play-Physics-Preview启动开发候选，Play-Latest继续稳定c5。

@@ -1,0 +1,50 @@
+{
+  "checks": {
+    "outer_exit_zero": true,
+    "isolated_desktop_closed": true,
+    "game_report_passed": true,
+    "only_classified_cache_warning": true,
+    "portable_10_passed": true,
+    "archive_passed": true
+  },
+  "raw_outer_receipt_passed": false,
+  "classification": "Original helper fails on an isolated GLES cache-directory warning. Preserve that failure; separately verify game assertions, guardian exit and desktop closure. Not an error-free run.",
+  "known_cache_warning_count": 1,
+  "unknown_errors": [],
+  "games": 2,
+  "falls": 3,
+  "private_mib_sample_peak": 675.2,
+  "evidence": [
+    {
+      "path": "logs/perf088/phys115-outer176-receipt.json",
+      "sha256": "618EF0A1FC32D94DB54B2D33C80A5790BBA0EFE0FBE122FFCE0EDA19D1768430"
+    },
+    {
+      "path": "logs/perf088/phys115-outer176/report.json",
+      "sha256": "D17BC38BA2B1EB3246E01008A9683972A6CFA65876F36252DD155A45178D5E4C"
+    },
+    {
+      "path": "logs/perf088/phys115-outer176-engine.log",
+      "sha256": "F32D1E8EEE6C8F3F388D9CF0E6F5735FC76023CAC370151623CFE42119C86317"
+    },
+    {
+      "path": "logs/perf088/phys115-outer176-memory.log",
+      "sha256": "E66033E7BD4C3A9217548CD3EC642CCC527A31393E1BBF2D9D133D5BEC3671C3"
+    },
+    {
+      "path": "docs/development/logs/phys115-portable175/results.json",
+      "sha256": "C8565D3E16072C286AE6E22DE0BE8C249DA278C5EC83439D163AF4BD076F0E51"
+    }
+  ],
+  "archive": {
+    "passed": true,
+    "archive": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.5.0-c1.zip",
+    "archive_bytes": 71380771,
+    "archive_sha256": "EBD4E295ADE6C6A75F8B8C8DC30A96BCE95C49E834E5F9EE9FB1815E3A3F46E2",
+    "relocated": "E:\\GALUMU\\builds\\PHYS115 便携验证 0.5.0-c1\\LanceAndLaurel-v0.5.0-c1",
+    "file_count": 10,
+    "source_revision": "bdcc2f49ed41b06c50d98cf6a85a90451ab8e08d",
+    "scope": "File hashes, ZIP CRC and Unicode/space-path extraction only. Runtime launch is verified separately."
+  },
+  "scope": "Protected background rendering; no OS input, no human play."
+}

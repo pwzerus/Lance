@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-25T16:54:49.191140+00:00",
+  "baseline_utc": "2026-11-25T03:58:18.865936+00:00",
+  "scope": "Read-only hashes after final outer GPU run; no claim about files before baseline sampling.",
+  "files": [
+    {
+      "name": "profile_v1.backup.json",
+      "bytes": 1254,
+      "unchanged": true
+    },
+    {
+      "name": "profile_v1.json",
+      "bytes": 1254,
+      "unchanged": true
+    }
+  ]
+}

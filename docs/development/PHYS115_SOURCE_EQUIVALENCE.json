@@ -1,0 +1,10 @@
+{
+  "runtime_source": "bdcc2f49ed41b06c50d98cf6a85a90451ab8e08d",
+  "production_code_data_settings_equal": true,
+  "only_additional_files": [
+    "game/scripts/core/mounted_body115.gd.uid",
+    "game/scripts/core/rider_rig115.gd.uid",
+    "game/scripts/visual/rider_body114.gd.uid"
+  ],
+  "method": "Git normalized tracked diff against exact packaged source; UID registrations are metadata only. Four restored source files also matched exact bytes in rejected173/decision.json."
+}

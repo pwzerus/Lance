@@ -1,4 +1,5 @@
 extends RefCounted
+var skin_vertices216=PackedVector2Array()
 ## PHYS-114 body extended by PHYS-115 to riding and loss of saddle support.
 ## Chest and pelvis are rigid bodies joined at the waist; nine mass points
 ## form head/arm/leg chains. Finite muscles, passive coupled tissue, joint
@@ -649,6 +650,12 @@ func _shield_joint115(h: float) -> void:
 	var bone: Vector2 = p[HAND_L]-p[ELBOW_L]
 	var turn: float =wrapf(bone.angle()-float(extensions.shield.angle0),-PI,PI)
 	var relative: float =wrapf(shield_theta115-turn,-PI,PI)
+	# Passive wrist/strap compression transmits load before the hard stop.
+	# This local elastic response has no world-space resting pose.
+	var strain115:float=maxf(0.0,absf(relative)-.75)
+	if strain115>0.0:
+		var torque115:float=minf(1200000.0,4000000.0*strain115*strain115)
+		_project_shield115(-signf(relative)*strain115,torque115*motor_step115*h)
 	var wanted: float =clampf(relative,-1.95,1.95)
 	var hard_limit: bool =not is_equal_approx(wanted,relative)
 	if hard_limit or (tone>0.0 and targets.has("shield_relative")):
@@ -976,27 +983,38 @@ func _extension_contact(key: String, part: String) -> void:
 	if key=="head": core_contact=true
 
 func _foot_skin_contact115(data: Dictionary, part: String) -> void:
-	# Exactly the same piecewise-affine skin as the renderer. Rotating only
-	# its original ten hull corners misses the ankle fold; rotating a dense
-	# continuous curve instead collides with a different shape again.
+	# Immutable mesh data is unpacked once, not looked up for every sample.
+	# Reuse a bounded vertex buffer; keep all samples and arithmetic order.
+	var offsets:PackedVector2Array=data.skin_offsets115
+	var vertex_weights:PackedFloat64Array=data.skin_weights115
+	if not data.has("skin_indices216"):
+		var compiled_ids:Array[Vector3i]=[]
+		var compiled_weights=PackedVector3Array()
+		for item in data.skin_samples115:
+			compiled_ids.append(item[0]);compiled_weights.append(item[1])
+		data.skin_indices216=compiled_ids;data.skin_barycentric216=compiled_weights
+	var indices:Array[Vector3i]=data.skin_indices216
+	var barycentric:PackedVector3Array=data.skin_barycentric216
 	var finish:Vector2=p[data.b]
 	var turn:float=(finish-p[data.a]).angle()-float(data.angle0)
 	var delta:float=wrap_angle(float(feet115[data.foot115].angle)-turn)
-	var vertices=PackedVector2Array();var foot_levers=PackedVector2Array()
-	for index in range(data.skin_offsets115.size()):
-		var weight:float=data.skin_weights115[index]
-		var lever:Vector2=Vector2(data.skin_offsets115[index]).rotated(turn+delta*weight)
-		vertices.append(lever);foot_levers.append(lever*weight)
+	skin_vertices216.resize(offsets.size())
+	for index in range(offsets.size()):
+		skin_vertices216[index]=offsets[index].rotated(turn+delta*vertex_weights[index])
 	var depth=0.0;var selected=-1;var point=Vector2.ZERO
-	for index in range(data.skin_samples115.size()):
-		var sample:Array=data.skin_samples115[index];var ids:Vector3i=sample[0];var w:Vector3=sample[1]
-		var candidate:Vector2=finish+vertices[ids.x]*w.x+vertices[ids.y]*w.y+vertices[ids.z]*w.z
+	for index in range(indices.size()):
+		var ids:Vector3i=indices[index];var w:Vector3=barycentric[index]
+		var candidate:Vector2=finish
+		if w.x!=0.0:candidate+=skin_vertices216[ids.x]*w.x
+		if w.y!=0.0:candidate+=skin_vertices216[ids.y]*w.y
+		if w.z!=0.0:candidate+=skin_vertices216[ids.z]*w.z
 		if candidate.y-ground>depth:depth=candidate.y-ground;selected=index;point=candidate
 	if selected<0:return
-	var sample:Array=data.skin_samples115[selected];var ids:Vector3i=sample[0];var weights:Vector3=sample[1]
-	var foot_lever:Vector2=foot_levers[ids.x]*weights.x+foot_levers[ids.y]*weights.y+foot_levers[ids.z]*weights.z
+	var ids:Vector3i=indices[selected];var weights:Vector3=barycentric[selected]
+	var foot_lever:Vector2=(skin_vertices216[ids.x]*vertex_weights[ids.x])*weights.x+(skin_vertices216[ids.y]*vertex_weights[ids.y])*weights.y+(skin_vertices216[ids.z]*vertex_weights[ids.z])*weights.z
 	var old_point=Vector2.ZERO
-	for index in range(3):old_point+=_extension_point(data,true,data.skin_offsets115[ids[index]])*weights[index]
+	for index in range(3):
+		if weights[index]!=0.0:old_point+=_extension_point(data,true,offsets[ids[index]])*weights[index]
 	_record(part)
 	var impulse=_push_extension115(data,point,Vector2.UP,minf(depth,EXTENSION_PUSH),INF,0.0,foot_lever)
 	_push_extension115(data,point,Vector2.RIGHT,old_point.x-point.x,FRICTION*impulse,0.0,foot_lever)
@@ -1140,7 +1158,9 @@ func _damp_joints(h: float) -> void:
 	var gradient: Vector2 =Vector2(-bone.y,bone.x)/maxf(bone.length_squared(),.001)
 	var rate: float =shield_omega115-gradient.dot(vel[HAND_L]-vel[ELBOW_L])
 	var weight: float =1.0/shield_inertia115+gradient.length_squared()*(inv_mass[HAND_L]+inv_mass[ELBOW_L])
-	var strap_impulse: float =-rate*(1.0-keep)/weight
+	# Local strap/wrist damping transfers equal and opposite angular impulse;
+	# it does not brake the unsupported shoulder or choose a resting angle.
+	var strap_impulse: float =-rate*(1.0-exp(-18.0*h))/weight
 	shield_omega115+=strap_impulse/shield_inertia115
 	vel[HAND_L]=vel[HAND_L]-gradient*strap_impulse*inv_mass[HAND_L]
 	vel[ELBOW_L]=vel[ELBOW_L]+gradient*strap_impulse*inv_mass[ELBOW_L]

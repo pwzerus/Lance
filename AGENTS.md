@@ -18,7 +18,7 @@ Codex 与 Claude 交替开发、互相审查；每次开发任务的接手、认
 
 接手先读 HANDOFF.md 和 docs/collaboration/。开始修改前在 TASK_BOARD.md 登记任务与具体文件；交出修改时用 HANDOFF_TEMPLATE.md 记录功能、文件、基线、验证证据和剩余问题，更新 WORK_LOG.md 与 PROJECT_STATE.md。共享文件一次只由一位负责人修改，不覆盖对方未提交改动。
 
-GitHub 仓库为 https://github.com/pwzerus/Lance，远程名 origin。每个版本使用一条 codex/vX.Y 分支；同版本修复、同一或相近功能在该分支内逐项 commit，不为小改动另开分支。大的结构性改动形成下一版本后再开新版本分支。里程碑提交后推送当前版本分支并核对远程 SHA；不 force push，不覆盖旧发布包。当前版本为 codex/v0.4。
+GitHub 仓库为 https://github.com/pwzerus/Lance，远程名 origin。每个版本使用一条 codex/vX.Y 分支；同版本修复、同一或相近功能在该分支内逐项 commit，不为小改动另开分支。大的结构性改动形成下一版本后再开新版本分支。里程碑提交后推送当前版本分支并核对远程 SHA；不 force push，不覆盖旧发布包。当前开发版本为 codex/v0.5（PHYS-115 统一身体结构升级）；codex/v0.4 和旧发布包保留。
 
 ## DOC-065：以实际最新工作区接手（2026-11-06）
 

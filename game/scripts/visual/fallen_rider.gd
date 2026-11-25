@@ -619,8 +619,9 @@ func _update_pose() -> void:
 		legs[side].hip = hip
 		legs[side].knee = knee
 		legs[side].ankle = ankle
-		# The boot is part of the shin patch and turns with it.
-		legs[side].foot = ankle+(leg.foot-leg.ankle).rotated(_turn(leg.ankle-leg.knee,ankle-knee))
+		var foot_turn=body.foot_relative115("boot_n" if side=="near" else "boot_f")*facing
+		legs[side].foot_angle115=foot_turn
+		legs[side].foot = ankle+(leg.foot-leg.ankle).rotated(_turn(leg.ankle-leg.knee,ankle-knee)+foot_turn)
 	var wrist_turn = float(joints.right_upper.angle)*.45+float(joints.right_elbow.angle)*.25-wrist_origin115
 	# The held lance follows the freely swinging arm at a wrist's finite rate
 	# (a free arm now swings faster than the old spring-limited one).

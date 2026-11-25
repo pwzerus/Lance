@@ -19,6 +19,7 @@ class Probe extends Fallen:
 		release_record = {"age":age,"grip_error":held_grip.distance_to(released_grip),"ray_error":absf(held_ray.angle_to(released_ray)),"held_hidden":not visual.detached_lance_visible,"far_hidden":not far_leg.detached_lance_visible,"broken":fighter.broken}
 
 var failures: Array[String] = []
+var failure_counts115: Dictionary = {}
 var examples: Array = []
 var cases: Array = []
 var report_path = ""
@@ -36,9 +37,13 @@ func _initialize() -> void:
 
 func check(ok: bool, message: String, context: Dictionary = {}) -> void:
 	if ok: return
-	if message not in failures: failures.append(message)
+	failure_counts115[message]=int(failure_counts115.get(message,0))+1
+	if message not in failures:
+		failures.append(message)
+		push_error(message)
+	elif int(failure_counts115[message])%1000==0:
+		print("REPEATED_ASSERT count=",failure_counts115[message]," ",message)
 	if examples.size()<30: examples.append({"message":message,"context":context})
-	push_error(message)
 
 func vector_rows(points: PackedVector2Array) -> Array:
 	var rows: Array = []
@@ -130,8 +135,8 @@ func inspect(actor, row: Dictionary) -> void:
 		var initial: Dictionary = actor.initial_legs[side]
 		var initial_shin: Vector2 = initial.ankle-initial.knee
 		var current_shin: Vector2 = now.ankle-now.knee
-		var visible_boot_end: Vector2 = now.ankle+(initial.foot-initial.ankle).rotated(initial_shin.angle_to(current_shin))
-		check(now.foot.distance_to(visible_boot_end)<.002,"Foot envelope uses the visible knee-to-ankle boot rotation")
+		var visible_boot_end: Vector2 = now.ankle+(initial.foot-initial.ankle).rotated(initial_shin.angle_to(current_shin)+float(now.get("foot_angle115",0.0)))
+		check(now.foot.distance_to(visible_boot_end)<.002,"Foot envelope uses the visible shin and ankle rotation")
 		for pair in [["hip","knee"],["knee","ankle"],["ankle","foot"]]:
 			var error = absf(now[pair[0]].distance_to(now[pair[1]])-initial[pair[0]].distance_to(initial[pair[1]]))
 			row.maximum_bone_error = maxf(row.maximum_bone_error,error)

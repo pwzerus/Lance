@@ -9,6 +9,9 @@ const ATLAS = preload("res://assets/art/pixel_v03/rider_atlas.png")
 # points keeps the floor envelope aligned with the anisotropically skinned
 # boot, including its long toe; no per-frame image reads or new textures.
 const BOOT_OUTLINE113 = [Vector2(744,736),Vector2(868,736),Vector2(873,900),Vector2(873,926),Vector2(872,928),Vector2(870,930),Vector2(798,930),Vector2(761,918),Vector2(749,912),Vector2(744,813)]
+static var boot_vertices115=PackedVector2Array()
+static var boot_uv115=PackedVector2Array()
+static var boot_indices115=PackedInt32Array()
 const WindowActivity = preload("res://scripts/core/window_activity.gd")
 const Rig115 = preload("res://scripts/core/rider_rig115.gd")
 const Model = preload("res://scripts/core/joust_match.gd")
@@ -585,13 +588,37 @@ func _draw_seated_leg(pose: Dictionary, tint: Color, near: bool) -> void:
 	draw_line(strap_top,stirrup,Color("30261d")*stirrup_tint,4)
 	draw_line(strap_top+Vector2(1,0),stirrup+Vector2(1,0),Color("805b34")*stirrup_tint,2)
 	_draw_rider_leg_patch(Rect2(687,633,204,117),Vector2(749,663),Vector2(823,748),pose.hip,pose.knee,.30,tint)
-	_draw_rider_leg_patch(Rect2(744,736,148,197),Vector2(823,748),Vector2(804,862),pose.knee,pose.ankle,.29,tint)
+	_draw_boot115(pose,tint)
 	_draw_leg_ornament(pose,tint)
 	var loop = PackedVector2Array([stirrup+Vector2(-9,-7),stirrup+Vector2(-12,9),stirrup+Vector2(14,9),stirrup+Vector2(10,-7)])
 	draw_polyline(loop,Color("242b2b")*stirrup_tint,4)
 	draw_line(stirrup+Vector2(-10,8),stirrup+Vector2(12,8),Color("9b9d8d")*stirrup_tint,2)
 	if near:
 		draw_line(pose.hip+Vector2(-9,0),pose.hip+Vector2(9,4),Color("b38e47"),3)
+
+func _draw_boot115(pose: Dictionary, tint: Color) -> void:
+	if is_zero_approx(float(pose.get("foot_angle115",0.0))):
+		_draw_rider_leg_patch(Rect2(744,736,148,197),Vector2(823,748),Vector2(804,862),pose.knee,pose.ankle,.29,tint)
+		return
+	# Fixed skin topology, shared vertices and the original texture. An ankle
+	# fold can make a wide four-corner strip concave/self-overlap: asking the
+	# polygon triangulator to rediscover its topology dropped entire strips.
+	# Explicit triangles keep the connected cloth/boot skin across that fold.
+	if boot_vertices115.is_empty():
+		var rows=[736.0,835.0,847.0,860.0,875.0,933.0]
+		var columns=[744.0,784.0,823.0,852.0,892.0]
+		for y in rows:
+			for x in columns:
+				boot_vertices115.append(Vector2(x,y));boot_uv115.append(Vector2(x,y)/ATLAS.get_size())
+		for row in range(rows.size()-1):
+			for column in range(columns.size()-1):
+				var a=row*columns.size()+column;var b=a+columns.size()
+				boot_indices115.append_array(PackedInt32Array([a,a+1,b+1,a,b+1,b]))
+	var points=PackedVector2Array();points.resize(boot_vertices115.size())
+	for index in range(boot_vertices115.size()):
+		var mapped=leg_patch_point113(boot_vertices115[index],Vector2(823,748),Vector2(804,862),pose.knee,pose.ankle,.29)
+		points[index]=Rig115.foot_deform115(mapped,pose)
+	RenderingServer.canvas_item_add_triangle_array(get_canvas_item(),boot_indices115,points,PackedColorArray([tint]),boot_uv115,PackedInt32Array(),PackedFloat32Array(),ATLAS.get_rid())
 
 func _draw_leg_ornament(pose: Dictionary, tint: Color) -> void:
 	var pattern = int(fighter.stats.get("leg_decoration",0))

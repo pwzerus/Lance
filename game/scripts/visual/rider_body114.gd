@@ -143,6 +143,7 @@ var shield_omega115: float = 0.0
 var shield_inertia115: float = 3000.0
 var shield_mass115: float = 3.0
 var shield_centre115: Vector2 = Vector2.ZERO
+var feet115: Dictionary = {}
 var thudded: bool = false
 var trunk_speed: float = 0.0
 var trunk_turn: float = 0.0
@@ -307,6 +308,60 @@ func build(data: Dictionary) -> void:
 	conscious = bool(data.get("conscious",true))
 	brace_direction = data.get("brace_direction",brace_direction)
 	configure_shield115(float(data.get("shield_mass",3.0)))
+	configure_feet115()
+
+func configure_feet115() -> void:
+	feet115.clear()
+	for key in ["boot_n","boot_f"]:
+		if not extensions.has(key):continue
+		var data:Dictionary=extensions[key]
+		var axis:Vector2=p[data.b]-p[data.a]
+		data.foot115=key;data.axis115=axis.normalized();data.length115=axis.length()
+		data.foot_weights115=PackedFloat64Array()
+		var centre=Vector2.ZERO;var radius_squared=0.0;var total=0.0
+		for point in data.offsets:
+			var weight=foot_weight115(data,point)
+			data.foot_weights115.append(weight)
+			centre+=point*weight;radius_squared+=point.length_squared()*weight;total+=weight
+		feet115[key]={"angle":0.0,"previous":0.0,"omega":0.0,"relative_previous":0.0,
+			"inertia":maxf(100.0,1.2*radius_squared/maxf(total,1.0)*.55),"centre":centre/maxf(total,1.0)}
+
+static func foot_weight115(data: Dictionary, offset: Vector2) -> float:
+	return smoothstep(-.18,0.0,offset.dot(Vector2(data.axis115))/float(data.length115))
+
+func foot_relative115(key: String) -> float:
+	if not feet115.has(key):return 0.0
+	var data:Dictionary=extensions[key]
+	return wrap_angle(float(feet115[key].angle)-(p[data.b]-p[data.a]).angle()+float(data.angle0))
+
+func _foot_impulse115(key: String, change: float, limit: float = INF, damping: float = -1.0) -> void:
+	var data:Dictionary=extensions[key];var foot:Dictionary=feet115[key]
+	var bone:Vector2=p[data.b]-p[data.a]
+	var gradient:Vector2=Vector2(-bone.y,bone.x)/maxf(bone.length_squared(),.001)
+	var weight:float=1.0/float(foot.inertia)+gradient.length_squared()*(inv_mass[data.a]+inv_mass[data.b])
+	var impulse:float=clampf(change/weight,-limit,limit)
+	if damping>=0.0:
+		var rate:float=float(foot.omega)-gradient.dot(vel[data.b]-vel[data.a])
+		impulse=-rate*(1.0-damping)/weight
+		foot.omega+=impulse/float(foot.inertia)
+		vel[data.b]=vel[data.b]-gradient*impulse*inv_mass[data.b]
+		vel[data.a]=vel[data.a]+gradient*impulse*inv_mass[data.a]
+	else:
+		foot.angle+=impulse/float(foot.inertia)
+		p[data.b]=p[data.b]-gradient*impulse*inv_mass[data.b]
+		p[data.a]=p[data.a]+gradient*impulse*inv_mass[data.a]
+
+func _ankles115(h: float) -> void:
+	for key in feet115:
+		var relative:float=foot_relative115(key)*facing
+		var wanted:float=clampf(relative,-.50,.65)
+		if wanted!=relative:
+			_foot_impulse115(key,(wanted-relative)*facing)
+		elif tone>0.0:
+			_foot_impulse115(key,clampf(-relative,-5.0*h,5.0*h)*facing,18000.0*tone*motor_step115*h)
+		var change:float=wrap_angle(foot_relative115(key)-float(feet115[key].relative_previous))
+		var maximum:float=8.0*motor_step115
+		if absf(change)>maximum:_foot_impulse115(key,clampf(change,-maximum,maximum)-change)
 
 func compile_joints115() -> void:
 	fast_bones115.clear()
@@ -733,6 +788,7 @@ func system_centre() -> Vector2:
 
 func _total_inertia(centre: Vector2) -> float:
 	var total: float = inertia+mass*(x-centre).length_squared()+pelvis_inertia+pelvis_mass*(pelvis_x-centre).length_squared()+shield_inertia115
+	for foot in feet115.values():total+=float(foot.inertia)
 	for i in range(COUNT):
 		total += (p[i]-centre).length_squared()/inv_mass[i]
 	return maxf(total,1.0)
@@ -830,6 +886,9 @@ func _extension_point(data: Dictionary, previous: bool, offset: Vector2) -> Vect
 			var b = bx.cross(offset)/det
 			offset = bx*a+by*b*cos(shield_roll)
 	var turn: float =(shield_previous115 if previous else shield_theta115) if bool(data.get("roll",false)) else (finish-start).angle()-float(data.angle0)
+	if data.has("foot115"):
+		var foot:Dictionary=feet115[data.foot115]
+		turn+=wrap_angle(float(foot.previous if previous else foot.angle)-turn)*foot_weight115(data,offset)
 	return finish+offset.rotated(turn)
 
 func _extension_contact(key: String, part: String) -> void:
@@ -841,23 +900,34 @@ func _extension_contact(key: String, part: String) -> void:
 	var deepest: float = 0.0
 	var point: Vector2 = Vector2.ZERO
 	var chosen: Vector2 = Vector2.ZERO
+	var chosen_weight:float=0.0
 	var rolling: bool = bool(data.get("roll",false))
 	var turn: float = shield_theta115 if rolling else (finish-start).angle()-float(data.angle0)
 	var bx: Vector2 = data.basis_x
 	var by: Vector2 = data.basis_y
 	var det: float = bx.cross(by)
 	var roll_cos: float = cos(shield_roll)
-	for original in data.offsets:
+	var has_foot:bool=data.has("foot115")
+	if has_foot and not data.has("foot_weights115"):
+		data.foot_weights115=PackedFloat64Array()
+		for offset in data.offsets:data.foot_weights115.append(foot_weight115(data,offset))
+	var foot_delta:float=wrap_angle(float(feet115[data.foot115].angle)-turn) if has_foot else 0.0
+	var offsets:PackedVector2Array=data.offsets
+	for index in range(offsets.size()):
+		var original:Vector2=offsets[index]
 		var offset: Vector2 = original
 		if rolling and shield_roll>0.0 and absf(det)>.0001:
 			var a: float = offset.cross(by)/det
 			var b: float = bx.cross(offset)/det
 			offset=bx*a+by*b*roll_cos
-		var q: Vector2 = finish+offset.rotated(turn)
+		var weight:float=float(data.foot_weights115[index]) if has_foot else 0.0
+		var angle:float=turn+foot_delta*weight if has_foot else turn
+		var q: Vector2 = finish+offset.rotated(angle)
 		if q.y-ground>deepest:
 			deepest = q.y-ground
 			point = q
 			chosen = original
+			chosen_weight=weight
 	if deepest<=0.0: return
 	# A long lever (shield rim, helmet edge) turned its whole limb by up to
 	# 0.5 rad in one step on first contact (shield105). Resolve a deep entry
@@ -874,12 +944,12 @@ func _extension_contact(key: String, part: String) -> void:
 	# A rim sits OFF the forearm/shin line. Its contact Jacobian must include
 	# that rotational lever; barycentric weights along the line alone gave
 	# the shield an incorrect impulse and flung the arm at first contact.
-	var normal_impulse: float = _push_extension115(data,point,Vector2.UP,deepest)
+	var normal_impulse: float = _push_extension115(data,point,Vector2.UP,deepest,INF,chosen_weight)
 	var grip: float = SHIELD_FRICTION if key=="shield" else FRICTION
-	_push_extension115(data,point,Vector2.RIGHT,-travel,grip*normal_impulse)
+	_push_extension115(data,point,Vector2.RIGHT,-travel,grip*normal_impulse,chosen_weight)
 	if key=="head": core_contact=true
 
-func _push_extension115(data: Dictionary, point: Vector2, axis: Vector2, distance: float, limit: float = INF) -> float:
+func _push_extension115(data: Dictionary, point: Vector2, axis: Vector2, distance: float, limit: float = INF, foot_weight: float = 0.0) -> float:
 	var start: Vector2 = end_position(data.a)
 	var finish: Vector2 = p[data.b]
 	var bone: Vector2 = finish-start
@@ -894,10 +964,12 @@ func _push_extension115(data: Dictionary, point: Vector2, axis: Vector2, distanc
 		shield_theta115+=angular*impulse115/shield_inertia115
 		return absf(impulse115)
 	var angle_gradient: Vector2 = Vector2(-bone.y,bone.x)/maxf(bone.length_squared(),.001)
-	var g_a: Vector2 = -angle_gradient*Vector2(-lever.y,lever.x).dot(axis)
+	var g_a: Vector2 = -angle_gradient*Vector2(-lever.y,lever.x).dot(axis)*(1.0-foot_weight)
 	var g_b: Vector2 = axis-g_a
 	var theta_gradient: float = 0.0
 	var weight: float = g_b.length_squared()*inv_mass[data.b]
+	var foot_gradient:float=foot_weight*lever.cross(axis)
+	if data.has("foot115"):weight+=foot_gradient*foot_gradient/float(feet115[data.foot115].inertia)
 	if data.a is String:
 		var r: Vector2 = start-x
 		theta_gradient=g_a.dot(Vector2(-r.y,r.x))
@@ -906,6 +978,7 @@ func _push_extension115(data: Dictionary, point: Vector2, axis: Vector2, distanc
 		weight+=g_a.length_squared()*inv_mass[data.a]
 	var impulse: float =clampf(distance/maxf(weight,.000000001),-limit,limit)
 	p[data.b]=p[data.b]+g_b*impulse*inv_mass[data.b]
+	if data.has("foot115"):feet115[data.foot115].angle+=foot_gradient*impulse/float(feet115[data.foot115].inertia)
 	if data.a is String:
 		x+=g_a*impulse/mass
 		theta+=theta_gradient*impulse/inertia
@@ -917,6 +990,7 @@ func angular_momentum(centre: Vector2) -> float:
 	var total: float = inertia*omega+mass*(x-centre).cross(v)+pelvis_inertia*pelvis_omega+pelvis_mass*(pelvis_x-centre).cross(pelvis_v)+shield_inertia115*shield_omega115
 	for i in range(COUNT):
 		total += (p[i]-centre).cross(vel[i])/inv_mass[i]
+	for foot in feet115.values():total+=float(foot.inertia)*float(foot.omega)
 	return total
 
 func _landing_thud() -> void:
@@ -930,6 +1004,7 @@ func _landing_thud() -> void:
 	omega += correction
 	pelvis_omega+=correction
 	shield_omega115+=correction
+	for foot in feet115.values():foot.omega+=correction
 	pelvis_v+=Vector2(-(pelvis_x-centre).y,(pelvis_x-centre).x)*correction
 	v += Vector2(-(x-centre).y,(x-centre).x)*correction
 	for i in range(COUNT):
@@ -984,7 +1059,11 @@ func _damp_joints(h: float) -> void:
 	var keep: float = exp(-JOINT_DAMPING*h)
 	var limit_keep: float = exp(-24.0*h)
 	for joint in fast_joints115:
-		var angle: float=_fast_flex115(joint)
+		# The shoulder range crosses PI. Its valid raised-arm angle 3.25
+		# wraps to -3.03; treating that as backward extension applied the
+		# nine-times stronger end-stop damper to an ordinary overhead arm.
+		var angle: float=_in_range(_fast_flex115(joint),joint.lo)
+		if angle>joint.hi and joint.lo+TAU-angle<angle-joint.hi:angle-=TAU
 		var strained: bool=(joint.kind=="hip" and angle>1.75) or (joint.kind=="knee" and (angle>2.10 or angle<.08)) or (joint.kind=="elbow" and angle<.12) or (joint.kind=="shoulder" and angle<-.90)
 		_project_angle115(joint,0.0,limit_keep if strained else keep)
 	var impulse: float =-(omega-pelvis_omega)*(1.0-keep)/(1.0/inertia+1.0/pelvis_inertia)
@@ -998,6 +1077,7 @@ func _damp_joints(h: float) -> void:
 	shield_omega115+=strap_impulse/shield_inertia115
 	vel[HAND_L]=vel[HAND_L]-gradient*strap_impulse*inv_mass[HAND_L]
 	vel[ELBOW_L]=vel[ELBOW_L]+gradient*strap_impulse*inv_mass[ELBOW_L]
+	for key in feet115:_foot_impulse115(key,0.0,INF,keep)
 
 func set_muscles(value_tone: float, value_targets: Dictionary) -> void:
 	tone = value_tone
@@ -1040,6 +1120,11 @@ func step(dt: float, support: Dictionary = {}) -> void:
 		pelvis_theta_prev=pelvis_theta
 		shield_previous115=shield_theta115
 		shield_strap_previous115=shield_theta115-(p[HAND_L]-p[ELBOW_L]).angle()+float(extensions.shield.angle0) if extensions.has("shield") else 0.0
+		for key in feet115:
+			var foot:Dictionary=feet115[key]
+			foot.previous=foot.angle;foot.relative_previous=foot_relative115(key)
+			foot.omega+=1.2*GRAVITY*Vector2(foot.centre).rotated(float(foot.angle)).x/float(foot.inertia)*h
+			foot.angle+=float(foot.omega)*h
 		v.y += GRAVITY*h
 		pelvis_v.y+=GRAVITY*h
 		if guide_strength>0.0 and (grounded_age<0.0 or (grounded_age<2.5 and absf(down_axis().y)>.5)):
@@ -1072,6 +1157,7 @@ func step(dt: float, support: Dictionary = {}) -> void:
 			_posterior_tissue115(h/iterations)
 			_anterior_tissue115(h/iterations)
 			_shield_joint115(h/iterations)
+			_ankles115(h/iterations)
 			_spine_constraint115(h,previous_spine115,h/iterations)
 			_solve_neck(h/iterations)
 			_joint_rates115(previous_flex115,h)
@@ -1094,6 +1180,7 @@ func step(dt: float, support: Dictionary = {}) -> void:
 		pelvis_v=((pelvis_x-pelvis_prev)/h*drag).limit_length(MAX_SPEED)
 		pelvis_omega=clampf(wrap_angle(pelvis_theta-pelvis_theta_prev)/h*drag,-14.0,14.0)
 		shield_omega115=clampf(wrap_angle(shield_theta115-shield_previous115)/h*drag,-14.0,14.0)
+		for foot in feet115.values():foot.omega=clampf(wrap_angle(float(foot.angle)-float(foot.previous))/h*drag,-14.0,14.0)
 		for i in range(COUNT):
 			vel[i] = ((p[i]-prev[i])/h*drag).limit_length(MAX_SPEED)
 		# A torque acts on velocities, so after they are derived from positions
@@ -1292,10 +1379,18 @@ func _mounted_contacts115(support: Dictionary, h: float, alpha: float) -> void:
 				support_contacts115[part]=true
 			if not extensions.has("head"):continue
 			var head:Dictionary=extensions.head
+			# The captured radius encloses EVERY helmet/jaw vertex at any
+			# angle. Skip only segments which cannot possibly touch that disk.
+			# Previously all 20-35 outline points were transformed against
+			# every crest segment even with an upright rider well above it.
+			var head_centre:Vector2=p[HEAD]
+			var reach:float=float(head.reach)+.01
+			if head_centre.y+reach<minf(a.y,b.y) or head_centre.x+reach<minf(a.x,b.x) or head_centre.x-reach>maxf(a.x,b.x):continue
 			var deepest: float =0.0
 			var contact: Vector2 =Vector2.ZERO
+			var head_turn:float=(head_centre-end_position(head.a)).angle()-float(head.angle0)
 			for offset in head.offsets:
-				var point: Vector2 =_extension_point(head,false,offset)
+				var point: Vector2 =head_centre+Vector2(offset).rotated(head_turn)
 				var fraction: float =(point.x-a.x)/(b.x-a.x)
 				if fraction<0.0 or fraction>1.0:continue
 				var depth: float =point.y-lerpf(a.y,b.y,fraction)

@@ -1,0 +1,325 @@
+{
+  "status": "development_checkpoint_candidate_not_exported",
+  "utc": "2026-11-25T15:43:18.554381+00:00",
+  "base": "d206983c42c62397a995a267c25e781c9f5038a5",
+  "scope": "Background protected QA only. The unilateral-stop damping candidate failed expanded regression and was not adopted. Four prior synthetic rest/support cases remain; no commercial/human acceptance claim.",
+  "evidence": [
+    {
+      "path": "docs/development/logs/phys115-anklegames153/results/report.json",
+      "sha256": "926722b2a72a17ad5e3dde3afd11e998b2657cdebcefeebc361b6f6c78716450",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-anklegames153/receipt.json",
+      "sha256": "df90cc74087f33ba22c4f9bb7b762fce6ae0e81bf19d8b35484c2f47469baaee",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": true
+    },
+    {
+      "path": "docs/development/logs/phys115-skingames154/results/report.json",
+      "sha256": "132fd5985fc0c2771cfa6026aa8a55af8e8e0336e28c7e62769c66d290f30963",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-skingames154/receipt.json",
+      "sha256": "6788dd631feaa9c728f52cd7688ef3aeea5b789132611ed222b922addc0753d9",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-parse155/receipt.json",
+      "sha256": "bc8995976f8ae005293158b0e6aa9ce3392558448138e6dabbd80e187f401d6f",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-rules155/report.json",
+      "sha256": "0b30279bb41ca908462a3899c9435eb74e9415ec5442cebdfbc4e2f954c5b0fc",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-rules155/receipt.json",
+      "sha256": "7a90ce00d36bc236513ecf68bf4dced24ed752a7c2d9c75641f9fc1da7baed94",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-continuity155/report.json",
+      "sha256": "bd1c0dc1ba27cd5e1fe521b16c391abce3783983d6e9f86ea25feb41e3eafc66",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-continuity155/receipt.json",
+      "sha256": "6308e440e2f04b7523f566296348cc848ffdab953968a13cbadb4596ffcd920e",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-reaction155/report.json",
+      "sha256": "402f0dbb02086eb7e99341f9947feeee4afe0a51dbfa92a1f4b6cd93da7e3ec7",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-reaction155/receipt.json",
+      "sha256": "4209c54fd163a61b0f01a38a163beb8db916559cce2b6e8b168bb596e1be0aab",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-terminal155/report.json",
+      "sha256": "242ade034f98d6aca780784df3407b5bf5b31b3f5dbb5ef17f4ebb8ba2f8de55",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-terminal155/receipt.json",
+      "sha256": "6e56b0b3889af25ae543f4f0d5283764016f25ccfb6ae8a2d5ab8091d95d30cb",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-simultaneous155/results/report.json",
+      "sha256": "7d76041c9a8d282761b07e1022665865b28dce1e61885c6de426f3f6f81f23ac",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-simultaneous155/receipt.json",
+      "sha256": "346bcfca549ce404969a32e88e2c932e732663a14cbc2da70fdc4a28901df253",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-fuzz155/report.json",
+      "sha256": "78f2596a0239df5276db266ea1a3416ef3e880e590c556c0ed813de701f2aadb",
+      "passed": false,
+      "failures": [
+        "Four-second synthetic pose rest: 10",
+        "Four-second synthetic pose rest: 75",
+        "Synthetic pose torso support: 105",
+        "Synthetic pose torso support: 110"
+      ],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-fuzz155/receipt.json",
+      "sha256": "2d2ddc49facde179cd79245c84635060b70fdc0fc01d2494e19040b57243289a",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": false,
+      "unexpected_engine_error": true
+    },
+    {
+      "path": "docs/development/logs/phys115-cachepair156/report.json",
+      "sha256": "111ea7370a8a33563a570ea9a6e3f9027ac3f64b786d1c6ef9e6dcc164707693",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-cachepair156/receipt.json",
+      "sha256": "19286c94bbbcece006ebbcf9c03432bb6508a5ca21bace2e4f4a969b66e49d71",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-profile156/results/report.json",
+      "sha256": "6784a231a74af511ad191b2526fd0b70044113591f70df8e0b487aa89d3d3eff",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-profile156/receipt.json",
+      "sha256": "274fc55c7eb1ab3e001336b92cd638e6d6628867b1b3626cf3ef1976558bb812",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-broadpair159/report.json",
+      "sha256": "6d23e7c1c41be1c8fe2f5e82f0caeb83961c0b52554a0d2e417d2123806871ed",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-broadpair159/receipt.json",
+      "sha256": "984b52fd70c65ff078bc49ffb54d4491c553a93fb6cb018f56d8df5e2d067058",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-broadpair160/report.json",
+      "sha256": "8b71a7438f471ff2fd1de8b64615d79b45eee926547c261584b588e3e7103659",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-broadpair160/receipt.json",
+      "sha256": "176d92999479cd755f0f1b14e9454d853b90d2be437195a33d58b5707e4ae504",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-anklegate152-ankle/report.json",
+      "sha256": "264fbd04e68d8fc86c50fcf8a5fd54490bde5834d4e84ec3d2eb030395a14b42",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-anklegate152-ankle/receipt.json",
+      "sha256": "b508a3e71b73b615fa4338c28fbab805373848df7feae6a7f3761b6c87da2c11",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-anklegate152-damping/report.json",
+      "sha256": "a0e722a40a6c28ec939385b81eba8cfe9c3d88548f75b336a9cbbb0d99cfd5f2",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-anklegate152-damping/receipt.json",
+      "sha256": "7e66ec5c124504ec08bb341bcd229edf597d7ecf05b58106707c422941f84a1b",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-anklegate152-physical/report.json",
+      "sha256": "393be867bdd26e2844bf3e153dcdc363db410f39d152e8d15bec06b3798aa331",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-anklegate152-physical/receipt.json",
+      "sha256": "3b901aa0551d73143fad1431c230a1d1316a2d50eb5982d86d1c48c4f231cee5",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-anklegate152-fall/report.json",
+      "sha256": "a25a4fe495c12d0bc28f96699f295011296ea82cddd889a55a1fdc92f02dadf5",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-anklegate152-fall/receipt.json",
+      "sha256": "15d2ef4bc41b7325a6866ca3c4c3a8d63b3bb7269a5e603d599fbeac0d4954fe",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-anklegate152-shield/report.json",
+      "sha256": "74a7bff803681241d56921ed21a8001802a22707f24d04289476c0659933838d",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-anklegate152-shield/receipt.json",
+      "sha256": "d27fb325c93512e2683c686f8ba8dff2d0f0382e2e47c1ca7f8bdb4070b44a4f",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-anklegate152-clock/report.json",
+      "sha256": "d31d4d354f74ff6be031b64159c56f5d611d9934dce0a5466ebdce3a8e4d97ef",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-anklegate152-clock/receipt.json",
+      "sha256": "f509af320cd6411e9c732b22c2fde0815f47f7817ac62d998a86b29f049ae952",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-anklegate152-support/report.json",
+      "sha256": "b0788ebe8f4a9e40a6b98a77fa041091e6eb52875d3ba72d2fe03da70b2c2073",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-anklegate152-support/receipt.json",
+      "sha256": "e9f0002c53f196cb0daaf493fbd5f5f541d3a755581f9afc9409879692a966d1",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    }
+  ]
+}

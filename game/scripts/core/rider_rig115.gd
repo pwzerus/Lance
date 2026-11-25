@@ -200,8 +200,17 @@ static func leg_patch_point113(point: Vector2, source_a: Vector2, source_b: Vect
 static func boot_outline113(pose: Dictionary) -> PackedVector2Array:
 	var points = PackedVector2Array()
 	for point in BOOT_OUTLINE113:
-		points.append(leg_patch_point113(point,Vector2(823,748),Vector2(804,862),pose.knee,pose.ankle,.29))
+		var mapped=leg_patch_point113(point,Vector2(823,748),Vector2(804,862),pose.knee,pose.ankle,.29)
+		points.append(foot_deform115(mapped,pose))
 	return points
+
+static func foot_deform115(point:Vector2, pose:Dictionary) -> Vector2:
+	var turn:float=float(pose.get("foot_angle115",0.0))
+	if is_zero_approx(turn):return point
+	var axis:Vector2=Vector2(pose.ankle)-Vector2(pose.knee)
+	var offset:Vector2=point-Vector2(pose.ankle)
+	var weight:float=smoothstep(-.18,0.0,offset.dot(axis.normalized())/axis.length())
+	return Vector2(pose.ankle)+offset.rotated(turn*weight)
 
 static func arm_elbow(shoulder: Vector2, hand: Vector2, upper: float, lower: float) -> Vector2:
 	var ray = hand-shoulder
@@ -305,7 +314,8 @@ static func body_pose(body, captured: Dictionary, targets: Dictionary = {}) -> D
 		var angle=wrapf((ankle-knee).angle()-(Vector2(old.ankle)-Vector2(old.knee)).angle(),-PI,PI)
 		var iron: Dictionary=targets.get("legs",captured.legs)[side]
 		legs[side]={"hip":body.anchor("hip_n" if side=="near" else "hip_f"),"knee":knee,"ankle":ankle,
-			"foot":ankle+(Vector2(old.foot)-Vector2(old.ankle)).rotated(angle),"bar":iron.bar,"stirrup":iron.stirrup}
+			"foot":ankle+(Vector2(old.foot)-Vector2(old.ankle)).rotated(angle+body.foot_relative115("boot_n" if side=="near" else "boot_f")),
+			"foot_angle115":body.foot_relative115("boot_n" if side=="near" else "boot_f")*body.facing,"bar":iron.bar,"stirrup":iron.stirrup}
 	# Anatomical hit centres retain the original registration; decorative
 	# helmet crests never enlarge the skull just because its sprite is taller.
 	var head=torso*head_hinge(pose,{"stats":captured.stats,"direction":body.facing})*Vector2(0,-111)
@@ -364,6 +374,7 @@ static func interpolate115(a: Dictionary, b: Dictionary, weight: float, value: D
 		result.legs[side].knee=hip+upper
 		result.legs[side].ankle=hip+upper+lower
 		result.legs[side].foot=hip+upper+lower+_interpolate_bone115(Vector2(first.foot)-Vector2(first.ankle),Vector2(second.foot)-Vector2(second.ankle),weight)
+		result.legs[side].foot_angle115=lerp_angle(float(first.get("foot_angle115",0.0)),float(second.get("foot_angle115",0.0)),weight)
 		for key in ["bar","stirrup"]:result.legs[side][key]=Vector2(first[key]).lerp(second[key],weight)
 	var shield=Transform2D(a.shield_transform).interpolate_with(b.shield_transform,weight)
 	shield.origin=Vector2(pose.left.hand)-shield.basis_xform(Vector2(-10,4))

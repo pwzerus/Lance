@@ -1,0 +1,1201 @@
+{
+  "utc": "2026-11-25T19:24:42.402314+00:00",
+  "status": "development_candidate_with_recorded_remaining_issues",
+  "scope": "Protected background rules/rendering/injected input only; no human or desktop input acceptance.",
+  "version": "0.5.0-c2",
+  "source_revision": "2894eb14a678766c463f95580688f436d580ae47",
+  "bundle": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.5.0-c2",
+  "manifest_sha256": "9911841DB8E5F1F2BB3723254736871DD4FDD0969CA3C2D8D17B7C67E412E77E",
+  "files": [
+    {
+      "path": "LanceAndLaurel.exe",
+      "bytes": 44544,
+      "sha256": "DAE9817494308E8AD4F5833F3CE70E97E9FF005D4F2881BB88DB1507301AE290",
+      "matches_manifest": true
+    },
+    {
+      "path": "licenses/ASSET-NOTICES.txt",
+      "bytes": 1815,
+      "sha256": "F4EE37FF877518B3705D5AC77E9560EF0797CB70F102B642B2346B8BFAF5F2D0",
+      "matches_manifest": true
+    },
+    {
+      "path": "licenses/GODOT-LICENSE.txt",
+      "bytes": 1149,
+      "sha256": "B0435E3B3E4E55238F05F4B306F30524A1B2E20147810D436EAA554FA6855C80",
+      "matches_manifest": true
+    },
+    {
+      "path": "licenses/GODOT-THIRD-PARTY.txt",
+      "bytes": 91338,
+      "sha256": "25EFD44DF9346C7469B21AE5CB0488CF6FFF63854D4473A6AF95E08508A87B17",
+      "matches_manifest": true
+    },
+    {
+      "path": "licenses/NOTO-SANS-SC-OFL.txt",
+      "bytes": 4388,
+      "sha256": "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9",
+      "matches_manifest": true
+    },
+    {
+      "path": "PLAYER-GUIDE.txt",
+      "bytes": 4544,
+      "sha256": "D961B26E53BA9488E8B59AB17692C7B5BBD1D87E2F7E075B2F80DE5EE96A84B1",
+      "matches_manifest": true
+    },
+    {
+      "path": "RELEASE-NOTES.txt",
+      "bytes": 1350,
+      "sha256": "127CEBFA2392C3D9FA1E030EA77F35BFF62DFC7D2DA2CF5C2F5F23173BD6AC44",
+      "matches_manifest": true
+    },
+    {
+      "path": "runtime/LanceAndLaurel.exe",
+      "bytes": 96725504,
+      "sha256": "78CCC576E8F8BFFD7EF6AD6F36EBD72A41E609A1052225A55B3407C96EA84065",
+      "matches_manifest": true
+    },
+    {
+      "path": "runtime/LanceAndLaurel.pck",
+      "bytes": 38437180,
+      "sha256": "DAAF6E3FD6A1F4BEA81A0418CA5EEB7056285420066E431F7366EDF84C3DE015",
+      "matches_manifest": true
+    }
+  ],
+  "runs": [
+    {
+      "name": "phys115-final210-parse",
+      "receipt": {
+        "exit_code": 0,
+        "guardian_exit_zero": true,
+        "isolated_desktop_closed": false,
+        "cache_warning_count": 0,
+        "unexpected_engine_error": false,
+        "reports": []
+      },
+      "receipt_sha256": "BC8995976F8AE005293158B0E6AA9CE3392558448138E6DABBD80E187F401D6F",
+      "target": {
+        "target": "source",
+        "executable": "E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe",
+        "source_revision": "0f502e73025de0ffa8bd8de106eb1cfcd7e053ef",
+        "pck_sha256": null,
+        "budget": "normal",
+        "extra": "",
+        "external_driver_chain": [
+          {
+            "sha256": "88C708F2005E102581B79A48EF39CB1A30C1731C25D98E77B699E1A9F182831A",
+            "path": "E:\\GALUMU\\game\\tests\\test_parse065.gd"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": [],
+        "project_settings_sha256": "374FCE2515E1357386E5EADB4EB10C74DB1A0223AFDC045B55F90E435C047320"
+      },
+      "target_sha256": "4FC6B964BA6DE66DC6AAEDFFB3B013A4A54DE83C4EC441DEB652D9C076E823B1",
+      "private_mib_sample_peak": 177.0,
+      "reports": []
+    },
+    {
+      "name": "phys115-final210-body",
+      "receipt": {
+        "exit_code": 0,
+        "guardian_exit_zero": true,
+        "isolated_desktop_closed": false,
+        "cache_warning_count": 0,
+        "unexpected_engine_error": false,
+        "reports": [
+          {
+            "passed": true,
+            "complete": null,
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-final210-body/report.json"
+          }
+        ]
+      },
+      "receipt_sha256": "C0C1FE94094E4C673FFD91E2AE2DB91C76ABB989815725BA86291E7F692BBE36",
+      "target": {
+        "target": "source",
+        "executable": "E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe",
+        "source_revision": "0f502e73025de0ffa8bd8de106eb1cfcd7e053ef",
+        "pck_sha256": null,
+        "budget": "normal",
+        "extra": "",
+        "external_driver_chain": [
+          {
+            "sha256": "58F4C34F312FD20886251C575EF4A1ACA683FA5DB9EEF6226813B34DB1555A26",
+            "path": "E:\\GALUMU\\game\\tests\\test_body114.gd"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": [],
+        "project_settings_sha256": "374FCE2515E1357386E5EADB4EB10C74DB1A0223AFDC045B55F90E435C047320"
+      },
+      "target_sha256": "B744E0566280F3502FC2AFA145B1CD08DEBB9219FF4D2FD6C8511AA196DD0242",
+      "private_mib_sample_peak": 143.6,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-final210-body/report.json",
+          "sha256": "E017231784FE837CFCBFA6FB041A8497204FC55EBDA182AFD2EE67020580C165",
+          "passed": true,
+          "failures": [],
+          "scope": "Headless production FallenRider + RiderBody114: three zones x two facings, weak/strong, conscious/unconscious, fast-vs-slow both ways, balance topple and unconscious slip. Bone length, floor, joint range, settle time, settled legs/hands height, determinism. No GPU picture, no swept hit, no player judgement.",
+          "rows_count": 34
+        }
+      ]
+    },
+    {
+      "name": "phys115-final210-fall",
+      "receipt": {
+        "exit_code": 0,
+        "guardian_exit_zero": true,
+        "isolated_desktop_closed": false,
+        "cache_warning_count": 0,
+        "unexpected_engine_error": false,
+        "reports": [
+          {
+            "passed": true,
+            "complete": null,
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-final210-fall/report.json"
+          }
+        ]
+      },
+      "receipt_sha256": "31BB37F561F46DB2E5EDA176A1C03760EAE567E3F9AFDB9B25102DF9BC00CADE",
+      "target": {
+        "target": "source",
+        "executable": "E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe",
+        "source_revision": "7de8741b9ebdb56e76826733ae233060945ba6d2",
+        "pck_sha256": null,
+        "budget": "normal",
+        "extra": "",
+        "external_driver_chain": [
+          {
+            "sha256": "E1389481475ADA51853A5212A9072A5FAD0FE9D7F9533527FAE47F87552CCECD",
+            "path": "E:\\GALUMU\\game\\tests\\test_fall098.gd"
+          },
+          {
+            "sha256": "FF6C5F84B5171B6C4EF69A64A08EDDD2690472CA39157BA8C2E064CDF67C6E6D",
+            "path": "E:\\GALUMU\\game\\tests\\test_fall_v057.gd"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": [],
+        "project_settings_sha256": "374FCE2515E1357386E5EADB4EB10C74DB1A0223AFDC045B55F90E435C047320"
+      },
+      "target_sha256": "AEAC2E404999B345DA80E6D7A9EA94CEACA3234FA15F9F856018A0AF4F65B4E1",
+      "private_mib_sample_peak": 159.1,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-final210-fall/report.json",
+          "sha256": "0FBDBA43EF754C1D320EBF45094F6231BE556D467962B3AAF2B04DDC2F267FED",
+          "passed": true,
+          "failures": [],
+          "scope": "72 captured-pose production integrations: three shield scales, three hit regions, both facings and extreme lean/guard. No OS input or human quality verdict.",
+          "cases_count": 72
+        }
+      ]
+    },
+    {
+      "name": "phys115-final210-physical",
+      "receipt": {
+        "exit_code": 1,
+        "guardian_exit_zero": false,
+        "isolated_desktop_closed": false,
+        "cache_warning_count": 0,
+        "unexpected_engine_error": true,
+        "reports": [
+          {
+            "passed": false,
+            "complete": null,
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-final210-physical/report.json"
+          }
+        ]
+      },
+      "receipt_sha256": "1E5777036658CCAAD0BC7CFB745D9C6E8F03CDFA00267BFAF73A3D75F8FAA49E",
+      "target": {
+        "target": "source",
+        "executable": "E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe",
+        "source_revision": "7de8741b9ebdb56e76826733ae233060945ba6d2",
+        "pck_sha256": null,
+        "budget": "normal",
+        "extra": "",
+        "external_driver_chain": [
+          {
+            "sha256": "3F876282307ED7CFA1239FA020A1BE9E3E981A4CBFDE25D6AED664ECEC4629E6",
+            "path": "E:\\GALUMU\\game\\tests\\test_physical_fuzz115.gd"
+          },
+          {
+            "sha256": "9878949B5E287B93B9EF08640E5D7C3348EFEA7736978C454D1A33AC5F1523B3",
+            "path": "E:\\GALUMU\\game\\tests\\test_support115.gd"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": [],
+        "project_settings_sha256": "374FCE2515E1357386E5EADB4EB10C74DB1A0223AFDC045B55F90E435C047320"
+      },
+      "target_sha256": "4E109B728F18D29EA5C56F0CC179D5D8783F848172FC5612229729ED7734AD46",
+      "private_mib_sample_peak": 148.5,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-final210-physical/report.json",
+          "sha256": "F9672A262211F6339C987CDAAD5BD60C00A974311C18BFB5E7062207FD614FE6",
+          "passed": false,
+          "failures": [
+            "Four-second shared-body rest: 13"
+          ],
+          "releases": 53,
+          "scope": "Protected deterministic mounted-body impulse fixtures with campaign gear/lean/aim/guard/stride phase and alternating consciousness; no HP damage or manual launch/forced rest, no rendered or human acceptance.",
+          "cases_count": 64
+        }
+      ]
+    },
+    {
+      "name": "phys115-final210-fuzz",
+      "receipt": {
+        "exit_code": 1,
+        "guardian_exit_zero": false,
+        "isolated_desktop_closed": false,
+        "cache_warning_count": 0,
+        "unexpected_engine_error": true,
+        "reports": [
+          {
+            "passed": false,
+            "complete": null,
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-final210-fuzz/report.json"
+          }
+        ]
+      },
+      "receipt_sha256": "86C2539BED2837696A001E61EB3450209A00FAE8A3EB48AE9EF6486F8CEDEAF8",
+      "target": {
+        "target": "source",
+        "executable": "E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe",
+        "source_revision": "7de8741b9ebdb56e76826733ae233060945ba6d2",
+        "pck_sha256": null,
+        "budget": "normal",
+        "extra": "",
+        "external_driver_chain": [
+          {
+            "sha256": "381FF8E8DE0DC7985D2017D8DBB7ABD18DC6B3170A846DE7ABD36F7E755C72EA",
+            "path": "E:\\GALUMU\\game\\tests\\test_fall_fuzz105.gd"
+          },
+          {
+            "sha256": "FF6C5F84B5171B6C4EF69A64A08EDDD2690472CA39157BA8C2E064CDF67C6E6D",
+            "path": "E:\\GALUMU\\game\\tests\\test_fall_v057.gd"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": [],
+        "project_settings_sha256": "374FCE2515E1357386E5EADB4EB10C74DB1A0223AFDC045B55F90E435C047320"
+      },
+      "target_sha256": "E31A8BC162231FE3A31EBEAAD818DEBADFC32C69B91F83863E026FF6B35EF91C",
+      "private_mib_sample_peak": 158.9,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-final210-fuzz/report.json",
+          "sha256": "BA26B202A828AE8EB05D173F07C5BB37F0CFAB0ED7C643A07C1BBB2F91A5D419",
+          "passed": false,
+          "failures": [
+            "Four-second synthetic pose rest: 29",
+            "Four-second synthetic pose rest: 40",
+            "Four-second synthetic pose rest: 60",
+            "Four-second synthetic pose rest: 75",
+            "Four-second synthetic pose rest: 90",
+            "Four-second synthetic pose rest: 120"
+          ],
+          "scope": "Deterministic synthetic captured poses: campaign gear, varied lean/guard/aim/hoof phase/unsteady, impact and speed ratios; production fall integration and constraints. Optional isolated GPU captures. Not human gameplay or probability evidence.",
+          "cases_count": 128
+        }
+      ]
+    },
+    {
+      "name": "phys115-final210-shield",
+      "receipt": {
+        "exit_code": 0,
+        "guardian_exit_zero": true,
+        "isolated_desktop_closed": false,
+        "cache_warning_count": 0,
+        "unexpected_engine_error": false,
+        "reports": [
+          {
+            "passed": true,
+            "complete": null,
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-final210-shield/report.json"
+          }
+        ]
+      },
+      "receipt_sha256": "2A792A2617126784F81C7FBD331F53D5BDA19D960EC7AE690A16DC7F826FE379",
+      "target": {
+        "target": "source",
+        "executable": "E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe",
+        "source_revision": "7de8741b9ebdb56e76826733ae233060945ba6d2",
+        "pck_sha256": null,
+        "budget": "normal",
+        "extra": "",
+        "external_driver_chain": [
+          {
+            "sha256": "41E68E8213824ADEA2E27D2663C6D854445449179EF9CEC14842562FCFFF02FF",
+            "path": "E:\\GALUMU\\game\\tests\\test_shield105.gd"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": [],
+        "project_settings_sha256": "374FCE2515E1357386E5EADB4EB10C74DB1A0223AFDC045B55F90E435C047320"
+      },
+      "target_sha256": "0CE98DB23BCEE5268AD0A65343CB3EE993319A95C3EEBE36156B1F88CCA84C4D",
+      "private_mib_sample_peak": 144.7,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-final210-shield/report.json",
+          "sha256": "BE7D56FCA5B3A2050ECD8413FCCDA75410192B695A542CA2497797259E9F840D",
+          "passed": true,
+          "failures": [],
+          "scope": "18 real articulated falls, anatomical forearm/strapped shield orientation, handle continuity and finite turn. No mounted collision or human quality claim.",
+          "rows_count": 18
+        }
+      ]
+    },
+    {
+      "name": "phys115-final210-skin",
+      "receipt": {
+        "exit_code": 0,
+        "guardian_exit_zero": true,
+        "isolated_desktop_closed": false,
+        "cache_warning_count": 0,
+        "unexpected_engine_error": false,
+        "reports": [
+          {
+            "passed": true,
+            "complete": null,
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-final210-skin/results/report.json"
+          }
+        ]
+      },
+      "receipt_sha256": "580206C171ED691177FBC31F5B1E53FF468CBE44FA0E9B951CC1A5BA8A25753A",
+      "target": {
+        "target": "source",
+        "executable": "E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe",
+        "source_revision": "7de8741b9ebdb56e76826733ae233060945ba6d2",
+        "pck_sha256": null,
+        "budget": "normal",
+        "extra": "",
+        "external_driver_chain": [
+          {
+            "sha256": "66E89FB50978C918F2E22D2C9605EFAF87F19AABAC79FDF4B963D8E3D7F69AEA",
+            "path": "E:\\GALUMU\\game\\tests\\test_skinfloor115.gd"
+          },
+          {
+            "sha256": "188CC6D0AF6AFE83B98FB2CA99E56FFB969CEF57718B3CAA510160560DD0009E",
+            "path": "E:\\GALUMU\\game\\tests\\test_boot113.gd"
+          },
+          {
+            "sha256": "FF6C5F84B5171B6C4EF69A64A08EDDD2690472CA39157BA8C2E064CDF67C6E6D",
+            "path": "E:\\GALUMU\\game\\tests\\test_fall_v057.gd"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": [],
+        "project_settings_sha256": "374FCE2515E1357386E5EADB4EB10C74DB1A0223AFDC045B55F90E435C047320"
+      },
+      "target_sha256": "3CA334EC2B6BB31BD747C52E481F0B8B151AF6FC47BBDD0A57B1CE57E1DA89E9",
+      "private_mib_sample_peak": 159.0,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-final210-skin/results/report.json",
+          "sha256": "663886CE5A049B3E2D41040901E396EC8BCDF8D14A4F907039E2A5108912C13D",
+          "passed": true,
+          "failures": [],
+          "scope": "Atlas alpha-derived boot silhouette transformed by the actual skin's measured joints, checked through six 120Hz falls. No edited texture or human naturalness claim.",
+          "rows_count": 6
+        }
+      ]
+    },
+    {
+      "name": "phys115-final210-controls",
+      "receipt": {
+        "exit_code": 0,
+        "guardian_exit_zero": true,
+        "isolated_desktop_closed": false,
+        "cache_warning_count": 0,
+        "unexpected_engine_error": false,
+        "reports": [
+          {
+            "passed": true,
+            "complete": null,
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-final210-controls/report.json"
+          }
+        ]
+      },
+      "receipt_sha256": "B3FFDFEF89866BBA8342AD7CB2DC5B55F55F52C0E148F0B05917C9EE1351E684",
+      "target": {
+        "target": "source",
+        "executable": "E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe",
+        "source_revision": "7de8741b9ebdb56e76826733ae233060945ba6d2",
+        "pck_sha256": null,
+        "budget": "normal",
+        "extra": "",
+        "external_driver_chain": [
+          {
+            "sha256": "6DBCEDECDCEABD0EE11A94D4DA06362F6E4E12BA1E8BD27AC2A2D4174ED75499",
+            "path": "E:\\GALUMU\\game\\tests\\test_mounted_motion115.gd"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": [],
+        "project_settings_sha256": "374FCE2515E1357386E5EADB4EB10C74DB1A0223AFDC045B55F90E435C047320"
+      },
+      "target_sha256": "04670DA5D5E0504DAAA70550794D7F733B12F6F185F2FDD445EA6D60725D4840",
+      "private_mib_sample_peak": 125.8,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-final210-controls/report.json",
+          "sha256": "8ACE989867AB332E861A42E338A718140C8AFE07D09A8B8893CD6162393DBBD3",
+          "passed": true,
+          "failures": [],
+          "cases_count": 6
+        }
+      ]
+    },
+    {
+      "name": "phys115-complete198-rest",
+      "receipt": {
+        "exit_code": 0,
+        "guardian_exit_zero": true,
+        "isolated_desktop_closed": false,
+        "cache_warning_count": 0,
+        "unexpected_engine_error": false,
+        "reports": [
+          {
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-complete198-rest/report.json",
+            "passed": true,
+            "complete": null
+          }
+        ]
+      },
+      "receipt_sha256": "4B5423D689663DF6E63E440566C1DA2C155C923510553AB19AF4549410737E56",
+      "target": {
+        "target": "source",
+        "executable": "E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe",
+        "source_revision": "0f502e73025de0ffa8bd8de106eb1cfcd7e053ef",
+        "pck_sha256": null,
+        "budget": "normal",
+        "extra": "",
+        "external_driver_chain": [
+          {
+            "path": "E:\\GALUMU\\game\\tests\\test_rest115.gd",
+            "sha256": "9D25C2C9D0A0E6FC6C6914C3A992FF5C3A0A4D92C6DFD9606D7E774FE8E4BCD2"
+          },
+          {
+            "path": "E:\\GALUMU\\game\\tests\\test_fall_v057.gd",
+            "sha256": "FF6C5F84B5171B6C4EF69A64A08EDDD2690472CA39157BA8C2E064CDF67C6E6D"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": [],
+        "project_settings_sha256": "374FCE2515E1357386E5EADB4EB10C74DB1A0223AFDC045B55F90E435C047320"
+      },
+      "target_sha256": "6D6E6BC1E8209100CCD6CF0BBAFAFBEE1C2F9E20D7DD5E511F1E73D7704B0517",
+      "private_mib_sample_peak": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-complete198-rest/report.json",
+          "sha256": "1606CAB4236C1C959E1CF042F52DB50093061EB26E57546E3CA081B8EAA89914",
+          "passed": true,
+          "failures": [],
+          "scope": "Injected independent rotor movement, not natural gameplay or a rest-time acceptance gate.",
+          "rows_count": 8
+        }
+      ]
+    },
+    {
+      "name": "phys115-complete198-geometry",
+      "receipt": {
+        "exit_code": 0,
+        "guardian_exit_zero": true,
+        "isolated_desktop_closed": false,
+        "cache_warning_count": 0,
+        "unexpected_engine_error": false,
+        "reports": [
+          {
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-complete198-geometry/report.json",
+            "passed": true,
+            "complete": null
+          }
+        ]
+      },
+      "receipt_sha256": "074055F4D8F977676A246FC1C051043B752F8962D5B6A0D170D3F7C435F3C23F",
+      "target": {
+        "target": "source",
+        "executable": "E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe",
+        "source_revision": "0f502e73025de0ffa8bd8de106eb1cfcd7e053ef",
+        "pck_sha256": null,
+        "budget": "normal",
+        "extra": "",
+        "external_driver_chain": [
+          {
+            "path": "E:\\GALUMU\\game\\tests\\test_skin_contact115.gd",
+            "sha256": "9B416BFBDF650F380EB2AB7A7AA56EAB75707D3AB6B22888931FDF57ECBF9BB4"
+          },
+          {
+            "path": "E:\\GALUMU\\game\\tests\\test_energy115.gd",
+            "sha256": "A6E6272298EA084820B6F40F513DE722926D209CD10E910C8A2C080F36093449"
+          },
+          {
+            "path": "E:\\GALUMU\\game\\tests\\test_support115.gd",
+            "sha256": "9878949B5E287B93B9EF08640E5D7C3348EFEA7736978C454D1A33AC5F1523B3"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": [],
+        "project_settings_sha256": "374FCE2515E1357386E5EADB4EB10C74DB1A0223AFDC045B55F90E435C047320"
+      },
+      "target_sha256": "F3269BB7AC3953BB2EC87EB97270CF5E032868B9CA9507ACA7F5538F0CBE229A",
+      "private_mib_sample_peak": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-complete198-geometry/report.json",
+          "sha256": "C082F63E1D5202CE6E45BF99A834C9AED197277BE3FD876FF4999378C1FC5EC9",
+          "passed": true,
+          "failures": [],
+          "rows_count": 12
+        }
+      ]
+    },
+    {
+      "name": "phys115-final199-energy",
+      "receipt": {
+        "exit_code": 0,
+        "guardian_exit_zero": true,
+        "isolated_desktop_closed": false,
+        "cache_warning_count": 0,
+        "unexpected_engine_error": false,
+        "reports": [
+          {
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-final199-energy/report.json",
+            "passed": true,
+            "complete": null
+          }
+        ]
+      },
+      "receipt_sha256": "D708DB0792AB99D3A271992A8581D589D6B77303779BC4752B57220CDC8D6942",
+      "target": {
+        "target": "source",
+        "executable": "E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe",
+        "source_revision": "0f502e73025de0ffa8bd8de106eb1cfcd7e053ef",
+        "pck_sha256": null,
+        "budget": "normal",
+        "extra": "",
+        "external_driver_chain": [
+          {
+            "path": "E:\\GALUMU\\game\\tests\\test_settle_damping115.gd",
+            "sha256": "3AB89A3CD52F077D192581366FDE37874970808A8399B07F4C3A92053139E4FA"
+          },
+          {
+            "path": "E:\\GALUMU\\game\\tests\\test_energy115.gd",
+            "sha256": "A6E6272298EA084820B6F40F513DE722926D209CD10E910C8A2C080F36093449"
+          },
+          {
+            "path": "E:\\GALUMU\\game\\tests\\test_support115.gd",
+            "sha256": "9878949B5E287B93B9EF08640E5D7C3348EFEA7736978C454D1A33AC5F1523B3"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": [],
+        "project_settings_sha256": "374FCE2515E1357386E5EADB4EB10C74DB1A0223AFDC045B55F90E435C047320"
+      },
+      "target_sha256": "258596A954AA7F80ABF26E57330FBCD5247FE3ED849360CB4DDB3685617763A1",
+      "private_mib_sample_peak": 0,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-final199-energy/report.json",
+          "sha256": "EF8EE940AEEAB7EA2D530E866017075A96D5C0C3C95686D5FECE2F2F81FF759B",
+          "passed": true,
+          "failures": [],
+          "rows_count": 6
+        }
+      ]
+    },
+    {
+      "name": "phys115-coupled209-slip",
+      "receipt": {
+        "exit_code": 0,
+        "guardian_exit_zero": true,
+        "isolated_desktop_closed": false,
+        "cache_warning_count": 0,
+        "unexpected_engine_error": false,
+        "reports": [
+          {
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-coupled209-slip/report.json",
+            "passed": true,
+            "complete": null
+          }
+        ]
+      },
+      "receipt_sha256": "B07E368057929A5852F279F4F3F2F2E02952DBD926BA151F26A4312C7537955C",
+      "target": {
+        "target": "source",
+        "executable": "E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe",
+        "source_revision": "0f502e73025de0ffa8bd8de106eb1cfcd7e053ef",
+        "pck_sha256": null,
+        "budget": "normal",
+        "extra": "",
+        "external_driver_chain": [
+          {
+            "sha256": "5BBCACF7831D15521431CD30D0F85C490EF44BBAEE5B4CD0958F43D38BC0DD14",
+            "path": "E:\\GALUMU\\game\\tests\\test_slip115.gd"
+          },
+          {
+            "sha256": "58F4C34F312FD20886251C575EF4A1ACA683FA5DB9EEF6226813B34DB1555A26",
+            "path": "E:\\GALUMU\\game\\tests\\test_body114.gd"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": [],
+        "project_settings_sha256": "374FCE2515E1357386E5EADB4EB10C74DB1A0223AFDC045B55F90E435C047320"
+      },
+      "target_sha256": "008A2A7945D9FED0BEDA5233EB3447B1055E4CDD13A4610D52387A616C0F85DF",
+      "private_mib_sample_peak": 143.9,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-coupled209-slip/report.json",
+          "sha256": "E69AA0E9B4CA5540B4ABB6CA91B5408D7FDDDD7F7BFBC0F2ED3C9C87372EBBF1",
+          "passed": true,
+          "failures": [],
+          "rows_count": 4
+        }
+      ]
+    },
+    {
+      "name": "phys115-coupled209-game",
+      "receipt": {
+        "exit_code": 0,
+        "guardian_exit_zero": true,
+        "isolated_desktop_closed": true,
+        "cache_warning_count": 1,
+        "unexpected_engine_error": false,
+        "reports": [
+          {
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-coupled209-game/results/report.json",
+            "passed": true,
+            "complete": null
+          }
+        ]
+      },
+      "receipt_sha256": "4705B989BFAA92B12FAAD5179FDE21CF94172170B1B8D22946085408896B77D9",
+      "target": {
+        "target": "source",
+        "executable": "E:\\GALUMU\\tools\\godot-4.5.1\\Godot_v4.5.1-stable_win64.exe",
+        "source_revision": "0f502e73025de0ffa8bd8de106eb1cfcd7e053ef",
+        "pck_sha256": null,
+        "budget": "gpu",
+        "extra": "--first=2 --count=1 --gear=240",
+        "external_driver_chain": [
+          {
+            "sha256": "ABAE7219A82EC156668B34D3E75FADB599C9A7A4CF0DE02CF239DF30041555B0",
+            "path": "E:\\GALUMU\\game\\tests\\test_games115.gd"
+          },
+          {
+            "sha256": "84531B8C0C8076761F855167D00164D8B6660621ED28CD105819F01A01423732",
+            "path": "E:\\GALUMU\\game\\tests\\test_games114.gd"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": [],
+        "project_settings_sha256": "374FCE2515E1357386E5EADB4EB10C74DB1A0223AFDC045B55F90E435C047320"
+      },
+      "target_sha256": "360906F20B44975D3A463913FAA68A72941886A98167FE692A9597525657BBEA",
+      "private_mib_sample_peak": 692.7,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-coupled209-game/results/report.json",
+          "sha256": "AD2122BD692243FAB42A6CE523076B5CA859D29F7DFD1FDF2849380D474E9060",
+          "passed": true,
+          "failures": [],
+          "scope": "Real Main matches, random seeds, player driven by Battle.autoplay (aims at the head, always spurs) against the real level-free AI; arena/war alternate, renown 0 then 40. GPU isolated desktop, audio muted at Master. Not OS input or human play.",
+          "games_count": 1
+        }
+      ]
+    },
+    {
+      "name": "phys115-pack212-bundle",
+      "receipt": {
+        "exit_code": 0,
+        "guardian_exit_zero": true,
+        "isolated_desktop_closed": false,
+        "cache_warning_count": 0,
+        "unexpected_engine_error": false,
+        "reports": [
+          {
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-pack212-bundle/report.json",
+            "passed": true,
+            "complete": null
+          }
+        ]
+      },
+      "receipt_sha256": "F452D5448889CA0838EE7FA49410DA68410C365A5673F27230436300C2E0C9B2",
+      "target": {
+        "target": "bundle",
+        "executable": "E:/GALUMU/builds/LanceAndLaurel-v0.5.0-c2/runtime/LanceAndLaurel.exe",
+        "source_revision": "2894eb14a678766c463f95580688f436d580ae47",
+        "pck_sha256": "DAAF6E3FD6A1F4BEA81A0418CA5EEB7056285420066E431F7366EDF84C3DE015",
+        "budget": "normal",
+        "extra": "--expected-version=0.5.0-c2",
+        "external_driver_chain": [
+          {
+            "sha256": "43B80F8E429A44EB4C3D785FDAB60D096CEEEDE43B6811072CB39ABB6D2B0041",
+            "path": "E:\\GALUMU\\game\\tests\\test_bundle115.gd"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": []
+      },
+      "target_sha256": "C5D0CFEFB03ED340DA6F0A969178C6EDC3E19EAA16AB288DA55C65C7CBD46889",
+      "private_mib_sample_peak": 177.9,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-pack212-bundle/report.json",
+          "sha256": "254E8A67702C1CE08CF9ED0E336B31014CBE89D4CE02D60B42BC2F79617C049F",
+          "passed": true,
+          "failures": [],
+          "version": "0.5.0-c2"
+        }
+      ]
+    },
+    {
+      "name": "phys115-pack212-games",
+      "receipt": {
+        "exit_code": 0,
+        "guardian_exit_zero": true,
+        "isolated_desktop_closed": true,
+        "cache_warning_count": 1,
+        "unexpected_engine_error": false,
+        "reports": [
+          {
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-pack212-games/results/report.json",
+            "passed": true,
+            "complete": null
+          }
+        ]
+      },
+      "receipt_sha256": "C4D7999847F17ED9084CDA336D8DAC257CAB14CAC3751C19EF45771B1829FB95",
+      "target": {
+        "target": "bundle",
+        "executable": "E:/GALUMU/builds/LanceAndLaurel-v0.5.0-c2/runtime/LanceAndLaurel.exe",
+        "source_revision": "2894eb14a678766c463f95580688f436d580ae47",
+        "pck_sha256": "DAAF6E3FD6A1F4BEA81A0418CA5EEB7056285420066E431F7366EDF84C3DE015",
+        "budget": "gpu",
+        "extra": "--count=4 --gear=240",
+        "external_driver_chain": [
+          {
+            "sha256": "ABAE7219A82EC156668B34D3E75FADB599C9A7A4CF0DE02CF239DF30041555B0",
+            "path": "E:\\GALUMU\\game\\tests\\test_games115.gd"
+          },
+          {
+            "sha256": "84531B8C0C8076761F855167D00164D8B6660621ED28CD105819F01A01423732",
+            "path": "E:\\GALUMU\\game\\tests\\test_games114.gd"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": []
+      },
+      "target_sha256": "55DADC90E6C2D94C7532ADC65D06EFE2F4B7C8938F5A0812F2ED517B97A4AFC6",
+      "private_mib_sample_peak": 679.5,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-pack212-games/results/report.json",
+          "sha256": "E99C0C30743585B121338EE19BAF2A6B293E35B027FC352DB0B93ED17295E15B",
+          "passed": true,
+          "failures": [],
+          "scope": "Real Main matches, random seeds, player driven by Battle.autoplay (aims at the head, always spurs) against the real level-free AI; arena/war alternate, renown 0 then 40. GPU isolated desktop, audio muted at Master. Not OS input or human play.",
+          "games_count": 4
+        }
+      ]
+    },
+    {
+      "name": "phys115-pack212-mounted",
+      "receipt": {
+        "exit_code": 0,
+        "guardian_exit_zero": true,
+        "isolated_desktop_closed": true,
+        "cache_warning_count": 1,
+        "unexpected_engine_error": false,
+        "reports": [
+          {
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-pack212-mounted/results/report.json",
+            "passed": true,
+            "complete": null
+          }
+        ]
+      },
+      "receipt_sha256": "8F39AE0887B012674DF27C51D0BB8034432190C0C122DD49256AB27E04FFBF5E",
+      "target": {
+        "target": "bundle",
+        "executable": "E:/GALUMU/builds/LanceAndLaurel-v0.5.0-c2/runtime/LanceAndLaurel.exe",
+        "source_revision": "2894eb14a678766c463f95580688f436d580ae47",
+        "pck_sha256": "DAAF6E3FD6A1F4BEA81A0418CA5EEB7056285420066E431F7366EDF84C3DE015",
+        "budget": "gpu",
+        "extra": "",
+        "external_driver_chain": [
+          {
+            "sha256": "078BFA79632EE1B757B6B8A53C02CB7F9D84B9E701F279AD625053D7B2C40C00",
+            "path": "E:\\GALUMU\\game\\tests\\test_mounted_contact105.gd"
+          },
+          {
+            "sha256": "A0817A1CD7010E19F1C2E66E42142AE22A29F0A215D024369D7AB9CAA8AB063A",
+            "path": "E:\\GALUMU\\game\\tests\\test_motion105.gd"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": []
+      },
+      "target_sha256": "1517E2088C20C40A87B4F98250DD847CF8B2AF3FC962074170841B2460D77E6A",
+      "private_mib_sample_peak": 618.6,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-pack212-mounted/results/report.json",
+          "sha256": "10F8EFE71CB49EDF7583978AC38D598E744A33E4F7C61977857777C5BA384AFF",
+          "passed": true,
+          "failures": [],
+          "version": "0.5.0-c2",
+          "scope": "Isolated GPU, production body/control/gait with synthetic moderate direct contacts (closing-speed input 180), no health or support-threshold override. Not CCD/KO rates or human motion approval."
+        }
+      ]
+    },
+    {
+      "name": "phys115-pack212-slump",
+      "receipt": {
+        "exit_code": 0,
+        "guardian_exit_zero": true,
+        "isolated_desktop_closed": true,
+        "cache_warning_count": 1,
+        "unexpected_engine_error": false,
+        "reports": [
+          {
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-pack212-slump/results/report.json",
+            "passed": true,
+            "complete": null
+          }
+        ]
+      },
+      "receipt_sha256": "53FA19CB35133AE9384419ECB394F92AF3B5863EF1BD558A6F283EDC1615FAB7",
+      "target": {
+        "target": "bundle",
+        "executable": "E:/GALUMU/builds/LanceAndLaurel-v0.5.0-c2/runtime/LanceAndLaurel.exe",
+        "source_revision": "2894eb14a678766c463f95580688f436d580ae47",
+        "pck_sha256": "DAAF6E3FD6A1F4BEA81A0418CA5EEB7056285420066E431F7366EDF84C3DE015",
+        "budget": "gpu",
+        "extra": "",
+        "external_driver_chain": [
+          {
+            "sha256": "FA40156DCA1AFCCBF7A33A0659761FAB657C3B87980B35551E47E697732AB692",
+            "path": "E:\\GALUMU\\game\\tests\\test_slump113.gd"
+          },
+          {
+            "sha256": "FF6C5F84B5171B6C4EF69A64A08EDDD2690472CA39157BA8C2E064CDF67C6E6D",
+            "path": "E:\\GALUMU\\game\\tests\\test_fall_v057.gd"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": []
+      },
+      "target_sha256": "4F94A6627929C758CA3E0B1378DFCD4AF9DC55746471CB004F9AE97CC3FFF326",
+      "private_mib_sample_peak": 464.8,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-pack212-slump/results/report.json",
+          "sha256": "2192D6689A81140A2D1EA6A2E888AD0F300213BD6AB437B5AD5D8C011B3A2A0D",
+          "passed": true,
+          "failures": [],
+          "scope": "Six mounted low-health glance fixtures, actual shared Model/Rider transforms and three equipment tiers, both directions. GPU frames for neck/helmet/horse/arm inspection; no Battle camera or human gameplay.",
+          "cases_count": 6
+        }
+      ]
+    },
+    {
+      "name": "phys115-pack212-flow",
+      "receipt": {
+        "exit_code": 0,
+        "guardian_exit_zero": true,
+        "isolated_desktop_closed": true,
+        "cache_warning_count": 1,
+        "unexpected_engine_error": false,
+        "reports": [
+          {
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-pack212-flow/results/report.json",
+            "passed": true,
+            "complete": null
+          }
+        ]
+      },
+      "receipt_sha256": "5FF9E8B357F00DCDFC2754094F7B5E4CB12B05BD3C9A56D8FD2F58AEF6C0C605",
+      "target": {
+        "target": "bundle",
+        "executable": "E:/GALUMU/builds/LanceAndLaurel-v0.5.0-c2/runtime/LanceAndLaurel.exe",
+        "source_revision": "2894eb14a678766c463f95580688f436d580ae47",
+        "pck_sha256": "DAAF6E3FD6A1F4BEA81A0418CA5EEB7056285420066E431F7366EDF84C3DE015",
+        "budget": "gpu",
+        "extra": "",
+        "external_driver_chain": [
+          {
+            "sha256": "09F134CCC9EF2832C3395B81318258C997B22B8F897808B80E770D4D2C3D5C22",
+            "path": "E:\\GALUMU\\game\\tests\\test_flow082.gd"
+          },
+          {
+            "sha256": "83B71C9E3E915B75070405A61D9091014AC5A26DFBD5D8C95797B7D377F23629",
+            "path": "E:\\GALUMU\\game\\tests\\test_ui082.gd"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": []
+      },
+      "target_sha256": "349117C9EE98F6939F7224A805E592A2204F8C95A0A1ADA3937A0D67B2418E44",
+      "private_mib_sample_peak": 617.7,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-pack212-flow/results/report.json",
+          "sha256": "7C085AA6A468EAFD84475151CF8328D993FB7420888ECB13A279E99DBF5CAF87",
+          "passed": true,
+          "failures": [],
+          "scope": "Direct menu signals and engine viewport Escape/R, explicit fast-horse and phase fixtures, isolated disk saves; no OS input or human feel claim.",
+          "captures_count": 5
+        }
+      ]
+    },
+    {
+      "name": "phys115-pack212-profile",
+      "receipt": {
+        "exit_code": 0,
+        "guardian_exit_zero": true,
+        "isolated_desktop_closed": true,
+        "cache_warning_count": 1,
+        "unexpected_engine_error": false,
+        "reports": [
+          {
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-pack212-profile/results/report.json",
+            "passed": true,
+            "complete": null
+          }
+        ]
+      },
+      "receipt_sha256": "6C05D69749FCB43AFBEE3EC02E07D58C1A511E684ED19801C2443B524694FFB9",
+      "target": {
+        "target": "bundle",
+        "executable": "E:/GALUMU/builds/LanceAndLaurel-v0.5.0-c2/runtime/LanceAndLaurel.exe",
+        "source_revision": "2894eb14a678766c463f95580688f436d580ae47",
+        "pck_sha256": "DAAF6E3FD6A1F4BEA81A0418CA5EEB7056285420066E431F7366EDF84C3DE015",
+        "budget": "gpu",
+        "extra": "--seconds=120 --mode=war --kit=heavy --trace099",
+        "external_driver_chain": [
+          {
+            "sha256": "22617067D9E318FADFEBE9F47534F8F30702C7150DE0829AB1A525278C1916F2",
+            "path": "E:\\GALUMU\\game\\tests\\profile_result099.gd"
+          },
+          {
+            "sha256": "EE017A04BE243E8895FD5546FD87260DB5AD663B44E5CFC400C2809186AB7E0A",
+            "path": "E:\\GALUMU\\game\\tests\\test_play087.gd"
+          },
+          {
+            "sha256": "C32E903841681581FC02261D1571834C0016460B32EB8B88F36BEE95778D10D8",
+            "path": "E:\\GALUMU\\game\\tests\\test_live084.gd"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": []
+      },
+      "target_sha256": "F3325A27062D599B30ED5654A10688073166BB4E8612F9B6C93051FC4A09EA09",
+      "private_mib_sample_peak": 659.8,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-pack212-profile/results/report.json",
+          "sha256": "0A1152EA881B5926A2B8EBCC0679AC59126D872F9EA147E8DC446034B702AAEF",
+          "passed": true,
+          "failures": [],
+          "all_frames": {
+            "fps": 54.2319775338949,
+            "frames": 6508,
+            "max_ms": 100.603,
+            "over_33ms": 111,
+            "over_50ms": 33,
+            "p50_ms": 17.291,
+            "p95_ms": 25.87,
+            "p99_ms": 39.738
+          },
+          "wall_seconds": 120.0064,
+          "version": "0.5.0-c2",
+          "scope": "Actual Main/Battle GPU and normal result/reward/persistence path; production autoplay, varied seeded match/AI, viewport replay clicks, audio mixed but hardware-facing Master muted. No injected damage or OS input; not human win rates.",
+          "matches_count": 5
+        }
+      ]
+    },
+    {
+      "name": "phys115-pack212-physical",
+      "receipt": {
+        "exit_code": 1,
+        "guardian_exit_zero": false,
+        "isolated_desktop_closed": false,
+        "cache_warning_count": 0,
+        "unexpected_engine_error": true,
+        "reports": [
+          {
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-pack212-physical/report.json",
+            "passed": false,
+            "complete": null
+          }
+        ]
+      },
+      "receipt_sha256": "48136EEAC3B2683A4E36C5AF2B356A80A2B2A7146F8219389EB45410F334744C",
+      "target": {
+        "target": "bundle",
+        "executable": "E:/GALUMU/builds/LanceAndLaurel-v0.5.0-c2/runtime/LanceAndLaurel.exe",
+        "source_revision": "2894eb14a678766c463f95580688f436d580ae47",
+        "pck_sha256": "DAAF6E3FD6A1F4BEA81A0418CA5EEB7056285420066E431F7366EDF84C3DE015",
+        "budget": "normal",
+        "extra": "--ids=0,6,13,22,24,41,43,48,57",
+        "external_driver_chain": [
+          {
+            "sha256": "3F876282307ED7CFA1239FA020A1BE9E3E981A4CBFDE25D6AED664ECEC4629E6",
+            "path": "E:\\GALUMU\\game\\tests\\test_physical_fuzz115.gd"
+          },
+          {
+            "sha256": "9878949B5E287B93B9EF08640E5D7C3348EFEA7736978C454D1A33AC5F1523B3",
+            "path": "E:\\GALUMU\\game\\tests\\test_support115.gd"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": []
+      },
+      "target_sha256": "D456D8C9A7DA85F082BBA8D267A1CB2BDDAD7F9AAFA532789C92EE54204418C4",
+      "private_mib_sample_peak": 132.6,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-pack212-physical/report.json",
+          "sha256": "D6B30C801C94F03B63D5476131B8F0C64E50657E6F18DF2AC333932C81F1B57C",
+          "passed": false,
+          "failures": [
+            "Four-second shared-body rest: 13"
+          ],
+          "releases": 9,
+          "scope": "Protected deterministic mounted-body impulse fixtures with campaign gear/lean/aim/guard/stride phase and alternating consciousness; no HP damage or manual launch/forced rest, no rendered or human acceptance.",
+          "cases_count": 9
+        }
+      ]
+    },
+    {
+      "name": "phys115-pack212-skin",
+      "receipt": {
+        "exit_code": 0,
+        "guardian_exit_zero": true,
+        "isolated_desktop_closed": false,
+        "cache_warning_count": 0,
+        "unexpected_engine_error": false,
+        "reports": [
+          {
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-pack212-skin/results/report.json",
+            "passed": true,
+            "complete": null
+          }
+        ]
+      },
+      "receipt_sha256": "7CC65CA715E56D689E0DD0906E93291A0DA42EB415031BB8A858A8806FA35747",
+      "target": {
+        "target": "bundle",
+        "executable": "E:/GALUMU/builds/LanceAndLaurel-v0.5.0-c2/runtime/LanceAndLaurel.exe",
+        "source_revision": "2894eb14a678766c463f95580688f436d580ae47",
+        "pck_sha256": "DAAF6E3FD6A1F4BEA81A0418CA5EEB7056285420066E431F7366EDF84C3DE015",
+        "budget": "normal",
+        "extra": "",
+        "external_driver_chain": [
+          {
+            "sha256": "66E89FB50978C918F2E22D2C9605EFAF87F19AABAC79FDF4B963D8E3D7F69AEA",
+            "path": "E:\\GALUMU\\game\\tests\\test_skinfloor115.gd"
+          },
+          {
+            "sha256": "188CC6D0AF6AFE83B98FB2CA99E56FFB969CEF57718B3CAA510160560DD0009E",
+            "path": "E:\\GALUMU\\game\\tests\\test_boot113.gd"
+          },
+          {
+            "sha256": "FF6C5F84B5171B6C4EF69A64A08EDDD2690472CA39157BA8C2E064CDF67C6E6D",
+            "path": "E:\\GALUMU\\game\\tests\\test_fall_v057.gd"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": []
+      },
+      "target_sha256": "6481C246B517F98C72B33E877D1F0F09A4242D77EF3E1A4AE1AC579D0F9E2A6B",
+      "private_mib_sample_peak": 139.1,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-pack212-skin/results/report.json",
+          "sha256": "663886CE5A049B3E2D41040901E396EC8BCDF8D14A4F907039E2A5108912C13D",
+          "passed": true,
+          "failures": [],
+          "scope": "Atlas alpha-derived boot silhouette transformed by the actual skin's measured joints, checked through six 120Hz falls. No edited texture or human naturalness claim.",
+          "rows_count": 6
+        }
+      ]
+    },
+    {
+      "name": "phys115-pack212-tail",
+      "receipt": {
+        "exit_code": 0,
+        "guardian_exit_zero": true,
+        "isolated_desktop_closed": false,
+        "cache_warning_count": 0,
+        "unexpected_engine_error": false,
+        "reports": [
+          {
+            "path": "E:\\GALUMU\\docs\\development\\logs\\phys115-pack212-tail/report.json",
+            "passed": null,
+            "complete": null
+          }
+        ]
+      },
+      "receipt_sha256": "E2B8784E2AD4ED3317BD4A84DFCB03867C2325B82281B799F83FA8CFFCA56B06",
+      "target": {
+        "target": "bundle",
+        "executable": "E:/GALUMU/builds/LanceAndLaurel-v0.5.0-c2/runtime/LanceAndLaurel.exe",
+        "source_revision": "2894eb14a678766c463f95580688f436d580ae47",
+        "pck_sha256": "DAAF6E3FD6A1F4BEA81A0418CA5EEB7056285420066E431F7366EDF84C3DE015",
+        "budget": "normal",
+        "extra": "--input=E:/GALUMU/docs/development/logs/phys115-final210-fuzz/report.json --ids=120 --iterations=10 --seconds=8",
+        "external_driver_chain": [
+          {
+            "sha256": "0776725FC52063AFFB30A327F1461C59FF23F19712AF7072E5F77355C0AFDFE0",
+            "path": "E:\\GALUMU\\game\\tests\\test_extreme115.gd"
+          },
+          {
+            "sha256": "FF6C5F84B5171B6C4EF69A64A08EDDD2690472CA39157BA8C2E064CDF67C6E6D",
+            "path": "E:\\GALUMU\\game\\tests\\test_fall_v057.gd"
+          }
+        ],
+        "scope": "Protected background QA; GPU on an isolated desktop. No real mouse/keyboard or human play claim.",
+        "external_inputs": [
+          {
+            "sha256": "BA26B202A828AE8EB05D173F07C5BB37F0CFAB0ED7C643A07C1BBB2F91A5D419",
+            "path": "E:/GALUMU/docs/development/logs/phys115-final210-fuzz/report.json"
+          }
+        ]
+      },
+      "target_sha256": "5EE177B3CC1B856CAE2E13EC4F41FF7B6E761A9BBEC7B140EAE80FA165973576",
+      "private_mib_sample_peak": 153.5,
+      "reports": [
+        {
+          "path": "docs/development/logs/phys115-pack212-tail/report.json",
+          "sha256": "AA3F60AD2C8D48D8A3007EDFEBEC142B2BAD9940D133D3D827C9E25B3BA219C4",
+          "rows_count": 1
+        }
+      ]
+    }
+  ],
+  "formal_save_baseline_utc": "2026-11-25T03:58:18.865936+00:00",
+  "formal_saves": [
+    {
+      "name": "profile_v1.backup.json",
+      "bytes": 1254,
+      "unchanged": true
+    },
+    {
+      "name": "profile_v1.json",
+      "bytes": 1254,
+      "unchanged": true
+    }
+  ],
+  "commercial_or_human_acceptance": false
+}

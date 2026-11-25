@@ -1,5 +1,27 @@
 # 任务、审查建议与文件认领
 
+## PHYS-115 续验：c2 开发预览交出（2026-11-25）
+
+当前状态：本轮认领全部释放，以下“独占/补充认领”为历史过程，不构成文件占用。c2运行源码2894eb1；7de8741为人体修复。源34/72/18/6、实际包流程和六场／八次落马检查通过；真实64与人工128仍有七个四秒收势失败，不是完整动作验收通过。
+
+| 优先级 | 后续待认领问题 | 复现／边界 |
+| --- | --- | --- |
+| P1 | 重甲落马收尾长帧 | pack212-profile平均54.232FPS、最长100.603ms；ended阶段平均35.959FPS。保持画质和120Hz精度。 |
+| P2 | 七个四秒收势门 | 真实13；人工29/40/60/75/90/120。见C2_EDGE_FIXTURES和RETEST_GUIDE，不改原门。 |
+| P2 | 远侧落马地面联系、紧凑盾臂叠层 | 原始C2_CAPTURES/dual_rest.png；不能用几何支撑通过代替画面自然。 |
+| 体验待验 | 真人动作／冲击重量／声音 | 本轮仅后台渲染、引擎注入、规则模拟，禁止宣称真人通过。 |
+
+预览入口已改独立c2保护外层，稳定c5不变。十项启动保护、ZIP中文路径、外层实际两场及最后两份正式档核对通过；新证据C2_AUDIT/DELIVERY/VISUAL。旧候选及三份历史差异均保留。
+
+交付证据补充认领：docs/development/PHYS115_C2_EDGE_FIXTURES.json（六项最新人工失败的原始输入与真实13号复现参数）；不覆盖旧c1失败清单。
+
+按持续目标继续，以上一轮已提交0f502e73025de0ffa8bd8de106eb1cfcd7e053ef为实际基线。上一轮是有实质进度的候选交付，尚未达全部目标；不将c1候选改称最终完成。原三份历史差异保留。
+
+续验交付准备补充认领：game/tests/test_bundle115.gd 的显式候选版本参数、game/project.godot、game/export_presets.cfg、Play-Physics-Preview.cmd。仅在复验后导出新c2目录；不覆盖c1或c5，默认稳定入口不变。
+
+当前Codex独占：game/scripts/visual/{rider_body114,fallen_rider,rider_view}.gd；game/scripts/core/rider_rig115.gd；game/tests/test_extreme115.gd、test_skinfloor115.gd、test_parse065.gd、test_physical_fuzz115.gd（腰部诊断字段）及新增本阶段115诊断；PHYS115_REVIEW/ARCHITECTURE/ACCEPTANCE、TASK_BOARD/WORK_LOG/PROJECT_STATE/HANDOFF与本阶段交接。先诊断睡眠是否漏检盾牌/足部自由度、物理碰撞与实际蒙皮差异；不放宽四秒/14px/.03px门、不强制姿态、不恢复已否决候选。扩大范围另登记。所有保护开启，后台隔离，不接管屏幕；c1及稳定c5保持不变。
+
+
 ## PHYS-115：统一骑乘与落马身体、物理支撑决定离鞍（2026-11-24，Codex，核心完成，候选交出，尚未全部达标）
 
 
@@ -750,3 +772,7 @@ PERF-089（未认领，后续性能诊断）：正常重甲比赛偶有43–48ms
 QA-111 11:05 UTC追加测试认领：game/tests/test_shop_timing111.gd、test_earned109.gd（仅界面就绪等待与时序证据），tools/qa111-*。实际包journey02第9关前购买eng_lance_long_2成功，但10帧后仍显示“正在整理装备”，装备断言失败；第10关已能装备。先做实际包有界就绪计时，未确认生产缺陷前不改main/build_queue，也不抹掉失败记录。
 
 2026-11-25 PHYS-115 复验补充：认领 test_skinfloor115.gd、test_bundle115.gd、test_flow082.gd 的实际网格/封包与极简提示契约复验；修复仍在已认领 Rig/Rider/Fallen 内。旧流程测试仅把关闭辅助线时的必需断枪通知与长换枪解释区分，保留长解释的其他检查。
+
+PHYS-115续验补充：Codex认领test_replay_body115.gd求解器副本参数，用于200真实对局新增屈膝失败的相同状态重放。生产修改仍限原四文件。
+
+PHYS-115 c2交付补充认领：docs/development/PHYS115_C2_AUDIT.json、PHYS115_C2_VISUAL.json、PHYS115_C2_DELIVERY.json、PHYS115_C2_CAPTURES/dual_rest.png与head_rest.png、PHYS115_C2_RELEASE_NOTES.txt；仅复制实际包QA帧，不修改美术。复验指南与体验复核补本轮证据，历史段保留。

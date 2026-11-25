@@ -1,5 +1,29 @@
 # PHYS-115 复验入口
 
+## 当前 c2 与最短复现路径
+
+采用 `0.5.0-c2`，运行源码 `2894eb14a678766c463f95580688f436d580ae47`。`Play-Physics-Preview.cmd` 调用保护外层程序，`Play-Latest.cmd` 仍为稳定 c5。只在新 evidence 目录运行；以下每项单独串行执行。未通过的原四秒门必须保留，不因工具返回失败而改阈值。
+
+```powershell
+$bundle='E:/GALUMU/builds/LanceAndLaurel-v0.5.0-c2'
+$stamp=(Get-Date).ToUniversalTime().ToString('yyyyMMddHHmmss')
+& ./launcher/Verify-Package.ps1 -Directory $bundle
+& ./game/tests/run_phys115.ps1 -Name "phys115-review-$stamp-version" -Script test_bundle115.gd -Target bundle -Bundle $bundle -Budget normal -Extra '--expected-version=0.5.0-c2'
+& ./game/tests/run_phys115.ps1 -Name "phys115-review-$stamp-physical13" -Script test_physical_fuzz115.gd -Target bundle -Bundle $bundle -Budget normal -Extra '--ids=13' -TimeoutSeconds 300
+& ./game/tests/run_phys115.ps1 -Name "phys115-review-$stamp-extreme" -Script test_extreme115.gd -Target bundle -Bundle $bundle -Budget normal -Extra '--input=E:/GALUMU/docs/development/PHYS115_C2_EDGE_FIXTURES.json --ids=29,40,60,75,90,120 --iterations=10 --seconds=8' -TimeoutSeconds 300
+& ./game/tests/run_phys115.ps1 -Name "phys115-review-$stamp-games" -Script test_games115.gd -Target bundle -Bundle $bundle -Budget gpu -Extra '--count=4 --gear=240' -TimeoutSeconds 300
+& ./game/tests/run_phys115.ps1 -Name "phys115-review-$stamp-profile" -Script profile_result099.gd -Target bundle -Bundle $bundle -Budget gpu -Extra '--seconds=120 --mode=war --kit=heavy --trace099' -TimeoutSeconds 240
+```
+
+`physical13` 当前预期失败：4.2秒收势超过原4秒；位置/速度交接、支撑、悬空腿门通过。`extreme` 是延长轨迹的诊断，退出0不代表通过四秒验收；`--iterations=10` 在该诊断对应生产每半轮五次约束，不能使用默认5与生产结果混比。要看这些姿势的画面，另开新命名运行，将Budget改为gpu，并在Extra追加一个尚不存在的 `--folder=E:/GALUMU/docs/development/logs/phys115-review-<新编号>-frames`。不使用 `-FolderOutput` 替换其必需报告参数。
+
+完整回归仍需原34身体、72落地、18盾臂、全部64真实释放、128人工姿势、6靴面及控制/滑落；不要只复跑七个失败例就宣布通过。修地面联系先比较两跑道的实际Main双落马截图与物理地面/阴影坐标，不能强行把整人下移。
+
+c2证据：PHYS115_C2_AUDIT（22项、含失败）、C2_DELIVERY（包/ZIP/十保护检查/最后外层两场）、C2_VISUAL与C2_CAPTURES（原始实包图）、C2_EDGE_FIXTURES（六项原输入，真实13号独立再生）。完整日志留本机；Git中紧凑证据及测试入口供重现。CPU25%、1024MiB Job/900MiB提前保护、系统余量500MiB、单实例、超时与隔离QA保持。外层实际对局使用同等保护。
+
+
+## 历史 c1 复验说明（仅用于旧包）
+
 当前开发分支为 `codex/v0.5`。以实际 HEAD、工作区和最新交接为准。旧包与三份历史差异不得覆盖。
 
 ## 保护与证据

@@ -1,0 +1,21 @@
+{
+  "images": [
+    {
+      "height": 720,
+      "sha256": "01B557A856E373CC423881E343E5AEEDB7C1F9EE08BB630DB4C04500EFAE8177",
+      "nonblank": true,
+      "width": 1280,
+      "sampled_colors": 233,
+      "file": "dual_rest.png"
+    },
+    {
+      "height": 720,
+      "sha256": "636DD5DB568DC36049F63CEE4849259940DCDE02E4F5E539BAFF015F714DE472",
+      "nonblank": true,
+      "width": 1280,
+      "sampled_colors": 229,
+      "file": "head_rest.png"
+    }
+  ],
+  "scope": "Unmodified actual c2 viewport captures; pixel diversity only, not naturalness acceptance. Reviewed both images; far-lane ground contact remains visually weak."
+}

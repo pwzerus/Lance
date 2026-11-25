@@ -188,5 +188,10 @@
       "unchanged": true
     }
   ],
-  "scope": "Background rules, isolated GPU and engine injected inputs; no OS control, human feel, hardware audio, second computer or commercial release approval."
+  "scope": "Background rules, isolated GPU and engine injected inputs; no OS control, human feel, hardware audio, second computer or commercial release approval.",
+  "delivery_commit": "002cc0334265c25ba86879a778d064a93a27e8f3",
+  "remote_verified_commit": "002cc0334265c25ba86879a778d064a93a27e8f3",
+  "remote": "origin/codex/v0.5",
+  "remote_verified_utc": "2026-11-25T20:52:29Z",
+  "receipt_note": "Subsequent receipt-only commit does not change runtime source, immutable package or QA outcomes."
 }

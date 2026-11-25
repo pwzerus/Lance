@@ -3,6 +3,8 @@ extends SceneTree
 ## compile headless before any render pass. Prints one line per script.
 const PATHS = [
 	"res://tests/test_irons115.gd",
+	"res://tests/test_energy115.gd",
+	"res://tests/test_physical_fuzz115.gd",
 	"res://tests/test_campaign115.gd",
 	"res://tests/test_journey115.gd",
 	"res://tests/test_impulse_axis115.gd",

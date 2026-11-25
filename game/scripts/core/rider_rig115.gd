@@ -13,6 +13,30 @@ const SHIELD_SHOULDER = Vector2(25,-64)
 const DETACHED_NECK_LIMIT113 = .34
 const TORSO_OUTLINE = [Vector2(-34,-84),Vector2(34,-84),Vector2(-41,-46),Vector2(41,-46),Vector2(-31,-8),Vector2(31,-8),Vector2(-7,9),Vector2(7,9)]
 const BOOT_OUTLINE113 = [Vector2(744,736),Vector2(868,736),Vector2(873,900),Vector2(873,926),Vector2(872,928),Vector2(870,930),Vector2(798,930),Vector2(761,918),Vector2(749,912),Vector2(744,813)]
+static var _head_contacts115: Dictionary = {}
+static var _head_shapes115: Dictionary = {}
+
+static func head_outline115(stats: Dictionary) -> PackedVector2Array:
+	var key=str(stats.get("helmet_art",""))+":"+str(stats.get("armor_art",""))
+	if _head_shapes115.has(key):return _head_shapes115[key]
+	if _head_contacts115.is_empty():
+		_head_contacts115=JSON.parse_string(FileAccess.get_file_as_string("res://data/head_contacts_v115.json")).helmets
+	var fit=HeadFit.layout(stats)
+	var helmet:Rect2=fit.helmet
+	var outline=PackedVector2Array()
+	var item:Dictionary=_head_contacts115.get(str(stats.get("helmet_art","")),{})
+	if item.is_empty():
+		outline=PackedVector2Array([helmet.position,Vector2(helmet.end.x,helmet.position.y),helmet.end,Vector2(helmet.position.x,helmet.end.y)])
+	else:
+		for point in item.points:outline.append(helmet.position+Vector2(point[0],point[1])*helmet.size)
+	# The visible jaw remains a contact surface below open helmets.
+	if bool(fit.open):
+		var face:Rect2=fit.face
+		var jaw_y=minf(face.end.y,Rect2(fit.face_clip).end.y)
+		for fraction in [.30,.50,.70]:outline.append(Vector2(lerpf(face.position.x,face.end.x,fraction),jaw_y))
+	if _head_shapes115.size()>=64:_head_shapes115.clear()
+	_head_shapes115[key]=outline
+	return outline
 
 static func arms(value: Dictionary, transform: Transform2D, hand_right: Vector2, hand_left: Vector2, shield_center: Vector2) -> Dictionary:
 	var facing = int(value.direction)
@@ -217,14 +241,8 @@ static func capture_data(value: Dictionary, pose: Dictionary, legs: Dictionary, 
 	var corners=PackedVector2Array()
 	for point in TORSO_OUTLINE: corners.append(torso*point)
 	var head_corners=PackedVector2Array()
-	for point in [helmet.position,Vector2(helmet.end.x,helmet.position.y),helmet.end,Vector2(helmet.position.x,helmet.end.y)]:
+	for point in head_outline115(stats):
 		head_corners.append(head_frame*point)
-	# Open helmets do not cover the jaw. The same visible lower face must
-	# contact the horse/ground instead of letting the chin pass through it.
-	if bool(fit.open):
-		var face:Rect2=fit.face
-		var jaw_y=minf(face.end.y,Rect2(fit.face_clip).end.y)
-		for fraction in [.30,.50,.70]:head_corners.append(head_frame*Vector2(lerpf(face.position.x,face.end.x,fraction),jaw_y))
 	var boots={}
 	for side in ["near","far"]:
 		var outline=PackedVector2Array()

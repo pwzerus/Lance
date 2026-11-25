@@ -1,0 +1,265 @@
+{
+  "status": "development_checkpoint_not_released",
+  "utc": "2026-11-25T14:47:39.471505+00:00",
+  "base": "a49e4becac032a67da00739ff70ae0095ef8ded8",
+  "scope": "Protected background QA. Interrupted execution gap excluded from working time. Failures retained; full 142 regression in progress. No human or foreground acceptance.",
+  "evidence": [
+    {
+      "path": "docs/development/logs/phys115-campaign131/report.json",
+      "sha256": "3a69a521170ab59eb995de830660c4b3d3b2bda66f092f3f7524d470ec6db764",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-campaign131/receipt.json",
+      "sha256": "fcc09f29c0f7744bbe42f8c006e705910741550924fefc7f685744fcc0ddc795",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-games132/receipt.json",
+      "sha256": "8fe57b8aad957a0787fd343d18a74e4cb344df1225b57d5242e92f5ac11a9e54",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-games132/results/report.json",
+      "sha256": "3846df8f9048ccb91b3dcbf14ebbc864a877f82642beb226d3687bbda367591b",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-energy133/report.json",
+      "sha256": "763cc42e6155bcdf1693edd5f8860ebd134955e5c588d43ea83892109b5e42e2",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-energy133/receipt.json",
+      "sha256": "5bbac88a6aab50b50c01c98f4d07fd2a10a29b6aab4e5de148b9931d8c3ecdf4",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-physical139/report.json",
+      "sha256": "ad8f2d37f3ce80da5a64a12bd08b0b5565b85b107bfabc943cef414f5c8ad226",
+      "passed": false,
+      "failures": [
+        "Four-second shared-body rest: 24",
+        "Four-second shared-body rest: 27",
+        "Four-second shared-body rest: 45",
+        "Four-second shared-body rest: 57"
+      ],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-physical139/receipt.json",
+      "sha256": "88c770299682278ad3fa991f3687bfcffe32993473f70318546b34572e26e22c",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": false,
+      "unexpected_engine_error": true
+    },
+    {
+      "path": "docs/development/logs/phys115-physicalview140/report.json",
+      "sha256": "81ac2cb4b0a8d8502a73fad216e6080ef56dfe3ebd50d8fdb80af6d43bb924b5",
+      "passed": false,
+      "failures": [
+        "Four-second shared-body rest: 24",
+        "Four-second shared-body rest: 27",
+        "Four-second shared-body rest: 45",
+        "Four-second shared-body rest: 57"
+      ],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-physicalview140/receipt.json",
+      "sha256": "f161b736a785637ada3e06d14158d6f186d53cc55966cc34b4adf27464d83f0d",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": false,
+      "unexpected_engine_error": true
+    },
+    {
+      "path": "docs/development/logs/phys115-headphysical141/report.json",
+      "sha256": "b2366ba38eb51fe85379300d51e9527abb445a394c1cd5f9c235fb0eb789fd2c",
+      "passed": false,
+      "failures": [
+        "Four-second shared-body rest: 24"
+      ],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-headphysical141/receipt.json",
+      "sha256": "7d10b56ad395e16407b635605ca38e41665044b82917d399854f96aa3408a25f",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": false,
+      "unexpected_engine_error": true
+    },
+    {
+      "path": "docs/development/logs/phys115-headparse141/receipt.json",
+      "sha256": "bc8995976f8ae005293158b0e6aa9ce3392558448138e6dabbd80e187f401d6f",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-gate134-test-body114/report.json",
+      "sha256": "c27addbe5ac038ecdf658dc397d42f7a40675d331fa41f1cc1ab898397db9787",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-gate134-test-body114/receipt.json",
+      "sha256": "7916ac2b9fdec0ae284dab1499f85398ed32d04f33421df67ae4baea255cfd28",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-gate134-test-clock115/report.json",
+      "sha256": "67d8328ae3b9e3ec84337ab6c424f9ae23ceb9b42f4da36010d65339e8f74b10",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-gate134-test-clock115/receipt.json",
+      "sha256": "21644e9abbb4a0568b2a262ed315e7d797f8083eef191a4dbd83c41ce076b158",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-gate134-test-fall-fuzz105/report.json",
+      "sha256": "81cb3618e28dc4c38324fc84c1e7a0508f91fbe303b9731b39c279d8657106b7",
+      "passed": false,
+      "failures": [
+        "Four-second synthetic pose rest: 29",
+        "Four-second synthetic pose rest: 35",
+        "Four-second synthetic pose rest: 100",
+        "Synthetic pose torso support: 100"
+      ],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-gate134-test-fall-fuzz105/receipt.json",
+      "sha256": "ec54884a95db4a81635a2e65441cfc8302537b53466847fca717f594e785c863",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": false,
+      "unexpected_engine_error": true
+    },
+    {
+      "path": "docs/development/logs/phys115-gate134-test-fall098/report.json",
+      "sha256": "711983da6cebc5e27e7490893db9b1e1accc5d0432ed461dc95991efc48978bb",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-gate134-test-fall098/receipt.json",
+      "sha256": "2045882e4335b062806c555b52f1fe388f9088e4c91ea04a1b4bac7d48aee7a1",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-gate134-test-irons115/report.json",
+      "sha256": "4f085a2c78d938654848989819d775f3f50e01c339f1c15e6dcf268e9f167486",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-gate134-test-irons115/receipt.json",
+      "sha256": "a86926f3c3d2b1bf5caece41b3a0130fd513ff503489eaba24319ad45d80dbf8",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-gate134-test-parse065/receipt.json",
+      "sha256": "bc8995976f8ae005293158b0e6aa9ce3392558448138e6dabbd80e187f401d6f",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-gate134-test-shield105/report.json",
+      "sha256": "fa64fc11076571cee132e12ac6e3988ab39a7c396bdde1812cf078b2421bf44a",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-gate134-test-shield105/receipt.json",
+      "sha256": "9160e0ad942b75a720357f6dbb6a02fbbe26cc148e2823a43f799812e4a851b1",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-gate134-test-support115/report.json",
+      "sha256": "13256d5995f7640bf6ce33c683f4f22df7fdca0f44b8496ff68554d0e3e9e9ee",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-gate134-test-support115/receipt.json",
+      "sha256": "ab77eb2ffb1d5934e99328ced4b3c20c6e5cbd89718d293edc4c80acb5e6a6b7",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    },
+    {
+      "path": "docs/development/logs/phys115-gate134-test-terminal115/report.json",
+      "sha256": "242ade034f98d6aca780784df3407b5bf5b31b3f5dbb5ef17f4ebb8ba2f8de55",
+      "passed": true,
+      "failures": [],
+      "guardian_exit_zero": null,
+      "unexpected_engine_error": null
+    },
+    {
+      "path": "docs/development/logs/phys115-gate134-test-terminal115/receipt.json",
+      "sha256": "9a4bdb019b63ba59a1c5a5a5bd1e1aa64abfc5ade924f5476d2630e9b4e52276",
+      "passed": null,
+      "failures": [],
+      "guardian_exit_zero": true,
+      "unexpected_engine_error": false
+    }
+  ]
+}

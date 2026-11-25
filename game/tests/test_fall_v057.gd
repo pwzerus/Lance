@@ -62,11 +62,12 @@ func support_parts(actor) -> Dictionary:
 	var points = actor.body_points()
 	# PHYS-114: the trunk envelope has eight outline points (rounded pelvis).
 	# Read the production base directly: Probe does not declare its constants.
-	var torso_end = 4+Fallen.TORSO_OUTLINE114.size()
+	var head_end = Rider.Rig115.head_outline115(actor.fighter.stats).size()
+	var torso_end = head_end+Fallen.TORSO_OUTLINE114.size()
 	# PHYS-114 arms use four cardinal samples for each of six joint discs.
 	var arms_end = torso_end+24
 	for index in range(points.size()):
-		var part = "helmet" if index<4 else ("torso" if index<torso_end else ("arms" if index<arms_end else ("shield" if index<arms_end+shield_count else "legs")))
+		var part = "helmet" if index<head_end else ("torso" if index<torso_end else ("arms" if index<arms_end else ("shield" if index<arms_end+shield_count else "legs")))
 		result[part] = maxf(result[part],actor.position.y+points[index].rotated(actor.rotation).y+5.0)
 	return result
 

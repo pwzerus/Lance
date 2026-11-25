@@ -261,7 +261,7 @@ func _make_body(lift: float) -> void:
 	for point in TORSO_OUTLINE114:
 		corners.append(origin+torso*point)
 	var head_corners = []
-	for point in [helmet.position,Vector2(helmet.end.x,helmet.position.y),helmet.end,Vector2(helmet.position.x,helmet.end.y)]:
+	for point in Rider.Rig115.head_outline115(stats):
 		head_corners.append(origin+head_frame*point)
 	var boots = {}
 	for side in ["near","far"]:
@@ -663,10 +663,8 @@ func body_points() -> PackedVector2Array:
 	var points = PackedVector2Array()
 	var pose: Dictionary = visual.detached_pose
 	var torso: Transform2D = pose.torso_transform
-	var fit: Dictionary = Rider.HeadFit.layout(fighter.stats)
-	var head: Rect2 = fit.helmet
 	var head_transform = Rider.head_transform(pose,fighter)
-	for p in [head.position,Vector2(head.end.x,head.position.y),head.end,Vector2(head.position.x,head.end.y)]:
+	for p in Rider.Rig115.head_outline115(fighter.stats):
 		points.append(head_transform*p)
 	# The same rounded trunk outline the body collides with (8 points).
 	for p in TORSO_OUTLINE114:
@@ -696,11 +694,10 @@ func lowest_core_point() -> float:
 	var pose: Dictionary = visual.detached_pose
 	var torso: Transform2D = pose.torso_transform
 	var head_transform = Rider.head_transform(pose,fighter)
-	var head: Rect2 = Rider.HeadFit.layout(fighter.stats).helmet
 	var lowest = -INF
 	for point in TORSO_OUTLINE114:
 		lowest = maxf(lowest,(torso*Rider.torso_surface115(point,pose)).rotated(rotation).y)
-	for point in [head.position,Vector2(head.end.x,head.position.y),head.end,Vector2(head.position.x,head.end.y)]:
+	for point in Rider.Rig115.head_outline115(fighter.stats):
 		lowest = maxf(lowest,(head_transform*point).rotated(rotation).y)
 	return lowest+5.0
 

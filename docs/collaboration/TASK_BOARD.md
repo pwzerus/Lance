@@ -2,6 +2,8 @@
 
 ## PHYS-115：统一骑乘与落马身体、物理支撑决定离鞍（2026-11-24，Codex，进行中）
 
+2026-11-25 14:43 UTC 补充：执行恢复后核对仍为 a49e4be 与本轮未提交改动；空档不计持续开发。认领 game/data/head_contacts_v115.json、game/tests/build_head_contacts115.gd 和 test_fall_v057.gd 的头部轮廓点数适配。诊断头盔透明矩形造成的假接触，使用现有素材的实际 alpha 凸包；不改美术、不放宽收势或支撑门槛。
+
 2026-11-25 03:30 UTC 补充：认领 game/tests/test_campaign_probe107.gd 的默认空终局/单步观察扩展点；新增test_campaign115.gd推进真实延迟身体结果，避免以首次KO事件提前统计胜负。不改AI或关卡配置；旧探针默认语义保持。
 
 2026-11-25 02:23 UTC 补充：认领 core/frame_trace099.gd 和 tests/profile_result099.gd 的显式 QA 计数诊断，核对每帧落地子步和绘图次数；不改默认游戏追踪开关或保护器。

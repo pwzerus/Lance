@@ -5,7 +5,7 @@ extends RefCounted
 ## limits and unilateral contacts govern motion. The strapped shield has
 ## its own angular inertia. Boots and helmet rotate with their bone chains.
 ##
-## Fixed 120 game-Hz, two PBD substeps; all rendering and hit anchors read
+## Fixed 120 game-Hz; two riding or four free-body PBD substeps. Rendering and hit anchors read
 ## this same body. Drawing restores exact captured bone lengths without
 ## replacing the underlying state. Contact/strain-rate projection is a
 ## numerical approximation, not fully energy-conserving XPBD or a medical
@@ -55,6 +55,9 @@ class Joint115:
 	var lo: float
 	var hi: float
 	var maximum_rate: float
+	var active_target115: bool
+	var target115: float
+	var strength115: float
 
 enum {ELBOW_L, HAND_L, ELBOW_R, HAND_R, KNEE_N, ANKLE_N, KNEE_F, ANKLE_F, HEAD, COUNT}
 const HINGE_AXES115 = [Vector2.RIGHT,Vector2.DOWN]
@@ -520,9 +523,9 @@ func _solve_joint(joint: Joint115, h: float) -> void:
 	# Limp limbs have damping and anatomical end stops, not a straightening
 	# motor. The old broad 'soft range' extended a knee under body weight,
 	# lifting an unconscious chest back up after it had reached the floor.
-	if tone<=0.0 or not targets.has(joint.name): return
-	var target: float = _fast_target115(joint)
-	var strength: float = float(targets.get(joint.name+"_tone",1.0))*tone
+	if not joint.active_target115:return
+	var target: float = joint.target115
+	var strength: float = joint.strength115
 	var cap: float = MUSCLE_MAX_SPEED*h
 	var limit: float =float(motor_torque115.get(joint.kind,INF))*motor_step115*h*strength
 	_project_angle115(joint,clampf((target-value)*(1.0-exp(-MUSCLE_RATE*strength*h)),-cap,cap),-1.0,limit)
@@ -1001,8 +1004,18 @@ func set_muscles(value_tone: float, value_targets: Dictionary) -> void:
 	targets = value_targets
 
 func step(dt: float, support: Dictionary = {}) -> void:
-	var h: float = dt/SUBSTEPS
+	# Free/fallen limbs have a tightly coupled floor/boot/waist contact graph.
+	# Four smaller predictions resolve it better than two large predictions
+	# with ten repeated sweeps. Riding retains its established two substeps.
+	var substeps115: int=4 if support.is_empty() else SUBSTEPS
+	var h: float = dt/substeps115
 	motor_step115=h
+	# Fixed-step targets do not change within the constraint sweeps.
+	for joint in fast_joints115:
+		joint.active_target115=tone>0.0 and targets.has(joint.name)
+		if joint.active_target115:
+			joint.target115=_fast_target115(joint)
+			joint.strength115=float(targets.get(joint.name+"_tone",1.0))*tone
 	support_contacts115.clear()
 	contacts.clear()
 	core_contact = false
@@ -1015,7 +1028,7 @@ func step(dt: float, support: Dictionary = {}) -> void:
 	# writes back into these positions.
 	var step_x: Vector2 = last_x if has_last else x
 	var step_theta: float = last_theta if has_last else theta
-	for substep in range(SUBSTEPS):
+	for substep in range(substeps115):
 		age += h
 		var previous_spine115: float =spine_flex()
 		var previous_flex115: PackedFloat32Array =PackedFloat32Array()
@@ -1051,7 +1064,7 @@ func step(dt: float, support: Dictionary = {}) -> void:
 		# Contact is the LAST constraint of each sweep. A final bone pass used
 		# to put boots below the floor again; the renderer then lifted the whole
 		# person by ~1.5px each tick, a hidden anti-gravity support at the foot.
-		var iterations: int =contact_iterations115 if grounded_age>=0.0 else 2
+		var iterations: int =maxi(3,ceili(contact_iterations115*.5)) if grounded_age>=0.0 and support.is_empty() else contact_iterations115 if grounded_age>=0.0 else 2
 		for sweep in range(iterations):
 			for bone in fast_bones115: _solve_bone(bone)
 			_waist_hinge115()
@@ -1064,7 +1077,7 @@ func step(dt: float, support: Dictionary = {}) -> void:
 			_joint_rates115(previous_flex115,h)
 			for index in range(fast_bones115.size()-1,-1,-1): _solve_bone(fast_bones115[index])
 			_waist_hinge115()
-			if not support.is_empty(): _mounted_contacts115(support,h,float(substep+1)/SUBSTEPS)
+			if not support.is_empty(): _mounted_contacts115(support,h,float(substep+1)/substeps115)
 			_solve_torso_contacts()
 			_solve_pelvis_contacts115()
 			for i in FLOOR_PARTICLES115:
@@ -1085,7 +1098,8 @@ func step(dt: float, support: Dictionary = {}) -> void:
 			vel[i] = ((p[i]-prev[i])/h*drag).limit_length(MAX_SPEED)
 		# A torque acts on velocities, so after they are derived from positions
 		# (applied before, it was overwritten and never acted: body14-16).
-	_damp_joints(dt)
+		if support.is_empty():_damp_joints(h)
+	if not support.is_empty():_damp_joints(dt)
 	# Trunk or helmet: riders often land on head and shoulders first.
 	if core_contact and not thudded:
 		_landing_thud()

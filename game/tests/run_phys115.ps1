@@ -47,6 +47,7 @@ foreach($match in [regex]::Matches($Extra,'--(?:solver|reference|candidate|input
 }
 if($Target -eq 'source'){
     $meta.source_fingerprints=@(Get-ChildItem -LiteralPath "$repo/game/scripts","$repo/game/data" -Recurse -File | Where-Object { $_.Extension -in @('.gd','.json') } | Sort-Object FullName | ForEach-Object { @{path=$_.FullName.Substring($repo.Length+1);sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash} })
+    $meta.project_settings_sha256=(Get-FileHash -LiteralPath "$repo/game/project.godot" -Algorithm SHA256).Hash
 }
 [IO.File]::WriteAllText("$run/target.json",($meta | ConvertTo-Json -Depth 8),[Text.UTF8Encoding]::new($false))
 $headless=if($Budget -eq 'gpu'){''}else{'--headless'}

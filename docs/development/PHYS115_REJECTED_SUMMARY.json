@@ -1,0 +1,101 @@
+{
+  "decision": "Rejected; not in c1 or final production. Full regression worsens prior body/fall gates despite improved exact skin contact.",
+  "restored_production_source": "bdcc2f49ed41b06c50d98cf6a85a90451ab8e08d",
+  "runs": [
+    {
+      "name": "phys115-final172-skincontact",
+      "path": "docs/development/logs/phys115-final172-skincontact/report.json",
+      "sha256": "c082f63e1d5202ce6e45bf99a834c9aed197277be3fd876ff4999378c1fc5ec9",
+      "passed": true,
+      "failures": [],
+      "case_count": 12
+    },
+    {
+      "name": "phys115-final172-physical",
+      "path": "docs/development/logs/phys115-final172-physical/report.json",
+      "sha256": "ca348fe95fde6a4a01bc5c251dbedd4c6e0d380703e17f165d64b2025caf3417",
+      "passed": true,
+      "failures": [],
+      "case_count": 64
+    },
+    {
+      "name": "phys115-final172-fuzz",
+      "path": "docs/development/logs/phys115-final172-fuzz/report.json",
+      "sha256": "e9fd87dd68aaffb17002bc22b819574e2ff394305e902493588417e0f5085e36",
+      "passed": false,
+      "failures": [
+        "Synthetic pose torso support: 10",
+        "Four-second synthetic pose rest: 75",
+        "Synthetic pose torso support: 95",
+        "Synthetic pose torso support: 105",
+        "Synthetic pose torso support: 110",
+        "Four-second synthetic pose rest: 122"
+      ],
+      "case_count": 128
+    },
+    {
+      "name": "phys115-final172-body",
+      "path": "docs/development/logs/phys115-final172-body/report.json",
+      "sha256": "f64cef3bc663f660c84260619e38435ea85be08bfdc6644d34eb293813c28aad",
+      "passed": false,
+      "failures": [
+        "Fall settles within six game seconds",
+        "Trunk or helmet rests on the floor"
+      ],
+      "case_count": 34
+    },
+    {
+      "name": "phys115-final172-skin",
+      "path": "docs/development/logs/phys115-final172-skin/results/report.json",
+      "sha256": "34fc431c2150e371f5b96aed69aafad81872550a0f8373f5c3e9e64b00f54834",
+      "passed": true,
+      "failures": [],
+      "case_count": 6
+    },
+    {
+      "name": "phys115-final172-fall",
+      "path": "docs/development/logs/phys115-final172-fall/report.json",
+      "sha256": "eb2a3095376b84a8d938f8346e36b789ed477349f2e7b384d1d591f47fb01127",
+      "passed": false,
+      "failures": [
+        "Four-second rest: [1.0, \"body\", -1, 1.0, 0.0]"
+      ],
+      "case_count": 72
+    },
+    {
+      "name": "phys115-final172-shield",
+      "path": "docs/development/logs/phys115-final172-shield/report.json",
+      "sha256": "db6de6c5cce6b2e971a1be541dc6968efe1677db8ee082e79aef49ea20a0b169",
+      "passed": true,
+      "failures": [],
+      "case_count": 18
+    }
+  ],
+  "backups": [
+    {
+      "file": "docs/development/logs/phys115-rejected173/fallen_rider.gd",
+      "bytes": 39493,
+      "sha256": "38da7c9b341f00c504e4ae492b9fa9c76641de53281fe6b11e29bfcc6f3f7a71"
+    },
+    {
+      "file": "docs/development/logs/phys115-rejected173/rider_body114.gd",
+      "bytes": 69180,
+      "sha256": "8c2b82cd8ef27e3ba516cc687222b46d376d2ecdef7c0e41e7036663b7d30dbd"
+    },
+    {
+      "file": "docs/development/logs/phys115-rejected173/rider_rig115.gd",
+      "bytes": 26629,
+      "sha256": "f8896ddc17a118854706bd1eb09bd37a278fe3fe44cac47b225e0eceef81464b"
+    },
+    {
+      "file": "docs/development/logs/phys115-rejected173/rider_view.gd",
+      "bytes": 46734,
+      "sha256": "d587663458968b1244ab5e73151491d4b1492a650d648a86719ad4914c145610"
+    },
+    {
+      "file": "docs/development/logs/phys115-rejected173/test_skin_contact115.gd",
+      "bytes": 3029,
+      "sha256": "5da8ee90a26d8ee3ea048aadb73276915be254ed077f9efa44af7a286767f125"
+    }
+  ]
+}

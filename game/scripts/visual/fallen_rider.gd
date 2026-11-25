@@ -659,8 +659,6 @@ func _apply_shared_render115() -> void:
 	pose_points099=PackedVector2Array()
 	support_hull099=PackedVector2Array()
 
-var boot_points_start115 = 0
-
 func body_points() -> PackedVector2Array:
 	if not pose_points099.is_empty(): return pose_points099
 	var points = PackedVector2Array()
@@ -688,10 +686,7 @@ func body_points() -> PackedVector2Array:
 			var radius = 8.0
 			for offset in [Vector2(radius,0),Vector2(-radius,0),Vector2(0,radius),Vector2(0,-radius)]:
 				points.append(point+offset)
-	# Exact visible boot triangles need no extra clothing/disc padding.
-	boot_points_start115=points.size()
-	for side in ["near","far"]:
-		for point in Rider.Rig115.boot_skin_outline115(visual.detached_legs[side]):
+		for point in Rider.boot_outline113(visual.detached_legs[side]):
 			points.append(point*mirror)
 	pose_points099=points
 	return points
@@ -758,10 +753,9 @@ func _release_lance() -> void:
 
 func lowest_body_point() -> float:
 	var lowest = -INF
-	var points=body_points()
-	for index in range(points.size()):
-		lowest=maxf(lowest,points[index].rotated(rotation).y+(5.0 if index<boot_points_start115 else 0.0))
-	return lowest
+	for point in body_points():
+		lowest = maxf(lowest,point.rotated(rotation).y)
+	return lowest+5.0
 
 func world_body_rect() -> Rect2:
 	var points = body_points()

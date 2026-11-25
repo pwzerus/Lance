@@ -15,45 +15,6 @@ const TORSO_OUTLINE = [Vector2(-34,-84),Vector2(34,-84),Vector2(-41,-46),Vector2
 const BOOT_OUTLINE113 = [Vector2(744,736),Vector2(868,736),Vector2(873,900),Vector2(873,926),Vector2(872,928),Vector2(870,930),Vector2(798,930),Vector2(761,918),Vector2(749,912),Vector2(744,813)]
 static var _head_contacts115: Dictionary = {}
 static var _head_shapes115: Dictionary = {}
-const BOOT_ROWS115 = [736.0,835.0,847.0,860.0,875.0,933.0]
-const BOOT_COLUMNS115 = [744.0,784.0,823.0,852.0,892.0]
-static var _boot_skin_samples115: Array = []
-static var _boot_skin_sources115 = PackedVector2Array()
-
-static func boot_skin_outline115(pose: Dictionary) -> PackedVector2Array:
-	# The rendered ankle is piecewise affine over explicit triangles. Clip
-	# the opaque hull against those triangles once; the old ten deformed
-	# corners missed bends along its edges. This is a DISPLAY envelope only.
-	if _boot_skin_samples115.is_empty():
-		var sampled={}
-		for row in range(BOOT_ROWS115.size()-1):
-			for column in range(BOOT_COLUMNS115.size()-1):
-				var a=Vector2(BOOT_COLUMNS115[column],BOOT_ROWS115[row])
-				var b=Vector2(BOOT_COLUMNS115[column+1],BOOT_ROWS115[row])
-				var c=Vector2(BOOT_COLUMNS115[column+1],BOOT_ROWS115[row+1])
-				var d=Vector2(BOOT_COLUMNS115[column],BOOT_ROWS115[row+1])
-				for triangle in [PackedVector2Array([a,b,c]),PackedVector2Array([a,c,d])]:
-					for polygon in Geometry2D.intersect_polygons(PackedVector2Array(BOOT_OUTLINE113),triangle):
-						for point in polygon:
-							var key:Vector2=point.snapped(Vector2(.001,.001))
-							if sampled.has(key):continue
-							sampled[key]=true
-							var edge1:Vector2=triangle[1]-triangle[0];var edge2:Vector2=triangle[2]-triangle[0]
-							var delta:Vector2=point-triangle[0];var determinant=edge1.cross(edge2)
-							var v=delta.cross(edge2)/determinant;var w=edge1.cross(delta)/determinant
-							var indices=Vector3i()
-							for index in range(3):
-								var vertex=_boot_skin_sources115.find(triangle[index])
-								if vertex<0:vertex=_boot_skin_sources115.size();_boot_skin_sources115.append(triangle[index])
-								indices[index]=vertex
-							_boot_skin_samples115.append([indices,Vector3(1.0-v-w,v,w)])
-	var mapped=PackedVector2Array();var outline=PackedVector2Array()
-	for source in _boot_skin_sources115:
-		mapped.append(foot_deform115(leg_patch_point113(source,Vector2(823,748),Vector2(804,862),pose.knee,pose.ankle,.29),pose))
-	for sample in _boot_skin_samples115:
-		var indices:Vector3i=sample[0];var weights:Vector3=sample[1]
-		outline.append(mapped[indices.x]*weights.x+mapped[indices.y]*weights.y+mapped[indices.z]*weights.z)
-	return outline
 
 static func head_outline115(stats: Dictionary) -> PackedVector2Array:
 	var key=str(stats.get("helmet_art",""))+":"+str(stats.get("armor_art",""))

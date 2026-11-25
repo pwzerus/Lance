@@ -3,12 +3,14 @@ extends SceneTree
 func _initialize() -> void:call_deferred("run")
 func run() -> void:
 	var path=""
+	var expected_version="0.5.0-c1"
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--report="):path=arg.trim_prefix("--report=")
+		elif arg.begins_with("--expected-version="):expected_version=arg.trim_prefix("--expected-version=")
 	if path.is_empty() or FileAccess.file_exists(path) or not "--test-profile" in OS.get_cmdline_user_args():quit(2);return
 	var checks={
 		"release_template":not OS.has_feature("editor"),
-		"version":str(ProjectSettings.get_setting("application/config/version"))=="0.5.0-c1",
+		"version":str(ProjectSettings.get_setting("application/config/version"))==expected_version,
 		"physics_120":int(ProjectSettings.get_setting("physics/common/physics_ticks_per_second"))==120,
 		"fps_cap_60":int(ProjectSettings.get_setting("application/run/max_fps"))==60,
 		"qa_profile":str(root.get_node("GameState").save_path).contains("qa_"),

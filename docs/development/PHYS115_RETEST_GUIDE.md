@@ -1,5 +1,28 @@
 # PHYS-115 复验入口
 
+## 当前 c3 复验
+
+当前预览入口为 `Play-Physics-Preview.cmd`，使用独立 c3 保护外层；稳定入口仍为 c5。运行源码4ea911c，具体SHA/包散列见C3_DELIVERY。以下命令逐项串行执行，使用全新名称，保留所有保护；有GPU的检查仍在隔离桌面，不接管用户屏幕。
+
+```powershell
+$bundle='E:/GALUMU/builds/LanceAndLaurel-v0.5.0-c3'
+$stamp=(Get-Date).ToUniversalTime().ToString('yyyyMMddHHmmss')
+& ./launcher/Verify-Package.ps1 -Directory $bundle
+& ./game/tests/run_phys115.ps1 -Name "phys115-review-$stamp-version" -Script test_bundle115.gd -Target bundle -Bundle $bundle -Budget normal -Extra '--expected-version=0.5.0-c3'
+& ./game/tests/run_phys115.ps1 -Name "phys115-review-$stamp-physical" -Script test_physical_fuzz115.gd -Target bundle -Bundle $bundle -Budget normal -TimeoutSeconds 600
+& ./game/tests/run_phys115.ps1 -Name "phys115-review-$stamp-floor" -Script test_floor115.gd -Target bundle -Bundle $bundle -Budget gpu -Extra '--count=4 --gear=240 --resize' -TimeoutSeconds 600
+& ./game/tests/run_phys115.ps1 -Name "phys115-review-$stamp-profile" -Script profile_result099.gd -Target bundle -Bundle $bundle -Budget gpu -Extra '--seconds=120 --mode=war --kit=heavy --trace099' -TimeoutSeconds 300
+```
+
+修改身体求解后，还要完整运行原 `test_body114.gd`、`test_fall098.gd`、`test_fall_fuzz105.gd`、`test_shield105.gd`、`test_skinfloor115.gd` 和控制/滑落。原72当前预期两项四秒失败，原128当前预期41/44/79/115四项失败；不修改门槛。`test_extreme115.gd --input=E:/GALUMU/docs/development/PHYS115_C3_EDGE_FIXTURES.json --ids=41,44,79,115,1002,1003 --iterations=10 --seconds=8` 仅延长重建诊断，不是原完整矩阵替代；41号重建非位级相同。松脱枪杆在该诊断没有同步世界推进，不能据它评价枪杆落地。
+
+优先关注：手/盾实际接触怎样传递至肩肘、紧凑躺姿的可读性、双跑道人体在画面中的叠层、ended阶段CPU耗时。保持24张头盔、原靴网格和采样点、120Hz以及全部内存/CPU/系统余量/单实例保护。原旧外层工具把已知隔离着色器缓存目录警告标为失败，应保留并单独审查，不改原回执为通过。
+
+以下仅为旧 c2/c1 的复验记录，不能混入 c3 验收。
+
+---
+
+
 ## 当前 c2 与最短复现路径
 
 采用 `0.5.0-c2`，运行源码 `2894eb14a678766c463f95580688f436d580ae47`。`Play-Physics-Preview.cmd` 调用保护外层程序，`Play-Latest.cmd` 仍为稳定 c5。只在新 evidence 目录运行；以下每项单独串行执行。未通过的原四秒门必须保留，不因工具返回失败而改阈值。

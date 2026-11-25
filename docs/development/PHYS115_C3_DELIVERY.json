@@ -1,0 +1,192 @@
+{
+  "version": "0.5.0-c3",
+  "status": "stage_two_core_and_development_preview_delivered; full_motion_and_performance_acceptance_pending",
+  "source_revision": "4ea911cc792493565bd0ea02764331055d854736",
+  "audit_sha256": "7265085AD1962ED0A0B1C6E7ABF777004CADE5D22AFFDF1D8F58B51A28B84C2F",
+  "edge_fixtures_sha256": "945B6F47F5C3BACDA710D3E283F024D9C017FABD4AE2BC99920873C065BF2988",
+  "runs": 19,
+  "selected_private_mib_sample_peak": 688.5,
+  "source_failed_receipts": [
+    "phys115-final228-fall",
+    "phys115-final228-fuzz"
+  ],
+  "archive": {
+    "passed": true,
+    "archive": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.5.0-c3.zip",
+    "archive_bytes": 71386689,
+    "archive_sha256": "E770E47002F612746637A7B0E517A1A8DD486DFBD11E1B9B74D3B50E6F7A3131",
+    "relocated": "E:\\GALUMU\\builds\\PHYS115 便携验证 0.5.0-c3\\LanceAndLaurel-v0.5.0-c3",
+    "file_count": 10,
+    "source_revision": "4ea911cc792493565bd0ea02764331055d854736",
+    "scope": "File hashes, ZIP CRC and Unicode/space-path extraction only. Runtime launch is verified separately."
+  },
+  "portable": {
+    "checks": 10,
+    "passed": true,
+    "results_sha256": "C8565D3E16072C286AE6E22DE0BE8C249DA278C5EC83439D163AF4BD076F0E51"
+  },
+  "outer": {
+    "original_receipt": {
+      "name": "phys115-outer234",
+      "bundle": "E:\\GALUMU\\builds\\PHYS115 便携验证 0.5.0-c3\\LanceAndLaurel-v0.5.0-c3",
+      "script": "test_games115.gd",
+      "passed": false,
+      "exit": 0,
+      "seconds": 93.3714526,
+      "report": "E:\\GALUMU\\logs\\perf088\\phys115-outer234\\report.json",
+      "sha256": "FBF442E89398D9A2641F25A33871FE28F659A80F08F82E8355E222B5515154DC",
+      "unexpected": "ERROR: Can't create shader cache folder, no shader caching will happen: user://"
+    },
+    "gameplay_passed": true,
+    "game_count": 2,
+    "falls": 3,
+    "settled_ages": [
+      2.39999999999999,
+      3.99999999999999,
+      2.79999999999999
+    ],
+    "isolated_desktop_closed": true,
+    "engine_cache_warning_count": 1,
+    "classification": "Original tool failure retained: sole known isolated shader cache directory warning; gameplay assertions, normal exit and desktop release passed. No claim of zero engine errors.",
+    "private_mib_sample_peak": 683.7
+  },
+  "profile": {
+    "wall_seconds": 120.023473,
+    "matches": 3,
+    "all_frames": {
+      "fps": 56.4568309457686,
+      "frames": 6776,
+      "max_ms": 45.078,
+      "over_33ms": 16,
+      "over_50ms": 0,
+      "p50_ms": 17.056,
+      "p95_ms": 24.752,
+      "p99_ms": 28.491
+    },
+    "phases": {
+      "charge": {
+        "fps": 56.5821038535593,
+        "frames": 4304,
+        "max_ms": 35.474,
+        "over_33ms": 1,
+        "over_50ms": 0,
+        "p50_ms": 17.079,
+        "p95_ms": 24.724,
+        "p99_ms": 27.54
+      },
+      "contact": {
+        "fps": 59.2160596167365,
+        "frames": 428,
+        "max_ms": 30.814,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "p50_ms": 16.867,
+        "p95_ms": 20.649,
+        "p99_ms": 23.652
+      },
+      "ended": {
+        "fps": 48.1688293441304,
+        "frames": 421,
+        "max_ms": 45.078,
+        "over_33ms": 15,
+        "over_50ms": 0,
+        "p50_ms": 19.315,
+        "p95_ms": 31.336,
+        "p99_ms": 39.233
+      },
+      "ready": {
+        "fps": 58.6391997916825,
+        "frames": 1028,
+        "max_ms": 32.343,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "p50_ms": 16.921,
+        "p95_ms": 21.865,
+        "p99_ms": 24.846
+      },
+      "result": {
+        "fps": 59.7816095260369,
+        "frames": 239,
+        "max_ms": 27.226,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "p50_ms": 16.661,
+        "p95_ms": 20.276,
+        "p99_ms": 24.251
+      },
+      "turn": {
+        "fps": 55.1273806395427,
+        "frames": 356,
+        "max_ms": 29.067,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "p50_ms": 17.579,
+        "p95_ms": 25.292,
+        "p99_ms": 27.221
+      }
+    }
+  },
+  "visual": [
+    {
+      "file": "docs/development/PHYS115_C3_CAPTURES/dual_rest.png",
+      "source": "docs/development/logs/phys115-pack231-floor/results/g00_fall1_rest.png",
+      "sha256": "11C5B499F521C70D79BA8FB7564F9C00D7EAD3730E191BB1EAE21C0DD9B5A2F8",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "scope": "Actual c3 PCK, two fallen riders; bodies overlap in screen projection.",
+      "edited": false,
+      "sampled_colours": 648
+    },
+    {
+      "file": "docs/development/PHYS115_C3_CAPTURES/compact_rest.png",
+      "source": "docs/development/logs/phys115-pack231-floor/results/g02_fall0_rest.png",
+      "sha256": "9BAD1344A254BCB62DAA42214CF0295EC1755D860C0604D52630C9F662647C64",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "scope": "Actual c3 PCK, compact folded rest; naturalness remains a review issue.",
+      "edited": false,
+      "sampled_colours": 624
+    },
+    {
+      "file": "docs/development/PHYS115_C3_CAPTURES/midair.png",
+      "source": "docs/development/logs/phys115-pack231-floor/results/g01_fall0_air.png",
+      "sha256": "C281C25CA466F4A019330096E1D162C0171632A21AD7986C10FB051A850739B6",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "scope": "Actual c3 PCK during dismount; body remains connected.",
+      "edited": false,
+      "sampled_colours": 540
+    },
+    {
+      "file": "docs/development/PHYS115_C3_CAPTURES/extreme_diagnostic.png",
+      "source": "docs/development/logs/phys115-visual229-extreme/results/t960.png",
+      "sha256": "897292DC9EC33DAC5F8E517A6846EBDABA04246FDE31D70180E93C3CFB6FED28",
+      "dimensions": [
+        1440,
+        960
+      ],
+      "scope": "Source extended JSON reconstruction only; original four-second failures retained. Loose lance world simulation is not advanced by this diagnostic.",
+      "edited": false,
+      "sampled_colours": 41
+    }
+  ],
+  "formal_saves": [
+    {
+      "name": "profile_v1.backup.json",
+      "bytes": 1254,
+      "unchanged": true
+    },
+    {
+      "name": "profile_v1.json",
+      "bytes": 1254,
+      "unchanged": true
+    }
+  ],
+  "scope": "Background rules, isolated GPU and engine injected inputs; no OS control, human feel, hardware audio, second computer or commercial release approval."
+}

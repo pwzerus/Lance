@@ -1,5 +1,15 @@
 # 任务、审查建议与文件认领
 
+## PHYS-115 续验215–234：c3 开发预览交出（2026-11-25，占用已释放）
+
+上一轮为实质进度：ca6ae4cee1d0ad18287b2c04fb88144b8fcf1c60已推送，c2独立预览封存，仍有七项四秒门、远侧悬浮观感和落马收尾长帧。当前实际HEAD同SHA；无新Claude源码差异，三份历史差异保留。
+
+本轮已修改并释放 game/scripts/battle.gd、visual/rider_body114.gd、visual/fallen_rider.gd、core/rider_rig115.gd；新增/更新game/tests/test_bodyperf115.gd、test_floor115.gd、test_solver_pair115.gd及相关115必要诊断；PHYS115_REVIEW/ARCHITECTURE/ACCEPTANCE、HANDOFF、TASK_BOARD/WORK_LOG/PROJECT_STATE与本阶段交接。先保留c2参照源码，以相同轨迹性能比较和实际隔离GPU画面验证；不修改旧包/稳定入口/美术素材/120Hz精度/验收门/保护器。未经实际证据不纳入候选，不覆盖旧日志。
+
+PHYS-115 交付补充范围（已释放）：Codex 修改 game/project.godot、game/export_presets.cfg、Play-Physics-Preview.cmd；docs/development/PHYS115_C3_RELEASE_NOTES.txt、PHYS115_C3_AUDIT.json、PHYS115_C3_DELIVERY.json、PHYS115_C3_EDGE_FIXTURES.json、PHYS115_C3_CAPTURES/ 与 PHYS115_C3_REVIEW.md。独立 c3 开发预览保留 c2/c1/c5；默认稳定入口不变。完整矩阵和实际 c3 复验已结束，六项四秒门失败保留；当前候选不等于完整发布验收。
+
+后续未完成：大盾与旧人工姿势共六项四秒门、紧凑倒地/双人投影叠层、重甲落马阶段稳定 60FPS、真人自然度与声音评价。按 C3_REVIEW/DELIVERY 和原始失败输入接手，不修改门槛。
+
 ## PHYS-115 续验：c2 开发预览交出（2026-11-25）
 
 当前状态：本轮认领全部释放，以下“独占/补充认领”为历史过程，不构成文件占用。c2运行源码2894eb1；7de8741为人体修复。源34/72/18/6、实际包流程和六场／八次落马检查通过；真实64与人工128仍有七个四秒收势失败，不是完整动作验收通过。

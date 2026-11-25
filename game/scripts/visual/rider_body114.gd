@@ -13,6 +13,7 @@ extends RefCounted
 ## is no random pose, imposed final posture or timed freeze in that path.
 
 const GRAVITY = 900.0
+const SkinRig115 = preload("res://scripts/core/rider_rig115.gd")
 const SUBSTEPS = 2
 # A reflex can swing a limb fast, but not faster than a person can: the
 # first uncapped muscle closed a 2 rad error at ~45 rad/s and flung arms.
@@ -30,7 +31,11 @@ const MAX_SPEED = 1500.0
 # Passive angular resistance bounds strain rate; applied to physical joints,
 # not only to a smoothed rendering pose. Units: radians per game second.
 const JOINT_RATE115 = {"shoulder":5.5,"elbow":5.5,"hip":5.0,"knee":6.0}
-const SPINE_RANGE115 = Vector2(-.55,.90)
+# Combined chest-to-pelvis flexion is broader than the commanded riding lean.
+# The old .90 stop held a relaxed chest above the floor on folded legs.
+# 1.15 rad is a game-scale combined-trunk envelope; finite passive resistance
+# still starts at .68 and active control targets/rates remain unchanged.
+const SPINE_RANGE115 = Vector2(-.55,1.15)
 const SPINE_RATE115 = 3.5
 
 # Immutable joint registration is compiled once. Public dictionaries remain
@@ -319,12 +324,23 @@ func configure_feet115() -> void:
 		data.foot115=key;data.axis115=axis.normalized();data.length115=axis.length()
 		data.foot_weights115=PackedFloat64Array()
 		var centre=Vector2.ZERO;var radius_squared=0.0;var total=0.0
-		for point in data.offsets:
+		for index in range(data.offsets.size()):
+			var point:Vector2=data.offsets[index]
 			var weight=foot_weight115(data,point)
 			data.foot_weights115.append(weight)
-			centre+=point*weight;radius_squared+=point.length_squared()*weight;total+=weight
+			# Refining the ankle contact curve must not alter equipment mass.
+			if index<10:centre+=point*weight;radius_squared+=point.length_squared()*weight;total+=weight
 		feet115[key]={"angle":0.0,"previous":0.0,"omega":0.0,"relative_previous":0.0,
 			"inertia":maxf(100.0,1.2*radius_squared/maxf(total,1.0)*.55),"centre":centre/maxf(total,1.0)}
+		SkinRig115.ensure_boot_skin115()
+		data.skin_offsets115=PackedVector2Array()
+		data.skin_weights115=PackedFloat64Array()
+		for source in SkinRig115._boot_skin_sources115:
+			var offset:Vector2=SkinRig115.leg_patch_point113(source,Vector2(823,748),Vector2(804,862),p[data.a],p[data.b],.29*facing)-p[data.b]
+			data.skin_offsets115.append(offset)
+			data.skin_weights115.append(foot_weight115(data,offset))
+			data.reach=maxf(float(data.reach),offset.length())
+		data.skin_samples115=SkinRig115._boot_skin_samples115
 
 static func foot_weight115(data: Dictionary, offset: Vector2) -> float:
 	return smoothstep(-.18,0.0,offset.dot(Vector2(data.axis115))/float(data.length115))
@@ -526,7 +542,7 @@ func _project_angle115(joint: Joint115, change: float, damping_keep: float = -1.
 	if damping_keep>=0.0:
 		var rate: float = root_gradient.dot(pelvis_v if pelvic else v)+theta_gradient*(pelvis_omega if pelvic else omega)+child_gradient.dot(vel[child])
 		if parent>=0: rate+=parent_gradient.dot(vel[parent])
-		impulse = -rate*(1.0-damping_keep)/weight
+		impulse = clampf(-rate*(1.0-damping_keep)/weight,-limit,limit)
 		if pelvic:
 			pelvis_v+=root_gradient*impulse/pelvis_mass
 			pelvis_omega+=theta_gradient*impulse/pelvis_inertia
@@ -556,19 +572,26 @@ func _solve_joint(joint: Joint115, h: float) -> void:
 		var to_lo: float = float(joint.lo)+TAU-value
 		_turn_joint(joint,-to_hi if to_hi<=to_lo else to_lo,true)
 		value=float(joint.hi) if to_hi<=to_lo else float(joint.lo)
-	# Passive tissue compression near deep hip/knee flexion. A perfectly
+	# Passive terminal compression in hip, knee and raised shoulder. A perfectly
 	# free hinge followed by an infinitely hard end-stop can lock a folded leg
 	# above the body. This bounded elastic torque releases stored compression;
 	# it is not the former straightening motor acting through the whole range.
-	var soft_end: float =1.75 if joint.kind=="hip" else 2.10 if joint.kind=="knee" else INF
+	var soft_end: float =1.75 if joint.kind=="hip" else 2.10 if joint.kind=="knee" else 2.65 if joint.kind=="shoulder" else INF
+	if joint.kind=="hip":
+		# A deeply folded knee brings the lower leg against the thigh; its
+		# passive compression is coupled to hip flexion. Independent stops
+		# held an unloaded folded leg above the floor (full-match case 200/2).
+		# This finite local resistance has no world-space or timed pose target.
+		var knee_flex:float=flex("near_knee" if joint.child==KNEE_N else "far_knee")
+		soft_end-=.10*smoothstep(2.2,2.55,knee_flex)
 	if value>soft_end:
-		var stiffness: float =8000000.0 if joint.kind=="hip" else 800000.0
-		var torque: float =minf(1800000.0 if joint.kind=="hip" else 400000.0,stiffness*pow(value-soft_end,2))
+		var stiffness: float =8000000.0 if joint.kind=="hip" else 18000000.0 if joint.kind=="shoulder" else 800000.0
+		var torque: float =minf(1800000.0 if joint.kind=="hip" else 1200000.0 if joint.kind=="shoulder" else 400000.0,stiffness*pow(value-soft_end,2))
 		_project_angle115(joint,soft_end-value,-1.0,torque*motor_step115*h)
 	# Passive terminal extension resistance in the elbow/knee capsule. A
 	# perfectly straight, freely hinged limb with an infinitely hard stop
 	# acts as a rigid prop under compression; a relaxed joint yields slightly.
-	var soft_start:float=.12 if joint.kind=="elbow" else .08 if joint.kind=="knee" else -INF
+	var soft_start:float=.25 if joint.kind=="elbow" else .08 if joint.kind=="knee" else -INF
 	if value<soft_start:
 		var torque:float=minf(1200000.0,80000000.0*pow(soft_start-value,2))
 		_project_angle115(joint,soft_start-value,-1.0,torque*motor_step115*h)
@@ -896,6 +919,9 @@ func _extension_contact(key: String, part: String) -> void:
 	var data: Dictionary = extensions[key]
 	var finish: Vector2 = p[data.b]
 	if finish.y+float(data.reach)<ground: return
+	if data.has("skin_offsets115"):
+		_foot_skin_contact115(data,part)
+		return
 	var start: Vector2 = end_position(data.a)
 	var deepest: float = 0.0
 	var point: Vector2 = Vector2.ZERO
@@ -949,7 +975,33 @@ func _extension_contact(key: String, part: String) -> void:
 	_push_extension115(data,point,Vector2.RIGHT,-travel,grip*normal_impulse,chosen_weight)
 	if key=="head": core_contact=true
 
-func _push_extension115(data: Dictionary, point: Vector2, axis: Vector2, distance: float, limit: float = INF, foot_weight: float = 0.0) -> float:
+func _foot_skin_contact115(data: Dictionary, part: String) -> void:
+	# Exactly the same piecewise-affine skin as the renderer. Rotating only
+	# its original ten hull corners misses the ankle fold; rotating a dense
+	# continuous curve instead collides with a different shape again.
+	var finish:Vector2=p[data.b]
+	var turn:float=(finish-p[data.a]).angle()-float(data.angle0)
+	var delta:float=wrap_angle(float(feet115[data.foot115].angle)-turn)
+	var vertices=PackedVector2Array();var foot_levers=PackedVector2Array()
+	for index in range(data.skin_offsets115.size()):
+		var weight:float=data.skin_weights115[index]
+		var lever:Vector2=Vector2(data.skin_offsets115[index]).rotated(turn+delta*weight)
+		vertices.append(lever);foot_levers.append(lever*weight)
+	var depth=0.0;var selected=-1;var point=Vector2.ZERO
+	for index in range(data.skin_samples115.size()):
+		var sample:Array=data.skin_samples115[index];var ids:Vector3i=sample[0];var w:Vector3=sample[1]
+		var candidate:Vector2=finish+vertices[ids.x]*w.x+vertices[ids.y]*w.y+vertices[ids.z]*w.z
+		if candidate.y-ground>depth:depth=candidate.y-ground;selected=index;point=candidate
+	if selected<0:return
+	var sample:Array=data.skin_samples115[selected];var ids:Vector3i=sample[0];var weights:Vector3=sample[1]
+	var foot_lever:Vector2=foot_levers[ids.x]*weights.x+foot_levers[ids.y]*weights.y+foot_levers[ids.z]*weights.z
+	var old_point=Vector2.ZERO
+	for index in range(3):old_point+=_extension_point(data,true,data.skin_offsets115[ids[index]])*weights[index]
+	_record(part)
+	var impulse=_push_extension115(data,point,Vector2.UP,minf(depth,EXTENSION_PUSH),INF,0.0,foot_lever)
+	_push_extension115(data,point,Vector2.RIGHT,old_point.x-point.x,FRICTION*impulse,0.0,foot_lever)
+
+func _push_extension115(data: Dictionary, point: Vector2, axis: Vector2, distance: float, limit: float = INF, foot_weight: float = 0.0, skin_foot_lever: Vector2 = Vector2(INF,INF)) -> float:
 	var start: Vector2 = end_position(data.a)
 	var finish: Vector2 = p[data.b]
 	var bone: Vector2 = finish-start
@@ -964,11 +1016,13 @@ func _push_extension115(data: Dictionary, point: Vector2, axis: Vector2, distanc
 		shield_theta115+=angular*impulse115/shield_inertia115
 		return absf(impulse115)
 	var angle_gradient: Vector2 = Vector2(-bone.y,bone.x)/maxf(bone.length_squared(),.001)
-	var g_a: Vector2 = -angle_gradient*Vector2(-lever.y,lever.x).dot(axis)*(1.0-foot_weight)
+	var foot_lever:Vector2=lever*foot_weight if not skin_foot_lever.is_finite() else skin_foot_lever
+	var shin_lever:Vector2=lever-foot_lever
+	var g_a: Vector2 = -angle_gradient*Vector2(-shin_lever.y,shin_lever.x).dot(axis)
 	var g_b: Vector2 = axis-g_a
 	var theta_gradient: float = 0.0
 	var weight: float = g_b.length_squared()*inv_mass[data.b]
-	var foot_gradient:float=foot_weight*lever.cross(axis)
+	var foot_gradient:float=foot_lever.cross(axis)
 	if data.has("foot115"):weight+=foot_gradient*foot_gradient/float(feet115[data.foot115].inertia)
 	if data.a is String:
 		var r: Vector2 = start-x
@@ -1056,7 +1110,10 @@ func total_mass() -> float:
 func _damp_joints(h: float) -> void:
 	# Apply dissipative internal angular impulses through the same Jacobian
 	# as the joint limit. Contact need not borrow a global momentum correction.
-	var keep: float = exp(-JOINT_DAMPING*h)
+	# Dissipate relative joint motion when the actual trunk is supported.
+	# Finite equal/opposite impulses preserve momentum; airborne limbs retain
+	# their ordinary damping, and no world-space final pose is selected.
+	var keep: float = exp(-(JOINT_DAMPING+(6.0 if chest_contact115 or pelvis_contact115 else 0.0))*h)
 	var limit_keep: float = exp(-24.0*h)
 	for joint in fast_joints115:
 		# The shoulder range crosses PI. Its valid raised-arm angle 3.25
@@ -1064,8 +1121,18 @@ func _damp_joints(h: float) -> void:
 		# nine-times stronger end-stop damper to an ordinary overhead arm.
 		var angle: float=_in_range(_fast_flex115(joint),joint.lo)
 		if angle>joint.hi and joint.lo+TAU-angle<angle-joint.hi:angle-=TAU
-		var strained: bool=(joint.kind=="hip" and angle>1.75) or (joint.kind=="knee" and (angle>2.10 or angle<.08)) or (joint.kind=="elbow" and angle<.12) or (joint.kind=="shoulder" and angle<-.90)
+		var strained: bool=(joint.kind=="hip" and angle>1.75) or (joint.kind=="knee" and (angle>2.10 or angle<.08)) or (joint.kind=="elbow" and angle<.25) or (joint.kind=="shoulder" and (angle<-.90 or angle>2.65))
+		# A strained shoulder also tensions the two-joint arm tissues.
+		# Dampen the connected elbow relatively, never pin the hand in space.
+		if joint.kind=="elbow":
+			var shoulder_name: String="left_upper" if joint.child==HAND_L else "right_upper"
+			var shoulder_value: float=_in_range(flex(shoulder_name),-1.2)
+			strained=strained or shoulder_value>2.65 or shoulder_value<-.90
 		_project_angle115(joint,0.0,limit_keep if strained else keep)
+		if (joint.kind=="shoulder" or joint.kind=="elbow") and not contacts.is_empty():
+			# Bounded passive arm friction removes low-speed tail swing.
+			# It opposes only existing relative velocity; never sets a pose.
+			_project_angle115(joint,0.0,0.0,4500.0*h)
 	var impulse: float =-(omega-pelvis_omega)*(1.0-keep)/(1.0/inertia+1.0/pelvis_inertia)
 	omega+=impulse/inertia
 	pelvis_omega-=impulse/pelvis_inertia
@@ -1140,7 +1207,9 @@ func step(dt: float, support: Dictionary = {}) -> void:
 		theta += omega*h
 		pelvis_x+=pelvis_v*h
 		pelvis_theta+=pelvis_omega*h
-		shield_omega115+=shield_mass115*GRAVITY*shield_centre115.rotated(shield_theta115).x/shield_inertia115*h
+		# Use the same rolled/foreshortened mass lever as the contact skin.
+		if extensions.has("shield"):
+			shield_omega115+=shield_mass115*GRAVITY*(_extension_point(extensions.shield,false,shield_centre115)-p[HAND_L]).x/shield_inertia115*h
 		shield_theta115+=shield_omega115*h
 		for i in range(COUNT):
 			prev[i] = p[i]

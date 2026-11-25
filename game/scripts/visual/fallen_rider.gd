@@ -526,23 +526,19 @@ func advance_measured099(delta: float) -> void:
 			_landing_response()
 		if body.core_contact: trunk_supported113 = true
 		# Rest is judged by what is SEEN: the drawn joints and the trunk have
-		# moved less than a pixel and a half over the last .3 s. A solver's
+		# moved no more than SETTLE_TRAVEL114 over the last .3 s. A solver's
 		# sub-pixel contact jitter reads as speed but is not visible motion.
 		if int(round(age/dt))%12==0:
-			var sample = display114.duplicate()
-			sample.append(position)
-			sample.append(Vector2(rotation*60.0,0))
+			# Foot and shield rotation can move the visible skin while all mass
+			# points stay still. Sleep must include those independent freedoms.
+			var sample = settle_pose115()
 			settle_samples114.append(sample)
 			if settle_samples114.size()>4: settle_samples114.pop_front()
 			# A body resting on an arm or shield (trunk just off the floor) may
 			# also finish once the late damping has stilled it.
 			var still = settle_samples114.size()==4 and grounded and (trunk_supported113 or ground_age>3.2) and ground_age>.5
 			if still:
-				var first: PackedVector2Array = settle_samples114[0]
-				for i in range(sample.size()):
-					if first[i].distance_to(sample[i])>SETTLE_TRAVEL114:
-						still = false
-						break
+				still = samples_still115(settle_samples114)
 				if still and _unsupported_leg115():still=false
 			quiet114 = 1.0 if still else 0.0
 		# Time is not a physical rest condition. A seven-second hard freeze
@@ -560,6 +556,23 @@ func advance_measured099(delta: float) -> void:
 	if shared115:_apply_shared_render115()
 	visual.queue_redraw()
 	far_leg.queue_redraw()
+
+func settle_pose115() -> PackedVector2Array:
+	var sample=PackedVector2Array()
+	# Keep game coordinates, independent of parent/camera QA zoom.
+	for point in body_points():sample.append(position+point.rotated(rotation))
+	return sample
+
+static func samples_still115(samples: Array) -> bool:
+	if samples.size()<4:return false
+	# Returning to the same angle is not rest. Check the entire window so
+	# a shield's pendulum motion cannot cancel between its two endpoints.
+	for a in range(samples.size()):
+		for b in range(a+1,samples.size()):
+			if samples[a].size()!=samples[b].size():return false
+			for index in range(samples[a].size()):
+				if samples[a][index].distance_to(samples[b][index])>SETTLE_TRAVEL114:return false
+	return true
 
 func _unsupported_leg115() -> bool:
 	# Stillness alone cannot approve a leg left suspended above the hip. A
@@ -659,6 +672,8 @@ func _apply_shared_render115() -> void:
 	pose_points099=PackedVector2Array()
 	support_hull099=PackedVector2Array()
 
+var boot_points_start115 = 0
+
 func body_points() -> PackedVector2Array:
 	if not pose_points099.is_empty(): return pose_points099
 	var points = PackedVector2Array()
@@ -686,7 +701,10 @@ func body_points() -> PackedVector2Array:
 			var radius = 8.0
 			for offset in [Vector2(radius,0),Vector2(-radius,0),Vector2(0,radius),Vector2(0,-radius)]:
 				points.append(point+offset)
-		for point in Rider.boot_outline113(visual.detached_legs[side]):
+	# Exact visible boot triangles need no extra clothing/disc padding.
+	boot_points_start115=points.size()
+	for side in ["near","far"]:
+		for point in Rider.Rig115.boot_skin_outline115(visual.detached_legs[side]):
 			points.append(point*mirror)
 	pose_points099=points
 	return points
@@ -753,9 +771,10 @@ func _release_lance() -> void:
 
 func lowest_body_point() -> float:
 	var lowest = -INF
-	for point in body_points():
-		lowest = maxf(lowest,point.rotated(rotation).y)
-	return lowest+5.0
+	var points=body_points()
+	for index in range(points.size()):
+		lowest=maxf(lowest,points[index].rotated(rotation).y+(5.0 if index<boot_points_start115 else 0.0))
+	return lowest
 
 func world_body_rect() -> Rect2:
 	var points = body_points()

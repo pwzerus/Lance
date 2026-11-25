@@ -1,6 +1,13 @@
 extends "test_boot113.gd"
 ## Independently read opaque atlas edges, including the nonlinear ankle band.
 ## A deformed convex-hull vertex set alone can miss an edge's curved extremum.
+func make_actor(stage: Node2D, zone: String, facing: int, blood: bool, broken: bool):
+	var actor=super.make_actor(stage,zone,facing,blood,broken)
+	for arg in OS.get_cmdline_user_args():
+		if arg.begins_with("--solver="):
+			actor.body=load("res://tests/test_solver_pair115.gd").clone_body115(actor.body,load(arg.trim_prefix("--solver=")))
+	return actor
+
 func visible_boot_hull113() -> PackedVector2Array:
 	var corners=super.visible_boot_hull113()
 	var result=PackedVector2Array()

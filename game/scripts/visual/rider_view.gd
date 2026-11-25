@@ -605,8 +605,8 @@ func _draw_boot115(pose: Dictionary, tint: Color) -> void:
 	# polygon triangulator to rediscover its topology dropped entire strips.
 	# Explicit triangles keep the connected cloth/boot skin across that fold.
 	if boot_vertices115.is_empty():
-		var rows=[736.0,835.0,847.0,860.0,875.0,933.0]
-		var columns=[744.0,784.0,823.0,852.0,892.0]
+		var rows=Rig115.BOOT_ROWS115
+		var columns=Rig115.BOOT_COLUMNS115
 		for y in rows:
 			for x in columns:
 				boot_vertices115.append(Vector2(x,y));boot_uv115.append(Vector2(x,y)/ATLAS.get_size())

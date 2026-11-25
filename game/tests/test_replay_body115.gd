@@ -3,7 +3,9 @@ extends "test_body114.gd"
 func run() -> void:
 	var input=""
 	var folder=""
+	var solver=""
 	for arg in OS.get_cmdline_user_args():
+		if arg.begins_with("--solver="):solver=arg.trim_prefix("--solver=")
 		if arg.begins_with("--input="):input=arg.trim_prefix("--input=")
 		if arg.begins_with("--report="):report_path=arg.trim_prefix("--report=")
 		if arg.begins_with("--folder="):folder=arg.trim_prefix("--folder=")
@@ -15,6 +17,7 @@ func run() -> void:
 	for key in saved.body:
 		if key not in ["fast_joints115","fast_bones115","posterior_pairs115"]:body.set(key,saved.body[key])
 	body.compile_joints115()
+	if not solver.is_empty():body=load("res://tests/test_solver_pair115.gd").clone_body115(body,load(solver))
 	if not saved.body.has("shield_theta115"):
 		body.shield_theta115=(body.p[Body.HAND_L]-body.p[Body.ELBOW_L]).angle()-float(body.extensions.shield.angle0)
 		body.shield_previous115=body.shield_theta115
@@ -40,7 +43,8 @@ func run() -> void:
 			root.get_texture().get_image().save_png(folder+"/t%03d.png" % tick)
 		if tick%30==0:rows.append({"t":actor.age,"shape":final_shape(actor),"settled":actor.settled,
 			"theta":body.theta,"pelvis_theta":body.pelvis_theta,"spine":body.spine_flex(),"tone":body.tone,"rest":body.rest,
-			"hip":[body.flex("near_hip"),body.flex("far_hip")],"knee":[body.flex("near_knee"),body.flex("far_knee")],"contacts":body.contacts.keys(),"lift":actor.surface_correction115})
+			"hip":[body.flex("near_hip"),body.flex("far_hip")],"knee":[body.flex("near_knee"),body.flex("far_knee")],"contacts":body.contacts.keys(),"lift":actor.surface_correction115,
+			"exact_boot_gaps":[skin_gap115(body,"boot_n"),skin_gap115(body,"boot_f")]})
 		# Diagnostic only: observe whether the underlying contacts can relax the
 		# bad pose beyond the former visual rest detector's premature freeze.
 		actor.settled=false
@@ -48,3 +52,13 @@ func run() -> void:
 	FileAccess.open(report_path,FileAccess.WRITE).store_string(JSON.stringify({"rows":rows},"\t"))
 	actor.free()
 	quit(0)
+
+func skin_gap115(body,key:String) -> float:
+	var data:Dictionary=body.extensions[key]
+	var vertices=PackedVector2Array()
+	for source in data.skin_offsets115:vertices.append(body._extension_point(data,false,source))
+	var lowest=-INF
+	for sample in data.skin_samples115:
+		var ids:Vector3i=sample[0];var w:Vector3=sample[1]
+		lowest=maxf(lowest,(vertices[ids.x]*w.x+vertices[ids.y]*w.y+vertices[ids.z]*w.z).y)
+	return body.ground-lowest

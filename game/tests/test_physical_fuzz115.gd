@@ -67,7 +67,7 @@ func run() -> void:
 				if tick%30==0:
 					var values={}
 					for name in ["near_hip","far_hip","near_knee","far_knee","left_upper","right_upper","left_elbow","right_elbow"]:values[name]=actor.body.flex(name)
-					trace.append({"age":actor.age,"angle":actor.rotation,"gap":actor.support_gap(),"flex":values,"chest_contact":actor.body.chest_contact115,"pelvis_contact":actor.body.pelvis_contact115,"rest":actor.body.rest,"points":Array(actor.body.p),"velocities":Array(actor.body.vel),"contacts":actor.body.contacts.keys()})
+					trace.append({"age":actor.age,"angle":actor.rotation,"spine":actor.body.spine_flex(),"pelvis_angle":actor.body.pelvis_theta,"gap":actor.support_gap(),"flex":values,"chest_contact":actor.body.chest_contact115,"pelvis_contact":actor.body.pelvis_contact115,"rest":actor.body.rest,"points":Array(actor.body.p),"velocities":Array(actor.body.vel),"contacts":actor.body.contacts.keys()})
 				for bone in actor.body.bones:bone_error=maxf(bone_error,absf(actor.body.end_position(bone[0]).distance_to(actor.body.p[bone[1]])-float(bone[2])))
 				if actor.settled:
 					settled_at=actor.age;gap=actor.support_gap();break

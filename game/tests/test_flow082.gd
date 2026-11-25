@@ -144,7 +144,10 @@ func run() -> void:
 	check(battle.tactics_label.text.contains("下轮换新枪"),"Early arena pass hides the replacement reminder")
 	state.profile.settings.aim_cues=false
 	battle._update_hud()
-	check(battle.aim_label.is_visible_in_tree() and battle.aim_label.text.contains("下轮换新枪"),"Disabling aim assistance must not hide weapon failure")
+	# DEV-113 compact HUD keeps the essential state, while omitting its long
+	# explanation when assistance is disabled. The replacement rule remains
+	# separately checked above and at the final-pass boundary below.
+	check(battle.aim_label.is_visible_in_tree() and battle.aim_label.text.contains("枪已断"),"Disabling aim assistance must not hide weapon failure")
 	state.profile.settings.aim_cues=true
 	model.pass_number=model.MAX_PASSES
 	battle._update_hud()

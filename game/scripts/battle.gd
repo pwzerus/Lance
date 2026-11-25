@@ -783,6 +783,8 @@ func _process_measured099(delta: float) -> void:
 		elif not paused:
 			var offset = _contact_camera_offset()
 			camera.offset = _safe_camera_offset(offset)
+		camera.force_update_scroll()
+		_update_scenery115()
 	if match_model and match_model.phase == "ended" and world:
 		_update_views()
 	_update_hud()
@@ -918,9 +920,23 @@ func _update_camera(real_delta: float, now: int) -> void:
 		var player_screen_x = lerpf(720.0-Model.START_X*.28,270.0,settle)
 		camera.position.x = 720+a+(720-player_screen_x)/camera.zoom.x
 	camera.force_update_scroll()
-	# Distant scenery moves less than the near track; it is not tied to a
-	# fabricated speed timer. Keep overscan so no image edge becomes visible.
-	backdrop.position.x = -80-clampf((camera.position.x-720)*.025,-60,60)
+
+func _update_scenery115() -> void:
+	# The painted ground starts at 59% of both existing backgrounds. A
+	# camera closeup moved the far lane above that fixed screen-space edge,
+	# making a physically grounded rider appear to hover against the stand.
+	# Anchor the scenery to the projected lane floor, preserving its aspect
+	# ratio and overscan. No rider, contact plane or shadow is repositioned.
+	if not is_instance_valid(backdrop) or not is_instance_valid(world):return
+	var viewport:Vector2=get_viewport_rect().size
+	var far_floor_y:float=(world.get_global_transform_with_canvas()*Vector2(0,-20)).y
+	var aspect:float=backdrop.texture.get_size().aspect() if backdrop.texture else 1600.0/900.0
+	var height=maxf(900.0,maxf(viewport.y+90.0,(viewport.x+160.0)/aspect))
+	var ground_line=minf(-45.0+height*.59,far_floor_y-28.0)
+	height=maxf(height,(viewport.y+45.0-ground_line)/.41)
+	var width=height*aspect
+	backdrop.size=Vector2(width,height)
+	backdrop.position=Vector2((viewport.x-width)*.5-clampf((camera.position.x-720)*.025,-60,60),ground_line-height*.59)
 
 func _mounted_vertical_bounds() -> Vector2:
 	var top = INF

@@ -11,15 +11,47 @@ func run_battle() -> void:
 	main=load("res://scenes/main.tscn").instantiate();root.add_child(main);main.set_process(false)
 	report.battle=[]
 	for fixture in [
-		{"name":"mounted_right","defender":0,"mode":"arena","hp":1.0,"offset":0.0},
-		{"name":"mounted_left","defender":1,"mode":"arena","hp":1.0,"offset":0.0},
-		{"name":"aware_loss","defender":0,"mode":"arena","hp":90.0,"awareness":1.0,"offset":0.0},
-		{"name":"aware_loss_war","defender":0,"mode":"war","hp":90.0,"awareness":1.0,"offset":0.0},
-		{"name":"late_slip_right","defender":0,"mode":"arena","hp":1.0,"offset":22.8},
-		{"name":"late_slip_left","defender":1,"mode":"arena","hp":1.0,"offset":-22.8},
-		{"name":"war_mounted","defender":1,"mode":"war","hp":1.0,"offset":0.0}]:
+		{"name":"mounted_right","defender":0,"mode":"arena","hp":.1,"offset":0.0},
+		{"name":"mounted_left","defender":1,"mode":"arena","hp":.1,"offset":0.0},
+		{"name":"aware_loss","defender":0,"mode":"arena","hp":90.0,"awareness":.1,"offset":0.0},
+		{"name":"aware_loss_war","defender":0,"mode":"war","hp":90.0,"awareness":.1,"offset":0.0},
+		{"name":"late_slip_right","defender":0,"mode":"arena","hp":.1,"offset":44.0},
+		{"name":"late_slip_left","defender":1,"mode":"arena","hp":.1,"offset":-44.0},
+		{"name":"war_mounted","defender":1,"mode":"war","hp":.1,"offset":0.0}]:
 		await incapacity_case(fixture)
-	main._close_battle();main.queue_free();await process_frame;await process_frame
+	await close_main113()
+
+func close_main113() -> void:
+	main.set_meta("qa_shutdown_started",true)
+	if main.sounds:main.sounds.set_enabled(false);main.sounds.stop_all()
+	main._close_battle()
+	var until=Time.get_ticks_msec()+150
+	while Time.get_ticks_msec()<until:await process_frame
+	main.queue_free();await process_frame;await process_frame
+
+func prepare_physical113(model) -> void:
+	# A fixture changes starting speed/position after Battle has prepared.
+	# Rebuild its initial conditions once, then warm the same actual body.
+	model.bodies115=[null,null]
+	for index in range(2):
+		var f:Dictionary=model.fighters[index]
+		f.erase("_body_pose115")
+		f.x-=float(f.speed)*int(f.direction)
+		model._ensure_body115(index)
+	for tick in range(120):
+		for index in range(2):
+			var f:Dictionary=model.fighters[index]
+			f.x+=float(f.speed)*int(f.direction)/120.0
+			f.gait_phase+=TAU*Model.Gait.frequency(float(f.speed))/120.0
+			model._advance_body115(index,1.0/120.0)
+
+func offset_physical113(model,index: int,offset: float) -> void:
+	if offset==0.0:return
+	var body=model.bodies115[index].body
+	body.translate(Vector2(offset,0))
+	var impulse_velocity=Vector2(signf(offset)*24.0,0)
+	body.v+=impulse_velocity;body.pelvis_v+=impulse_velocity
+	for part in range(body.COUNT):body.vel[part]=body.vel[part]+impulse_velocity
 
 func incapacity_case(c: Dictionary) -> void:
 	main._start_match(str(c.mode),true)
@@ -33,16 +65,19 @@ func incapacity_case(c: Dictionary) -> void:
 		var f=model.fighters[index]
 		f.x=-150.0 if index==0 else 150.0
 		f.speed=240.0;f.boost=false;f.gait_moving=true;f.gait_phase=.7+index
-		f.aim=0.0;f.lance_stability=1.0;f.acted=true;f.lean=0.0
+		f.aim=0.0;f.lance_stability=1.0;f.acted=true;f.lean=.8
+	prepare_physical113(model)
 	var target:Dictionary=model.fighters[int(c.defender)]
 	target.hp=float(c.hp);target.consciousness=float(c.get("awareness",100.0))
-	var contact={"type":"hit","zone":"head","attacker":1-int(c.defender),"defender":int(c.defender),"speed":480.0,
+	# A tiny grazing touch isolates incapacitation. Full-speed grazing blows
+	# now have genuine physical momentum and are allowed to remove support.
+	var contact={"type":"hit","zone":"head","attacker":1-int(c.defender),"defender":int(c.defender),"speed":60.0,
 		"head_incidence":.4,"position":Model.head_position(target),"combat_elevation":0.0,"shaft_alignment":1.0}
 	model._apply_contact(contact)
 	check(target.ko and not target.unseated,"Incapacity initially stays mounted: "+str(c.name))
 	if c.has("awareness"):
 		check(target.hp>0.0 and target.unconscious and target.consciousness<=0.0 and not target.dead,"Loss of consciousness ends combat with life remaining: "+str(c.name))
-	target.seat_offset=float(c.offset);target.seat_velocity=signf(float(c.offset))*24.0
+	offset_physical113(model,int(c.defender),float(c.offset))
 	model._finish("terminal")
 	b._consume_events(model.drain_events());b._update_views()
 	# Use the actual engine physics loop after terminal contact. Advancing

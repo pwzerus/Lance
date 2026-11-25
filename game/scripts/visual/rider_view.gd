@@ -291,6 +291,8 @@ func _draw() -> void:
 	var trace_started=Trace099.begin()
 	_draw_measured099()
 	Trace099.measure("rider_draw",trace_started)
+	if Trace099.enabled:
+		Trace099.measure("draw_lance115" if lance_only else ("draw_fallen_far115" if detached_far_only else "draw_fallen_main115") if not detached_pose.is_empty() else "draw_mounted115",trace_started)
 
 func _draw_measured099() -> void:
 	# A redraw queued just before minimization must also be discarded.
@@ -392,8 +394,12 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 	var appearance: Dictionary = fighter.stats.get("appearance",Face.Appearance.variant(hash(str(fighter.stats.get("armor_color",""))+str(fighter.stats.get("shield_color","")))))
 	draw_set_transform_matrix(torso_transform)
 	_draw_pose_neck(pose,head_fit,appearance,facing)
+	var draw_torso115=Trace099.begin()
 	_draw_impact_torso()
+	Trace099.measure("draw_torso115",draw_torso115)
+	var draw_armor115=Trace099.begin()
 	_draw_armor_detail()
+	Trace099.measure("draw_armor115",draw_armor115)
 	_draw_anatomical_arm(near_side,near_arm,Color.WHITE,true,true)
 	# Shoulder caps overlap the rotating upper sleeves, closing the socket.
 	_draw_shoulder_seal(right_arm,Color.WHITE if facing==1 else Color(.76,.79,.82))
@@ -409,7 +415,9 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 		_draw_lance(hand_local,Model.lance_angle(fighter),Model.lance_length(fighter),bool(fighter.broken),Lance.Layer.REAR)
 	draw_set_transform_matrix(torso_transform)
 	_draw_pose_neck(pose,head_fit,appearance,facing)
+	var draw_collar115=Trace099.begin()
 	HeadFit.draw_collar_lip(self,head_fit,torso_texture,_torso_surface_point)
+	Trace099.measure("draw_collar115",draw_collar115)
 	draw_set_transform_matrix(head_draw_transform)
 	var helmet_art = Art.descriptor(fighter.stats,"helmet")
 	var head_box: Rect2 = head_fit.helmet
@@ -425,7 +433,9 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 		if fighter.stats.has("helmet_color"):
 			draw_line(Vector2(-20,-109),Vector2(20,-109),Color(str(fighter.stats.helmet_color)),3)
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
+	var draw_leg115=Trace099.begin()
 	_draw_seated_leg(seated.near,Color.WHITE,true)
+	Trace099.measure("draw_leg115",draw_leg115)
 	if detached_lance_visible:
 		_draw_lance(hand_local,Model.lance_angle(fighter),Model.lance_length(fighter),bool(fighter.broken),Lance.Layer.FRONT)
 	draw_set_transform_matrix(torso_transform)
@@ -442,7 +452,9 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 	var shield_transform = shield_pose_transform(pose,fighter)
 	shield_transform.origin -= origin
 	draw_set_transform_matrix(shield_transform)
+	var draw_shield115=Trace099.begin()
 	_draw_shield(Vector2.ZERO,design)
+	Trace099.measure("draw_shield115",draw_shield115)
 	draw_set_transform_matrix(torso_transform)
 	for wound in fighter.get("wounds",[]):
 		var mark = Vector2(-18,-125) if wound.zone=="head" else Vector2(-25,-50)

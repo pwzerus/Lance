@@ -316,11 +316,10 @@ func _make_body(lift: float) -> void:
 	# still carries the legs through their initial velocity above.
 	body = Body.new()
 	body.build(data)
-	# Back/side landing target, smaller for a flank blow than for chest/helm.
-	body.guide_angle = direction*PI*(.40 if zone=="flank" else .47)-float(initial_pose.torso_transform.get_rotation())
-	# A rider sliding off with lost balance is steered the same way: at .6 he
-	# ended sitting upright in the splits (phys114-edge01/02).
-	body.guide_strength = 1.0
+	# Compatibility captures obey the same passive contacts as shared bodies.
+	# A late world-angle guide was keeping some folded bodies upright on their
+	# boots/shield instead of letting them collapse under their own weight.
+	body.guide_strength = 0.0
 	display114 = body.display_points()
 
 func _muscles() -> void:
@@ -486,20 +485,27 @@ func advance_measured099(delta: float) -> void:
 		var lying = absf(wrapf(rotation+float(initial_pose.torso_transform.get_rotation()),-PI,PI))
 		var flat = smoothstep(.75,1.10,lying)*(1.0-smoothstep(2.05,2.40,lying))
 		resting114 = minf(resting114+dt,2.0) if body.torso_contact and flat>0.0 else maxf(0.0,resting114-2.0*dt)
-		# Three seconds after landing every remaining sway is damped whatever the
-		# pose, so a slow creep cannot outlast the fall presentation.
-		var late = smoothstep(2.6,3.2,ground_age)
+		# Dissipation needs trunk contact. A time-only whole-body damper was
+		# slowing an unsupported chest in mid-collapse merely because a boot
+		# touched down earlier, extending awkward squats for several seconds.
+		var late = smoothstep(2.6,3.2,ground_age) if resting114>0.0 else 0.0
 		body.rest = maxf(smoothstep(.15,.8,resting114)*flat,late)
-		body.rest_all = resting114>1.2 or late>0.0
+		body.rest_all = resting114>1.2
 		if shared115:_deliver_pending115(dt)
+		var solve_started115=Trace099.begin()
 		body.step(dt)
+		Trace099.measure("fall_solve115",solve_started115)
+		var pose_started115=Trace099.begin()
 		_sync_from_body()
 		display114 = body.display_points()
 		_sync_joints(dt)
 		_update_pose()
+		Trace099.measure("fall_pose115",pose_started115)
 		# A small positional correction keeps the DRAWN silhouette (boot art,
 		# shield rim, helmet box) on the floor; velocities are untouched.
+		var ground_started115=Trace099.begin()
 		var overlap = position.y+lowest_body_point()-ground_y
+		Trace099.measure("fall_hull115",ground_started115)
 		if overlap>0.0:
 			surface_correction115=maxf(surface_correction115,overlap)
 			position.y -= overlap

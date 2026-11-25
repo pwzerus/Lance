@@ -5,6 +5,7 @@ static var rows: Array = []
 static var hot_frame = -1
 static var hot: Dictionary = {}
 static var interval_hot: Dictionary = {}
+static var interval_calls115: Dictionary = {}
 static func begin() -> int:
 	return Time.get_ticks_usec() if enabled else 0
 static func end(label: String, started: int) -> void:
@@ -19,6 +20,12 @@ static func measure(label: String, started: int) -> void:
 	var elapsed=(Time.get_ticks_usec()-started)/1000.0
 	hot[label]=float(hot.get(label,0))+elapsed
 	interval_hot[label]=float(interval_hot.get(label,0))+elapsed
+	interval_calls115[label]=int(interval_calls115.get(label,0))+1
+
+static func take_call_counts115() -> Dictionary:
+	var result=interval_calls115
+	interval_calls115={}
+	return result
 
 static func take_interval() -> Dictionary:
 	# Sample at consecutive SceneTree.process_frame boundaries. Physics may

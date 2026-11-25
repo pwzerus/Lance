@@ -1,0 +1,69 @@
+{
+  "status": "in_progress_not_released",
+  "base": "bb3c61cc238d9198e4c76bd43a169094c70dbadd",
+  "evidence": [
+    {
+      "path": "docs/development/logs/phys115-terminal92/report.json",
+      "sha256": "4e056e3a8530925c089f161f0dc0f78c3707a667b1415da2b7d2f62564c15950",
+      "passed": true,
+      "failures": [],
+      "cases": 0
+    },
+    {
+      "path": "docs/development/logs/phys115-incapacity79/report.json",
+      "sha256": "bdb13d8429f800d86059205e56e4e5cce71e199f9d16226515bf8a9936cc68f9",
+      "passed": true,
+      "failures": [],
+      "cases": 0
+    },
+    {
+      "path": "docs/development/logs/phys115-rules88/report.json",
+      "sha256": "5d2d7ad32cabbcf6abfdfa11d50009f0029756fff0784fbbbd607feacabffecd",
+      "passed": true,
+      "failures": [],
+      "cases": 32
+    },
+    {
+      "path": "docs/development/logs/phys115-contact90/frames/report.json",
+      "sha256": "499276a9ce1a5f245522f5c1f5f5ab42cbe445031d8d2af5dff0e454ed46ed28",
+      "passed": true,
+      "failures": [],
+      "cases": 0
+    },
+    {
+      "path": "docs/development/logs/phys115-ground93/test_fall098/report.json",
+      "sha256": "2da7a984ad627e7cb4108a33c5f71379689f9741646c9ee0d7a5b404989d2f4a",
+      "passed": false,
+      "failures": [
+        "Four-second rest: [0.85, \"flank\", -1, -1.0, 0.0]",
+        "Four-second rest: [1.18, \"body\", 1, -1.0, 0.0]",
+        "Four-second rest: [1.18, \"flank\", -1, -1.0, 0.0]"
+      ],
+      "cases": 72
+    },
+    {
+      "path": "docs/development/logs/phys115-ground93/test_fall_fuzz105/report.json",
+      "sha256": "d85f003695db7d3015c51ca3afc4d99237ef52d1b86e5be3fea229faff082a5b",
+      "passed": false,
+      "failures": [
+        "Four-second synthetic pose rest: 50",
+        "Four-second synthetic pose rest: 59"
+      ],
+      "cases": 128
+    },
+    {
+      "path": "docs/development/logs/phys115-pair89/report.json",
+      "sha256": "7f2dabc5ec55e6205d704040b676aa50f2e570781c62f51cef336c13b01eabdc",
+      "passed": true,
+      "failures": [],
+      "cases": 6
+    }
+  ],
+  "known_issues": [
+    "Five of 200 legacy synthetic falls exceed four-second rest target.",
+    "Ground-body performance improved but stable 60 FPS is unproven.",
+    "Full current package export and player playtest not performed.",
+    "condition113 arbitrary seven-second cadence gate remains under review."
+  ],
+  "validation": "Background headless and isolated GPU only; all guardian protections on; no OS input."
+}

@@ -214,6 +214,12 @@ static func capture_data(value: Dictionary, pose: Dictionary, legs: Dictionary, 
 	var head_corners=PackedVector2Array()
 	for point in [helmet.position,Vector2(helmet.end.x,helmet.position.y),helmet.end,Vector2(helmet.position.x,helmet.end.y)]:
 		head_corners.append(head_frame*point)
+	# Open helmets do not cover the jaw. The same visible lower face must
+	# contact the horse/ground instead of letting the chin pass through it.
+	if bool(fit.open):
+		var face:Rect2=fit.face
+		var jaw_y=minf(face.end.y,Rect2(fit.face_clip).end.y)
+		for fraction in [.30,.50,.70]:head_corners.append(head_frame*Vector2(lerpf(face.position.x,face.end.x,fraction),jaw_y))
 	var boots={}
 	for side in ["near","far"]:
 		var outline=PackedVector2Array()

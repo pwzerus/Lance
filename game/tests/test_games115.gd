@@ -6,12 +6,25 @@ func configure_game(index: int, battle) -> void:
 	battle.match_model.rng.seed=115000+index
 	battle.ai_rng.seed=115431+index
 
+func inspect_game(_index: int, battle, row: Dictionary) -> void:
+	row.exchange=battle.exchange_log.duplicate(true)
+	row.final_states=[]
+	for fighter in battle.match_model.fighters:
+		var value={}
+		for key in ["hp","ko","unseated","unconscious","dead","score","seat_offset","seat_exit_reason","speed","stamina"]:value[key]=fighter[key]
+		row.final_states.append(value)
+	if str(row.result.get("reason",""))=="terminal":
+		var out_a=bool(row.final_states[0].ko) or bool(row.final_states[0].dead)
+		var out_b=bool(row.final_states[1].ko) or bool(row.final_states[1].dead)
+		var expected=(1 if out_a else 0) if out_a!=out_b else -1
+		if int(row.result.get("winner",-2))!=expected:failures.append("Terminal result disagrees with final physical states: game %d" % _index)
+
 func fall_shape(actor) -> Dictionary:
 	var result=super.fall_shape(actor)
 	var body=actor.body
 	var values={}
 	for property in body.get_property_list():
-		if int(property.usage)&PROPERTY_USAGE_SCRIPT_VARIABLE:
+		if int(property.usage)&PROPERTY_USAGE_SCRIPT_VARIABLE and property.name not in ["fast_joints115","fast_bones115","posterior_pairs115"]:
 			var value=body.get(property.name)
 			if typeof(value)!=TYPE_OBJECT:values[property.name]=value
 	var state={"body":values,"fighter":actor.fighter,"captured":actor.capture115,"snapshot":actor.render_current115,

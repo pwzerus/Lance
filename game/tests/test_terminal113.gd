@@ -34,7 +34,7 @@ func run_battle() -> void:
 	report.battle=[]
 	for kind in ["both_unconscious","mixed","recover","small_corrections","rapid_full","deep_flail"]:
 		await combination(kind)
-	main._close_battle();main.queue_free();await process_frame;await process_frame
+	await close_main113()
 
 func combination(kind: String) -> void:
 	main._start_match("arena",true)
@@ -54,19 +54,22 @@ func combination(kind: String) -> void:
 	var p:Dictionary=m.fighters[0]
 	var paired=kind in ["both_unconscious","mixed"]
 	if paired:
+		for f in m.fighters:f.lean=.8
+		prepare_physical113(m)
 		for index in range(2):
-			var f=m.fighters[index];f.x=-140.0 if index==0 else 140.0;f.hp=1.0
-			var e={"type":"hit","zone":"head","attacker":1-index,"defender":index,"speed":480.0,
+			var f=m.fighters[index];f.hp=.1
+			var e={"type":"hit","zone":"head","attacker":1-index,"defender":index,"speed":60.0,
 				"head_incidence":.4,"position":Model.head_position(f),"combat_elevation":0.0,"shaft_alignment":1.0}
 			m._apply_contact(e)
 			check(f.unconscious and not f.unseated,"Paired weak contact incapacitates without launch")
 		if kind=="mixed":
-			p.seat_offset=22.8;p.seat_velocity=24.0
+			offset_physical113(m,0,44.0)
 		m._finish("terminal")
 		b._consume_events(m.drain_events())
 	else:
 		# Starts at a full charge to isolate repeated steering. Stamina and
 		# arm strength then use normal drain/recovery; neither is replenished.
+		prepare_physical113(m)
 		b.mouse_held=true
 	control113={"battle":b,"player":p,"kind":kind,"paired":paired,"peak":0.0,"support":1.0,"stamina":100.0}
 	physics_frame.connect(input_tick113)
@@ -82,7 +85,7 @@ func combination(kind: String) -> void:
 		# would reverse before the rider can actually reach the target lean.
 		var control_time=float(p.pose_clock113)
 		await process_frame
-		samples.append({"seconds":elapsed,"simulation_seconds":control_time,"offset":p.seat_offset,"support":p.seat_support,"stamina":p.stamina,"speed":p.speed,"lean":p.lean,"unsteady":p.unsteady,"strain":p.seat_strain,"ko":p.ko,"bodies":b.effects.bodies.size(),"phase":m.phase})
+		samples.append({"seconds":elapsed,"simulation_seconds":control_time,"offset":p.seat_offset,"support":p.seat_support,"stamina":p.stamina,"speed":p.speed,"lean":p.lean,"unsteady":p.unsteady,"strain":p.seat_strain,"unseated":p.unseated,"ko":p.ko,"bodies":b.effects.bodies.size(),"phase":m.phase})
 		if capture_dir!="none" and next_capture<moments.size() and elapsed*1000>=moments[next_capture]:
 			await RenderingServer.frame_post_draw
 			frames.append(save_frame(kind+"_"+str(moments[next_capture])));next_capture+=1
@@ -104,12 +107,23 @@ func combination(kind: String) -> void:
 		check(min_support<.35,"Repeated full-weight swings visibly threaten saddle support")
 		check(b.effects.bodies.size()==(1 if p.unseated else 0),"Body creation follows actual loss of support")
 	else:
-		check(p.unseated and not p.unconscious and not p.dead,"Normal fatigue permits conscious loss of seat from sustained violent controls")
-		check(float(p.hp)==100.0,"Self-unseating causes no invented weapon wound")
-		check(b.effects.bodies.size()==1 and b.is_finished,"Self-unseating gets a visible body and result")
-		check(b.exchange_log.filter(func(e):return e.type=="unseat").size()==1,"Self-unseating is logged once")
-		var advice=load("res://scripts/ui/combat_report.gd").next_action(b.exchange_log,true,m.result)
-		check(advice.contains("回正") and not advice.contains("受击"),"Self-unseating advice does not invent an incoming hit")
+		# A rapid request can reverse before a finite-speed joint reaches it;
+		# exhaustion also slows the horse. Unlike the replaced seat spring,
+		# physical support need not fail on every arbitrary input frequency.
+		# Retain evidence of strain, no fabricated wounds, and validate actual
+		# support-loss events for whichever rider really fell.
+		check(min_support<.85,"Sustained rapid controls visibly reduce physical support")
+		check(not p.unconscious and not p.dead and float(p.hp)==100.0,"Unstruck motion does not invent injury or loss of consciousness")
+		for index in range(2):
+			var f:Dictionary=m.fighters[index]
+			var exits=b.exchange_log.filter(func(e):return e.type=="unseat" and int(e.defender)==index)
+			check(exits.size()==(1 if f.unseated else 0),"One event per actual physical support loss")
+			if f.unseated:
+				check(exits[0].ko_reason=="seat" and int(exits[0].attacker)==-1,"Self-unseating has no invented incoming strike")
+				check(float(f.seat_support)==0.0,"Detached rider has no remaining saddle support")
+		if p.unseated:
+			var advice=load("res://scripts/ui/combat_report.gd").next_action(b.exchange_log,true,m.result)
+			check(advice.contains("回正") and not advice.contains("受击"),"Self-unseating advice does not invent an incoming hit")
 	if b.is_finished:
 		check(is_equal_approx(Engine.time_scale,1.0),"Terminal combination releases the time scale")
 		main.show_result();await process_frame;await RenderingServer.frame_post_draw

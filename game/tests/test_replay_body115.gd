@@ -12,7 +12,9 @@ func run() -> void:
 	if not folder.is_empty():DirAccess.make_dir_recursive_absolute(folder)
 	var saved:Dictionary=FileAccess.open(input,FileAccess.READ).get_var()
 	var body=Body.new()
-	for key in saved.body:body.set(key,saved.body[key])
+	for key in saved.body:
+		if key not in ["fast_joints115","fast_bones115","posterior_pairs115"]:body.set(key,saved.body[key])
+	body.compile_joints115()
 	if not saved.body.has("shield_theta115"):
 		body.shield_theta115=(body.p[Body.HAND_L]-body.p[Body.ELBOW_L]).angle()-float(body.extensions.shield.angle0)
 		body.shield_previous115=body.shield_theta115

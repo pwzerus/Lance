@@ -46,6 +46,9 @@ func fall_shape(actor) -> Dictionary:
 func configure_game(_index: int, _battle) -> void:
 	pass
 
+func inspect_game(_index: int, _battle, _row: Dictionary) -> void:
+	pass
+
 func play(index: int) -> void:
 	var mode = "arena" if index%2==0 else "war"
 	var state = root.get_node("GameState")
@@ -104,6 +107,7 @@ func play(index: int) -> void:
 	await capture("g%02d_end" % index)
 	row.wall_seconds = (Time.get_ticks_msec()-started)/1000.0
 	row.pass_number = battle.match_model.pass_number if is_instance_valid(battle) else -1
+	inspect_game(index,battle,row)
 	for fall in row.falls:
 		if not fall.rest_shot: failures.append("Game %d fall without a resting capture" % index)
 	games.append(row)

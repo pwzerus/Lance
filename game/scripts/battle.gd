@@ -710,7 +710,9 @@ func _handle_event(event: Dictionary) -> void:
 			sound.play("horn",-10)
 		"end":
 			terminal_at = Time.get_ticks_msec()
-			finished.emit(event.result)
+			# This begins the terminal presentation, not the financial settlement.
+			# A second body may still lose support from the committed exchange.
+			# Emit the final result once below, after that continuous motion.
 		"rerack":
 			camera_impact_age = 1.0
 			camera_impact_strength = -1.0
@@ -763,6 +765,7 @@ func _process_measured099(delta: float) -> void:
 			is_finished = true
 			Engine.time_scale = 1.0
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			finished.emit(match_model.result.duplicate(true))
 		# Accumulate only unpaused time. Absolute wall-clock noise jumped phase
 		# after pause; the former decay also ended before the loaded pose was read.
 		if not fresh_contact:
@@ -972,8 +975,13 @@ func _update_views() -> void:
 	for fallen in effects.bodies:
 		if is_instance_valid(fallen):
 			for renderer in [fallen.visual,fallen.far_leg]:
-				renderer.blood_enabled = GameState.profile.settings.blood
-				renderer.queue_redraw()
+				# Views update on every physics tick, but their articulated pose
+				# renders once per process frame. Queuing here flushed a full
+				# redraw after EACH catch-up tick (18 drawings for two people in
+				# one slow frame), amplifying a small fall cost into a stall.
+				if renderer.blood_enabled != GameState.profile.settings.blood:
+					renderer.blood_enabled = GameState.profile.settings.blood
+					renderer.queue_redraw()
 	zone_overlay.visible = training_zones and _show_detailed_combat113()
 	combat_cues.enabled = GameState.profile.settings.get("aim_cues",true)
 

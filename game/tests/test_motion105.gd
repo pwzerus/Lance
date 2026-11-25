@@ -25,7 +25,11 @@ func render_study(samples:Array,label:String)->void:
 		var cell=UI.panel(page,Rect2(12+(i%3)*474,52+(i/3)*418,462,406));cell.clip_contents=true
 		var s:Dictionary=samples[i]
 		UI.label(cell,"%.2fs / 速度%.0f / 枪%.2f / 盾%.2f"%[s.time,s.fighter.speed,s.fighter.aim,s.fighter.guard],Vector2(10,9),16,UI.GOLD)
-		var view=Rider.new();view.fighter=s.fighter.duplicate(true);view.fighter.x=0.0;view.fighter.lane_y=0.0
+		var view=Rider.new();view.fighter=s.fighter.duplicate(true)
+		# Solved snapshots contain world-space anchors; the renderer subtracts
+		# fighter.x/lane_y when drawing. Resetting only that origin strands the
+		# entire physical rider off the montage while its horse stays centred.
+		if not view.fighter.has("_body_pose115"):view.fighter.x=0.0;view.fighter.lane_y=0.0
 		view.position=Vector2(230,365);view.scale=Vector2.ONE*.85;view.moving=s.moving
 		view.leg_poses=s.legs.duplicate(true);view.visual_pose=s.body.duplicate(true);view.stride_phase=float(s.fighter.gait_phase)
 		cell.add_child(view);view.set_process(false)

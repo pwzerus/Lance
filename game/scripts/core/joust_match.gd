@@ -537,6 +537,10 @@ static func eased(value: float, target: float, velocity: float, max_speed: float
 	return Vector2(next,velocity)
 
 func step(delta: float) -> void:
+	# Capture the initial body at the beginning of this interval. Capturing it
+	# after the first horse movement supplied zero support velocity for that
+	# whole interval, enough to eject a new full-speed fixture at 30Hz.
+	for index in range(fighters.size()):_ensure_body115(index)
 	for fighter in fighters:
 		advance_reaction(fighter,delta)
 		advance_unsteady(fighter,delta,phase=="charge")
@@ -899,8 +903,14 @@ func _apply_contact(contact: Dictionary) -> void:
 	if bool(defender.get("physics115",false)):
 		var physical_hit=contact.duplicate(true)
 		physical_hit.direction=int(attacker.direction)
+		var elevation115=float(contact.get("combat_elevation",lance_angle(attacker)))
+		var force_axis115=Vector2(cos(elevation115)*int(attacker.direction),sin(elevation115))
+		physical_hit.impulse_axis115=force_axis115
 		bodies115[int(contact.defender)].queue_hit(physical_hit)
-		var reaction_hit={"zone":"lance","position":hand_position(attacker),"impulse":impulse*.32,"direction":int(defender.direction),"source":"weapon_reaction"}
+		# The hand receives the opposite shaft reaction. The remaining load is
+		# absorbed by shaft flex/fracture and the mounted supports; the two
+		# riders must not both receive the old fixed upward presentation kick.
+		var reaction_hit={"zone":"lance","position":hand_position(attacker),"impulse":impulse*.32,"direction":int(defender.direction),"impulse_axis115":-force_axis115,"source":"weapon_reaction"}
 		bodies115[int(contact.attacker)].queue_hit(reaction_hit)
 	else:
 		var angular_kick = -11.2 if zone=="head" else (9.0 if zone=="flank" else (-8.4 if zone=="shield" else -10.0))
@@ -980,7 +990,8 @@ static func physical_targets115(fighter: Dictionary) -> Dictionary:
 	var legs=Rig115.world_legs(desired,Rig115.seated_legs(desired,visual,saddle,saddle,seat_inertia(desired),0.0))
 	var crest=PackedVector2Array()
 	for point in HorseSurface113.crest_points(visual):crest.append(world+point*Vector2(facing,1))
-	return {"pose":pose,"legs":legs,"gait_pitch":float(gait.rider_pitch),"crest":crest}
+	return {"pose":pose,"legs":legs,"gait_pitch":float(gait.rider_pitch),"crest":crest,
+		"lean":float(desired.lean),"guard":float(desired.guard),"aim":float(desired.aim)}
 
 func _ensure_body115(index: int) -> void:
 	if not bool(fighters[index].get("physics115",false)):return
@@ -1007,7 +1018,12 @@ func _advance_body115(index: int, delta: float) -> void:
 	var offset:Vector2=rider.snapshot.seat_offset
 	f.seat_offset=offset.x*int(f.direction)
 	f.seat_velocity=(rider.body.pelvis_v.x-float(f.speed)*int(f.direction))*int(f.direction)
-	f.seat_support=clampf(1.0-absf(offset.x)/34.0,0.0,1.0)
+	# A small shift inside the seat is supported, not a permanent warning.
+	# The old horizontal-only gauge could still show 57% after a rider had
+	# lifted completely clear of both saddle and irons.
+	var lateral115=1.0-smoothstep(8.0,34.0,absf(offset.x))
+	var vertical115=1.0-smoothstep(6.0,24.0,absf(offset.y))
+	f.seat_support=0.0 if rider.detached else minf(lateral115,vertical115)
 	if rider.detached and not bool(f.unseated):
 		f.unseated=true;f.ko=true;f.acted=true;f.boost=false
 		f.seat_exit_pending=true
@@ -1032,6 +1048,13 @@ func _consume_seat_exits113() -> void:
 			"ko_reason":reason,"defender_speed":f.speed,"attacker_speed":0.0,"direction":direction,"balance_left":f.balance,
 			"unconscious":f.unconscious,"shield_broke":last_hit.get("shield_broke",false),"source":last_hit.get("source","contact")})
 		if not result.is_empty(): result["player_unseated" if index==0 else "enemy_unseated"]=true
+	if not result.is_empty() and str(result.get("reason",""))=="terminal":
+		# The same committed exchange can remove the second rider's physical
+		# support a few steps later. Do not award the first fall's provisional
+		# winner when both bodies have now been incapacitated.
+		var out_a=bool(fighters[0].ko) or bool(fighters[0].dead)
+		var out_b=bool(fighters[1].ko) or bool(fighters[1].dead)
+		result.winner=(1 if out_a else 0) if out_a!=out_b else -1
 
 func _finish(reason: String) -> void:
 	phase = "ended"

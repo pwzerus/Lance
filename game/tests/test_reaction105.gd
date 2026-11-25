@@ -37,20 +37,31 @@ func run()->void:
 				var jump=((c-b)-(b-a)).length()/e*omega
 				check(jump<5.0,"Loose leg has no abrupt vertical flap reversal: "+str([speed,boundary,side]))
 				rows.append({"kind":"flap_boundary","speed":speed,"phase":boundary,"side":side,"velocity_jump":jump})
-	# Actual contact impulse must pass through both the impact and recovery
-	# halves, then decay. No direct position kick or artificial extra reaction.
+	# Actual contact now acts on the unified body, not reaction_legs/angle
+	# springs. Require a continuous response followed by recovery toward the
+	# current injured posture; do not demand an artificial spring overshoot.
 	for zone in ["head","body","flank","shield"]:
 		var m=Model.new("arena",{"stability":3.0},{"stability":3.0},105)
 		var f=m.fighters[0];f.balance=1000;f.speed=0;f.gait_moving=false
-		var contact={"type":"hit","attacker":1,"defender":0,"zone":zone,"speed":900.0,"position":Model.body_position(f),"attacker_speed":450.0,"defender_speed":450.0}
+		m._ensure_body115(0)
+		for tick in range(120):m._advance_body115(0,1.0/120)
+		var before=Model.rider_origin(f)
+		var point=Model.head_position(f) if zone=="head" else Model.flank_position(f) if zone=="flank" else Model.shield_position(f) if zone=="shield" else Model.body_position(f)
+		var contact={"type":"hit","attacker":1,"defender":0,"zone":zone,"speed":360.0,"position":point}
 		m._apply_contact(contact)
-		check(float(f.reaction_legs)==0,"Contact changes leg velocity, not leg position")
-		var peak=0.0;var trough=0.0;var curve=[]
-		for tick in range(360):
+		check(Model.rider_origin(f).distance_to(before)<.001,"Contact changes momentum, not body position")
+		var peak=0.0;var final_error=0.0;var curve=[];var max_step=0.0;var previous=before
+		for tick in range(480):
 			Model.advance_reaction(f,1.0/120)
-			peak=maxf(peak,f.reaction_legs);trough=minf(trough,f.reaction_legs)
-			if tick%12==0:curve.append([tick/120.0,float(f.reaction_legs),float(f.reaction_angle)])
-		check(peak>.01 and trough<-.001 and absf(f.reaction_legs)<.001,"Regional contact has damped follow-through: "+zone)
-		rows.append({"kind":"contact_recovery","zone":zone,"peak":peak,"trough":trough,"final":f.reaction_legs,"curve":curve})
-	FileAccess.open(path,FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"rows":rows,"scope":"Production constrained ankle, one-sided velocity at flap boundaries, real contact reaction spring. Direct rule fixtures; no human play or full Battle camera."},"\t"))
+			m._advance_body115(0,1.0/120)
+			var wanted=Model.physical_targets115(f).pose.torso_transform.get_rotation()*int(f.direction)
+			final_error=absf(wrapf(Model.pose_angle(f)-wanted,-PI,PI))
+			peak=maxf(peak,final_error)
+			var now=Model.rider_origin(f);max_step=maxf(max_step,now.distance_to(previous));previous=now
+			if tick%12==0:curve.append([tick/120.0,final_error,float(f.seat_offset)])
+		check(not f.unseated,"Low-drive contact allows active recovery: "+zone)
+		check(peak>.005 and final_error<peak*.5+.03,"Regional physical contact has damped follow-through: "+zone)
+		check(max_step<8.0,"Regional body response is continuous: "+zone)
+		rows.append({"kind":"contact_recovery","zone":zone,"peak":peak,"final":final_error,"max_step":max_step,"curve":curve})
+	FileAccess.open(path,FileAccess.WRITE).store_string(JSON.stringify({"passed":failures.is_empty(),"failures":failures,"rows":rows,"scope":"Legacy desired-leg continuity plus PHYS-115 actual low-drive regional impulses and finite support recovery. Direct rule fixtures; no human play or full Battle camera."},"\t"))
 	print("REACTION105 ",failures);quit(0 if failures.is_empty() else 1)

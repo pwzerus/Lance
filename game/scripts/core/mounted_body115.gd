@@ -3,6 +3,7 @@ extends RefCounted
 ## model references, callbacks, random source or unbounded frame history.
 const Body=preload("res://scripts/visual/rider_body114.gd")
 const Rig=preload("res://scripts/core/rider_rig115.gd")
+const Trace115=preload("res://scripts/core/frame_trace099.gd")
 const STEP=1.0/120.0
 const IMPULSE_SCALE=500.0
 const CONTACT_TIME=.045
@@ -39,7 +40,7 @@ func initialize(value: Dictionary, targets: Dictionary) -> void:
 	body.build(data)
 	shield_broken=float(value.get("shield",0.0))<=0.0
 	body.guide_strength=0.0
-	body.motor_torque115={"shoulder":1800000.0,"elbow":1500000.0,"hip":3500000.0,"knee":2400000.0,"spine":8000000.0}
+	body.motor_torque115={"shoulder":1800000.0,"elbow":1500000.0,"hip":3500000.0,"knee":2400000.0,"spine":8000000.0,"neck":450000.0}
 	previous_targets=targets
 	simulated_targets=targets
 	snapshot=Rig.body_pose(body,captured,targets)
@@ -57,6 +58,11 @@ func _muscles(value: Dictionary, targets: Dictionary) -> void:
 	if not awake:
 		body.set_muscles(0.0,{})
 		return
+	# A coarse callback may contain several fixed steps. Its control targets
+	# must progress with the same interpolation as the saddle, not jump to the
+	# final lean/guard on the first substep.
+	value=value.duplicate()
+	for key in ["lean","guard","aim"]:value[key]=targets.get(key,value.get(key,0.0))
 	var pose: Dictionary=targets.pose
 	var down=Transform2D(pose.torso_transform).basis_xform(Vector2.DOWN)
 	var desired_hip=float(value.get("lean",0.0))*.14*body.facing
@@ -83,6 +89,11 @@ func _muscles(value: Dictionary, targets: Dictionary) -> void:
 		result[side+"_hip"]=wrapf(_af(Vector2.DOWN)-_af(upper),-PI,PI)
 		result[side+"_knee"]=wrapf(_af(lower)-_af(upper),-PI,PI)
 	var strength=clampf(float(value.get("arm",100.0))/100.0,.25,1.0)
+	var seat_fatigue=clampf(float(value.get("seat_strain",0.0)),0.0,1.0)
+	for side in ["near","far"]:
+		result[side+"_hip_tone"]=1.0-seat_fatigue*.97
+		result[side+"_knee_tone"]=1.0-seat_fatigue*.97
+	result.spine_tone=1.0-seat_fatigue*.60
 	result.left_upper_tone=lerpf(.65,1.0,strength)
 	result.left_elbow_tone=result.left_upper_tone
 	result.right_upper_tone=result.left_upper_tone
@@ -95,8 +106,8 @@ func _support(targets: Dictionary, before: Dictionary, value: Dictionary) -> Dic
 	var rein=Vector2(targets.pose.torso_transform.origin)+Vector2(96*body.facing,-20)
 	var rein_old=Vector2(before.pose.torso_transform.origin)+Vector2(96*body.facing,-20)
 	return {"saddle":centre,"saddle_previous":old,"seat_points":seat_points,"width":31.0,"friction":.95,
-		"pelvis_angle":float(value.get("lean",0.0))*.14*body.facing,
-		"brace_torque":3000000.0*(1.0-float(value.get("injury",0.0))*.35)*(1.0-float(value.get("seat_strain",0.0))*.80) if body.conscious else 0.0,
+		"pelvis_angle":float(targets.get("lean",value.get("lean",0.0)))*.14*body.facing,
+		"brace_torque":3000000.0*(1.0-float(value.get("injury",0.0))*.35)*(1.0-float(value.get("seat_strain",0.0))*.95) if body.conscious else 0.0,
 		"feet":{"near":targets.legs.near.ankle,"far":targets.legs.far.ankle},
 		"feet_previous":{"near":before.legs.near.ankle,"far":before.legs.far.ankle},
 		"rein":rein,"rein_previous":rein_old,"rein_length":108.0,"rein_force":10000.0,
@@ -109,7 +120,9 @@ func queue_hit(event: Dictionary, scale: float = 1.0) -> void:
 	if part not in ["head","body","flank","shield","lance"]:part="body"
 	var base=body.p[Body.HAND_L] if part=="shield" else body.p[Body.HEAD] if part=="head" else body.p[Body.HAND_R] if part=="lance" else body.pelvis_x if part=="flank" else body.x
 	var point: Vector2=event.get("position",base)
-	var direction=Vector2(float(event.get("direction",-body.facing)),-.055).normalized()
+	var direction: Vector2=event.get("impulse_axis115",Vector2(float(event.get("direction",-body.facing)),-.055))
+	if direction.length_squared()<.000001:direction=Vector2(-body.facing,0)
+	direction=direction.normalized()
 	var magnitude=maxf(0.0,float(event.get("impulse",0.0)))*IMPULSE_SCALE*scale
 	if pending.size()<4:
 		pending.append({"part":part,"offset":point-base,"impulse":direction*magnitude,"remaining":CONTACT_TIME})
@@ -151,11 +164,15 @@ func advance(value: Dictionary, targets: Dictionary, dt: float) -> void:
 		previous_snapshot=current_snapshot
 		age+=h
 		impact_age+=h
+		var muscle_started115=Trace115.begin()
 		if detached:body.set_muscles(0.0,{})
 		else:_muscles(value,current)
+		Trace115.measure("mounted_muscles115",muscle_started115)
 		_deliver(h)
 		last_support={} if detached else _support(current,prior,value)
+		var solve_started115=Trace115.begin()
 		body.step(h,last_support)
+		Trace115.measure("mounted_solve115",solve_started115)
 		if not detached:
 			var centre: Vector2=last_support.saddle-Vector2(0,10)
 			var offset=body.pelvis_x-centre
@@ -173,11 +190,15 @@ func advance(value: Dictionary, targets: Dictionary, dt: float) -> void:
 			recovery_time=recovery_time+h if quiet and pending.is_empty() and impact_age>.25 else 0.0
 			if recovery_time>.6:impact_unrecovered=false
 		simulated_targets=current
+		var pose_started115=Trace115.begin()
 		current_snapshot=Rig.body_pose(body,captured,current)
+		Trace115.measure("mounted_pose115",pose_started115)
 		_advance_lance115(value,current,h)
 		current_snapshot.lance_aim=shaft_aim
 	previous_targets=targets
+	var interpolate_started115=Trace115.begin()
 	snapshot=Rig.interpolate115(previous_snapshot,current_snapshot,accumulator/STEP,value).duplicate(true)
+	Trace115.measure("mounted_interpolate115",interpolate_started115)
 	snapshot.supported=body.support_contacts115.duplicate()
 	snapshot.detached=detached
 	snapshot.seat_offset=body.pelvis_x-(Vector2(targets.legs.near.hip)+Vector2(targets.legs.far.hip))*.5
@@ -190,7 +211,7 @@ func _advance_lance115(value: Dictionary, desired: Dictionary, dt: float) -> voi
 	var actual:Dictionary=current_snapshot.pose.right
 	var target:Dictionary=desired.pose.right
 	var turn=wrapf(_af(Vector2(actual.hand)-Vector2(actual.elbow))-_af(Vector2(target.hand)-Vector2(target.elbow)),-PI,PI)
-	var wanted=float(value.get("aim",0.0))+turn*.8
+	var wanted=float(desired.get("aim",value.get("aim",0.0)))+turn*.8
 	shaft_aim+=clampf(wrapf(wanted-shaft_aim,-PI,PI),-6.0*dt,6.0*dt)
 
 func _break_shield115(value: Dictionary) -> void:
@@ -200,20 +221,20 @@ func _break_shield115(value: Dictionary) -> void:
 	var old_mass=1.0/body.inv_mass[Body.HAND_L]
 	var removed=maxf(0.0,float(value.stats.get("shield_kg",3.0))-1.0)
 	body.inv_mass[Body.HAND_L]=1.0/maxf(1.0,old_mass-removed)
-	var frame:Transform2D=snapshot.shield_transform
+	var frame:Transform2D=captured.shield_frame
 	var extension:Dictionary=body.extensions.shield
 	var offsets=PackedVector2Array()
-	for point in Rig.ShieldArt.remnant_polygon(value.stats):offsets.append(frame*point-body.p[Body.HAND_L])
+	# The visible snapshot can lag the current solver by one fixed step.
+	# Capture the outline relative to its grip, never subtract a newer world
+	# hand from the old snapshot origin (a speed-dependent collision offset).
+	for point in Rig.ShieldArt.remnant_polygon(value.stats):offsets.append(frame.basis_xform(point-Vector2(-10,4)))
 	extension.offsets=offsets
 	extension.basis_x=frame.x
 	extension.basis_y=frame.y
 	extension.reach=0.0
 	for point in offsets:extension.reach=maxf(float(extension.reach),point.length())
-	# Offsets were captured in world coordinates at this angle.
-	for index in range(offsets.size()):offsets[index]=offsets[index].rotated(-body.shield_theta115)
-	extension.offsets=offsets
-	extension.basis_x=frame.x.rotated(-body.shield_theta115)
-	extension.basis_y=frame.y.rotated(-body.shield_theta115)
+	# Rest-space geometry rotates with the existing independent shield angle;
+	# neither an interpolated angle nor its rolled display scale is recaptured.
 	body.configure_shield115(1.0)
 
 func _interpolate_targets(a: Dictionary, b: Dictionary, weight: float) -> Dictionary:
@@ -221,6 +242,13 @@ func _interpolate_targets(a: Dictionary, b: Dictionary, weight: float) -> Dictio
 	if weight<=.000001:return a
 	var result=b.duplicate(true)
 	result.pose.torso_transform=Transform2D(a.pose.torso_transform).interpolate_with(b.pose.torso_transform,weight)
+	for side in ["left","right"]:
+		for key in ["shoulder","elbow","hand"]:result.pose[side][key]=Vector2(a.pose[side][key]).lerp(b.pose[side][key],weight)
+	for key in ["shield_center","shield_grip"]:result.pose[key]=Vector2(a.pose[key]).lerp(b.pose[key],weight)
+	for key in ["lean","guard","aim","gait_pitch"]:
+		if a.has(key) and b.has(key):result[key]=lerpf(float(a[key]),float(b[key]),weight)
+	if a.has("crest") and b.has("crest") and a.crest.size()==b.crest.size():
+		for i in range(b.crest.size()):result.crest[i]=Vector2(a.crest[i]).lerp(b.crest[i],weight)
 	for side in ["near","far"]:
 		for key in ["hip","knee","ankle","foot","bar","stirrup"]:
 			result.legs[side][key]=Vector2(a.legs[side][key]).lerp(b.legs[side][key],weight)

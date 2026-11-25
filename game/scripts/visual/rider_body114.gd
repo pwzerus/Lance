@@ -1,60 +1,37 @@
 extends RefCounted
-## PHYS-114: a whole articulated rider body for falls.
+## PHYS-114 body extended by PHYS-115 to riding and loss of saddle support.
+## Chest and pelvis are rigid bodies joined at the waist; nine mass points
+## form head/arm/leg chains. Finite muscles, passive coupled tissue, joint
+## limits and unilateral contacts govern motion. The strapped shield has
+## its own angular inertia. Boots and helmet rotate with their bone chains.
 ##
-## The DEV-113 fall moved one root rigid body and let every limb swing only a
-## few tenths of a radian around the CAPTURED SADDLE POSE. A body lying on its
-## back therefore kept seated thighs pointing up and the riding arms held in
-## front of the chest. Here the body is a real articulated mechanism:
-##
-## * the torso is one rigid body (the torso art is one plate) with mass,
-##   inertia and four collision corners;
-## * elbows, hands, knees, ankles and the head are mass points joined by
-##   fixed-length bones to torso anchors (shoulders, hips, collar);
-## * every joint has an ANATOMICAL range measured from its parent bone
-##   (hip -26..123 deg, knee 0..149, shoulder -69..175, elbow 0..149, neck
-##   limited by the existing head/neck art), not a band around the seat pose;
-## * boots, the strapped shield and the helmet are rigid extensions of their
-##   bones and collide with the floor; the trunk collides with a rounded
-##   outline (narrow seat), shoulders and hips;
-## * muscles pull joints toward a protective/relaxed target with a tone that
-##   depends on consciousness; unconscious riders are fully limp.
-##
-## Position-based dynamics at 2 substeps per 1/120 s step (per-substep rates
-## such as EXTENSION_PUSH, LIMB_DROP and KNEE_BUCKLE were tuned at 2): deterministic for
-## identical inputs (no random source, fixed step), bone lengths exact.
-## Visual only; no rule, score or damage reads it. 2D game approximation,
-## not a medical or armour-safety model.
+## Fixed 120 game-Hz, two PBD substeps; all rendering and hit anchors read
+## this same body. Drawing restores exact captured bone lengths without
+## replacing the underlying state. Contact/strain-rate projection is a
+## numerical approximation, not fully energy-conserving XPBD or a medical
+## model. Production riding bodies disable the legacy airborne guide; there
+## is no random pose, imposed final posture or timed freeze in that path.
 
 const GRAVITY = 900.0
 const SUBSTEPS = 2
 # A reflex can swing a limb fast, but not faster than a person can: the
 # first uncapped muscle closed a 2 rad error at ~45 rad/s and flung arms.
 const MUSCLE_MAX_SPEED = 7.0
-# Above roughly a right angle; lower values propped a limp trunk upright in
-# a long sit (phys114-body09).
-const SOFT_LIMITS = {"hip":1.50,"knee":1.75,"elbow":2.10}
-# Passive tissue yields under body weight (at 9/s it braced a limp body
-# upright between two legs, phys114-body11).
-const SOFT_RATE = 3.0
-const FRICTION = .62
+const FRICTION = .25
 const SHIELD_FRICTION = .22
 const SHIELD_ROLL_MAX = 1.25
 const SHIELD_ROLL_RATE = 2.6
-const PROP_GIVE = .9
 const LANDING_THUD = .80
 const EXTENSION_PUSH = 2.5
-const LIMB_DROP = 4.5
-const KNEE_BUCKLE = 14.0
-const KNEE_BUCKLE_END = 3.0
-const STOP_CREEP = .35
-const STOP_CREEP_MAX = .50
-const KNEEL_KNEE = 1.6
-const KNEEL_GIVE = .8
-const KNEEL_GIVE_MAX = 1.2
 const AIR_DRAG = .12
 const JOINT_DAMPING = 2.6
 const MUSCLE_RATE = 55.0
 const MAX_SPEED = 1500.0
+# Passive angular resistance bounds strain rate; applied to physical joints,
+# not only to a smoothed rendering pose. Units: radians per game second.
+const JOINT_RATE115 = {"shoulder":5.5,"elbow":5.5,"hip":5.0,"knee":6.0}
+const SPINE_RANGE115 = Vector2(-.55,.90)
+const SPINE_RATE115 = 3.5
 
 enum {ELBOW_L, HAND_L, ELBOW_R, HAND_R, KNEE_N, ANKLE_N, KNEE_F, ANKLE_F, HEAD, COUNT}
 const PARTICLE_NAMES = ["left_elbow","left_hand","right_elbow","right_hand","near_thigh","near_shin","far_thigh","far_shin","head"]
@@ -79,6 +56,24 @@ var inertia = 45000.0
 var down0 = Vector2.DOWN
 var corners = PackedVector2Array()
 var anchors: Dictionary = {}
+# A separate pelvis shares a waist hinge with the chest. A rigid chest/hip
+# block could balance a limp body on folded knees through its hip stop.
+var pelvis_x = Vector2.ZERO
+var pelvis_prev = Vector2.ZERO
+var pelvis_v = Vector2.ZERO
+var pelvis_theta = 0.0
+var pelvis_theta_prev = 0.0
+var pelvis_omega = 0.0
+var pelvis_mass = 18.0
+var pelvis_inertia = 4500.0
+var pelvis_down0 = Vector2.DOWN
+var pelvis_anchors: Dictionary = {}
+var pelvis_corners = PackedVector2Array()
+var pelvis_initial = Vector2.ZERO
+var waist_chest = Vector2.ZERO
+var waist_pelvis = Vector2.ZERO
+var spine_range = SPINE_RANGE115
+var spine_captured = 0.0
 # Mass points.
 var p = PackedVector2Array()
 var prev = PackedVector2Array()
@@ -103,6 +98,15 @@ var core_contact = false
 var torso_contact = false
 var touching = PackedByteArray()
 var shield_roll = 0.0
+# The shield has rotational inertia about its hand strap. In 2.5D the
+# projected forearm can turn while the forearm/wrist adjusts the shield face.
+# Locking the face rigidly to the projected forearm inverted a low guard.
+var shield_theta115 = 0.0
+var shield_previous115 = 0.0
+var shield_omega115 = 0.0
+var shield_inertia115 = 3000.0
+var shield_mass115 = 3.0
+var shield_centre115 = Vector2.ZERO
 var thudded = false
 var trunk_speed = 0.0
 var trunk_turn = 0.0
@@ -121,6 +125,10 @@ var rest = 0.0
 # After the trunk has lain still for a while every part loses energy, so a
 # loose limb finishes its last sway instead of creeping (fall057 head/-1).
 var rest_all = false
+# Optional riding contacts. Values only: the solver never retains its owner.
+var support_contacts115: Dictionary = {}
+var motor_torque115: Dictionary = {}
+var motor_step115 = 0.0
 
 static func wrap_angle(angle: float) -> float:
 	return wrapf(angle,-PI,PI)
@@ -130,7 +138,24 @@ func af(vector: Vector2) -> float:
 	return atan2(vector.y,vector.x*facing)
 
 func anchor(name: String) -> Vector2:
+	if pelvis_anchors.has(name):
+		return pelvis_x+Vector2(pelvis_anchors[name]).rotated(pelvis_theta)
 	return x+Vector2(anchors[name]).rotated(theta)
+
+func anchor_previous(name: String) -> Vector2:
+	if pelvis_anchors.has(name):
+		return pelvis_prev+Vector2(pelvis_anchors[name]).rotated(pelvis_theta_prev)
+	return x_prev+Vector2(anchors[name]).rotated(theta_prev)
+
+func anchor_velocity(name: String) -> Vector2:
+	var r=anchor(name)-(pelvis_x if pelvis_anchors.has(name) else x)
+	return (pelvis_v if pelvis_anchors.has(name) else v)+Vector2(-r.y,r.x)*(pelvis_omega if pelvis_anchors.has(name) else omega)
+
+func hip_down_axis() -> Vector2:
+	return pelvis_down0.rotated(pelvis_theta)
+
+func spine_flex() -> float:
+	return facing*wrap_angle(down_axis().angle()-hip_down_axis().angle())
 
 func down_axis() -> Vector2:
 	return down0.rotated(theta)
@@ -157,6 +182,35 @@ func build(data: Dictionary) -> void:
 		corners.append(Vector2(point)-x)
 	for name in data.anchors:
 		anchors[name] = Vector2(data.anchors[name])-x
+	pelvis_x=(Vector2(data.anchors.hip_n)+Vector2(data.anchors.hip_f))*.5
+	pelvis_initial=pelvis_x
+	pelvis_prev=pelvis_x
+	pelvis_theta=0.0
+	pelvis_theta_prev=0.0
+	pelvis_mass=float(data.get("pelvis_mass",18.0))
+	mass=maxf(20.0,mass-pelvis_mass)
+	inertia=mass*(size.x*size.x+size.y*size.y*.60)/12.0
+	pelvis_inertia=pelvis_mass*(42.0*42.0+32.0*32.0)/12.0
+	pelvis_down0=Vector2(data.get("pelvis_down",Vector2.DOWN)).normalized()
+	pelvis_omega=omega
+	var pelvis_arm=pelvis_x-x
+	pelvis_v=v+Vector2(-pelvis_arm.y,pelvis_arm.x)*omega
+	for name in ["hip_n","hip_f"]:
+		pelvis_anchors[name]=Vector2(data.anchors[name])-pelvis_x
+	var waist=Vector2(data.get("waist",pelvis_x-down0*25.0))
+	waist_chest=waist-x
+	waist_pelvis=waist-pelvis_x
+	spine_captured=spine_flex()
+	spine_range=Vector2(minf(SPINE_RANGE115.x,spine_captured-.02),maxf(SPINE_RANGE115.y,spine_captured+.02))
+	# The source's lower outline belongs to the pelvis, not the chest plate.
+	var upper_corners=PackedVector2Array()
+	for corner in corners:
+		var world=x+corner
+		if (world-waist).dot(down0)>0.0:
+			pelvis_corners.append(world-pelvis_x)
+		else:
+			upper_corners.append(corner)
+	corners=upper_corners
 	p = PackedVector2Array(data.points)
 	prev = p.duplicate()
 	vel = PackedVector2Array(data.velocities)
@@ -206,12 +260,28 @@ func build(data: Dictionary) -> void:
 	for name in anchors: torso_reach = maxf(torso_reach,Vector2(anchors[name]).length()+9.0)
 	conscious = bool(data.get("conscious",true))
 	brace_direction = data.get("brace_direction",brace_direction)
+	configure_shield115(float(data.get("shield_mass",3.0)))
+
+func configure_shield115(value_mass: float) -> void:
+	shield_mass115=maxf(.2,value_mass)
+	shield_centre115=Vector2.ZERO
+	var radius_squared=0.0
+	if extensions.has("shield"):
+		var outline:PackedVector2Array=extensions.shield.offsets
+		for point in outline:
+			shield_centre115+=point
+			radius_squared+=point.length_squared()
+		if not outline.is_empty():
+			shield_centre115/=outline.size()
+			radius_squared/=outline.size()
+	# Area inertia is smaller than the boundary's mean squared distance.
+	shield_inertia115=maxf(150.0,shield_mass115*radius_squared*.55)
 
 ## Flexion of a joint in the facing frame. Positive = anatomical flexion.
 func _flex(joint: Dictionary) -> float:
 	match str(joint.kind):
 		"shoulder","hip":
-			return wrap_angle(af(down_axis())-af(p[joint.child]-anchor(joint.pivot)))
+			return wrap_angle(af(hip_down_axis() if joint.kind=="hip" else down_axis())-af(p[joint.child]-anchor(joint.pivot)))
 		"elbow":
 			return wrap_angle(af(p[joint.pivot]-anchor(joint["from"]))-af(p[joint.child]-p[joint.pivot]))
 		_:
@@ -257,35 +327,59 @@ func _rotate_chain(chain: Array, pivot: Vector2, angle: float) -> void:
 	for index in chain:
 		p[index] = pivot+(p[index]-pivot).rotated(angle)
 
-func _chain_inertia(chain: Array, pivot: Vector2) -> float:
-	var total = 0.0
-	for index in chain:
-		total += (p[index]-pivot).length_squared()/inv_mass[index]
-	return maxf(total,1.0)
-
-func _turn_joint(joint: Dictionary, flex_change: float, stop: bool = false) -> void:
-	# Internal torque: child and parent turn in opposite senses in proportion
-	# to their inertia about the joint, so muscles and stops do not invent
-	# angular momentum for the body as a whole.
-	# Stops share the correction by inertia too: a stop that turned only the
-	# limb let a spinning trunk drag its limbs round for free and pumped
-	# energy into the body (phys114-body06).
-	var turn = _world_turn(joint,flex_change)
+func _project_angle115(joint: Dictionary, change: float, damping_keep: float = -1.0, limit: float = INF) -> void:
+	# Angle-constraint Jacobians distribute the correction to every incident
+	# mass and the trunk anchor. The former rotate-chain heuristic moved the
+	# parent about a different pivot, then globally counter-rotated the body;
+	# contact corrections therefore became large opposite limb velocities.
+	# Internal gradient impulses have zero net force and net torque (to the
+	# solver's first-order position accuracy), without whole-body after-fixes.
+	var child: int = joint.child
+	var root_gradient = Vector2.ZERO
+	var parent_gradient = Vector2.ZERO
+	var child_gradient = Vector2.ZERO
+	var theta_gradient = 0.0
+	var parent = -1
+	var pelvic = joint.kind in ["hip","knee"]
+	var root_x = pelvis_x if pelvic else x
+	var root_mass = pelvis_mass if pelvic else mass
+	var root_inertia = pelvis_inertia if pelvic else inertia
 	if joint.pivot is String:
 		var pivot = anchor(joint.pivot)
-		var share = inertia/(inertia+_chain_inertia(joint.chain,pivot))
-		_rotate_chain(joint.chain,pivot,turn*share)
-		theta -= turn*(1.0-share)
+		var arm = p[child]-pivot
+		child_gradient = -facing*Vector2(-arm.y,arm.x)/maxf(arm.length_squared(),.001)
+		root_gradient = -child_gradient
+		var r = pivot-root_x
+		theta_gradient = facing+root_gradient.dot(Vector2(-r.y,r.x))
 	else:
-		var shoulder = anchor(joint["from"])
-		var elbow: Vector2 = p[joint.pivot]
-		var upper_inertia = (elbow-shoulder).length_squared()/inv_mass[joint.pivot]
-		var lower_inertia = _chain_inertia(joint.chain,elbow)
-		var share = upper_inertia/(upper_inertia+lower_inertia)
-		var lower = p[joint.child]-elbow
-		var moved = shoulder+(elbow-shoulder).rotated(-turn*(1.0-share))
-		p[joint.pivot] = moved
-		p[joint.child] = moved+lower.rotated(turn*share)
+		parent = int(joint.pivot)
+		var pivot = anchor(joint["from"])
+		var upper = p[parent]-pivot
+		var lower = p[child]-p[parent]
+		var sense = float(facing)*(1.0 if joint.kind=="elbow" else -1.0)
+		root_gradient = -sense*Vector2(-upper.y,upper.x)/maxf(upper.length_squared(),.001)
+		child_gradient = -sense*Vector2(-lower.y,lower.x)/maxf(lower.length_squared(),.001)
+		parent_gradient = -root_gradient-child_gradient
+		var r = pivot-root_x
+		theta_gradient = root_gradient.dot(Vector2(-r.y,r.x))
+	var weight = root_gradient.length_squared()/root_mass+theta_gradient*theta_gradient/root_inertia+child_gradient.length_squared()*inv_mass[child]
+	if parent>=0: weight+=parent_gradient.length_squared()*inv_mass[parent]
+	if weight<.000000001: return
+	var impulse = clampf(change/weight,-limit,limit)
+	if damping_keep>=0.0:
+		var rate = root_gradient.dot(pelvis_v if pelvic else v)+theta_gradient*(pelvis_omega if pelvic else omega)+child_gradient.dot(vel[child])
+		if parent>=0: rate+=parent_gradient.dot(vel[parent])
+		impulse = -rate*(1.0-damping_keep)/weight
+		_root_impulse115(pelvic,root_gradient,theta_gradient,impulse,true)
+		vel[child] = vel[child]+child_gradient*impulse*inv_mass[child]
+		if parent>=0: vel[parent]=vel[parent]+parent_gradient*impulse*inv_mass[parent]
+	else:
+		_root_impulse115(pelvic,root_gradient,theta_gradient,impulse,false)
+		p[child] = p[child]+child_gradient*impulse*inv_mass[child]
+		if parent>=0: p[parent]=p[parent]+parent_gradient*impulse*inv_mass[parent]
+
+func _turn_joint(joint: Dictionary, flex_change: float, _stop: bool = false) -> void:
+	_project_angle115(joint,flex_change)
 
 func _solve_joint(joint: Dictionary, h: float) -> void:
 	var value = _in_range(_flex(joint),float(joint.lo))
@@ -294,18 +388,71 @@ func _solve_joint(joint: Dictionary, h: float) -> void:
 		var to_hi = value-float(joint.hi)
 		var to_lo = float(joint.lo)+TAU-value
 		_turn_joint(joint,-to_hi if to_hi<=to_lo else to_lo,true)
-		return
-	# Passive tissue: hamstrings and the hip capsule resist deep flexion even
-	# in a limp body, so flipped legs fall back instead of resting folded
-	# over the chest (no force inside the comfortable range).
-	if SOFT_LIMITS.has(joint.kind) and value>float(SOFT_LIMITS[joint.kind]) and value<=float(joint.hi):
-		_turn_joint(joint,(float(SOFT_LIMITS[joint.kind])-value)*SOFT_RATE*h)
-		value = _in_range(_flex(joint),float(joint.lo))
+		value=float(joint.hi) if to_hi<=to_lo else float(joint.lo)
+	# Passive tissue compression near deep hip/knee flexion. A perfectly
+	# free hinge followed by an infinitely hard end-stop can lock a folded leg
+	# above the body. This bounded elastic torque releases stored compression;
+	# it is not the former straightening motor acting through the whole range.
+	var soft_end=1.45 if joint.kind=="hip" else 2.10 if joint.kind=="knee" else INF
+	if value>soft_end:
+		var stiffness=8000000.0 if joint.kind=="hip" else 800000.0
+		var torque=minf(1800000.0 if joint.kind=="hip" else 400000.0,stiffness*pow(value-soft_end,2))
+		_project_angle115(joint,soft_end-value,-1.0,torque*motor_step115*h)
+	# Limp limbs have damping and anatomical end stops, not a straightening
+	# motor. The old broad 'soft range' extended a knee under body weight,
+	# lifting an unconscious chest back up after it had reached the floor.
 	if tone<=0.0 or not targets.has(joint.name): return
 	var target = target_flex(joint)
 	var strength = float(targets.get(joint.name+"_tone",1.0))*tone
 	var cap = MUSCLE_MAX_SPEED*h
-	_turn_joint(joint,clampf((target-value)*(1.0-exp(-MUSCLE_RATE*strength*h)),-cap,cap))
+	var limit=float(motor_torque115.get(joint.kind,INF))*motor_step115*h*strength
+	_project_angle115(joint,clampf((target-value)*(1.0-exp(-MUSCLE_RATE*strength*h)),-cap,cap),-1.0,limit)
+
+func _joint_rates115(previous: PackedFloat32Array, h: float) -> void:
+	for index in range(joints.size()):
+		var joint: Dictionary = joints[index]
+		var change=wrap_angle(_flex(joint)-previous[index])
+		var maximum=float(JOINT_RATE115[joint.kind])*h
+		if absf(change)>maximum:
+			_project_angle115(joint,clampf(change,-maximum,maximum)-change)
+
+func _posterior_tissue115(h: float) -> void:
+	# A hip and knee do not have independent passive ranges: the posterior
+	# two-joint tissue becomes taut with a deeply flexed hip AND straight knee.
+	# Independent hard stops allowed a limp rider to balance in an inverted
+	# pike, both feet hanging over the head forever. Finite coupled tension
+	# extends the hip and flexes the knee; it never rotates the whole body or
+	# chooses a world-space final pose. Angles/torques are game-scale estimates.
+	for side in ["near","far"]:
+		var hip:Dictionary={};var knee:Dictionary={}
+		for joint in joints:
+			if joint.name==side+"_hip":hip=joint
+			elif joint.name==side+"_knee":knee=joint
+		var strain=maxf(0.0,_flex(hip)-.70*_flex(knee)-1.45)
+		if strain<=0.0:continue
+		var tension=minf(2000000.0,8000000.0*strain*strain)
+		_project_angle115(hip,-strain,-1.0,tension*motor_step115*h)
+		_project_angle115(knee,strain*.70,-1.0,tension*.70*motor_step115*h)
+
+func _shield_joint115(h: float) -> void:
+	if not extensions.has("shield"):return
+	var bone=p[HAND_L]-p[ELBOW_L]
+	var turn=wrap_angle(bone.angle()-float(extensions.shield.angle0))
+	var relative=wrap_angle(shield_theta115-turn)
+	var wanted=clampf(relative,-1.95,1.95)
+	var hard_limit=not is_equal_approx(wanted,relative)
+	if not hard_limit:
+		if tone<=0.0 or not targets.has("shield_relative"):return
+		wanted=clampf(float(targets.shield_relative),-1.95,1.95)
+	var change=wrap_angle(wanted-relative)
+	if not hard_limit:change=clampf(change*(1.0-exp(-38.0*tone*h)),-5.5*h,5.5*h)
+	var gradient=Vector2(-bone.y,bone.x)/maxf(bone.length_squared(),.001)
+	var weight=1.0/shield_inertia115+gradient.length_squared()*(inv_mass[HAND_L]+inv_mass[ELBOW_L])
+	var limit=INF if hard_limit else 600000.0*tone*motor_step115*h
+	var impulse=clampf(change/weight,-limit,limit)
+	shield_theta115+=impulse/shield_inertia115
+	p[HAND_L]=p[HAND_L]-gradient*impulse*inv_mass[HAND_L]
+	p[ELBOW_L]=p[ELBOW_L]+gradient*impulse*inv_mass[ELBOW_L]
 
 func _solve_neck(h: float) -> void:
 	var neck = anchor("neck")
@@ -317,10 +464,71 @@ func _solve_neck(h: float) -> void:
 		var cap = MUSCLE_MAX_SPEED*h
 		change = clampf((clampf(float(targets.neck),-neck_limit,neck_limit)-angle)*(1.0-exp(-MUSCLE_RATE*tone*h)),-cap,cap)
 	if change==0.0: return
-	var head_inertia = (p[HEAD]-neck).length_squared()/inv_mass[HEAD]
-	var share = inertia/(inertia+head_inertia)
-	p[HEAD] = neck+(p[HEAD]-neck).rotated(change*share)
-	theta -= change*(1.0-share)
+	var arm = p[HEAD]-neck
+	var g = Vector2(-arm.y,arm.x)/maxf(arm.length_squared(),.001)
+	var root_gradient = -g
+	var r = neck-x
+	var theta_gradient = -1.0+root_gradient.dot(Vector2(-r.y,r.x))
+	var weight = root_gradient.length_squared()/mass+theta_gradient*theta_gradient/inertia+g.length_squared()*inv_mass[HEAD]
+	var impulse = change/maxf(weight,.000000001)
+	x += root_gradient*impulse/mass
+	theta += theta_gradient*impulse/inertia
+	p[HEAD] = p[HEAD]+g*impulse*inv_mass[HEAD]
+
+func _root_impulse115(pelvic: bool, linear: Vector2, angular: float, impulse: float, velocity: bool) -> void:
+	if pelvic:
+		if velocity:
+			pelvis_v+=linear*impulse/pelvis_mass
+			pelvis_omega+=angular*impulse/pelvis_inertia
+		else:
+			pelvis_x+=linear*impulse/pelvis_mass
+			pelvis_theta+=angular*impulse/pelvis_inertia
+	else:
+		if velocity:
+			v+=linear*impulse/mass
+			omega+=angular*impulse/inertia
+		else:
+			x+=linear*impulse/mass
+			theta+=angular*impulse/inertia
+
+func _anchor_weight115(name: String, axis: Vector2) -> float:
+	var pelvic=pelvis_anchors.has(name)
+	var r=anchor(name)-(pelvis_x if pelvic else x)
+	return 1.0/(pelvis_mass if pelvic else mass)+pow(r.cross(axis),2)/(pelvis_inertia if pelvic else inertia)
+
+func _anchor_push115(name: String, impulse: Vector2) -> void:
+	var pelvic=pelvis_anchors.has(name)
+	var r=anchor(name)-(pelvis_x if pelvic else x)
+	_root_impulse115(pelvic,impulse,r.cross(impulse),1.0,false)
+
+func _waist_hinge115() -> void:
+	for axis in [Vector2.RIGHT,Vector2.DOWN]:
+		var chest_r=waist_chest.rotated(theta)
+		var hip_r=waist_pelvis.rotated(pelvis_theta)
+		var error=(pelvis_x+hip_r-x-chest_r).dot(axis)
+		var wa=1.0/mass+pow(chest_r.cross(axis),2)/inertia
+		var wb=1.0/pelvis_mass+pow(hip_r.cross(axis),2)/pelvis_inertia
+		var impulse=axis*(-error/(wa+wb))
+		_rigid_push(chest_r,-impulse)
+		_root_impulse115(true,impulse,hip_r.cross(impulse),1.0,false)
+
+func _spine_angle115(change: float, limit: float = INF) -> void:
+	var impulse=clampf(change/(1.0/inertia+1.0/pelvis_inertia),-limit,limit)
+	theta+=facing*impulse/inertia
+	pelvis_theta-=facing*impulse/pelvis_inertia
+
+func _spine_constraint115(h: float, previous: float, motor_h: float) -> void:
+	var flexion=spine_flex()
+	var target=clampf(flexion,spine_range.x,spine_range.y)
+	if not is_equal_approx(target,flexion):
+		_spine_angle115(target-flexion)
+	elif tone>0.0 and targets.has("spine"):
+		var wanted=clampf(float(targets.spine),spine_range.x,spine_range.y)
+		_spine_angle115(clampf((wanted-flexion)*(1.0-exp(-MUSCLE_RATE*tone*motor_h)),-SPINE_RATE115*motor_h,SPINE_RATE115*motor_h),float(motor_torque115.get("spine",INF))*h*motor_h*tone)
+	var compressed=maxf(0.0,spine_flex()-.68)
+	if compressed>0.0:_spine_angle115(-compressed,minf(300000.0,3000000.0*compressed*compressed)*h*motor_h)
+	var change=wrap_angle(spine_flex()-previous)
+	_spine_angle115(clampf(change,-SPINE_RATE115*h,SPINE_RATE115*h)-change)
 
 func _rigid_weight(r: Vector2, n: Vector2) -> float:
 	var arm = r.cross(n)
@@ -341,11 +549,10 @@ func _solve_bone(bone: Array) -> void:
 	var error = length-float(bone[2])
 	var wb = inv_mass[b]
 	if a is String:
-		var r = start-x
-		var wa = _rigid_weight(r,n)
+		var wa = _anchor_weight115(a,n)
 		var s = error/(wa+wb)
 		p[b] -= n*s*wb
-		_rigid_push(r,n*s)
+		_anchor_push115(a,n*s)
 	else:
 		var wa = inv_mass[a]
 		var s = error/(wa+wb)
@@ -356,8 +563,8 @@ func _record(part: String) -> void:
 	if not contacts.has(part): contacts[part] = age
 
 func system_centre() -> Vector2:
-	var total = mass
-	var sum = x*mass
+	var total = mass+pelvis_mass
+	var sum = x*mass+pelvis_x*pelvis_mass
 	for i in range(COUNT):
 		var m = 1.0/inv_mass[i]
 		sum += p[i]*m
@@ -365,51 +572,25 @@ func system_centre() -> Vector2:
 	return sum/total
 
 func _total_inertia(centre: Vector2) -> float:
-	var total = inertia+mass*(x-centre).length_squared()
+	var total = inertia+mass*(x-centre).length_squared()+pelvis_inertia+pelvis_mass*(pelvis_x-centre).length_squared()+shield_inertia115
 	for i in range(COUNT):
 		total += (p[i]-centre).length_squared()/inv_mass[i]
 	return maxf(total,1.0)
-
-func _rotate_all(centre: Vector2, angle: float, quasi_static: bool = false) -> void:
-	# quasi_static also turns the previous positions, so the turn is a slow
-	# repositioning that adds no momentum (a buckling prop must not leave the
-	# body rolling on: phys114-articulation14 tumbled over twice).
-	x = centre+(x-centre).rotated(angle)
-	theta += angle
-	if quasi_static:
-		x_prev = centre+(x_prev-centre).rotated(angle)
-		theta_prev += angle
-	for i in range(COUNT):
-		p[i] = centre+(p[i]-centre).rotated(angle)
-		if quasi_static: prev[i] = centre+(prev[i]-centre).rotated(angle)
-
-func _restore_spin(centre: Vector2, before_points: PackedVector2Array, before_x: Vector2, before_theta: float) -> void:
-	# Net angular displacement (angular momentum x step) the internal pass
-	# added about the body's centre; turn the whole body back by it.
-	var turned = inertia*(theta-before_theta)+mass*(x-centre).cross(x-before_x)
-	for i in range(COUNT):
-		turned += (p[i]-centre).cross(p[i]-before_points[i])/inv_mass[i]
-	_rotate_all(centre,-turned/_total_inertia(centre))
-
-func _shift_positions(offset: Vector2) -> void:
-	# Moves current positions only: within a substep this cancels a spurious
-	# displacement instead of preserving it as velocity.
-	x += offset
-	for i in range(COUNT):
-		p[i] = p[i]+offset
 
 func translate(offset: Vector2) -> void:
 	# Positional correction of the whole body without changing any velocity.
 	x += offset
 	x_prev += offset
+	pelvis_x+=offset
+	pelvis_prev+=offset
 	for i in range(COUNT):
 		p[i] = p[i]+offset
 		prev[i] = prev[i]+offset
 
 func _solve_torso_contacts() -> void:
 	if x.y+torso_reach<ground: return
-	for index in range(corners.size()+4):
-		# Trunk outline, then shoulders (sleeve radius 9) and hips (8).
+	for index in range(corners.size()+2):
+		# Chest outline and shoulders. Pelvis contacts use its separate inertia.
 		var lift = 0.0
 		var local: Vector2
 		if index<corners.size():
@@ -436,6 +617,29 @@ func _solve_torso_contacts() -> void:
 		else:
 			_record(["left_shoulder","right_shoulder","near_thigh","far_thigh"][index-corners.size()])
 
+func _solve_pelvis_contacts115() -> void:
+	if pelvis_x.y+60.0<ground: return
+	for index in range(pelvis_corners.size()+2):
+		var local: Vector2
+		var lift=0.0
+		if index<pelvis_corners.size():
+			local=pelvis_corners[index]
+		else:
+			local=pelvis_anchors["hip_n" if index==pelvis_corners.size() else "hip_f"]
+			lift=8.0
+		var r=local.rotated(pelvis_theta)
+		var point=pelvis_x+r+Vector2(0,lift)
+		var depth=point.y-ground
+		if depth<=0.0: continue
+		var before=pelvis_prev+local.rotated(pelvis_theta_prev)+Vector2(0,lift)
+		var normal=depth/(1.0/pelvis_mass+r.x*r.x/pelvis_inertia)
+		_root_impulse115(true,Vector2.UP,r.cross(Vector2.UP),normal,false)
+		var tangent=clampf(-(point.x-before.x)/(1.0/pelvis_mass+r.y*r.y/pelvis_inertia),-FRICTION*normal,FRICTION*normal)
+		_root_impulse115(true,Vector2.RIGHT,r.cross(Vector2.RIGHT),tangent,false)
+		core_contact=true
+		torso_contact=true
+		_record("pelvis")
+
 func _point_contact(index: int, lift: float, part: String) -> void:
 	# Packed arrays return copies; always write a whole element back.
 	var q: Vector2 = p[index]
@@ -451,7 +655,7 @@ func _extension_point(data: Dictionary, previous: bool, offset: Vector2) -> Vect
 	var start = end_position(data.a)
 	var finish: Vector2 = p[data.b]
 	if previous:
-		start = (x_prev+Vector2(anchors[data.a]).rotated(theta_prev)) if data.a is String else prev[data.a]
+		start = anchor_previous(data.a) if data.a is String else prev[data.a]
 		finish = prev[data.b]
 	if data.get("roll",false) and shield_roll>0.0:
 		# Rolling flat about the forearm shortens the face along the shield's
@@ -463,7 +667,8 @@ func _extension_point(data: Dictionary, previous: bool, offset: Vector2) -> Vect
 			var a = offset.cross(by)/det
 			var b = bx.cross(offset)/det
 			offset = bx*a+by*b*cos(shield_roll)
-	return finish+offset.rotated((finish-start).angle()-float(data.angle0))
+	var turn=(shield_previous115 if previous else shield_theta115) if bool(data.get("roll",false)) else (finish-start).angle()-float(data.angle0)
+	return finish+offset.rotated(turn)
 
 func _extension_contact(key: String, part: String) -> void:
 	if not extensions.has(key): return
@@ -491,33 +696,50 @@ func _extension_contact(key: String, part: String) -> void:
 	if data.a is int: touching[data.a] = 1
 	# Friction acts on the actual contact point's travel this substep.
 	var travel = point.x-_extension_point(data,true,chosen).x
-	if data.a is String:
-		# Head: the collar is rigid with the torso; the skull takes the push,
-		# the neck bone hands the rest to the torso on the next projection.
-		var head: Vector2 = p[data.b]
-		head.y -= deepest
-		head.x -= clampf(travel,-FRICTION*deepest,FRICTION*deepest)
-		p[data.b] = head
-		core_contact = true
-		return
-	var a: int = data.a
-	var b: int = data.b
-	var axis = finish-start
-	var t = clampf((point-start).dot(axis)/maxf(axis.length_squared(),.0001),-.3,1.6)
-	var wa = inv_mass[a]*(1.0-t)
-	var wb = inv_mass[b]*t
-	var denominator = (1.0-t)*wa+t*wb
-	if absf(denominator)<.00001: return
-	var s = deepest/denominator
-	# A wooden/iron shield rim slides on sand; with full grip a strapped
-	# shield stood on its edge and propped the forearm upright (articulation01).
+	# A rim sits OFF the forearm/shin line. Its contact Jacobian must include
+	# that rotational lever; barycentric weights along the line alone gave
+	# the shield an incorrect impulse and flung the arm at first contact.
+	var normal_impulse = _push_extension115(data,point,Vector2.UP,deepest)
 	var grip = SHIELD_FRICTION if key=="shield" else FRICTION
-	var slip = clampf(travel,-grip*deepest,grip*deepest)/denominator
-	p[a] -= Vector2(wa*slip,wa*s)
-	p[b] -= Vector2(wb*slip,wb*s)
+	_push_extension115(data,point,Vector2.RIGHT,-travel,grip*normal_impulse)
+	if key=="head": core_contact=true
+
+func _push_extension115(data: Dictionary, point: Vector2, axis: Vector2, distance: float, limit: float = INF) -> float:
+	var start = end_position(data.a)
+	var finish: Vector2 = p[data.b]
+	var bone = finish-start
+	var lever = point-finish
+	if bool(data.get("roll",false)):
+		# A rim force turns the shield and pushes its actual hand; the finite
+		# strap joint transmits that torque onward to the forearm and shoulder.
+		var angular=lever.cross(axis)
+		var weight115=inv_mass[data.b]+angular*angular/shield_inertia115
+		var impulse115=clampf(distance/maxf(weight115,.000000001),-limit,limit)
+		p[data.b]=p[data.b]+axis*impulse115*inv_mass[data.b]
+		shield_theta115+=angular*impulse115/shield_inertia115
+		return absf(impulse115)
+	var angle_gradient = Vector2(-bone.y,bone.x)/maxf(bone.length_squared(),.001)
+	var g_a = -angle_gradient*Vector2(-lever.y,lever.x).dot(axis)
+	var g_b = axis-g_a
+	var theta_gradient = 0.0
+	var weight = g_b.length_squared()*inv_mass[data.b]
+	if data.a is String:
+		var r = start-x
+		theta_gradient=g_a.dot(Vector2(-r.y,r.x))
+		weight+=g_a.length_squared()/mass+theta_gradient*theta_gradient/inertia
+	else:
+		weight+=g_a.length_squared()*inv_mass[data.a]
+	var impulse=clampf(distance/maxf(weight,.000000001),-limit,limit)
+	p[data.b]=p[data.b]+g_b*impulse*inv_mass[data.b]
+	if data.a is String:
+		x+=g_a*impulse/mass
+		theta+=theta_gradient*impulse/inertia
+	else:
+		p[data.a]=p[data.a]+g_a*impulse*inv_mass[data.a]
+	return absf(impulse)
 
 func angular_momentum(centre: Vector2) -> float:
-	var total = inertia*omega+mass*(x-centre).cross(v)
+	var total = inertia*omega+mass*(x-centre).cross(v)+pelvis_inertia*pelvis_omega+pelvis_mass*(pelvis_x-centre).cross(pelvis_v)+shield_inertia115*shield_omega115
 	for i in range(COUNT):
 		total += (p[i]-centre).cross(vel[i])/inv_mass[i]
 	return total
@@ -531,6 +753,9 @@ func _landing_thud() -> void:
 	var centre = system_centre()
 	var correction = -LANDING_THUD*angular_momentum(centre)/_total_inertia(centre)
 	omega += correction
+	pelvis_omega+=correction
+	shield_omega115+=correction
+	pelvis_v+=Vector2(-(pelvis_x-centre).y,(pelvis_x-centre).x)*correction
 	v += Vector2(-(x-centre).y,(x-centre).x)*correction
 	for i in range(COUNT):
 		vel[i] = vel[i]+Vector2(-(p[i]-centre).y,(p[i]-centre).x)*correction
@@ -552,68 +777,6 @@ func _shield_rolls(h: float) -> void:
 func shield_scale_across() -> float:
 	return cos(shield_roll)
 
-func _limbs_drop(h: float) -> void:
-	# A limp leg or arm balanced pointing up (knee above hip, hand above
-	# shoulder) would fall sideways out of this plane in reality. In 2D it is
-	# an inverted pendulum that can stand for seconds (articulation19), so it
-	# is lowered toward the floor slowly and without adding momentum.
-	if tone>0.0 or grounded_age<.6: return
-	for joint in joints:
-		# Hips/shoulders (thigh, upper arm) and knees/elbows (shin, forearm):
-		# a folded knee left its shin and boot standing up (articulation20).
-		var pivot = end_position(joint.pivot)
-		var child: int = joint.child
-		var rise = pivot.y-p[child].y
-		if rise<12.0: continue
-		var arm = p[child]-pivot
-		var step = LIMB_DROP*h
-		# Turn the way that lowers the joint.
-		var turn = step if arm.rotated(step).y>arm.rotated(-step).y else -step
-		# Never past a stop: the stop would push it back with velocity and the
-		# limb would buzz at the stop instead of resting (code review 2026-11-24).
-		var after = range_flex(joint)+turn*facing*(1.0 if joint.kind=="knee" else -1.0)
-		if after<float(joint.lo) or after>float(joint.hi): continue
-		for index in joint.chain:
-			p[index] = pivot+(p[index]-pivot).rotated(turn)
-			prev[index] = pivot+(prev[index]-pivot).rotated(turn)
-
-func _knees_buckle(h: float) -> void:
-	# A limp body landed upright on spread, straight legs stood braced between
-	# the stops (balance-topple fixtures, phys114-body13). With no tone the
-	# knees fold under the weight until the trunk is low enough to go over.
-	# Only while the body can still go over; a knee held by the floor short of
-	# its stop must not keep pushing for ever (it would never come to rest).
-	if tone>0.0 or grounded_age<.4 or grounded_age>KNEE_BUCKLE_END: return
-	var down = down_axis()
-	if absf(down.y)<.6: return
-	# A body with a knee already down is kneeling, not standing braced:
-	# folding the other knee levered the trunk upright and walked the body
-	# 85 px along the floor (phys114-trace08/10).
-	if touching[KNEE_N] or touching[KNEE_F]: return
-	# As a torque (velocity), not a repositioning: with the boot planted a
-	# moved ankle was simply pushed back by the floor, and the hips must sink.
-	# Shin and thigh have different masses, so equal spins alone left a net
-	# push on the whole body; _conserve removes it (code review 2026-11-24).
-	var centre = system_centre()
-	var momentum_before = linear_momentum()
-	var spin_before = angular_momentum(centre)
-	for joint in joints:
-		if joint.kind!="knee": continue
-		var value = _in_range(_flex(joint),float(joint.lo))
-		if value>=float(joint.hi)-.3: continue
-		var spin = _world_turn(joint,KNEE_BUCKLE*h)
-		var knee: Vector2 = p[joint.pivot]
-		var hip = anchor(joint["from"])
-		var ankle: Vector2 = p[joint.child]
-		# Equal and opposite on shin and thigh (internal). Rotation velocity is
-		# (-r.y, r.x)*w; Vector2.orthogonal() is the opposite sense and first
-		# straightened the knees instead (phys114-probe02).
-		var shin = ankle-knee
-		var thigh = knee-hip
-		vel[joint.child] = vel[joint.child]+Vector2(-shin.y,shin.x)*spin
-		vel[joint.pivot] = vel[joint.pivot]-Vector2(-thigh.y,thigh.x)*spin
-	_conserve(centre,momentum_before,spin_before)
-
 func _to_flat() -> float:
 	# Turn that lays the trunk flat on the nearer side. Near upright the side
 	# is the guide's (back/side landing), so the guide and a giving prop agree;
@@ -628,129 +791,43 @@ func _to_flat() -> float:
 		if signf(nearer)!=want: return b if nearer==a else a
 	return nearer
 
-func _props_give_way(h: float) -> void:
-	# A relaxed body cannot stay sitting up on a locked arm or a knee: once the
-	# reflex has let go and the trunk rests still but upright, it tips over
-	# about its floor contact toward lying (the props buckle).
-	# Also a body propped on knees and hands with the trunk off the floor
-	# (forward flank falls stayed kneeling, phys114-articulation15).
-	# Still = measured trunk motion, not the derived velocity (trace06).
-	var propped = grounded_age>.6 and trunk_speed<60.0
-	if tone>.08 or grounded_age<.25 or not (core_contact or propped): return
-	var down = down_axis()
-	var to_flat = _to_flat()
-	# A trunk resting on the floor lies within ~11 degrees of flat; 31 degrees
-	# let a body propped on knees count as lying (articulation16).
-	if absf(to_flat)<.30: return
-	# Only in the first two seconds on the floor: afterwards a trunk held off
-	# flat by the floor itself must not keep turning the body against its
-	# limbs (it fought the limb drop and stalled, phys114-trace05). Extending
-	# it to 4 s for kneeling riders only folded them onto the hip stop and let
-	# them spring back up afterwards (phys114-trace11).
-	if grounded_age>2.0: return
-	# Balanced on helmet and shoulders with the legs up (down axis pointing up)
-	# is the least stable of all: it goes over fastest.
-	var inverted = smoothstep(0.0,.8,-down.y)
-	# Tip about what actually rests on the floor (a knee, a boot or the trunk);
-	# turning about a trunk corner in the air only fought the kneeling leg.
-	var pivot = x
-	var lowest = -INF
-	for local in corners:
-		var point = x+Vector2(local).rotated(theta)
-		if point.y>lowest:
-			lowest = point.y
-			pivot = point
-	for i in range(COUNT):
-		if p[i].y+radius[i]>lowest:
-			lowest = p[i].y+radius[i]
-			pivot = p[i]
-	var rate = PROP_GIVE*(1.0+2.5*inverted)
-	# Still turning by itself (beyond this rule's own slow give): let it fall.
-	if trunk_turn>rate+.8: return
-	_rotate_all(pivot,clampf(to_flat,-rate*h,rate*h),true)
-
 func linear_momentum() -> Vector2:
-	var total = v*mass
+	var total = v*mass+pelvis_v*pelvis_mass
 	for i in range(COUNT):
 		total += vel[i]/inv_mass[i]
 	return total
 
 func total_mass() -> float:
-	var total = mass
+	var total = mass+pelvis_mass
 	for i in range(COUNT):
 		total += 1.0/inv_mass[i]
 	return total
 
-func _conserve(centre: Vector2, momentum_before: Vector2, spin_before: float) -> void:
-	# Internal velocity changes (tissue damping, buckling knees) must move
-	# neither the centre of mass nor the spin of the whole body. A uniform
-	# velocity shift leaves the spin about the centre unchanged, and a rigid
-	# turn about the centre leaves the momentum unchanged, so the two
-	# corrections are independent.
-	var shift = (momentum_before-linear_momentum())/total_mass()
-	v += shift
-	for i in range(COUNT):
-		vel[i] = vel[i]+shift
-	var correction = (spin_before-angular_momentum(centre))/_total_inertia(centre)
-	omega += correction
-	v += Vector2(-(x-centre).y,(x-centre).x)*correction
-	for i in range(COUNT):
-		vel[i] = vel[i]+Vector2(-(p[i]-centre).y,(p[i]-centre).x)*correction
-
 func _damp_joints(h: float) -> void:
-	# Tissue damping is internal: it must not change the body's spin, nor in
-	# the air its momentum (a damped limb only handed spin to its parent, so a
-	# swinging arm shifted the trajectory, code review 2026-11-24). On the
-	# floor the limb's reaction goes into its contact instead: spreading it
-	# over the whole body slid lying riders along the ground and left three
-	# falls unsettled at 7 s (phys114-exp9).
-	var centre = system_centre()
-	var momentum_before = linear_momentum()
-	var spin_before = angular_momentum(centre)
-	_damp_joint_velocities(h)
-	if grounded_age>=0.0: momentum_before = linear_momentum()
-	_conserve(centre,momentum_before,spin_before)
-
-func _damp_joint_velocities(h: float) -> void:
-	# Passive tissue: damp each bone's spin relative to its parent.
+	# Apply dissipative internal angular impulses through the same Jacobian
+	# as the joint limit. Contact need not borrow a global momentum correction.
 	var keep = exp(-JOINT_DAMPING*h)
-	var torso_spin = omega
-	for joint in joints:
-		var pivot = end_position(joint.pivot)
-		var pivot_velocity = v+Vector2(-(pivot-x).y,(pivot-x).x)*omega if joint.pivot is String else vel[joint.pivot]
-		var parent_spin = torso_spin
-		if not joint.pivot is String:
-			var shoulder = anchor(joint["from"])
-			var arm = pivot-shoulder
-			var shoulder_velocity = v+Vector2(-(shoulder-x).y,(shoulder-x).x)*omega
-			parent_spin = arm.cross(vel[joint.pivot]-shoulder_velocity)/maxf(arm.length_squared(),1.0)
-		var child: int = joint.child
-		var r = p[child]-pivot
-		var spin = r.cross(vel[child]-pivot_velocity)/maxf(r.length_squared(),1.0)
-		var relative = (spin-parent_spin)*(1.0-keep)
-		var child_inertia = _chain_inertia(joint.chain,pivot)
-		# Equal and opposite: tissue damping slows the limb relative to its
-		# parent and hands that angular momentum to the parent.
-		var parent_inertia = inertia
-		if not joint.pivot is String:
-			parent_inertia = (pivot-anchor(joint["from"])).length_squared()/inv_mass[joint.pivot]
-		var child_share = parent_inertia/(parent_inertia+child_inertia)
-		for index in joint.chain:
-			var arm = p[index]-pivot
-			vel[index] = vel[index]-Vector2(-arm.y,arm.x)*relative*child_share
-		var parent_change = relative*(1.0-child_share)
-		if joint.pivot is String:
-			omega += parent_change
-		else:
-			var upper = pivot-anchor(joint["from"])
-			vel[joint.pivot] = vel[joint.pivot]+Vector2(-upper.y,upper.x)*parent_change
+	for joint in joints: _project_angle115(joint,0.0,keep)
+	var impulse=-(omega-pelvis_omega)*(1.0-keep)/(1.0/inertia+1.0/pelvis_inertia)
+	omega+=impulse/inertia
+	pelvis_omega-=impulse/pelvis_inertia
+	var bone=p[HAND_L]-p[ELBOW_L]
+	var gradient=Vector2(-bone.y,bone.x)/maxf(bone.length_squared(),.001)
+	var rate=shield_omega115-gradient.dot(vel[HAND_L]-vel[ELBOW_L])
+	var weight=1.0/shield_inertia115+gradient.length_squared()*(inv_mass[HAND_L]+inv_mass[ELBOW_L])
+	var strap_impulse=-rate*(1.0-keep)/weight
+	shield_omega115+=strap_impulse/shield_inertia115
+	vel[HAND_L]=vel[HAND_L]-gradient*strap_impulse*inv_mass[HAND_L]
+	vel[ELBOW_L]=vel[ELBOW_L]+gradient*strap_impulse*inv_mass[ELBOW_L]
 
 func set_muscles(value_tone: float, value_targets: Dictionary) -> void:
 	tone = value_tone
 	targets = value_targets
 
-func step(dt: float) -> void:
+func step(dt: float, support: Dictionary = {}) -> void:
 	var h = dt/SUBSTEPS
+	motor_step115=h
+	support_contacts115.clear()
 	contacts.clear()
 	core_contact = false
 	torso_contact = false
@@ -762,10 +839,17 @@ func step(dt: float) -> void:
 	var step_theta = last_theta if has_last else theta
 	for substep in range(SUBSTEPS):
 		age += h
+		var previous_spine115=spine_flex()
+		var previous_flex115=PackedFloat32Array()
+		for joint in joints: previous_flex115.append(_flex(joint))
 		# Predict.
 		x_prev = x
 		theta_prev = theta
+		pelvis_prev=pelvis_x
+		pelvis_theta_prev=pelvis_theta
+		shield_previous115=shield_theta115
 		v.y += GRAVITY*h
+		pelvis_v.y+=GRAVITY*h
 		if guide_strength>0.0 and (grounded_age<0.0 or (grounded_age<2.5 and absf(down_axis().y)>.5)):
 			# DEV-113's weak airborne orientation bias (3, 1.1): the trunk heads
 			# for a back/side landing instead of head first or seated. While the
@@ -777,73 +861,51 @@ func step(dt: float) -> void:
 			omega += (guide_strength*3.0*error-guide_strength*1.1*omega)*h
 		x += v*h
 		theta += omega*h
+		pelvis_x+=pelvis_v*h
+		pelvis_theta+=pelvis_omega*h
+		shield_omega115+=shield_mass115*GRAVITY*shield_centre115.rotated(shield_theta115).x/shield_inertia115*h
+		shield_theta115+=shield_omega115*h
 		for i in range(COUNT):
 			prev[i] = p[i]
 			vel[i] = vel[i]+Vector2(0,GRAVITY*h)
 			p[i] = p[i]+vel[i]*h
-		# Project: bones, joint stops and muscles, then contacts last so the
-		# floor always wins over a muscle or a stretched bone.
-		for bone in bones: _solve_bone(bone)
-		# Joint stops and muscles are INTERNAL: they may bend the body but must
-		# not move its centre of mass, or a kicking limb would let the rider
-		# swim through the air (the first PHYS-114 run flew bodies away).
-		var centre = system_centre()
-		var before_points = p.duplicate()
-		var before_x = x
-		var before_theta = theta
-		for joint in joints: _solve_joint(joint,h)
-		_solve_neck(h)
-		_shift_positions(centre-system_centre())
-		# ...nor its angular momentum: the per-joint inertia split is taken about
-		# the joint, not the body's centre, and alone let the arm reflex spin a
-		# rider through 150 degrees in 0.15 s (phys114-trace01). Undo exactly
-		# the net turn the internal step gave the whole body.
-		_restore_spin(centre,before_points,before_x,before_theta)
-		for bone in bones: _solve_bone(bone)
-		_solve_torso_contacts()
-		for i in [ELBOW_L,HAND_L,ELBOW_R,HAND_R,KNEE_N,KNEE_F]:
-			_point_contact(i,radius[i],PARTICLE_NAMES[i])
-		_extension_contact("boot_n","near_shin")
-		_extension_contact("boot_f","far_shin")
-		_extension_contact("shield","shield")
+		# Contact is the LAST constraint of each sweep. A final bone pass used
+		# to put boots below the floor again; the renderer then lifted the whole
+		# person by ~1.5px each tick, a hidden anti-gravity support at the foot.
+		var iterations=5 if grounded_age>=0.0 else 2
+		for sweep in range(iterations):
+			for bone in bones: _solve_bone(bone)
+			_waist_hinge115()
+			for joint in joints: _solve_joint(joint,h/iterations)
+			_posterior_tissue115(h/iterations)
+			_shield_joint115(h/iterations)
+			_spine_constraint115(h,previous_spine115,h/iterations)
+			_solve_neck(h/iterations)
+			_joint_rates115(previous_flex115,h)
+			for bone in bones: _solve_bone(bone)
+			_waist_hinge115()
+			if not support.is_empty(): _mounted_contacts115(support,h,float(substep+1)/SUBSTEPS)
+			_solve_torso_contacts()
+			_solve_pelvis_contacts115()
+			for i in [ELBOW_L,HAND_L,ELBOW_R,HAND_R,KNEE_N,KNEE_F]:
+				_point_contact(i,radius[i],PARTICLE_NAMES[i])
+			_extension_contact("boot_n","near_shin")
+			_extension_contact("boot_f","far_shin")
+			_extension_contact("shield","shield")
+			_extension_contact("head","head")
 		_shield_rolls(h)
-		_extension_contact("head","head")
-		_props_give_way(h)
-		_limbs_drop(h)
 		# Derive velocities.
 		var drag = 1.0-AIR_DRAG*h
 		v = ((x-x_prev)/h*drag).limit_length(MAX_SPEED)
 		omega = clampf(wrap_angle(theta-theta_prev)/h*drag,-14.0,14.0)
+		pelvis_v=((pelvis_x-pelvis_prev)/h*drag).limit_length(MAX_SPEED)
+		pelvis_omega=clampf(wrap_angle(pelvis_theta-pelvis_theta_prev)/h*drag,-14.0,14.0)
+		shield_omega115=clampf(wrap_angle(shield_theta115-shield_previous115)/h*drag,-14.0,14.0)
 		for i in range(COUNT):
 			vel[i] = ((p[i]-prev[i])/h*drag).limit_length(MAX_SPEED)
 		# A torque acts on velocities, so after they are derived from positions
 		# (applied before, it was overwritten and never acted: body14-16).
-		_knees_buckle(h)
 	_damp_joints(dt)
-	# Only while the trunk is still held off the floor; once it lies, creeping
-	# stops would only keep the body slowly moving (fall057 flank/1).
-	if tone<=0.0 and grounded_age>1.0 and not torso_contact:
-		# Limp joints loaded against a stop creep a little (capsule and
-		# ligaments), so a body cannot stay braced kneeling on a leg held at
-		# its hip-extension stop (phys114-trace04). Bounded to 0.5 rad.
-		for joint in joints:
-			# Flexion side only: a creeping hip-extension stop let a seated
-			# rider with straight legs slide into the splits (phys114-edge01).
-			if joint.kind in ["hip","knee"]:
-				joint.hi = minf(float(joint.hi)+STOP_CREEP*dt,float(joint.base_hi)+STOP_CREEP_MAX)
-	if tone<=0.0 and grounded_age>1.0:
-		# Over a folded knee the hip extension gives way too: a limp rider
-		# kneeling upright on his heels sinks back over his legs instead of
-		# staying knelt (phys114-games05 shield fall). It keeps giving while
-		# that knee still points up, so the thigh can drop once the back is
-		# down (otherwise the knees stood up in the air, phys114-body24).
-		var knee_flex = {}
-		for joint in joints:
-			if joint.kind=="knee": knee_flex[str(joint.name).replace("knee","hip")] = range_flex(joint)
-		for joint in joints:
-			if joint.kind!="hip" or float(knee_flex.get(joint.name,0.0))<=KNEEL_KNEE: continue
-			if torso_contact and end_position(joint.pivot).y-p[joint.child].y<12.0: continue
-			joint.lo = maxf(float(joint.lo)-KNEEL_GIVE*dt,float(joint.base_lo)-KNEEL_GIVE_MAX)
 	# Trunk or helmet: riders often land on head and shoulders first.
 	if core_contact and not thudded:
 		_landing_thud()
@@ -854,6 +916,9 @@ func step(dt: float) -> void:
 		var keep = exp(-8.0*rest*dt)
 		v *= keep
 		omega *= keep
+		pelvis_v*=keep
+		pelvis_omega*=keep
+		if contacts.has("shield") or rest_all:shield_omega115*=keep
 		for i in range(COUNT):
 			if touching[i] or rest_all: vel[i] = vel[i]*keep
 	if grounded_age<0.0 and not contacts.is_empty(): grounded_age = 0.0
@@ -905,7 +970,7 @@ func display_points() -> PackedVector2Array:
 
 func motion() -> float:
 	# Largest speed of any part, including the rim of the spinning torso.
-	var fastest = v.length()+absf(omega)*60.0
+	var fastest = maxf(v.length()+absf(omega)*60.0,pelvis_v.length()+absf(pelvis_omega)*30.0)
 	for i in range(COUNT):
 		fastest = maxf(fastest,vel[i].length())
 	return fastest
@@ -915,6 +980,118 @@ func point_velocity(index: int) -> Vector2:
 
 func segment_spin(a, b: int) -> float:
 	var start = end_position(a)
-	var start_velocity = v+Vector2(-(start-x).y,(start-x).x)*omega if a is String else vel[a]
+	var start_velocity = anchor_velocity(a) if a is String else vel[a]
 	var r = p[b]-start
 	return r.cross(vel[b]-start_velocity)/maxf(r.length_squared(),1.0)
+
+func apply_impulse115(part: String, point: Vector2, impulse: Vector2) -> void:
+	# External impulse at the actual contact. In particular a shield-edge hit
+	# contributes its lever torque, instead of translating the hand alone.
+	if part=="shield" and extensions.has(part):
+		vel[HAND_L]=vel[HAND_L]+impulse*inv_mass[HAND_L]
+		shield_omega115+=(point-p[HAND_L]).cross(impulse)/shield_inertia115
+	elif part=="head" and extensions.has(part):
+		var data: Dictionary=extensions[part]
+		_impulse_segment115(data.a,data.b,point,impulse)
+	elif part=="lance":
+		_impulse_segment115(ELBOW_R,HAND_R,point,impulse)
+	elif part=="flank":
+		pelvis_v+=impulse/pelvis_mass
+		pelvis_omega+=(point-pelvis_x).cross(impulse)/pelvis_inertia
+	else:
+		v+=impulse/mass
+		omega+=(point-x).cross(impulse)/inertia
+
+func _impulse_segment115(a, b: int, point: Vector2, impulse: Vector2) -> void:
+	var start=end_position(a)
+	var axis=p[b]-start
+	var gradient=Vector2(-axis.y,axis.x)/maxf(axis.length_squared(),.001)
+	var first=-gradient*(point-p[b]).cross(impulse)
+	vel[b]=vel[b]+(impulse-first)*inv_mass[b]
+	if a is String:
+		var pelvic=pelvis_anchors.has(a)
+		_root_impulse115(pelvic,first,(start-(pelvis_x if pelvic else x)).cross(first),1.0,true)
+	else:
+		vel[a]=vel[a]+first*inv_mass[a]
+
+func _support_rigid115(pelvic: bool, local: Vector2, current: Vector2, previous: Vector2, half_width: float, friction: float, tag: String) -> void:
+	var angle=pelvis_theta if pelvic else theta
+	var r=local.rotated(angle)
+	var point=(pelvis_x if pelvic else x)+r
+	if absf(point.x-current.x)>half_width: return
+	# Finite curved saddle, with a shallow seat and rising pommel/cantle.
+	# Its normal carries the rider inward; an infinite centre spring would
+	# keep a struck pelvis attached even after it clears the saddle rim.
+	var dx=point.x-current.x
+	var curvature=.024 if tag=="saddle" else 0.0
+	var normal_axis=Vector2(-2.0*curvature*dx,-1).normalized()
+	var depth=(point.y-current.y+curvature*(dx*dx-121.0))/sqrt(1.0+pow(2.0*curvature*dx,2))
+	if depth<=0.0 or depth>22.0: return
+	var m=pelvis_mass if pelvic else mass
+	var moment=pelvis_inertia if pelvic else inertia
+	var normal=depth/(1.0/m+pow(r.cross(normal_axis),2)/moment)
+	_root_impulse115(pelvic,normal_axis,r.cross(normal_axis),normal,false)
+	var before=(pelvis_prev if pelvic else x_prev)+local.rotated(pelvis_theta_prev if pelvic else theta_prev)
+	var axis=Vector2(-normal_axis.y,normal_axis.x)
+	var travel=(point-before-current+previous).dot(axis)
+	var tangent=clampf(-travel/(1.0/m+pow(r.cross(axis),2)/moment),-friction*normal,friction*normal)
+	_root_impulse115(pelvic,axis,r.cross(axis),tangent,false)
+	support_contacts115[tag]=true
+
+func _mounted_contacts115(support: Dictionary, h: float, alpha: float) -> void:
+	var saddle_before: Vector2=support.saddle_previous
+	var saddle_now: Vector2=support.saddle
+	var saddle=saddle_before.lerp(saddle_now,alpha)
+	var old=saddle_before.lerp(saddle_now,maxf(0.0,alpha-1.0/SUBSTEPS))
+	var upright=hip_down_axis().dot(Vector2.DOWN)>.25
+	if upright:
+		for local in support.seat_points:
+			_support_rigid115(true,local,saddle,old,float(support.width),float(support.friction),"saddle")
+	# Conscious thigh/seat bracing applies a bounded torque against the horse,
+	# only while the finite saddle is actually carrying the pelvis. It cannot
+	# orient a free body in midair or hold the rider through an arbitrarily hard hit.
+	if support_contacts115.has("saddle") and float(support.get("brace_torque",0.0))>0.0:
+		var turn=wrap_angle(hip_down_axis().angle()-PI*.5-float(support.get("pelvis_angle",0.0)))
+		var torque=clampf(-16000000.0*turn-1300000.0*pelvis_omega,-float(support.brace_torque),float(support.brace_torque))
+		pelvis_theta+=torque*h*h*.5/pelvis_inertia
+	for side in ["near","far"]:
+		var index=ANKLE_N if side=="near" else ANKLE_F
+		var knee=KNEE_N if side=="near" else KNEE_F
+		if (p[index]-p[knee]).normalized().y<.25:continue
+		var iron_before: Vector2=support.feet_previous[side]
+		var iron: Vector2=iron_before.lerp(support.feet[side],alpha)
+		var point: Vector2=p[index]
+		var depth=point.y-iron.y
+		if absf(point.x-iron.x)<float(support.get("iron_width",14.0)) and depth>0.0 and depth<12.0:
+			p[index]=Vector2(point.x,point.y-depth)
+			var travel=point.x-prev[index].x-(iron.x-iron_before.lerp(support.feet[side],maxf(0.0,alpha-1.0/SUBSTEPS)).x)
+			p[index]=p[index]-Vector2(clampf(travel,-depth*.65,depth*.65),0)
+			support_contacts115[side]=true
+	# A loose rein has a finite grip. It is not a fixed hand attachment, and
+	# becomes ineffective once the wrist is pulled outside its slack range.
+	if bool(support.get("rein_grip",false)):
+		var rein: Vector2=Vector2(support.rein_previous).lerp(support.rein,alpha)
+		var delta=p[HAND_L]-rein
+		var length=delta.length()
+		var slack=float(support.rein_length)
+		if length>slack and length<slack+20.0:
+			var pull=minf((length-slack)/inv_mass[HAND_L],float(support.rein_force)*h*h/2.0)
+			p[HAND_L]=p[HAND_L]-delta/length*pull*inv_mass[HAND_L]
+			support_contacts115.rein=true
+	# Horse neck contact supports a limp chest/head. This contact belongs to
+	# the mounted phase only; a detached rider cannot be scooped up again.
+	if support.has("crest"):
+		for index in range(support.crest.size()-1):
+			var a: Vector2=support.crest[index]
+			var b: Vector2=support.crest[index+1]
+			if absf(b.x-a.x)<.01: continue
+			for part in ["chest","head"]:
+				var point=x if part=="chest" else p[HEAD]
+				var fraction=(point.x-a.x)/(b.x-a.x)
+				if fraction<0.0 or fraction>1.0: continue
+				var floor_y=lerpf(a.y,b.y,fraction)-13.0
+				var depth=point.y-floor_y
+				if depth<=0.0 or depth>20.0: continue
+				if part=="chest": x.y-=depth
+				else: p[HEAD]=p[HEAD]-Vector2(0,depth)
+				support_contacts115[part]=true

@@ -62,7 +62,16 @@ func final_shape(actor) -> Dictionary:
 		var hip = world(actor,leg.hip*mirror)
 		var knee = world(actor,leg.knee*mirror)
 		var foot = world(actor,leg.foot*mirror)
-		raised_legs = maxf(raised_legs,maxf(hip.y-knee.y,hip.y-foot.y))
+		var ankle = world(actor,leg.ankle*mirror)
+		result[side+"_heights"]={"hip":hip.y,"knee":knee.y,"ankle":ankle.y,"toe_marker":foot.y}
+		# Measure articulated joints, not the toe marker: a boot lying with
+		# its heel on the floor can point its toe upward by ~24px. This is
+		# distinct from the rejected unsupported knee, which remains checked.
+		raised_legs = maxf(raised_legs,maxf(hip.y-knee.y,hip.y-ankle.y))
+		var boot_low=-INF
+		for point in Rider.boot_outline113(leg):
+			boot_low=maxf(boot_low,world(actor,point*mirror).y)
+		result[side+"_boot_gap"]=actor.ground_y-5.0-boot_low
 		result[side+"_knee_flex"] = rad_to_deg(actor.body.flex(side+"_knee"))
 		result[side+"_hip_flex"] = rad_to_deg(actor.body.flex(side+"_hip"))
 	result.legs_above_hip = raised_legs

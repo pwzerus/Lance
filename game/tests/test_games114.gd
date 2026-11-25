@@ -43,6 +43,9 @@ func fall_shape(actor) -> Dictionary:
 	return {"legs_above_hip":raised,"hand_above_trunk":hand,"support_gap":actor.support_gap(),
 		"trunk_degrees":rad_to_deg(wrapf(actor.rotation+float(actor.initial_pose.torso_transform.get_rotation()),-PI,PI))}
 
+func configure_game(_index: int, _battle) -> void:
+	pass
+
 func play(index: int) -> void:
 	var mode = "arena" if index%2==0 else "war"
 	var state = root.get_node("GameState")
@@ -52,6 +55,7 @@ func play(index: int) -> void:
 	# An isolated desktop has no real focus; do not let a focus event pause.
 	if root.focus_exited.is_connected(battle._on_focus_lost): root.focus_exited.disconnect(battle._on_focus_lost)
 	battle.autoplay = true
+	configure_game(index,battle)
 	var row = {"game":index,"mode":mode,"renown":state.profile.renown,"falls":[],"result":{},"max_frame_ms":0.0,"frames_over_33ms":0,"frames":0,"captures":0}
 	var result_seen = false
 	battle.finished.connect(func(result): row.result = {"winner":result.get("winner",-2),"reason":str(result.get("reason","")),"score":result.get("score",[])})
@@ -150,5 +154,17 @@ func run() -> void:
 		"scope":"Real Main matches, random seeds, player driven by Battle.autoplay (aims at the head, always spurs) against the real level-free AI; arena/war alternate, renown 0 then 40. GPU isolated desktop, audio muted at Master. Not OS input or human play."}
 	FileAccess.open(folder+"/report.json",FileAccess.WRITE).store_string(JSON.stringify(report,"\t"))
 	print("GAMES114_DONE failures=",failures)
-	main.notification(Node.NOTIFICATION_WM_CLOSE_REQUEST)
+	# Keep AudioServer and the tree alive for the game's asynchronous cleanup.
+	# Previously this call was followed immediately by quit(), abandoning its
+	# pending process_frame coroutine and reporting an ObjectDB exit leak.
+	main.set_meta("qa_shutdown_started",true)
+	if main.sounds:
+		main.sounds.set_enabled(false)
+		main.sounds.stop_all()
+	main._close_battle()
+	var closing_until=Time.get_ticks_msec()+150
+	while Time.get_ticks_msec()<closing_until:await process_frame
+	main.queue_free()
+	await process_frame
+	await process_frame
 	quit(0 if failures.is_empty() else 1)

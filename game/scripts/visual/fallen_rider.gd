@@ -65,10 +65,20 @@ var display114 = PackedVector2Array()
 const SETTLE_TRAVEL114 = 2.0
 # The seat is narrow (sitting bones), so a limp trunk cannot balance upright.
 const TORSO_OUTLINE114 = [Vector2(-34,-84),Vector2(34,-84),Vector2(-41,-46),Vector2(41,-46),Vector2(-31,-8),Vector2(31,-8),Vector2(-7,9),Vector2(7,9)]
-const SETTLE_LIMIT114 = 7.0
 var settle_samples114: Array = []
+var surface_correction115 = 0.0
+var capture_origin115 = Vector2.ZERO
+var shared115 = false
+var pending115: Array = []
+var capture115: Dictionary = {}
+var render_previous115: Dictionary = {}
+var render_current115: Dictionary = {}
+var wrist_origin115 = 0.0
 
-func setup(value: Dictionary, event: Dictionary, mounted: RiderView = null) -> void:
+func setup(value: Dictionary, event: Dictionary, mounted: RiderView = null, shared: Dictionary = {}) -> void:
+	if not shared.is_empty():
+		_setup_shared115(value,event,mounted,shared)
+		return
 	fighter = value.duplicate(true)
 	# A broken remnant still touches the floor, but never regains a combat
 	# blocking polygon. Cache this immutable gear outline for the whole fall.
@@ -83,6 +93,7 @@ func setup(value: Dictionary, event: Dictionary, mounted: RiderView = null) -> v
 	initial_pose["head_base_transform"] = Rider._head_hinge(initial_pose,fighter)
 	position = initial_pose.torso_transform.origin
 	initial_position = position
+	capture_origin115 = position
 	ground_y = float(fighter.get("lane_y",0.0))+12.0
 	var mirror = Vector2(int(fighter.direction),1)
 	var mounted_origin = Vector2(float(fighter.x),float(fighter.get("lane_y",0.0)))
@@ -130,6 +141,9 @@ func setup(value: Dictionary, event: Dictionary, mounted: RiderView = null) -> v
 	conscious114 = not bool(fighter.get("unconscious",false)) and not bool(fighter.get("dead",false)) and float(fighter.get("consciousness",100.0))>15.0
 	_make_body(lift)
 	_sync_joints(0.0)
+	_create_renderers115(mounted)
+
+func _create_renderers115(mounted: RiderView) -> void:
 	for far_only in [true,false]:
 		var renderer = Rider.new()
 		renderer.fighter = fighter
@@ -156,6 +170,70 @@ func setup(value: Dictionary, event: Dictionary, mounted: RiderView = null) -> v
 		else:
 			visual = renderer
 	source_recoil = visual.impact_recoil
+
+func _setup_shared115(value: Dictionary, event: Dictionary, mounted: RiderView, shared: Dictionary) -> void:
+	# Transfer, do not recapture. The same body's positions, velocities, mass,
+	# joint lengths and current strain survive the ownership change exactly.
+	shared115=true
+	body=shared.body
+	pending115=shared.get("pending",[])
+	fighter=value.duplicate(true)
+	fighter.erase("_body_pose115")
+	var original:Dictionary=shared.captured
+	capture115=original
+	render_previous115=shared.get("previous_snapshot",shared.snapshot)
+	render_current115=shared.get("current_snapshot",shared.snapshot)
+	step_remainder=float(shared.get("accumulator",0.0))
+	capture_origin115=original.origin
+	initial_pose=original.pose.duplicate(true)
+	initial_pose.head_base_transform=original.head_base
+	initial_pose.shield_transform=Transform2D(original.shield_frame)
+	initial_pose.shield_transform.origin-=capture_origin115
+	for side in ["left","right"]:
+		for key in ["shoulder","elbow","hand"]:initial_pose[side][key]-=capture_origin115
+	initial_pose.shield_center-=capture_origin115
+	initial_pose.shield_grip-=capture_origin115
+	initial_pose.torso_transform.origin=Vector2.ZERO
+	initial_legs=original.legs.duplicate(true)
+	var mirror=Vector2(int(fighter.direction),1)
+	for side in ["near","far"]:
+		for key in ["hip","knee","ankle","foot","bar","stirrup"]:
+			initial_legs[side][key]=(Vector2(initial_legs[side][key])-capture_origin115)*mirror
+	com_local114=Vector2(original.data.com)-capture_origin115
+	_sync_from_body()
+	initial_position=position
+	# The irons stay where they were at detachment, then fade; their old
+	# starting-line positions must never be reused at the collision site.
+	for side in ["near","far"]:
+		for key in ["bar","stirrup"]:
+			initial_legs[side][key]=_local(shared.snapshot.legs[side][key])*mirror
+	ground_y=float(fighter.get("lane_y",0.0))+12.0
+	direction=int(event.get("direction",-int(fighter.direction)))
+	zone=str(event.get("zone","body"))
+	strength=clampf(float(event.get("impulse",50.0))/110.0,.15,1.0)
+	initial_aim=Model.lance_angle(value)-rotation*int(fighter.direction)
+	held_aim114=initial_aim
+	conscious114=not bool(fighter.get("unconscious",false)) and not bool(fighter.get("dead",false))
+	own_speed114=float(fighter.speed)*int(fighter.direction)
+	toppled=str(event.get("ko_reason","impact")) in ["seat","slip"]
+	body.guide_strength=0.0
+	shield_contact_outline113=Rider.Shield.polygon(str(fighter.stats.get("shield_shape","kite")),float(fighter.stats.get("shield_scale",1.0))) if float(fighter.get("shield",0.0))>0 else Rider.ShieldArt.remnant_polygon(fighter.stats)
+	display114=body.display_points()
+	_sync_joints(0.0)
+	wrist_origin115=float(joints.right_upper.angle)*.45+float(joints.right_elbow.angle)*.25
+	_create_renderers115(mounted)
+	_update_pose()
+	_apply_shared_render115()
+
+func _deliver_pending115(dt: float) -> void:
+	for index in range(pending115.size()-1,-1,-1):
+		var hit:Dictionary=pending115[index]
+		var fraction=minf(dt,float(hit.remaining))/Model.Mounted115.CONTACT_TIME
+		var part=str(hit.part)
+		var base=body.p[Body.HAND_L] if part=="shield" else body.p[Body.HEAD] if part=="head" else body.p[Body.HAND_R] if part=="lance" else body.pelvis_x if part=="flank" else body.x
+		body.apply_impulse115(part,base+Vector2(hit.offset),Vector2(hit.impulse)*fraction)
+		hit.remaining-=dt
+		if hit.remaining<=.000001:pending115.remove_at(index)
 
 func _make_body(lift: float) -> void:
 	# Capture every part in world space at the exact mounted pose: the first
@@ -225,11 +303,12 @@ func _make_body(lift: float) -> void:
 		thigh*.5+shin*.5,shin*.5+1.2,thigh*.5+shin*.5,shin*.5+1.2,5.5+helmet_kg]
 	var data = {"facing":facing,"ground":ground_y-5.0,"torso_mass":38.0+armor_kg*.55+upper+thigh,
 		"com":com,"com_velocity":velocity,"angular_velocity":spin,"down":torso.basis_xform(Vector2.DOWN),
+		"waist":origin+torso*Vector2(0,-27),"pelvis_down":Vector2.DOWN,
 		"corners":corners,"anchors":{"shoulder_l":origin+initial_pose.left.shoulder,"shoulder_r":origin+initial_pose.right.shoulder,
 			"hip_n":origin+initial_legs.near.hip*mirror,"hip_f":origin+initial_legs.far.hip*mirror,"neck":origin+neck_local},
 		"points":points,"velocities":velocities,"masses":masses,"radii":[9.0,9.0,9.0,9.0,8.0,0.0,8.0,0.0,0.0],
 		"boot_n":boots.near,"boot_f":boots.far,"shield":shield,"head":head_corners,
-		"shield_basis_x":shield_frame.x,"shield_basis_y":shield_frame.y,
+		"shield_basis_x":shield_frame.x,"shield_basis_y":shield_frame.y,"shield_mass":shield_kg,
 		"neck_limit":Rider.DETACHED_NECK_LIMIT113,"conscious":conscious114}
 	# No moving horse-back support: in phys114-articulation01 the cantle,
 	# running on under the stopped seat, kept lifting it and threw every rider
@@ -324,10 +403,13 @@ func _sync_joints(dt: float) -> void:
 		values[side+"_elbow"] = wrapf(_turn(arm.hand-arm.elbow,hand-elbow)-upper_turn,-PI,PI)
 	for side in ["near","far"]:
 		var leg: Dictionary = initial_legs[side]
+		var hip = _local(body.anchor("hip_n" if side=="near" else "hip_f"))*mirror
 		var knee = _local(display114[Body.KNEE_N if side=="near" else Body.KNEE_F])*mirror
 		var ankle = _local(display114[Body.ANKLE_N if side=="near" else Body.ANKLE_F])*mirror
-		var thigh_turn = _turn(leg.knee-leg.hip,knee-leg.hip)
-		values[side+"_hip"] = thigh_turn
+		var thigh_turn = _turn(leg.knee-leg.hip,knee-hip)
+		var down = body.hip_down_axis().rotated(-rotation)*mirror
+		var shown_flex = wrapf(down.angle()-(knee-hip).angle(),-PI,PI)
+		values[side+"_hip"] = -(shown_flex-body.captured(side+"_hip"))
 		values[side+"_knee"] = wrapf(_turn(leg.ankle-leg.knee,ankle-knee)-thigh_turn,-PI,PI)
 	for joint in body.joints:
 		var lo = float(joint.lo)-float(joint.captured)
@@ -386,6 +468,7 @@ func advance(delta: float) -> void:
 	Trace099.measure("fall_integrate",trace_started)
 
 func advance_measured099(delta: float) -> void:
+	surface_correction115=0.0
 	if settled or not is_instance_valid(visual):
 		return
 	# Keep the fractional render-time tail for the next call. The same
@@ -395,6 +478,7 @@ func advance_measured099(delta: float) -> void:
 		var dt = STEP_SECONDS
 		step_remainder = maxf(0.0,step_remainder-dt)
 		age += dt
+		if shared115:render_previous115=render_current115
 		_muscles()
 		# Energy loss of armour and body on the floor, but only once the TRUNK
 		# lies on it: a body balanced on its helmet with the legs up is not at
@@ -407,6 +491,7 @@ func advance_measured099(delta: float) -> void:
 		var late = smoothstep(2.6,3.2,ground_age)
 		body.rest = maxf(smoothstep(.15,.8,resting114)*flat,late)
 		body.rest_all = resting114>1.2 or late>0.0
+		if shared115:_deliver_pending115(dt)
 		body.step(dt)
 		_sync_from_body()
 		display114 = body.display_points()
@@ -416,8 +501,12 @@ func advance_measured099(delta: float) -> void:
 		# shield rim, helmet box) on the floor; velocities are untouched.
 		var overlap = position.y+lowest_body_point()-ground_y
 		if overlap>0.0:
+			surface_correction115=maxf(surface_correction115,overlap)
 			position.y -= overlap
 			body.translate(Vector2(0,-overlap))
+		if shared115:
+			render_current115=Model.Rig115.body_pose(body,capture115)
+			render_current115.lance_aim=held_aim114+rotation*int(fighter.direction)
 		if age>=.22 and not is_instance_valid(loose_lance):
 			_release_lance()
 		if grounded: ground_age += dt
@@ -446,8 +535,11 @@ func advance_measured099(delta: float) -> void:
 					if first[i].distance_to(sample[i])>SETTLE_TRAVEL114:
 						still = false
 						break
+				if still and _unsupported_leg115():still=false
 			quiet114 = 1.0 if still else 0.0
-		settled = quiet114>0.0 or age>=SETTLE_LIMIT114
+		# Time is not a physical rest condition. A seven-second hard freeze
+		# previously concealed unsupported or still-moving poses from the view.
+		settled = quiet114>0.0
 		if settled:
 			step_remainder = 0.0
 			break
@@ -457,8 +549,23 @@ func advance_measured099(delta: float) -> void:
 	# Keep the initial lane layering for capture continuity; promote once,
 	# without fading either person or moving the physical trajectory.
 	if age>.23 and ground_y<12.0: z_index=-7
+	if shared115:_apply_shared_render115()
 	visual.queue_redraw()
 	far_leg.queue_redraw()
+
+func _unsupported_leg115() -> bool:
+	# Stillness alone cannot approve a leg left suspended above the hip. A
+	# bent knee with a boot actually planted on the floor remains legitimate.
+	for side in ["near","far"]:
+		var hip=body.anchor("hip_n" if side=="near" else "hip_f")
+		var knee=display114[Body.KNEE_N if side=="near" else Body.KNEE_F]
+		var ankle=display114[Body.ANKLE_N if side=="near" else Body.ANKLE_F]
+		if maxf(hip.y-knee.y,hip.y-ankle.y)<=22.0:continue
+		var extension:Dictionary=body.extensions["boot_n" if side=="near" else "boot_f"]
+		var lowest=-INF
+		for offset in extension.offsets:lowest=maxf(lowest,body._extension_point(extension,false,offset).y)
+		if body.ground-lowest>3.0:return true
+	return false
 
 func _update_pose() -> void:
 	# The shape is immutable between fixed physics steps. Ground support and
@@ -469,6 +576,11 @@ func _update_pose() -> void:
 	var mirror = Vector2(facing,1)
 	var pose = initial_pose.duplicate(true)
 	var legs = initial_legs.duplicate(true)
+	var pelvis_local = _local(body.pelvis_x)
+	var original_pelvis = body.pelvis_initial-capture_origin115
+	var lower_frame = Transform2D(body.pelvis_theta-rotation,pelvis_local)*Transform2D(0.0,-original_pelvis)
+	var torso: Transform2D = initial_pose.torso_transform
+	pose.pelvis_deform = torso.affine_inverse()*lower_frame*torso
 	pose.head_rotation = clampf(body.neck_angle(),-body.neck_limit,body.neck_limit)
 	# Bone DIRECTIONS come from the solver; drawn lengths are exactly the
 	# captured ones, so a sub-pixel solver residual never stretches the art.
@@ -479,7 +591,7 @@ func _update_pose() -> void:
 		pose[side].elbow = arm.shoulder+(elbow-arm.shoulder).normalized()*arm.shoulder.distance_to(arm.elbow)
 		pose[side].hand = pose[side].elbow+(hand-elbow).normalized()*arm.elbow.distance_to(arm.hand)
 	# The strapped shield turns with its forearm about the grip.
-	var forearm_turn = _turn(initial_pose.left.hand-initial_pose.left.elbow,pose.left.hand-pose.left.elbow)
+	var forearm_turn = body.shield_theta115-rotation
 	var shield_frame = Transform2D(forearm_turn,Vector2.ZERO)*Rider.shield_pose_transform(initial_pose,fighter)
 	# PHYS-114: a shield rolled flat on the floor is foreshortened along its
 	# own long axis, exactly as its collision outline in the body; the x axis
@@ -491,15 +603,17 @@ func _update_pose() -> void:
 	pose.shield_grip = pose.left.hand
 	for side in ["near","far"]:
 		var leg: Dictionary = initial_legs[side]
+		var hip = _local(body.anchor("hip_n" if side=="near" else "hip_f"))*mirror
 		var solved_knee = _local(display114[Body.KNEE_N if side=="near" else Body.KNEE_F])*mirror
 		var solved_ankle = _local(display114[Body.ANKLE_N if side=="near" else Body.ANKLE_F])*mirror
-		var knee = leg.hip+(solved_knee-leg.hip).normalized()*leg.hip.distance_to(leg.knee)
+		var knee = hip+(solved_knee-hip).normalized()*leg.hip.distance_to(leg.knee)
 		var ankle = knee+(solved_ankle-solved_knee).normalized()*leg.knee.distance_to(leg.ankle)
+		legs[side].hip = hip
 		legs[side].knee = knee
 		legs[side].ankle = ankle
 		# The boot is part of the shin patch and turns with it.
 		legs[side].foot = ankle+(leg.foot-leg.ankle).rotated(_turn(leg.ankle-leg.knee,ankle-knee))
-	var wrist_turn = float(joints.right_upper.angle)*.45+float(joints.right_elbow.angle)*.25
+	var wrist_turn = float(joints.right_upper.angle)*.45+float(joints.right_elbow.angle)*.25-wrist_origin115
 	# The held lance follows the freely swinging arm at a wrist's finite rate
 	# (a free arm now swings faster than the old spring-limited one).
 	var wanted = initial_aim+facing*wrist_turn
@@ -513,6 +627,29 @@ func _update_pose() -> void:
 		# this same hand and ray, rather than spawning a differently aimed lance.
 		renderer.fighter.aim = held_aim114
 
+func _apply_shared_render115() -> void:
+	if render_current115.is_empty():return
+	var frame=Model.Rig115.interpolate115(render_previous115,render_current115,1.0 if settled else step_remainder/STEP_SECONDS,fighter)
+	var pose:Dictionary=frame.pose.duplicate(true)
+	var legs:Dictionary=frame.legs.duplicate(true)
+	var inverse=Transform2D(rotation,position).affine_inverse()
+	pose.torso_transform=inverse*Transform2D(pose.torso_transform)
+	for side in ["left","right"]:
+		for key in ["shoulder","elbow","hand"]:pose[side][key]=inverse*Vector2(pose[side][key])
+	pose.shield_transform=inverse*Transform2D(pose.shield_transform)
+	pose.shield_center=inverse*Vector2(pose.shield_center)
+	pose.shield_grip=inverse*Vector2(pose.shield_grip)
+	var mirror=Vector2(int(fighter.direction),1)
+	for side in ["near","far"]:
+		for key in ["hip","knee","ankle","foot"]:legs[side][key]=(inverse*Vector2(legs[side][key]))*mirror
+		for key in ["bar","stirrup"]:legs[side][key]=initial_legs[side][key]
+	for renderer in [visual,far_leg]:
+		renderer.detached_pose=pose
+		renderer.detached_legs=legs
+		renderer.fighter.aim=float(frame.get("lance_aim",initial_aim+rotation*int(fighter.direction)))-rotation*int(fighter.direction)
+	pose_points099=PackedVector2Array()
+	support_hull099=PackedVector2Array()
+
 func body_points() -> PackedVector2Array:
 	if not pose_points099.is_empty(): return pose_points099
 	var points = PackedVector2Array()
@@ -525,7 +662,7 @@ func body_points() -> PackedVector2Array:
 		points.append(head_transform*p)
 	# The same rounded trunk outline the body collides with (8 points).
 	for p in TORSO_OUTLINE114:
-		points.append(torso*p)
+		points.append(torso*Rider.torso_surface115(p,pose))
 	# Sleeves as discs (radius 9) like the legs: a fixed local +9 turned with
 	# the trunk and under-reported a lying body's arms by up to 18 px.
 	for side in ["left","right"]:
@@ -554,7 +691,7 @@ func lowest_core_point() -> float:
 	var head: Rect2 = Rider.HeadFit.layout(fighter.stats).helmet
 	var lowest = -INF
 	for point in TORSO_OUTLINE114:
-		lowest = maxf(lowest,(torso*point).rotated(rotation).y)
+		lowest = maxf(lowest,(torso*Rider.torso_surface115(point,pose)).rotated(rotation).y)
 	for point in [head.position,Vector2(head.end.x,head.position.y),head.end,Vector2(head.position.x,head.end.y)]:
 		lowest = maxf(lowest,(head_transform*point).rotated(rotation).y)
 	return lowest+5.0

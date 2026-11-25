@@ -10,6 +10,7 @@ const ATLAS = preload("res://assets/art/pixel_v03/rider_atlas.png")
 # boot, including its long toe; no per-frame image reads or new textures.
 const BOOT_OUTLINE113 = [Vector2(744,736),Vector2(868,736),Vector2(873,900),Vector2(873,926),Vector2(872,928),Vector2(870,930),Vector2(798,930),Vector2(761,918),Vector2(749,912),Vector2(744,813)]
 const WindowActivity = preload("res://scripts/core/window_activity.gd")
+const Rig115 = preload("res://scripts/core/rider_rig115.gd")
 const Model = preload("res://scripts/core/joust_match.gd")
 const Art = preload("res://scripts/visual/equipment_art.gd")
 const HorseArt = preload("res://scripts/visual/horse_art.gd")
@@ -367,7 +368,10 @@ func _draw_measured099() -> void:
 		return
 	_draw_rider(arm_pose(fighter),seated,Vector2(float(fighter.x),float(fighter.get("lane_y",0.0))))
 
+var torso_deform115 = Transform2D.IDENTITY
+
 func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
+	torso_deform115 = pose.get("pelvis_deform",Transform2D.IDENTITY)
 	var facing = int(fighter.direction)
 	var head_tier = int(fighter.stats.get("helmet_tier",0))
 	var design = str(fighter.stats.get("heraldry","bend"))
@@ -402,7 +406,7 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 	var hand_local: Vector2 = (pose.right.hand-origin)*Vector2(facing,1)
 	if detached_lance_visible:
 		draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
-		_draw_lance(hand_local,float(fighter.aim),Model.lance_length(fighter),bool(fighter.broken),Lance.Layer.REAR)
+		_draw_lance(hand_local,Model.lance_angle(fighter),Model.lance_length(fighter),bool(fighter.broken),Lance.Layer.REAR)
 	draw_set_transform_matrix(torso_transform)
 	_draw_pose_neck(pose,head_fit,appearance,facing)
 	HeadFit.draw_collar_lip(self,head_fit,torso_texture,_torso_surface_point)
@@ -423,7 +427,7 @@ func _draw_rider(pose: Dictionary, seated: Dictionary, origin: Vector2) -> void:
 	draw_set_transform(Vector2.ZERO,0,Vector2(facing,1))
 	_draw_seated_leg(seated.near,Color.WHITE,true)
 	if detached_lance_visible:
-		_draw_lance(hand_local,float(fighter.aim),Model.lance_length(fighter),bool(fighter.broken),Lance.Layer.FRONT)
+		_draw_lance(hand_local,Model.lance_angle(fighter),Model.lance_length(fighter),bool(fighter.broken),Lance.Layer.FRONT)
 	draw_set_transform_matrix(torso_transform)
 	_draw_grip("right",right_arm,Color.WHITE if facing==1 else Color(.83,.85,.88))
 	# Left hand grips the rear handle. The shield face then occludes fingers
@@ -548,83 +552,16 @@ func _draw_horse_bone(part: String, start: Vector2, end: Vector2, width: float, 
 	draw_polygon(vertices,PackedColorArray([tint,tint,tint,tint]),uv,HorseArt.ATLAS)
 
 static func seated_leg_pose(value: Dictionary) -> Dictionary:
-	# Local side-view projection. Depth is supplied by draw order, not by
-	# moving both thighs to the visible side.
-	# RIDER-064: the hip rides with the rider (seat lag, impact shift) while
-	# the foot stands in a stirrup hung from the SADDLE, which moves with the
-	# horse. A two-bone knee solves between them with the measured thigh and
-	# shin lengths, so the legs absorb the stride instead of moving as one
-	# block with the seat. At rest every joint equals the former fixed pose.
-	var body = Model.gait_pose(value)
-	var pitch = float(body.pitch)
-	var pivot = Model.HIP+Model.saddle_offset(value)
-	var saddle = Model.HIP+Vector2(body.offset)
-	var speed = float(value.get("speed",0.0))
-	var phase = float(value.get("gait_phase",0.0))
-	var w = Gait.weights(speed)
-	var run = w.z+w.w
-	var activity = smoothstep(0,85,speed) if bool(value.get("gait_moving",false)) else 0.0
-	var lean = clampf(float(value.get("lean",0.0)),-1.0,1.0)
-	var result = {}
-	var reaction_slide = clampf(float(value.get("reaction_shift",0.0)),-6.0,6.0)
-	# ANIM-091: the spur is a visible heel jab. Holding the spur kicks once per
-	# stride (fading as the horse reaches full gallop); the moment the horse
-	# surges ahead of the seat both heels drive back hard. Checking the horse
-	# braces the legs forward, heels down. Legs are art only, not hit targets.
-	var drive = float(value.get("motion_drive",0.0))
-	var inertia = Model.seat_inertia(value)
-	var kick = 0.0
-	if bool(value.get("boost",false)) and activity>0.0:
-		var urge = 1.0-.65*smoothstep(380,480,speed)
-		kick = pow(maxf(0.0,sin(phase-.6)),6.0)*urge
-	kick = clampf(maxf(kick,inertia*1.7),0.0,1.0)
-	var check = clampf(-drive,0.0,1.0)*activity
-	# FEEL-094: an unsteady rider bounces out of the saddle (same lift as the
-	# rule torso) and the lower legs flap instead of hanging quiet.
-	var unsteady = clampf(float(value.get("unsteady",0.0)),0.0,1.0)
-	var lift = Model.seat_lift(value)
-	var flap_wave = sin(phase+.4)
-	var flap = Vector2(-flap_wave*9.0,-flap_wave*flap_wave*4.0)*unsteady*activity
-	# FEEL-097: a lance blow throws the lower legs forward and up, out of the
-	# stirrups, while the torso is carried back; the spring overshoot swings
-	# them back past the girth before they find the irons again.
-	var fling = clampf(float(value.get("reaction_legs",0.0)),-.6,1.5)
-	# The negative spring half is a small BACKWARD/downward recovery. The
-	# old negative-vector * negative-value product kicked forward twice.
-	# Blend gains through neutral so crossing it has no velocity corner.
-	var response = Vector2(16.0,-6.0).lerp(Vector2(42.0,-38.0),smoothstep(-.12,.12,fling))
-	var thrown = response*fling
-	for side in ["far","near"]:
-		var far = side=="far"
-		var hip_offset = Vector2(14,-8) if far else Vector2(-11,3)
-		var rest_knee = Vector2(21,24) if far else Vector2(23,29)
-		var rest_ankle = Vector2(10,78) if far else Vector2(7,82)
-		var hip = pivot+hip_offset
-		hip.x += reaction_slide+float(value.get("seat_offset",0.0))
-		hip.y -= lift
-		# The stirrup leather swings a little behind the stride; bracing in a
-		# lean pushes the feet forward (more when leaning back) and heels down.
-		var swing = Vector2(-sin(phase-1.1+(.35 if far else 0.0))*(1.4*w.y+2.8*run),
-			cos(phase-1.1)*(.5*w.y+.9*run))*activity
-		var brace = Vector2((3.0 if lean>0.0 else 8.0)*absf(lean),-1.5*absf(lean))
-		var spur = Vector2(-15.0,-8.0)*kick*(1.0 if far else .9)+Vector2(9.0,3.0)*check
-		var ankle = saddle+(hip_offset+rest_ankle).rotated(pitch*.6)+swing+brace+spur+flap*(1.0 if far else .85)
-		# The iron hangs from its leather and trails only a fraction of a thrown
-		# foot. Without a blow it stays exactly under the boot as before.
-		var free_iron = ankle+thrown*(.30 if far else .26)+Vector2(9,11)
-		ankle += thrown*(.85 if far else 1.0)
-		var thigh = rest_knee.length()
-		var shin = (rest_ankle-rest_knee).length()
-		var reach = ankle-hip
-		var distance = clampf(reach.length(),absf(thigh-shin)+.5,thigh+shin-.5)
-		ankle = hip+reach.normalized()*distance
-		var bend = acos(clampf((thigh*thigh+distance*distance-shin*shin)/(2.0*thigh*distance),-1.0,1.0))
-		# Knee in front of the hip-ankle line, the branch of the measured rest pose.
-		var knee = hip+reach.normalized().rotated(-bend)*thigh
-		var bar = saddle+(hip_offset+Vector2(-3,-1)).rotated(pitch)
-		var stirrup = (ankle+Vector2(9,11)).lerp(free_iron,smoothstep(.05,.35,absf(fling)))
-		result[side] = {"hip":hip,"knee":knee,"ankle":ankle,"foot":ankle+Vector2(17,8).rotated(pitch*.6),"bar":bar,"stirrup":stirrup}
-	return result
+	if value.has("_body_pose115"):
+		var legs: Dictionary=value._body_pose115.legs.duplicate(true)
+		var origin=Vector2(float(value.x),float(value.get("lane_y",0.0)))
+		var mirror=Vector2(int(value.direction),1)
+		for side in ["near","far"]:
+			for key in ["hip","knee","ankle","foot","bar","stirrup"]:
+				legs[side][key]=(Vector2(legs[side][key])-origin)*mirror
+		return legs
+	var body=Model.gait_pose(value)
+	return Rig115.seated_legs(value,body,Model.HIP+Model.saddle_offset(value),Model.HIP+Vector2(body.offset),Model.seat_inertia(value),Model.seat_lift(value))
 
 func _draw_seated_leg(pose: Dictionary, tint: Color, near: bool) -> void:
 	# Measured joints from the existing rider atlas; keep the decorative
@@ -674,93 +611,27 @@ func _draw_rider_leg_patch(region: Rect2, source_a: Vector2, source_b: Vector2, 
 	draw_polygon(points,PackedColorArray([tint]),uv,ATLAS)
 
 static func leg_patch_point113(point: Vector2, source_a: Vector2, source_b: Vector2, a: Vector2, b: Vector2, thickness: float) -> Vector2:
-	var source_axis = (source_b-source_a).normalized()
-	var source_side = Vector2(-source_axis.y,source_axis.x)
-	var axis = (b-a).normalized()
-	var side = Vector2(-axis.y,axis.x)
-	var longitudinal = a.distance_to(b)/source_a.distance_to(source_b)
-	var relative=point-source_a
-	return a+axis*relative.dot(source_axis)*longitudinal+side*relative.dot(source_side)*thickness
+	return Rig115.leg_patch_point113(point,source_a,source_b,a,b,thickness)
 
 static func boot_outline113(pose: Dictionary) -> PackedVector2Array:
-	var points = PackedVector2Array()
-	for point in BOOT_OUTLINE113:
-		points.append(leg_patch_point113(point,Vector2(823,748),Vector2(804,862),pose.knee,pose.ankle,.29))
-	return points
+	return Rig115.boot_outline113(pose)
 
 static func arm_pose(value: Dictionary) -> Dictionary:
-	var facing = int(value.direction)
-	var transform = Transform2D(Model.pose_angle(value)*facing,Model.rider_origin(value))
-	var inverse = transform.affine_inverse()
-	var right_hand: Vector2 = inverse*Model.hand_position(value)
-	var left_hand: Vector2 = inverse*Model.shield_grip(value)
-	var result = {"torso_transform":transform,"shield_center":Model.shield_position(value),"shield_grip":transform*left_hand}
-	for side in ["right","left"]:
-		var shoulder = LANCE_SHOULDER if side=="right" else SHIELD_SHOULDER
-		var hand = right_hand if side=="right" else left_hand
-		# The distant arm points partly into depth. Keeping both of its bones
-		# at full frontal length made the left-facing lance elbow hang at the
-		# belt. Project those bones, preserving both real hand/collision anchors.
-		# Both anatomical arms need depth projection when distant. A full-
-		# length far shield arm folded past its natural elbow range near the
-		# upper chest, then left a strapped shield propping up the fallen body.
-		# The new shield-aware ground solver preserves this captured geometry.
-		var distant = (side=="right" and facing<0) or (side=="left" and facing>0)
-		var projection = clampf((shoulder.distance_to(hand)+1.0)/(ARM_UPPER+ARM_LOWER),.64,1.0) if distant else 1.0
-		var elbow = arm_elbow(shoulder,hand,ARM_UPPER*projection,ARM_LOWER*projection)
-		result[side] = {"shoulder":transform*shoulder,"elbow":transform*elbow,"hand":transform*hand,"projection":projection}
-	return result
+	if value.has("_body_pose115"):
+		return value._body_pose115.pose
+	var transform=Transform2D(Model.pose_angle(value)*int(value.direction),Model.rider_origin(value))
+	return Rig115.arms(value,transform,Model.hand_position(value),Model.shield_grip(value),Model.shield_position(value))
 
 static func shield_pose_transform(pose: Dictionary, value: Dictionary) -> Transform2D:
-	# A detached shield is strapped to the articulated forearm. Mounted
-	# poses retain their existing shared rule transform and control motor.
-	if pose.has("shield_transform"):
-		return pose.shield_transform
-	var result: Transform2D = pose.torso_transform
-	result.x *= int(value.direction)
-	result = result*Transform2D(float(value.get("shield_twist",0.0)),Vector2.ZERO)
-	result.origin = pose.shield_center
-	return result
+	return Rig115.shield_pose_transform(pose,value)
 
 const DETACHED_NECK_LIMIT113 = .34
 
 static func _head_hinge(pose: Dictionary, value: Dictionary) -> Transform2D:
-	# Detached neck articulation only; mounted head/target follows the core
-	# reaction pose. The default is precisely the previous head registration.
-	var angle = clampf(float(pose.get("head_rotation",0.0)),-DETACHED_NECK_LIMIT113,DETACHED_NECK_LIMIT113)
-	var fit = HeadFit.layout(value.stats)
-	var pivot = Vector2(float(fit.collar.center[0]),float(fit.collar.center[1])+2.0)
-	var hinge = Transform2D(angle,Vector2.ZERO)
-	hinge.origin = pivot-hinge.basis_xform(pivot)
-	if pose.has("head_base_transform"):
-		# Fall articulation is relative to the captured mounted head, not the
-		# upright source sprite. Otherwise the first physics tick erases lean
-		# and gaze stabilization and visibly snaps the helmet/neck junction.
-		return hinge*Transform2D(pose.head_base_transform)
-	if not pose.has("head_rotation"):
-		# RIDER-064, mounted only: the head keeps ~30% of a deliberate lean out
-		# of its orientation so the rider keeps looking at the opponent. It
-		# turns about the model's head anchor (torso-local 0,-111), so the
-		# visible helmet stays on the head hit target; the neck bridge stretches.
-		var lean = float(value.get("lean",0.0))
-		var lean_angle = lean*(deg_to_rad(25.0) if lean>=0.0 else deg_to_rad(45.0))
-		# The neck absorbs the smooth mounted stride as well as deliberate lean.
-		# Rotate about the SAME head target: gaze stabilizes without moving the
-		# helmet off its collision centre or detaching its collar bridge.
-		var gait_counter = -.65*clampf(float(Model.gait_pose(value).rider_pitch),-.12,.20)
-		var counter = Transform2D((-.30*lean_angle+gait_counter+float(value.get("reaction_neck",0.0)))*int(value.get("direction",1)),Vector2.ZERO)
-		var slump = float(value.get("slump",0.0))
-		counter = Transform2D(lerpf(counter.get_rotation(),.18*int(value.get("direction",1)),slump),Vector2.ZERO)
-		var anchor = Vector2(0,-111)
-		counter.origin = anchor-counter.basis_xform(anchor)
-		hinge = counter*hinge
-	return hinge
+	return Rig115.head_hinge(pose,value,float(Model.gait_pose(value).rider_pitch))
 
 static func head_transform(pose: Dictionary, value: Dictionary) -> Transform2D:
-	var torso: Transform2D = pose.torso_transform
-	var fit = HeadFit.layout(value.stats)
-	var local = Transform2D(Vector2(float(value.direction),0),Vector2.DOWN,Vector2(float(fit.head_offset),0))
-	return torso*_head_hinge(pose,value)*local
+	return Rig115.head_transform(pose,value,float(Model.gait_pose(value).rider_pitch))
 
 static func neck_geometry(pose: Dictionary, value: Dictionary) -> Dictionary:
 	# A short continuous bridge: jaw end follows the head, root stays buried
@@ -827,13 +698,7 @@ func _draw_grip(side: String, arm: Dictionary, tint: Color) -> void:
 	ArmArt.draw_segment(self,side+"_hand",wrist,arm.hand,12,tint)
 
 static func arm_elbow(shoulder: Vector2, hand: Vector2, upper: float, lower: float) -> Vector2:
-	var ray = hand-shoulder
-	var distance = clampf(ray.length(),absf(upper-lower)+.01,upper+lower-.01)
-	var angle = acos(clampf((upper*upper+distance*distance-lower*lower)/(2*upper*distance),-1,1))
-	var a = shoulder+ray.normalized().rotated(angle)*upper
-	var b = shoulder+ray.normalized().rotated(-angle)*upper
-	# Elbow hangs below the direct reach, on either facing and torso angle.
-	return a if a.y>b.y else b
+	return Rig115.arm_elbow(shoulder,hand,upper,lower)
 
 static func lance_shoulder(facing: int) -> Vector2:
 	return LANCE_SHOULDER*Vector2(facing,1)
@@ -905,12 +770,17 @@ func _draw_shield(center: Vector2, design: String) -> void:
 static func shield_projection(point: Vector2) -> Vector2:
 	return Shield.project(point)
 
+static func torso_surface115(point: Vector2, pose: Dictionary) -> Vector2:
+	var lower: Transform2D = pose.get("pelvis_deform",Transform2D.IDENTITY)
+	return point.lerp(lower*point,smoothstep(-45.0,-8.0,point.y))
+
 func _torso_surface_point(point: Vector2) -> Vector2:
 	# Shared Model reaction now carries the rider/head/arms and colliders.
 	# Only a restrained cloth/plate flex remains; a bending chest bitmap is
 	# no longer the entire impact response or a substitute for moving joints.
 	var t = clampf((point.y+94.0)/104.0,0,1)
-	return point+Vector2(-int(fighter.direction)*1.5*clampf(impact_recoil,-1,1)*sin(PI*t),0)
+	var deformed = point.lerp(torso_deform115*point,smoothstep(-45.0,-8.0,point.y))
+	return deformed+Vector2(-int(fighter.direction)*1.5*clampf(impact_recoil,-1,1)*sin(PI*t),0)
 
 func _draw_impact_torso() -> void:
 	for row in range(6):
@@ -919,7 +789,13 @@ func _draw_impact_torso() -> void:
 		for corner in [Vector2(0,row/6.0),Vector2(1,row/6.0),Vector2(1,(row+1)/6.0),Vector2(0,(row+1)/6.0)]:
 			points.append(_torso_surface_point(Vector2(-47,-94)+corner*Vector2(94,104)))
 			uv.append(corner)
-		draw_polygon(points,PackedColorArray([Color.WHITE]),uv,torso_texture)
+		# A waist bend can make a strip concave. Its two explicit triangles
+		# retain the skin even when a four-corner polygon cannot triangulate.
+		for triangle in [[0,1,2],[0,2,3]]:
+			var vertices=PackedVector2Array([points[triangle[0]],points[triangle[1]],points[triangle[2]]])
+			if absf((vertices[1]-vertices[0]).cross(vertices[2]-vertices[0]))<.00001: continue
+			var triangle_uv=PackedVector2Array([uv[triangle[0]],uv[triangle[1]],uv[triangle[2]]])
+			draw_polygon(vertices,PackedColorArray([Color.WHITE]),triangle_uv,torso_texture)
 
 func _draw_armor_detail() -> void:
 	if torso_has_authored_detail:

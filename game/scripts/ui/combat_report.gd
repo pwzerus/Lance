@@ -36,6 +36,7 @@ static func summarize(events: Array, mode: String = "arena", detailed: bool = fa
 		return "双方均未接触骑手或盾牌。" if events.is_empty() else "双方仍在马上，按本场规则比较结果。"
 	var latest: Dictionary = {}
 	for event in events:
+		if event.get("type","")=="unseat":continue
 		if int(event.get("attacker",-1)) in [0,1]: latest[int(event.attacker)] = event
 	var lines: Array[String] = []
 	for attacker in range(2):
@@ -97,6 +98,7 @@ static func _terminal_cause(hit: Dictionary) -> String:
 		return who+"昏厥，失去战斗能力。" if cause=="unconscious" else who+"累积伤势过重，无法继续比赛。"
 	if cause=="seat": return who+"持续失衡，失去鞍座支撑后落马。"
 	if cause=="slip": return who+"失去意识后滑离鞍座。"
+	if zone=="lance":return who+"持枪承受反冲，失去鞍座支撑而落马。"
 	if zone=="shield":
 		if hit.get("shield_broke",false):return who+"的盾牌被击破，随后失去鞍座支撑而落马。"
 		return who+"虽用盾挡住来枪，仍被冲击掀下马。" if cause=="impact" else who+"持盾承压后失去平衡，落马出局。"
@@ -129,7 +131,7 @@ static func next_action(events: Array, mouse_only: bool = false, result: Diction
 			if zone=="shield": shield_load+=maxf(0,float(event.get("impulse",0)))
 			if event.get("ko",false) and zone=="shield": shield_load+=100
 			if event.get("ko",false) and str(event.get("ko_reason","")) in ["impact","balance"] and float(event.get("unsteady",0))>=.25: unstable_fall=true
-		if int(event.get("attacker",-1))==0:
+		if int(event.get("attacker",-1))==0 and event.get("type","")!="unseat":
 			outgoing+=1
 			if zone=="shield": shields+=1
 			if event.get("glanced",false): glances+=1

@@ -36,7 +36,7 @@ func run() -> void:
 		var down = body.down_axis()
 		rows.append({"t":actor.age,"theta":body.theta,"omega":body.omega,"v":[body.v.x,body.v.y],"tone":body.tone,
 			"flex":flexes(body),"L":angular_momentum(body),"contacts":body.contacts.keys(),"down":[down.x,down.y],
-			"core":body.core_contact,"trunk_speed":body.trunk_speed,"x":[body.x.x,body.x.y],"drift":[body.trunk_drift.x,body.trunk_drift.y],"trunk_turn":body.trunk_turn,"to_flat":body._to_flat(),"rest":body.rest,"torso":body.torso_contact,"grounded_age":body.grounded_age,"gap":actor.support_gap(),
+			"core":body.core_contact,"trunk_speed":body.trunk_speed,"x":[body.x.x,body.x.y],"drift":[body.trunk_drift.x,body.trunk_drift.y],"trunk_turn":body.trunk_turn,"to_flat":body._to_flat(),"rest":body.rest,"torso":body.torso_contact,"grounded_age":body.grounded_age,"gap":actor.support_gap(),"spine":body.spine_flex(),"art_lift":actor.surface_correction115,"surface":surface115(actor),"shape":final_shape(actor),"pelvis_theta":body.pelvis_theta,"pelvis_x":[body.pelvis_x.x,body.pelvis_x.y],
 			"hips":[body.anchor("hip_n").y,body.anchor("hip_f").y],"knees":[body.p[body.KNEE_N].y,body.p[body.KNEE_F].y],
 			"ankles":[body.p[body.ANKLE_N].y,body.p[body.ANKLE_F].y],"limits":limits(body)})
 	var file = FileAccess.open(report_path,FileAccess.WRITE)
@@ -67,3 +67,27 @@ func angular_momentum(body) -> float:
 	for i in range(body.COUNT):
 		total += (body.p[i]-c).cross(body.vel[i])/body.inv_mass[i]
 	return snappedf(total,1.0)
+
+func surface115(actor) -> Dictionary:
+	var b=actor.body
+	var result={}
+	for side in ["near","far"]:
+		var key="boot_n" if side=="near" else "boot_f"
+		var raw=-INF
+		for offset in b.extensions[key].offsets:
+			raw=maxf(raw,b._extension_point(b.extensions[key],false,offset).y)
+		var shown=-INF
+		for point in Rider.boot_outline113(actor.visual.detached_legs[side]):
+			shown=maxf(shown,world(actor,point*Vector2(int(actor.fighter.direction),1)).y)
+		result[side]={"raw":raw,"shown":shown,"difference":shown-raw}
+	var highest=-INF
+	var index=-1
+	var vertices=actor.body_points()
+	for i in range(vertices.size()):
+		var height=world(actor,vertices[i]).y
+		if height>highest:
+			highest=height
+			index=i
+	result["lowest_index"]=index
+	result["ground"]=b.ground
+	return result

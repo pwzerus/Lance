@@ -33,9 +33,11 @@ static func apply_hit(fighter: Dictionary, contact: Dictionary, damage: float, i
 		fighter.control_stun = maxf(float(fighter.control_stun),lerpf(.10,.32,clampf(severity/65.0,0,1)))
 	var ratio = impulse/maxf(.001,threshold)
 	# A blow shifts velocity, never the visible seat position on contact.
-	fighter.seat_velocity = clampf(float(fighter.seat_velocity)-ratio*38.0,-100.0,100.0)
+	if not bool(fighter.get("physics115",false)):
+		fighter.seat_velocity = clampf(float(fighter.seat_velocity)-ratio*38.0,-100.0,100.0)
 	var lost_support = float(fighter.balance)<=0.0 and impulse>threshold*.28
-	fighter.unseated = bool(fighter.unseated) or impulse>threshold or lost_support
+	if not bool(fighter.get("physics115",false)):
+		fighter.unseated = bool(fighter.unseated) or impulse>threshold or lost_support
 	fighter.dead = mode=="war" and float(fighter.hp)<=0.0
 	fighter.unconscious = bool(fighter.unconscious) or float(fighter.consciousness)<=0.0 or float(fighter.hp)<=0.0
 	if fighter.unconscious: fighter.consciousness=0.0
@@ -74,6 +76,14 @@ static func advance_pose(fighter: Dictionary, delta: float) -> void:
 
 static func advance_support(fighter: Dictionary, delta: float, riding: bool) -> void:
 	initialize(fighter)
+	if bool(fighter.get("physics115",false)):
+		# Fatigue affects voluntary bracing; only the articulated body's finite
+		# supports may change seat position, support state or detach the rider.
+		var pace115=smoothstep(210.0,480.0,float(fighter.get("speed",0.0))) if riding else 0.0
+		var fidget115=clampf(float(fighter.get("unsteady",0.0)),0,1)
+		var drain115=maxf(0.0,(fidget115-.55)/.45)*.32*pace115-.45*(1.0-smoothstep(.25,.55,fidget115))-.45*(1.0-smoothstep(.10,.35,pace115))
+		fighter.seat_strain=clampf(float(fighter.seat_strain)+drain115*delta,0,1)
+		return
 	if fighter.ko:
 		advance_limp_support(fighter,delta)
 		return

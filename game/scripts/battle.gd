@@ -690,7 +690,7 @@ func _handle_event(event: Dictionary) -> void:
 			actual_label.add_theme_color_override("font_color",Cues.contact_color(event))
 			contact_until = now+2100
 			if bool(event.get("unseated",event.ko)):
-				effects.fall(match_model.fighters[index],int(match_model.fighters[int(event.attacker)].direction),event,riders[index])
+				effects.fall(match_model.fighters[index],int(match_model.fighters[int(event.attacker)].direction),event,riders[index],match_model.take_body115(index))
 		"unseat":
 			var index = int(event.defender)
 			var recorded = event.duplicate(true)
@@ -705,7 +705,7 @@ func _handle_event(event: Dictionary) -> void:
 			label.text=brief
 			label.add_theme_color_override("font_color",Color("e0ae59"))
 			contact_until=Time.get_ticks_msec()+2100
-			effects.fall(match_model.fighters[index],int(event.direction),event,riders[index])
+			effects.fall(match_model.fighters[index],int(event.direction),event,riders[index],match_model.take_body115(index))
 		"charge":
 			sound.play("horn",-10)
 		"end":
@@ -755,7 +755,7 @@ func _process_measured099(delta: float) -> void:
 			departure_elapsed += delta
 			for fighter in match_model.fighters:
 				fighter.gait_moving = float(fighter.speed)>.5
-				if fighter.gait_moving:
+				if fighter.gait_moving and not bool(fighter.get("physics115",false)):
 					fighter.gait_phase += delta*TAU*Model.Gait.frequency(float(fighter.speed))
 		# FIX-104: retain impact/flight, then reach the result promptly. No pose
 		# snapping or body removal when the wall-clock presentation budget ends.
@@ -953,7 +953,7 @@ func _update_views() -> void:
 	for i in range(2):
 		var fighter = match_model.fighters[i]
 		var departing = 0.0
-		if match_model.phase == "ended" and terminal_at > 0:
+		if match_model.phase == "ended" and terminal_at > 0 and not bool(fighter.get("physics115",false)):
 			departing = departure_elapsed*float(fighter.speed)*int(fighter.direction)
 		riders[i].position = Vector2(float(fighter.x)+departing, float(fighter.get("lane_y",0.0)))
 		# Results freeze the existing phase and departure position. Preserve

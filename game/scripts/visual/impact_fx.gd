@@ -125,7 +125,7 @@ func break_shield(fighter: Dictionary, event: Dictionary) -> void:
 		shield_fragments113.append({"p":center,"v":velocity,"polygon":world,"angle":0.0,"spin":clampf(outward.x*.15,-5,5),"life":3.0,"ground":float(event.get("defender_ground_y",12)),"field":field})
 	while shield_fragments113.size()>16:shield_fragments113.pop_front()
 
-func fall(fighter: Dictionary, direction: int, event: Dictionary = {}, mounted: RiderView = null) -> void:
+func fall(fighter: Dictionary, direction: int, event: Dictionary = {}, mounted: RiderView = null, shared: Dictionary = {}) -> void:
 	# Capture the same skeleton, face, armor and hands used on horseback.
 	fighter.unseated=true
 	var fall_event = event.duplicate(true)
@@ -133,7 +133,7 @@ func fall(fighter: Dictionary, direction: int, event: Dictionary = {}, mounted: 
 	var rider = preload("res://scripts/visual/fallen_rider.gd").new()
 	rider.z_index = -8 if float(fighter.get("lane_y",0))>=0 else -10
 	add_child(rider)
-	rider.setup(fighter,fall_event,mounted)
+	rider.setup(fighter,fall_event,mounted,shared)
 	rider.landed.connect(func(point: Vector2, force: float):
 		dust(point,-direction,force)
 		dust(point,direction,force)

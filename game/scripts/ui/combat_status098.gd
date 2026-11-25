@@ -72,6 +72,7 @@ func pips(origin: Vector2, count: int, reverse: bool=false) -> void:
 		draw_circle(at,3.3,Color("e2bd66") if i<count else Color("34483d"))
 
 static func contact_text(hit: Dictionary) -> String:
+	if hit.get("zone","")=="lance" and hit.get("unseated",false):return "持枪承压落马"
 	if hit.get("zone","")=="seat":
 		if hit.get("dead",false):return "阵亡后滑脱"
 		return "昏厥后滑脱" if hit.get("ko_reason","")=="slip" else "失衡落马"

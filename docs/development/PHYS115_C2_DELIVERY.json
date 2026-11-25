@@ -3,9 +3,9 @@
   "status": "development_preview_not_full_motion_or_performance_acceptance",
   "version": "0.5.0-c2",
   "source_revision": "2894eb14a678766c463f95580688f436d580ae47",
-  "audit_sha256": "3450506AB1FCF17798CEB0A12AE07800E13BB27FC1F52C3644B8BBAEE48469F3",
-  "visual_sha256": "F791613AC1DC6D4399350B45D83FDE10172C53926E1723F51486C2AF2B945594",
-  "edge_fixtures_sha256": "88A6C0AE313679FB7804BFD22B65257B838AA523F06D54BB9E5BC0605B33AC91",
+  "audit_sha256": "A90DC16523356A8E6B51DB7A895EFF00759B7FE72B9C7542DA0B0B78C8436EAD",
+  "visual_sha256": "CF6DF13E7A7E22D8B5BE25422214BBAC3A09F607108BBB8C5966BDEBFF5C4B57",
+  "edge_fixtures_sha256": "E0286994358A156B8F70A8560DE5102BBA86C1230FD68432E1BC7013508DA9AF",
   "selected_runs": 22,
   "selected_private_mib_sample_peak": 692.7,
   "archive": {
@@ -105,5 +105,6 @@
   "screens_or_os_input_used": false,
   "human_acceptance": false,
   "stable_launcher": "Play-Latest.cmd remains v0.4.60-c5",
-  "preview_launcher": "Play-Physics-Preview.cmd -> c2 protected outer executable"
+  "preview_launcher": "Play-Physics-Preview.cmd -> c2 protected outer executable",
+  "committed_evidence_encoding": "UTF-8 LF per .gitattributes. Hashes of local raw run reports, images, packages and archives remain hashes of their original bytes."
 }

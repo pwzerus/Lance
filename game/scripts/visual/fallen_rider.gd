@@ -328,7 +328,6 @@ func _muscles() -> void:
 	# unconscious or dead rider has no reflex at all.
 	var relaxed = {"left_elbow":.30,"right_elbow":.30,"near_hip":.20,"far_hip":.20,"near_knee":.35,"far_knee":.35,"neck":0.0}
 	if not conscious114:
-		# Limp: no reflex at all, only passive joint damping.
 		body.set_muscles(0.0,relaxed)
 		return
 	var facing = int(fighter.direction)
@@ -370,7 +369,8 @@ func _muscles() -> void:
 		blended.erase(key)
 	# On the floor the reflex lets go completely: a residual tone would keep
 	# pressing limbs against the ground and the body would never come to rest.
-	var tone = .38*exp(-body.grounded_age/.35)*stunned
+	var release_time116:float=.06 if zone=="head" else .18
+	var tone = .38*exp(-body.grounded_age/release_time116)*stunned
 	body.set_muscles(tone if tone>.01 else 0.0,blended)
 
 func _sync_from_body() -> void:
@@ -512,7 +512,7 @@ func advance_measured099(delta: float) -> void:
 			surface_correction115=maxf(surface_correction115,overlap)
 			position.y -= overlap
 		if shared115:
-			render_current115=Model.Rig115.body_pose(body,capture115)
+			render_current115=Model.Rig115.body_pose(body,capture115,{},display114)
 			if overlap>0.0:Model.Rig115.translate_frame115(render_current115,Vector2(0,-overlap))
 			render_current115.lance_aim=held_aim114+rotation*int(fighter.direction)
 		if age>=.22 and not is_instance_valid(loose_lance):
@@ -584,7 +584,11 @@ func _unsupported_leg115() -> bool:
 		if maxf(hip.y-knee.y,hip.y-ankle.y)<=22.0:continue
 		var extension:Dictionary=body.extensions["boot_n" if side=="near" else "boot_f"]
 		var lowest=-INF
-		for offset in extension.offsets:lowest=maxf(lowest,body._extension_point(extension,false,offset).y)
+		for offset in extension.offsets:
+			# Shin/cuff contact is not a planted foot. A vertical lower leg
+			# could rest on the wide boot cuff while its sole hung in the air.
+			if body.foot_weight115(extension,offset)<.95:continue
+			lowest=maxf(lowest,body._extension_point(extension,false,offset).y)
 		if body.ground-lowest>3.0:return true
 	return false
 
@@ -772,8 +776,12 @@ func _release_lance() -> void:
 func lowest_body_point() -> float:
 	var lowest = -INF
 	var points=body_points()
+	# One rotation basis for the unchanged silhouette, instead of repeating
+	# sin/cos for every head, armour, limb and boot sample (147840 exact checks).
+	var basis=Transform2D(rotation,Vector2.ZERO)
+	var vertical=Vector2(basis.x.y,basis.y.y)
 	for index in range(points.size()):
-		lowest=maxf(lowest,points[index].rotated(rotation).y+(5.0 if index<boot_points_start115 else 0.0))
+		lowest=maxf(lowest,points[index].dot(vertical)+(5.0 if index<boot_points_start115 else 0.0))
 	return lowest
 
 func world_body_rect() -> Rect2:

@@ -46,11 +46,33 @@ static func ensure_boot_skin115() -> void:
 								if vertex<0:vertex=_boot_skin_sources115.size();_boot_skin_sources115.append(triangle[index])
 								indices[index]=vertex
 							_boot_skin_samples115.append([indices,Vector3(1.0-v-w,v,w)])
+static var _boot_long116=PackedFloat64Array()
+static var _boot_side116=PackedFloat64Array()
 static func boot_skin_outline115(pose: Dictionary) -> PackedVector2Array:
 	ensure_boot_skin115()
+	var source_a=Vector2(823,748);var source_b=Vector2(804,862)
+	if _boot_long116.is_empty():
+		var source_axis=(source_b-source_a).normalized()
+		var source_side=Vector2(-source_axis.y,source_axis.x)
+		for source in _boot_skin_sources115:
+			_boot_long116.append((source-source_a).dot(source_axis))
+			_boot_side116.append((source-source_a).dot(source_side))
+	var knee:Vector2=pose.knee;var ankle:Vector2=pose.ankle
+	var axis:Vector2=(ankle-knee).normalized()
+	var side=Vector2(-axis.y,axis.x)
+	var longitudinal:float=knee.distance_to(ankle)/source_a.distance_to(source_b)
+	var bone:Vector2=ankle-knee
+	var bone_length:float=bone.length()
+	var turn:float=float(pose.get("foot_angle115",0.0))
+	var deform:bool=not is_zero_approx(turn)
 	var mapped=PackedVector2Array();var outline=PackedVector2Array()
-	for source in _boot_skin_sources115:
-		mapped.append(foot_deform115(leg_patch_point113(source,Vector2(823,748),Vector2(804,862),pose.knee,pose.ankle,.29),pose))
+	for i in range(_boot_skin_sources115.size()):
+		var point:Vector2=knee+axis*_boot_long116[i]*longitudinal+side*_boot_side116[i]*.29
+		if deform:
+			var offset:Vector2=point-ankle
+			var weight:float=smoothstep(-.18,0.0,offset.dot(axis)/bone_length)
+			point=ankle+offset.rotated(turn*weight)
+		mapped.append(point)
 	for sample in _boot_skin_samples115:
 		var indices:Vector3i=sample[0];var weights:Vector3=sample[1]
 		outline.append(mapped[indices.x]*weights.x+mapped[indices.y]*weights.y+mapped[indices.z]*weights.z)
@@ -325,12 +347,15 @@ static func capture(value: Dictionary, pose: Dictionary, legs: Dictionary, gait_
 		"head_base":head_hinge(pose,value,gait_pitch),"shield_frame":shield_pose_transform(pose,value),
 		"data":capture_data(value,pose,legs,gait_pitch)}
 
-static func body_pose(body, captured: Dictionary, targets: Dictionary = {}) -> Dictionary:
+static func body_pose(body, captured: Dictionary, targets: Dictionary = {}, solved_points: PackedVector2Array = PackedVector2Array()) -> Dictionary:
 	var original: Dictionary=captured.pose
 	var moved=Transform2D(body.theta,body.x)*Transform2D(0.0,-Vector2(captured.data.com))
 	var torso: Transform2D=moved*Transform2D(original.torso_transform)
 	var lower=Transform2D(body.pelvis_theta,body.pelvis_x)*Transform2D(0.0,-Vector2(body.pelvis_initial))
-	var points: PackedVector2Array=body.display_points()
+	# Callers which already projected this exact body state share that snapshot.
+	# Explicit ownership: packed arrays passed through a Dictionary alias.
+	# Floor correction must never translate the caller's display snapshot.
+	var points: PackedVector2Array=body.display_points() if solved_points.is_empty() else solved_points.duplicate()
 	var pose={"torso_transform":torso,"head_base_transform":captured.head_base,
 		"head_rotation":clampf(body.neck_angle(),-body.neck_limit,body.neck_limit),
 		"pelvis_deform":torso.affine_inverse()*lower*Transform2D(original.torso_transform)}

@@ -821,20 +821,27 @@ func _torso_surface_point(point: Vector2) -> Vector2:
 	var deformed = point.lerp(torso_deform115*point,smoothstep(-45.0,-8.0,point.y))
 	return deformed+Vector2(-int(fighter.direction)*1.5*clampf(impact_recoil,-1,1)*sin(PI*t),0)
 
+var torso_sources116=PackedVector2Array()
+var torso_uv116=PackedVector2Array()
+var torso_indices116=PackedInt32Array()
+var torso_vertices116=PackedVector2Array()
 func _draw_impact_torso() -> void:
-	for row in range(6):
-		var points = PackedVector2Array()
-		var uv = PackedVector2Array()
-		for corner in [Vector2(0,row/6.0),Vector2(1,row/6.0),Vector2(1,(row+1)/6.0),Vector2(0,(row+1)/6.0)]:
-			points.append(_torso_surface_point(Vector2(-47,-94)+corner*Vector2(94,104)))
-			uv.append(corner)
-		# A waist bend can make a strip concave. Its two explicit triangles
-		# retain the skin even when a four-corner polygon cannot triangulate.
-		for triangle in [[0,1,2],[0,2,3]]:
-			var vertices=PackedVector2Array([points[triangle[0]],points[triangle[1]],points[triangle[2]]])
-			if absf((vertices[1]-vertices[0]).cross(vertices[2]-vertices[0]))<.00001: continue
-			var triangle_uv=PackedVector2Array([uv[triangle[0]],uv[triangle[1]],uv[triangle[2]]])
-			draw_polygon(vertices,PackedColorArray([Color.WHITE]),triangle_uv,torso_texture)
+	if torso_sources116.is_empty():
+		for row in range(7):
+			for column in range(2):
+				var uv=Vector2(column,row/6.0)
+				torso_uv116.append(uv);torso_sources116.append(Vector2(-47,-94)+uv*Vector2(94,104))
+		for row in range(6):
+			var a=row*2
+			torso_indices116.append_array(PackedInt32Array([a,a+1,a+3,a,a+3,a+2]))
+		torso_vertices116.resize(14)
+	for i in range(14):torso_vertices116[i]=_torso_surface_point(torso_sources116[i])
+	# Preserve the former tiny-triangle rejection at extreme bends.
+	var used=PackedInt32Array()
+	for triangle in range(12):
+		var a=torso_indices116[triangle*3];var b=torso_indices116[triangle*3+1];var c=torso_indices116[triangle*3+2]
+		if absf((torso_vertices116[b]-torso_vertices116[a]).cross(torso_vertices116[c]-torso_vertices116[a]))>=.00001:used.append_array(PackedInt32Array([a,b,c]))
+	if not used.is_empty():RenderingServer.canvas_item_add_triangle_array(get_canvas_item(),used,torso_vertices116,PackedColorArray([Color.WHITE]),torso_uv116,PackedInt32Array(),PackedFloat32Array(),torso_texture.get_rid())
 
 func _draw_armor_detail() -> void:
 	if torso_has_authored_detail:

@@ -1,0 +1,79 @@
+{
+  "version": "0.5.0-c4",
+  "status": "six_original_settling_cases_fixed; development_preview_delivered; stable_60fps_and_human_motion_acceptance_pending",
+  "branch": "codex/v0.5",
+  "source_revision": "a2fb8162da5924e22aeb99157a9ec9b7bb87eec5",
+  "audit_sha256": "3E288FCA0A157A8ADE36380D81A7725873FE648B20A847962129D46B08535372",
+  "edge_cases_sha256": "2B5A2FC39FCA7F21831ED98387421052E5CEE16CA5856388ADDDD01D6EBFEBFB",
+  "visual_sha256": "CE5ECA097ECF68F271AB739F008C4E4495E76278F8CFEEEB4E050B835D4F4AF2",
+  "performance_sha256": "4F6C8A8F253FADA8A4F4B535C5509981E881B066F110F533776912E9AF1A7759",
+  "selected_runs": 24,
+  "selected_private_mib_sample_peak": 685.0,
+  "archive": {
+    "passed": true,
+    "archive": "E:\\GALUMU\\builds\\LanceAndLaurel-v0.5.0-c4.zip",
+    "archive_bytes": 71391275,
+    "archive_sha256": "7FD28CBB841909F213247D3A1530F4ECB88B70A78637B3922D2DA707B8F7872D",
+    "relocated": "E:\\GALUMU\\builds\\PHYS115 便携验证 0.5.0-c4\\LanceAndLaurel-v0.5.0-c4",
+    "file_count": 10,
+    "source_revision": "a2fb8162da5924e22aeb99157a9ec9b7bb87eec5",
+    "scope": "File hashes, ZIP CRC and Unicode/space-path extraction only. Runtime launch is verified separately."
+  },
+  "export": {
+    "exit_zero": true,
+    "script_error": false,
+    "editor_directory_errors": [
+      "ERROR: Could not create editor data directory: C:/Users/yifei/AppData/Roaming/Godot",
+      "ERROR: Could not create editor config directory: C:/Users/yifei/AppData/Roaming/Godot",
+      "ERROR: Could not create editor cache directory: C:/Users/yifei/AppData/Local/Godot",
+      "ERROR: Cannot create file 'C:/Users/yifei/AppData/Local/Godot/editor_doc_cache-4.5.res'.",
+      "ERROR: Cannot save editor help cache (C:/Users/yifei/AppData/Local/Godot/editor_doc_cache-4.5.res).",
+      "ERROR: Cannot open directory 'C:/Users/yifei/AppData/Roaming/Godot/feature_profiles'.",
+      "ERROR: Can't save resource to empty path. Provide non-empty path or a Resource with non-empty resource_path.",
+      "ERROR: Error saving editor settings to "
+    ],
+    "private_mib_sample_peak": 582.7,
+    "source_revision": "a2fb8162da5924e22aeb99157a9ec9b7bb87eec5",
+    "scope": "Protected headless export. Editor cache/settings directory failures retained; independent PCK runtime validation required."
+  },
+  "portable": {
+    "checks": 10,
+    "passed": true,
+    "receipt_sha256": "C8565D3E16072C286AE6E22DE0BE8C249DA278C5EC83439D163AF4BD076F0E51"
+  },
+  "outer": {
+    "original_receipt": {
+      "name": "phys116-outer114",
+      "bundle": "E:\\GALUMU\\builds\\PHYS115 便携验证 0.5.0-c4\\LanceAndLaurel-v0.5.0-c4",
+      "script": "test_floor115.gd",
+      "passed": false,
+      "exit": 0,
+      "seconds": 116.9382315,
+      "report": "E:\\GALUMU\\logs\\perf088\\phys116-outer114\\report.json",
+      "sha256": "AB9FB9DED91BA15D54A8065D77780DA2A5D9480498608EBD6BE379A46727DB7E",
+      "unexpected": "ERROR: Can't create shader cache folder, no shader caching will happen: user://"
+    },
+    "gameplay_passed": true,
+    "games": 4,
+    "falls": 5,
+    "settled_ages": [
+      1.8,
+      1.9,
+      3.29999999999999,
+      1.9,
+      2.1
+    ],
+    "private_mib_sample_peak": 666.6,
+    "isolated_desktop_closed": true,
+    "cache_warning_count": 1,
+    "classification": "Raw tool failure retained: sole known isolated shader-cache directory warning. Gameplay, exit and desktop cleanup passed; not zero engine errors."
+  },
+  "formal_saves_unchanged": true,
+  "remaining": [
+    "Heavy war averages 52.36–53.97FPS; fallen-body phase 38.19–41.09FPS, not stable60.",
+    "2D projection can overlap limbs and permit arm-supported half-lying poses; no full 3D self-collision claim.",
+    "No human feel/sound acceptance; no foreground or real keyboard/mouse use."
+  ],
+  "old_c3_unchanged": true,
+  "binaries_uploaded_to_github": false
+}

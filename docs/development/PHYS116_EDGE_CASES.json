@@ -1,0 +1,76 @@
+{
+  "baseline": "bb0369741efb5d3c4bc22658a41463516d813b7f",
+  "scope": "Original raw constructors; four-second/14px/support gate unchanged. This is not a human motion or FPS approval.",
+  "cases": [
+    {
+      "id": 41,
+      "baseline_settle_seconds": 4.2,
+      "candidate_settle_seconds": 2.39999999999999,
+      "at_four": {
+        "settled": true,
+        "gap": 0.0002593994140625,
+        "unsupported": false
+      }
+    },
+    {
+      "id": 44,
+      "baseline_settle_seconds": 4.09999999999999,
+      "candidate_settle_seconds": 3.09999999999999,
+      "at_four": {
+        "settled": true,
+        "gap": 0.428561210632324,
+        "unsupported": false
+      }
+    },
+    {
+      "id": 79,
+      "baseline_settle_seconds": 5.60000000000007,
+      "candidate_settle_seconds": 3.29999999999999,
+      "at_four": {
+        "settled": true,
+        "gap": 0.0,
+        "unsupported": false
+      }
+    },
+    {
+      "id": 115,
+      "baseline_settle_seconds": 5.00000000000004,
+      "candidate_settle_seconds": 2.99999999999999,
+      "at_four": {
+        "settled": true,
+        "gap": 0.00274848937988281,
+        "unsupported": false
+      }
+    },
+    {
+      "id": 1002,
+      "baseline_settle_seconds": 4.2,
+      "candidate_settle_seconds": 2.89999999999999,
+      "at_four": {
+        "settled": true,
+        "gap": 0.0,
+        "unsupported": false
+      }
+    },
+    {
+      "id": 1003,
+      "baseline_settle_seconds": 4.09999999999999,
+      "candidate_settle_seconds": 3.69999999999999,
+      "at_four": {
+        "settled": true,
+        "gap": 0.000646591186523438,
+        "unsupported": false
+      }
+    }
+  ],
+  "added_regressions": [
+    {
+      "id": 1004,
+      "fixture": "shield0.85 flank facing+1 lean1 guard0"
+    },
+    {
+      "id": 1005,
+      "fixture": "shield1.0 head facing+1 lean1 guard0"
+    }
+  ]
+}

@@ -1,5 +1,18 @@
 # 任务、审查建议与文件认领
 
+## PHYS-116：原六例修复并交出c4，稳定60FPS未达（2026-11-25，占用已释放）
+
+基线：codex/v0.5，bb0369741efb5d3c4bc22658a41463516d813b7f / c3；远程追踪同SHA，实际远程另核对。未见新的Claude源码，旧三份差异及所有旧包/证据保留。
+
+| 负责人 | 本轮文件范围（已释放） |
+| --- | --- |
+| Codex | game/scripts/visual/rider_body114.gd、fallen_rider.gd、rider_view.gd（同像素胸甲合批）、core/rider_rig115.gd、mounted_body115.gd；game/tests/test_tail116.gd、test_perf116.gd、test_contact116.gd、test_bootperf116.gd、test_bounds116.gd、test_dissipation116.gd、test_parse065.gd、test_damping115.gd及对应UID；必要时现有115诊断；docs/development/PHYS116_REVIEW.md、PHYS116_*证据；HANDOFF、TASK_BOARD/WORK_LOG/PROJECT_STATE、本阶段交接；版本/导出配置与Play-Physics-Preview.cmd仅在封包时修改 |
+
+完成标准：原六个失败姿势四秒门通过且不引入悬空/接缝回归，改善躺姿可读性；保持有限枪盾运动、120Hz、原素材/采样点，不强制定格；完整相关矩阵与实际隔离GPU、实际Windows包验证，测量重甲60FPS目标。所有保护开启，无屏幕接管。先保留c3参考实现，进行局部力/接触诊断及有证据的等价优化，不能只调全局阻尼。
+
+
+交出：运行源码a2fb8162da5924e22aeb99157a9ec9b7bb87eec5；原六项、完整128/64/72及真实c4外层四场通过，未降低四秒/支撑/骨长门。图像/120Hz/保护保持。未修改mounted_body115.gd。稳定60FPS子目标未达：重甲52–54FPS、落马38–41，接续优先定位落马求解/追帧；不得减画质、动作或改睡眠门掩盖。二维半卧/遮叠真人评价仍待。证据见PHYS116_*；三份历史差异保持不暂存。
+
 ## PHYS-115 续验215–234：c3 开发预览交出（2026-11-25，占用已释放）
 
 上一轮为实质进度：ca6ae4cee1d0ad18287b2c04fb88144b8fcf1c60已推送，c2独立预览封存，仍有七项四秒门、远侧悬浮观感和落马收尾长帧。当前实际HEAD同SHA；无新Claude源码差异，三份历史差异保留。

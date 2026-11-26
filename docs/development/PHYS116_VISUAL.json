@@ -1,0 +1,38 @@
+{
+  "scope": "Source and actual c4 package isolated GPU captures inspected by Codex. No OS input, human play or hardware sound approval.",
+  "items": [
+    {
+      "file": "PHYS116_CAPTURES/source_prone.png",
+      "sha256": "8F59726787894F6315C617A7C8C8AD5E3FCC6EEE1D7D87F04DF5ECAF96F0DF8B",
+      "inspection": "实际查看；未见原竖直小腿，部分手臂支撑半卧仍保留。"
+    },
+    {
+      "file": "PHYS116_CAPTURES/source_slump.png",
+      "sha256": "92941EBB907D0E96CD2FEBBB24FBF549A3F28047065569C3D49B19EBE7392B94",
+      "inspection": "实际查看双朝向6套昏厥滑落；夹具散落骑枪的独立时钟未推进，不验收武器落地。"
+    },
+    {
+      "file": "PHYS116_CAPTURES/source_supported_side.png",
+      "sha256": "8AEE4D49D2CA99EB73F902C49243B6585D53C8D16C5C730B1AA4B25D5EF6F942",
+      "inspection": "实际查看；未见原竖直小腿，部分手臂支撑半卧仍保留。"
+    },
+    {
+      "file": "PHYS116_CAPTURES/package_rest.png",
+      "sha256": "812651D9920619EF41432B73A1C6B32B0D844957C7E1A3C0D7A61E648D910F7C",
+      "source": "logs/perf088/phys116-outer114/g00_fall0_rest.png",
+      "inspection": "落地后腿部延展，肩/头/胸连续；手臂仍可能支撑半卧。"
+    },
+    {
+      "file": "PHYS116_CAPTURES/package_dual_rest.png",
+      "sha256": "79527C0A5DC3EF53496E4CB3EB2D7F8D1D3565449B41C67BB6246281AF03AB23",
+      "source": "logs/perf088/phys116-outer114/g01_fall1_rest.png",
+      "inspection": "双跑道双人已落稳，未见竖直小腿；近远肢体仍可能在二维投影重叠。"
+    },
+    {
+      "file": "PHYS116_CAPTURES/package_dual_air.png",
+      "sha256": "9374E711CB9F0172EFB2CF00319ACE3BA741DB1037082BDB370AA0DC5DDBB4BB",
+      "source": "logs/perf088/phys116-outer114/g01_fall0_air.png",
+      "inspection": "两人体空中姿势不同，四肢连续；双人特写有遮叠，不等同真人自然度验收。"
+    }
+  ]
+}
